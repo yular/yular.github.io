@@ -1,0 +1,395 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Hadoop 1.x Single-Node Cluster Set Up | YBC HomePage</title>
+  <meta name="author" content="BaiChuan Yang" />
+
+  
+  <meta name="description" content="Blog mainly about IT technology and Interesting Life Events~" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="Hadoop 1.x Single-Node Cluster Set Up" />
+  <meta property="og:site_name" content="YBC HomePage" />
+
+  <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="YBC HomePage" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63602183-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">YBC HomePage</a></h1>
+  <h2><a href="/">Study~ Work~ Life~ Everything is here~</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="/sitemap.xml">SiteMap</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','xeEkJ65dmswemsvZM1Nx','2.0.0');
+</script>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-02T03:37:47.000Z"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">2015-09-01</a></time>
+      
+      
+  
+    <h1 class="title">Hadoop 1.x Single-Node Cluster Set Up</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of a perfect tutorial for Hadoop Single-Node Cluster set up: <a href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/" target="_blank" rel="external">Hadoop Setup Guide</a>.</p>
+<p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 1.2.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.puh &gt;&gt; <span class="variable">$NEWUSER_HOME</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-1.2.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-1.2.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit conf/hadoop-env.sh file, which is under conf/ directory, by setting the JAVA_HOME variable:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=... (your jdk path)</span><br></pre></td></tr></table></figure></p>
+<p>Then create the /app/hadoop/tmp directory and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p /app/hadoop/tmp</span><br><span class="line">$ sudo chown newuser:hadoop /app/hadoop/tmp</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 /app/hadoop/tmp</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.<br>      If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.</p>
+<p>At last, edit the following files:<br>For conf/core-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;/app/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;hdfs://localhost:54310&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/mapred-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;localhost:54311&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/hdfs-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;Default block replication.</span><br><span class="line">  The actual number of replications can be specified when the file is created.</span><br><span class="line">  The default is used <span class="keyword">if</span> replication is not specified <span class="keyword">in</span> create time.</span><br><span class="line">  &lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.NameNode: STARTUP_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">STARTUP_MSG: Starting NameNode</span><br><span class="line">STARTUP_MSG:   host = ubuntu/127.0.1.1</span><br><span class="line">STARTUP_MSG:   args = [-format]</span><br><span class="line">STARTUP_MSG:   version = 0.20.2</span><br><span class="line">STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.20 -r 911707; compiled by <span class="string">'chrisdo'</span> on Fri Feb 19 08:07:34 UTC 2010</span><br><span class="line">************************************************************/</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/start-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting namenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-namenode-ubuntu.out</span><br><span class="line">localhost: starting datanode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-datanode-ubuntu.out</span><br><span class="line">localhost: starting secondarynamenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-secondarynamenode-ubuntu.out</span><br><span class="line">starting jobtracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-jobtracker-ubuntu.out</span><br><span class="line">localhost: starting tasktracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-tasktracker-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2287 TaskTracker</span><br><span class="line">2149 JobTracker</span><br><span class="line">1938 DataNode</span><br><span class="line">2085 SecondaryNameNode</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NameNode</span><br></pre></td></tr></table></figure></p>
+<p>Go to following links:<br><a href="http://localhost:50070/" target="_blank" rel="external">http://localhost:50070/</a> – web UI of the NameNode daemon<br><a href="http://localhost:50030/" target="_blank" rel="external">http://localhost:50030/</a> – web UI of the JobTracker daemon<br><a href="http://localhost:50060/" target="_blank" rel="external">http://localhost:50060/</a> – web UI of the TaskTracker daemon</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/stop-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Google Search">
+    <input type="hidden" name="q" value="">
+  </form>
+</div>
+
+<div class="search">
+   <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+     <input type="search" id="search" class="st-default-search-input" style="height:40px" maxlength="20" placeholder="WebSite Search" />
+     <input type="hidden" name="q" value="">
+   </form>
+</div>
+
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C++</a><small>2</small></li>
+  
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+  
+    <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
+  
+    <li><a href="/tags/Database/">Database</a><small>1</small></li>
+  
+    <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
+  
+    <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
+  
+    <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>6</small></li>
+  
+    <li><a href="/tags/Life/">Life</a><small>2</small></li>
+  
+    <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+  
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
+  
+    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+  <h3 class="title">Friend Links</h3>
+  <ul class="entry">
+    <li><a href="http://blog.haosdent.me/"  target="_blank">Haosong Huang's Blog</a></li>
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">CDN online libraries for Web Developers</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div id="recentcomments" class="widget tag">
+    <h3 class="title">Recent Comments</h3>
+    <div class="entry">
+      <div id="recentcomments" class="dsq-widget">
+        <script type="text/javascript" src="http://yular.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+      </div>
+    </div>
+</div>
+
+
+  <div class="widget tag">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <h3 class="title">Statics</h3>
+  <ul class="entry">   
+    <li><span id="busuanzi_container_site_pv">Total Visits: <span id="busuanzi_value_site_pv"></span></span></li>
+    <li><span id="busuanzi_container_site_uv">Total Visitors: <span id="busuanzi_value_site_uv"></span></span></li>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 BaiChuan Yang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="alignright">
+   <div style="font-family: FontAwesome;font-size: 20px;">
+     <a href="http://weibo.com/u/5854007817?is_all=1" title="weibo" target="_blank"><img src="/css/images/weibo-social-logo.png"></a>&nbsp;
+     <a href="https://www.facebook.com/johnson.green.338" title="Facebook" target="_blank"><img src="/css/images/facebook-logo.png"></a>&nbsp;
+     <a href="https://twitter.com/JohnsonGreen5" title="twitter" target="_blank"><img src="/css/images/twitter-logo.png"></a>&nbsp;
+     <a href="https://www.linkedin.com/in/baichuan-yang-6b7b6579" title="LinkedIn" target="_blank"><img src="/css/images/linkedin-logo.png"></a>&nbsp;
+     <a href="https://github.com/yular" title="GitHub" target="_blank"><img src="/css/images/github-sign.png"></a>&nbsp;
+     <a href="https://plus.google.com/u/0/+BaichuanYANG/" title="Google+" target="_blank"><img src="/css/images/social-google-plus-square-button.png"></a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</footer>
+  <script src="/js/jquery-1.12.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'yular';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="backtotop"><img src="/imgs/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+<div id='bg'></div>
+
+</body>
+</html>

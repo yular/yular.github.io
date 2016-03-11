@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Software Architecture Summary V | YBC HomePage</title>
+  <meta name="author" content="BaiChuan Yang" />
+
+  
+  <meta name="description" content="Blog mainly about IT technology and Interesting Life Events~" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="Software Architecture Summary V" />
+  <meta property="og:site_name" content="YBC HomePage" />
+
+  <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="YBC HomePage" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63602183-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">YBC HomePage</a></h1>
+  <h2><a href="/">Study~ Work~ Life~ Everything is here~</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="/sitemap.xml">SiteMap</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','xeEkJ65dmswemsvZM1Nx','2.0.0');
+</script>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-17T16:19:36.000Z"><a href="/2015/07/17/Software-Architecture-Summary-V/">2015-07-17</a></time>
+      
+      
+  
+    <h1 class="title">Software Architecture Summary V</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
+<p>#<em>Deployment and Mobility</em></p>
+<p>###Deployment<br>[1]Deployment Activities</p>
+<ul>
+<li>Planning</li>
+<li>Modeling</li>
+<li>Analysis</li>
+<li>Implementation</li>
+</ul>
+<p>[2]Deployment Analysis Strategies<br>(1)Different strategies with different strengths<br>(2)Most of them offer approximate solutions</p>
+<ul>
+<li>Mixed Integer Non-linear Programming (MINLP)</li>
+<li>Mixed Integer Linear Programming (MIP)</li>
+<li>Heuristic-based strategies: Greedy, Genetic, and Decentralized</li>
+</ul>
+<p>[3]Implementation</p>
+<ul>
+<li>Release</li>
+<li>Install</li>
+<li>Activate</li>
+<li>Deactivate</li>
+<li>Update</li>
+<li>Adapt</li>
+<li>Reconfigure</li>
+<li>De-install or remove</li>
+<li>De-release or retire</li>
+</ul>
+<p>###Mobility<br>[1]Paradigms</p>
+<ul>
+<li>Remote evaluation</li>
+<li>Code-on-demand</li>
+<li>Mobile agent</li>
+</ul>
+<p>#<em>Applied Software Architecture and Some Examples</em></p>
+<p>###Distributed and networked architectures</p>
+<p>####Limitations of the Distributed Systems Viewpoint<br>[1]Examples: Architecture of WWW<br>(1)The application is distributed (actually, decentralized) hypermedia.<br>(2)Architecture of the Web is wholly separate from the code.<br>(3)There is no single piece of code that implements the architecture.<br>(4)There are multiple pieces of code that implement the various components of the architecture.<br>(5)Stylistic constraints of the Web’s architectural style are not apparent in the code.<br>(6)One of the world’s most successful applications is only understood adequately from an architectural vantage point.</p>
+<p>####REST (REpresentational State Transfer)<br>[1]Principles<br>(1) The key abstraction of information is a resource, named by an URL. Any information that can be named can be a resource.<br>(2) The representation of a resource is a sequence of bytes, plus representation metadata to describe those bytes. The particular form of the representation can be negotiated between REST components.<br>(3) All interactions are context-free: each interaction contains all of the information necessary to understand the request, independent of any requests that may have preceded it.<br>(4) Components perform only a small set of well-defined methods on a resource producing a representation to capture the current or intended state of that resource and transfer that representation between components. These methods are global to the specific architectural instantiation of REST; for instance, all resources exposed via HTTP are expected to support each operation identically.<br>(5) Idempotent operations and representation metadata are encouraged in support of caching and representation reuse.<br>(6) The presence of intermediaries is promoted. Filtering or redirection intermediaries may also use both the metadata and the representations within requests or responses to augment, restrict, or modify requests and responses in a manner that is transparent to both the user agent and the origin server.</p>
+<p>[2]Data Elements</p>
+<ul>
+<li>Resource</li>
+<li>Resource ID </li>
+<li>Representation </li>
+<li>Representation metadata</li>
+<li>Resource metadata</li>
+<li>Control data</li>
+</ul>
+<p>[3]Connectors<br>Client; Server; Cache; Resolver; Tunnel</p>
+<p>[4]Components</p>
+<ul>
+<li>User agent</li>
+<li>Origin server</li>
+<li>Proxy</li>
+<li>Gateway</li>
+</ul>
+<p>[5]Derivation</p>
+<ul>
+<li>Layered Separation (a theme in the middle portion of diagram) is used to increase efficiencies, enable independent evolution of elements of the system, and provide robustness;</li>
+<li>Replication (left side of the diagram) is used to address latency and contention by allowing the reuse of information;</li>
+<li>Limited commonality (right side) addresses the competing needs for universally understood operations with extensibility.</li>
+</ul>
+<p>####Commercial Internet-Scale Applications<br>[1]Akamai<br>Caching to the max</p>
+<p>[2]Google</p>
+<ul>
+<li>Google distributed file system (GFS)</li>
+<li>MapReduce</li>
+</ul>
+<p>###Decentralized applications<br>[1]Definition<br>Networked applications where there are multiple authorities.</p>
+<p>####Grid Protocol Architecture<br>[1]Definition<br>Coordinated resource sharing in a distributed environment.</p>
+<p>[2]GLOBUS<br>A commonly used infrastructure<br><img src="https://c1.staticflickr.com/1/403/19826066782_5f0068bdec_n.jpg" alt="Grid Protocol Architecture" title="Grid Protocol Architecture"></p>
+<p>####Peer-to-Peer Architectures<br>[1]Decentralized resource sharing and discovery</p>
+<p>[2]Examples:<br>Napster, Gnutella, Skype and BitTorrent</p>
+<p>[3]Skype</p>
+<ul>
+<li>A mixed client-server and peer-to-peer architecture addresses the discovery problem. </li>
+<li>Replication and distribution of the directories, in the form of supernodes, addresses the scalability problem and robustness problem encountered in Napster.</li>
+<li>Promotion of ordinary peers to supernodes based upon network and processing capabilities addresses another aspect of system performance:  “not just any peer” is relied upon for important services. </li>
+<li>A proprietary protocol employing encryption provides privacy for calls that are relayed through supernode intermediaries.</li>
+<li>Restriction of participants to clients issued by Skype, and making those clients highly resistant to inspection or modification, prevents malicious clients from entering the network.</li>
+</ul>
+<p>####Web Services<br><img src="https://c2.staticflickr.com/4/3686/19646946479_533ef664a0_n.jpg" alt="Web Services" title="Web Services"></p>
+<p>###Some interesting domains</p>
+<p>####Mobile Robotics<br>[1]Manned or partially manned vehicles</p>
+<p>[2]Architecture:<br>(1)Sense-Plan-Act<br>(2)Three-Layer</p>
+<p>####Flight Simulators<br>[1]<a href="http://www.gillesvidal.com/blogpano/cockpit1.htm" target="_blank" rel="external">click here</a></p>
+<p>[2]Complexity Management<br>(1)New Style</p>
+<ul>
+<li>“Structural Modeling”</li>
+<li>Based on Object–oriented design to model and real-time scheduling to control execution order.</li>
+</ul>
+<p>(2)Style Principles</p>
+<ul>
+<li>Pre-defined partitioning of functionality among SW elements</li>
+<li>Restricted data- &amp; control-flow</li>
+<li>Objects fully encapsulate their own internal state</li>
+<li>No side-effects of computations</li>
+<li>Narrow set of system-wide coordination strategies</li>
+</ul>
+<p>###The Lunar Lander<br>[1]Description<br>A simple computer game that first appeared in the 1960’s</p>
+<p>[2]Architecture<br>Model-View-Controller Model, using Sense-Compute-Control.</p>
+<p>###A Financial Application<br>[1]Architecture<br>Batch-Sequential Style (Data-Flow Style).</p>
+<p>[2]Picture<br><img src="https://c1.staticflickr.com/1/400/19803557185_8fb868ea3f_n.jpg" alt="Financial Application" title="Financial Application"></p>
+<p>###KLAX<br>[1]Architecture<br>C2 - A kind of Heterogeneous Style.</p>
+<p>[2]Picture<br><img src="https://c2.staticflickr.com/4/3773/19616690398_74498b3851_n.jpg" alt="KLAX" title="KLAX C2 Style"></p>
+<p>###Summary</p>
+<ul>
+<li>A great architecture is the ticket to runaway success</li>
+<li>A great architecture reflects deep understanding of the problem domain</li>
+<li>A great architecture probably combines aspects of several simpler architectures</li>
+<li>Develop a new architectural style with great care and caution.  </li>
+</ul>
+<p>END</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/System-Design/">System Design</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Google Search">
+    <input type="hidden" name="q" value="">
+  </form>
+</div>
+
+<div class="search">
+   <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+     <input type="search" id="search" class="st-default-search-input" style="height:40px" maxlength="20" placeholder="WebSite Search" />
+     <input type="hidden" name="q" value="">
+   </form>
+</div>
+
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C++</a><small>2</small></li>
+  
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+  
+    <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
+  
+    <li><a href="/tags/Database/">Database</a><small>1</small></li>
+  
+    <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
+  
+    <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
+  
+    <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>6</small></li>
+  
+    <li><a href="/tags/Life/">Life</a><small>2</small></li>
+  
+    <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+  
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
+  
+    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+  <h3 class="title">Friend Links</h3>
+  <ul class="entry">
+    <li><a href="http://blog.haosdent.me/"  target="_blank">Haosong Huang's Blog</a></li>
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">CDN online libraries for Web Developers</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div id="recentcomments" class="widget tag">
+    <h3 class="title">Recent Comments</h3>
+    <div class="entry">
+      <div id="recentcomments" class="dsq-widget">
+        <script type="text/javascript" src="http://yular.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+      </div>
+    </div>
+</div>
+
+
+  <div class="widget tag">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <h3 class="title">Statics</h3>
+  <ul class="entry">   
+    <li><span id="busuanzi_container_site_pv">Total Visits: <span id="busuanzi_value_site_pv"></span></span></li>
+    <li><span id="busuanzi_container_site_uv">Total Visitors: <span id="busuanzi_value_site_uv"></span></span></li>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 BaiChuan Yang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="alignright">
+   <div style="font-family: FontAwesome;font-size: 20px;">
+     <a href="http://weibo.com/u/5854007817?is_all=1" title="weibo" target="_blank"><img src="/css/images/weibo-social-logo.png"></a>&nbsp;
+     <a href="https://www.facebook.com/johnson.green.338" title="Facebook" target="_blank"><img src="/css/images/facebook-logo.png"></a>&nbsp;
+     <a href="https://twitter.com/JohnsonGreen5" title="twitter" target="_blank"><img src="/css/images/twitter-logo.png"></a>&nbsp;
+     <a href="https://www.linkedin.com/in/baichuan-yang-6b7b6579" title="LinkedIn" target="_blank"><img src="/css/images/linkedin-logo.png"></a>&nbsp;
+     <a href="https://github.com/yular" title="GitHub" target="_blank"><img src="/css/images/github-sign.png"></a>&nbsp;
+     <a href="https://plus.google.com/u/0/+BaichuanYANG/" title="Google+" target="_blank"><img src="/css/images/social-google-plus-square-button.png"></a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</footer>
+  <script src="/js/jquery-1.12.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'yular';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="backtotop"><img src="/imgs/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+<div id='bg'></div>
+
+</body>
+</html>

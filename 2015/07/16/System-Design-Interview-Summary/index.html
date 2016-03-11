@@ -1,0 +1,409 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>System Design Interview Summary | YBC HomePage</title>
+  <meta name="author" content="BaiChuan Yang" />
+
+  
+  <meta name="description" content="Blog mainly about IT technology and Interesting Life Events~" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="System Design Interview Summary" />
+  <meta property="og:site_name" content="YBC HomePage" />
+
+  <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="YBC HomePage" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63602183-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">YBC HomePage</a></h1>
+  <h2><a href="/">Study~ Work~ Life~ Everything is here~</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="/sitemap.xml">SiteMap</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','xeEkJ65dmswemsvZM1Nx','2.0.0');
+</script>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-16T17:16:25.000Z"><a href="/2015/07/16/System-Design-Interview-Summary/">2015-07-16</a></time>
+      
+      
+  
+    <h1 class="title">System Design Interview Summary</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the note of this tutorial: <a href="http://www.hiredintech.com/system-design/" target="_blank" rel="external">HiredinTech-System Design</a>. It includes the guidlines about how to think in system design interview problem, real world system design examples, system deisgn special concepts and additional notes.</p>
+<p>At first, here is the video of system design course from Harvard University, which teaches some basic and interesting ideaof how to do the system design.</p>
+<iframe width="854" height="510" src="https://www.youtube.com/embed/-W9F__D3oY4" frameborder="0" allowfullscreen></iframe>
+
+<p>Then, comes the note.</p>
+<p>###Introduction<br>[1]Two major challenges most candidates face:</p>
+<ul>
+<li>Approach questions in a chaotic way and get ratholed.</li>
+<li>Lack solid understanding of how to properly design architectures that scale.</li>
+</ul>
+<p>[2]Scalability Fundamentals (Concepts)</p>
+<ul>
+<li>Vertical scaling</li>
+<li>Horizontal scaling</li>
+<li>Caching</li>
+<li>Load balancing</li>
+<li>Database replication</li>
+<li>Database partitioning</li>
+<li>Database sharding</li>
+</ul>
+<p>[3]Two Major Bottlenecks of System</p>
+<ul>
+<li>Handling a lot of users</li>
+<li>Handling a lot of data</li>
+</ul>
+<p>[4]Concepts should be mastered</p>
+<ul>
+<li>HAProxy (software load balancing)</li>
+<li>nginx (web server, different from tomcat)</li>
+<li>memcached (a tool for handling high write data like view counters)</li>
+<li>Redis (NO SQL Server)</li>
+<li>Lucene</li>
+<li>RabbitMQ (a tool for job system)</li>
+<li>Munin</li>
+<li>NodeJS</li>
+</ul>
+<p>###System Design Process<br>[1]Clarify the constraints and use cases<br>The very first thing is to clarify the system constraints and to identify what use cases the system needs to satisfy. Spend a few minutes questioning your interviewer and agreeing on the scope of the system.<br>You will also have to think about the use cases that are expected to occur.<br>Use cases -&gt; 需求<br>Constraints -&gt; 系统要达到的上限（功能要求达到的上限）<br>For constraints, you should do some quick math, or some statistics,  in the brain to scope the system. </p>
+<p>[2]Do abstract design<br>Outlining a high-level abstract design. The goal of this step is to outline all the important components that the architecture will need.</p>
+<p>You can tell the interviewer that you would like to do that and draw a simple diagram of your ideas. Sketch your main components and the connections between them. Don’t get lured to dive deep into some particular aspect of the abstract design. Rather, make sure you sketch the important components and the connections between them.</p>
+<p>Usually, this sort of high-level design is a combination of well-known techniques, which people have developed. You have to make sure you are familiar with what is out there and feel comfortable using this knowledge.</p>
+<p>[3]Understand bottlenecks<br>Start thinking about what bottlenecks the high-level design has. Perhaps your system needs a load balancer and many machines behind it to handle the user requests. Or maybe the data is so huge that you need to distribute your database on multiple machines.</p>
+<p>These are just examples of questions that you may have to answer in order to make your solution complete. It may be the case that the interviewer wants to direct the discussion in one particular direction. Then, maybe you won’t need to address all the bottlenecks but rather talk in more depth about one particular area. In any case, you need to be able to identify the weak spots in a system and be able to resolve them.</p>
+<p>Remember, usually each solution is a trade-off of some kind. However, the important thing is to be able to talk about these trade-offs, and to measure their impact on the system given the constraints and use cases defined.</p>
+<p>Once you have outlined the core bottlenecks you see, you can start addressing them in the next step.</p>
+<p>[4]Scaling your abstract design (让你的设计更加具体化)<br>Once you are ready with your high-level design and have made sure that the interviewer is ok with it, you can dive into making it more detailed. </p>
+<p>Usually, this means making your system scale.</p>
+<p>[5]Summary<br>To approach any system design question.<br>First build a high-level architecture by identifying the constraints and use cases, sketching up the major components and the relationships between them, and thinking about the system bottlenecks.<br>Then apply the right scalability patterns that will take care of these bottlenecks in the context of the system constraints.<br>Having learned a repeatable approach for system design, as well as seen lots of real-life examples of scalable architectures, your chances of acing the tech interview are very solid.</p>
+<p>###Practice System Design Problems<br>[1]Come up with problems and discuss their solutions with friends<br>Look at the massive systems you use every day developed by the companies you are interviewing for. What systems did these companies have to design? Create a list of the fundamental system design questions that bubble up in your brain.<br>Start by compiling a list of 10 to 20 of these questions. Then, pick one and try to come up with an efficient design.<br>Once you’re ready, find a knowledgeable friend or coworker, go to a meeting room and start discussing ideas. It’d be tons of fun and you’ll learn a lot from the process.<br>Don’t spend hours: initially, limit your time per question to one hour and ultimately try to fit every question in 20 to 30 minutes.</p>
+<p>[2]Do Mock Interview<br>Mock interviews are a fantastic way to practice system design questions. System design questions are all about organic discussions around trade-offs. Try to find an unbiased and knowledgeable person, and do several interviews with them. It can be a friend, a colleague, or you could use a paid service.</p>
+<p>Recommendation is to start by working on system design questions yourself, then move on to discussing designs with friends, to finally doing mock interviews.</p>
+<p>###Real World Examples<br>*<a href="http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances" target="_blank" rel="external">Instagram</a><br>Note:<br>Keep it very simple.<br>Do not re-invent the wheel.<br>Go with proven and solid technologies when you can.</p>
+<p>*<a href="http://highscalability.com/blog/2012/7/16/cinchcast-architecture-producing-1500-hours-of-audio-every-d.html" target="_blank" rel="external">cinchcash</a><br>Note:<br>“Be brief, be bright, be gone” : Respect another person’s time.<br>Don’t come with problems, come with solutions.<br>Don’t go chasing hot technologies of the day. Instead ‘mitigate your top problems’. We adopt new technologies but do so, when the business case requires it. Appetite for Production outages decreases significantly when you have millions of users.<br>Achieve “essential”, then worry about “excellent”.<br>Be a “how team” instead of a “no team”.<br>Build security into the software development lifecycle. </p>
+<p>*<a href="http://highscalability.com/blog/2010/3/16/justintvs-live-video-broadcasting-architecture.html" target="_blank" rel="external">Justin.Tv</a></p>
+<p>*<a href="http://highscalability.com/blog/2010/9/21/playfishs-social-gaming-architecture-50-million-monthly-user.html" target="_blank" rel="external">Playfish</a><br>Note:<br>Using SOA (Service Oriented Architecture).<br>Using sharded architecture for the write heavy service.<br>Using BLOB (Binary Large Object) in MySQL to store the user data.<br>Asynchronicity. Writing on the server is asynchronous from game play.<br>Agility. A common thread through all of Playfish thinking is the relentless need for agility, to be able to respond quickly, easily, and efficiently to every situation.<br>Applying the principle of loose coupling as much as possible.<br>Agility + Data + Design = allows new inspired features to be tried out quickly to see if they work or not.<br>Build an architecture that takes advantage of the special nature of your application.</p>
+<p>*<a href="http://highscalability.com/blog/2011/6/27/tripadvisor-architecture-40m-visitors-200m-dynamic-page-view.htm" target="_blank" rel="external">TripAdvisor</a><br>Note:<br>Bank of very simple, stateless web servers, running simple Java and Velocity templates.<br>Bank of “services” - each service is high level, business oriented API optimized for over the wire performance.<br>Web servers are arranged in “pools” to allow for A/B testing, and control over deployment.<br>Numerous test frameworks available: Unit, Functional, Load, Smoke, Selenium, Load, and a test lab.<br>Keep designs simple and focused on the near term business needs - do not design too far ahead.<br>You can go very far in scaling a database vertically, especially if you minimize use of joins, and especially if you can fit everything into RAM.<br>Avoid joins when possible.<br>Hardware - keep it really really simple. No fancy hardware.<br>Software - keep it really, really, really simple.<br>Process. Less is better. You need to use source code control.<br>Design Reviews. All engineers are invited to a weekly design review. </p>
+<p>*<a href="http://highscalability.com/plentyoffish-architecture" target="_blank" rel="external">PlentyOfFish</a><br>Note:<br>Keep database access fast and you have no issues.<br>When starting out keep everything as simple as possible.</p>
+<p>*<a href="http://highscalability.com/blog/2013/9/23/salesforce-architecture-how-they-handle-13-billion-transacti.html" target="_blank" rel="external">SaleForce</a><br>Note:<br>Database: To reduce load on the database tier, we developed ACS – API Cursor Server.</p>
+<p>*<a href="http://highscalability.com/blog/2013/11/4/espns-architecture-at-scale-operating-at-100000-duh-nuh-nuhs.html" target="_blank" rel="external">ESPN</a><br>Note:<br>Make different things look the same: So the opposite force is to make a common architecture, a common data model, and then fall back to type specific models when necessary.<br>Consistency helps all developers: Having documentation and consistent APIs helps outside the firewall with developer APIs, but it also helps internally because it will be easier to build applications.</p>
+<p>*<a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html" target="_blank" rel="external">Twitter: Store Data</a><br> <a href="http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html" target="_blank" rel="external">Twitter: Timeline</a><br>Note:<br>MySQL is used for smaller datasets of &lt; 1.5TB, which is the size of their RAID array, and as a backing store for larger datasets.<br>MySQL is not Used For Everything: Cassandra is used for high velocity writes, and lower velocity reads. Hadoop is used to process unstructured and large datasets, hundreds of billions of rows.Vertica is being used for analytics and large aggregations and joins so they do not have to write MapReduce jobs.<br>Loose coupling; Soft launches; Open source.</p>
+<p>*<a href="http://highscalability.com/google-architecture" target="_blank" rel="external">Google</a><br>Note:<br>Reliable Storage Mechanism With GFS (Google File System).<br>Do Something With The Data Using MapReduce.<br>Storing Structured Data In BigTable.</p>
+<p>*<a href="http://highscalability.com/youtube-architecture" target="_blank" rel="external">Youtube</a><br>Note:<br>Data Center Strategy: Used manage hosting providers at first. Living off credit cards so it was the only way. Use 5 or 6 data centers plus the CDN.<br>Pick your battles: You may have similar opportunities in your system. Take a look at Software as a Service for more ideas.</p>
+<p>*<a href="http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html" target="_blank" rel="external">Tumblr</a><br>Note:<br>Cell Design For Dashboard Inbox: A cell is a self-contained installation that has all the data for a range of users. All the data necessary to render a user’s Dashboard is in the cell. Users are mapped into cells. Many cells exist per data center. Each cell has an HBase cluster, service cluster, and Redis caching cluster. Users are homed to a cell and all cells consume all posts via firehose updates. Each cell is Finagle based and populates HBase via the firehose and service requests over Thrift.<br>The key idea: all posts are replicated to all cells.</p>
+<p>*<a href="http://highscalability.com/blog/2009/8/5/stack-overflow-architecture.html" target="_blank" rel="external">Stack Overflow</a><br>Note:<br>Separate application and database duties so each can scale independently of the other. Databases scale up and the applications scale out.<br>Applications should keep state in the database so they scale horizontally by adding more servers.<br>The Multitenancy Problem: Adding columns locks tables which causes problems in high traffic situations. Adding new indexes can also take a very long time and degrade performance. An innovative approach where tables are not created for each customer.</p>
+<p>*<a href="http://highscalability.com/blog/2011/11/29/datasift-architecture-realtime-datamining-at-120000-tweets-p.html" target="_blank" rel="external">DataSift</a><br>Note:<br>The power of platform and ecosystems: When a platform strategy is executed well it serves as a huge barrier to entry. It also serves as the highest observation post to see what next wave trends are developing.<br>Statelessness is a big win architecturally.<br>Follow the Salesforce and Amazon model: They are an on-demand cloud platform and they will build layers on top of what they started with.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/System-Design/">System Design</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Google Search">
+    <input type="hidden" name="q" value="">
+  </form>
+</div>
+
+<div class="search">
+   <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+     <input type="search" id="search" class="st-default-search-input" style="height:40px" maxlength="20" placeholder="WebSite Search" />
+     <input type="hidden" name="q" value="">
+   </form>
+</div>
+
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C++</a><small>2</small></li>
+  
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+  
+    <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
+  
+    <li><a href="/tags/Database/">Database</a><small>1</small></li>
+  
+    <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
+  
+    <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
+  
+    <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>6</small></li>
+  
+    <li><a href="/tags/Life/">Life</a><small>2</small></li>
+  
+    <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+  
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
+  
+    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+  <h3 class="title">Friend Links</h3>
+  <ul class="entry">
+    <li><a href="http://blog.haosdent.me/"  target="_blank">Haosong Huang's Blog</a></li>
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">CDN online libraries for Web Developers</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div id="recentcomments" class="widget tag">
+    <h3 class="title">Recent Comments</h3>
+    <div class="entry">
+      <div id="recentcomments" class="dsq-widget">
+        <script type="text/javascript" src="http://yular.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+      </div>
+    </div>
+</div>
+
+
+  <div class="widget tag">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <h3 class="title">Statics</h3>
+  <ul class="entry">   
+    <li><span id="busuanzi_container_site_pv">Total Visits: <span id="busuanzi_value_site_pv"></span></span></li>
+    <li><span id="busuanzi_container_site_uv">Total Visitors: <span id="busuanzi_value_site_uv"></span></span></li>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 BaiChuan Yang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="alignright">
+   <div style="font-family: FontAwesome;font-size: 20px;">
+     <a href="http://weibo.com/u/5854007817?is_all=1" title="weibo" target="_blank"><img src="/css/images/weibo-social-logo.png"></a>&nbsp;
+     <a href="https://www.facebook.com/johnson.green.338" title="Facebook" target="_blank"><img src="/css/images/facebook-logo.png"></a>&nbsp;
+     <a href="https://twitter.com/JohnsonGreen5" title="twitter" target="_blank"><img src="/css/images/twitter-logo.png"></a>&nbsp;
+     <a href="https://www.linkedin.com/in/baichuan-yang-6b7b6579" title="LinkedIn" target="_blank"><img src="/css/images/linkedin-logo.png"></a>&nbsp;
+     <a href="https://github.com/yular" title="GitHub" target="_blank"><img src="/css/images/github-sign.png"></a>&nbsp;
+     <a href="https://plus.google.com/u/0/+BaichuanYANG/" title="Google+" target="_blank"><img src="/css/images/social-google-plus-square-button.png"></a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</footer>
+  <script src="/js/jquery-1.12.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'yular';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="backtotop"><img src="/imgs/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+<div id='bg'></div>
+
+</body>
+</html>

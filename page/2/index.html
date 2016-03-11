@@ -1,0 +1,849 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Seite 2 | YBC HomePage</title>
+  <meta name="author" content="BaiChuan Yang" />
+
+  
+  <meta name="description" content="Blog mainly about IT technology and Interesting Life Events~" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  
+  <meta property="og:site_name" content="YBC HomePage" />
+
+  <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="YBC HomePage" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63602183-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">YBC HomePage</a></h1>
+  <h2><a href="/">Study~ Work~ Life~ Everything is here~</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="/sitemap.xml">SiteMap</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','xeEkJ65dmswemsvZM1Nx','2.0.0');
+</script>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-18T06:38:34.000Z"><a href="/2016/01/17/Kafka-Publisher-Java-Maven-QuickStart/">2016-01-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/17/Kafka-Publisher-Java-Maven-QuickStart/">Kafka Publisher Java Maven QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a quickstart tutorial to implement a kafka publisher using Java and Maven. <a href="https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+Producer+Example" target="_blank" rel="external">This link</a> is the official tutorial but brand new users may find it hard to run it as the tutorial is not complete and the code has some bugs.</p>
+<p>In this tutorial we use kafka 0.8.0.</p>
+<h3 id="Create-Project-Directory"><a href="#Create-Project-Directory" class="headerlink" title="Create Project Directory"></a>Create Project Directory</h3><p>Using the following command to create a project directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.template -DartifactId=kafka-publisher -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Then navigate to our project directory.</p>
+<hr>
+
+<h3 id="Edit-pom-xml-File"><a href="#Edit-pom-xml-File" class="headerlink" title="Edit pom.xml File"></a>Edit pom.xml File</h3><p>The Producer class is used to create new messages for a specific Topic and optional Partition. The following packages must be included in our project as dependencies:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import kafka.javaapi.producer.Producer;</span><br><span class="line">import kafka.producer.KeyedMessage;</span><br><span class="line">import kafka.producer.ProducerConfig;</span><br></pre></td></tr></table></figure></p>
+<p>Besides, when we run our producer jar file on the kafka cluster, it will be much more convinient if we will use one-jar plugin, especially in product environment. Here is the link of <a href="http://yular.github.io/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">Java Maven One-Jar Plugin Tutorial</a>.</p>
+<p>So here is the final version of our pom.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">  &lt;groupId&gt;com.yulartech.template&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;kafka-publisher&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;kafka-publisher&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;jdk.version&gt;1.7&lt;/jdk.version&gt;</span><br><span class="line">    &lt;kafka.version&gt;0.8.1.1&lt;/kafka.version&gt;</span><br><span class="line">    &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">    &lt;maven-compiler-plugin.version&gt;2.3.2&lt;/maven-compiler-plugin.version&gt;</span><br><span class="line">    &lt;onejar-maven-plugin.version&gt;1.4.4&lt;/onejar-maven-plugin.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;junit.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.kafka&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kafka_2.9.2&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;kafka.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;compile&lt;/scope&gt;</span><br><span class="line">        &lt;exclusions&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jmxri&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;com.sun.jmx&lt;/groupId&gt;</span><br><span class="line">          &lt;/exclusion&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jms&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;javax.jms&lt;/groupId&gt;</span><br><span class="line">          &lt;/exclusion&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jmxtools&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;com.sun.jdmk&lt;/groupId&gt;</span><br><span class="line">            &lt;/exclusion&gt;</span><br><span class="line">          &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;build&gt;</span><br><span class="line"></span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;<span class="variable">$&#123;maven-compiler-plugin.version&#125;</span>&lt;/version&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">           &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;archive&gt;</span><br><span class="line">             &lt;manifest&gt;</span><br><span class="line">               &lt;mainClass&gt;com.yulartech.template.KafkaPublisher&lt;/mainClass&gt;</span><br><span class="line">             &lt;/manifest&gt;</span><br><span class="line">           &lt;/archive&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.dstovall&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;onejar-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;<span class="variable">$&#123;onejar-maven-plugin.version&#125;</span>&lt;/version&gt;</span><br><span class="line">          &lt;executions&gt;</span><br><span class="line">            &lt;execution&gt;</span><br><span class="line">                &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;one-jar&lt;/goal&gt;</span><br><span class="line">                &lt;/goals&gt;</span><br><span class="line">            &lt;/execution&gt;</span><br><span class="line">           &lt;/executions&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">  &lt;pluginRepositories&gt;</span><br><span class="line">    &lt;pluginRepository&gt;</span><br><span class="line">        &lt;id&gt;onejar-maven-plugin.googlecode.com&lt;/id&gt;</span><br><span class="line">        &lt;url&gt;http://onejar-maven-plugin.googlecode.com/svn/mavenrepo&lt;/url&gt;</span><br><span class="line">    &lt;/pluginRepository&gt;</span><br><span class="line">  &lt;/pluginRepositories&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Write-Java-Code"><a href="#Write-Java-Code" class="headerlink" title="Write Java Code"></a>Write Java Code</h3><p>Under this file path ./src/main/com/yulartech/template/, create a new java file called “KafkaPublisher.java”.</p>
+<p>In the first step of our code, we should define properties for how the Producer finds the cluster, serializes the messages and if appropriate directs the message to a specific Partition.</p>
+<p>Here is the example to define these properties:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Properties props = new Properties();</span><br><span class="line"> </span><br><span class="line">props.put(<span class="string">"metadata.broker.list"</span>, <span class="string">"localhost:9092,localhost:9093"</span>);</span><br><span class="line">props.put(<span class="string">"serializer.class"</span>, <span class="string">"kafka.serializer.StringEncoder"</span>);</span><br><span class="line">props.put(<span class="string">"partitioner.class"</span>, <span class="string">"com.yulartech.template.SimplePartitioner"</span>);</span><br><span class="line">props.put(<span class="string">"request.required.acks"</span>, <span class="string">"1"</span>);</span><br><span class="line"> </span><br><span class="line">ProducerConfig config = new ProducerConfig(props);</span><br></pre></td></tr></table></figure></p>
+<p>Note that if we only want to run the jar on single broker, the “metadata.broker.list” should contain only one broker URL; otherwise, we should list all the broker URLs like the above example. Since we will put the jar file on the Kafka cluster, the host name of URL is localhost.</p>
+<p>Below is the source code of KafkaPublisher.java:<br>This one is for single broker:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">import kafka.javaapi.producer.Producer;</span><br><span class="line">import kafka.producer.KeyedMessage;</span><br><span class="line">import kafka.producer.ProducerConfig;</span><br><span class="line"></span><br><span class="line">public class KafkaPublisher</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    Producer&lt;String, String&gt; producer;</span><br><span class="line">    ProducerConfig config;</span><br><span class="line"></span><br><span class="line">    public <span class="function"><span class="title">KafkaPublisher</span></span>()&#123;</span><br><span class="line">	Properties props = new Properties();</span><br><span class="line">        props.put(<span class="string">"metadata.broker.list"</span>, <span class="string">"localhost:9092"</span>); //Single Publisher Version</span><br><span class="line">        props.put(<span class="string">"serializer.class"</span>, <span class="string">"kafka.serializer.StringEncoder"</span>);</span><br><span class="line">        props.put(<span class="string">"partitioner.class"</span>, <span class="string">"com.yulartech.template.SimplePartitioner"</span>);</span><br><span class="line">        props.put(<span class="string">"request.required.acks"</span>, <span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line">        config = new ProducerConfig(props);</span><br><span class="line">	producer = new Producer&lt;String, String&gt;(config);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void runPublisher(long events)&#123;</span><br><span class="line">	Random rnd = new Random();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (long nEvents = 0; nEvents &lt; events; nEvents++) &#123;</span><br><span class="line">               long runtime = new Date().getTime();</span><br><span class="line">               String ip = <span class="string">"192.168.2."</span> + rnd.nextInt(255);</span><br><span class="line">               String msg = runtime + <span class="string">",www.example.com,"</span> + ip;</span><br><span class="line">               KeyedMessage&lt;String, String&gt; data = new KeyedMessage&lt;String, String&gt;(<span class="string">"page_visits"</span>, ip, msg);</span><br><span class="line">               producer.send(data);</span><br><span class="line">        &#125;</span><br><span class="line">        producer.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    public static void main( String[] args )&#123;</span><br><span class="line"></span><br><span class="line">        long events = Long.parseLong(args[0]);</span><br><span class="line"></span><br><span class="line">	KafkaPublisher kafkaPublisher = new KafkaPublisher();</span><br><span class="line">	kafkaPublisher.runPublisher(events);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>This one is multi-brokers version:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">import kafka.javaapi.producer.Producer;</span><br><span class="line">import kafka.producer.KeyedMessage;</span><br><span class="line">import kafka.producer.ProducerConfig;</span><br><span class="line"></span><br><span class="line">public class KafkaPublisher</span><br><span class="line">&#123;</span><br><span class="line">    public static void main( String[] args )</span><br><span class="line">    &#123;</span><br><span class="line">        long events = Long.parseLong(args[0]);</span><br><span class="line">        Random rnd = new Random();</span><br><span class="line"></span><br><span class="line">        Properties props = new Properties();</span><br><span class="line">	props.put(<span class="string">"metadata.broker.list"</span>, <span class="string">"localhost:9092,localhost:9093"</span>); //Multiple Publisher Vesion</span><br><span class="line">        props.put(<span class="string">"serializer.class"</span>, <span class="string">"kafka.serializer.StringEncoder"</span>);</span><br><span class="line">        props.put(<span class="string">"partitioner.class"</span>, <span class="string">"com.yulartech.template.SimplePartitioner"</span>);</span><br><span class="line">        props.put(<span class="string">"request.required.acks"</span>, <span class="string">"1"</span>);</span><br><span class="line"></span><br><span class="line">        ProducerConfig config = new ProducerConfig(props);</span><br><span class="line"></span><br><span class="line">        Producer&lt;String, String&gt; producer = new Producer&lt;String, String&gt;(config);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (long nEvents = 0; nEvents &lt; events; nEvents++) &#123;</span><br><span class="line"></span><br><span class="line">               long runtime = new Date().getTime();</span><br><span class="line">               String ip = <span class="string">"192.168.2."</span> + rnd.nextInt(255);</span><br><span class="line">               String msg = runtime + <span class="string">",www.example.com,"</span> + ip;</span><br><span class="line">               KeyedMessage&lt;String, String&gt; data = new KeyedMessage&lt;String, String&gt;(<span class="string">"page_visits"</span>, ip, msg);</span><br><span class="line">               producer.send(data);</span><br><span class="line">        &#125;</span><br><span class="line">        producer.close();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Then under the same file path, create another new java file “SimplePartitioner.java”.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">import kafka.producer.Partitioner;</span><br><span class="line">import kafka.utils.VerifiableProperties;</span><br><span class="line"></span><br><span class="line">public class SimplePartitioner implements Partitioner &#123;</span><br><span class="line">    public SimplePartitioner (VerifiableProperties props) &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int partition(Object key, int a_numPartitions) &#123;</span><br><span class="line">        int partition = 0;</span><br><span class="line">        String stringKey = (String) key;</span><br><span class="line">        int offset = stringKey.lastIndexOf(<span class="string">'.'</span>);</span><br><span class="line">        <span class="keyword">if</span> (offset &gt; 0) &#123;</span><br><span class="line">           partition = Integer.parseInt( stringKey.substring(offset+1)) % a_numPartitions;</span><br><span class="line">        &#125;</span><br><span class="line">       <span class="built_in">return</span> partition;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Compile-Deploy-and-Run-the-Jar"><a href="#Compile-Deploy-and-Run-the-Jar" class="headerlink" title="Compile, Deploy and Run the Jar"></a>Compile, Deploy and Run the Jar</h3><p>Use these two commands to generate jar file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean</span><br><span class="line">$ mvn package -DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, we will find a jar file under the new created ./target directory called “kafka-publisher-1.0-SNAPSHOT.one-jar.jar”, which is the jar file we want.</p>
+<p>Then we should start our Kafka cluster, here is the <a href="http://yular.github.io/2015/09/04/Kafka-Install-and-Basic-Commands/">tutorial</a> and we will run mulit-brokers on it. Besides, we also run a consumer to receive the message published by our Kafka jar.</p>
+<p>Execute this command when all the three brokers are running successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 5 --topic page_visits</span><br></pre></td></tr></table></figure></p>
+<p>Now let us run our jar through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar kafka-publisher-1.0-SNAPSHOT.one-jar.jar 9</span><br></pre></td></tr></table></figure></p>
+<p>Note that the digit is the number of messages that will be sent.</p>
+<p>So the output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1452801130483,www.example.com,192.168.2.225</span><br><span class="line">1452801130781,www.example.com,192.168.2.37</span><br><span class="line">1452801130791,www.example.com,192.168.2.226</span><br><span class="line">1452801130805,www.example.com,192.168.2.106</span><br><span class="line">1452801130817,www.example.com,192.168.2.179</span><br><span class="line">1452801130829,www.example.com,192.168.2.191</span><br><span class="line">1452801130841,www.example.com,192.168.2.18</span><br><span class="line">1452801130847,www.example.com,192.168.2.42</span><br><span class="line">1452801130867,www.example.com,192.168.2.18</span><br></pre></td></tr></table></figure></p>
+<p>Hope this tutorial will help.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-10T20:22:04.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">2016-01-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">Maven Including All Dependencies into One Jar Using Maven Assemble Plugins Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-10T20:16:45.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">2016-01-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">Maven Including All Dependencies into One Jar Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>When we compile Java Maven project into a jar file, we should include third party jars that are used in the program; otherwise, our programs will fail because of No Class Found Error while running. Here are some ways to include all third party indenpencies into only one jar.</p>
+<p>1.Just download the third party jars, save them into project directories and then compile and create our program jar file using command line.</p>
+<p>2.Use <a href="http://maven.apache.org/plugins/maven-assembly-plugin/" target="_blank" rel="external">Maven Assemble Plugin</a> in our project. In this case, we will get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+<p>3.Use <a href="https://code.google.com/p/onejar-maven-plugin/" target="_blank" rel="external">Maven One Jar Plugin</a> in our project. In this case, we also get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-07T06:14:03.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2016-01-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2014 ACM-ICPC Greater New York Solution List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-07T06:13:50.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/">2016-01-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/">2014 ACM-ICPC Rocky Mountain Solution List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=666&amp;page=show_problem&amp;problem=4877" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/ICPC/2014/2014-NorthAmerica-RockyMountain-server.cpp" target="_blank" rel="external">Code Link</a>.<br>A very easy implementation problem. Just count the first “ans” number of given values whose sum is no larger than the given threshold and then output the value of “ans” variable.<br>简单的模拟题。直接在线读入数组求和，在和小于阀值时计数数组的数字的个数即可。</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-06T06:00:14.000Z"><a href="/2016/01/05/Maven-Multiple-Modules-Project-QuickStart/">2016-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/05/Maven-Multiple-Modules-Project-QuickStart/">Maven Multiple Modules Project QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-06T05:59:51.000Z"><a href="/2016/01/05/Maven-WebApp-Project-QuickStart/">2016-01-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/05/Maven-WebApp-Project-QuickStart/">Maven WebApp Project QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to develop a Web application using Java and Maven. And here is the link of a good <a href="http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/" target="_blank" rel="external">tutorial</a>.</p>
+<h3 id="Initialize-Project-Directory"><a href="#Initialize-Project-Directory" class="headerlink" title="Initialize Project Directory"></a>Initialize Project Directory</h3><p>Using the following command to create and initialize a Web App project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.template -DartifactId=WelcomeWebApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Now a new web project called “WelcomeWebApp” is created.</p>
+<hr>
+
+<h3 id="Edit-pom-xml"><a href="#Edit-pom-xml" class="headerlink" title="Edit pom.xml"></a>Edit pom.xml</h3><p>Like other kinds of Maven project, we have to edit the pom.xml file to add the dependencies needed for this project.<br>Here we need the Java Spring MVC framework dependencies, java servlet dependencies for RESTFUL services and other kinds of dpendencies. Below is the final version of our pom.xml:<br>Besides, we also have to include some plugins so that the war files can be compiled successfully, and then can be run in a specific kind of web server like tomcat.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.yulartech.template&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;WelcomeWebApp&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">  &lt;name&gt;WelcomeWebApp Maven Webapp&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;spring.version&gt;4.1.1.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;jstl.version&gt;1.2&lt;/jstl.version&gt;</span><br><span class="line">    &lt;jcl-over-slf4j.version&gt;1.7.5&lt;/jcl-over-slf4j.version&gt;</span><br><span class="line">    &lt;jdk.version&gt;1.7&lt;/jdk.version&gt;</span><br><span class="line">    &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">    &lt;logback.version&gt;1.0.13&lt;/logback.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;junit.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Spring Core --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">          &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">      &lt;/exclusions&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jcl-over-slf4j&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;jcl-over-slf4j.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;logback.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- jstl --&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;jstl&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jstl&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;jstl.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;finalName&gt;WelcomeWebApp&lt;/finalName&gt;</span><br><span class="line"></span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.9&lt;/version&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">             &lt;!-- Always download and attach dependencies <span class="built_in">source</span> code --&gt;</span><br><span class="line">             &lt;downloadSources&gt;<span class="literal">true</span>&lt;/downloadSources&gt;</span><br><span class="line">             &lt;downloadJavadocs&gt;<span class="literal">false</span>&lt;/downloadJavadocs&gt;</span><br><span class="line">             &lt;!-- Avoid <span class="built_in">type</span> mvn eclipse:eclipse -Dwtpversion=2.0 --&gt;</span><br><span class="line">             &lt;wtpversion&gt;2.0&lt;/wtpversion&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3.2&lt;/version&gt;</span><br><span class="line">        &lt;configuration&gt;</span><br><span class="line">          &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">          &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">          &lt;createDependencyReducedPom&gt;<span class="literal">true</span>&lt;/createDependencyReducedPom&gt;</span><br><span class="line">          &lt;filters&gt;</span><br><span class="line">            &lt;filter&gt;</span><br><span class="line">              &lt;artifact&gt;*:*&lt;/artifact&gt;</span><br><span class="line">              &lt;excludes&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;</span><br><span class="line">              &lt;/excludes&gt;</span><br><span class="line">            &lt;/filter&gt;</span><br><span class="line">          &lt;/filters&gt;</span><br><span class="line">        &lt;/configuration&gt;</span><br><span class="line">     &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- For Maven Tomcat Plugin --&gt;</span><br><span class="line">     &lt;plugin&gt;</span><br><span class="line">       &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;2.2&lt;/version&gt;</span><br><span class="line">       &lt;configuration&gt;</span><br><span class="line">         &lt;path&gt;/WelcomeWebApp&lt;/path&gt;</span><br><span class="line">       &lt;/configuration&gt;</span><br><span class="line">     &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Create-and-Edit-mvc-dispatcher-servlet-xml"><a href="#Create-and-Edit-mvc-dispatcher-servlet-xml" class="headerlink" title="Create and Edit mvc-dispatcher-servlet.xml"></a>Create and Edit mvc-dispatcher-servlet.xml</h3><p>mvc-dispatcher-servlet.xml is created automatically by Maven, so we have to create it by ourselves and save it under this file path: ./src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml. We can make it through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml</span><br></pre></td></tr></table></figure></p>
+<p>This xml file is used for Java Spring Framework. We can define the components of web project and the kind of web pages visit there. The kinds of web pages can include jsp or html.<br>So here is the final version of mvc-dispatcher-servlet.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></span><br><span class="line">        xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        xsi:schemaLocation=<span class="string">"</span><br><span class="line">        http://www.springframework.org/schema/beans     </span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">        http://www.springframework.org/schema/context </span><br><span class="line">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span><br><span class="line"></span><br><span class="line">        &lt;context:component-scan base-package=<span class="string">"com.yulartech.template.controller"</span> /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;bean class=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"prefix"</span>&gt;</span><br><span class="line">                &lt;value&gt;/WEB-INF/&lt;/value&gt;</span><br><span class="line">            &lt;/property&gt;</span><br><span class="line">            &lt;property name=<span class="string">"suffix"</span>&gt;</span><br><span class="line">                &lt;value&gt;.jsp&lt;/value&gt;</span><br><span class="line">             &lt;/property&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>After we complete this step, we should move the index.jsp file to the WEB-INF directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv src/main/webapp/index.jsp src/main/webapp/WEB-INF/</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-web-xml"><a href="#Edit-web-xml" class="headerlink" title="Edit web.xml"></a>Edit web.xml</h3><p>There is a web.xml file under this file path: ./src/main/webapp/WEB-INF/web.xml.<br>We should update this xml file to support Java servlet 2.5 or higher and integrate Java Spring Framework through Spring Listener.<br>Below is the final version of web.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> </span><br><span class="line">         xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">              xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee </span><br><span class="line">              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span></span><br><span class="line">         version=<span class="string">"2.5"</span>&gt;</span><br><span class="line">  &lt;display-name&gt;Template Web Application&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">  &lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;/WEB-INF/mvc-dispatcher-servlet.xml&lt;/param-value&gt;</span><br><span class="line">  &lt;/context-param&gt;</span><br><span class="line"></span><br><span class="line">  &lt;listener&gt;</span><br><span class="line">    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">  &lt;/listener&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-Java-Code"><a href="#Edit-Java-Code" class="headerlink" title="Edit Java Code"></a>Edit Java Code</h3><p>At first, we should create a series new directories called “java/com/yulartech/template/controller” under this file path: ./webapp/src/main/.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p src/main/java/com/yulartech/template/controller/</span><br></pre></td></tr></table></figure></p>
+<p>And then create a java file called “BaseController.java”.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi src/main/java/com/yulartech/template/controller/BaseController.java</span><br></pre></td></tr></table></figure></p>
+<p>Here is the final version of source code of this file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template.controller;</span><br><span class="line"></span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.ui.ModelMap;</span><br><span class="line">import org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class BaseController &#123;</span><br><span class="line"></span><br><span class="line">    private static int counter = 0;</span><br><span class="line">    private static final String VIEW_INDEX = <span class="string">"index"</span>;</span><br><span class="line">    private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value = <span class="string">"/"</span>, method = RequestMethod.GET)</span><br><span class="line">    public String welcome(ModelMap model) &#123;</span><br><span class="line"></span><br><span class="line">        model.addAttribute(<span class="string">"message"</span>, <span class="string">"Welcome"</span>);</span><br><span class="line">        ++ counter;</span><br><span class="line">        logger.debug(<span class="string">"[welcome] counter : &#123;&#125;"</span>, counter);</span><br><span class="line"></span><br><span class="line">        // Spring uses InternalResourceViewResolver and <span class="built_in">return</span> back index.jsp</span><br><span class="line">        <span class="built_in">return</span> VIEW_INDEX;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value = <span class="string">"/&#123;name&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    public String welcomeName(@PathVariable String name, ModelMap model)&#123;</span><br><span class="line"></span><br><span class="line">        model.addAttribute(<span class="string">"message"</span>, <span class="string">"Welcome : "</span> + name);</span><br><span class="line">        ++ counter;</span><br><span class="line">        logger.debug(<span class="string">"[welcomeName]  : &#123;&#125;"</span>, name);</span><br><span class="line">        logger.debug(<span class="string">"[welcome] counter : &#123;&#125;"</span>, counter);</span><br><span class="line">        <span class="built_in">return</span> VIEW_INDEX;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-index-jsp"><a href="#Edit-index-jsp" class="headerlink" title="Edit index.jsp"></a>Edit index.jsp</h3><p>Index.jsp is our front end page file. Actually we can also use a html file instead of jsp.<br>Here is the final version of our index.jsp file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;Welcome Web Project Example&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt; Welcome : <span class="variable">$&#123;message&#125;</span>&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Optional-Edit-logback-xml"><a href="#Optional-Edit-logback-xml" class="headerlink" title="(Optional) Edit logback.xml"></a>(Optional) Edit logback.xml</h3><p>Since we used logback in our project, we have to include its properties information in our project and save it into logback.xml file under ./webapp/src/main/resources/ directory.<br>Here is the final version of logback.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">    &lt;appender name=<span class="string">"STDOUT"</span> class=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">      &lt;layout class=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span><br><span class="line"></span><br><span class="line">         &lt;Pattern&gt;%d&#123;yyyy-MM-dd HH:mm:ss&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/Pattern&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/layout&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;logger name=<span class="string">"com.yulartech.template.controller"</span> level=<span class="string">"debug"</span> additivity=<span class="string">"false"</span>&gt;</span><br><span class="line">      &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">    &lt;/logger&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level=<span class="string">"error"</span>&gt;</span><br><span class="line">      &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Test-and-Run-War-file"><a href="#Test-and-Run-War-file" class="headerlink" title="Test and Run War file"></a>Test and Run War file</h3><p>Execute the following command to clean and build the war file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean package -DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, a war file called “WelcomeWebApp.war” is generated under “./target/“ directory.<br>Then run the war file through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn tomcat:run</span><br></pre></td></tr></table></figure></p>
+<p>If no errors are thrown out, go to <a href="http://localhost:8080/WelcomeWebApp/" target="_blank" rel="external">http://localhost:8080/WelcomeWebApp/</a> or <a href="http://localhost:8080/WelcomeWebApp/yular" target="_blank" rel="external">http://localhost:8080/WelcomeWebApp/yular</a>.<br>Here is the view:<br><img src="https://c2.staticflickr.com/2/1515/24180036130_d1cd154a4b_b.jpg"><br><img src="https://c2.staticflickr.com/2/1605/23847366494_453aac21b5_b.jpg"></p>
+<p>Hope this tutorial helps.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-05T04:20:23.000Z"><a href="/2016/01/04/2016-Reading-List/">2016-01-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/04/2016-Reading-List/">2016 Reading List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of books that should be read in 2016:</p>
+<p>1.Data Smart</p>
+<p>2.From Zero to One</p>
+<p>3.Pattern Recogintion and Machine Learning</p>
+<p>4.The Java Virtual Machine Specification</p>
+<p>5.Out of Control</p>
+<p>6.庄子今注今译</p>
+<p>7.沃伦.巴菲特的投资组合</p>
+<p>8.Advanced Programming in the UNIX Environment</p>
+<p>9.世界大学生程序设计竞赛（第一册）</p>
+<p>10.杰克·韦尔奇自传</p>
+<p>11.Thinkging in Java</p>
+<p>12.Java 语言程序设计 （进阶篇）</p>
+<p>13.证券投资分析</p>
+<p>14.计算机程序设计艺术 （卷一） 基本算法</p>
+<p>15.C 语言程序设计</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-14T01:50:21.000Z"><a href="/2015/12/13/Python-pip-Install/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/Python-pip-Install/">Python pip Install</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official guide about how to install Python pip. Here is about how to install pip on Mac and RedHat.</p>
+<h3 id="Install-Python-pip-on-Mac"><a href="#Install-Python-pip-on-Mac" class="headerlink" title="Install Python pip on Mac"></a>Install Python pip on Mac</h3><p>Usually we only need this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure></p>
+<p>Then we are all set.</p>
+<h3 id="Install-Python-pip-on-Redhat"><a href="#Install-Python-pip-on-Redhat" class="headerlink" title="Install Python pip on Redhat"></a>Install Python pip on Redhat</h3><p>At first, download <a href="https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py" target="_blank" rel="external">get-pip.py</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python get-pip.py</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Python/">Python</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-14T01:49:18.000Z"><a href="/2015/12/13/npm-commands-summary/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/npm-commands-summary/">npm commands summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is short summary of some basic npm commands:</p>
+<hr>
+
+<h4 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h4><p>Create a Node JS project directory with some basic files and directories such as node_modules and package.json.</p>
+<hr>
+
+<h4 id="npm-ls"><a href="#npm-ls" class="headerlink" title="npm ls"></a>npm ls</h4><p>List local or global (with -g option) package installed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g</span><br><span class="line">npm ls -gl</span><br><span class="line">npm ls</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-start"><a href="#npm-start" class="headerlink" title="npm start"></a>npm start</h4><p>Start a Node JS server of the specific project. This runs an arbitrary command specified in the package “start” property of its “scripts” object. If no “start” property is specified on the “scripts” object, it will run node server.js.</p>
+<hr>
+
+<h4 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h4><p>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package name&gt; -g <span class="comment">#g option means whether this package should be installed for the whole machine environment.</span></span><br></pre></td></tr></table></figure></p>
+<p>If the package name is not mentioned, the command reads the dependences property specified in the package, download and then install them.</p>
+<hr>
+
+<h4 id="npm-uninstall"><a href="#npm-uninstall" class="headerlink" title="npm uninstall"></a>npm uninstall</h4><p>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall &lt;package name&gt; -g <span class="comment">#g option means whether this package should be installed for the whole machine environment.</span></span><br></pre></td></tr></table></figure></p>
+<p>This command will uninstall the packages.</p>
+<hr>
+
+<h4 id="npm-update"><a href="#npm-update" class="headerlink" title="npm update"></a>npm update</h4><p>The command will update all the packages listed to the latest version (specified by the tag config) or install missing packages.<br>The command format is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update [-g] [&lt;pkg&gt;...]</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-cache"><a href="#npm-cache" class="headerlink" title="npm cache"></a>npm cache</h4><p>This command is used to add, list or clean the npm cache folder.<br>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm cache add &lt;tarball file&gt;</span><br><span class="line">npm cache add &lt;folder&gt;</span><br><span class="line">npm cache add &lt;tarball url&gt;</span><br><span class="line">npm cache add &lt;name&gt;@&lt;version&gt;</span><br><span class="line"></span><br><span class="line">npm cache ls [&lt;path&gt;]</span><br><span class="line"></span><br><span class="line">npm cache clean [&lt;path&gt;]</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-test"><a href="#npm-test" class="headerlink" title="npm test"></a>npm test</h4><p>This runs a package “test” script, if one is provided.<br>The command format is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span> [-- &lt;args&gt;]</span><br><span class="line">npm tst [-- &lt;args&gt;]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+
+<nav id="pagination">
+  
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/3/">Nächste Seite &raquo;</a>
+  </nav>
+
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Google Search">
+    <input type="hidden" name="q" value="">
+  </form>
+</div>
+
+<div class="search">
+   <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+     <input type="search" id="search" class="st-default-search-input" style="height:40px" maxlength="20" placeholder="WebSite Search" />
+     <input type="hidden" name="q" value="">
+   </form>
+</div>
+
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C++</a><small>2</small></li>
+  
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+  
+    <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
+  
+    <li><a href="/tags/Database/">Database</a><small>1</small></li>
+  
+    <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
+  
+    <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
+  
+    <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>6</small></li>
+  
+    <li><a href="/tags/Life/">Life</a><small>2</small></li>
+  
+    <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+  
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
+  
+    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+  <h3 class="title">Friend Links</h3>
+  <ul class="entry">
+    <li><a href="http://blog.haosdent.me/"  target="_blank">Haosong Huang's Blog</a></li>
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">CDN online libraries for Web Developers</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div id="recentcomments" class="widget tag">
+    <h3 class="title">Recent Comments</h3>
+    <div class="entry">
+      <div id="recentcomments" class="dsq-widget">
+        <script type="text/javascript" src="http://yular.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+      </div>
+    </div>
+</div>
+
+
+  <div class="widget tag">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <h3 class="title">Statics</h3>
+  <ul class="entry">   
+    <li><span id="busuanzi_container_site_pv">Total Visits: <span id="busuanzi_value_site_pv"></span></span></li>
+    <li><span id="busuanzi_container_site_uv">Total Visitors: <span id="busuanzi_value_site_uv"></span></span></li>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 BaiChuan Yang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="alignright">
+   <div style="font-family: FontAwesome;font-size: 20px;">
+     <a href="http://weibo.com/u/5854007817?is_all=1" title="weibo" target="_blank"><img src="/css/images/weibo-social-logo.png"></a>&nbsp;
+     <a href="https://www.facebook.com/johnson.green.338" title="Facebook" target="_blank"><img src="/css/images/facebook-logo.png"></a>&nbsp;
+     <a href="https://twitter.com/JohnsonGreen5" title="twitter" target="_blank"><img src="/css/images/twitter-logo.png"></a>&nbsp;
+     <a href="https://www.linkedin.com/in/baichuan-yang-6b7b6579" title="LinkedIn" target="_blank"><img src="/css/images/linkedin-logo.png"></a>&nbsp;
+     <a href="https://github.com/yular" title="GitHub" target="_blank"><img src="/css/images/github-sign.png"></a>&nbsp;
+     <a href="https://plus.google.com/u/0/+BaichuanYANG/" title="Google+" target="_blank"><img src="/css/images/social-google-plus-square-button.png"></a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</footer>
+  <script src="/js/jquery-1.12.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'yular';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="backtotop"><img src="/imgs/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+<div id='bg'></div>
+
+</body>
+</html>

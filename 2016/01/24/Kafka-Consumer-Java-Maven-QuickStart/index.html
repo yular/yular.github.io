@@ -1,0 +1,376 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Kafka Consumer Java Maven QuickStart | YBC HomePage</title>
+  <meta name="author" content="BaiChuan Yang" />
+
+  
+  <meta name="description" content="Blog mainly about IT technology and Interesting Life Events~" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="Kafka Consumer Java Maven QuickStart" />
+  <meta property="og:site_name" content="YBC HomePage" />
+
+  <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="YBC HomePage" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-63602183-1', 'auto');
+	ga('send', 'pageview');
+
+</script>
+
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">YBC HomePage</a></h1>
+  <h2><a href="/">Study~ Work~ Life~ Everything is here~</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+      <li><a href="/about">About</a></li>
+    
+      <li><a href="/atom.xml">RSS</a></li>
+    
+      <li><a href="/sitemap.xml">SiteMap</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  
+  _st('install','xeEkJ65dmswemsvZM1Nx','2.0.0');
+</script>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-25T07:42:59.000Z"><a href="/2016/01/24/Kafka-Consumer-Java-Maven-QuickStart/">2016-01-24</a></time>
+      
+      
+  
+    <h1 class="title">Kafka Consumer Java Maven QuickStart</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-Project-Directory"><span class="toc-number">1.</span> <span class="toc-text">Create Project Directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Edit-pom-xml-File"><span class="toc-number">2.</span> <span class="toc-text">Edit pom.xml File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Write-Java-Code"><span class="toc-number">3.</span> <span class="toc-text">Write Java Code</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-Deploy-and-Run-the-Jar"><span class="toc-number">4.</span> <span class="toc-text">Compile, Deploy and Run the Jar</span></a></li></ol>
+          </div>
+      
+      
+        <p>Here is a quickstart tutorial to implement a kafka consumer using Java and Maven. <a href="https://cwiki.apache.org/confluence/display/KAFKA/Consumer+Group+Example" target="_blank" rel="external">This link</a> is the official tutorial but brand new users may find it hard to run it as the tutorial is not complete and the code has some bugs.</p>
+<p>In this tutorial we use kafka 0.8.0. And the application is a multi-thread one. Note:<br>1.Provide more threads than there are partitions on the topic, some threads will never see a message.<br>2.There are more partitions than threads, then some threads will receive data from multiple partitions. In this case, there is NO guarantee about the order consumers receive messages, other than that within the partition the offsets will be sequential.<br>3.More processes/threads will cause Kafka to re-balance, possibly changing the assignment of a Partition to a Thread.</p>
+<a id="more"></a>
+<h3 id="Create-Project-Directory"><a href="#Create-Project-Directory" class="headerlink" title="Create Project Directory"></a>Create Project Directory</h3><p>Using the following command to create a project directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.template -DartifactId=kafka-consumer -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Then navigate to our project directory.</p>
+<hr>
+
+<h3 id="Edit-pom-xml-File"><a href="#Edit-pom-xml-File" class="headerlink" title="Edit pom.xml File"></a>Edit pom.xml File</h3><p>Here we will need some Kafka consumer dependencies:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import kafka.consumer.ConsumerIterator;</span><br><span class="line">import kafka.consumer.KafkaStream;</span><br></pre></td></tr></table></figure></p>
+<p>Besides, when we run our producer jar file on the kafka cluster, it will be much more convinient if we will use one-jar plugin, especially in product environment. Here is the link of <a href="http://yular.github.io/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">Java Maven One-Jar Plugin Tutorial</a>.</p>
+<p>Here is the final version of pom.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">  &lt;groupId&gt;com.yulartech.template&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;kafka-consumer&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">  &lt;name&gt;kafka-consumer&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;jdk.version&gt;1.7&lt;/jdk.version&gt;</span><br><span class="line">    &lt;kafka.version&gt;0.8.1.1&lt;/kafka.version&gt;</span><br><span class="line">    &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">    &lt;maven-compiler-plugin.version&gt;2.3.2&lt;/maven-compiler-plugin.version&gt;</span><br><span class="line">    &lt;onejar-maven-plugin.version&gt;1.4.4&lt;/onejar-maven-plugin.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;junit.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.kafka&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;kafka_2.9.2&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;kafka.version&#125;</span>&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;compile&lt;/scope&gt;</span><br><span class="line">        &lt;exclusions&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jmxri&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;com.sun.jmx&lt;/groupId&gt;</span><br><span class="line">          &lt;/exclusion&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jms&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;javax.jms&lt;/groupId&gt;</span><br><span class="line">          &lt;/exclusion&gt;</span><br><span class="line">          &lt;exclusion&gt;</span><br><span class="line">            &lt;artifactId&gt;jmxtools&lt;/artifactId&gt;</span><br><span class="line">            &lt;groupId&gt;com.sun.jdmk&lt;/groupId&gt;</span><br><span class="line">            &lt;/exclusion&gt;</span><br><span class="line">          &lt;/exclusions&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;build&gt;</span><br><span class="line"></span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;<span class="variable">$&#123;maven-compiler-plugin.version&#125;</span>&lt;/version&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">           &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;archive&gt;</span><br><span class="line">             &lt;manifest&gt;</span><br><span class="line">               &lt;mainClass&gt;com.yulartech.template.KafkaConsumer&lt;/mainClass&gt;</span><br><span class="line">             &lt;/manifest&gt;</span><br><span class="line">           &lt;/archive&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;archive&gt;</span><br><span class="line">             &lt;manifest&gt;</span><br><span class="line">               &lt;mainClass&gt;com.yulartech.template.KafkaConsumer&lt;/mainClass&gt;</span><br><span class="line">             &lt;/manifest&gt;</span><br><span class="line">           &lt;/archive&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.dstovall&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;onejar-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;<span class="variable">$&#123;onejar-maven-plugin.version&#125;</span>&lt;/version&gt;</span><br><span class="line">          &lt;executions&gt;</span><br><span class="line">            &lt;execution&gt;</span><br><span class="line">                &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;one-jar&lt;/goal&gt;</span><br><span class="line">                &lt;/goals&gt;</span><br><span class="line">            &lt;/execution&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">  &lt;pluginRepositories&gt;</span><br><span class="line">    &lt;pluginRepository&gt;</span><br><span class="line">        &lt;id&gt;onejar-maven-plugin.googlecode.com&lt;/id&gt;</span><br><span class="line">        &lt;url&gt;http://onejar-maven-plugin.googlecode.com/svn/mavenrepo&lt;/url&gt;</span><br><span class="line">    &lt;/pluginRepository&gt;</span><br><span class="line">  &lt;/pluginRepositories&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Write-Java-Code"><a href="#Write-Java-Code" class="headerlink" title="Write Java Code"></a>Write Java Code</h3><p>Under this file path ./src/main/com/yulartech/template/, create a new java file called “KafkaConsumer.java”.</p>
+<p>In the first step of our code, we should define properties for the consumer such as the IP of zookeeper and groupId.</p>
+<p>Here is the example to define these properties:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Properties props = new Properties();</span><br><span class="line"></span><br><span class="line">props.put(<span class="string">"zookeeper.connect"</span>, <span class="string">"localhost:2181"</span>);</span><br><span class="line">props.put(<span class="string">"group.id"</span>, <span class="string">"testgroup"</span>);</span><br><span class="line">props.put(<span class="string">"zookeeper.session.timeout.ms"</span>, <span class="string">"500"</span>);</span><br><span class="line">props.put(<span class="string">"zookeeper.sync.time.ms"</span>, <span class="string">"250"</span>);</span><br><span class="line">props.put(<span class="string">"auto.commit.interval.ms"</span>, <span class="string">"1000"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>Below is the source code of KafkaConsumer.java:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">import kafka.api.FetchRequest;</span><br><span class="line">import kafka.api.FetchRequestBuilder;</span><br><span class="line">import kafka.api.PartitionOffsetRequestInfo;</span><br><span class="line">import kafka.common.ErrorMapping;</span><br><span class="line">import kafka.common.TopicAndPartition;</span><br><span class="line">import kafka.javaapi.consumer.SimpleConsumer;</span><br><span class="line">import kafka.message.MessageAndOffset;</span><br><span class="line">import kafka.consumer.Consumer;</span><br><span class="line">import kafka.javaapi.consumer.ConsumerConnector;</span><br><span class="line">import kafka.consumer.ConsumerConfig;</span><br><span class="line">import kafka.consumer.ConsumerIterator;</span><br><span class="line">import kafka.consumer.KafkaStream;</span><br><span class="line"></span><br><span class="line">import java.nio.ByteBuffer;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Properties;</span><br><span class="line">import java.util.concurrent.ExecutorService;</span><br><span class="line">import java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line">public class KafkaConsumer &#123;</span><br><span class="line"></span><br><span class="line">    private ExecutorService executor;</span><br><span class="line">    private final ConsumerConnector consumer;</span><br><span class="line">    private final String topic;</span><br><span class="line"></span><br><span class="line">    public KafkaConsumer(String zookeeper, String groupId, String topic) &#123;</span><br><span class="line">        Properties props = new Properties();</span><br><span class="line">        props.put(<span class="string">"zookeeper.connect"</span>, zookeeper);</span><br><span class="line">        props.put(<span class="string">"group.id"</span>, groupId);</span><br><span class="line">        props.put(<span class="string">"zookeeper.session.timeout.ms"</span>, <span class="string">"500"</span>);</span><br><span class="line">        props.put(<span class="string">"zookeeper.sync.time.ms"</span>, <span class="string">"250"</span>);</span><br><span class="line">        props.put(<span class="string">"auto.commit.interval.ms"</span>, <span class="string">"1000"</span>);</span><br><span class="line"></span><br><span class="line">        consumer = Consumer.createJavaConsumerConnector(new ConsumerConfig(props));</span><br><span class="line">        this.topic = topic;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void runConsumer(int threadCount) &#123;</span><br><span class="line">        Map&lt;String, Integer&gt; topicCount = new HashMap&lt;&gt;();</span><br><span class="line">        topicCount.put(topic, threadCount);</span><br><span class="line"></span><br><span class="line">        Map&lt;String, List&lt;KafkaStream&lt;byte[], byte[]&gt;&gt;&gt; consumerStreams = consumer.createMessageStreams(topicCount);</span><br><span class="line">        List&lt;KafkaStream&lt;byte[], byte[]&gt;&gt; streams = consumerStreams.get(topic);</span><br><span class="line"></span><br><span class="line">        executor = Executors.newFixedThreadPool(threadCount);</span><br><span class="line"></span><br><span class="line">        int threadNumber = 0;</span><br><span class="line">        <span class="keyword">for</span> (final KafkaStream stream : streams) &#123;</span><br><span class="line">            executor.submit(new KafkaConsumerThread(stream, threadNumber));</span><br><span class="line">            ++ threadNumber;</span><br><span class="line">        &#125;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(10000);</span><br><span class="line">        &#125; catch (InterruptedException ie) &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (consumer != null) &#123;</span><br><span class="line">            consumer.shutdown();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (executor != null) &#123;</span><br><span class="line">            executor.shutdown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        String topic = args[0];</span><br><span class="line">        int threadCount = Integer.parseInt(args[1]);</span><br><span class="line">        KafkaConsumer kafkaConsumer = new KafkaConsumer(<span class="string">"localhost:2181"</span>, <span class="string">"testgroup"</span>, topic);</span><br><span class="line">        kafkaConsumer.runConsumer(threadCount);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note that a thread class is used in this application. So create another java file called “kafkaConsumerThread.java” under the same directory of the consumer java file and put the following code into it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">import kafka.consumer.ConsumerIterator;</span><br><span class="line">import kafka.consumer.KafkaStream;</span><br><span class="line"></span><br><span class="line">final class KafkaConsumerThread implements Runnable &#123;</span><br><span class="line"></span><br><span class="line">    private KafkaStream stream;</span><br><span class="line">    private int threadNumber;</span><br><span class="line"></span><br><span class="line">    public KafkaConsumerThread(KafkaStream stream, int threadNumber)&#123;</span><br><span class="line"></span><br><span class="line">        this.threadNumber = threadNumber;</span><br><span class="line">        this.stream = stream;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void <span class="function"><span class="title">run</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">        ConsumerIterator&lt;byte[], byte[]&gt; it = stream.iterator();</span><br><span class="line">        <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">            System.out.println(<span class="string">"Message from thread "</span> + threadNumber + <span class="string">": "</span> + new String(it.next().message()));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"Shutting down thread: "</span> + threadNumber);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Compile-Deploy-and-Run-the-Jar"><a href="#Compile-Deploy-and-Run-the-Jar" class="headerlink" title="Compile, Deploy and Run the Jar"></a>Compile, Deploy and Run the Jar</h3><p>Use these two commands to generate jar file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean</span><br><span class="line">$ mvn package -DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, we will find a jar file under the new created ./target directory called “kafka-consumer-1.0-SNAPSHOT.one-jar.jar”, which is the jar file we want.</p>
+<p>Then we should start our Kafka cluster, here is the <a href="http://yular.github.io/2015/09/04/Kafka-Install-and-Basic-Commands/">tutorial</a>. After that, execute this command to generate a topic:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 5 --topic page_visits</span><br></pre></td></tr></table></figure></p>
+<p>And then start the publisher jar file that we created in <a href="http://yular.github.io/2016/01/17/Kafka-Publisher-Java-Maven-QuickStart/">this tutorial</a> to send message:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java -jar kafka-publisher-1.0-SNAPSHOT.one-jar.jar 7</span><br><span class="line"></span><br><span class="line">``` </span><br><span class="line">Now <span class="built_in">let</span> us run our jar through this <span class="built_in">command</span>:</span><br><span class="line">``` bash</span><br><span class="line">java -jar kafka-consumer-1.0-SNAPSHOT.one-jar.jar 5</span><br></pre></td></tr></table></figure></p>
+<p>Note that the number at the end is the number of thread created.</p>
+<p>If everything runs well, the output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">log</span>4j:WARN No appenders could be found <span class="keyword">for</span> logger (kafka.utils.VerifiableProperties).</span><br><span class="line"><span class="built_in">log</span>4j:WARN Please initialize the <span class="built_in">log</span>4j system properly.</span><br><span class="line">SLF4J: Failed to load class <span class="string">"org.slf4j.impl.StaticLoggerBinder"</span>.</span><br><span class="line">SLF4J: Defaulting to no-operation (NOP) logger implementation</span><br><span class="line">SLF4J: See http://www.slf4j.org/codes.html<span class="comment">#StaticLoggerBinder for further details.</span></span><br><span class="line">Message from thread 3: 1453425453604,www.example.com,192.168.2.160</span><br><span class="line">Message from thread 0: 1453425453624,www.example.com,192.168.2.73</span><br><span class="line">Message from thread 4: 1453425453374,www.example.com,192.168.2.107</span><br><span class="line">Message from thread 1: 1453425453594,www.example.com,192.168.2.249</span><br><span class="line">Message from thread 3: 1453425453635,www.example.com,192.168.2.250</span><br><span class="line">Message from thread 4: 1453425453616,www.example.com,192.168.2.247</span><br><span class="line">Message from thread 4: 1453425453643,www.example.com,192.168.2.52</span><br><span class="line">Shutting down thread: 0</span><br><span class="line">Shutting down thread: 2</span><br><span class="line">Shutting down thread: 1</span><br><span class="line">Shutting down thread: 4</span><br><span class="line">Shutting down thread: 3</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Google Search">
+    <input type="hidden" name="q" value="">
+  </form>
+</div>
+
+<div class="search">
+   <form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+     <input type="search" id="search" class="st-default-search-input" style="height:40px" maxlength="20" placeholder="WebSite Search" />
+     <input type="hidden" name="q" value="">
+   </form>
+</div>
+
+
+
+  
+  <div class="widget tag">
+    <h3 class="title">Archive</h3>
+    <div class="entry">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+    </div>
+  </div>
+
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Tags</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+  
+    <li><a href="/tags/Android/">Android</a><small>1</small></li>
+  
+    <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
+  
+    <li><a href="/tags/C/">C++</a><small>2</small></li>
+  
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+  
+    <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
+  
+    <li><a href="/tags/Database/">Database</a><small>1</small></li>
+  
+    <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
+  
+    <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
+  
+    <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
+  
+    <li><a href="/tags/Java/">Java</a><small>6</small></li>
+  
+    <li><a href="/tags/Life/">Life</a><small>2</small></li>
+  
+    <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
+  
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+  
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+  
+    <li><a href="/tags/Python/">Python</a><small>1</small></li>
+  
+    <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
+  
+    <li><a href="/tags/Test/">Test</a><small>1</small></li>
+  
+    <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
+  
+    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">Tag-Cloud</h3>
+  <div class="entry">
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+  </div>
+</div>
+
+
+  
+
+  <div class="widget tag">
+  <h3 class="title">Friend Links</h3>
+  <ul class="entry">
+    <li><a href="http://blog.haosdent.me/"  target="_blank">Haosong Huang's Blog</a></li>
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">Recent Posts</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">CDN online libraries for Web Developers</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+  <div id="recentcomments" class="widget tag">
+    <h3 class="title">Recent Comments</h3>
+    <div class="entry">
+      <div id="recentcomments" class="dsq-widget">
+        <script type="text/javascript" src="http://yular.disqus.com/recent_comments_widget.js?num_items=10&hide_avatars=1&avatar_size=32&excerpt_length=100&hide_mods=0"></script>
+      </div>
+    </div>
+</div>
+
+
+  <div class="widget tag">
+  <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <h3 class="title">Statics</h3>
+  <ul class="entry">   
+    <li><span id="busuanzi_container_site_pv">Total Visits: <span id="busuanzi_value_site_pv"></span></span></li>
+    <li><span id="busuanzi_container_site_uv">Total Visitors: <span id="busuanzi_value_site_uv"></span></span></li>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 BaiChuan Yang
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="alignright">
+   <div style="font-family: FontAwesome;font-size: 20px;">
+     <a href="http://weibo.com/u/5854007817?is_all=1" title="weibo" target="_blank"><img src="/css/images/weibo-social-logo.png"></a>&nbsp;
+     <a href="https://www.facebook.com/johnson.green.338" title="Facebook" target="_blank"><img src="/css/images/facebook-logo.png"></a>&nbsp;
+     <a href="https://twitter.com/JohnsonGreen5" title="twitter" target="_blank"><img src="/css/images/twitter-logo.png"></a>&nbsp;
+     <a href="https://www.linkedin.com/in/baichuan-yang-6b7b6579" title="LinkedIn" target="_blank"><img src="/css/images/linkedin-logo.png"></a>&nbsp;
+     <a href="https://github.com/yular" title="GitHub" target="_blank"><img src="/css/images/github-sign.png"></a>&nbsp;
+     <a href="https://plus.google.com/u/0/+BaichuanYANG/" title="Google+" target="_blank"><img src="/css/images/social-google-plus-square-button.png"></a>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</footer>
+  <script src="/js/jquery-1.12.1.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+    <script type="text/javascript">
+    var disqus_shortname = 'yular';
+
+    (function(){
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+    </script>
+
+<div id="totop" style="position:fixed;bottom:150px;right:50px;cursor: pointer;">
+<a title="backtotop"><img src="/imgs/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+<div id='bg'></div>
+
+</body>
+</html>
