@@ -89,6 +89,75 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-09-09T03:01:57.000Z"><a href="/2015/09/08/Docker-Install-Guide/">2015-09-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/08/Docker-Install-Guide/">Docker Install Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official website for <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>, which is one the hottest platform for distributed applications.</p>
+<p>To install Docker on our machine, here is the <a href="http://docs.docker.com/mac/started/" target="_blank" rel="external">official guide</a>.</p>
+<p>Here is my instructions about how to install Docker on Ubuntu 14.04.</p>
+<p>Environment: Ubuntu 14.04<br>Docker: 1.8.1</p>
+<h3 id="Install-wget-command"><a href="#Install-wget-command" class="headerlink" title="Install wget command"></a>Install wget command</h3><p>Check whether our machine has installed wget or not.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> wget</span><br></pre></td></tr></table></figure></p>
+<p>If not, use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install wget</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Install-Docker"><a href="#Install-Docker" class="headerlink" title="Install Docker"></a>Install Docker</h3><p>Using wget to install Docker<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure></p>
+<p>The system will prompts us for our sudo password.</p>
+<hr>
+
+<h3 id="Verifiy-Docker-installation"><a href="#Verifiy-Docker-installation" class="headerlink" title="Verifiy Docker installation"></a>Verifiy Docker installation</h3><p>Using this commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run hello-world</span><br></pre></td></tr></table></figure></p>
+<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image <span class="string">'hello-world:latest'</span> locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">535020c3e8ad: Pull complete </span><br><span class="line">af340544ed62: Pull complete </span><br><span class="line">Digest: sha256:a68868bfe696c00866942e8f5ca39e3e31b79c1e50feaee4ce5e28df2f051d5c</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker.</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the <span class="string">"hello-world"</span> image from the Docker Hub.</span><br><span class="line"> 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker Hub account:</span><br><span class="line"> https://hub.docker.com</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/userguide/</span><br></pre></td></tr></table></figure></p>
+<p>But if we fail to run this command because of the following reason:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.20/containers/create: dial unix /var/run/docker.sock: no such file or directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>Here may be the solutions:</p>
+<h5 id="Try-sudo"><a href="#Try-sudo" class="headerlink" title="Try sudo"></a>Try sudo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+<p>The reason is that we usually do not use root in the machine while docker is installed under /usr directory. So we may need to use sudo command.</p>
+<p>or</p>
+<h5 id="Restart-docker-service"><a href="#Restart-docker-service" class="headerlink" title="Restart docker service"></a>Restart docker service</h5><p>At first, let us check whether docker is running or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker status</span><br><span class="line">``` </span><br><span class="line">or</span><br><span class="line">``` bash</span><br><span class="line">$ sudo /etc/init.d/docker status</span><br></pre></td></tr></table></figure></p>
+<p>If the docker is running, the output should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start/running, process 7213</span><br></pre></td></tr></table></figure></p>
+<p>otherwise, restart or start the service:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker restart</span><br><span class="line">or</span><br><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure></p>
+<p>Or</p>
+<h5 id="Not-listen-to-var-run-docker-sock"><a href="#Not-listen-to-var-run-docker-sock" class="headerlink" title="Not listen to /var/run/docker.sock"></a>Not listen to /var/run/docker.sock</h5><p>In this case, please see this <a href="http://askubuntu.com/questions/615394/problem-with-docker" target="_blank" rel="external">link</a>. Hope it can help.</p>
+<p>If more issuses are meet, please leave comments here~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-09-06T08:25:50.000Z"><a href="/2015/09/06/Mahout-Install-and-Basic-Commands/">2015-09-06</a></time>
       
       
@@ -590,106 +659,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-03T03:28:44.000Z"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">2015-09-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 2.x Single-Node Cluster Set Up Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
-<p>Here is a good and more detailed <a href="http://bigdatahandler.com/hadoop-hdfs/installing-single-node-hadoop-2-2-0-on-ubuntu/" target="_blank" rel="external">tutorial</a> from Horton. But they missed an important step which may bring some trouble for beginners.</p>
-<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 2.7.1</p>
-<hr>
-
-<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
-<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
-<hr>
-
-<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
-<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
-<hr>
-
-<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
-<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.pub &gt;&gt; <span class="variable">$GINE</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
-<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
-<hr>
-
-<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-2.7.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-2.7.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
-<p>Now a single-node hadoop is available and if we type command:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure>
-<p>A list of information about “hadoop” command will appear.</p>
-<hr>
-
-<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_PREFIX=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> YARN_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=<span class="variable">$&#123;HADOOP_HOME&#125;</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$&#123;HADOOP_PREFIX&#125;</span>/lib/native</span><br><span class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_PREFIX</span>/lib"</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin</span><br></pre></td></tr></table></figure></p>
-<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
-<hr>
-
-<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit etc/hadoop/hadoop-env.sh file, by setting the JAVA_HOME and HADOOP_CONF_DIR variables:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=.... (your jdk path)</span><br><span class="line">$ <span class="built_in">export</span> HADOOP_CONF_DIR=/usr/<span class="built_in">local</span>/hadoop/etc/hadoop</span><br></pre></td></tr></table></figure></p>
-<p>Note: If we forget to change the HADOOP_CONF_DIR variable, when we start HADOOP YARN system, an “Error: Can not find configuration directory: etc/hadoop” exception will appear. </p>
-<p>Then create the two directories for Namenode and Datanode respectively and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br></pre></td></tr></table></figure></p>
-<p>Note: If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.<br>      If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.</p>
-<p>At last, edit the following files in Hadoop project directory:<br>For etc/hadoop/yarn-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
-<p>For etc/hadoop/core-site.xml, adding following context between “<configuration> </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
-<p>For etc/hadoop/mapred-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
-<p>For etc/hadoop/hdfs-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/namenode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/datanode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
-<p>The output is very long and the end of it looks like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
-<p>Now, everything is ready~ We can start the Hadoop system now~</p>
-<hr>
-
-<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br></pre></td></tr></table></figure></p>
-<p>Now nodemanager and resourcemanager starts.</p>
-<p>Then run these commands to start the rest of nodes:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
-<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2085 ResourceManager</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NodeManager</span><br><span class="line">1553 NameNode</span><br><span class="line">1788 DataNode</span><br><span class="line">1437 JobHistoryServer</span><br></pre></td></tr></table></figure></p>
-<p>Go to this link:<br><a href="http://localhost:8088/" target="_blank" rel="external">http://localhost:8088/</a> ResourceManager</p>
-<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure></p>
-<p>Here is two scripts that can make things easier:<br>The script to start Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
-<p>The script to stop Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh stop historyserver</span><br></pre></td></tr></table></figure></p>
-<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -720,7 +689,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -773,7 +742,7 @@
   
     <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
   
-    <li><a href="/tags/Web/">Web</a><small>10</small></li>
+    <li><a href="/tags/Web/">Web</a><small>11</small></li>
   
   </ul>
 </div>
@@ -783,7 +752,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.89px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/Life/" style="font-size: 11.11px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 14.44px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.22px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.78px;">Web</a>
   </div>
 </div>
 
@@ -804,6 +773,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/">Web Dev Experience: Using Angular Material and Bootstrap Together</a>
+      </li>
+    
+      <li>
         <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
       </li>
     
@@ -817,10 +790,6 @@
     
       <li>
         <a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a>
-      </li>
-    
-      <li>
-        <a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a>
       </li>
     
   </ul>

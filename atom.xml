@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-08T07:06:44.000Z</updated>
+  <updated>2016-03-12T08:45:32.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Dev Experience: Using Angular Material and Bootstrap Together</title>
+    <link href="http://yular.github.io/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/"/>
+    <id>http://yular.github.io/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/</id>
+    <published>2016-03-12T08:23:42.000Z</published>
+    <updated>2016-03-12T08:45:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;http://stackoverflow.com/questions/29313990/angularjs-bootstrap-for-angular-material-design-for-angular-together&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt; about this question.&lt;/p&gt;
+&lt;p&gt;When we do web front-end development, we may find that some elements can be implemented more easily in Angular Material but others can be implemented in Angular Bootstrap more easily. However, it is a bad idea to use them together in the same Web application front-end.&lt;/p&gt;
+&lt;p&gt;The main reasons are as follows:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Both their css target front end elements but they have different designs. For example, even though dialog of both libraries are rectangle, the dialog of bootstrap is round rectangle. So if use them together, the look and feel of elements may be inconsistent.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.Angular material handles front end elements using directive. When they release a new version (29 releases so far), developers have to spent some time testing earlier code. &lt;/p&gt;
+&lt;p&gt;3.Increase the dependencies size of project.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the &lt;a href=&quot;http://stackoverflow.com/questions/29313990/angularjs-bootstrap-for-angular-material-design-for-angular-together&quot; ta
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>Bootstrap CSS Grid System Summary</title>
@@ -600,56 +628,6 @@
     
     
       <category term="Python" scheme="http://yular.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm commands summary</title>
-    <link href="http://yular.github.io/2015/12/13/npm-commands-summary/"/>
-    <id>http://yular.github.io/2015/12/13/npm-commands-summary/</id>
-    <published>2015-12-14T01:49:18.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is short summary of some basic npm commands:&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-init&quot;&gt;&lt;a href=&quot;#npm-init&quot; class=&quot;headerlink&quot; title=&quot;npm init&quot;&gt;&lt;/a&gt;npm init&lt;/h4&gt;&lt;p&gt;Create a Node JS project directory with some basic files and directories such as node_modules and package.json.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-ls&quot;&gt;&lt;a href=&quot;#npm-ls&quot; class=&quot;headerlink&quot; title=&quot;npm ls&quot;&gt;&lt;/a&gt;npm ls&lt;/h4&gt;&lt;p&gt;List local or global (with -g option) package installed.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm ls -g&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ls -gl&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm ls&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-start&quot;&gt;&lt;a href=&quot;#npm-start&quot; class=&quot;headerlink&quot; title=&quot;npm start&quot;&gt;&lt;/a&gt;npm start&lt;/h4&gt;&lt;p&gt;Start a Node JS server of the specific project. This runs an arbitrary command specified in the package “start” property of its “scripts” object. If no “start” property is specified on the “scripts” object, it will run node server.js.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-install&quot;&gt;&lt;a href=&quot;#npm-install&quot; class=&quot;headerlink&quot; title=&quot;npm install&quot;&gt;&lt;/a&gt;npm install&lt;/h4&gt;&lt;p&gt;The command format is like:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install &amp;lt;package name&amp;gt; -g &lt;span class=&quot;comment&quot;&gt;#g option means whether this package should be installed for the whole machine environment.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If the package name is not mentioned, the command reads the dependences property specified in the package, download and then install them.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-uninstall&quot;&gt;&lt;a href=&quot;#npm-uninstall&quot; class=&quot;headerlink&quot; title=&quot;npm uninstall&quot;&gt;&lt;/a&gt;npm uninstall&lt;/h4&gt;&lt;p&gt;The command format is like:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm uninstall &amp;lt;package name&amp;gt; -g &lt;span class=&quot;comment&quot;&gt;#g option means whether this package should be installed for the whole machine environment.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;This command will uninstall the packages.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-update&quot;&gt;&lt;a href=&quot;#npm-update&quot; class=&quot;headerlink&quot; title=&quot;npm update&quot;&gt;&lt;/a&gt;npm update&lt;/h4&gt;&lt;p&gt;The command will update all the packages listed to the latest version (specified by the tag config) or install missing packages.&lt;br&gt;The command format is as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm update [-g] [&amp;lt;pkg&amp;gt;...]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-cache&quot;&gt;&lt;a href=&quot;#npm-cache&quot; class=&quot;headerlink&quot; title=&quot;npm cache&quot;&gt;&lt;/a&gt;npm cache&lt;/h4&gt;&lt;p&gt;This command is used to add, list or clean the npm cache folder.&lt;br&gt;The command format is like:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm cache add &amp;lt;tarball file&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache add &amp;lt;folder&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache add &amp;lt;tarball url&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache add &amp;lt;name&amp;gt;@&amp;lt;version&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache ls [&amp;lt;path&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm cache clean [&amp;lt;path&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-test&quot;&gt;&lt;a href=&quot;#npm-test&quot; class=&quot;headerlink&quot; title=&quot;npm test&quot;&gt;&lt;/a&gt;npm test&lt;/h4&gt;&lt;p&gt;This runs a package “test” script, if one is provided.&lt;br&gt;The command format is as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt; [-- &amp;lt;args&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm tst [-- &amp;lt;args&amp;gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is short summary of some basic npm commands:&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h4 id=&quot;npm-init&quot;&gt;&lt;a href=&quot;#npm-init&quot; class=&quot;headerlink&quot; title=&quot;npm init&quot;&gt;&lt;/a
-    
-    </summary>
-    
-    
-      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
     
   </entry>
   
