@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-12T08:45:32.000Z</updated>
+  <updated>2016-03-13T06:10:32.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web Finance APIs for Developers</title>
+    <link href="http://yular.github.io/2016/03/12/Web-Finance-APIs-for-Developers/"/>
+    <id>http://yular.github.io/2016/03/12/Web-Finance-APIs-for-Developers/</id>
+    <published>2016-03-13T06:08:02.000Z</published>
+    <updated>2016-03-13T06:10:32.000Z</updated>
+    
+    <content type="html">&lt;p&gt;This article will be updated later. Currently I only paste these links about where to find free/limited/paid web finance APIs (most of them are RESTFUL) for developers.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/3139879/how-do-i-get-currency-exchange-rates-via-an-api-such-as-google-finance&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow answer1&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/10040954/alternative-to-google-finance-api&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;stackoverflow answer2&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.programmableweb.com/news/25-finance-apis/2008/04/24&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;programmable web&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This article will be updated later. Currently I only paste these links about where to find free/limited/paid web finance APIs (most of th
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>Web Dev Experience: Using Angular Material and Bootstrap Together</title>
@@ -602,32 +624,6 @@
     
     
       <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python pip Install</title>
-    <link href="http://yular.github.io/2015/12/13/Python-pip-Install/"/>
-    <id>http://yular.github.io/2015/12/13/Python-pip-Install/</id>
-    <published>2015-12-14T01:50:21.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the official guide about how to install Python pip. Here is about how to install pip on Mac and RedHat.&lt;/p&gt;
-&lt;h3 id=&quot;Install-Python-pip-on-Mac&quot;&gt;&lt;a href=&quot;#Install-Python-pip-on-Mac&quot; class=&quot;headerlink&quot; title=&quot;Install Python pip on Mac&quot;&gt;&lt;/a&gt;Install Python pip on Mac&lt;/h3&gt;&lt;p&gt;Usually we only need this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo easy_install pip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then we are all set.&lt;/p&gt;
-&lt;h3 id=&quot;Install-Python-pip-on-Redhat&quot;&gt;&lt;a href=&quot;#Install-Python-pip-on-Redhat&quot; class=&quot;headerlink&quot; title=&quot;Install Python pip on Redhat&quot;&gt;&lt;/a&gt;Install Python pip on Redhat&lt;/h3&gt;&lt;p&gt;At first, download &lt;a href=&quot;https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;get-pip.py&lt;/a&gt;.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo python get-pip.py&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the official guide about how to install Python pip. Here is about how to install pip on Mac and RedHat.&lt;/p&gt;
-&lt;h3 id=&quot;Install-Pytho
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yular.github.io/tags/Python/"/>
     
   </entry>
   
