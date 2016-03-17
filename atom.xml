@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-13T06:10:32.000Z</updated>
+  <updated>2016-03-16T05:02:07.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bower command summary</title>
+    <link href="http://yular.github.io/2016/03/15/bower-command-summary/"/>
+    <id>http://yular.github.io/2016/03/15/bower-command-summary/</id>
+    <published>2016-03-16T04:41:27.000Z</published>
+    <updated>2016-03-16T05:02:07.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Bower is a very useful and easy to use Web libraries management tool, which can manage components containing HTML, CSS, JavaScript, fonts or even image files. Bower uses a kind of manifest file called bower.json to keeps track of packages used in project. Below is the link of official website:&lt;br&gt;&lt;a href=&quot;http://bower.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bower.io&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is the method to install bower&lt;br&gt;Bower requires node, npm and git. After we have installed all these staffs, we can install bower through this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g bower&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Note: please do not ignore -g parameter.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Here is the summary of frequent used bower commands:&lt;/p&gt;
+&lt;h3 id=&quot;bower-init&quot;&gt;&lt;a href=&quot;#bower-init&quot; class=&quot;headerlink&quot; title=&quot;bower init&quot;&gt;&lt;/a&gt;bower init&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-install&quot;&gt;&lt;a href=&quot;#bower-install&quot; class=&quot;headerlink&quot; title=&quot;bower install&quot;&gt;&lt;/a&gt;bower install&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-uninstall&quot;&gt;&lt;a href=&quot;#bower-uninstall&quot; class=&quot;headerlink&quot; title=&quot;bower uninstall&quot;&gt;&lt;/a&gt;bower uninstall&lt;/h3&gt;&lt;hr&gt;
+
+&lt;p&gt;### &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Bower is a very useful and easy to use Web libraries management tool, which can manage components containing HTML, CSS, JavaScript, fonts
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>Web Finance APIs for Developers</title>
@@ -585,45 +618,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2016 Reading List</title>
-    <link href="http://yular.github.io/2016/01/04/2016-Reading-List/"/>
-    <id>http://yular.github.io/2016/01/04/2016-Reading-List/</id>
-    <published>2016-01-05T04:20:23.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the list of books that should be read in 2016:&lt;/p&gt;
-&lt;p&gt;1.Data Smart&lt;/p&gt;
-&lt;p&gt;2.From Zero to One&lt;/p&gt;
-&lt;p&gt;3.Pattern Recogintion and Machine Learning&lt;/p&gt;
-&lt;p&gt;4.The Java Virtual Machine Specification&lt;/p&gt;
-&lt;p&gt;5.Out of Control&lt;/p&gt;
-&lt;p&gt;6.庄子今注今译&lt;/p&gt;
-&lt;p&gt;7.沃伦.巴菲特的投资组合&lt;/p&gt;
-&lt;p&gt;8.Advanced Programming in the UNIX Environment&lt;/p&gt;
-&lt;p&gt;9.世界大学生程序设计竞赛（第一册）&lt;/p&gt;
-&lt;p&gt;10.杰克·韦尔奇自传&lt;/p&gt;
-&lt;p&gt;11.Thinkging in Java&lt;/p&gt;
-&lt;p&gt;12.Java 语言程序设计 （进阶篇）&lt;/p&gt;
-&lt;p&gt;13.证券投资分析&lt;/p&gt;
-&lt;p&gt;14.计算机程序设计艺术 （卷一） 基本算法&lt;/p&gt;
-&lt;p&gt;15.C 语言程序设计&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the list of books that should be read in 2016:&lt;/p&gt;
-&lt;p&gt;1.Data Smart&lt;/p&gt;
-&lt;p&gt;2.From Zero to One&lt;/p&gt;
-&lt;p&gt;3.Pattern Recogintion and Mac
-    
-    </summary>
-    
-    
-      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
     
   </entry>
   
