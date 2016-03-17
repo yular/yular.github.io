@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-16T05:02:07.000Z</updated>
+  <updated>2016-03-17T06:18:28.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2016/03/15/bower-command-summary/"/>
     <id>http://yular.github.io/2016/03/15/bower-command-summary/</id>
     <published>2016-03-16T04:41:27.000Z</published>
-    <updated>2016-03-16T05:02:07.000Z</updated>
+    <updated>2016-03-17T06:18:28.000Z</updated>
     
     <content type="html">&lt;p&gt;Bower is a very useful and easy to use Web libraries management tool, which can manage components containing HTML, CSS, JavaScript, fonts or even image files. Bower uses a kind of manifest file called bower.json to keeps track of packages used in project. Below is the link of official website:&lt;br&gt;&lt;a href=&quot;http://bower.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bower.io&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Here is the method to install bower&lt;br&gt;Bower requires node, npm and git. After we have installed all these staffs, we can install bower through this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g bower&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -34,8 +34,19 @@
 
 &lt;h3 id=&quot;bower-uninstall&quot;&gt;&lt;a href=&quot;#bower-uninstall&quot; class=&quot;headerlink&quot; title=&quot;bower uninstall&quot;&gt;&lt;/a&gt;bower uninstall&lt;/h3&gt;&lt;hr&gt;
 
-&lt;p&gt;### &lt;/p&gt;
-</content>
+&lt;h3 id=&quot;bower-update&quot;&gt;&lt;a href=&quot;#bower-update&quot; class=&quot;headerlink&quot; title=&quot;bower update&quot;&gt;&lt;/a&gt;bower update&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-help&quot;&gt;&lt;a href=&quot;#bower-help&quot; class=&quot;headerlink&quot; title=&quot;bower help&quot;&gt;&lt;/a&gt;bower help&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-info&quot;&gt;&lt;a href=&quot;#bower-info&quot; class=&quot;headerlink&quot; title=&quot;bower info&quot;&gt;&lt;/a&gt;bower info&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-list&quot;&gt;&lt;a href=&quot;#bower-list&quot; class=&quot;headerlink&quot; title=&quot;bower list&quot;&gt;&lt;/a&gt;bower list&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-search&quot;&gt;&lt;a href=&quot;#bower-search&quot; class=&quot;headerlink&quot; title=&quot;bower search&quot;&gt;&lt;/a&gt;bower search&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-prune&quot;&gt;&lt;a href=&quot;#bower-prune&quot; class=&quot;headerlink&quot; title=&quot;bower prune&quot;&gt;&lt;/a&gt;bower prune&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;bower-version&quot;&gt;&lt;a href=&quot;#bower-version&quot; class=&quot;headerlink&quot; title=&quot;bower version&quot;&gt;&lt;/a&gt;bower version&lt;/h3&gt;</content>
     
     <summary type="html">
     
