@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-19T05:20:04.000Z</updated>
+  <updated>2016-03-19T05:20:42.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yular.github.io/2016/03/17/Maven-Junit-Test-QuickStart/"/>
     <id>http://yular.github.io/2016/03/17/Maven-Junit-Test-QuickStart/</id>
     <published>2016-03-18T05:45:45.000Z</published>
-    <updated>2016-03-19T05:20:04.000Z</updated>
+    <updated>2016-03-19T05:20:42.000Z</updated>
     
     <content type="html">&lt;p&gt;Unit test is very important in software engineering development. It can help developers to figure out which functions have bugs by test them independently. Currently there are many frameworks for this kind of test. Here we introduce one of the most popular frameworks called JUnit Test. For more information about JUnit, check this &lt;a href=&quot;http://junit.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Below is a quickstart tutorial for Java junit test using Maven. All the steps are done by command lines. &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;Create-Maven-Project&quot;&gt;&lt;a href=&quot;#Create-Maven-Project&quot; class=&quot;headerlink&quot; title=&quot;Create Maven Project&quot;&gt;&lt;/a&gt;Create Maven Project&lt;/h3&gt;&lt;p&gt;Execute the command below or check this &lt;a href=&quot;http://yular.github.io/2015/08/16/Maven-Project-QuickStart/&quot;&gt;tutorial&lt;/a&gt; to learn how to create a Maven project:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mvn archetype:generate -DgroupId=com.yulartech.app -DartifactId=JunitTemplate -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Note that we can change the value of -DgroupId, -DartifactId and -DarchetypeArtifactId parameters as we want.&lt;/p&gt;
 &lt;hr&gt;
@@ -54,7 +55,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Unit test is very important in software engineering development. It can help developers to figure out which functions have bugs by test t
+      &lt;p&gt;Unit test is very important in software engineering development. It can help developers to figure out which functions have bugs by test them independently. Currently there are many frameworks for this kind of test. Here we introduce one of the most popular frameworks called JUnit Test. For more information about JUnit, check this &lt;a href=&quot;http://junit.org/&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is a quickstart tutorial for Java junit test using Maven. All the steps are done by command lines. &lt;/p&gt;
     
     </summary>
     
