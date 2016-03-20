@@ -1188,6 +1188,7 @@
       
       
         <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
 
       
     </div>
@@ -1233,6 +1234,7 @@
       
       
         <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
 <p>###Playing with numbers<br>Time complexity: O(nlogn + Qlogn), Space complexity: O(n)<br>Sort the given numbers in non-descending order; then for every query number, adding the current number to sum of all previous query number; after that, if the sum is negative, using binary search to find the lower bound of the absolute value of the sum only in the positive part of the array; if the sum is positiive, using binary search to find the upper bound of the negative value of the sum only in the negative part of the arrary. At last, calculate the absolute value of the sum of the lower/upper bound part adding the sum of query number and the sum of other parts adding the sum of query number and finally, calculate the absolute value of the sum of all these two parts. </p>
 <p>先对给定数组进行排序。然后将所有已知的查询数进行求和。接下来用二分搜索，如果和是负数，在数组的正数部分找出和的绝对值的下界；若是正数，在数组的负数部分找出和的取反的上界。最后，将不需要进行二分搜索，和需要进行二分搜索这两部分进行求和。不需要二分搜索和在二分搜索结果以外的部分是直接加上查询和然后求绝对值即可；二分搜索结果范围内的也是这样，但三部分是需要分别求出各自的绝对值之后再相加，此时的和就是最终答案。</p>
 <p><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/playing_with_number.cpp" target="_blank" rel="external">code in Github</a></p>
@@ -1440,6 +1442,7 @@
       
       
         <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>. </p>
 <p>###Bricks Game<br>Time Complexity: O(n), Space Complexity: O(n)<br>Game dynamic programming problem. If n is no larger than three, take all the bricks; otherwise, set dp[i] as the largest sum first hand can earn from ith brick to the bottom brick, and dp[i] = sum[i] - min(dp[i + 1], dp[i + 2], dp[i + 3]) where sum[i] is the total value of bricks ranging from ith to the last one. The reason is that two players use the best strategy so they want to make sure that in remaining total value of bricks in the next ture can be as less as possible even with the best strategy.</p>
 <p>博弈DP题目。当n不大于3的时候，直接取完所有砖头；若不是，则设dp[i]为在第i个砖头时，先手能获得的最大值，sum[i]为第i个砖头到最底层的砖头的和；为了保证下一轮对手的得分尽可能少，DP方程为: dp[i] = sum[i] - min(dp[i + 1], dp[i + 2], dp[i + 3])。</p>
 <p><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bricks_game.cpp" target="_blank" rel="external">code in Github</a></p>
@@ -1607,7 +1610,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>32</small></li>
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>35</small></li>
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
