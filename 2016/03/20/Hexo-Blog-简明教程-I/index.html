@@ -106,11 +106,15 @@
 <p>确认npm命令可以使用以后，运行下面这个命令安装hexo命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
 <p>注：-g 不能省略掉。<br>用这个命令来确认hexo是否安装成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
 <p>如果输出是类似这样的，就表示安装成功了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hexo: 3.2.0</span><br><span class="line">hexo-cli: 1.0.1</span><br><span class="line">os: Darwin 15.2.0 darwin x64</span><br><span class="line">http_parser: 2.5.0</span><br><span class="line">node: 4.2.2</span><br><span class="line">v8: 4.5.103.35</span><br><span class="line">uv: 1.7.5</span><br><span class="line">zlib: 1.2.8</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">icu: 56.1</span><br><span class="line">modules: 46</span><br><span class="line">openssl: 1.0.2d</span><br></pre></td></tr></table></figure></p>
+<hr>
+
 <h3 id="博客初始化"><a href="#博客初始化" class="headerlink" title="博客初始化"></a>博客初始化</h3><p>在自己想要的地方，新建一个文件夹作为整个博客的项目文件夹，然后运行这个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
 <p>这时，一个完整的Hexo博客项目就会生成在当前文件夹下。</p>
 <p>Hexo上新建博客，测试博客和部署博客到远端服务器（比如Github 服务器）等，一般都需要使用这些命令（只是常用命令）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean <span class="comment">#清理项目缓存</span></span><br><span class="line">hexo new <span class="comment">#生成新的博客页面，一般后面要写上博客标题</span></span><br><span class="line">hexo generate <span class="comment"># 或者 hexo g，生成博客网站及其页面，并保存在public文件夹下</span></span><br><span class="line">hexo server <span class="comment"># 或者 hexo s，启动Hexo 网站服务器</span></span><br><span class="line">hexo deploy <span class="comment"># 或者 hexo d，将Hexo 部署到远程服务器</span></span><br></pre></td></tr></table></figure></p>
 <p>好了，接下来运行这两个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
 <p>默认情况下，访问这个地址，就可以看到部署在本地上的Hexo博客了：<br><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<hr>
+
 <h3 id="部署Hexo-到Github-server"><a href="#部署Hexo-到Github-server" class="headerlink" title="部署Hexo 到Github server"></a>部署Hexo 到Github server</h3><p>Github给每一个用户都提供了一个免费的，以.github.io结尾的域名，而Hexo博客不需要数据库，它的所有博客都是以文本的方式保存在本地，而相关统计数据，比如访问量等，可以由第三方API提供。因此我们可以将Hexo博客部署到Github上。这样做还有一个好处是方便代码的管理。</p>
 <p>首先是安装GitHub，这里有很好的官方文档：<br><a href="https://help.github.com/articles/set-up-git/" target="_blank" rel="external">Setup Git</a><br>必须完成前两步，记得将SSH Key放到自己的Github账户上，不然没法完成部署。</p>
 <p>新建一个repository，名字必须为 username.github.io。此处的username为我们Github账户的用户名。如果是帮助他人搭建和部署博客，记得让对方将自己加为coordinate developer。</p>
@@ -143,7 +147,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">留言</h1>
 
   
   <div id="disqus_thread">
@@ -183,7 +187,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">標籤</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>35</small></li>
@@ -236,7 +240,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">標籤雲</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 10px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
