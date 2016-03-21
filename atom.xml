@@ -52,10 +52,11 @@
     <link href="http://yular.github.io/2016/03/20/Hexo-Blog-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B-I/"/>
     <id>http://yular.github.io/2016/03/20/Hexo-Blog-简明教程-I/</id>
     <published>2016-03-20T23:00:30.000Z</published>
-    <updated>2016-03-21T07:34:53.000Z</updated>
+    <updated>2016-03-21T07:46:02.000Z</updated>
     
     <content type="html">&lt;p&gt;Hexo 是一个由台湾学生开发的，基于node.js的静态博客。这个博客拥有很好的模块设计，用户可以很方便地在博客上添加自己需要的或者是喜欢的元素，比如评论排行，日期等等；同时也可以很方便地做一些个性化的设置，比如更换博客主题等等。总之，Hexo有很多优点，是一个非常适合技术人员的博客。因此，接下来的几个教程都是有关于如何使用Hexo搭建自己的个性化博客。&lt;/p&gt;
 &lt;p&gt;这些教程有中文和英文版本。这里先提供中文版。下面这个链接是我的博客的github代码库，供大家参考：&lt;br&gt;&lt;a href=&quot;https://github.com/yular/yular.github.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github Yular&lt;/a&gt;&lt;br&gt;注：这份教程可能更适合mac和linux/unix用户，windows用户可能在最初的环境配置上需要另外找别的教程。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;安装npm和hexo&quot;&gt;&lt;a href=&quot;#安装npm和hexo&quot; class=&quot;headerlink&quot; title=&quot;安装npm和hexo&quot;&gt;&lt;/a&gt;安装npm和hexo&lt;/h3&gt;&lt;p&gt;第一步是在电脑上安装npm和hexo。先安装好npm才能安装hexo。npm是和node.js相关联的javascript管理工具，所以安装好node.js后，npm就能够使用了。&lt;br&gt;这里是nodejs的官网，上面介绍了下载和安装方法：&lt;br&gt;&lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;nodejs official site&lt;/a&gt;.&lt;br&gt;或者是我的这个教程：&lt;br&gt;&lt;a href=&quot;http://yular.github.io/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/&quot;&gt;nodejs install&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;确认npm命令可以使用以后，运行下面这个命令安装hexo命令：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g hexo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;注：-g 不能省略掉。&lt;br&gt;用这个命令来确认hexo是否安装成功：&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;hexo -v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -80,7 +81,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Hexo 是一个由台湾学生开发的，基于node.js的静态博客。这个博客拥有很好的模块设计，用户可以很方便地在博客上添加自己需要的或者是喜欢的元素，比如评论排行，日期等等；同时也可以很方便地做一些个性化的设置，比如更换博客主题等等。总之，Hexo有很多优点，是一个非常适合技
+      &lt;p&gt;Hexo 是一个由台湾学生开发的，基于node.js的静态博客。这个博客拥有很好的模块设计，用户可以很方便地在博客上添加自己需要的或者是喜欢的元素，比如评论排行，日期等等；同时也可以很方便地做一些个性化的设置，比如更换博客主题等等。总之，Hexo有很多优点，是一个非常适合技术人员的博客。因此，接下来的几个教程都是有关于如何使用Hexo搭建自己的个性化博客。&lt;/p&gt;
+&lt;p&gt;这些教程有中文和英文版本。这里先提供中文版。下面这个链接是我的博客的github代码库，供大家参考：&lt;br&gt;&lt;a href=&quot;https://github.com/yular/yular.github.io&quot;&gt;Github Yular&lt;/a&gt;&lt;br&gt;注：这份教程可能更适合mac和linux/unix用户，windows用户可能在最初的环境配置上需要另外找别的教程。&lt;/p&gt;
     
     </summary>
     
