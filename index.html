@@ -90,6 +90,146 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-03-20T23:00:39.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-III/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-III/">Hexo Blog 简明教程 III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-20T23:00:33.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-II/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-20T23:00:30.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-I/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Hexo 是一个由台湾学生开发的，基于node.js的静态博客。这个博客拥有很好的模块设计，用户可以很方便地在博客上添加自己需要的或者是喜欢的元素，比如评论排行，日期等等；同时也可以很方便地做一些个性化的设置，比如更换博客主题等等。总之，Hexo有很多优点，是一个非常适合技术人员的博客。因此，接下来的几个教程都是有关于如何使用Hexo搭建自己的个性化博客。</p>
+<p>这些教程有中文和英文版本。这里先提供中文版。下面这个链接是我的博客的github代码库，供大家参考：<br><a href="https://github.com/yular/yular.github.io" target="_blank" rel="external">Github Yular</a><br>注：这份教程可能更适合mac和linux/unix用户，windows用户可能在最初的环境配置上需要另外找别的教程。</p>
+<h3 id="安装npm和hexo"><a href="#安装npm和hexo" class="headerlink" title="安装npm和hexo"></a>安装npm和hexo</h3><p>第一步是在电脑上安装npm和hexo。先安装好npm才能安装hexo。npm是和node.js相关联的javascript管理工具，所以安装好node.js后，npm就能够使用了。<br>这里是nodejs的官网，上面介绍了下载和安装方法：<br><a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs official site</a>.<br>或者是我的这个教程：<br><a href="http://yular.github.io/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">nodejs install</a></p>
+<p>确认npm命令可以使用以后，运行下面这个命令安装hexo命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>注：-g 不能省略掉。<br>用这个命令来确认hexo是否安装成功：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure></p>
+<p>如果输出是类似这样的，就表示安装成功了：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">hexo: 3.2.0</span><br><span class="line">hexo-cli: 1.0.1</span><br><span class="line">os: Darwin 15.2.0 darwin x64</span><br><span class="line">http_parser: 2.5.0</span><br><span class="line">node: 4.2.2</span><br><span class="line">v8: 4.5.103.35</span><br><span class="line">uv: 1.7.5</span><br><span class="line">zlib: 1.2.8</span><br><span class="line">ares: 1.10.1-DEV</span><br><span class="line">icu: 56.1</span><br><span class="line">modules: 46</span><br><span class="line">openssl: 1.0.2d</span><br></pre></td></tr></table></figure></p>
+<h3 id="博客初始化"><a href="#博客初始化" class="headerlink" title="博客初始化"></a>博客初始化</h3><p>在自己想要的地方，新建一个文件夹作为整个博客的项目文件夹，然后运行这个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<p>这时，一个完整的Hexo博客项目就会生成在当前文件夹下。</p>
+<p>Hexo上新建博客，测试博客和部署博客到远端服务器（比如Github 服务器）等，一般都需要使用这些命令（只是常用命令）：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo clean <span class="comment">#清理项目缓存</span></span><br><span class="line">hexo new <span class="comment">#生成新的博客页面，一般后面要写上博客标题</span></span><br><span class="line">hexo generate <span class="comment"># 或者 hexo g，生成博客网站及其页面，并保存在public文件夹下</span></span><br><span class="line">hexo server <span class="comment"># 或者 hexo s，启动Hexo 网站服务器</span></span><br><span class="line">hexo deploy <span class="comment"># 或者 hexo d，将Hexo 部署到远程服务器</span></span><br></pre></td></tr></table></figure></p>
+<p>好了，接下来运行这两个命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></p>
+<p>默认情况下，访问这个地址，就可以看到部署在本地上的Hexo博客了：<br><a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a></p>
+<h3 id="部署Hexo-到Github-server"><a href="#部署Hexo-到Github-server" class="headerlink" title="部署Hexo 到Github server"></a>部署Hexo 到Github server</h3><p>Github给每一个用户都提供了一个免费的，以.github.io结尾的域名，而Hexo博客不需要数据库，它的所有博客都是以文本的方式保存在本地，而相关统计数据，比如访问量等，可以由第三方API提供。因此我们可以将Hexo博客部署到Github上。这样做还有一个好处是方便代码的管理。</p>
+<p>首先是安装GitHub，这里有很好的官方文档：<br><a href="https://help.github.com/articles/set-up-git/" target="_blank" rel="external">Setup Git</a><br>必须完成前两步，记得将SSH Key放到自己的Github账户上，不然没法完成部署。</p>
+<p>新建一个repository，名字必须为 username.github.io。此处的username为我们Github账户的用户名。如果是帮助他人搭建和部署博客，记得让对方将自己加为coordinate developer。</p>
+<p>接下来是安装Hexo插件，基本上是以下这些：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save <span class="comment"># 安装 Hexo 部署到GitHub的插件</span></span><br><span class="line">npm install hexo-generator-feed --save <span class="comment">#安装 Hexo RSS feed</span></span><br><span class="line">npm install hexo-generator-sitemap --save <span class="comment">#安装 Hexo SiteMap 网站地图</span></span><br></pre></td></tr></table></figure></p>
+<p>然后是修改Hexo项目文件夹下的_config.yml文件，在URL 和  Deployment 一项，改成如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line">url: http://yular.github.io</span><br><span class="line">root: /</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:yular /yular.github.io</span><br><span class="line">  branch: master</span><br><span class="line">  message: deploy hexo blog</span><br></pre></td></tr></table></figure></p>
+<p>将其中的内容对应的替换成自己的即可。最后运行这些命令将博客部署到Github上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>如果没有报错，大概等上一小段时间就可以在浏览器上访问到博客了，比如我的这个：<br><a href="http://yular.github.io。" target="_blank" rel="external">http://yular.github.io。</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-03-18T05:45:45.000Z"><a href="/2016/03/17/Maven-Junit-Test-QuickStart/">2016-03-17</a></time>
       
       
@@ -470,154 +610,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-02-09T09:06:56.000Z"><a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">2016-02-09</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/02/09/Timus-Problems-for-String-Solution-List/">Timus Problems for String Solution List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Strange-Dialog"><a href="#Strange-Dialog" class="headerlink" title="Strange Dialog"></a>Strange Dialog</h3><p><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1102" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_1102_strangedialog.cpp" target="_blank" rel="external">Code Link</a>.<br>An DP problem. Set dp[i] as whether substring ranging from 0 to i index of original string is consist of only given strings including “in”,  “output”, “one”, “input”, “out” and “puton”. So if dp[n] is true then output “YES”; otherwise, output “NO”, where n is the length of given string.<br>DP 问题（当然也会有其他解法）。设dp[i]为从0到i的字串是否能够仅由”in”,  “output”, “one”, “input”, “out” and “puton” 这些字符串拼接而成。n为给定字符串长度，那么dp[n]为真，则输出”YES”；否则，输出”NO”。</p>
-<hr>
-
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-02-08T05:36:27.000Z"><a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">2016-02-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/">SPOJ Problems Solution List from One to Fifty Four</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Hash-it"><a href="#Hash-it" class="headerlink" title="Hash it!"></a>Hash it!</h3><p><a href="http://www.spoj.com/problems/HASHIT/" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/spoj_29_HASHIT.cpp" target="_blank" rel="external">Code Link</a>.<br>An easy implementation problem. Just follow the instruction to build the hash table and do the operation. The maximum number of collision shoud be 19 not 20.<br>实为简单的模拟题。根据题目建好哈希表并依照给定命令进行操作就好。碰撞次数是0-19。</p>
-<hr>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-02-08T05:10:08.000Z"><a href="/2016/02/07/Timus-Problems-for-Beginners-Solution-List/">2016-02-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/02/07/Timus-Problems-for-Beginners-Solution-List/">Timus Problems for Beginners Solution List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the solution list of Timus OJ problems for beginners.</p>
-<h3 id="Rope"><a href="#Rope" class="headerlink" title="Rope"></a>Rope</h3><p><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=1020" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_1020_rope.cpp" target="_blank" rel="external">Code Link</a>.<br>A basic convex hull problem. The answer is the sum of length of convex hull and length of circle of which the radius is the given r.<br>基本的凸包问题。解法是凸包周长以及圆周长的和。</p>
-<hr>
-
-<h3 id="About-Grisha-N"><a href="#About-Grisha-N" class="headerlink" title="About Grisha N."></a>About Grisha N.</h3><p><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=2012" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_2012_aboutgrishan.cpp" target="_blank" rel="external">Code Link</a>.<br>An very easy implementation problem. If f is no greater than 7, then it is impossible to solve all the problems.<br>简单的模拟题。判断f是否不小于7即可。</p>
-<hr>
-
-<h3 id="Simple-Expression"><a href="#Simple-Expression" class="headerlink" title="Simple Expression"></a>Simple Expression</h3><p><a href="http://acm.timus.ru/problem.aspx?space=1&amp;num=2066" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_2066_simpleexpression.cpp" target="_blank" rel="external">Code Link</a>.<br>An easy math and brute force problem. We enumerate all the orders of given arrays and try all the combination of operators to form the expression. Then calculate the value of each of these expressions and return the minimum one.<br>简单的数学/暴力问题。枚举所有的数字顺序和计算符号组合方法，计算所有的这两种组合产生的表达式的值并返回最小值即可。</p>
-<hr>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -701,7 +693,7 @@
   
     <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
   
-    <li><a href="/tags/Web/">Web</a><small>13</small></li>
+    <li><a href="/tags/Web/">Web</a><small>14</small></li>
   
   </ul>
 </div>
@@ -732,23 +724,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-III/">Hexo Blog 简明教程 III</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a>
+      </li>
+    
+      <li>
         <a href="/2016/03/17/Maven-Junit-Test-QuickStart/">Maven Junit Test QuickStart</a>
       </li>
     
       <li>
         <a href="/2016/03/15/bower-command-summary/">bower command summary</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/12/Web-Finance-APIs-for-Developers/">Web Finance APIs for Developers</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/">Web Dev Experience: Using Angular Material and Bootstrap Together</a>
-      </li>
-    
-      <li>
-        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
       </li>
     
   </ul>

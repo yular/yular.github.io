@@ -90,6 +90,163 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-12-06T20:00:54.000Z"><a href="/2015/12/06/Thinking-in-Github-Usage/">2015-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/06/Thinking-in-Github-Usage/">Thinking in Github Usage</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Github is very popular in software industry nowadays. The following is a short summary of how to effectively use Github for source code control.</p>
+<h2 id="Branch-Mangement-Strategy"><a href="#Branch-Mangement-Strategy" class="headerlink" title="Branch Mangement Strategy"></a>Branch Mangement Strategy</h2><p>When we create a repository in Github, we will have a master branch for it by default. Usually we should have these four kinds branches:</p>
+<ol>
+<li>Master branch: This branch should manage the stable version of the project.</li>
+<li>Development branch: This branch should manage the latest version but no necessary the stable version of the project. Every developers should commit their changes to this branch and then these changes will be merged to master branch after this latest version pass the test.</li>
+<li>Personal branch: It is good practice that every developer should have their own development branch. They develop new feature or fix bugs in this branch and then merge the changes to the development branch after their code pass test and code review.</li>
+<li>Bug branch: This branch is temporary. When developers are asked to fix an emergent bug(s) but at the same time they are developing other features, they can create a bug branch to fix this bug, commit and merge the changes, and at last, delete this branch.</li>
+<li>Feature branch: This branch is also tempory. Here is a similar story: Developers again are asked to add a new feature that should be released in a short time, but at the same time they are working on different features or even modules. This should be a daily event in IT company :-) So again, we can create a branch only for the purpose of developing this feature, commit and merge the changes and then delete this branch.<br>Actually, there should be more different kinds of branches and we should create, manage and delete the branches based on project management need.</li>
+</ol>
+<h2 id="Pull-and-Push-Changes"><a href="#Pull-and-Push-Changes" class="headerlink" title="Pull and Push Changes"></a>Pull and Push Changes</h2><p>After we have done the test for our code, we can commit and push the changes to remote repository. Here are the steps to do this:</p>
+<p>####1. Check the status of Git<br>Type this command to see what files are changed or newly added into local workspace:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>Then type this command to see what is changed in a specified file. The changes mean that what is added, modified or deleted in the source code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff /path/to/filename</span><br></pre></td></tr></table></figure></p>
+<p>####2. Edit the Ignore file<br>Some context should not be sent to remote repository, such as some configuration information or database username and password. The files contain these kinds of information should not be included in the Git commitment. To do this, we should create a new file called “.gitignore” in the project directory and list the name of files into it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore <span class="comment"># This is optional because this file may have existed under the project directory.</span></span><br><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure></p>
+<p>####3. Downloaded the changes from teamates<br>If there are/is developer(s) edit the same part of same files and commit the changes, conflicts may happen when other developers try to push/pull the changes to/from repository. So before we add the changes into commitment, we should do the following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment"># Save our changes</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></p>
+<p>If conflicts appear, resolve them manually in the source code.</p>
+<p>####4. Commit the Changes<br>Now we can start to commit our changes. First of all, we should add all or only some of changes into commitment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add -A <span class="comment">#Add all changes</span></span><br><span class="line">git add /path/to/filename1 /path/to/filename2 ... /path/to/filenameN</span><br></pre></td></tr></table></figure></p>
+<p>Then commit and push the changes to remote repository:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"Commitment message"</span></span><br><span class="line">git push remote-name branch-name</span><br></pre></td></tr></table></figure></p>
+<p>####5. Delete the Branches<br>If the branches are only for temporary use. We can delete it if we do not need it any longer.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="_">-d</span> branch-name</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Tools/">Tools</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-06T20:00:26.000Z"><a href="/2015/12/06/Thinking-in-Web-Developer/">2015-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/06/Thinking-in-Web-Developer/">Thinking in Web Developer</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of my own web development experience as a engineer. Currently I am working on a web service project using Java in the backend and Javascript in the frontend. In the future, I will try to use Python or C++ to in the backend development.</p>
+<h3 id="Learn-the-Terminology"><a href="#Learn-the-Terminology" class="headerlink" title="Learn the Terminology"></a>Learn the Terminology</h3><p>We should learn the terminology used in Web development at first so that we can understand the document and know how to find the solution from search engine such Bing and Google.</p>
+<p>Currently I think the terminology in the below list is basic but important. Please ignore the order.:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Frontend, Backend</span><br><span class="line">Java, CC++, Javascript, PHP, HTML, Python</span><br><span class="line">Session, Cookie, Header</span><br><span class="line">Browser</span><br><span class="line">Protocol, HTTP, HTTPS, FTP, UDP</span><br><span class="line">End-to-End</span><br><span class="line">Client, Server</span><br><span class="line">Model-View-Control (MVC)</span><br><span class="line">Router, Switcher</span><br><span class="line">Distributed System</span><br><span class="line">CDN</span><br><span class="line">Web Code Status</span><br><span class="line">Request, Response</span><br><span class="line">(RESTFUL )API</span><br><span class="line">Cross Domain</span><br><span class="line">JSON, XML</span><br></pre></td></tr></table></figure></p>
+<h3 id="Understand-the-WorkFlow"><a href="#Understand-the-WorkFlow" class="headerlink" title="Understand the WorkFlow"></a>Understand the WorkFlow</h3><p>Developers should understand the workflow of the web project that they are working on, the tool that they will use, and the protocol that they will use.<br>Here the tools include text editor such as sublime and vim, and IDE such as eclipse. Of course, other tools are also possible.<br>Here the protocol should include HTTPS and HTTP. Note that some companies or agencies may use self-designed protocols and developers should read the document about them. Protocols define the communication behavior between different agencies of this project and data format of it.</p>
+<h3 id="Learn-How-to-Use-Development-Tools"><a href="#Learn-How-to-Use-Development-Tools" class="headerlink" title="Learn How to Use Development Tools"></a>Learn How to Use Development Tools</h3><p>This is very important. Developers should know how to use the development tools to create, compile (if applicable), and run (a) project(s). For example, given an IDE, developers should know how to use it to develop a Java project through creating a Java project, compiling the Java after coding is done and then running it in the IDE.<br>They should also know how to use tools to debug. For example, developers should know how to use browser to figure out what is going wrong with their project: is it the bug coming from frontend, backend or even from third party?</p>
+<h3 id="Learn-the-Syntax-and-Coding-Standard-of-Programming-Language"><a href="#Learn-the-Syntax-and-Coding-Standard-of-Programming-Language" class="headerlink" title="Learn the Syntax and Coding Standard of Programming Language"></a>Learn the Syntax and Coding Standard of Programming Language</h3><p>Developers should learn the syntax of the programming language that they will use in the project. Most of the time, bugs are from syntax errors and we should avoid those unnecessary bugs.<br>To make our code more readable and easy to debug, we should follow the coding standard of that programming language. The standard include the variable naming standard and function naming standard.</p>
+<h3 id="Improve-Trouble-Shooting-Skills"><a href="#Improve-Trouble-Shooting-Skills" class="headerlink" title="Improve Trouble Shooting Skills"></a>Improve Trouble Shooting Skills</h3><p>Most of time, we will meet lots of “tiny” technical issues in web development, such as the disappearance of elements in web page. These bugs are easy to fix if we have known some tricky approaches to do that. So that is the reason why we should know how to effectively use search engine or just directly go to some specific websites to find the solution. Here are the link of my previous article about <a href="http://yular.github.io/tags/Life-Thoughts/">how to do technical trouble shooting</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-20T07:51:47.000Z"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">2015-11-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">ACM-ICPC Asian Regional Contest</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-11-09T01:02:32.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">2015-11-08</a></time>
       
       
@@ -392,170 +549,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-05T03:53:58.000Z"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-I/">2015-11-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-I/">Hackerrank Data Structure Problem Solution List I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Arrays-DS"><a href="#Arrays-DS" class="headerlink" title="Arrays- DS"></a>Arrays- DS</h3><p><a href="https://www.hackerrank.com/challenges/arrays-ds" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/arrays_ds.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Read and save all the integers into an array and then output them in reversal order.</p>
-<hr>
-
-<h3 id="2D-Array-DS"><a href="#2D-Array-DS" class="headerlink" title="2D Array - DS"></a>2D Array - DS</h3><p><a href="https://www.hackerrank.com/challenges/2d-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/2d-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Enumerate upper left corner of each hour glass and compute its sum, and then find the largest one.</p>
-<hr>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-04T04:32:33.000Z"><a href="/2015/11/03/Pig-MapReduce-Maven-UDFs-QuickStart-Guide/">2015-11-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/03/Pig-MapReduce-Maven-UDFs-QuickStart-Guide/">Pig MapReduce Maven UDFs QuickStart Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>This quickstart guide is almost the same as the <a href="http://yular.github.io/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">local mode version one</a>. Here is the difference:</p>
-<h3 id="Sent-Data-File-to-HDFS"><a href="#Sent-Data-File-to-HDFS" class="headerlink" title="Sent Data File to HDFS"></a>Sent Data File to HDFS</h3><p>Here is the tutorial to set up a single node cluster in our machine. Here is the <a href="http://yular.github.io/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 1.x version</a> and <a href="http://yular.github.io/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 2.x version</a>.</p>
-<p>Then start Hadoop cluster and use these commands to send data file to HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -mkdir /user <span class="comment">#may be optional</span></span><br><span class="line">hadoop fs -mkdir /user/yular</span><br><span class="line">hadoop fs -mkdir /user/yular/input</span><br><span class="line">hadoop fs -copyFromLocal student.txt /user/yular/input/</span><br></pre></td></tr></table></figure></p>
-<h3 id="Sent-Jar-File-to-HDFS"><a href="#Sent-Jar-File-to-HDFS" class="headerlink" title="Sent Jar File to HDFS"></a>Sent Jar File to HDFS</h3><p>This step is optional but currently I still failed … So the jar file is still in my local file system.</p>
-<h3 id="Run-Pig-Script"><a href="#Run-Pig-Script" class="headerlink" title="Run Pig Script"></a>Run Pig Script</h3><p>If the jar file is in HDFS, then use this command to register it into Pig environment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Sorry ... Unavailable ...</span></span><br></pre></td></tr></table></figure></p>
-<p>Then load the data into Pig:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = LOAD <span class="string">'input/student.txt'</span> as(name:chararray);</span><br></pre></td></tr></table></figure></p>
-<p>Above is the difference between running UDFs in Pig local mode and Pig Mapreduce mode.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-03T03:48:50.000Z"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">2015-11-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">Pig Local Maven UDFs QuickStart Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a quickstart guide to write a simple Pig UDF (User Defined Function) and run it in Pig local mode. Additionally, here is the <a href="http://simmantwidevision.blogspot.com/2013/06/pig-udf-basic-tutorial.html" target="_blank" rel="external">link</a> of a quickstart guide of a non-Maven version.</p>
-<h3 id="Create-a-Maven-project"><a href="#Create-a-Maven-project" class="headerlink" title="Create a Maven project"></a>Create a Maven project</h3><p>Run the following command to create a new Maven project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=testudfs -DartifactId=scriptPig -DarchitypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
-<p>Note that we can specify any groupId and artifactId as we want.</p>
-<p>Then navigate to the project directory and add these dependencies to the pom.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;3.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;1.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.7.1&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.pig&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;pig&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;0.14.0&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Note that we can use any version of Pig and Hadoop as we want but should make sure that all the tools are compatible ahead.</p>
-<p>After that, edit the App.java file under “testudfs” directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package testudfs;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import org.apache.pig.EvalFunc;</span><br><span class="line">import org.apache.pig.data.Tuple;</span><br><span class="line">import org.apache.pig.impl.util.WrappedIOException;</span><br><span class="line"></span><br><span class="line">public class App extends EvalFunc&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public String <span class="built_in">exec</span>(Tuple input) throws IOException &#123;</span><br><span class="line">        <span class="keyword">if</span>(input == null || input.size() == 0)</span><br><span class="line">                <span class="built_in">return</span> null;</span><br><span class="line"></span><br><span class="line">        try&#123;</span><br><span class="line">                String str = (String)input.get(0);</span><br><span class="line">                <span class="built_in">return</span> <span class="string">"This is : "</span>+str;</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">                throw new IOException(<span class="string">"Caught exception processing</span><br><span class="line">input row "</span> + e.getMessage(), e);</span><br><span class="line"> 	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Note that in the above code, in UDF every input come in the from of tuple and EvalFunc is the UDF which return the same value which it get as a input; and the exec is the function which EvalFunc call as default. There are four kinds of UDFs that can be created by users.</p>
-<p>At last, run these commands under project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn install -DskipTests</span><br></pre></td></tr></table></figure></p>
-<p>If no errors show up, then copy the jar file to the project directory.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp target/scriptPig-1.0-SNAPSHOT.jar ./</span><br></pre></td></tr></table></figure></p>
-<p>Note that this step is not required and is just for the ease of our operation.</p>
-<p>Now create a txt file named “student.txt” and write down these names:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">John</span><br><span class="line">Green</span><br><span class="line">Allen</span><br><span class="line">Kitty</span><br><span class="line">Fish</span><br><span class="line">Peter</span><br></pre></td></tr></table></figure></p>
-<h3 id="Run-UDF-in-Pig-Environment"><a href="#Run-UDF-in-Pig-Environment" class="headerlink" title="Run UDF in Pig Environment"></a>Run UDF in Pig Environment</h3><p>Here is the <a href="http://yular.github.io/2015/09/03/Pig-Install-and-Basic-Commands/">tutorial</a> to setup a Pig in the machine.</p>
-<p>After pig is installed successfully, run this command to boost pig in the local mode:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig -x <span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-<p>Then we will enter into the Grunt shell environment. At first, we should register the jar file into Pig environment using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">register scriptPig-1.0-SNAPSHOT.jar;</span><br></pre></td></tr></table></figure></p>
-<p>If our jar file is under other directory, please remember to provide the correct path.<br>Secondly, load the data file into Pig environment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = LOAD <span class="string">'student.txt'</span> as (name:chararray);</span><br></pre></td></tr></table></figure></p>
-<p>In the third step, add our UDF to the Pig script:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = FOREACH A GENERATE testudfs.App(name);</span><br></pre></td></tr></table></figure></p>
-<p>At last, run this command and we can see the output if all the things go well:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DUMP B;</span><br></pre></td></tr></table></figure></p>
-<p>Part of the output should be similar like the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">HadoopVersion   PigVersion      UserId  StartedAt       FinishedAt      Features</span><br><span class="line">2.7.1   0.14.0  yular-centos      2015-11-02 20:19:27     2015-11-02 20:19:29     UNKNOWN</span><br><span class="line"></span><br><span class="line">Success!</span><br><span class="line"></span><br><span class="line">Job Stats (time <span class="keyword">in</span> seconds):</span><br><span class="line">JobId   Maps    Reduces MaxMapTime      M<span class="keyword">in</span>MapTime      AvgMapTime MedianMapTime   MaxReduceTime   M<span class="keyword">in</span>ReduceTime   AvgReduceTime MedianReducetime        Alias   Feature Outputs  </span><br><span class="line">job_<span class="built_in">local</span>801987401_0001 1       0       n/a     n/a     n/a     n/a  0       0       0       0       A,B     MAP_ONLY file:/tmp/temp321109562/tmp1046007842,</span><br><span class="line"></span><br><span class="line">Input(s):</span><br><span class="line">Successfully <span class="built_in">read</span> 6 records from: <span class="string">"MyPathTo/student.txt"</span></span><br><span class="line"></span><br><span class="line">Output(s):</span><br><span class="line">Successfully stored 6 records <span class="keyword">in</span>: <span class="string">"file:/tmp/temp321109562/tmp1046007842"</span></span><br><span class="line"></span><br><span class="line">Counters:</span><br><span class="line">Total records written : 6</span><br><span class="line">Total bytes written : 0</span><br><span class="line">Spillable Memory Manager spill count : 0</span><br><span class="line">Total bags proactively spilled: 0</span><br><span class="line">Total records proactively spilled: 0</span><br><span class="line"></span><br><span class="line">Job DAG:</span><br><span class="line">job_<span class="built_in">local</span>801987401_0001</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2015-11-02 20:19:29,801 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,802 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,803 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,808 [main] INFO org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success!</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - fs.default.name is deprecated. Instead, use fs.defaultFS</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - io.bytes.per.checksum is deprecated. Instead, use dfs.bytes-per-checksum</span><br><span class="line">2015-11-02 20:19:29,810 [main] WARN org.apache.pig.data.SchemaTupleBackend - SchemaTupleBackend has already been initialized </span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input paths to process : 1</span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.pig.backend.hadoop.executionengine.util.MapRedUtil - Total</span><br><span class="line">input paths to process : 1</span><br><span class="line">(This is : John)</span><br><span class="line">(This is : Green)</span><br><span class="line">(This is : Allen)</span><br><span class="line">(This is : Kitty)</span><br><span class="line">(This is : Fish)</span><br><span class="line">(This is : Peter)</span><br></pre></td></tr></table></figure></p>
-<p>Hop this tutorial is helpful~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -639,7 +632,7 @@
   
     <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
   
-    <li><a href="/tags/Web/">Web</a><small>13</small></li>
+    <li><a href="/tags/Web/">Web</a><small>14</small></li>
   
   </ul>
 </div>
@@ -670,23 +663,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-III/">Hexo Blog 简明教程 III</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a>
+      </li>
+    
+      <li>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a>
+      </li>
+    
+      <li>
         <a href="/2016/03/17/Maven-Junit-Test-QuickStart/">Maven Junit Test QuickStart</a>
       </li>
     
       <li>
         <a href="/2016/03/15/bower-command-summary/">bower command summary</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/12/Web-Finance-APIs-for-Developers/">Web Finance APIs for Developers</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/">Web Dev Experience: Using Angular Material and Bootstrap Together</a>
-      </li>
-    
-      <li>
-        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a>
       </li>
     
   </ul>
