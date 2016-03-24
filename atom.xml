@@ -36,14 +36,21 @@
     <link href="http://yular.github.io/2016/03/20/Hexo-Blog-%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B-II/"/>
     <id>http://yular.github.io/2016/03/20/Hexo-Blog-简明教程-II/</id>
     <published>2016-03-20T23:00:33.000Z</published>
-    <updated>2016-03-20T23:00:33.000Z</updated>
+    <updated>2016-03-24T08:03:38.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;这篇教程主要是博客主要元素的配置，比如博客的主题，博客评论，博客访问量等。&lt;/p&gt;
+&lt;h3 id=&quot;博客主题&quot;&gt;&lt;a href=&quot;#博客主题&quot; class=&quot;headerlink&quot; title=&quot;博客主题&quot;&gt;&lt;/a&gt;博客主题&lt;/h3&gt;&lt;p&gt;首先是挑选自己喜欢的主题。这里有个Hexo 主题的列表，里面的主题都很不错，但很可能墙内的朋友访问不到；如果真是这样一个比较好的方法就是搜知乎，里面也有一个Hexo主题的列表，质量虽然可能有些参差不齐，但还是可以用的。&lt;br&gt;附链接:&lt;br&gt;&lt;a href=&quot;https://hexo.io/themes/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo Theme&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://www.zhihu.com/question/24422335&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo Theme List in Zhihu&lt;/a&gt;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;p&gt;这篇教程主要是博客主要元素的配置，比如博客的主题，博客评论，博客访问量等。&lt;/p&gt;
+&lt;h3 id=&quot;博客主题&quot;&gt;&lt;a href=&quot;#博客主题&quot; class=&quot;headerlink&quot; title=&quot;博客主题&quot;&gt;&lt;/a&gt;博客主题&lt;/h3&gt;&lt;p&gt;首先是挑选自己喜欢的主题。这里有个
+    
     </summary>
     
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
     
   </entry>
   
