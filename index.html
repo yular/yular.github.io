@@ -101,26 +101,15 @@
     <div class="entry">
       
       
-        <p>Here is the tutorial about how to install and run MonogoDB on mac. Below is the link of official document:<br><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="external">official document</a></p>
-<h3 id="Install-MongoDB"><a href="#Install-MongoDB" class="headerlink" title="Install MongoDB"></a>Install MongoDB</h3><p>There are multiple ways to install MOngoDB on Mac. Here we use <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> to install it.<br>At first, we should install Homebrew if we do not have one running on Mac. Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>To test whether it is installed successfully, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
-<p>And output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Example usage:</span><br><span class="line">  brew [info | home | options ] [FORMULA...]</span><br><span class="line">  brew install FORMULA...</span><br><span class="line">  brew uninstall FORMULA...</span><br><span class="line">  brew search [foo]</span><br><span class="line">  brew list [FORMULA...]</span><br><span class="line">  brew update</span><br><span class="line">  brew upgrade [FORMULA...]</span><br><span class="line">  brew pin/unpin [FORMULA...]</span><br><span class="line"></span><br><span class="line">Troubleshooting:</span><br><span class="line">  brew doctor</span><br><span class="line">  brew install -vd FORMULA</span><br><span class="line">  brew [--env | config]</span><br><span class="line"></span><br><span class="line">Brewing:</span><br><span class="line">  brew create [URL [--no-fetch]]</span><br><span class="line">  brew edit [FORMULA...]</span><br><span class="line">  https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md</span><br><span class="line"></span><br><span class="line">Further <span class="built_in">help</span>:</span><br><span class="line">  man brew</span><br><span class="line">  brew home</span><br></pre></td></tr></table></figure></p>
-<p>If we have already installed one, update it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure></p>
-<p>And then install MongoDB binaries using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb</span><br></pre></td></tr></table></figure></p>
-<p>or build MongoDB from source with TLS/SSL support:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb --with-openssl</span><br></pre></td></tr></table></figure></p>
-<p>or install the latest development release of MongoDB through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb --devel</span><br></pre></td></tr></table></figure></p>
-<h3 id="Init-MongoDB"><a href="#Init-MongoDB" class="headerlink" title="Init MongoDB"></a>Init MongoDB</h3><p>To init MongoDB, we should at first create a data directory for it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -p /data/db</span><br></pre></td></tr></table></figure></p>
-<p>/data/db is default data directory, but here I create a different data directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -p /data/mgdb</span><br></pre></td></tr></table></figure></p>
-<p>And then set permission for that directory, the most brute force approach is as follows (not recommended):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /data/mgdb <span class="comment"># or /data/db</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Run-MongoDB"><a href="#Run-MongoDB" class="headerlink" title="Run MongoDB"></a>Run MongoDB</h3><p>If the system PATH variable includes the location of mongod binary, and data directory is the default one, then use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure></p>
-<p>If the system PATH variable does not include the location of mongod binary, and data directory is the default one, use this command instead:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;path to binary&gt;/mongod</span><br></pre></td></tr></table></figure></p>
-<p>If the system PATH variable includes the location of mongod binary, and data directory is not the default one, then use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath &lt;path to data directory&gt;</span><br></pre></td></tr></table></figure></p>
-<p>So for me, the command is this one:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath /data/mgdb</span><br></pre></td></tr></table></figure></p>
-<p>If MongoDB is running successfully, the output of terminal is similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2016-03-25T01:38:55.270-0700 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=4G,session_max=20000,eviction=(threads_max=4),config_base=<span class="literal">false</span>,statistics=(fast),<span class="built_in">log</span>=(enabled=<span class="literal">true</span>,archive=<span class="literal">true</span>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(<span class="built_in">wait</span>=60,<span class="built_in">log</span>_size=2GB),statistics_<span class="built_in">log</span>=(<span class="built_in">wait</span>=0),</span><br><span class="line">2016-03-25T01:38:56.154-0700 I CONTROL  [initandlisten] </span><br><span class="line">2016-03-25T01:38:56.154-0700 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000</span><br><span class="line">2016-03-25T01:38:56.164-0700 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker</span><br><span class="line">2016-03-25T01:38:56.164-0700 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory <span class="string">'/data/mgdb/diagnostic.data'</span></span><br><span class="line">2016-03-25T01:38:56.166-0700 I NETWORK  [initandlisten] waiting <span class="keyword">for</span> connections on port 27017</span><br></pre></td></tr></table></figure></p>
-<p>We can visit this URL: <a href="http://localhost:27017/" target="_blank" rel="external">http://localhost:27017/</a> from the browser.<br><img src="https://c4.staticflickr.com/2/1634/25966741091_2735392f57_c.jpg" alt="MongoDB Page"></p>
-
+        <p>Here is the tutorial about how to install and run MonogoDB on mac. Below is the link of official document:<br><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">official document</a></p>
       
     </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/#more" class="more-link">More</a>
+      </div>
+    </footer>
     
     <footer>
         <div class="alignright">
@@ -254,7 +243,7 @@
     
     <footer>
       <div class="alignleft">
-        <a href="/2016/03/20/Hexo-Blog-简明教程-I/#more" class="more-link">更多内容</a>
+        <a href="/2016/03/20/Hexo-Blog-简明教程-I/#more" class="more-link">More</a>
       </div>
     </footer>
     
@@ -305,7 +294,7 @@
     
     <footer>
       <div class="alignleft">
-        <a href="/2016/03/17/Maven-Junit-Test-QuickStart/#more" class="more-link">更多内容</a>
+        <a href="/2016/03/17/Maven-Junit-Test-QuickStart/#more" class="more-link">More</a>
       </div>
     </footer>
     
@@ -527,7 +516,7 @@
     
     <footer>
       <div class="alignleft">
-        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/#more" class="more-link">更多内容</a>
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/#more" class="more-link">More</a>
       </div>
     </footer>
     
@@ -608,7 +597,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Вперед &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -642,7 +631,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>35</small></li>
@@ -695,7 +684,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 11.25px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
