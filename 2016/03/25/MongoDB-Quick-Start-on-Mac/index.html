@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Business Model | YBC HomePage</title>
+  <title>MongoDB Quick Start on Mac | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="MongoDB Quick Start on Mac" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -83,25 +83,75 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">Business Model</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-25T07:58:10.000Z"><a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">2016-03-25</a></time>
+      
+      
+  
+    <h1 class="title">MongoDB Quick Start on Mac</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial about how to install and run MonogoDB on mac. Below is the link of official document:<br><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/" target="_blank" rel="external">official document</a></p>
+<h3 id="Install-MongoDB"><a href="#Install-MongoDB" class="headerlink" title="Install MongoDB"></a>Install MongoDB</h3><p>There are multiple ways to install MOngoDB on Mac. Here we use <a href="http://brew.sh/" target="_blank" rel="external">Homebrew</a> to install it.<br>At first, we should install Homebrew if we do not have one running on Mac. Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby <span class="_">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>To test whether it is installed successfully, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
+<p>And output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Example usage:</span><br><span class="line">  brew [info | home | options ] [FORMULA...]</span><br><span class="line">  brew install FORMULA...</span><br><span class="line">  brew uninstall FORMULA...</span><br><span class="line">  brew search [foo]</span><br><span class="line">  brew list [FORMULA...]</span><br><span class="line">  brew update</span><br><span class="line">  brew upgrade [FORMULA...]</span><br><span class="line">  brew pin/unpin [FORMULA...]</span><br><span class="line"></span><br><span class="line">Troubleshooting:</span><br><span class="line">  brew doctor</span><br><span class="line">  brew install -vd FORMULA</span><br><span class="line">  brew [--env | config]</span><br><span class="line"></span><br><span class="line">Brewing:</span><br><span class="line">  brew create [URL [--no-fetch]]</span><br><span class="line">  brew edit [FORMULA...]</span><br><span class="line">  https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md</span><br><span class="line"></span><br><span class="line">Further <span class="built_in">help</span>:</span><br><span class="line">  man brew</span><br><span class="line">  brew home</span><br></pre></td></tr></table></figure></p>
+<p>If we have already installed one, update it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure></p>
+<p>And then install MongoDB binaries using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb</span><br></pre></td></tr></table></figure></p>
+<p>or build MongoDB from source with TLS/SSL support:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb --with-openssl</span><br></pre></td></tr></table></figure></p>
+<p>or install the latest development release of MongoDB through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mongodb --devel</span><br></pre></td></tr></table></figure></p>
+<h3 id="Init-MongoDB"><a href="#Init-MongoDB" class="headerlink" title="Init MongoDB"></a>Init MongoDB</h3><p>To init MongoDB, we should at first create a data directory for it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -p /data/db</span><br></pre></td></tr></table></figure></p>
+<p>/data/db is default data directory, but here I create a different data directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -p /data/mgdb</span><br></pre></td></tr></table></figure></p>
+<p>And then set permission for that directory, the most brute force approach is as follows (not recommended):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 /data/mgdb <span class="comment"># or /data/db</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Run-MongoDB"><a href="#Run-MongoDB" class="headerlink" title="Run MongoDB"></a>Run MongoDB</h3><p>If the system PATH variable includes the location of mongod binary, and data directory is the default one, then use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod</span><br></pre></td></tr></table></figure></p>
+<p>If the system PATH variable does not include the location of mongod binary, and data directory is the default one, use this command instead:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;path to binary&gt;/mongod</span><br></pre></td></tr></table></figure></p>
+<p>If the system PATH variable includes the location of mongod binary, and data directory is not the default one, then use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath &lt;path to data directory&gt;</span><br></pre></td></tr></table></figure></p>
+<p>So for me, the command is this one:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath /data/mgdb</span><br></pre></td></tr></table></figure></p>
+<p>If MongoDB is running successfully, the output of terminal is similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">2016-03-25T01:38:55.270-0700 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=4G,session_max=20000,eviction=(threads_max=4),config_base=<span class="literal">false</span>,statistics=(fast),<span class="built_in">log</span>=(enabled=<span class="literal">true</span>,archive=<span class="literal">true</span>,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(<span class="built_in">wait</span>=60,<span class="built_in">log</span>_size=2GB),statistics_<span class="built_in">log</span>=(<span class="built_in">wait</span>=0),</span><br><span class="line">2016-03-25T01:38:56.154-0700 I CONTROL  [initandlisten] </span><br><span class="line">2016-03-25T01:38:56.154-0700 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000</span><br><span class="line">2016-03-25T01:38:56.164-0700 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker</span><br><span class="line">2016-03-25T01:38:56.164-0700 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory <span class="string">'/data/mgdb/diagnostic.data'</span></span><br><span class="line">2016-03-25T01:38:56.166-0700 I NETWORK  [initandlisten] waiting <span class="keyword">for</span> connections on port 27017</span><br></pre></td></tr></table></figure></p>
+<p>We can visit this URL: <a href="http://localhost:27017/" target="_blank" rel="external">http://localhost:27017/</a> from the browser.</p>
 
-  <div class="archive">
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-06-17T07:03:41.000Z"><a href="/2015/06/17/E-commerce-Business-Model-Summary/">2015-06-17</a></time>
-            
-              <h1 class="title"><a href="/2015/06/17/E-commerce-Business-Model-Summary/">E-commerce Business Model Summary</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
         </div>
-      </article>
-    
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
   </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Comments</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -297,7 +347,7 @@
       var dsq = document.createElement('script');
       dsq.type = 'text/javascript';
       dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
     </script>
