@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-25T21:06:05.000Z</updated>
+  <updated>2016-03-27T22:38:40.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS Pattern List</title>
+    <link href="http://yular.github.io/2016/03/27/CSS-Pattern-List/"/>
+    <id>http://yular.github.io/2016/03/27/CSS-Pattern-List/</id>
+    <published>2016-03-27T22:36:14.000Z</published>
+    <updated>2016-03-27T22:38:40.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://lea.verou.me/css3patterns/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CSS3 Patterns Gallery&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://subtlepatterns.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Subtle Patterns&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.&lt;/p&gt;
+&lt;p&gt;&lt;a
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>MongoDB Quick Start on Mac</title>
@@ -659,24 +682,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maven Including All Dependencies into One Jar Using Maven Assemble Plugins Tutorial</title>
-    <link href="http://yular.github.io/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/"/>
-    <id>http://yular.github.io/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/</id>
-    <published>2016-01-10T20:22:04.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     
   </entry>
   

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 8 | YBC HomePage</title>
+  <title>Page 8 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,54 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-24T04:53:25.000Z"><a href="/2015/08/23/LeetCode-Problem-Solution-List-VI/">2015-08-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/23/LeetCode-Problem-Solution-List-VI/">LeetCode Problem Solution List VI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="First-Bad-Version"><a href="#First-Bad-Version" class="headerlink" title="First Bad Version"></a>First Bad Version</h3><p>Using binary search algorithm.<br>用二分搜索即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_first-bad-version.cpp" target="_blank" rel="external">Read Code</a></p>
+<h3 id="Wiggle-Sort"><a href="#Wiggle-Sort" class="headerlink" title="Wiggle Sort"></a>Wiggle Sort</h3><p>A classic Google Interview problem. Start from index one, and then check whether is the largest one among its two adjacent numbers; if not, swap it with the largest one; after that go to the next two element until reaching the end.<br>经典的谷歌面试题。从第二个元素开始，比较当前元素和与其相邻两个元素的大小，将最大那个与它交换位置；然后每次移动到下两个元素，直到到达数组末尾。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_wigglesort.cpp" target="_blank" rel="external">Read Code</a></p>
+<h3 id="Range-Sum-Query-Mutable"><a href="#Range-Sum-Query-Mutable" class="headerlink" title="Range Sum Query - Mutable"></a>Range Sum Query - Mutable</h3><p>A kind of data structure problem. We can use segment tree or binary index tree to solve it. For those who do not know what is segment tree, click <a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">here</a>; those who do not know binary index tree, click <a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">here</a>.<br>裸的数据结构题，用线段树或者树状数组即可。无需做任何变换，直接套模板即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_range-sum-query-mutable.cpp" target="_blank" rel="external">Read Code</a>.</p>
+<h3 id="Range-Sum-Query-2D-Mutable"><a href="#Range-Sum-Query-2D-Mutable" class="headerlink" title="Range Sum Query 2D - Mutable"></a>Range Sum Query 2D - Mutable</h3><p>A data structure problem. Here we can use segement tree or binary index tree but both of them should be 2D. For those who do not know what is segment tree, click <a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">here</a>; those who do not know binary index tree, click <a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">here</a>.<br>裸的二维线段树或者树状数组题目，直接套模板即可，不需要做任何变换。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_range-sum-query-2d-mutable.cpp" target="_blank" rel="external">Read Code</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -588,68 +636,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-04T06:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">Linux Commands for File Operation</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>###Tar Files or Directories<br>Compress or Decompress files or directories</p>
-<p>#####For tar<br>Unpackage:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Filename.tar</span><br></pre></td></tr></table></figure></p>
-<p>Package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar cvf Filename.tar Dirname</span><br></pre></td></tr></table></figure></p>
-<p>#####For gz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip Filename.gz</span><br><span class="line">$ gzip <span class="_">-d</span> Filename.gz</span><br></pre></td></tr></table></figure></p>
-<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip Filename</span><br></pre></td></tr></table></figure></p>
-<p>#####For .tar.gz and .tgz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf Filename.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zcvf Filename.tar.gz Dirname</span><br></pre></td></tr></table></figure></p>
-<p>#####For .bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 <span class="_">-d</span> Filename.bz</span><br><span class="line">$ bunzip2 Filename.bz</span><br></pre></td></tr></table></figure></p>
-<p>#####For .tar.bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf Filename.tar.bz</span><br></pre></td></tr></table></figure></p>
-<p>#####For .zip<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ unzip Filename.zip</span><br></pre></td></tr></table></figure></p>
-<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip Filename.zip Dirname</span><br></pre></td></tr></table></figure></p>
-<p>#####For .rar<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar x Filename.rar</span><br></pre></td></tr></table></figure></p>
-<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar a Filename.rar Dirname</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -728,7 +719,7 @@
   
     <li><a href="/tags/Tools/">Tools</a><small>3</small></li>
   
-    <li><a href="/tags/Web/">Web</a><small>15</small></li>
+    <li><a href="/tags/Web/">Web</a><small>16</small></li>
   
   </ul>
 </div>
@@ -736,7 +727,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 11.25px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
@@ -759,6 +750,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a>
+      </li>
+    
+      <li>
         <a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">MongoDB Quick Start on Mac</a>
       </li>
     
@@ -772,10 +767,6 @@
     
       <li>
         <a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/17/Maven-Junit-Test-QuickStart/">Maven Junit Test QuickStart</a>
       </li>
     
   </ul>
