@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Cloud Computing | YBC HomePage</title>
+  <title>Redis QuickStart | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="Redis QuickStart" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -83,133 +83,76 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">Cloud Computing</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-31T03:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
+      
+      
+  
+    <h1 class="title">Redis QuickStart</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+      
+        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/" target="_blank" rel="external">official website of redis</a>.</p>
+<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart" target="_blank" rel="external">official tutorial</a>.</p>
+<h3 id="Install-Redis"><a href="#Install-Redis" class="headerlink" title="Install Redis"></a>Install Redis</h3><p>We can go to <a href="http://redis.io/" target="_blank" rel="external">official website</a> to download the software. Or execute the command below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>Then move the tarball to the directory where we want to save the software and then extract it there.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf redis-stable.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>Now go to redis-stable directory and build the software:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> redis-stable</span><br><span class="line">make</span><br></pre></td></tr></table></figure></p>
+<p>To build Redis, we need to install gcc and g++ on the machine.<br>After that, we can copy the following two executable files to proper places:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo cp src/redis-server /usr/<span class="built_in">local</span>/bin</span><br><span class="line">sudo cp src/redis-cli /user/<span class="built_in">local</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Or just execute:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>At last, set these two executable files into PATH environment variable. </p>
+<hr>
 
-  <div class="archive">
+<h3 id="Run-Redis-Server"><a href="#Run-Redis-Server" class="headerlink" title="Run Redis Server"></a>Run Redis Server</h3><p>At first, let us see the five main executable files under src folder:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. redis-server is the Redis Server itself.</span><br><span class="line">2. redis-sentinel is the Redis Sentinel executable (monitoring and failover).</span><br><span class="line">3. redis-cli is the <span class="built_in">command</span> line interface utility to talk with Redis.</span><br><span class="line">4. redis-benchmark is used to check Redis performances.</span><br><span class="line">5. redis-check-aof and redis-check-dump are useful <span class="keyword">in</span> the rare event of corrupted data files.</span><br></pre></td></tr></table></figure></p>
+<p>So to start Redis server, just run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-server</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">./redis-server</span><br></pre></td></tr></table></figure></p>
+<p>If the server starts successfully, we can see similar output in terminal as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">21854:C 30 Mar 19:59:27.847 <span class="comment"># Warning: no config file specified, using the default config. In order to specify a config file use ./redis-server /path/to/redis.conf</span></span><br><span class="line">21854:M 30 Mar 19:59:27.848 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</span><br><span class="line">                _._                                                  </span><br><span class="line">           _.-``__ <span class="string">''</span>-._                                             </span><br><span class="line">      _.-``    `.  `_.  <span class="string">''</span>-._           Redis 3.0.7 (00000000/0) 64 bit</span><br><span class="line">  .-`` .-```.  ```\/    _.,_ <span class="string">''</span>-._                                   </span><br><span class="line"> (    <span class="string">'      ,       .-`  | `,    )     Running in standalone mode</span><br><span class="line"> |`-._`-...-` __...-.``-._|'</span>` _.-<span class="string">'|     Port: 6379</span><br><span class="line"> |    `-._   `._    /     _.-'</span>    |     PID: 21854</span><br><span class="line">  `-._    `-._  `-./  _.-<span class="string">'    _.-'</span>                                   </span><br><span class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span><br><span class="line"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |           http://redis.io        </span><br><span class="line">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span>                                   </span><br><span class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span><br><span class="line"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |                                  </span><br><span class="line">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span>                                   </span><br><span class="line">      `-._    `-.__.-<span class="string">'    _.-'</span>                                       </span><br><span class="line">          `-._        _.-<span class="string">'                                           </span><br><span class="line">              `-.__.-'</span>                                               </span><br><span class="line"></span><br><span class="line">21854:M 30 Mar 19:59:27.851 <span class="comment"># Server started, Redis version 3.0.7</span></span><br><span class="line">21854:M 30 Mar 19:59:27.851 * DB loaded from disk: 0.000 seconds</span><br><span class="line">21854:M 30 Mar 19:59:27.851 * The server is now ready to accept connections on port 6379</span><br></pre></td></tr></table></figure></p>
+<p>To shutdown the server, just press ‘ctrl + c’ and we will see this output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">21854:signal-handler (1459394920) Received SIGINT scheduling shutdown...</span><br><span class="line">21854:M 30 Mar 20:28:40.837 <span class="comment"># User requested shutdown...</span></span><br><span class="line">21854:M 30 Mar 20:28:40.837 * Saving the final RDB snapshot before exiting.</span><br><span class="line">21854:M 30 Mar 20:28:40.839 * DB saved on disk</span><br><span class="line">21854:M 30 Mar 20:28:40.839 <span class="comment"># Redis is now ready to exit, bye bye...</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Run-Redis-Client"><a href="#Run-Redis-Client" class="headerlink" title="Run Redis Client"></a>Run Redis Client</h3><p>To start Redis client, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="built_in">cd</span> src</span><br><span class="line">./redis-cli</span><br></pre></td></tr></table></figure></p>
+<p>Here is a small test below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> key ppt</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get key</span><br><span class="line"><span class="string">"ppt"</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2016-01-25T07:42:59.000Z"><a href="/2016/01/24/Kafka-Consumer-Java-Maven-QuickStart/">2016-01-24</a></time>
-            
-              <h1 class="title"><a href="/2016/01/24/Kafka-Consumer-Java-Maven-QuickStart/">Kafka Consumer Java Maven QuickStart</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
         </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2016-01-18T06:39:33.000Z"><a href="/2016/01/17/Kafka-Running-Multi-broker-Cluster-Tutorial/">2016-01-17</a></time>
-            
-              <h1 class="title"><a href="/2016/01/17/Kafka-Running-Multi-broker-Cluster-Tutorial/">Kafka Running Multi-broker Cluster Tutorial</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2016-01-18T06:38:34.000Z"><a href="/2016/01/17/Kafka-Publisher-Java-Maven-QuickStart/">2016-01-17</a></time>
-            
-              <h1 class="title"><a href="/2016/01/17/Kafka-Publisher-Java-Maven-QuickStart/">Kafka Publisher Java Maven QuickStart</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-11-04T04:32:33.000Z"><a href="/2015/11/03/Pig-MapReduce-Maven-UDFs-QuickStart-Guide/">2015-11-03</a></time>
-            
-              <h1 class="title"><a href="/2015/11/03/Pig-MapReduce-Maven-UDFs-QuickStart-Guide/">Pig MapReduce Maven UDFs QuickStart Guide</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-11-03T03:48:50.000Z"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">2015-11-02</a></time>
-            
-              <h1 class="title"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">Pig Local Maven UDFs QuickStart Guide</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-09-25T02:09:45.000Z"><a href="/2015/09/24/Hadoop-Maven-Project-Quick-Start/">2015-09-24</a></time>
-            
-              <h1 class="title"><a href="/2015/09/24/Hadoop-Maven-Project-Quick-Start/">Hadoop MapReduce Maven Project Quick Start</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-09-09T03:01:57.000Z"><a href="/2015/09/08/Docker-Install-Guide/">2015-09-08</a></time>
-            
-              <h1 class="title"><a href="/2015/09/08/Docker-Install-Guide/">Docker Install Guide</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-09-06T08:25:50.000Z"><a href="/2015/09/06/Mahout-Install-and-Basic-Commands/">2015-09-06</a></time>
-            
-              <h1 class="title"><a href="/2015/09/06/Mahout-Install-and-Basic-Commands/">Mahout Install and Basic Commands</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-09-05T06:37:57.000Z"><a href="/2015/09/04/Kafka-Install-and-Basic-Commands/">2015-09-04</a></time>
-            
-              <h1 class="title"><a href="/2015/09/04/Kafka-Install-and-Basic-Commands/">Kafka Install and Basic Commands</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-09-05T06:37:17.000Z"><a href="/2015/09/04/Spark-Install-and-Basic-Commands/">2015-09-04</a></time>
-            
-              <h1 class="title"><a href="/2015/09/04/Spark-Install-and-Basic-Commands/">Spark Install and Basic Commands</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
   </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -405,7 +348,7 @@
       var dsq = document.createElement('script');
       dsq.type = 'text/javascript';
       dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
     </script>

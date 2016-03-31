@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Страница 8 | YBC HomePage</title>
+  <title>Página 8 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,100 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-02T03:37:47.000Z"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">2015-09-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 1.x Single-Node Cluster Set Up</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of a perfect tutorial for Hadoop Single-Node Cluster set up: <a href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/" target="_blank" rel="external">Hadoop Setup Guide</a>.</p>
+<p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 1.2.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.puh &gt;&gt; <span class="variable">$NEWUSER_HOME</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-1.2.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-1.2.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit conf/hadoop-env.sh file, which is under conf/ directory, by setting the JAVA_HOME variable:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=... (your jdk path)</span><br></pre></td></tr></table></figure></p>
+<p>Then create the /app/hadoop/tmp directory and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p /app/hadoop/tmp</span><br><span class="line">$ sudo chown newuser:hadoop /app/hadoop/tmp</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 /app/hadoop/tmp</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.<br>      If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.</p>
+<p>At last, edit the following files:<br>For conf/core-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;/app/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;hdfs://localhost:54310&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/mapred-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;localhost:54311&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/hdfs-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;Default block replication.</span><br><span class="line">  The actual number of replications can be specified when the file is created.</span><br><span class="line">  The default is used <span class="keyword">if</span> replication is not specified <span class="keyword">in</span> create time.</span><br><span class="line">  &lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.NameNode: STARTUP_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">STARTUP_MSG: Starting NameNode</span><br><span class="line">STARTUP_MSG:   host = ubuntu/127.0.1.1</span><br><span class="line">STARTUP_MSG:   args = [-format]</span><br><span class="line">STARTUP_MSG:   version = 0.20.2</span><br><span class="line">STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.20 -r 911707; compiled by <span class="string">'chrisdo'</span> on Fri Feb 19 08:07:34 UTC 2010</span><br><span class="line">************************************************************/</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/start-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting namenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-namenode-ubuntu.out</span><br><span class="line">localhost: starting datanode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-datanode-ubuntu.out</span><br><span class="line">localhost: starting secondarynamenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-secondarynamenode-ubuntu.out</span><br><span class="line">starting jobtracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-jobtracker-ubuntu.out</span><br><span class="line">localhost: starting tasktracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-tasktracker-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2287 TaskTracker</span><br><span class="line">2149 JobTracker</span><br><span class="line">1938 DataNode</span><br><span class="line">2085 SecondaryNameNode</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NameNode</span><br></pre></td></tr></table></figure></p>
+<p>Go to following links:<br><a href="http://localhost:50070/" target="_blank" rel="external">http://localhost:50070/</a> – web UI of the NameNode daemon<br><a href="http://localhost:50030/" target="_blank" rel="external">http://localhost:50030/</a> – web UI of the JobTracker daemon<br><a href="http://localhost:50060/" target="_blank" rel="external">http://localhost:50060/</a> – web UI of the TaskTracker daemon</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/stop-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -547,100 +641,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-05T06:58:55.000Z"><a href="/2015/08/04/Linux-Commands-for-System-Management/">2015-08-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/04/Linux-Commands-for-System-Management/">Linux Commands for System Management</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>###Change to Others<br>Change to other users existing in the system.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root</span><br><span class="line">$ su username</span><br></pre></td></tr></table></figure>
-<p>Note: The system login password of that user is needed.</p>
-<hr>
-
-<p>###Sudo Commands List</p>
-<p>#####Installation Command<br>Install new package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Search the repositories and install the build dependencies for <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get build-dep &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Use aptitude command instead of apt-get:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo aptitude install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Automatically installs packages upon missing file access and install an uninstalled package using apt-get if a program tries to access a file known to belong in an uninstalled package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo auto-apt run &lt;<span class="built_in">command</span>_string&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Note: Multiple package names can be applied.</p>
-<p>#####Maintenance Command<br>Make sure that the  source list is up-to-date.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>Upgrades all installed packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
-<p>Upgrades the most important packages at the expense of less important ones if necessary.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
-<p>Updates the package lists and checks for broken dependencies.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get check</span><br></pre></td></tr></table></figure></p>
-<p>Removes .deb files for packages that are no longer installed on the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get clean</span><br></pre></td></tr></table></figure></p>
-<p>Reconfigure the named package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Place the desired package on hold.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; hold"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
-<p>Removes the “hold” or “locked package” state set by the above command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; install"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
-<p>#####Removal commands<br>Removes an installed package, leaving configuration files intact.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Completely removes a package and the associated configuration files. But configuration files residing in ~ are not usually affected by this command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Removes packages that were installed by other packages and are no longer needed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get autoremove</span><br></pre></td></tr></table></figure></p>
-<p>#####Search commands<br>Find packages that include <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache search &lt;search_term&gt;</span><br></pre></td></tr></table></figure></search_term></p>
-<p>Find packages whose names contain <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg <span class="_">-l</span> *&lt;search_term&gt;*</span><br></pre></td></tr></table></figure></search_term></p>
-<p>List files in package <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -L &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Lists files in the <path_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -c &lt;path_name&gt; (exp: foo.deb)</span><br></pre></td></tr></table></figure></path_name></p>
-<p>Determines which installed package owns <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dlocate &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Does the same as dlocate, but does not require the installation of any additional packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -S &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Acts like dlocate and dpkg -S, but searches all available packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-file search &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Provides a listing of every package in the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache pkgnames</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###Rename a command<br>Use alias to set a command to self-designed command name. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> rbt=<span class="string">"sudo reboot"</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###System Resource Management</p>
-<p>#####Memory Management<br>Shows memory and cache usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free</span><br></pre></td></tr></table></figure></p>
-<p>#####Disk Management<br>List devices, that is, show installed hardware.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsdev</span><br></pre></td></tr></table></figure></p>
-<p>Show (disk) file usage, recursively.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ du -ach</span><br></pre></td></tr></table></figure></p>
-<p>Shows filesystem usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ df</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###Job Management<br>Process Statistics: lists currently executing processes by owner and PID (process ID).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps ax/aux</span><br></pre></td></tr></table></figure></p>
-<p>Combining the ps command with grep or kill.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pgrep pattern</span><br><span class="line">$ pkill</span><br></pre></td></tr></table></figure></p>
-<p>Continuously updated display of most cpu-intensive processes.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Вперед &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -674,7 +679,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>35</small></li>
@@ -691,7 +696,7 @@
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>2</small></li>
+    <li><a href="/tags/Database/">Database</a><small>3</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -727,9 +732,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 11.25px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.5px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -750,6 +755,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a>
       </li>
     
@@ -763,10 +772,6 @@
     
       <li>
         <a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a>
       </li>
     
   </ul>

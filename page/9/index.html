@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Страница 9 | YBC HomePage</title>
+  <title>Página 9 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,95 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-05T06:58:55.000Z"><a href="/2015/08/04/Linux-Commands-for-System-Management/">2015-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/04/Linux-Commands-for-System-Management/">Linux Commands for System Management</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>###Change to Others<br>Change to other users existing in the system.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root</span><br><span class="line">$ su username</span><br></pre></td></tr></table></figure>
+<p>Note: The system login password of that user is needed.</p>
+<hr>
+
+<p>###Sudo Commands List</p>
+<p>#####Installation Command<br>Install new package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Search the repositories and install the build dependencies for <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get build-dep &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Use aptitude command instead of apt-get:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo aptitude install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Automatically installs packages upon missing file access and install an uninstalled package using apt-get if a program tries to access a file known to belong in an uninstalled package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo auto-apt run &lt;<span class="built_in">command</span>_string&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note: Multiple package names can be applied.</p>
+<p>#####Maintenance Command<br>Make sure that the  source list is up-to-date.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>Upgrades all installed packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>Upgrades the most important packages at the expense of less important ones if necessary.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>Updates the package lists and checks for broken dependencies.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get check</span><br></pre></td></tr></table></figure></p>
+<p>Removes .deb files for packages that are no longer installed on the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get clean</span><br></pre></td></tr></table></figure></p>
+<p>Reconfigure the named package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Place the desired package on hold.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; hold"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
+<p>Removes the “hold” or “locked package” state set by the above command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; install"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
+<p>#####Removal commands<br>Removes an installed package, leaving configuration files intact.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Completely removes a package and the associated configuration files. But configuration files residing in ~ are not usually affected by this command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Removes packages that were installed by other packages and are no longer needed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get autoremove</span><br></pre></td></tr></table></figure></p>
+<p>#####Search commands<br>Find packages that include <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache search &lt;search_term&gt;</span><br></pre></td></tr></table></figure></search_term></p>
+<p>Find packages whose names contain <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg <span class="_">-l</span> *&lt;search_term&gt;*</span><br></pre></td></tr></table></figure></search_term></p>
+<p>List files in package <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -L &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Lists files in the <path_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -c &lt;path_name&gt; (exp: foo.deb)</span><br></pre></td></tr></table></figure></path_name></p>
+<p>Determines which installed package owns <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dlocate &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Does the same as dlocate, but does not require the installation of any additional packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -S &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Acts like dlocate and dpkg -S, but searches all available packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-file search &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Provides a listing of every package in the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache pkgnames</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###Rename a command<br>Use alias to set a command to self-designed command name. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> rbt=<span class="string">"sudo reboot"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###System Resource Management</p>
+<p>#####Memory Management<br>Shows memory and cache usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free</span><br></pre></td></tr></table></figure></p>
+<p>#####Disk Management<br>List devices, that is, show installed hardware.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsdev</span><br></pre></td></tr></table></figure></p>
+<p>Show (disk) file usage, recursively.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ du -ach</span><br></pre></td></tr></table></figure></p>
+<p>Shows filesystem usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ df</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###Job Management<br>Process Statistics: lists currently executing processes by owner and PID (process ID).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps ax/aux</span><br></pre></td></tr></table></figure></p>
+<p>Combining the ps command with grep or kill.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pgrep pattern</span><br><span class="line">$ pkill</span><br></pre></td></tr></table></figure></p>
+<p>Continuously updated display of most cpu-intensive processes.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -703,56 +792,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:39.000Z"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">LintCode Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/">Вперед &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -786,7 +830,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>35</small></li>
@@ -803,7 +847,7 @@
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>2</small></li>
+    <li><a href="/tags/Database/">Database</a><small>3</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -839,9 +883,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 11.25px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.5px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 13.75px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 13.75px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -862,6 +906,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a>
       </li>
     
@@ -875,10 +923,6 @@
     
       <li>
         <a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a>
       </li>
     
   </ul>
