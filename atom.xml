@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-03-31T03:52:10.000Z</updated>
+  <updated>2016-04-03T08:16:37.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hackerrank Data Structure Problem Solution List IV</title>
+    <link href="http://yular.github.io/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/"/>
+    <id>http://yular.github.io/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/</id>
+    <published>2016-04-03T03:58:34.000Z</published>
+    <updated>2016-04-03T08:16:37.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the summary of Hackerrank data structure problem solution list.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;summary list&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Below is the detailed explanation of the idea behind solution.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Merging-communities&quot;&gt;&lt;a href=&quot;#Merging-communities&quot; class=&quot;headerlink&quot; title=&quot;Merging communities&quot;&gt;&lt;/a&gt;Merging communities&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/merging-communities&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/merging-communities.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;&lt;br&gt;Data structure problem. Use union find data structure to simulate the process.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Components-in-a-graph&quot;&gt;&lt;a href=&quot;#Components-in-a-graph&quot; class=&quot;headerlink&quot; title=&quot;Components in a graph&quot;&gt;&lt;/a&gt;Components in a graph&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/components-in-graph&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/components-in-graph.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;&lt;br&gt;DFS problem. Just use DFS to count the number of nodes of the connected components. &lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Data-Structures-MCQ-1&quot;&gt;&lt;a href=&quot;#Data-Structures-MCQ-1&quot; class=&quot;headerlink&quot; title=&quot;Data Structures MCQ 1&quot;&gt;&lt;/a&gt;Data Structures MCQ 1&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/how-well-do-you-know-trees&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;Answer:  n - 1&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Data-Structures-MCQ-2&quot;&gt;&lt;a href=&quot;#Data-Structures-MCQ-2&quot; class=&quot;headerlink&quot; title=&quot;Data Structures MCQ 2&quot;&gt;&lt;/a&gt;Data Structures MCQ 2&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/are-you-an-expert-on-data-structures&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;Answer: segment tree&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Data-Structures-MCQ-3&quot;&gt;&lt;a href=&quot;#Data-Structures-MCQ-3&quot; class=&quot;headerlink&quot; title=&quot;Data Structures MCQ 3&quot;&gt;&lt;/a&gt;Data Structures MCQ 3&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/are-you-an-expert-on-data-structures-1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;Answer: Stack&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Contact&quot;&gt;&lt;a href=&quot;#Contact&quot; class=&quot;headerlink&quot; title=&quot;Contact&quot;&gt;&lt;/a&gt;Contact&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/contacts&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/contacts.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;&lt;br&gt;Data structure and DP problem. Use DP with Trie as data structure. Pre-calculate the number of substrings of dictionary and dp[i] is the number of substrings that ends with ith node of Trie tree. So for any given string, if it can be found as a subtring of any strings on the dictionary, return the corresponding dp[i].&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;No-Prefix-Set&quot;&gt;&lt;a href=&quot;#No-Prefix-Set&quot; class=&quot;headerlink&quot; title=&quot;No Prefix Set&quot;&gt;&lt;/a&gt;No Prefix Set&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/no-prefix-set&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/no-prefix-set.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;Data structure problem. Just use Trie tree to simulate the process.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the summary of Hackerrank data structure problem solution list.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/ma
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Redis QuickStart</title>
@@ -630,50 +673,6 @@
     
     
       <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kafka Running Multi-broker Cluster Tutorial</title>
-    <link href="http://yular.github.io/2016/01/17/Kafka-Running-Multi-broker-Cluster-Tutorial/"/>
-    <id>http://yular.github.io/2016/01/17/Kafka-Running-Multi-broker-Cluster-Tutorial/</id>
-    <published>2016-01-18T06:39:33.000Z</published>
-    <updated>2016-03-08T07:09:57.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the official &lt;a href=&quot;http://kafka.apache.org/documentation.html#quickstart&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial to setup a multi-broker Kafka cluster&lt;/a&gt;. Below is our own tutorial.&lt;/p&gt;
-&lt;p&gt;In this tutorial, we will also setup a three-brokers Kafka cluster. To read the single broker Kafka cluster, read this &lt;a href=&quot;http://yular.github.io/2015/09/04/Kafka-Install-and-Basic-Commands/&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here we use Kafka 0.9.0.0.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;Create-and-Edit-Properties-Files&quot;&gt;&lt;a href=&quot;#Create-and-Edit-Properties-Files&quot; class=&quot;headerlink&quot; title=&quot;Create and Edit Properties Files&quot;&gt;&lt;/a&gt;Create and Edit Properties Files&lt;/h3&gt;&lt;p&gt;At first, creat another two properties files through the following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cp config/server.properties config/server-1.properties&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cp config/server.properties config/server-2.properties&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Open these two properties files and edit the following items of them:&lt;br&gt;For config/server-1.properties file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;broker.id=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;port=9093&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log.dir=/tmp/kafka-logs-1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;For config/server-2.properties file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;broker.id=2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;port=9094&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;log.dir=/tmp/kafka-logs-2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that if we do not run kafka cluster as root, Kafka may fail to generate the log directory or to save log files there. In this case, we should execute the following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; /tmp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo mkdir kafka-logs-1 kafka-logs-2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo chmod 777 kafka-logs-1 kafka-logs-2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Remember that broker id should be unique and is the permanent name of each node in the cluster.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Start-the-Multi-brokers-Cluster&quot;&gt;&lt;a href=&quot;#Start-the-Multi-brokers-Cluster&quot; class=&quot;headerlink&quot; title=&quot;Start the Multi-brokers Cluster&quot;&gt;&lt;/a&gt;Start the Multi-brokers Cluster&lt;/h3&gt;&lt;p&gt;At first, we should start the three brokers through the following commands. Before that, remember to start our zookeeper server and here is the &lt;a href=&quot;http://yular.github.io/2015/09/03/Zookeeper-Install-and-Basic-Commands/&quot;&gt;tutorial&lt;/a&gt; to do that.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-server-start.sh config/server.properties &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-server-start.sh config/server-1.properties &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-server-start.sh config/server-2.properties &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Execute this command to check whether all the brokers are running or not:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ ps -elf | grep kafka&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;The output should be similar like this:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;0 S yular   5066     1  0  78   0 - 457155 futex Jan14 ?        00:28:23 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.65.x86_64/bin/java -Xmx1G -Xms1G -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; -Xloggc:/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs/kafkaServer-gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dcom.sun.management.jmxremote.ssl=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dkafka.logs.dir=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs -D&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.configuration=file:bin/../config/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.properties -cp :/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../libs/* kafka.Kafka config/server.properties&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0 S yular   5165     1  0  78   0 - 453424 futex Jan14 ?        00:26:05 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.65.x86_64/bin/java -Xmx1G -Xms1G -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; -Xloggc:/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs/kafkaServer-gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dcom.sun.management.jmxremote.ssl=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dkafka.logs.dir=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs -D&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.configuration=file:bin/../config/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.properties -cp :/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../libs/* kafka.Kafka config/server-1.properties&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0 S yular   5229     1  0  78   0 - 439978 futex Jan14 ?        00:25:36 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.65.x86_64/bin/java -Xmx1G -Xms1G -server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+DisableExplicitGC -Djava.awt.headless=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt; -Xloggc:/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs/kafkaServer-gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dcom.sun.management.jmxremote.ssl=&lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt; -Dkafka.logs.dir=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../logs -D&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.configuration=file:bin/../config/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;4j.properties -cp :/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kafka_2.11-0.9.0.0/bin/../libs/* kafka.Kafka config/server-2.properties&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0 S yular  29288 29101  0  78   0 - 15303 -      19:11 pts/6    00:00:00 grep kafka&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Create-Topics-and-Send-Message&quot;&gt;&lt;a href=&quot;#Create-Topics-and-Send-Message&quot; class=&quot;headerlink&quot; title=&quot;Create Topics and Send Message&quot;&gt;&lt;/a&gt;Create Topics and Send Message&lt;/h3&gt;&lt;p&gt;To create a new topic, use this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 3 --partitions 1 --topic three-brokers-topic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;To check brokers status, execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic three-brokers-topic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;To publish message to our new topic, execute this command to start our publisher:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-console-producer.sh --broker-list localhost:9092 --topic three-brokers-topic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Now if we start our consumer through the following command (we had better open a new terminal tap or window to do that):&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bin/kafka-console-consumer.sh --zookeeper localhost:2181 --from-beginning --topic three-brokers-topic&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;and then in the publisher, everytime when we type new message and send it, consumer end will receive the message:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# publisher end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;haha&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hoho&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hehe&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Consumer end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;haha&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hoho&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;hehe&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Hope this tutorial will help.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the official &lt;a href=&quot;http://kafka.apache.org/documentation.html#quickstart&quot;&gt;tutorial to setup a multi-broker Kafka cluster&lt;/a&gt;. Below is our own tutorial.&lt;/p&gt;
-&lt;p&gt;In this tutorial, we will also setup a three-brokers Kafka cluster. To read the single broker Kafka cluster, read this &lt;a href=&quot;http://yular.github.io/2015/09/04/Kafka-Install-and-Basic-Commands/&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here we use Kafka 0.9.0.0.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
     
   </entry>
   
