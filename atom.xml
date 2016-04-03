@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-04-03T08:16:37.000Z</updated>
+  <updated>2016-04-03T08:19:45.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yular.github.io/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/"/>
     <id>http://yular.github.io/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/</id>
     <published>2016-04-03T03:58:34.000Z</published>
-    <updated>2016-04-03T08:16:37.000Z</updated>
+    <updated>2016-04-03T08:19:45.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of Hackerrank data structure problem solution list.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;summary list&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Below is the detailed explanation of the idea behind solution.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;hr&gt;
 
 &lt;h3 id=&quot;Merging-communities&quot;&gt;&lt;a href=&quot;#Merging-communities&quot; class=&quot;headerlink&quot; title=&quot;Merging communities&quot;&gt;&lt;/a&gt;Merging communities&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/merging-communities&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/merging-communities.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;&lt;br&gt;Data structure problem. Use union find data structure to simulate the process.&lt;/p&gt;
@@ -49,7 +50,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;Here is the summary of Hackerrank data structure problem solution list.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/ma
+      &lt;p&gt;Here is the summary of Hackerrank data structure problem solution list.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot;&gt;summary list&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Below is the detailed explanation of the idea behind solution.&lt;/p&gt;
     
     </summary>
     
