@@ -103,6 +103,7 @@
         <p>Bower is a very useful and easy to use Web libraries management tool, which can manage components containing HTML, CSS, JavaScript, fonts or even image files. Bower uses a kind of manifest file called bower.json to keeps track of packages used in project. Below is the link of official website:<br><a href="http://bower.io/" target="_blank" rel="external">bower.io</a></p>
 <p>Here is the method to install bower<br>Bower requires node, npm and git. After we have installed all these staffs, we can install bower through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g bower</span><br></pre></td></tr></table></figure></p>
 <p>Note: please do not ignore -g parameter.</p>
+<a id="more"></a>
 <hr>
 
 <p>Here is the summary of frequent used bower commands:</p>
@@ -110,21 +111,43 @@
 <p>Interactively create a bower.json file</p>
 <hr>
 
-<h3 id="bower-install"><a href="#bower-install" class="headerlink" title="bower install"></a>bower install</h3><hr>
+<h3 id="bower-install"><a href="#bower-install" class="headerlink" title="bower install"></a>bower install</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install [&lt;endpoint&gt;] [&lt;endpoint&gt;] [&lt;options&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>Installs project dependencies recursively, which inclue:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. dependencies specified <span class="keyword">in</span> bower.json of project</span><br><span class="line">2. All “external” dependencies not specified <span class="keyword">in</span> bower.json, but present <span class="keyword">in</span> bower_components</span><br><span class="line">3. Any additional &lt;endpoint&gt; passed as an argument to this <span class="built_in">command</span></span><br></pre></td></tr></table></figure></p>
+<p>If –save flag is used in <options>, all additional endpoints will be saved to dependencies in bower.json.<br>Endpoints have following forms:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;package&gt;                    <span class="comment"># A package URL, physical location or registry name.</span></span><br><span class="line">&lt;package&gt;<span class="comment">#&lt;version&gt;          # A valid range, commit, branch, etc.</span></span><br><span class="line">&lt;name&gt;=&lt;package&gt;<span class="comment">#&lt;version&gt;   # The name it should have locally, meaning that rename the package in the local.</span></span><br></pre></td></tr></table></figure></options></p>
+<p>Options include:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-F, --force-latest: Force latest version on conflict</span><br><span class="line">-p, --production: Do not install project devDependencies</span><br><span class="line">-S, --save: Save installed packages into the project’s bower.json dependencies</span><br><span class="line">-D, --save-dev: Save installed packages into the project’s bower.json devDependencies</span><br><span class="line">-E, --save-exact: Configure installed packages with an exact version rather than semver</span><br></pre></td></tr></table></figure></p>
+<hr>
 
-<h3 id="bower-uninstall"><a href="#bower-uninstall" class="headerlink" title="bower uninstall"></a>bower uninstall</h3><hr>
+<h3 id="bower-uninstall"><a href="#bower-uninstall" class="headerlink" title="bower uninstall"></a>bower uninstall</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower uninstall &lt;name&gt; [&lt;name&gt; ..] [&lt;options&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>Uninstall a package from local bower_components directory.<br>The options include:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-S, --save: Remove uninstalled packages from the project’s bower.json dependencies</span><br><span class="line">-D, --save-dev: Remove uninstalled packages from the project’s bower.json devDependencies</span><br></pre></td></tr></table></figure></p>
+<hr>
 
-<h3 id="bower-update"><a href="#bower-update" class="headerlink" title="bower update"></a>bower update</h3><hr>
+<h3 id="bower-update"><a href="#bower-update" class="headerlink" title="bower update"></a>bower update</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower update &lt;name&gt; [&lt;name&gt; ..] [&lt;options&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>Updates installed packages to their newest version according to bower.json.<br>The options include:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-F, --force-latest: Force latest version on conflict</span><br><span class="line">-p, --production: Do not install project devDependencies</span><br><span class="line">-S, --save: Update dependencies <span class="keyword">in</span> bower.json</span><br><span class="line">-D, --save-dev: Update devDependencies <span class="keyword">in</span> bower.json</span><br></pre></td></tr></table></figure></p>
+<hr>
 
-<h3 id="bower-help"><a href="#bower-help" class="headerlink" title="bower help"></a>bower help</h3><hr>
+<h3 id="bower-help"><a href="#bower-help" class="headerlink" title="bower help"></a>bower help</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower <span class="built_in">help</span> &lt;<span class="built_in">command</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Display help information about the given command.</p>
+<hr>
 
-<h3 id="bower-info"><a href="#bower-info" class="headerlink" title="bower info"></a>bower info</h3><hr>
+<h3 id="bower-info"><a href="#bower-info" class="headerlink" title="bower info"></a>bower info</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower info &lt;package&gt;[<span class="comment">#&lt;version&gt;] [&lt;property&gt;]</span></span><br></pre></td></tr></table></figure>
+<p>Display overall information of a package or of a particular version.</p>
+<hr>
 
-<h3 id="bower-list"><a href="#bower-list" class="headerlink" title="bower list"></a>bower list</h3><hr>
+<h3 id="bower-list"><a href="#bower-list" class="headerlink" title="bower list"></a>bower list</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower list [&lt;options&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>List packages and possible updates on the local.<br>The options include:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-p, --paths: Generates a simple JSON <span class="built_in">source</span> mapping</span><br><span class="line">-r, --relative: Make paths relative to the directory config property, <span class="built_in">which</span> defaults to bower_components</span><br></pre></td></tr></table></figure></p>
+<hr>
 
-<h3 id="bower-search"><a href="#bower-search" class="headerlink" title="bower search"></a>bower search</h3><hr>
+<h3 id="bower-cache"><a href="#bower-cache" class="headerlink" title="bower cache"></a>bower cache</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower cache &lt;<span class="built_in">command</span>&gt; [args]</span><br></pre></td></tr></table></figure></p>
+<p>The <command> list is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">clean <span class="comment"># Cleans cached packages</span></span><br><span class="line">list <span class="comment"># Lists cached packages</span></span><br></pre></td></tr></table></figure></p>
+<hr>
 
-<h3 id="bower-prune"><a href="#bower-prune" class="headerlink" title="bower prune"></a>bower prune</h3><hr>
+<h3 id="bower-search"><a href="#bower-search" class="headerlink" title="bower search"></a>bower search</h3><p>The command syntax is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower search [&lt;name&gt;]</span><br></pre></td></tr></table></figure></p>
+<p>Finds all packages or a specific package.</p>
+<hr>
+
+<h3 id="bower-prune"><a href="#bower-prune" class="headerlink" title="bower prune"></a>bower prune</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower prune</span><br></pre></td></tr></table></figure>
+<p>Uninstalls local extraneous packages.</p>
+<hr>
 
 <h3 id="bower-version"><a href="#bower-version" class="headerlink" title="bower version"></a>bower version</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower -version</span><br></pre></td></tr></table></figure>
 <p>Get the version of bower.</p>
