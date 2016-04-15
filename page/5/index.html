@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 5 | YBC HomePage</title>
+  <title>Página 5 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,50 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-09T01:02:32.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">Hackerrank AI and Machine Learning Solution List V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -640,71 +684,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-10-20T02:51:18.000Z"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">2015-10-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">SSL Certification Serverside Deployment Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the simple guide to deploy SSL certification on server side. Currently, we use Tomcat8 in this tutorial.</p>
-<h4 id="Generate-the-pfx-file-on-Windows"><a href="#Generate-the-pfx-file-on-Windows" class="headerlink" title="Generate the pfx file on Windows"></a>Generate the pfx file on Windows</h4><p>Here is a good <a href="https://major.io/2007/03/23/exporting-ssl-certificates-from-windows-to-linux/" target="_blank" rel="external">tutorial</a>. </p>
-<p>After we get the pfx file, please remember the password and send this file to the remote server.</p>
-<h4 id="Decrypt-the-PFX-File"><a href="#Decrypt-the-PFX-File" class="headerlink" title="Decrypt the PFX File"></a>Decrypt the PFX File</h4><p>In this step, we run the following command to decrypt the pfx file created in the last step.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in file.pfx -out file.pem</span><br></pre></td></tr></table></figure></p>
-<p>We will be asked to provide the password for the PFX file in this step. Once we enter that, we will again be asked to provide a new password which is used to encrypt the private key. Please remember this password also. Here we set the new password as “changeit” in our example.</p>
-<p>When this step is complete, we should have a PEM file. Open the file in a text editor and copy the private key and certificate to different files. Remember to keep the dashed lines intact when we copy the certificates. There is some additional text above the key, and also between the key and certificate – this text should be ignored and should not be included in the certificate and key files.</p>
-<p>Now we will get a file.key and a file.crt file.</p>
-<h4 id="Decrypt-the-private-key"><a href="#Decrypt-the-private-key" class="headerlink" title="Decrypt the private key"></a>Decrypt the private key</h4><p>In this step, run this command to decrypt the private key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in file.key -out file.key</span><br></pre></td></tr></table></figure></p>
-<p>Again openSSL will ask for a password to decrypt the key, and this is the password we set when you decrypted the PFX.</p>
-<h4 id="Generate-the-SSL-Certificate"><a href="#Generate-the-SSL-Certificate" class="headerlink" title="Generate the SSL Certificate"></a>Generate the SSL Certificate</h4><p>In this step, we will create a new PFX certificate through the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile more.crt</span><br></pre></td></tr></table></figure></p>
-<p>In this step, OpenSSL will us to enter a new passowrd for this pfx file and in this tutorial, we use “changeit” again. Note that the more.crt is optional in some cases. And then we can install certificate.pfx into Tomcat8 like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/tomcat8/sso</span><br><span class="line">cp certificate.pfx /opt/tomcat8/sso</span><br><span class="line">cp file.key /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br><span class="line">cp file.crt /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="Configure-Tomcat8"><a href="#Configure-Tomcat8" class="headerlink" title="Configure Tomcat8"></a>Configure Tomcat8</h4><p>The last step is about server configuration. For Tomcat, the only thing we have to do is to edit its server.xml file which is under its own conf directory. So run this command to open it in vim:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/tomcat8/conf/server.xml</span><br><span class="line">``` </span><br><span class="line">And <span class="keyword">then</span> edit the &lt;Connector&gt; tag and change it as follows:</span><br><span class="line">``` bash</span><br><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span><br><span class="line"></span><br><span class="line"> maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"> keystoreType=<span class="string">"PKCS12"</span></span><br><span class="line"></span><br><span class="line"> keystoreFile=<span class="string">"/opt/tomcat8/sso/certificate.pfx"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line"> clientAuth=<span class="string">"false"</span> sslProtocol=<span class="string">"TLS"</span></span><br><span class="line"></span><br><span class="line"> ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
-<p>If we skip the step to generate a new pfx file, then the following context of <connector> should also work:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11AprProtocol"</span></span><br><span class="line"></span><br><span class="line">  maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"> </span><br><span class="line">  keystoreType=<span class="string">"PKCS12"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateFile=<span class="string">"/opt/tomcat8/sso/file.crt"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateKeyFile=<span class="string">"/opt/tomcat8/sso/file.key"</span></span><br><span class="line"></span><br><span class="line">  SSLVerifyClient=<span class="string">"optional"</span> SSLProtocol=<span class="string">"TLSv1+TLSv1.1+TLSv1.2"</span> </span><br><span class="line"></span><br><span class="line">  ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></connector></p>
-<p>Actually, the ciphers field is not necessary in some cases. But if when we re/start the server and visit the website, we get a WEAK PASSWORD or similar exception, then that field is needed.</p>
-<p>Now just re/start the server and type <a href="https://your_url" target="_blank" rel="external">https://your_url</a> to see whether it works.</p>
-<p>Hope this tutorial is helpful and welcome any feedbacks~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -738,7 +722,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>37</small></li>
@@ -771,7 +755,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
   
-    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>9</small></li>
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>10</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
   
@@ -791,9 +775,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.89px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.22px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.44px;">Java</a> <a href="/tags/Life/" style="font-size: 11.11px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.56px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 14.44px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.33px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.78px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.5px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.75px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -814,6 +798,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/">H2O on Python Installation QuickStart Tutorial</a>
+      </li>
+    
+      <li>
         <a href="/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/">Hackerrank Data Structure Problem Solution List V</a>
       </li>
     
@@ -827,10 +815,6 @@
     
       <li>
         <a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a>
       </li>
     
   </ul>
