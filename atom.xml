@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-04-15T08:13:24.000Z</updated>
+  <updated>2016-05-25T02:36:35.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL Join Optimization</title>
+    <link href="http://yular.github.io/2016/05/24/SQL-Join-Optimization/"/>
+    <id>http://yular.github.io/2016/05/24/SQL-Join-Optimization/</id>
+    <published>2016-05-25T02:17:57.000Z</published>
+    <updated>2016-05-25T02:36:35.000Z</updated>
+    
+    <content type="html">&lt;p&gt;In SQL query, sometimes we need to combine two or multiple tables together into only one view. But different joining tables order may have different efficiency.&lt;/p&gt;
+&lt;p&gt;An efficient SQL join statement is as follows:&lt;br&gt;For left join:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sql operation&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;from large_table a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;left join small_table b&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;on a.col_a = b.col_b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;For right join:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sql operation&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;from small_table b&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;right join large_table a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;on a.col_a = b.col_b&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;In SQL query, sometimes we need to combine two or multiple tables together into only one view. But different joining tables order may hav
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Codility Challenges Solution List 2010</title>
+    <link href="http://yular.github.io/2016/04/25/Codility-Challenges-Solution-List-2010/"/>
+    <id>http://yular.github.io/2016/04/25/Codility-Challenges-Solution-List-2010/</id>
+    <published>2016-04-26T03:55:16.000Z</published>
+    <updated>2016-04-26T03:55:16.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>H2O on Python Installation QuickStart Tutorial</title>
@@ -597,59 +636,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Strange-Dialog&quot;&gt;&lt;a href=&quot;#Strange-Dialog&quot; class=&quot;headerlink&quot; title=&quot;Strange Dialog&quot;&gt;&lt;/a&gt;Strange Dialog&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.ti
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SPOJ Problems Solution List from One to Fifty Four</title>
-    <link href="http://yular.github.io/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/"/>
-    <id>http://yular.github.io/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/</id>
-    <published>2016-02-08T05:36:27.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Hash-it&quot;&gt;&lt;a href=&quot;#Hash-it&quot; class=&quot;headerlink&quot; title=&quot;Hash it!&quot;&gt;&lt;/a&gt;Hash it!&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.spoj.com/problems/HASHIT/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/spoj_29_HASHIT.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;An easy implementation problem. Just follow the instruction to build the hash table and do the operation. The maximum number of collision shoud be 19 not 20.&lt;br&gt;实为简单的模拟题。根据题目建好哈希表并依照给定命令进行操作就好。碰撞次数是0-19。&lt;/p&gt;
-&lt;hr&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Hash-it&quot;&gt;&lt;a href=&quot;#Hash-it&quot; class=&quot;headerlink&quot; title=&quot;Hash it!&quot;&gt;&lt;/a&gt;Hash it!&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://www.spoj.com/problems/HASHIT/&quot; t
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Timus Problems for Beginners Solution List</title>
-    <link href="http://yular.github.io/2016/02/07/Timus-Problems-for-Beginners-Solution-List/"/>
-    <id>http://yular.github.io/2016/02/07/Timus-Problems-for-Beginners-Solution-List/</id>
-    <published>2016-02-08T05:10:08.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the solution list of Timus OJ problems for beginners.&lt;/p&gt;
-&lt;h3 id=&quot;Rope&quot;&gt;&lt;a href=&quot;#Rope&quot; class=&quot;headerlink&quot; title=&quot;Rope&quot;&gt;&lt;/a&gt;Rope&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.timus.ru/problem.aspx?space=1&amp;amp;num=1020&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_1020_rope.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;A basic convex hull problem. The answer is the sum of length of convex hull and length of circle of which the radius is the given r.&lt;br&gt;基本的凸包问题。解法是凸包周长以及圆周长的和。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;About-Grisha-N&quot;&gt;&lt;a href=&quot;#About-Grisha-N&quot; class=&quot;headerlink&quot; title=&quot;About Grisha N.&quot;&gt;&lt;/a&gt;About Grisha N.&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.timus.ru/problem.aspx?space=1&amp;amp;num=2012&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_2012_aboutgrishan.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;An very easy implementation problem. If f is no greater than 7, then it is impossible to solve all the problems.&lt;br&gt;简单的模拟题。判断f是否不小于7即可。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Simple-Expression&quot;&gt;&lt;a href=&quot;#Simple-Expression&quot; class=&quot;headerlink&quot; title=&quot;Simple Expression&quot;&gt;&lt;/a&gt;Simple Expression&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.timus.ru/problem.aspx?space=1&amp;amp;num=2066&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_2066_simpleexpression.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;An easy math and brute force problem. We enumerate all the orders of given arrays and try all the combination of operators to form the expression. Then calculate the value of each of these expressions and return the minimum one.&lt;br&gt;简单的数学/暴力问题。枚举所有的数字顺序和计算符号组合方法，计算所有的这两种组合产生的表达式的值并返回最小值即可。&lt;/p&gt;
-&lt;hr&gt;
-
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the solution list of Timus OJ problems for beginners.&lt;/p&gt;
-&lt;h3 id=&quot;Rope&quot;&gt;&lt;a href=&quot;#Rope&quot; class=&quot;headerlink&quot; title=&quot;Rope&quot;&gt;&lt;/a&gt;Rope&lt;
     
     </summary>
     
