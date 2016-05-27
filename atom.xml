@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-05-25T02:36:35.000Z</updated>
+  <updated>2016-05-27T09:13:18.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Chrome Install in Centos QuickStart Guide</title>
+    <link href="http://yular.github.io/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/"/>
+    <id>http://yular.github.io/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/</id>
+    <published>2016-05-27T08:59:16.000Z</published>
+    <updated>2016-05-27T09:13:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is a good &lt;a href=&quot;http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main steps are as follows:&lt;/p&gt;
+&lt;h3 id=&quot;Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux&quot;&gt;&lt;a href=&quot;#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux&quot; class=&quot;headerlink&quot; title=&quot;Download Google Chrome 45 of RHEL/CentOS/Fedora Linux&quot;&gt;&lt;/a&gt;Download Google Chrome 45 of RHEL/CentOS/Fedora Linux&lt;/h3&gt;&lt;p&gt;Download 32 bit version:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;or 64 bit version:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Install-Google-Chrome&quot;&gt;&lt;a href=&quot;#Install-Google-Chrome&quot; class=&quot;headerlink&quot; title=&quot;Install Google Chrome&quot;&gt;&lt;/a&gt;Install Google Chrome&lt;/h3&gt;&lt;p&gt;Here is the command to install Chrome:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install ./google-chrome-stable_current_*.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;If no exceptions show up, Chrome will be installed successfully.&lt;/p&gt;
+&lt;h3 id=&quot;Start-Google-Chrome-from-CLI&quot;&gt;&lt;a href=&quot;#Start-Google-Chrome-from-CLI&quot; class=&quot;headerlink&quot; title=&quot;Start Google Chrome from CLI&quot;&gt;&lt;/a&gt;Start Google Chrome from CLI&lt;/h3&gt;&lt;p&gt;Use following command to start Google Chrome:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;google-chrome &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is a good &lt;a href=&quot;http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/&quot; target=&quot;_blank&quot; rel
+    
+    </summary>
+    
+    
+      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
+    
+  </entry>
   
   <entry>
     <title>SQL Join Optimization</title>
@@ -614,30 +640,6 @@
     <summary type="html">
     
       &lt;p&gt;This summary is more for algorithm contest but it should be also useful for solving industry problems because sometimes we can simply a r
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Timus Problems for String Solution List</title>
-    <link href="http://yular.github.io/2016/02/09/Timus-Problems-for-String-Solution-List/"/>
-    <id>http://yular.github.io/2016/02/09/Timus-Problems-for-String-Solution-List/</id>
-    <published>2016-02-09T09:06:56.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Strange-Dialog&quot;&gt;&lt;a href=&quot;#Strange-Dialog&quot; class=&quot;headerlink&quot; title=&quot;Strange Dialog&quot;&gt;&lt;/a&gt;Strange Dialog&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.timus.ru/problem.aspx?space=1&amp;amp;num=1102&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/Timus/timus_1102_strangedialog.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;.&lt;br&gt;An DP problem. Set dp[i] as whether substring ranging from 0 to i index of original string is consist of only given strings including “in”,  “output”, “one”, “input”, “out” and “puton”. So if dp[n] is true then output “YES”; otherwise, output “NO”, where n is the length of given string.&lt;br&gt;DP 问题（当然也会有其他解法）。设dp[i]为从0到i的字串是否能够仅由”in”,  “output”, “one”, “input”, “out” and “puton” 这些字符串拼接而成。n为给定字符串长度，那么dp[n]为真，则输出”YES”；否则，输出”NO”。&lt;/p&gt;
-&lt;hr&gt;
-
-
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Strange-Dialog&quot;&gt;&lt;a href=&quot;#Strange-Dialog&quot; class=&quot;headerlink&quot; title=&quot;Strange Dialog&quot;&gt;&lt;/a&gt;Strange Dialog&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;http://acm.ti
     
     </summary>
     
