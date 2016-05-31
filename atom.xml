@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-05-27T09:13:18.000Z</updated>
+  <updated>2016-05-31T16:19:35.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</title>
+    <link href="http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/"/>
+    <id>http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/</id>
+    <published>2016-05-31T16:08:19.000Z</published>
+    <updated>2016-05-31T16:19:35.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hackerrank / InterviewStreet&lt;/a&gt; algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.&lt;/p&gt;
+&lt;p&gt;Here is the summary of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;solution list&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Xor-sequence&quot;&gt;&lt;a href=&quot;#Xor-sequence&quot; class=&quot;headerlink&quot; title=&quot;Xor-sequence&quot;&gt;&lt;/a&gt;Xor-sequence&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/xor-se&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/xor-se.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code&lt;/a&gt;&lt;br&gt;A kind of construction problem. At first, figure out the pattern which is a repeating sequence: 0,1,2,2,6,7,0,0. And then calculate the result based on the given position.&lt;/p&gt;
+&lt;hr&gt;
+
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; 
+    
+    </summary>
+    
+    
+      <category term="Bit Manipulation" scheme="http://yular.github.io/tags/Bit-Manipulation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hackerrank InterviewStreet Algorithm Problem Solution List String</title>
+    <link href="http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/"/>
+    <id>http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/</id>
+    <published>2016-05-31T16:08:08.000Z</published>
+    <updated>2016-05-31T16:24:42.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hackerrank / InterviewStreet&lt;/a&gt; algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.&lt;/p&gt;
+&lt;p&gt;Here is the summary of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;solution list&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Bear-and-Steady-Gene&quot;&gt;&lt;a href=&quot;#Bear-and-Steady-Gene&quot; class=&quot;headerlink&quot; title=&quot;Bear and Steady Gene&quot;&gt;&lt;/a&gt;Bear and Steady Gene&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/bear-and-steady-gene&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code&lt;/a&gt;&lt;br&gt;A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.&lt;/p&gt;
+&lt;hr&gt;
+
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; 
+    
+    </summary>
+    
+    
+      <category term="String" scheme="http://yular.github.io/tags/String/"/>
+    
+  </entry>
   
   <entry>
     <title>Chrome Install in Centos QuickStart Guide</title>
@@ -580,71 +630,6 @@
     
     
       <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CDN online libraries for Web Developers</title>
-    <link href="http://yular.github.io/2016/02/28/CDN-online-libraries-for-Web-Developers/"/>
-    <id>http://yular.github.io/2016/02/28/CDN-online-libraries-for-Web-Developers/</id>
-    <published>2016-02-28T20:13:17.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Sometimes when we read web page HTML code, we may see the following stuffs:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;script src=&lt;span class=&quot;string&quot;&gt;&quot;https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.7/angular2.min.js&quot;&lt;/span&gt; &amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If we paste the link of the src attribute to the browser, we will see the source code of that angular js file. That means we can access the library from Internet resource without download it to our project folder: thus we can save more disk space!&lt;/p&gt;
-&lt;p&gt;Here are links of the three of the main CDN services that web developers use for the project.&lt;br&gt;1.cdnjs.com&lt;br&gt;&lt;a href=&quot;https://cdnjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Click Here&lt;/a&gt;.&lt;br&gt;&lt;img src=&quot;https://c2.staticflickr.com/2/1662/25058960300_17505675c9_b.jpg&quot; alt=&quot;cdnjs homepage&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2.JSDELIVR&lt;br&gt;&lt;a href=&quot;https://www.jsdelivr.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Click Here&lt;/a&gt;.&lt;br&gt;&lt;img src=&quot;https://c2.staticflickr.com/2/1528/24986975619_952eb0e490_b.jpg&quot; alt=&quot;JSDELIVR homepage&quot;&gt;&lt;/p&gt;
-&lt;p&gt;3.Google APIs&lt;br&gt;&lt;a href=&quot;https://developers.google.com/speed/libraries/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Click Here&lt;/a&gt;.&lt;br&gt;&lt;img src=&quot;https://c2.staticflickr.com/2/1572/25236359982_7f8b220ccc_b.jpg&quot; alt=&quot;Google APIs&quot;&gt;&lt;/p&gt;
-&lt;p&gt;4.Bootstrap CDN&lt;br&gt;&lt;a href=&quot;https://www.bootstrapcdn.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Click Here&lt;/a&gt;.&lt;br&gt;&lt;img src=&quot;https://c2.staticflickr.com/2/1604/25139383580_d31866c6c7_b.jpg&quot; alt=&quot;Bootstrap CDN&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Sometimes when we read web page HTML code, we may see the following stuffs:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
-    
-    </summary>
-    
-    
-      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Thinking in Dynamic Programming Algorithm</title>
-    <link href="http://yular.github.io/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/"/>
-    <id>http://yular.github.io/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/</id>
-    <published>2016-02-22T06:08:08.000Z</published>
-    <updated>2016-03-05T20:46:12.000Z</updated>
-    
-    <content type="html">&lt;p&gt;This summary is more for algorithm contest but it should be also useful for solving industry problems because sometimes we can simply a real world problem to a ideal mathematical problem with some appropriate constraints.&lt;/p&gt;
-&lt;p&gt;Dynamic programming algorithm is widely used in computer science and it helps people to solve various problems efficiently. The basic idea behind dynamic programming algorithm is to save the result of previous steps into a table(s) so that if the result of current step depends on previous ones, then the algorithm can retrieve these historic results immediately and apply them to the computation in current step. This is very important because with the help of this table, algorithm does not need to recompute the results of previous steps which may increase the time complexity greatly. That is the reason why dynamic programming algorithm is usually more efficient than navie brute force search algorithm but will provide correct result or optimization solution than heuristic search. However, of course dynamic programming algorithm usually consume more memory than less efficient algorithms. Usually, we call the computation result of previous steps “solution of subproblems” because the result of current step (global problem) is based on them and with iteration continues, all the current steps will become subproblems of future steps. Note that a problem that has subproblems structure means that it can be recursively divided into problems in smaller scale and those subproblems in the same level are independent with each other, and solution of the problem with higher level depends on its subproblems instead of those have higher level.&lt;/p&gt;
-&lt;p&gt;To design an efficient dynamic programming algorithm, the key thing is to figure out the dynamic programming formula. With the given formula, the algorithm will iteratively compute the result of current step based on the result of previous steps saved in tables. So in the formula, we should provide base case initially to start the iterative computation. Here is an example. In Fibonacci sequence, the first and second elements are both one, and for every ith element where i &amp;gt; 2, A[i] = A[i - 1] + A[i - 2]. Obviously, we can use dynamic programming algorithm to compute the value of ith element of this sequence. Thus, we can design the dynamic programming formula as follows:&lt;br&gt;                dp[i] = 1 if i &amp;lt;= 2;&lt;br&gt;                dp[i] = dp[i - 1] + dp[i - 2] if i &amp;gt; 2&lt;br&gt;We save the value of every ith element into an array used as a table mentioned above and we can get the ith element with only O(n) time complexity. Note that different dynamic programming formula will lead to different time complexity or different space complexity. Even with the same dynamic programming algorithm formula, different data structure or different algorithms to retrieve historic results will make the original dynamic programming algorithm more/less efficient.&lt;/p&gt;
-&lt;p&gt;Dynamic programming algorithm is not the silver bullet but it is one of the best choices for some specific variety of problems. In my eye, these kinds of problems include optimization problem such as find the maximum value or minmum cost of given situation, and the counting problem like counting the number of times of specific case showing up in the problem. In most of time, the given problem can be solved in navie brute force search algorithm with O(n!) or O(2^n) or O(n^C) where C is a large constant time complexity. But if we use dynamic programming algorithm, sometimes we may not solve the problem in linear time complexity but the solution is feasible in practice. The classic case is the famous &lt;a href=&quot;https://en.wikipedia.org/wiki/Knapsack_problem&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Knapsack problem&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;As described above, to design a good dynamic programming algorithm, we should carry out a computation efficiency dynamic programming formula. But that is not the end. After that, we should also consider following things:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;What kind of data structure should be used as table to save historic data?&lt;/li&gt;
-&lt;li&gt;What kind of query algorithm should be used to retrieve historic data if we can only used basic array as table?&lt;/li&gt;
-&lt;li&gt;Could we use some theorems or mathematic approaches to optimize the algorithm?&lt;br&gt;Actually, there will be more issues but the above are the main ones. The followings are answers to above problems.&lt;/li&gt;
-&lt;li&gt;The data structures include hash table (ordered_map or ordered_set or equivalent), binary index tree, segment tree, or even multi-dimensonal arrays and etc.&lt;/li&gt;
-&lt;li&gt;The query algorithms include binary search, hash search and etc.&lt;/li&gt;
-&lt;li&gt;Of course we can. Sometimes if we want to optimize an O(n!) time complexity algorithm to an O(n^2) algorithm, we may have to use some known theorems so that we can do an intelligent derivation for our formula. Sometimes we may find that there are some patterns inside the subproblems structure which is also helpful to decrease time complexity. But usually these patterns mean a new formula and thus, we may have to redesign it.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Above all, here is the workflow for dynamic programming algorithm:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Given a problem, consider is it a good fit for dynamic programming algorithm? Think of the subproblem structure.&lt;/li&gt;
-&lt;li&gt;If dynamic programming algorithm is a good choice, design the formula of it.&lt;/li&gt;
-&lt;li&gt;See whether we can optimize the algorithm with different data structure or table retrieve algorithm or known theorems or special subproblem patterns? If not and time complexity is not acceptable, go back to step two.&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;This summary is more for algorithm contest but it should be also useful for solving industry problems because sometimes we can simply a r
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
     
   </entry>
   

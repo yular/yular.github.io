@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 4 | YBC HomePage</title>
+  <title>Page 4 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,98 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-10T20:22:04.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">2016-01-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Using-Maven-Assemble-Plugins-Tutorial/">Maven Including All Dependencies into One Jar Using Maven Assemble Plugins Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-10T20:16:45.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">2016-01-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">Maven Including All Dependencies into One Jar Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>When we compile Java Maven project into a jar file, we should include third party jars that are used in the program; otherwise, our programs will fail because of No Class Found Error while running. Here are some ways to include all third party indenpencies into only one jar.</p>
+<p>1.Just download the third party jars, save them into project directories and then compile and create our program jar file using command line.</p>
+<p>2.Use <a href="http://maven.apache.org/plugins/maven-assembly-plugin/" target="_blank" rel="external">Maven Assemble Plugin</a> in our project. In this case, we will get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+<p>3.Use <a href="https://code.google.com/p/onejar-maven-plugin/" target="_blank" rel="external">Maven One Jar Plugin</a> in our project. In this case, we also get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -524,108 +616,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-12-09T08:08:33.000Z"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">2015-12-09</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">R Language Install and Basic Commands</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>To install R language on operating system, here is an <a href="https://cran.rstudio.com/" target="_blank" rel="external">official tutorial</a>. But it is not easy to install R on Redhat OS. So here is the tutorial about R installation on Redhat.</p>
-<p>First of all, here is the <a href="https://fedoraproject.org/wiki/EPEL/FAQ#How_can_I_install_the_packages_from_the_EPEL_software_repository.3F" target="_blank" rel="external">official tutorial</a> to install R on Redhat. </p>
-<h2 id="Download-Extra-Packages-for-Enterprise-Linux-EPEL"><a href="#Download-Extra-Packages-for-Enterprise-Linux-EPEL" class="headerlink" title="Download Extra Packages for Enterprise Linux (EPEL)"></a>Download Extra Packages for Enterprise Linux (EPEL)</h2><p>We cannot install R through yum. So at first, we should download EPEL through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su -c <span class="string">'rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm'</span></span><br></pre></td></tr></table></figure></p>
-<p>But if we do not know the password of root, then we can use the following commands instead:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</span><br><span class="line">sudo rpm -Uvh epel-release-5-4.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<p>Note that we should use different rpm if the version of Redhat system is later than 5. Please check the official tutorial to figure out the correct rpm file.</p>
-<h2 id="Install-R"><a href="#Install-R" class="headerlink" title="Install R"></a>Install R</h2><p>Since we have the rpm file, the we can install R language through executing this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install R</span><br></pre></td></tr></table></figure></p>
-<p>The tail of output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Installed:</span><br><span class="line"></span><br><span class="line">  R.x86_64 0:3.2.2-2.el5                                                                                                                                                                                 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line"></span><br><span class="line">  R-core.x86_64 0:3.2.2-2.el5                    R-core-devel.x86_64 0:3.2.2-2.el5            R-devel.x86_64 0:3.2.2-2.el5                           avahi-compat-libdns_sd.x86_64 0:0.6.16-10.el5_6    </span><br><span class="line"></span><br><span class="line">  blas-devel.x86_64 0:3.0-38.el5                 bzip2-devel.x86_64 0:1.0.3-6.el5_5           cups.x86_64 1:1.3.7-30.el5_9.3                         desktop-file-utils.x86_64 0:0.10-7                 </span><br><span class="line"></span><br><span class="line">  ghostscript.x86_64 0:8.70-14.el5_8.1           ghostscript-fonts.noarch 0:5.50-13.1.1       lapack-devel.x86_64 0:3.0-38.el5                       libRmath.x86_64 0:3.2.2-2.el5                      </span><br><span class="line"></span><br><span class="line">  libRmath-devel.x86_64 0:3.2.2-2.el5            libX11-devel.x86_64 0:1.0.3-11.el5_7.1       libXau-devel.x86_64 0:1.0.1-3.1                        libXdmcp-devel.x86_64 0:1.0.1-2.1                  </span><br><span class="line"></span><br><span class="line">  mesa-libGL-devel.x86_64 0:6.5.1-7.11.el5_9     netpbm.x86_64 0:10.35.58-10.el5              netpbm-progs.x86_64 0:10.35.58-10.el5                  paps.x86_64 0:0.6.6-20.el5                         </span><br><span class="line"></span><br><span class="line">  pcre-devel.x86_64 0:6.6-6.el5_6.1              poppler.x86_64 0:0.5.4-19.el5                poppler-utils.x86_64 0:0.5.4-19.el5                    psutils.x86_64 0:1.17-26.1                         </span><br><span class="line"></span><br><span class="line">  tcl-devel.x86_64 0:8.4.13-6.el5                tetex.x86_64 0:3.0-33.15.el5_8.1             tetex-dvips.x86_64 0:3.0-33.15.el5_8.1                 tetex-fonts.x86_64 0:3.0-33.15.el5_8.1             </span><br><span class="line"></span><br><span class="line">  tetex-latex.x86_64 0:3.0-33.15.el5_8.1         texinfo-tex.x86_64 0:4.8-14.el5              tk-devel.x86_64 0:8.4.13-5.el5_1.1                     urw-fonts.noarch 0:2.3-6.1.1                       </span><br><span class="line"></span><br><span class="line">  xdg-utils.noarch 0:1.0.2-4.el5                 xorg-x11-proto-devel.x86_64 0:7.1-13.el5     xz-devel.x86_64 0:4.999.9-0.3.beta.20091007git.el5     zlib-devel.x86_64 0:1.2.3-7.el5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/R/">R</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-12-08T07:37:29.000Z"><a href="/2015/12/07/Latex-Template-And-Learning-Material/">2015-12-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/12/07/Latex-Template-And-Learning-Material/">Latex Template And Learning Material</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Just two links:<br>A good website for <a href="http://www.latextemplates.com/" target="_blank" rel="external">Latex Templates</a>.</p>
-<p>A tool service website for <a href="https://www.overleaf.com" target="_blank" rel="external">Latex Generation and Test</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Tools/">Tools</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -668,6 +663,8 @@
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
+    <li><a href="/tags/Bit-Manipulation/">Bit Manipulation</a><small>1</small></li>
+  
     <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
@@ -700,6 +697,8 @@
   
     <li><a href="/tags/R/">R</a><small>1</small></li>
   
+    <li><a href="/tags/String/">String</a><small>1</small></li>
+  
     <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
   
     <li><a href="/tags/Test/">Test</a><small>1</small></li>
@@ -714,9 +713,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Algortihm/" style="font-size: 10px;">Algortihm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.86px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Algortihm/" style="font-size: 10px;">Algortihm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.86px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
   </div>
 </div>
 
@@ -737,6 +736,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">Hackerrank InterviewStreet Algorithm Problem Solution List String</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">Chrome Install in Centos QuickStart Guide</a>
       </li>
     
@@ -746,14 +753,6 @@
     
       <li>
         <a href="/2016/04/25/Codility-Challenges-Solution-List-2010/">Codility Challenges Solution List 2010</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/">H2O on Python Installation QuickStart Tutorial</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/">Hackerrank Data Structure Problem Solution List V</a>
       </li>
     
   </ul>
