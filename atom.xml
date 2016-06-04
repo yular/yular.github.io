@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-06-04T01:54:31.000Z</updated>
+  <updated>2016-06-04T03:18:31.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MongoDB Install on Centos</title>
+    <link href="http://yular.github.io/2016/06/03/MongoDB-Install-on-Centos/"/>
+    <id>http://yular.github.io/2016/06/03/MongoDB-Install-on-Centos/</id>
+    <published>2016-06-04T02:31:07.000Z</published>
+    <updated>2016-06-04T03:18:31.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official document&lt;/a&gt; to install MongoDB on CentOS / RedHat OS.&lt;/p&gt;
+&lt;p&gt;Below is a simple version of install guide.&lt;/p&gt;
+&lt;h2 id=&quot;Configure-the-yum&quot;&gt;&lt;a href=&quot;#Configure-the-yum&quot; class=&quot;headerlink&quot; title=&quot;Configure the yum&quot;&gt;&lt;/a&gt;Configure the yum&lt;/h2&gt;&lt;p&gt;Create a /etc/yum.repos.d/mongodb-org-3.2.repo file so that we can install MongoDB directly, using yum.&lt;/p&gt;
+&lt;p&gt;Copy following content into the repository file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[mongodb-org-3.2]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;name=MongoDB Repository&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;baseurl=https://repo.mongodb.org/yum/redhat/&lt;span class=&quot;variable&quot;&gt;$releasever&lt;/span&gt;/mongodb-org/3.2/x86_64/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpgcheck=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;enabled=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Install-MongoDB-and-associated-tools&quot;&gt;&lt;a href=&quot;#Install-MongoDB-and-associated-tools&quot; class=&quot;headerlink&quot; title=&quot;Install MongoDB and associated tools&quot;&gt;&lt;/a&gt;Install MongoDB and associated tools&lt;/h2&gt;&lt;p&gt;Execute following command to install MongoDB:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install -y mongodb-org&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Run-MongoDB-Service&quot;&gt;&lt;a href=&quot;#Run-MongoDB-Service&quot; class=&quot;headerlink&quot; title=&quot;Run MongoDB Service&quot;&gt;&lt;/a&gt;Run MongoDB Service&lt;/h2&gt;&lt;p&gt;Before we start MongoDB Service, we may have to configure SELinux first.&lt;/p&gt;
+&lt;p&gt;Check /etc/selinux/config. The value of variable SELINUX has these three options:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;enforcing (by default)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;disabled&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;permissive&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;`&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;If it is in enforcing mode, we may have to execute this command to ensure that MongoDB can use the port:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;semanage port &lt;span class=&quot;_&quot;&gt;-a&lt;/span&gt; -t mongod_port_t -p tcp 27017&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Or we can change the SELINUX into different mode and reboot the system so that change can take effect.&lt;/p&gt;
+&lt;p&gt;By default, MongoDB save data files in /var/lib/mongo and save log files in /var/log/mongodb. All these settigs can be changed in /etc/mongod.conf.&lt;/p&gt;
+&lt;p&gt;To start MongoDB, execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo service mongod start&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;To restart MongoDB, execute this &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo service mongod restart&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;To stop MongoDB, execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo service mongod stop&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Verify-MongoDB-Boosting&quot;&gt;&lt;a href=&quot;#Verify-MongoDB-Boosting&quot; class=&quot;headerlink&quot; title=&quot;Verify MongoDB Boosting&quot;&gt;&lt;/a&gt;Verify MongoDB Boosting&lt;/h2&gt;&lt;p&gt;Check /var/log/mongodb/mongod.log to find the following lines:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[initandlisten] waiting &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; connections on port &amp;lt;port&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;where &lt;port&gt; is the port configured in /etc/mongod.conf and 27017 is by default.&lt;/port&gt;&lt;/p&gt;
+&lt;p&gt;Or ensure that MongoDB will start following a system reboot by issuing the following command::&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo chkconfig mongod on&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Remove-MongoDB&quot;&gt;&lt;a href=&quot;#Remove-MongoDB&quot; class=&quot;headerlink&quot; title=&quot;Remove MongoDB&quot;&gt;&lt;/a&gt;Remove MongoDB&lt;/h2&gt;&lt;p&gt;After stop MongoDB, execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum erase $(rpm -qa | grep mongodb-org)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;And then remove data files as well as log files:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo rm -r /var/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;/mongodb&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo rm -r /var/lib/mongo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the &lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official docume
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
+    
+  </entry>
   
   <entry>
     <title>Lua Install QuickStart</title>
@@ -595,34 +632,6 @@
     <summary type="html">
     
       &lt;p&gt;This article will be updated later. Currently I only paste these links about where to find free/limited/paid web finance APIs (most of th
-    
-    </summary>
-    
-    
-      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web Dev Experience: Using Angular Material and Bootstrap Together</title>
-    <link href="http://yular.github.io/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/"/>
-    <id>http://yular.github.io/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/</id>
-    <published>2016-03-12T08:23:42.000Z</published>
-    <updated>2016-03-12T08:45:32.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;http://stackoverflow.com/questions/29313990/angularjs-bootstrap-for-angular-material-design-for-angular-together&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt; about this question.&lt;/p&gt;
-&lt;p&gt;When we do web front-end development, we may find that some elements can be implemented more easily in Angular Material but others can be implemented in Angular Bootstrap more easily. However, it is a bad idea to use them together in the same Web application front-end.&lt;/p&gt;
-&lt;p&gt;The main reasons are as follows:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Both their css target front end elements but they have different designs. For example, even though dialog of both libraries are rectangle, the dialog of bootstrap is round rectangle. So if use them together, the look and feel of elements may be inconsistent.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;2.Angular material handles front end elements using directive. When they release a new version (29 releases so far), developers have to spent some time testing earlier code. &lt;/p&gt;
-&lt;p&gt;3.Increase the dependencies size of project.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the &lt;a href=&quot;http://stackoverflow.com/questions/29313990/angularjs-bootstrap-for-angular-material-design-for-angular-together&quot; ta
     
     </summary>
     

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Página 10 | YBC HomePage</title>
+  <title>Seite 10 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,84 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-08T03:47:20.000Z"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">Linux Mail Server exim4 Setup Guide (without docker) and JavaMail QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Exim is a message transfer agent (MTA) for use on Unix sytems connected to the Internet. And Exim4 is the default MTA on Debian system. It is easy to install and configure exim4 under Debian system. Here we setup Exim4 as a mail server to transfer message. The MTA implements both the client and server portions of SMTP or uses Postfix protocol.</p>
+<p>Here is the official page of Exim: <a href="http://www.exim.org/" target="_blank" rel="external">Exim</a></p>
+<p>The following are the steps of setup a mail server using Exim4. Here is a good tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04" target="_blank" rel="external">tutorial</a></p>
+<p>#####1.Installation<br>To install Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install exim4</span><br></pre></td></tr></table></figure></p>
+<p>#####2.Configuration<br>To configure Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure exim4-config</span><br></pre></td></tr></table></figure></p>
+<p>Then we will see a configuration interface.</p>
+<p>#######Mail Server Configuration<br>Choose the first one: internet site; mail is sent and received directly using SMTP.<br><img src="https://c1.staticflickr.com/1/481/20225786738_af70fdae0d_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Type FQDN<br>Type the hostname.domainname.tld format string as the FQDN for our mail address. Actually, any domain names can be used here even some existing mail domain name. </p>
+<p>Here is the standard input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname.domainname.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here is my input:<br><img src="https://c1.staticflickr.com/1/441/20405421232_208355ffcf_n.jpg" alt=""> </p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######SMTP Listner<br>Usually, the default value is the best choice. See below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1;::1</span><br></pre></td></tr></table></figure></p>
+<p>This is a kind of IPv6 address.</p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Mail Destination<br>Add all the mail destinations that we want for which Exim should accept mail. We can list our:</p>
+<ul>
+<li>FQDN</li>
+<li>localhost</li>
+<li>local hostname</li>
+</ul>
+<p>Use ; to separate each address.<br><img src="https://c1.staticflickr.com/1/509/20405590912_2a0fbc0de5_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Relay Options<br>For me, I left all relay options blank.</p>
+<p>Keep pressing the “Tap” key to highlight “<ok>“ and pressing Enter.</ok></p>
+<p>#######DNS Queries<br>For me, select “<no>“ and press Enter.</no></p>
+<p>#######Delivery Method<br>For me, I choose the first option: mbox format in /var/mail.<br><img src="https://c1.staticflickr.com/1/547/19791748654_fa3d3355c3_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Spliting File<br>For me, I choose “<no>“.</no></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Postmaster address<br>Enter the below text, substituting “you” “yourdomain” &amp; “tld” with our own values:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root you@yourdomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>And everything is done.</p>
+<p>#####Test Mail<br>Use the following command to do the test:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"This is the first mail"</span> | mail <span class="_">-s</span> <span class="string">"Hello Subject"</span> someone@somedomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here you can use your gmail or other public mail server to do the test. If everything goes well, you may find the email is in the spam :-)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -704,114 +782,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T17:03:43.000Z"><a href="/2015/07/21/Interview-Skill-Summary/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/Interview-Skill-Summary/">Interview Skill Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>After students graduate from school or when employees would like to find a new job, they have to take interviews from companies or agencies. Here is the interview summary based my own experience and it should be useful for those who want to seek a technical job at IT companies or technical departments of agencies. Therefore, this page may be updated in the future.</p>
-<p>To pass interviews, there are mainly three steps to go through. The following is the detailed description of each step.</p>
-<p>#<em>Preparation of Interviews</em></p>
-<p><hr></p>
-<p>###Resume<br>To apply a position, applicants should provide a resume for the HR. Currently, we can use electronic resume like pdf or word and upload it to the application website; or we can use the account of some popular resume websites like linkedin.</p>
-<p>In the resume, we should provide the following things:</p>
-<ul>
-<li>Basic personal information: name, phone number, mailing address and e-mail address.</li>
-<li>Experience: often referred to work experience. In this part, we should provide the companies/organizations/agencies and corresponding period when we work for them, the positions that we held in them, and the projects as well as our responsibility for those projects that we were working on in those companies. To describe the projects that we worked on, we only have to use two paragraphs: one is the function of the project and the other is our roles and contribution to the projects.</li>
-<li>Education: including the name, period and degree of the school. Even though we may not have a good GPA, still we had better write down on the resume.</li>
-<li>Projects: the projects we have done before. We can use the similar projects description as the description in Experience part. The projects here should be the side projects or course projects. A good strategy is to write some open source projects or join the existing open source project group or organization like ASF.</li>
-<li>Skill: the skill that we have mastered. This part includes the programming language, developing tools, developing operation system and so on.</li>
-<li>Awards: the awards we have earned before. Usually we only provide academic awards or technical competition awards like IOI, ACM-ICPC, or KDD Cup.</li>
-<li>Publication: the academic papers or books published before. Remember to provide publication date and authors.</li>
-<li>Organization: the technical organizations that provided the membership for us.</li>
-</ul>
-<p>In most cases, we only have to provide the first five parts in our resume. One of the most important thing is to be HONEST to YOURSELF. If<br>still find it hard to write a good resume, just go to linked or other similar websites to read the resume post by others and learn from them.</p>
-<p>###Application<br>There are mainly three ways to apply a job.</p>
-<ul>
-<li>Career Fair: Mainly for students. Just dress properly and bring our resume and other documents with us.</li>
-<li>Online Application: Apply the job on the website of the company. Usually we can find the application page on the job or career site. </li>
-<li>Reference: Find some one to refer us. The referer can be the employees of the companies or executive search.</li>
-</ul>
-<p>Actually, there are more ways to do the application. So do not stick to the above three.</p>
-<p>###Interview Questions<br>In the interview, interviewees may meet various questions. Behavior questions and technical questions are the most common ones.</p>
-<p>#####Behavior Questions<br>Here is the list of most widely seen behavior questions appearing in the interivew based on my observation.<br><a href="http://yular.github.io/2015/05/07/Interview-Summary-Behavior-Question/">Behavior Question</a></p>
-<p>Remember, answer the questions precisely and accurately. In the technical interview, we do not have to provide a story about ourself as it will waste too much time and then we will not have enough time to answer the technical questions.</p>
-<p>#####Technical Questions<br>There are mainly three kinds of technical questions (for software engineer position). The following is my experience that how to prepare each kind of technical questions and how to judge when we are ready for them.<br>[1]Algorithm: </p>
-<ul>
-<li>Understand the basic concepts of and basic topics of algorithms. These include brute force, search (dfs and bfs), math, dynamic programming, graph theory, algorithm complexity, NP problems and so on. For more details, view the TopCoder algorithm tutorial list.</li>
-<li>Do programming practice as much as possible until we can come up with the optimal solutions in a short time (in around five minutes or even less) and then write down precise code without any bugs. The code should not be too short but easy to read and understand, following good code style.</li>
-<li>Be able to analyze the complexity of the algorithm. The complexity means time complexity and space complexity.</li>
-<li>Be able to prove the correctness of solution</li>
-</ul>
-<p>[2]Object-Oriented Design (OOD)</p>
-<ul>
-<li>Know common used OOD design patterns and understand when, how and where (the best cases) to use them.</li>
-<li>Do much practice so that when given a case, be able to write down the OOD diagram meeting the requirement and explain it precisely.</li>
-<li>Be able to design, analyze and implement the algorithms of specific/key module(s) in our design.</li>
-</ul>
-<p>[3]System Design (SD)</p>
-<ul>
-<li>Know common used design patterns and basic concepts, and understand when, where and how to use these patterns.</li>
-<li>Be able to balance the trade off of our design and then explain the design precisely.</li>
-<li>Our system design can be scaled up. </li>
-</ul>
-<p>For more details, read the summary here: <a href="http://yular.github.io/2015/07/16/System-Design-Interview-Summary/">System Design Summary</a></p>
-<p>#<em>When in the Interview</em></p>
-<p><hr><br>A common technical interview largely has two arounds which includes a phone interview round and an onsite round. A phone interview round has two or even more sessions and so does an onsite round. In some cases, a extra round will be added if candidates do not perform so well in the previous two rounds.</p>
-<p>###Phone Interview<br>In this kind of interview, interviewers talk with interviewees through cell phone, skype or other communication tool and then interviewees can write down the code on some online document like Google Docs. Each session can last around 45 minutes. But it depends on the company. </p>
-<p>Usually, each session will be divided into two parts: in the first part, interviwers may give some self introduction and then ask some behaviorquestions; in the second part, interviewers will ask some technical questions, which may include explanation of some terminology/concepts and programming problems or other kinds of technical problems. In the last few minutes of each session, the interviewees could ask interviewers some nontechnical questions.</p>
-<p>In most cases, phone interviews should not be hard and just want to test whether the candidates have mastered the fundamental knowledge or not.</p>
-<p>###Onsite Interview<br>Onsite interview is usually the last round of the whole interview. A typical onsite interview can contain four or even more sessions in a day, and it should only last one or two day(s). Each session is about 45 minutes. In some sessions, there may be multiple interviewers because some or one of them are/is shadow. The interview questions are similar as those in the phone interviews but can be more challenging. It means that the problems in the onsite round are more difficult to solve or at least more difficult to come up with an optimal solution; and candidates should write down the code on the white board, and then analyze the solutions. In some situations, the interviewers may ask some follow up (more difficult or tricky) problems based on the last questions.</p>
-<p>Above all, it is not easy to answer all the questions “correctly” in the interview and actually it is not necessary to do so. When we are faced a problem, we can come up with a navie solution for it and discuss the solution with interviewer. If interviewer agree with us on it, we can start to do the coding/writing. Try to write the code in a good style and precisely. If interviewer thinks the solution is not optimal, we should go back to think of it but in some cases, we can ask some hints from interviewer and try to solve the problems based on hints. Interviewers understand that it is too strict for interviewees to answer a very difficult problem in an hour so they may just would like to know the way we come up with a solution when facing with a problem that is difficult and never seen before. Some times, interviewers may play jokes on us or even make some mistakes and they think our solution is not optimal or even wrong. In these cases, we should speak out and argue our solution with interviewers. Do remember that no matter how efficient our solution is, we should write down the complete code to show our programming skill level. Try to finish the code without bugs.</p>
-<p>The best way to be successful in the interiew is to do more practice. Do the mock interview before the actual interview comes. Discuss the solution of interview problems with others and try to find the optimal ones. Limit the time when practice. Try to improve the oral presentation, expecially for non-English speakers.</p>
-<p>#<em>After the Interview</em></p>
-<p><hr><br>The interview results will be processed in some weeks and they will be submitted to hiring community and discussed for a long time. In most cases, we have to wait four or more weeks. If we have pending offers or some other reasons and have to know the result as earlier as possible, we could email the HR and kindly remind that we would like to know the result sooner.</p>
-<p>After we get the offer, we can view the package and discuss it with HR. But remember, offer is just a start not the end. More challenges are waiting for us in the job.</p>
-<p>END</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Interview-Summary/">Interview Summary</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/">Siguiente &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -845,7 +820,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>38</small></li>
@@ -864,7 +839,7 @@
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>4</small></li>
+    <li><a href="/tags/Database/">Database</a><small>5</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -904,9 +879,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Nube de Etiquetas</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.86px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 13.75px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -927,6 +902,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/06/03/MongoDB-Install-on-Centos/">MongoDB Install on Centos</a>
+      </li>
+    
+      <li>
         <a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a>
       </li>
     
@@ -940,10 +919,6 @@
     
       <li>
         <a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">Chrome Install in Centos QuickStart Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/24/SQL-Join-Optimization/">SQL Join Optimization</a>
       </li>
     
   </ul>
