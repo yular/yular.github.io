@@ -90,6 +90,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-06-04T01:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
+<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
+<p>Here is a simple guide to download, build and install Lua on Centos.</p>
+<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
+<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-05-31T16:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
       
       
@@ -201,7 +253,9 @@
       
         <p>Here is a good <a href="http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/" target="_blank" rel="external">tutorial</a>.</p>
 <p>The main steps are as follows:</p>
-<h3 id="Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux"><a href="#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux" class="headerlink" title="Download Google Chrome 45 of RHEL/CentOS/Fedora Linux"></a>Download Google Chrome 45 of RHEL/CentOS/Fedora Linux</h3><p>Download 32 bit version:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">or 64 bit version:</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure></p>
+<h3 id="Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux"><a href="#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux" class="headerlink" title="Download Google Chrome 45 of RHEL/CentOS/Fedora Linux"></a>Download Google Chrome 45 of RHEL/CentOS/Fedora Linux</h3><p>Download 32 bit version:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm</span><br></pre></td></tr></table></figure></p>
+<p>or 64 bit version:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure>
 <h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><p>Here is the command to install Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install ./google-chrome-stable_current_*.rpm</span><br></pre></td></tr></table></figure></p>
 <p>If no exceptions show up, Chrome will be installed successfully.</p>
 <h3 id="Start-Google-Chrome-from-CLI"><a href="#Start-Google-Chrome-from-CLI" class="headerlink" title="Start Google Chrome from CLI"></a>Start Google Chrome from CLI</h3><p>Use following command to start Google Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome &amp;</span><br></pre></td></tr></table></figure></p>
@@ -513,57 +567,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-31T03:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/">official website of redis</a>.</p>
-<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart">official tutorial</a>.</p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/03/30/Redis-QuickStart/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -594,7 +597,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -637,6 +640,8 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
   
+    <li><a href="/tags/Lua/">Lua</a><small>1</small></li>
+  
     <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>10</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>1</small></li>
@@ -661,7 +666,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.86px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 12.86px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 14.29px;">Java</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
   </div>
 </div>
 
@@ -682,6 +687,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a>
       </li>
     
@@ -695,10 +704,6 @@
     
       <li>
         <a href="/2016/05/24/SQL-Join-Optimization/">SQL Join Optimization</a>
-      </li>
-    
-      <li>
-        <a href="/2016/04/25/Codility-Challenges-Solution-List-2010/">Codility Challenges Solution List 2010</a>
       </li>
     
   </ul>
