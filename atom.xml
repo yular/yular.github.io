@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-06-04T01:48:38.000Z</updated>
+  <updated>2016-06-04T01:54:31.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2016/06/03/Lua-Install-QuickStart/"/>
     <id>http://yular.github.io/2016/06/03/Lua-Install-QuickStart/</id>
     <published>2016-06-04T01:32:54.000Z</published>
-    <updated>2016-06-04T01:48:38.000Z</updated>
+    <updated>2016-06-04T01:54:31.000Z</updated>
     
     <content type="html">&lt;p&gt;Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.&lt;/p&gt;
 &lt;p&gt;Here is the official website of &lt;a href=&quot;https://www.lua.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Lua&lt;/a&gt;.&lt;/p&gt;
@@ -30,6 +30,7 @@
 &lt;p&gt;If we meet readline.h not found issues, execute this command to install the missing packages:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install readline-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Install-Lua&quot;&gt;&lt;a href=&quot;#Install-Lua&quot; class=&quot;headerlink&quot; title=&quot;Install Lua&quot;&gt;&lt;/a&gt;Install Lua&lt;/h2&gt;&lt;p&gt;Execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.&lt;/p&gt;
+&lt;p&gt;If Lua is installed successfully, this command will be executed successfully:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;lua&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# Command output : &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
