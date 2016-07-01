@@ -90,6 +90,297 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-05-08T17:25:46.000Z"><a href="/2015/05/08/Object-Oriented-Design-Summary/">2015-05-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/08/Object-Oriented-Design-Summary/">Object-Oriented Design Pattern Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This summary is the note of Head First Design Pattern, including some basic knowledge, guidelines, and all the design patterns and their application examples described in the book.</p>
+<p>Here is the link of Head First Design Pattern in Amazon:<br><a href="http://www.amazon.com/Head-First-Design-Patterns-Freeman/dp/0596007124/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1436977124&amp;sr=1-2&amp;keywords=head+first+object+oriented+design" target="_blank" rel="external">Head First Design Pattern</a></p>
+<p>###Basic</p>
+<p>#####1. Basic Knowledge<br>[1]Design Pattern Concept<br>A Pattern is a solution to a problem in a context.</p>
+<p>[2]Pattern Categorites</p>
+<ul>
+<li>Creational patterns</li>
+<li>Structural patterns</li>
+<li>Behavioral patterns</li>
+</ul>
+<p>[3]Object Oriented Basic</p>
+<ul>
+<li>Abstraction </li>
+<li>Encapsulation </li>
+<li>Polymorphism </li>
+<li>Inheritance.</li>
+</ul>
+<p>[4]Object Oriented Principles</p>
+<ul>
+<li>Encapsulate what varies; Favor composition over inheritance; Program to interfaces, not implementation.</li>
+<li>Strive for loosely coupled designs betweens objects that interact. (The two objects have very little knowledge of each other)</li>
+<li>Classes should be open for extension but closed for modification.</li>
+<li>Dependency Inversion Principle: Depend upon abstraction. Do not depend on concrete classes.</li>
+<li>Least Knowledge: Talk only to your immediate friends.<br>Note: Only invoke methods that belongs to: the object itself; objects passed in as a parameter to the method; Any object the method creates or instantiates; Any components of the object.</li>
+<li>Hollywood Principle: Do not call us, we will call you.</li>
+<li>A class should have only one reason to change.</li>
+</ul>
+<p>[5]Tips:</p>
+<ul>
+<li>Design Patterns give us a shared vocabulary with other developers and let us think at the pattern level.</li>
+<li>A design guru thinks about how to create flexible designs that are maintainable and that can cope with change.</li>
+</ul>
+<p>###GuideLines</p>
+<p>#####2. Guidelines to Follow the Dependency Inversion Principle</p>
+<ul>
+<li>No variable should hold a reference to a concrete class.(Use a factory to get around that)</li>
+<li>No class should derive from a concrete class</li>
+<li>No method should override an implemented method of any of its base classes.</li>
+</ul>
+<p>#####3. Pattern Design Writers Guidelines<br>[1]To be a Design Pattern Writer</p>
+<ul>
+<li>Do your homework</li>
+<li>Take time to reflect and evaluate</li>
+<li>Get your ideas down on paper in a way others can understand</li>
+<li>Have others try your patterns then refine and refine some more</li>
+<li>Do not forget the rule of three</li>
+</ul>
+<p>[2]Better Living with Design Pattern</p>
+<ul>
+<li>Learn the all too common misconceptions about the definition of a “Design Pattern”</li>
+<li>Discover those unify Design Pattern Catalogs and why you just have to get one</li>
+<li>Avoid the embarrasment of using a Design Pattern at the wrong time</li>
+<li>Learn how to keep patterns in classifications where they belong</li>
+<li>See that discovering patterns is not just for the guius: read out quick How To and become a patterns writer too</li>
+<li>Be there when the true identity of the mysterious Gang of Four is revealed</li>
+<li>Keep up with the neighbours - the coffee table books any patterns user must down</li>
+<li>Learn to train your mind a Zen master</li>
+<li>Win friends and influence developers by improving your patterns vocabulary</li>
+</ul>
+<p>[3]Top five ways to share your vocabulary</p>
+<ul>
+<li>In design meetings</li>
+<li>With other developers</li>
+<li>In architecture documentation</li>
+<li>In code comments and naming conventions</li>
+<li>To groups of interested developers</li>
+</ul>
+<p>[4]Thinking in Patterns</p>
+<ul>
+<li>Keep it Simple</li>
+<li>Design Patterns are not a magic bullet; In fact, they are not even a bullet</li>
+<li>You know you need a pattern when you find that a simple solution does not work.</li>
+<li>Refactoring time is Patterns time!</li>
+<li>Take out what you do not really need. Do not be afraid to remove a Design Pattern from the design</li>
+<li>If you do not need it now, do not do it now</li>
+</ul>
+<p>[5]Mind on Patterns</p>
+<ul>
+<li>Beginner Mind: The beginner uses patterns everywhere.</li>
+<li>Intermediate Mind: As learning progresses, the intermediate mind starts to see where patterns are needed and where they are not.</li>
+<li>Zen Mind: Be able to see where patterns fit naturally.</li>
+</ul>
+<p>###Design Patterns</p>
+<p>#####4. The Strategy Pattern<br>The Strategy Pattern defines a family of algorithms encapsulates each one, and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
+<p>Example: Duck Behaviors Design</p>
+<p>Tips:<br>[1]Identify the aspects of application that vary and separate them from what stays the same.</p>
+<ul>
+<li>“Program to an interface” really means “Program to a supertype”. (Polymorphism)<br> When abstract superclass or when interface?</li>
+<li>Relationship between classes: HSA-A, IS-A and IMPLEMENTS</li>
+<li>The promise of the object-oriented design(way) is reuse.</li>
+</ul>
+<p>#####5. The Observer Pattern<br>Defines a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically. </p>
+<p>Note: Loosely coupled is needed.</p>
+<p>#####6. The Decorator Pattern<br>Attach additional responsibility to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality. </p>
+<p>Example: Java IO classes</p>
+<p>Note: Nesting construction</p>
+<p>#####7. The Factory Pattern<br>Defines an interface for creating an object, but less subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.</p>
+<p>Note: </p>
+<ul>
+<li>Creator Class and Product Class, Parallel Class Hierarchies; </li>
+<li>Encapsulating object creation;</li>
+<li>Depend on abstraction instead of concrete classes; </li>
+<li>Subclass</li>
+</ul>
+<p>#####8. The Abstract Factory Pattern<br>Provides an interface for creating families of related or dependent objects without specifying their concrete classes.</p>
+<p>Note:</p>
+<ul>
+<li>Often implemented as factory methods; </li>
+<li>Used when have families of products needed to create</li>
+</ul>
+<p>#####9. The Singleton Pattern<br>Ensures a class has only one instance and provides a global point of access to it.</p>
+<p>#####10. The Command Pattern<br>Encapulation a request as an object, thereby letting you parameterize clients with different requests, queue or log requests and support undoable operation.</p>
+<p>Note:<br>Support Queue data structure.</p>
+<p>#####11. The Adapter Pattern<br>Converts the interface of a class into another interface the clients expect. Adapter lets classes work together that could not otherwise because of incompatible intefaces.</p>
+<p>Example: Home Theater</p>
+<p>#####12. The Facade Pattern<br>Provides a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.</p>
+<p>Note:<br>To make a system easier to use through a simplied interface.</p>
+<p>#####13. The Template Method Pattern<br>Defines the skeleton of an algorithm in a method, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the structure of algorithm.</p>
+<p>Example: JFrames swinging</p>
+<p>#####14. The Iterator Pattern<br>Provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation.</p>
+<p>Example: Java.util Iterator, Java Collection Framework.</p>
+<p>#####15. The Composite Pattern<br>Allows you to compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.</p>
+<p>#####16. The State Pattern<br>Allows an object to alter its behavior when its internal state changes. The object will appear to change its class.</p>
+<p>#####17. The Proxy Pattern<br>Provides a surrogate or placeholder for another object to control access to it.</p>
+<p>Example: Java.rmi; Remote Proxy &amp;&amp; Virtual Proxy &amp;&amp; Protect; Proxy-Java Reflection.</p>
+<p>#####18. The Compound Pattern (Pattern of Pattern)<br>A Compound Pattern combines two or more patterns into a solution that solves a recurring or general problem. </p>
+<p>Example: Model-View-Control.</p>
+<p>#####19. The Anti-Pattern<br>How to go from a problem to a BAD solution</p>
+<p>Extra: Some Simple Steps of Designing Gumball Machine<br>[1]Define a State interface that contains a method for every action in the Gumball Machine.<br>[2]Then we are going to implement a State class for every state of the machine. These classes will be responsible for the behavior of the<br>machine when it is in the corresponding state.<br>[3]Finally, we are going to get rid of all of our conditional code and instead delegate to the state class to do the work for us.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/System-Design/">System Design</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-08T06:55:11.000Z"><a href="/2015/05/07/Interview-Summary-Behavior-Question/">2015-05-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/07/Interview-Summary-Behavior-Question/">Interview Summary: Behavior Question</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>The following is the list of common Behavior Questions in the IT interview and this page will be updated at any time:</p>
+<p>(1) Short self-introduction.(Should be less than one minute)</p>
+<p>(2) Talk about your most challenging project</p>
+<p>(3) Talk about your favourite/most interesting/most enjoying project</p>
+<p>(4) Talk about the most difficult/challenging bugs/difficulty you meet in the project</p>
+<p>(5) In your team, if your teammates have different ideas about the project development, assume you are the leader, how to resolve the disagreement?</p>
+<p>(6) You can ask some questions (about (my) company/team/work …) now (usually during the last several minutes of the interview)</p>
+<p>(7) Here is our xxxxx product. How do you think of it? Any good/bad features? (Usually we should talk more about the bugs or bad features of the product)</p>
+<p>(9) Why you choose our company?</p>
+<p>(10) Why you choose this job?</p>
+<p>(11) What you have learned from your project?</p>
+<p>(12) How much of your day do you spend coding?</p>
+<p>(13) How many meetings do you have every week?</p>
+<p>(14) What is the ratio of testers to developers to program managers? What is the interaction like? How does project planning in the team?</p>
+<p>(15) I notice that you use technology X. How do you handle problem Y?</p>
+<p>(16) Why did the product choose to use X protocol over Y protocol? I know it has the benefits like A, B, C, but many companies do not use it because of issue D.</p>
+<p>(17) I am very interested in scalability. Did you come in with a background in this, or what opportunities are there to learn about it?</p>
+<p>(18) I am not familiar with technology X, but it sounds like a very interesting solution. Could you tell me a bit more about how it works?</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Interview-Summary/">Interview Summary</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-05-08T06:54:37.000Z"><a href="/2015/05/07/Maven-Project-for-eclipse-Tutorial/">2015-05-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/05/07/Maven-Project-for-eclipse-Tutorial/">Maven Project for eclipse Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a step-by-step tutorial to build and run a Maven project in eclipse. Hope that it is useful for every one.</p>
+<p>1.Download the eclipse from the following link:<br><a href="https://eclipse.org/downloads/" target="_blank" rel="external">https://eclipse.org/downloads/</a></p>
+<p>then unzip the compressed file, and you find the eclipse IDE in the directory.</p>
+<p>2.Download and install Maven. Here is the tutorial from Maven official website:<br>Download Maven:<br><a href="https://maven.apache.org/download.cgi" target="_blank" rel="external">https://maven.apache.org/download.cgi</a><br>Install Maven:<br><a href="https://maven.apache.org/download.cgi#Installation" target="_blank" rel="external">https://maven.apache.org/download.cgi#Installation</a></p>
+<p>Note: Different operationg systems have different installation process. For example, in windows, users should configure the system path variable additionally.</p>
+<p>3.Install Maven plugin in eclipse. Here is the tutorial from stackoverflow, quite helpful.<br><a href="http://stackoverflow.com/questions/8620127/maven-in-eclipse-step-by-step-installation" target="_blank" rel="external">http://stackoverflow.com/questions/8620127/maven-in-eclipse-step-by-step-installation</a></p>
+<p>4.Here is a video from Youtu, teaching how to use eclipse IDE to create a Maven project and run it in the IDE.</p>
+<iframe width="854" height="510" src="https://www.youtube.com/embed/n2SJ6pZSD-k" frameborder="0" allowfullscreen></iframe>
+
+<p>5.Moreover, here is the tutorial from Maven official website showing that how to create, compile and run a Maven project using only command line. This is very important because in practice, we have to deploy the Maven project outside of IDE and this skill should be mastered.<br><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="external">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
+<p>It is common that we may meet a lot of technical issues in the project. In these cases, go to the following websites. People there can give you a hand if you can find a similar questions or post new questions.<br><a href="https://maven.apache.org/" target="_blank" rel="external">https://maven.apache.org/</a><br><a href="http://stackoverflow.com/" target="_blank" rel="external">http://stackoverflow.com/</a><br><a href="http://www.quora.com/" target="_blank" rel="external">http://www.quora.com/</a></p>
+<p>If you have any suggestions for this tutorial, please do not hesitate to leave them in the comment area below this blog~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-02-28T18:27:33.000Z"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">2015-02-28</a></time>
       
       
@@ -470,167 +761,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-16T06:49:35.000Z"><a href="/2015/02/15/Lucas-Theorem/">2015-02-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/15/Lucas-Theorem/">Lucas Theorem</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Lucas Theorem is one of the important theorems in Combinatorics.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Combinatorics/">Combinatorics</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-16T06:16:25.000Z"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">2015-02-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">Useful Java Command in Shell Script</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>This post can be updated in the future.<br>Some times we will use command line to compile or run Java program in Linux Console. As far as I know, three kinds of command are used very often and they include: java, maven and Apache ant. Here are the list of the usage of these three commands.</p>
-<ol>
-<li>Java<br>java - Launches a Java application<br>java [options] class [arguments]<br>java [options] -jar file.jar [arguments]<br>javaw [options] class [arguments]<br>javaw [options] -jar file.jar [arguments]</li>
-</ol>
-<p>javac - Java Language Programming Compiler<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac [options] [sourcefiles] [classes] [@argfiles]</span><br></pre></td></tr></table></figure></p>
-<p>jar - The Java Archive Tool<br>      combines multiple files into a single JAR archive file<br>Create jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar c[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
-<p>Update jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar u[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
-<p>Extract jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar x[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
-<p>List table of contents of jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar t[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
-<p>Add index to jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar i jarfile [-Joption]</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>Maven<br>Compile Application Sources (Change to the directory containing pom.xml)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn compile</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Compile Test Sources and Run Unit Tests<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
-<p>Create a JAR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
-<p>Install JAR File in Local Repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install</span><br></pre></td></tr></table></figure></p>
-<p>Remove the Target Directory with All the Build Data Before Starting so that it is fresh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br></pre></td></tr></table></figure></p>
-<ol>
-<li>Ant<br>Build the Ant Project<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ant runtime</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-16T05:34:02.000Z"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">2015-02-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">Machine Learning Top Researcher List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>In Machine Learning Area, there are many great scientists who have made great contribution to the development of Machine Learning. Some of them currently are professors in universities, and others are working for companies in industry. The following is the list of these reserchers that I have ever known. The order of this list is random. If you think it is more appropriate to add or remove some researchers in this list or to modify the statement, please feel free to contact me.</p>
-<p>1.Geoffrey Hinton<br>Professor of University of Toronto and Researcher of Google Toronto. Famous for his work on artificial neural networks, especially Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" rel="external">http://en.wikipedia.org/wiki/Geoffrey_Hinton</a><br>Homepage:<br><a href="http://www.cs.toronto.edu/~hinton/" target="_blank" rel="external">http://www.cs.toronto.edu/~hinton/</a></p>
-<p>2.Yann LeCun<br>Professor of New York University and Researcher of Facebook Artificial Intelligence Research. Famous for his work on convolutional neural networks (CNN).<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Yann_LeCun" target="_blank" rel="external">http://en.wikipedia.org/wiki/Yann_LeCun</a><br>Homepage:<br><a href="http://yann.lecun.com/" target="_blank" rel="external">http://yann.lecun.com/</a></p>
-<p>3.Michael I. Jordan<br>Professor of University of California, Berkeley. Leading Researcher in Machine Learning and Artificial Intelligence.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Michael_I._Jordan" target="_blank" rel="external">http://en.wikipedia.org/wiki/Michael_I._Jordan</a><br>Homepage:<br><a href="http://www.cs.berkeley.edu/~jordan/" target="_blank" rel="external">http://www.cs.berkeley.edu/~jordan/</a></p>
-<p>4.Yoshua Bengio<br>Professor of Department of Computer Science and Operations Research and Head of Machine Learning Laboratory. Famous for his work on Deep Learning.<br>Homepage:<br><a href="http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html" target="_blank" rel="external">http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html</a></p>
-<p>5.Andrew Y.Ng<br>Professor of Stanford University, Chairman of Coursera, Researcher of Google (previous) and Baidu (Current). Famous for his work on Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Andrew_Ng" target="_blank" rel="external">http://en.wikipedia.org/wiki/Andrew_Ng</a><br>Homepage:<br><a href="http://cs.stanford.edu/people/ang/" target="_blank" rel="external">http://cs.stanford.edu/people/ang/</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Machine-Learning/">Machine Learning</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -751,23 +881,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/06/30/JupyterHub-Install-Guide/">JupyterHub Install Guide</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/30/Jupyter-Install-Guide/">Jupyter Install Guide</a>
+      </li>
+    
+      <li>
+        <a href="/2016/06/30/Maven-CDH-QuickStart/">Maven CDH QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2016/06/11/Gradle-Java-QuickStart/">Gradle Java QuickStart</a>
       </li>
     
       <li>
         <a href="/2016/06/10/Gradle-QuickStart/">Gradle QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/03/MongoDB-Install-on-Centos/">MongoDB Install on Centos</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a>
       </li>
     
   </ul>
