@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Hive Install and Basic Commands | YBC HomePage</title>
+  <title>Install Multiple Python on CentOS | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Hive Install and Basic Commands" />
+  <meta property="og:title" content="Install Multiple Python on CentOS" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,25 +89,40 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-09-04T02:53:43.000Z"><a href="/2015/09/03/Hive-Install-and-Basic-Commands/">2015-09-03</a></time>
+        <time datetime="2016-07-02T19:10:03.000Z"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">2016-07-02</a></time>
       
       
   
-    <h1 class="title">Hive Install and Basic Commands</h1>
+    <h1 class="title">Install Multiple Python on CentOS</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the official website of <a href="https://cwiki.apache.org/confluence/display/Hive/Home" target="_blank" rel="external">Hive</a>.</p>
-<p>###Hive Install<br>Here is the official document of <a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted" target="_blank" rel="external">Hive Installation</a>.</p>
-<p>Now the following is the guide of Hive installation.</p>
-<p>#####Uncompress hive package<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xzvf hive-x.y.z.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>#####Set Hive environment variable<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.bashrc</span><br><span class="line">$ <span class="built_in">export</span> HIVE_HOME=<span class="string">'The absolute path of hive home directory'</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$HIVE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
+        <p>Here is another good <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4" target="_blank" rel="external">tutorial</a>.</p>
+<p>Sometimes we have to install the other versions of python on the OS because the original python may not meet requirement. It will be better that keep the stability of system as philosophy behind “if it ain’t broke, don’t fix it”. So we will not use system management tool YUM to install python but update OS and install required dependencies.</p>
 <hr>
 
+<h3 id="Preparing-System-Environment"><a href="#Preparing-System-Environment" class="headerlink" title="Preparing System Environment"></a>Preparing System Environment</h3><h4 id="Update-CentOS"><a href="#Update-CentOS" class="headerlink" title="Update CentOS"></a>Update CentOS</h4><p>Execute this command to do the update:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure></p>
+<h4 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h4><p>Here we use YUM to install development tools. We use groupinstall to do it. YUM Software Groups consist of bunch of commonly used tools (applications) bundled together, ready for download all at the same time via execution of a single command and stating a group name.</p>
+<p>Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y development</span><br></pre></td></tr></table></figure></p>
+<p>Or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">'development tools'</span></span><br></pre></td></tr></table></figure>
+<p>Or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel</span><br></pre></td></tr></table></figure>
+<p>If applications like wget and xz-libs are not installed, please install them through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install wget</span><br><span class="line">sudo yum install xz-libs</span><br></pre></td></tr></table></figure></p>
+<hr>
 
+<h3 id="Install-Python-3-or-Python-2-7"><a href="#Install-Python-3-or-Python-2-7" class="headerlink" title="Install Python 3 or Python 2.7"></a>Install Python 3 or Python 2.7</h3><p>At first, we can go to Python official website to <a href="https://www.python.org/downloads/" target="_blank" rel="external">download Python</a>. Or execute following commands to download Python:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">wget http://www.python.org/ftp/python/3.3.3/Python-3.3.3.tar.xz</span><br></pre></td></tr></table></figure></p>
+<p>Then extract the compressed source archive through following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">xz <span class="_">-d</span> Python-2.7.6.tar.xz</span><br><span class="line">tar -xvf Python-2.7.6.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">xz <span class="_">-d</span> Python-3.3.3.tar.xz</span><br><span class="line">tar -xvf Python-3.3.3.tar</span><br></pre></td></tr></table></figure></p>
+<p>Then before we build the source, we should make sure that all the dependencies and environment are ready. It can be done through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line"><span class="built_in">cd</span> Python-2.7.6</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line"><span class="built_in">cd</span> Python-3.3.3</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
+<p>Note that prefix option means the location where we will put the new python binary. There are many other options and use any of them if needed.</p>
+<p>At last, to avoid new python overwritting original python in the system, we should execute this command to build and install python.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make altinstall</span><br></pre></td></tr></table></figure></p>
+<p>After the installation is done,  if we check /usr/local/bin (or the location specified in –prefix option), we will find a new executable files called python3.5 or python2.7.</p>
+<p>Just add the /usr/local/bin into $PATH variable in ~/.bashrc file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-pip"><a href="#Install-pip" class="headerlink" title="Install pip"></a>Install pip</h3><p>First, we may have to install the dependency of pip - setuptools:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Download the installation tarball</span></span><br><span class="line">wget --no-check-certificate https://pypi.python.org/packages/<span class="built_in">source</span>/s/setuptools/setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Extract the files:</span></span><br><span class="line">tar -xvf setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Install setuptools using python (Here we use Python2.7)</span></span><br><span class="line"><span class="built_in">cd</span> setuptools-1.4.2</span><br><span class="line">python2.7 setup.py install</span><br></pre></td></tr></table></figure></p>
+<p>Then execute following command to install pip:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python3.3 -</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -121,7 +136,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+    <a href="/tags/Python/">Python</a>
   </div>
 
         <!-- partial('post/share') -->
