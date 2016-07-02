@@ -90,6 +90,50 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-01-07T06:14:03.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2016-01-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2014 ACM-ICPC Greater New York Solution List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-01-07T06:13:50.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/">2016-01-06</a></time>
       
       
@@ -577,68 +621,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-12-06T20:00:54.000Z"><a href="/2015/12/06/Thinking-in-Github-Usage/">2015-12-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/12/06/Thinking-in-Github-Usage/">Thinking in Github Usage</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Github is very popular in software industry nowadays. The following is a short summary of how to effectively use Github for source code control.</p>
-<h2 id="Branch-Mangement-Strategy"><a href="#Branch-Mangement-Strategy" class="headerlink" title="Branch Mangement Strategy"></a>Branch Mangement Strategy</h2><p>When we create a repository in Github, we will have a master branch for it by default. Usually we should have these four kinds branches:</p>
-<ol>
-<li>Master branch: This branch should manage the stable version of the project.</li>
-<li>Development branch: This branch should manage the latest version but no necessary the stable version of the project. Every developers should commit their changes to this branch and then these changes will be merged to master branch after this latest version pass the test.</li>
-<li>Personal branch: It is good practice that every developer should have their own development branch. They develop new feature or fix bugs in this branch and then merge the changes to the development branch after their code pass test and code review.</li>
-<li>Bug branch: This branch is temporary. When developers are asked to fix an emergent bug(s) but at the same time they are developing other features, they can create a bug branch to fix this bug, commit and merge the changes, and at last, delete this branch.</li>
-<li>Feature branch: This branch is also tempory. Here is a similar story: Developers again are asked to add a new feature that should be released in a short time, but at the same time they are working on different features or even modules. This should be a daily event in IT company :-) So again, we can create a branch only for the purpose of developing this feature, commit and merge the changes and then delete this branch.<br>Actually, there should be more different kinds of branches and we should create, manage and delete the branches based on project management need.</li>
-</ol>
-<h2 id="Pull-and-Push-Changes"><a href="#Pull-and-Push-Changes" class="headerlink" title="Pull and Push Changes"></a>Pull and Push Changes</h2><p>After we have done the test for our code, we can commit and push the changes to remote repository. Here are the steps to do this:</p>
-<p>####1. Check the status of Git<br>Type this command to see what files are changed or newly added into local workspace:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
-<p>Then type this command to see what is changed in a specified file. The changes mean that what is added, modified or deleted in the source code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff /path/to/filename</span><br></pre></td></tr></table></figure></p>
-<p>####2. Edit the Ignore file<br>Some context should not be sent to remote repository, such as some configuration information or database username and password. The files contain these kinds of information should not be included in the Git commitment. To do this, we should create a new file called “.gitignore” in the project directory and list the name of files into it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore <span class="comment"># This is optional because this file may have existed under the project directory.</span></span><br><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure></p>
-<p>####3. Downloaded the changes from teamates<br>If there are/is developer(s) edit the same part of same files and commit the changes, conflicts may happen when other developers try to push/pull the changes to/from repository. So before we add the changes into commitment, we should do the following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment"># Save our changes</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></p>
-<p>If conflicts appear, resolve them manually in the source code.</p>
-<p>####4. Commit the Changes<br>Now we can start to commit our changes. First of all, we should add all or only some of changes into commitment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add -A <span class="comment">#Add all changes</span></span><br><span class="line">git add /path/to/filename1 /path/to/filename2 ... /path/to/filenameN</span><br></pre></td></tr></table></figure></p>
-<p>Then commit and push the changes to remote repository:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"Commitment message"</span></span><br><span class="line">git push remote-name branch-name</span><br></pre></td></tr></table></figure></p>
-<p>####5. Delete the Branches<br>If the branches are only for temporary use. We can delete it if we do not need it any longer.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="_">-d</span> branch-name</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Tools/">Tools</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -669,7 +651,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -690,7 +672,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>18</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>19</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -759,6 +741,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2016/06/30/JupyterHub-Install-Guide/">JupyterHub Install Guide</a>
       </li>
     
@@ -772,10 +758,6 @@
     
       <li>
         <a href="/2016/06/11/Gradle-Java-QuickStart/">Gradle Java QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/10/Gradle-QuickStart/">Gradle QuickStart</a>
       </li>
     
   </ul>
