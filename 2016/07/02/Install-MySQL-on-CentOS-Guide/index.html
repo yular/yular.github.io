@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Web Finance APIs for Developers | YBC HomePage</title>
+  <title>(Re)Install MySQL on CentOS Guide | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Web Finance APIs for Developers" />
+  <meta property="og:title" content="(Re)Install MySQL on CentOS Guide" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,19 +89,42 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-03-13T06:08:02.000Z"><a href="/2016/03/12/Web-Finance-APIs-for-Developers/">2016-03-12</a></time>
+        <time datetime="2016-07-02T18:23:21.000Z"><a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">2016-07-02</a></time>
       
       
   
-    <h1 class="title">Web Finance APIs for Developers</h1>
+    <h1 class="title">(Re)Install MySQL on CentOS Guide</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>This article will be updated later. Currently I only paste these links about where to find free/limited/paid web finance APIs (most of them are RESTFUL) for developers.</p>
-<p><a href="http://stackoverflow.com/questions/3139879/how-do-i-get-currency-exchange-rates-via-an-api-such-as-google-finance" target="_blank" rel="external">stackoverflow answer1</a><br><a href="http://stackoverflow.com/questions/10040954/alternative-to-google-finance-api" target="_blank" rel="external">stackoverflow answer2</a><br><a href="http://www.programmableweb.com/news/25-finance-apis/2008/04/24" target="_blank" rel="external">programmable web</a></p>
+        <p>Here is the <a href="http://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/" target="_blank" rel="external">official tutorial of MySQL installation</a> for MySQL installation on CentOS. Below is our tutorial.</p>
+<hr>
+
+<h3 id="Remove-MySQL-from-CentOS-Optional"><a href="#Remove-MySQL-from-CentOS-Optional" class="headerlink" title="Remove MySQL from CentOS (Optional)"></a>Remove MySQL from CentOS (Optional)</h3><p>If we have already installed MySQL on CentOS, we should remove it first. Here is the <a href="http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/">tutorial to remove MySQL on CentOS</a>.</p>
+<hr>
+
+<h3 id="Download-MySQL-rpm"><a href="#Download-MySQL-rpm" class="headerlink" title="Download MySQL rpm"></a>Download MySQL rpm</h3><p>Go to this page to download MySQL rpm: <a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">Download MySQL rpm</a>. Here we choose mysql57-community-release-el7-8.noarch.rpm, which is Red Hat Enterprise Linux 5 / Oracle Linux 5 (Architecture Independent), RPM Package.</p>
+<h3 id="Replace-original-rpm-package-with-downloaded-package"><a href="#Replace-original-rpm-package-with-downloaded-package" class="headerlink" title="Replace original rpm package with downloaded package"></a>Replace original rpm package with downloaded package</h3><p>Execute this command to refresh the rpm package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh /path/to/mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>Now the system-wide update by the yum update command will automatically upgrade MySQL packages on CentOS.</p>
+<h3 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h3><p>Run the following command to install MySQL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure></p>
+<p>It will install MySQL and all its dependency.</p>
+<h3 id="MySQL-Operation-Commands"><a href="#MySQL-Operation-Commands" class="headerlink" title="MySQL Operation Commands"></a>MySQL Operation Commands</h3><p>Start MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld start</span><br></pre></td></tr></table></figure></p>
+<p>Check MySQL status command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld status</span><br></pre></td></tr></table></figure></p>
+<p>MySQL will automatically generate a default password for root user. To get that password, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure></p>
+<p>Now we should run MySQL using root user at first. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></p>
+<p>After that, we should change password of root user, otherwise we cannot do any operations on MySQL. Here is the requirement of valid root password: <a href="http://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html" target="_blank" rel="external">check here</a>. To change root password, execute this command in MySQL console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'MyNewPass4!'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>Upgrade MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure>
+<p>Restart MySQL server command. Since MySQL server always restars after an update by Yum, we can use following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum list installed | grep <span class="string">"^mysql"</span></span><br><span class="line">sudo yum update package-name</span><br></pre></td></tr></table></figure></p>
+<p>After update process is done, execute mysql_upgrade to resolve any incompatibilities between the old data and the upgraded software..</p>
+<h3 id="Securing-MySQL-Installation-for-MySQL-5-6-Only"><a href="#Securing-MySQL-Installation-for-MySQL-5-6-Only" class="headerlink" title="Securing MySQL Installation (for MySQL 5.6 Only)"></a>Securing MySQL Installation (for MySQL 5.6 Only)</h3><p>Execute this command to change root password, remove anonymous users and test databases, disable remote login using root user and reload privilege table.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-MySQL-Dev"><a href="#Install-MySQL-Dev" class="headerlink" title="Install MySQL Dev"></a>Install MySQL Dev</h3><p>For MySQL developers, especially for those who will write programs to communicate with MySQL, mysql-devel is very important. Execute this command to install it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install mysql-devel</span><br></pre></td></tr></table></figure></p>
+<p>Or we can download connector packages here: <a href="http://dev.mysql.com/doc/index-connectors.html" target="_blank" rel="external">Download MySQL Connector Package</a>.</p>
+<p>I will provide connector installation and test tutorial later.</p>
 
       
     </div>
@@ -115,7 +138,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Web/">Web</a>
+    <a href="/tags/Database/">Database</a>
   </div>
 
         <!-- partial('post/share') -->

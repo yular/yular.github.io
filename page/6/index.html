@@ -90,6 +90,57 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-12-09T08:08:33.000Z"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">2015-12-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">R Language Install and Basic Commands</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>To install R language on operating system, here is an <a href="https://cran.rstudio.com/" target="_blank" rel="external">official tutorial</a>. But it is not easy to install R on Redhat OS. So here is the tutorial about R installation on Redhat.</p>
+<p>First of all, here is the <a href="https://fedoraproject.org/wiki/EPEL/FAQ#How_can_I_install_the_packages_from_the_EPEL_software_repository.3F" target="_blank" rel="external">official tutorial</a> to install R on Redhat. </p>
+<h2 id="Download-Extra-Packages-for-Enterprise-Linux-EPEL"><a href="#Download-Extra-Packages-for-Enterprise-Linux-EPEL" class="headerlink" title="Download Extra Packages for Enterprise Linux (EPEL)"></a>Download Extra Packages for Enterprise Linux (EPEL)</h2><p>We cannot install R through yum. So at first, we should download EPEL through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su -c <span class="string">'rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm'</span></span><br></pre></td></tr></table></figure></p>
+<p>But if we do not know the password of root, then we can use the following commands instead:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</span><br><span class="line">sudo rpm -Uvh epel-release-5-4.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>Note that we should use different rpm if the version of Redhat system is later than 5. Please check the official tutorial to figure out the correct rpm file.</p>
+<h2 id="Install-R"><a href="#Install-R" class="headerlink" title="Install R"></a>Install R</h2><p>Since we have the rpm file, the we can install R language through executing this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install R</span><br></pre></td></tr></table></figure></p>
+<p>The tail of output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Installed:</span><br><span class="line"></span><br><span class="line">  R.x86_64 0:3.2.2-2.el5                                                                                                                                                                                 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line"></span><br><span class="line">  R-core.x86_64 0:3.2.2-2.el5                    R-core-devel.x86_64 0:3.2.2-2.el5            R-devel.x86_64 0:3.2.2-2.el5                           avahi-compat-libdns_sd.x86_64 0:0.6.16-10.el5_6    </span><br><span class="line"></span><br><span class="line">  blas-devel.x86_64 0:3.0-38.el5                 bzip2-devel.x86_64 0:1.0.3-6.el5_5           cups.x86_64 1:1.3.7-30.el5_9.3                         desktop-file-utils.x86_64 0:0.10-7                 </span><br><span class="line"></span><br><span class="line">  ghostscript.x86_64 0:8.70-14.el5_8.1           ghostscript-fonts.noarch 0:5.50-13.1.1       lapack-devel.x86_64 0:3.0-38.el5                       libRmath.x86_64 0:3.2.2-2.el5                      </span><br><span class="line"></span><br><span class="line">  libRmath-devel.x86_64 0:3.2.2-2.el5            libX11-devel.x86_64 0:1.0.3-11.el5_7.1       libXau-devel.x86_64 0:1.0.1-3.1                        libXdmcp-devel.x86_64 0:1.0.1-2.1                  </span><br><span class="line"></span><br><span class="line">  mesa-libGL-devel.x86_64 0:6.5.1-7.11.el5_9     netpbm.x86_64 0:10.35.58-10.el5              netpbm-progs.x86_64 0:10.35.58-10.el5                  paps.x86_64 0:0.6.6-20.el5                         </span><br><span class="line"></span><br><span class="line">  pcre-devel.x86_64 0:6.6-6.el5_6.1              poppler.x86_64 0:0.5.4-19.el5                poppler-utils.x86_64 0:0.5.4-19.el5                    psutils.x86_64 0:1.17-26.1                         </span><br><span class="line"></span><br><span class="line">  tcl-devel.x86_64 0:8.4.13-6.el5                tetex.x86_64 0:3.0-33.15.el5_8.1             tetex-dvips.x86_64 0:3.0-33.15.el5_8.1                 tetex-fonts.x86_64 0:3.0-33.15.el5_8.1             </span><br><span class="line"></span><br><span class="line">  tetex-latex.x86_64 0:3.0-33.15.el5_8.1         texinfo-tex.x86_64 0:4.8-14.el5              tk-devel.x86_64 0:8.4.13-5.el5_1.1                     urw-fonts.noarch 0:2.3-6.1.1                       </span><br><span class="line"></span><br><span class="line">  xdg-utils.noarch 0:1.0.2-4.el5                 xorg-x11-proto-devel.x86_64 0:7.1-13.el5     xz-devel.x86_64 0:4.999.9-0.3.beta.20091007git.el5     zlib-devel.x86_64 0:1.2.3-7.el5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/R/">R</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-12-08T07:37:29.000Z"><a href="/2015/12/07/Latex-Template-And-Learning-Material/">2015-12-07</a></time>
       
       
@@ -507,91 +558,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-05T03:54:05.000Z"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-III/">2015-11-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-III/">Hackerrank Data Structure Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of Hackerrank data structure problem solution list.<br><a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">summary list</a></p>
-<p>Below is the detailed explanation of the idea behind solution.</p>
-<hr>
-
-<h3 id="Maximum-Element"><a href="#Maximum-Element" class="headerlink" title="Maximum Element"></a>Maximum Element</h3><p><a href="https://www.hackerrank.com/challenges/maximum-element" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/maximum-element.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use two stacks. One is to save all the given elements that are not poped out and the other is to save the maximum value starting from the element at the bottom of the first stack.</p>
-<hr>
-
-<h3 id="Largest-Rectangle"><a href="#Largest-Rectangle" class="headerlink" title="Largest Rectangle"></a>Largest Rectangle</h3><p><a href="https://www.hackerrank.com/challenges/largest-rectangle" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/largest-rectangle.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Add 0 to the end of given array. Starting from the head of array, push the index of every element into a stack. If the element value pointed by the index at the top of stack is lower than that of the current index, pop out that index and then calculate the area formed between this index and the new top index at the stack; and update the answer if it is smaller than the new area.</p>
-<hr>
-
-<h3 id="Simple-Text-Editor"><a href="#Simple-Text-Editor" class="headerlink" title="Simple Text Editor"></a>Simple Text Editor</h3><p><a href="https://www.hackerrank.com/challenges/simple-text-editor" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/simple-text-editor.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use an array to simulate a stack. </p>
-<hr>
-
-<h3 id="Poisonous-Plants"><a href="#Poisonous-Plants" class="headerlink" title="Poisonous Plants"></a>Poisonous Plants</h3><p><a href="https://www.hackerrank.com/challenges/poisonous-plants" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/poisonous-plants.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use two stacks to do the simulation for the problem.</p>
-<hr>
-
-<h3 id="Waiter"><a href="#Waiter" class="headerlink" title="Waiter"></a>Waiter</h3><p><a href="https://www.hackerrank.com/challenges/waiter" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/waiter.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. At first find all the prime needed. Then use stack to do the simulation for the problem.</p>
-<hr>
-
-<h3 id="Jesse-and-Cookies"><a href="#Jesse-and-Cookies" class="headerlink" title="Jesse and Cookies"></a>Jesse and Cookies</h3><p><a href="https://www.hackerrank.com/challenges/jesse-and-cookies" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/jesse-and-cookies.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use queue to simulate the problem.</p>
-<hr>
-
-<h3 id="Castle-on-the-Grid"><a href="#Castle-on-the-Grid" class="headerlink" title="Castle on the Grid"></a>Castle on the Grid</h3><p><a href="https://www.hackerrank.com/challenges/castle-on-the-grid" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/castle-on-the-grid.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Find the path from source to destination with least number of changing direction.</p>
-<hr>
-
-<h3 id="Down-To-Zero-II"><a href="#Down-To-Zero-II" class="headerlink" title="Down To Zero II"></a>Down To Zero II</h3><p><a href="https://www.hackerrank.com/challenges/down-to-zero-ii" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/down-to-zero-ii.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use BFS to simulate the process.</p>
-<hr>
-
-<h3 id="Truck-Tour"><a href="#Truck-Tour" class="headerlink" title="Truck Tour"></a>Truck Tour</h3><p><a href="https://www.hackerrank.com/challenges/truck-tour" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/truck-tour.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Use BFS to simulate the process.</p>
-<hr>
-
-<h3 id="Queries-with-Fixed-Length"><a href="#Queries-with-Fixed-Length" class="headerlink" title="Queries with Fixed Length"></a>Queries with Fixed Length</h3><p><a href="https://www.hackerrank.com/challenges/queries-with-fixed-length" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/queries-with-fixed-length.cpp" target="_blank" rel="external">Code Link</a><br>Monotone problem. Elements inside the queue is in non-increasing order. When insert element into the queue, starting from the tail of queue, pop back elements that has smaller value than the current one; and then starting from the head of queue, pop out the elements that are out of required boundary. Now in every query, the value of element at the head of queue is answer.</p>
-<hr>
-
-<h3 id="QHEAP1"><a href="#QHEAP1" class="headerlink" title="QHEAP1"></a>QHEAP1</h3><p><a href="https://www.hackerrank.com/challenges/qheap1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/qheap1.cpp" target="_blank" rel="external">Code Link</a><br>Priority queue problem. Use two min priority queues, one is to save all the values that have been removed and the other is to save all given values. Before output the minimum value, pop out the top value of the two priority queues until their top values are not equal.</p>
-<hr>
-
-<h3 id="Find-Median"><a href="#Find-Median" class="headerlink" title="Find Median"></a>Find Median</h3><p><a href="https://www.hackerrank.com/challenges/find-median-1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/find-median-1.cpp" target="_blank" rel="external">Code Link</a><br>Priority queue problem. Use one max priority queue and one min priority queue. Both of them save half of the given elements. The rule is that given a new element, if its value is larger than the value of top element of max priority queue, push that element into min priority queue; otherwise, push it into max priority queue. Now if difference between the the total number of elements of these two queues are larger than one, rebalance the queues so that the difference is no larger than one. For each query, if the total number of elements of the two queues are odd, the answer is the value of top element of max priority queue; otherwise, it is the half of the sum of the top value of two priority queues.</p>
-<hr>
-
-<h3 id="Minimum-Average-Waiting-Time"><a href="#Minimum-Average-Waiting-Time" class="headerlink" title="Minimum Average Waiting Time"></a>Minimum Average Waiting Time</h3><p><a href="https://www.hackerrank.com/challenges/minimum-average-waiting-time" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/minimum-average-waiting-time.cpp" target="_blank" rel="external">Code Link</a><br>Greedy problem. Sort the order based on this rule: if two orders have the same start time, the one cost less time come first; otherwise, the order with less time come first. Then use priority queue to go through the sorted orders one by one and each time put the remaining order that cost most time to the top of priority queue.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -649,7 +615,7 @@
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>6</small></li>
+    <li><a href="/tags/Database/">Database</a><small>7</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -691,7 +657,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.89px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 14.44px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Life/" style="font-size: 11.11px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.22px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.56px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.33px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.78px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.75px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -712,6 +678,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a>
+      </li>
+    
+      <li>
         <a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a>
       </li>
     
@@ -725,10 +695,6 @@
     
       <li>
         <a href="/2016/06/30/Jupyter-Install-Guide/">Jupyter Install Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/30/Maven-CDH-QuickStart/">Maven CDH QuickStart</a>
       </li>
     
   </ul>

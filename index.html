@@ -90,6 +90,75 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-02T18:23:21.000Z"><a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">2016-07-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="http://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/" target="_blank" rel="external">official tutorial of MySQL installation</a> for MySQL installation on CentOS. Below is our tutorial.</p>
+<hr>
+
+<h3 id="Remove-MySQL-from-CentOS-Optional"><a href="#Remove-MySQL-from-CentOS-Optional" class="headerlink" title="Remove MySQL from CentOS (Optional)"></a>Remove MySQL from CentOS (Optional)</h3><p>If we have already installed MySQL on CentOS, we should remove it first. Here is the <a href="http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/">tutorial to remove MySQL on CentOS</a>.</p>
+<hr>
+
+<h3 id="Download-MySQL-rpm"><a href="#Download-MySQL-rpm" class="headerlink" title="Download MySQL rpm"></a>Download MySQL rpm</h3><p>Go to this page to download MySQL rpm: <a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">Download MySQL rpm</a>. Here we choose mysql57-community-release-el7-8.noarch.rpm, which is Red Hat Enterprise Linux 5 / Oracle Linux 5 (Architecture Independent), RPM Package.</p>
+<h3 id="Replace-original-rpm-package-with-downloaded-package"><a href="#Replace-original-rpm-package-with-downloaded-package" class="headerlink" title="Replace original rpm package with downloaded package"></a>Replace original rpm package with downloaded package</h3><p>Execute this command to refresh the rpm package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh /path/to/mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>Now the system-wide update by the yum update command will automatically upgrade MySQL packages on CentOS.</p>
+<h3 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h3><p>Run the following command to install MySQL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure></p>
+<p>It will install MySQL and all its dependency.</p>
+<h3 id="MySQL-Operation-Commands"><a href="#MySQL-Operation-Commands" class="headerlink" title="MySQL Operation Commands"></a>MySQL Operation Commands</h3><p>Start MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld start</span><br></pre></td></tr></table></figure></p>
+<p>Check MySQL status command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld status</span><br></pre></td></tr></table></figure></p>
+<p>MySQL will automatically generate a default password for root user. To get that password, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure></p>
+<p>Now we should run MySQL using root user at first. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></p>
+<p>After that, we should change password of root user, otherwise we cannot do any operations on MySQL. Here is the requirement of valid root password: <a href="http://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html" target="_blank" rel="external">check here</a>. To change root password, execute this command in MySQL console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'MyNewPass4!'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>Upgrade MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure>
+<p>Restart MySQL server command. Since MySQL server always restars after an update by Yum, we can use following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum list installed | grep <span class="string">"^mysql"</span></span><br><span class="line">sudo yum update package-name</span><br></pre></td></tr></table></figure></p>
+<p>After update process is done, execute mysql_upgrade to resolve any incompatibilities between the old data and the upgraded software..</p>
+<h3 id="Securing-MySQL-Installation-for-MySQL-5-6-Only"><a href="#Securing-MySQL-Installation-for-MySQL-5-6-Only" class="headerlink" title="Securing MySQL Installation (for MySQL 5.6 Only)"></a>Securing MySQL Installation (for MySQL 5.6 Only)</h3><p>Execute this command to change root password, remove anonymous users and test databases, disable remote login using root user and reload privilege table.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-MySQL-Dev"><a href="#Install-MySQL-Dev" class="headerlink" title="Install MySQL Dev"></a>Install MySQL Dev</h3><p>For MySQL developers, especially for those who will write programs to communicate with MySQL, mysql-devel is very important. Execute this command to install it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install mysql-devel</span><br></pre></td></tr></table></figure></p>
+<p>Or we can download connector packages here: <a href="http://dev.mysql.com/doc/index-connectors.html" target="_blank" rel="external">Download MySQL Connector Package</a>.</p>
+<p>I will provide connector installation and test tutorial later.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-02T17:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
       
       
@@ -102,12 +171,18 @@
       
       
         <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
+<hr>
+
 <h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
 <p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
 <p>or</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
+<hr>
+
 <h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
 <p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
+<hr>
+
 <h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
 <p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
 
@@ -542,55 +617,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-05-31T16:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Xor-sequence"><a href="#Xor-sequence" class="headerlink" title="Xor-sequence"></a>Xor-sequence</h3><p><a href="https://www.hackerrank.com/challenges/xor-se" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/xor-se.cpp" target="_blank" rel="external">Code</a><br>A kind of construction problem. At first, figure out the pattern which is a repeating sequence: 0,1,2,2,6,7,0,0. And then calculate the result based on the given position.</p>
-<hr>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Bit-Manipulation/">Bit Manipulation</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -648,7 +674,7 @@
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>6</small></li>
+    <li><a href="/tags/Database/">Database</a><small>7</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -690,7 +716,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.89px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 14.44px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Life/" style="font-size: 11.11px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.22px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.56px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.33px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.78px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.75px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -711,6 +737,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a>
+      </li>
+    
+      <li>
         <a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a>
       </li>
     
@@ -724,10 +754,6 @@
     
       <li>
         <a href="/2016/06/30/Jupyter-Install-Guide/">Jupyter Install Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/06/30/Maven-CDH-QuickStart/">Maven CDH QuickStart</a>
       </li>
     
   </ul>
