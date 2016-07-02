@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>CSS Pattern List | YBC HomePage</title>
+  <title>Remove MySQL from CentOS Guide | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="CSS Pattern List" />
+  <meta property="og:title" content="Remove MySQL from CentOS Guide" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,19 +89,26 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-03-27T22:36:14.000Z"><a href="/2016/03/27/CSS-Pattern-List/">2016-03-27</a></time>
+        <time datetime="2016-07-02T17:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
       
       
   
-    <h1 class="title">CSS Pattern List</h1>
+    <h1 class="title">Remove MySQL from CentOS Guide</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.</p>
-<p><a href="http://lea.verou.me/css3patterns/" target="_blank" rel="external">CSS3 Patterns Gallery</a><br><a href="http://subtlepatterns.com/" target="_blank" rel="external">Subtle Patterns</a></p>
+        <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
+<h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
+<p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
+<h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
+<p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
+<h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
+<p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -115,7 +122,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Web/">Web</a>
+    <a href="/tags/Database/">Database</a>
   </div>
 
         <!-- partial('post/share') -->
