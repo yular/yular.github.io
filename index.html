@@ -471,7 +471,16 @@
     <div class="entry">
       
       
-        
+        <p>Here is the <a href="https://github.com/jupyterhub/jupyterhub" target="_blank" rel="external">official tutorial</a> to install JupyterHub. It can help to spawn, manage, and proxy multiple instances of the single-user Jupyter notebook (IPython notebook) server.</p>
+<p>Here is our tutorial:</p>
+<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>JupyterHub requires followings application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python 3.3+</span><br><span class="line">NodeJS (Only <span class="keyword">for</span> configurable-http-proxy installation)</span><br><span class="line">TLS certificate and key <span class="keyword">for</span> HTTPS communication</span><br><span class="line">Domain name</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-JupyterHub"><a href="#Install-JupyterHub" class="headerlink" title="Install JupyterHub"></a>Install JupyterHub</h3><p>At first, we should install Python 3.3+ and pip3 in our OS. Here is the <a href="http://yular.github.io/2016/07/02/Install-Multiple-Python-on-CentOS/">tutorial</a>.</p>
+<p>Then install JupytherHub through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g configurable-http-proxy</span><br><span class="line">pip3 install jupyterhub</span><br></pre></td></tr></table></figure></p>
+<p>Note that -g option means that we will install configurable-http-proxy globally in our OS. If we plan to move Python 3, JupyterHub and configurable-http-proxy to other location, we should remove that option but have to add the file path of it and nodejs/bin in $PATH system variable.</p>
+<h3 id="Run-JupyterHub"><a href="#Run-JupyterHub" class="headerlink" title="Run JupyterHub"></a>Run JupyterHub</h3><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub</span><br></pre></td></tr></table></figure></p>
+<p>By default, it is running on port 8000 and we can visit the website from <a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>. Or we can change the port and ip by this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --ip 0.0.0.0 --port 9090</span><br></pre></td></tr></table></figure></p>
+<h3 id="Configure-JupyterHub"><a href="#Configure-JupyterHub" class="headerlink" title="Configure JupyterHub"></a>Configure JupyterHub</h3><p>Here is the command to generate config file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --generate-config</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
