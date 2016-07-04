@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Jupyter Install Guide | YBC HomePage</title>
+  <title>Jupyter Notebook Install Guide | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Jupyter Install Guide" />
+  <meta property="og:title" content="Jupyter Notebook Install Guide" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -93,14 +93,37 @@
       
       
   
-    <h1 class="title">Jupyter Install Guide</h1>
+    <h1 class="title">Jupyter Notebook Install Guide</h1>
   
 
     </header>
     <div class="entry">
       
       
-        
+        <p>Here is the official <a href="http://jupyter.readthedocs.io/en/latest/install.html" target="_blank" rel="external">tutorial</a> to install Jupyter Notebook on Redhat. Below is the our tutorial.</p>
+<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>Jupyter Notebook requires Python 2.7+ or 3.3+.</p>
+<p>Besides, Anaconda script is recommended but not required. Download Anaconda <a href="https://www.continuum.io/downloads#_unix" target="_blank" rel="external">here</a>. Remember to pick the right version of Anaconda.</p>
+<hr>
+
+<h3 id="Install-Jupyter"><a href="#Install-Jupyter" class="headerlink" title="Install Jupyter"></a>Install Jupyter</h3><p>After we get Anaconda script, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">sh Anaconda2-4.1.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">sh Anaconda3-4.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></p>
+<p>Or we can use pip to install Jupyter:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">pip install jupyter</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">pip3 install jupyter</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Run-Jupyter"><a href="#Run-Jupyter" class="headerlink" title="Run Jupyter"></a>Run Jupyter</h3><p>To start Jupyter server, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Jupyter-Configuration"><a href="#Jupyter-Configuration" class="headerlink" title="Jupyter Configuration"></a>Jupyter Configuration</h3><p>There are mainly two kinds of Jupyter configuration system. One is common Jupyter configuration system, which is shared by all Jupyter applications. The other is kernel configuration system, which is identified by different kernels.<br>For common Jupyter configuration system, the conf files are saved under ~/.jupyter by default.<br>For kernel configuration system, the conf files are saved in different places. For example, the IPython kernel conf files are saved under ~/.ipython and we can find a folder named kernel there.</p>
+<p>To generate jupyter conf file, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter &#123;application&#125; --generate-config</span><br></pre></td></tr></table></figure></p>
+<p>Here we use:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure></p>
+<p>To configure ipython, at first, we should install ipython using:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">pip install ipython</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">pip3 install ipython</span><br></pre></td></tr></table></figure></p>
+<p>Note that here is the official tutorial of <a href="http://ipython.readthedocs.io/en/stable/install/install.html#installation-using-pip" target="_blank" rel="external">ipython</a>.</p>
+<p>Then generate conf files through:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython profile create [profilename]</span><br></pre></td></tr></table></figure></p>
+<p>Note that if profilename is blank, the files will be created for the default profile which are saved under ~/.ipython. Here are the folders under  ~/.ipython.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extensions  nbextensions  profile_default</span><br></pre></td></tr></table></figure></p>
+<p>And we can find ipython_config.py as well as ipython_kernel_config.py under profile_default folder.</p>
+<p>Next we should install IPython kernel for further configuration. Here are the commands and official <a href="http://ipython.readthedocs.io/en/stable/install/kernel_install.html" target="_blank" rel="external">tutorial</a>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install ipykernel</span><br><span class="line">sudo ipykernel install --user</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>A list of <a href="http://jupyter-client.readthedocs.io/en/latest/kernels.html#kernelspecs" target="_blank" rel="external">kernel specific files</a> will be generated. Now we can find a new folder called kernels under ~/.ipython (or other location set up users). Under that folder there is a kernel.json file which is the most important thing to edit.<br>Here is an kernel json file sample:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"display_name"</span>: <span class="string">"pySpark (Spark 1.5.3)"</span>,</span><br><span class="line"> <span class="string">"language"</span>: <span class="string">"python"</span>,</span><br><span class="line"> <span class="string">"argv"</span>: [</span><br><span class="line">  <span class="string">"anaconda2/bin/python"</span>,</span><br><span class="line">  <span class="string">"-m"</span>,</span><br><span class="line">  <span class="string">"IPython.kernel"</span>,</span><br><span class="line">  <span class="string">"-f"</span>,</span><br><span class="line">  <span class="string">"&#123;connection_file&#125;"</span></span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"env"</span>: &#123;</span><br><span class="line">  <span class="string">"SPARK_HOME"</span>: <span class="string">"/usr/local/spark/"</span>,</span><br><span class="line">  <span class="string">"PYTHONPATH"</span>: <span class="string">"/usr/local/spark/python/:/usr/local/python/lib/py4j-0.8.2.1-src.zip"</span>,</span><br><span class="line">  <span class="string">"PYTHONSTARTUP"</span>: <span class="string">"/usr/local/spark/python/pyspark/shell.py"</span>,</span><br><span class="line">  <span class="string">"PYSPARK_SUBMIT_ARGS"</span>: <span class="string">"--master local --jars /users/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar pyspark-shell"</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Here is explanation of arguments used in kernel.json:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">argv: A list of <span class="built_in">command</span> line arguments used to start the kernel. </span><br><span class="line">display_name: The kernel’s name as it should be displayed <span class="keyword">in</span> the UI. </span><br><span class="line">language: The name of the language of the kernel. When loading notebooks, <span class="keyword">if</span> no matching kernelspec key (may differ across machines) is found, a kernel with a matching language will be used. </span><br><span class="line">env (optional): A dictionary of environment variables to <span class="built_in">set</span> <span class="keyword">for</span> the kernel. But it will be important <span class="keyword">if</span> we want to change the default settings of spark without overwritting the existing one <span class="keyword">in</span> the system.</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -178,7 +201,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>20</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>21</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -247,6 +270,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a>
+      </li>
+    
+      <li>
         <a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">Apache Livy Spark Coding in Python Console Quickstart</a>
       </li>
     
@@ -260,10 +287,6 @@
     
       <li>
         <a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a>
       </li>
     
   </ul>
