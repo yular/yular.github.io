@@ -90,6 +90,62 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-02-28T18:27:33.000Z"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">2015-02-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">General Approach to Solve Algrithm Problems</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This blog is the general approach to solve algorithm problems based on my own experience. Hope it will be helpful for those who participate algorithm contest like TopCoder, CodeForce, OI, ACM-ICPC and so on or have to take technical interviews involving algorithms.</p>
+<ol>
+<li><p>Read the Problem Statement<br>Read the problem statement very very very carefully. Do remember that. Understand the following information:<br>(1) What is the meaning of the problem statement.<br>(2) What does the problem ask we to do. To count the cases? To find the maximum/minimum value?<br>(3) What are the constraints of the problem? What is the range of the input? 1&lt;= N &lt;= 100 or 1 &lt;= N &lt;= 1000?<br>(4) What is the input format and output format of the problem?<br>(5) Are both the sample input and output correct?<br>If the problem statement is difficult to understand, ask the problem writter or those who can offer a hand.</p>
+</li>
+<li><p>Build the Mathmatical Model and Design one or more Algorithms<br>After fully understand the problem, we should know how to calculate the sample output given sample input. This step is to find the correct mathematical models to solve the problem. When we find the correct mathmetical models, then we can start to design algorithms that can solve the models correctly (Note: not necessarily efficiently). </p>
+</li>
+<li><p>Validate the Algorithm<br>After the algorithm is proposed, we should then validate it. The tricks are to tet the algorithm with large test case, corner test case, tricky test case and general test case. Make sure that the algorithm are correct and efficient in all these kinds of cases so that we can avoid Wrong Answer, Time Limit Excceed, Memory Limit Excceed or other incorrect message returned by online judege. </p>
+</li>
+<li><p>Optimize the Algorithm<br>If our algorithm can pass all the above cases, congratulations! Our algorithm can receive Accept from online judege. But in some cases, it may not be efficient enough and online judege will return TLE for us. In that case, we should optimize the algorithm. There are mainly two cases:<br>(1) We may have to rebuild the mathematical model so that more efficient algorithms can be used.<br>(2) We only have to use other algorithms for the current model but more efficient techniques should be applied.<br>Sometimes, we can optimize our algorithm even though it is correct and can pass any test cases. This is a good habit and helpful to improve our algorithm design and analysis skills.</p>
+</li>
+</ol>
+<p>5.Double Check Again<br>After optimize the algorithm, we should double check it again to ensure that it can pass all the possible test cases under the constraints of the problem. It is a good custom to be cautious all the time.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-02-28T17:41:12.000Z"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">2015-02-28</a></time>
       
       
@@ -575,61 +631,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-02T04:13:48.000Z"><a href="/2015/02/01/BackPropagation-in-Practice/">2015-02-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/01/BackPropagation-in-Practice/">BackPropagation in Practice</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>In Machine Learning Techniques, back propagation is usually used in gradient descent algorithm. Thus, an efficient back propagation algoritm is essential for gradient descent algorithm. Here are some methods to improve the efficiency of back propagation in practice. Note that this article will be updated when new methods appear.</p>
-<p>1.Use ReLU non-linearities (ReLU means rectifier neural network) (tanh and logistic out of favor).</p>
-<p>2.Use cross-entropy for classification.</p>
-<p>3.Use Stochastic Gradient Descent on minibatches.</p>
-<p>4.Shuffle the training examples.</p>
-<p>5.Normalize the input variables (zero means, unit variance).</p>
-<p>6.Schedule to decrease the learning rate.</p>
-<p>7.Use a bit of L1 or L2 regularization on the weights (or a combination)</p>
-<p>8.Use “dropout” for regularization.</p>
-<p>9.Lots more in …</p>
-<p>10.Lots more in …</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Machine-Learning/">Machine Learning</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -681,7 +682,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>21</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>22</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -750,6 +751,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a>
+      </li>
+    
+      <li>
         <a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a>
       </li>
     
@@ -763,10 +768,6 @@
     
       <li>
         <a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a>
       </li>
     
   </ul>

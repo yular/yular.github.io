@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-07-04T18:02:17.000Z</updated>
+  <updated>2016-07-17T00:20:09.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HBase Shell Command List Summary</title>
+    <link href="http://yular.github.io/2016/07/16/Hbase-Shell-Command-List-Summary/"/>
+    <id>http://yular.github.io/2016/07/16/Hbase-Shell-Command-List-Summary/</id>
+    <published>2016-07-17T00:07:22.000Z</published>
+    <updated>2016-07-17T00:20:09.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Below is the list of frequent used HBase shell command and at first, here is another &lt;a href=&quot;https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HBase command list&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Below is the list of frequent used HBase shell command and at first, here is another &lt;a href=&quot;https://learnhbase.wordpress.com/2013/03/02
+    
+    </summary>
+    
+    
+      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
+    
+  </entry>
   
   <entry>
     <title>Apache Livy Install Guide</title>
@@ -619,31 +640,6 @@
     
     
       <category term="Machine Learning" scheme="http://yular.github.io/tags/Machine-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hackerrank Data Structure Problem Solution List V</title>
-    <link href="http://yular.github.io/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/"/>
-    <id>http://yular.github.io/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/</id>
-    <published>2016-04-06T03:55:14.000Z</published>
-    <updated>2016-04-06T03:55:55.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hackerrank / InterviewStreet&lt;/a&gt; algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.&lt;/p&gt;
-&lt;p&gt;Here is the summary of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;solution list&lt;/a&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Cube-Summation&quot;&gt;&lt;a href=&quot;#Cube-Summation&quot; class=&quot;headerlink&quot; title=&quot;Cube Summation&quot;&gt;&lt;/a&gt;Cube Summation&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/cube-summation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem Link&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cube-summation.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code Link&lt;/a&gt;&lt;br&gt;Data structure problem. The solution is obvious: just use a three dimension binary index tree to simulate the two given operations.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; 
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
     
   </entry>
   

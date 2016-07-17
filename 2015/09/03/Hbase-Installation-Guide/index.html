@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Hbase Install and Basic Commands | YBC HomePage</title>
+  <title>HBase Installation Guide | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Hbase Install and Basic Commands" />
+  <meta property="og:title" content="HBase Installation Guide" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,18 +89,40 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-09-04T02:53:52.000Z"><a href="/2015/09/03/Hbase-Install-and-Basic-Commands/">2015-09-03</a></time>
+        <time datetime="2015-09-04T02:53:52.000Z"><a href="/2015/09/03/Hbase-Installation-Guide/">2015-09-03</a></time>
       
       
   
-    <h1 class="title">Hbase Install and Basic Commands</h1>
+    <h1 class="title">HBase Installation Guide</h1>
   
 
     </header>
     <div class="entry">
       
       
-        
+        <p>Here is the official guide to <a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="external">install HBase</a>. Below is the installation guide for HBase 0.94.</p>
+<h3 id="Environment-Setup"><a href="#Environment-Setup" class="headerlink" title="Environment Setup"></a>Environment Setup</h3><p>Prior to HBase 0.94.x, HBase expected the loopback IP address to be 127.0.0.1 but Ubuntu and some other distributions default to 127.0.1.1, which will cause problems. So we have to check /etc/hosts first and its content should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 localhost</span><br><span class="line">127.0.0.1 ubuntu.ubuntu-domain ubuntu</span><br></pre></td></tr></table></figure></p>
+<p>JDK is required by HBase. Install required JDK version on the OS. Please do remember to set JAVA_HOME variable in the system.</p>
+<h3 id="Install-HBase-in-Standalone-Mode"><a href="#Install-HBase-in-Standalone-Mode" class="headerlink" title="Install HBase in Standalone Mode"></a>Install HBase in Standalone Mode</h3><p>Download HBase binary packages from <a href="http://www.apache.org/dyn/closer.cgi/hbase/" target="_blank" rel="external">Apache Download Mirror</a> or we can download source code and build it.</p>
+<p>Here we choose to download binary package and extract it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;-bin.tar.gz</span><br><span class="line"><span class="built_in">cd</span> hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;/</span><br></pre></td></tr></table></figure></p>
+<p>Edit hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:///home/yular/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that file:///home/yular/hbase is the local filesystem directory where HBase and ZooKeeper write data. By default, a new directory is created under /tmp but all the data will be removed when os is reboot.</p>
+<p>To start HBase, use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase starts successfully, execute jps command and output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3145 Jps</span><br><span class="line">6678 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note that a HMaster process is running.</p>
+<p>And then we can start HBase shell like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase shell</span><br></pre></td></tr></table></figure></p>
+<p>The HBase terminal should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-HBase-in-Pseudo-Distributed-Local-Mode"><a href="#Install-HBase-in-Pseudo-Distributed-Local-Mode" class="headerlink" title="Install HBase in Pseudo-Distributed Local Mode"></a>Install HBase in Pseudo-Distributed Local Mode</h3><p>At first, stop HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/stop-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>Install and start Hadoop2 system. Here is the tutorial to <a href="http://yular.github.io/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">install and start Hadoop2</a>.</p>
+<p>Then hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;<span class="literal">true</span>&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that the port number in hbase.rootdir should be the same as the one defined in hadoop2 etc/hadoop/ core-site.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we do not need to create hbase folder in HDFS system. When we start HBase, hbase folder will be generated initially.</p>
+<p>To start HBase, use this command (Hadoop2 should be running):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase is running successfully, the output of jps command should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2055 ResourceManager</span><br><span class="line">1149 Jps</span><br><span class="line">3248 NodeManager</span><br><span class="line">5093 NameNode</span><br><span class="line">3799 DataNode</span><br><span class="line">1190 HRegionServer</span><br><span class="line">2467 JobHistoryServer</span><br><span class="line">3120 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note there are two processes relative to HBase running: HRegionServer and HMaster.</p>
+<p>If we can visit <a href="http://localhost:60010" target="_blank" rel="external">http://localhost:60010</a>, we can visit HBase job summary page.</p>
+<p>And if we execute hadoop fs -ls /hbase command, we will some folders that have been created by HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Found 7 items</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/.tmp</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/WALs</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:48 /hbase/corrupt</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/data</span><br><span class="line">-rw-r--r--   3 hbase users         42 2014-06-25 18:41 /hbase/hbase.id</span><br><span class="line">-rw-r--r--   3 hbase users          7 2014-06-25 18:41 /hbase/hbase.version</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/oldWALs</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -178,7 +200,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>21</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>22</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -247,6 +269,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a>
+      </li>
+    
+      <li>
         <a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a>
       </li>
     
@@ -260,10 +286,6 @@
     
       <li>
         <a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a>
       </li>
     
   </ul>
