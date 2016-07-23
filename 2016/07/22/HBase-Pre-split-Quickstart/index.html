@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>H2O Java POJO Quick Start | YBC HomePage</title>
+  <title>HBase Pre-split Quickstart | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="H2O Java POJO Quick Start" />
+  <meta property="og:title" content="HBase Pre-split Quickstart" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,31 +89,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-01-25T07:11:31.000Z"><a href="/2016/01/24/H2O-Java-POJO-Quick-Start/">2016-01-24</a></time>
+        <time datetime="2016-07-23T06:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
       
       
   
-    <h1 class="title">H2O Java POJO Quick Start</h1>
+    <h1 class="title">HBase Pre-split Quickstart</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the <a href="http://h2o-release.s3.amazonaws.com/h2o/rel-tibshirani/8/docs-website/h2o-docs/index.html#POJO%20Quick%20Start" target="_blank" rel="external">official tutorial</a>. The tutorial below is almost the same as official one.</p>
-<p>H2O allows users to convert the models they have built to a Plain Old Java Object (POJO), which can then be easily deployed within their Java app and scheduled to run on a specified dataset.</p>
-<a id="more"></a>
-<h3 id="Start-and-Run-H2O-Web-Service"><a href="#Start-and-Run-H2O-Web-Service" class="headerlink" title="Start and Run H2O Web Service"></a>Start and Run H2O Web Service</h3><p>Install a H2O project and run it using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar h2o.jar</span><br></pre></td></tr></table></figure></p>
-<p>Then follow these steps to build a model using browser:<br>1.Go to <a href="http://localhost:54321" target="_blank" rel="external">http://localhost:54321</a>.<br>2.Click the “view example flow” near the right edge of screen.<br>3.Click GBM_Airlines_Classification.flow<br>4.If a confirmation prompt appears asking you to “Load Notebook”, click it.<br>5.From the “Flow” menu choose the “Run all cells” option.<br>6.Scroll down and find the “Model” cell in the notebook. Click on the Download POJO button as shown in the following screenshot.</p>
-<hr>
-
-<h3 id="Download-the-model-jar-and-Write-Code"><a href="#Download-the-model-jar-and-Write-Code" class="headerlink" title="Download the model jar and Write Code"></a>Download the model jar and Write Code</h3><p>Execute the following commands to create a project directory and download the jar file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir h2opojo</span><br><span class="line">$ <span class="built_in">cd</span> h2opojo</span><br><span class="line">$ mv ~/Downloads/gbm_pojo_test.java .</span><br><span class="line">$ curl http://localhost:54321/3/h2o-genmodel.jar &gt; h2o-genmodel.jar</span><br></pre></td></tr></table></figure></p>
-<p>Now create a java file under h2opojo directory and put following code into it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi main.java</span><br></pre></td></tr></table></figure></p>
-<p>Here is the java code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> hex.genmodel.easy.RowData;</span><br><span class="line"><span class="keyword">import</span> hex.genmodel.easy.EasyPredictModelWrapper;</span><br><span class="line"><span class="keyword">import</span> hex.genmodel.easy.prediction.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">main</span> </span>&#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> String modelClassName = <span class="string">"gbm_pojo_test"</span>;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">     hex.genmodel.GenModel rawModel;</span><br><span class="line">     rawModel = (hex.genmodel.GenModel) Class.forName(modelClassName).newInstance();</span><br><span class="line">     EasyPredictModelWrapper model = <span class="keyword">new</span> EasyPredictModelWrapper(rawModel);</span><br><span class="line"></span><br><span class="line">     RowData row = <span class="keyword">new</span> RowData();</span><br><span class="line">     row.put(<span class="string">"Year"</span>, <span class="string">"1987"</span>);</span><br><span class="line">     row.put(<span class="string">"Month"</span>, <span class="string">"10"</span>);</span><br><span class="line">     row.put(<span class="string">"DayofMonth"</span>, <span class="string">"14"</span>);</span><br><span class="line">     row.put(<span class="string">"DayOfWeek"</span>, <span class="string">"3"</span>);</span><br><span class="line">     row.put(<span class="string">"CRSDepTime"</span>, <span class="string">"730"</span>);</span><br><span class="line">     row.put(<span class="string">"UniqueCarrier"</span>, <span class="string">"PS"</span>);</span><br><span class="line">     row.put(<span class="string">"Origin"</span>, <span class="string">"SAN"</span>);</span><br><span class="line">     row.put(<span class="string">"Dest"</span>, <span class="string">"SFO"</span>);</span><br><span class="line"></span><br><span class="line">     BinomialModelPrediction p = model.predictBinomial(row);</span><br><span class="line">     System.out.println(<span class="string">"Label (aka prediction) is flight departure delayed: "</span> + p.label);</span><br><span class="line">     System.out.print(<span class="string">"Class probabilities: "</span>);</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p.classProbabilities.length; i++) &#123;</span><br><span class="line">       <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">         System.out.print(<span class="string">","</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.print(p.classProbabilities[i]);</span><br><span class="line">     &#125;</span><br><span class="line">     System.out.println(<span class="string">""</span>);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Build-POJO-jar-file"><a href="#Build-POJO-jar-file" class="headerlink" title="Build POJO jar file"></a>Build POJO jar file</h3><p>Execute the following command to build the jar file and run it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ javac -cp h2o-genmodel.jar -J-Xmx2g -J-XX:MaxPermSize=128m gbm_pojo_test.java main.java</span><br><span class="line">$ java -cp .:h2o-genmodel.jar main</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions are thrown out, the output should be similar to this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Label (aka prediction) is flight departure delayed: YES</span><br><span class="line">Class probabilities: 0.4790490513429604,0.5209509486570396</span><br></pre></td></tr></table></figure></p>
+        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
+<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
+<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -127,7 +117,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Machine-Learning/">Machine Learning</a>
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
   </div>
 
         <!-- partial('post/share') -->
