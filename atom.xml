@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-07-17T00:20:09.000Z</updated>
+  <updated>2016-07-23T06:09:57.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scala sbt tool quickstart</title>
+    <link href="http://yular.github.io/2016/07/22/scala-sbt-tool-quickstart/"/>
+    <id>http://yular.github.io/2016/07/22/scala-sbt-tool-quickstart/</id>
+    <published>2016-07-23T06:09:57.000Z</published>
+    <updated>2016-07-23T06:09:57.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Compile scala to java jar tutorial</title>
+    <link href="http://yular.github.io/2016/07/22/Compile-scala-to-java-jar-tutorial/"/>
+    <id>http://yular.github.io/2016/07/22/Compile-scala-to-java-jar-tutorial/</id>
+    <published>2016-07-23T06:09:34.000Z</published>
+    <updated>2016-07-23T06:09:34.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>HBase Shell Command List Summary</title>
@@ -604,42 +636,6 @@
     
     
       <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Codility Challenges Solution List 2010</title>
-    <link href="http://yular.github.io/2016/04/25/Codility-Challenges-Solution-List-2010/"/>
-    <id>http://yular.github.io/2016/04/25/Codility-Challenges-Solution-List-2010/</id>
-    <published>2016-04-26T03:55:16.000Z</published>
-    <updated>2016-05-31T16:26:33.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>H2O on Python Installation QuickStart Tutorial</title>
-    <link href="http://yular.github.io/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/"/>
-    <id>http://yular.github.io/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/</id>
-    <published>2016-04-15T08:12:41.000Z</published>
-    <updated>2016-04-15T08:13:24.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Machine Learning" scheme="http://yular.github.io/tags/Machine-Learning/"/>
     
   </entry>
   
