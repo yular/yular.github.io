@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2016-07-23T06:39:37.000Z</updated>
+  <updated>2017-01-08T23:42:37.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Apache Jena QuickStart</title>
+    <link href="http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/"/>
+    <id>http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/</id>
+    <published>2016-12-30T09:19:53.000Z</published>
+    <updated>2017-01-08T23:42:37.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="SparkSQL" scheme="http://yular.github.io/tags/SparkSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kotlin QuickStart</title>
+    <link href="http://yular.github.io/2016/12/30/Kotlin-QuickStart/"/>
+    <id>http://yular.github.io/2016/12/30/Kotlin-QuickStart/</id>
+    <published>2016-12-30T09:19:20.000Z</published>
+    <updated>2017-01-08T23:41:28.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official &lt;a href=&quot;https://Kotlinlang.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It has a lot of advantages and we can find them on the official website above. We can write a Kotlin script and then compile and build it as a java jar or java script file to execute. See the &lt;a href=&quot;https://en.wikipedia.org/wiki/Kotlin_(programming_language&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wikipedia&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Below is a quickstart guide to build a Kotlin script as a java jar, which is similar to the official &lt;a href=&quot;https://Kotlinlang.org/docs/tutorials/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot; title=&quot;Installation&quot;&gt;&lt;/a&gt;Installation&lt;/h2&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://kotlinlang.org/docs/tutorials/command-line.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt; to install Kotlin compiler in the OS. We use Centos 7 in this tutorial.&lt;/p&gt;
+&lt;p&gt;To manual install the compiler, just download it from &lt;a href=&quot;https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github Release&lt;/a&gt;. Then unzip it through this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;unzip kotlin-compiler-1.0.5-2.zip&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Note that current latest version is 1.0.5. The approach for all the other versions.&lt;/p&gt;
+&lt;p&gt;Then move the folder to the location we would like to store this compiler and add the bin to PATH variable.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo mv kotlinc /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kotlinc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Edit ~/.bashrc adding/modifying following lines&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; KOTLINC=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/kotlinc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$KOTLINC&lt;/span&gt;/bin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Remember to execute after modification is done.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.bashrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Now let us type following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;kotlin -help&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The output should similar as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;kotlin: run Kotlin programs, scripts or REPL.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Usage: kotlin &amp;lt;options&amp;gt; &amp;lt;&lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;&amp;gt; &amp;lt;arguments&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt; may be one of:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  foo.Bar                    Runs the &lt;span class=&quot;string&quot;&gt;&#39;main&#39;&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; from the class with the given qualified name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  app.jar                    Runs the given JAR file as &lt;span class=&quot;string&quot;&gt;&#39;java -jar&#39;&lt;/span&gt; would &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                             (-classpath argument is ignored and no Kotlin runtime is added to the classpath)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;and possible options include:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -classpath (-cp) &amp;lt;path&amp;gt;    Paths &lt;span class=&quot;built_in&quot;&gt;where&lt;/span&gt; to find user class files&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -Dname=value               Set a system JVM property&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -J&amp;lt;option&amp;gt;                 Pass an option directly to JVM&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -no-reflect                Don&lt;span class=&quot;string&quot;&gt;&#39;t include Kotlin reflection implementation into classpath&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -version                   Display Kotlin version&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  -help (-h)                 Print a synopsis of options&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Hello-World-Application&quot;&gt;&lt;a href=&quot;#Hello-World-Application&quot; class=&quot;headerlink&quot; title=&quot;Hello, World Application&quot;&gt;&lt;/a&gt;Hello, World Application&lt;/h2&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://kotlinlang.org/docs/tutorials/command-line.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Add a new file called hello.kt and below is the content:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;fun main(args: Array&amp;lt;String&amp;gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    println(&lt;span class=&quot;string&quot;&gt;&quot;Hello, World!&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Compile above application using Kotlinc compiler to a java jar:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;kotlinc hello.kt -include-runtime &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; hello.jar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Note that -include-runtime option makes the resulting .jar file self-contained and runnable by including the Kotlin runtime library in it. -d option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a .jar file name.&lt;/p&gt;
+&lt;p&gt;Now run the application:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;java -jar hello.jar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The output should be as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Hello, World!&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Basic-Syntax&quot;&gt;&lt;a href=&quot;#Basic-Syntax&quot; class=&quot;headerlink&quot; title=&quot;Basic Syntax&quot;&gt;&lt;/a&gt;Basic Syntax&lt;/h2&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://kotlinlang.org/docs/reference/basic-syntax.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;offical tutorial&lt;/a&gt; about the basic/common used syntax in Kotlin.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official &lt;a href=&quot;https://Kot
+    
+    </summary>
+    
+    
+      <category term="Kotlin" scheme="http://yular.github.io/tags/Kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>HBase Pre-split Quickstart</title>
@@ -582,59 +642,6 @@
     
     
       <category term="Bit Manipulation" scheme="http://yular.github.io/tags/Bit-Manipulation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hackerrank InterviewStreet Algorithm Problem Solution List String</title>
-    <link href="http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/"/>
-    <id>http://yular.github.io/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/</id>
-    <published>2016-05-31T16:08:08.000Z</published>
-    <updated>2016-05-31T16:24:42.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hackerrank / InterviewStreet&lt;/a&gt; algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.&lt;/p&gt;
-&lt;p&gt;Here is the summary of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;solution list&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;Bear-and-Steady-Gene&quot;&gt;&lt;a href=&quot;#Bear-and-Steady-Gene&quot; class=&quot;headerlink&quot; title=&quot;Bear and Steady Gene&quot;&gt;&lt;/a&gt;Bear and Steady Gene&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/challenges/bear-and-steady-gene&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Problem&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Code&lt;/a&gt;&lt;br&gt;A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.&lt;/p&gt;
-&lt;hr&gt;
-
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here are the solutions of some of the algorithm problems post in &lt;a href=&quot;https://www.hackerrank.com/domains/algorithms&quot; target=&quot;_blank&quot; 
-    
-    </summary>
-    
-    
-      <category term="String" scheme="http://yular.github.io/tags/String/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Chrome Install in Centos QuickStart Guide</title>
-    <link href="http://yular.github.io/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/"/>
-    <id>http://yular.github.io/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/</id>
-    <published>2016-05-27T08:59:16.000Z</published>
-    <updated>2016-06-03T07:26:29.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is a good &lt;a href=&quot;http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;The main steps are as follows:&lt;/p&gt;
-&lt;h3 id=&quot;Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux&quot;&gt;&lt;a href=&quot;#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux&quot; class=&quot;headerlink&quot; title=&quot;Download Google Chrome 45 of RHEL/CentOS/Fedora Linux&quot;&gt;&lt;/a&gt;Download Google Chrome 45 of RHEL/CentOS/Fedora Linux&lt;/h3&gt;&lt;p&gt;Download 32 bit version:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;or 64 bit version:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;Install-Google-Chrome&quot;&gt;&lt;a href=&quot;#Install-Google-Chrome&quot; class=&quot;headerlink&quot; title=&quot;Install Google Chrome&quot;&gt;&lt;/a&gt;Install Google Chrome&lt;/h3&gt;&lt;p&gt;Here is the command to install Chrome:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install ./google-chrome-stable_current_*.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If no exceptions show up, Chrome will be installed successfully.&lt;/p&gt;
-&lt;h3 id=&quot;Start-Google-Chrome-from-CLI&quot;&gt;&lt;a href=&quot;#Start-Google-Chrome-from-CLI&quot; class=&quot;headerlink&quot; title=&quot;Start Google Chrome from CLI&quot;&gt;&lt;/a&gt;Start Google Chrome from CLI&lt;/h3&gt;&lt;p&gt;Use following command to start Google Chrome:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;google-chrome &amp;amp;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is a good &lt;a href=&quot;http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/&quot; target=&quot;_blank&quot; rel
-    
-    </summary>
-    
-    
-      <category term="Web" scheme="http://yular.github.io/tags/Web/"/>
     
   </entry>
   
