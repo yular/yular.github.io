@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 12 | YBC HomePage</title>
+  <title>Page 12 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,326 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-12T02:56:56.000Z"><a href="/2015/08/11/Linux-Terminal-Shortcut/">2015-08-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/11/Linux-Terminal-Shortcut/">Linux Terminal Shortcut</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of the list of Linux Shortcut keys: <a href="https://help.ubuntu.com/community/UsingTheTerminal#Change_the_text" target="_blank" rel="external">Shortcut</a></p>
+<p>The list is also here:</p>
+<ul>
+<li>Ctrl + A: Moves the cursor to the start of a line.</li>
+<li>Ctrl + E: Moves the cursor to the end of a line.</li>
+<li>Esc + B: Moves to the beginning of the previous or current word.</li>
+<li>Ctrl + K: Deletes from the current cursor position to the end of the line.</li>
+<li>Ctrl + U: Deletes from the start of the line to the current cursor position.</li>
+<li>Ctrl + W: Deletes the word before the cursor.</li>
+<li>Alt + B: Goes back one word at a time.</li>
+<li>Alt + F: Moves forward one word at a time.</li>
+<li>Alt + C: Capitalizes letter where cursor is and moves to end of word.</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-08T03:48:19.000Z"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">Java Spring Framework Maven QuickStart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-08T03:47:20.000Z"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">Linux Mail Server exim4 Setup Guide (without docker) and JavaMail QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Exim is a message transfer agent (MTA) for use on Unix sytems connected to the Internet. And Exim4 is the default MTA on Debian system. It is easy to install and configure exim4 under Debian system. Here we setup Exim4 as a mail server to transfer message. The MTA implements both the client and server portions of SMTP or uses Postfix protocol.</p>
+<p>Here is the official page of Exim: <a href="http://www.exim.org/" target="_blank" rel="external">Exim</a></p>
+<p>The following are the steps of setup a mail server using Exim4. Here is a good tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04" target="_blank" rel="external">tutorial</a></p>
+<p>#####1.Installation<br>To install Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install exim4</span><br></pre></td></tr></table></figure></p>
+<p>#####2.Configuration<br>To configure Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure exim4-config</span><br></pre></td></tr></table></figure></p>
+<p>Then we will see a configuration interface.</p>
+<p>#######Mail Server Configuration<br>Choose the first one: internet site; mail is sent and received directly using SMTP.<br><img src="https://c1.staticflickr.com/1/481/20225786738_af70fdae0d_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Type FQDN<br>Type the hostname.domainname.tld format string as the FQDN for our mail address. Actually, any domain names can be used here even some existing mail domain name. </p>
+<p>Here is the standard input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname.domainname.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here is my input:<br><img src="https://c1.staticflickr.com/1/441/20405421232_208355ffcf_n.jpg" alt=""> </p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######SMTP Listner<br>Usually, the default value is the best choice. See below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1;::1</span><br></pre></td></tr></table></figure></p>
+<p>This is a kind of IPv6 address.</p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Mail Destination<br>Add all the mail destinations that we want for which Exim should accept mail. We can list our:</p>
+<ul>
+<li>FQDN</li>
+<li>localhost</li>
+<li>local hostname</li>
+</ul>
+<p>Use ; to separate each address.<br><img src="https://c1.staticflickr.com/1/509/20405590912_2a0fbc0de5_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Relay Options<br>For me, I left all relay options blank.</p>
+<p>Keep pressing the “Tap” key to highlight “<ok>“ and pressing Enter.</ok></p>
+<p>#######DNS Queries<br>For me, select “<no>“ and press Enter.</no></p>
+<p>#######Delivery Method<br>For me, I choose the first option: mbox format in /var/mail.<br><img src="https://c1.staticflickr.com/1/547/19791748654_fa3d3355c3_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Spliting File<br>For me, I choose “<no>“.</no></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Postmaster address<br>Enter the below text, substituting “you” “yourdomain” &amp; “tld” with our own values:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root you@yourdomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>And everything is done.</p>
+<p>#####Test Mail<br>Use the following command to do the test:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"This is the first mail"</span> | mail <span class="_">-s</span> <span class="string">"Hello Subject"</span> someone@somedomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here you can use your gmail or other public mail server to do the test. If everything goes well, you may find the email is in the spam :-)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-05T06:58:55.000Z"><a href="/2015/08/04/Linux-Commands-for-System-Management/">2015-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/04/Linux-Commands-for-System-Management/">Linux Commands for System Management</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>###Change to Others<br>Change to other users existing in the system.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root</span><br><span class="line">$ su username</span><br></pre></td></tr></table></figure>
+<p>Note: The system login password of that user is needed.</p>
+<hr>
+
+<p>###Sudo Commands List</p>
+<p>#####Installation Command<br>Install new package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Search the repositories and install the build dependencies for <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get build-dep &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Use aptitude command instead of apt-get:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo aptitude install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Automatically installs packages upon missing file access and install an uninstalled package using apt-get if a program tries to access a file known to belong in an uninstalled package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo auto-apt run &lt;<span class="built_in">command</span>_string&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note: Multiple package names can be applied.</p>
+<p>#####Maintenance Command<br>Make sure that the  source list is up-to-date.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
+<p>Upgrades all installed packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>Upgrades the most important packages at the expense of less important ones if necessary.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
+<p>Updates the package lists and checks for broken dependencies.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get check</span><br></pre></td></tr></table></figure></p>
+<p>Removes .deb files for packages that are no longer installed on the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get clean</span><br></pre></td></tr></table></figure></p>
+<p>Reconfigure the named package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Place the desired package on hold.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; hold"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
+<p>Removes the “hold” or “locked package” state set by the above command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; install"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
+<p>#####Removal commands<br>Removes an installed package, leaving configuration files intact.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Completely removes a package and the associated configuration files. But configuration files residing in ~ are not usually affected by this command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Removes packages that were installed by other packages and are no longer needed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get autoremove</span><br></pre></td></tr></table></figure></p>
+<p>#####Search commands<br>Find packages that include <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache search &lt;search_term&gt;</span><br></pre></td></tr></table></figure></search_term></p>
+<p>Find packages whose names contain <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg <span class="_">-l</span> *&lt;search_term&gt;*</span><br></pre></td></tr></table></figure></search_term></p>
+<p>List files in package <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -L &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Lists files in the <path_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -c &lt;path_name&gt; (exp: foo.deb)</span><br></pre></td></tr></table></figure></path_name></p>
+<p>Determines which installed package owns <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dlocate &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
+<p>Does the same as dlocate, but does not require the installation of any additional packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -S &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Acts like dlocate and dpkg -S, but searches all available packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-file search &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Provides a listing of every package in the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache pkgnames</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###Rename a command<br>Use alias to set a command to self-designed command name. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> rbt=<span class="string">"sudo reboot"</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###System Resource Management</p>
+<p>#####Memory Management<br>Shows memory and cache usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free</span><br></pre></td></tr></table></figure></p>
+<p>#####Disk Management<br>List devices, that is, show installed hardware.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsdev</span><br></pre></td></tr></table></figure></p>
+<p>Show (disk) file usage, recursively.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ du -ach</span><br></pre></td></tr></table></figure></p>
+<p>Shows filesystem usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ df</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>###Job Management<br>Process Statistics: lists currently executing processes by owner and PID (process ID).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps ax/aux</span><br></pre></td></tr></table></figure></p>
+<p>Combining the ps command with grep or kill.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pgrep pattern</span><br><span class="line">$ pkill</span><br></pre></td></tr></table></figure></p>
+<p>Continuously updated display of most cpu-intensive processes.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-04T06:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">Linux Commands for File Operation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>###Tar Files or Directories<br>Compress or Decompress files or directories</p>
+<p>#####For tar<br>Unpackage:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Filename.tar</span><br></pre></td></tr></table></figure></p>
+<p>Package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar cvf Filename.tar Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For gz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip Filename.gz</span><br><span class="line">$ gzip <span class="_">-d</span> Filename.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip Filename</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.gz and .tgz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf Filename.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zcvf Filename.tar.gz Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 <span class="_">-d</span> Filename.bz</span><br><span class="line">$ bunzip2 Filename.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf Filename.tar.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .zip<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ unzip Filename.zip</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip Filename.zip Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .rar<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar x Filename.rar</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar a Filename.rar Dirname</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -426,343 +746,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-23T05:21:44.000Z"><a href="/2015/07/22/HTTP-Status-Code/">2015-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/22/HTTP-Status-Code/">HTTP Status Code</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the list of common used HTTP status code. This link is <a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">Wikipedia on HTTP status code</a> in Chinese. The followings is the HTTP status code seen most often.</p>
-<p>###1xx Informational<br>Request received, continuing process.</p>
-<p>This class of status code indicates a provisional response, consisting only of the Status-Line and optional headers, and is terminated by an empty line.</p>
-<p>#####100 Continue<br>The server has received the request headers, and that the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request).</p>
-<p>#####101 Switching Protocols<br>The requester has asked the server to switch protocols and the server is acknowledging that it will do so.</p>
-<p>###2xx Success<br>The action requested by the client was received, understood, accepted and processed successfully.</p>
-<p>#####200 OK<br>Standard response for successful HTTP requests. The actual response will depend on the request method used.</p>
-<p>#####201 Created<br>The request has been fulfilled and resulted in a new resource being created.</p>
-<p>#####202 Accepted<br>The request has been accepted for processing, but the processing has not been completed. </p>
-<p>#####203 Non-Authoritative Information<br>The server successfully processed the request, but is returning information that may be from another source.</p>
-<p>#####204 No Content<br>The server successfully processed the request, but is not returning any content. Usually used as a response to a successful delete request.</p>
-<p>#####205 Reset Content<br>The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.</p>
-<p>###3xx Redirection<br>The client must take additional action to complete the request. Many of these status codes are used in URL redirection.</p>
-<p>#####Multiple Choices<br>Indicates multiple options for the resource that the client may follow. </p>
-<p>#####Moved Permanently<br>This and all future requests should be directed to the given URI.</p>
-<p>#####306 Switch Proxy<br>No longer used. Originally meant “Subsequent requests should use the specified proxy.”</p>
-<p>###4xx Client Error<br>The client seems to have erred. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition.</p>
-<p>#####400 Bad Request<br>The server cannot or will not process the request due to something that is perceived to be a client error </p>
-<p>#####401 Unauthorized<br>Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. </p>
-<p>#####403 Forbidden<br>The request was a valid request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference.</p>
-<p>#####404 Not Found<br>The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.</p>
-<p>######405 Method Not Allowed<br>A request was made of a resource using a request method not supported by that resource.</p>
-<p>######408 Request Timeout<br>The server timed out waiting for the request.</p>
-<p>######409 Conflict<br>The request could not be processed because of conflict in the request, such as an edit conflict in the case of multiple updates.</p>
-<p>###5xx Server Error<br>The server failed to fulfil an apparently valid request.</p>
-<p>#####500 Internal Server Error<br>A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.</p>
-<p>#####501 Not Implemented<br>The server either does not recognize the request method, or it lacks the ability to fulfill the request. </p>
-<p>#####502 Bad Gateway<br>The server was acting as a gateway or proxy and received an invalid response from the upstream server.</p>
-<p>#####503 Service Unavailable<br>The server is currently unavailable (because it is overloaded or down for maintenance). Generally, this is a temporary state.</p>
-<p>#####504 Gateway Timeout<br>The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.</p>
-<p>#####505 HTTP Version Not Supported<br>The server does not support the HTTP protocol version used in the request.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-22T17:05:40.000Z"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">2015-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">Machine Learning Top Conferences and Journals List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>#Conference List<br>Here is the list of top academic conferences on machine learning area based on my own experience. Since the quality of papers in these conferences may vary, it does not mean these conferences will remain the best forever. And it does not mean that the conferences that do not appear in this list are not high quality. The order is not relative to the quality of conference.</p>
-<p>The Following is the official list provided by P.R. China government,  called CCF list.<br><a href="http://www.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2567814757420" target="_blank" rel="external">CCF</a><br>Remember that this official list will also be updated in the future and thus the link may be expired.</p>
-<p>###ICML<br>International Conference on Machine Learning</p>
-<p>###NIPS<br>Neural Information Processing Systems</p>
-<p>###UAI<br>Uncertainty in Artificial Intelligence</p>
-<p>###IJCAI<br>International Joint Conference on Artificial Intelligence</p>
-<p>###AAAI<br>AAAI Conference on Artificial Intelligence</p>
-<p>###CVPR<br>IEEE Conference on Computer Vision and Pattern Recognition</p>
-<p>###ICCV<br>International Conference on Computer Vision</p>
-<p>###KDD<br>ACM SIGKDD Conference on Knowledge Discovery and Data Mining</p>
-<p>###ICDM<br>International Conference on Data Mining</p>
-<p>###WWW<br>The ACM International World Wide Web Conference</p>
-<p>###COLT<br>Annual Conference on Computational Learning Theory</p>
-<hr>
-
-<p>#Journal List<br>Here is the list of top academic journals on machine learning area based on my own experience. Since the quality of papers in these conferences may vary, it does not mean these journals will remain the best forever. And it does not mean that the journals that do not appear in this list are not high quality. The order is not relative to the quality of journal.</p>
-<p>The Following is the official list provided by P.R. China government,  called CCF list.<br><a href="http://www.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2567814757420" target="_blank" rel="external">CCF</a><br>Remember that this official list will also be updated in the future and thus the link may be expired.</p>
-<p>###AI<br>Artificial Intelligence</p>
-<p>###IJCV<br>International Journal of Computer Vision</p>
-<p>###JMLR<br>Journal of Machine Learning Research</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Machine-Learning/">Machine Learning</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-21T17:03:43.000Z"><a href="/2015/07/21/Interview-Skill-Summary/">2015-07-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/21/Interview-Skill-Summary/">Interview Skill Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>After students graduate from school or when employees would like to find a new job, they have to take interviews from companies or agencies. Here is the interview summary based my own experience and it should be useful for those who want to seek a technical job at IT companies or technical departments of agencies. Therefore, this page may be updated in the future.</p>
-<p>To pass interviews, there are mainly three steps to go through. The following is the detailed description of each step.</p>
-<p>#<em>Preparation of Interviews</em></p>
-<p><hr></p>
-<p>###Resume<br>To apply a position, applicants should provide a resume for the HR. Currently, we can use electronic resume like pdf or word and upload it to the application website; or we can use the account of some popular resume websites like linkedin.</p>
-<p>In the resume, we should provide the following things:</p>
-<ul>
-<li>Basic personal information: name, phone number, mailing address and e-mail address.</li>
-<li>Experience: often referred to work experience. In this part, we should provide the companies/organizations/agencies and corresponding period when we work for them, the positions that we held in them, and the projects as well as our responsibility for those projects that we were working on in those companies. To describe the projects that we worked on, we only have to use two paragraphs: one is the function of the project and the other is our roles and contribution to the projects.</li>
-<li>Education: including the name, period and degree of the school. Even though we may not have a good GPA, still we had better write down on the resume.</li>
-<li>Projects: the projects we have done before. We can use the similar projects description as the description in Experience part. The projects here should be the side projects or course projects. A good strategy is to write some open source projects or join the existing open source project group or organization like ASF.</li>
-<li>Skill: the skill that we have mastered. This part includes the programming language, developing tools, developing operation system and so on.</li>
-<li>Awards: the awards we have earned before. Usually we only provide academic awards or technical competition awards like IOI, ACM-ICPC, or KDD Cup.</li>
-<li>Publication: the academic papers or books published before. Remember to provide publication date and authors.</li>
-<li>Organization: the technical organizations that provided the membership for us.</li>
-</ul>
-<p>In most cases, we only have to provide the first five parts in our resume. One of the most important thing is to be HONEST to YOURSELF. If<br>still find it hard to write a good resume, just go to linked or other similar websites to read the resume post by others and learn from them.</p>
-<p>###Application<br>There are mainly three ways to apply a job.</p>
-<ul>
-<li>Career Fair: Mainly for students. Just dress properly and bring our resume and other documents with us.</li>
-<li>Online Application: Apply the job on the website of the company. Usually we can find the application page on the job or career site. </li>
-<li>Reference: Find some one to refer us. The referer can be the employees of the companies or executive search.</li>
-</ul>
-<p>Actually, there are more ways to do the application. So do not stick to the above three.</p>
-<p>###Interview Questions<br>In the interview, interviewees may meet various questions. Behavior questions and technical questions are the most common ones.</p>
-<p>#####Behavior Questions<br>Here is the list of most widely seen behavior questions appearing in the interivew based on my observation.<br><a href="http://yular.github.io/2015/05/07/Interview-Summary-Behavior-Question/">Behavior Question</a></p>
-<p>Remember, answer the questions precisely and accurately. In the technical interview, we do not have to provide a story about ourself as it will waste too much time and then we will not have enough time to answer the technical questions.</p>
-<p>#####Technical Questions<br>There are mainly three kinds of technical questions (for software engineer position). The following is my experience that how to prepare each kind of technical questions and how to judge when we are ready for them.<br>[1]Algorithm: </p>
-<ul>
-<li>Understand the basic concepts of and basic topics of algorithms. These include brute force, search (dfs and bfs), math, dynamic programming, graph theory, algorithm complexity, NP problems and so on. For more details, view the TopCoder algorithm tutorial list.</li>
-<li>Do programming practice as much as possible until we can come up with the optimal solutions in a short time (in around five minutes or even less) and then write down precise code without any bugs. The code should not be too short but easy to read and understand, following good code style.</li>
-<li>Be able to analyze the complexity of the algorithm. The complexity means time complexity and space complexity.</li>
-<li>Be able to prove the correctness of solution</li>
-</ul>
-<p>[2]Object-Oriented Design (OOD)</p>
-<ul>
-<li>Know common used OOD design patterns and understand when, how and where (the best cases) to use them.</li>
-<li>Do much practice so that when given a case, be able to write down the OOD diagram meeting the requirement and explain it precisely.</li>
-<li>Be able to design, analyze and implement the algorithms of specific/key module(s) in our design.</li>
-</ul>
-<p>[3]System Design (SD)</p>
-<ul>
-<li>Know common used design patterns and basic concepts, and understand when, where and how to use these patterns.</li>
-<li>Be able to balance the trade off of our design and then explain the design precisely.</li>
-<li>Our system design can be scaled up. </li>
-</ul>
-<p>For more details, read the summary here: <a href="http://yular.github.io/2015/07/16/System-Design-Interview-Summary/">System Design Summary</a></p>
-<p>#<em>When in the Interview</em></p>
-<p><hr><br>A common technical interview largely has two arounds which includes a phone interview round and an onsite round. A phone interview round has two or even more sessions and so does an onsite round. In some cases, a extra round will be added if candidates do not perform so well in the previous two rounds.</p>
-<p>###Phone Interview<br>In this kind of interview, interviewers talk with interviewees through cell phone, skype or other communication tool and then interviewees can write down the code on some online document like Google Docs. Each session can last around 45 minutes. But it depends on the company. </p>
-<p>Usually, each session will be divided into two parts: in the first part, interviwers may give some self introduction and then ask some behaviorquestions; in the second part, interviewers will ask some technical questions, which may include explanation of some terminology/concepts and programming problems or other kinds of technical problems. In the last few minutes of each session, the interviewees could ask interviewers some nontechnical questions.</p>
-<p>In most cases, phone interviews should not be hard and just want to test whether the candidates have mastered the fundamental knowledge or not.</p>
-<p>###Onsite Interview<br>Onsite interview is usually the last round of the whole interview. A typical onsite interview can contain four or even more sessions in a day, and it should only last one or two day(s). Each session is about 45 minutes. In some sessions, there may be multiple interviewers because some or one of them are/is shadow. The interview questions are similar as those in the phone interviews but can be more challenging. It means that the problems in the onsite round are more difficult to solve or at least more difficult to come up with an optimal solution; and candidates should write down the code on the white board, and then analyze the solutions. In some situations, the interviewers may ask some follow up (more difficult or tricky) problems based on the last questions.</p>
-<p>Above all, it is not easy to answer all the questions “correctly” in the interview and actually it is not necessary to do so. When we are faced a problem, we can come up with a navie solution for it and discuss the solution with interviewer. If interviewer agree with us on it, we can start to do the coding/writing. Try to write the code in a good style and precisely. If interviewer thinks the solution is not optimal, we should go back to think of it but in some cases, we can ask some hints from interviewer and try to solve the problems based on hints. Interviewers understand that it is too strict for interviewees to answer a very difficult problem in an hour so they may just would like to know the way we come up with a solution when facing with a problem that is difficult and never seen before. Some times, interviewers may play jokes on us or even make some mistakes and they think our solution is not optimal or even wrong. In these cases, we should speak out and argue our solution with interviewers. Do remember that no matter how efficient our solution is, we should write down the complete code to show our programming skill level. Try to finish the code without bugs.</p>
-<p>The best way to be successful in the interiew is to do more practice. Do the mock interview before the actual interview comes. Discuss the solution of interview problems with others and try to find the optimal ones. Limit the time when practice. Try to improve the oral presentation, expecially for non-English speakers.</p>
-<p>#<em>After the Interview</em></p>
-<p><hr><br>The interview results will be processed in some weeks and they will be submitted to hiring community and discussed for a long time. In most cases, we have to wait four or more weeks. If we have pending offers or some other reasons and have to know the result as earlier as possible, we could email the HR and kindly remind that we would like to know the result sooner.</p>
-<p>After we get the offer, we can view the package and discuss it with HR. But remember, offer is just a start not the end. More challenges are waiting for us in the job.</p>
-<p>END</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Interview-Summary/">Interview Summary</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:39.000Z"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">LintCode Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:34.000Z"><a href="/2015/07/19/LintCode-Problem-Solution-List-II/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LintCode-Problem-Solution-List-II/">LintCode Problem Solution List II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -788,7 +776,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -833,7 +821,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
   
-    <li><a href="/tags/Lua/">Lua</a><small>1</small></li>
+    <li><a href="/tags/Lua/">Lua</a><small>2</small></li>
   
     <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>10</small></li>
   
@@ -859,9 +847,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 14.29px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 15.71px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 14.29px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 15.71px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Lua/" style="font-size: 11.43px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
   </div>
 </div>
 
@@ -882,23 +870,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2016/12/30/Apache-Jena-QuickStart/">Apache Jena QuickStart</a>
+        <a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a>
       </li>
     
       <li>
-        <a href="/2016/12/30/Kotlin-QuickStart/">Kotlin QuickStart</a>
+        <a href="/2017/01/08/C-MySQL-QuickStart/">C MySQL QuickStart</a>
       </li>
     
       <li>
-        <a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a>
+        <a href="/2017/01/08/Lua-MongoDB-QuickStart/">Lua MongoDB QuickStart</a>
       </li>
     
       <li>
-        <a href="/2016/07/22/scala-sbt-tool-quickstart/">scala sbt tool quickstart</a>
+        <a href="/2017/01/08/Lua-MySQL-QuickStart/">Lua MySQL QuickStart</a>
       </li>
     
       <li>
-        <a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">Compile scala to java jar tutorial</a>
+        <a href="/2017/01/08/LuaRocks-QuickStart/">LuaRocks QuickStart</a>
       </li>
     
   </ul>
