@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 9 | YBC HomePage</title>
+  <title>Página 9 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,129 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-03T03:48:50.000Z"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">2015-11-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">Pig Local Maven UDFs QuickStart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a quickstart guide to write a simple Pig UDF (User Defined Function) and run it in Pig local mode. Additionally, here is the <a href="http://simmantwidevision.blogspot.com/2013/06/pig-udf-basic-tutorial.html" target="_blank" rel="external">link</a> of a quickstart guide of a non-Maven version.</p>
+<h3 id="Create-a-Maven-project"><a href="#Create-a-Maven-project" class="headerlink" title="Create a Maven project"></a>Create a Maven project</h3><p>Run the following command to create a new Maven project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=testudfs -DartifactId=scriptPig -DarchitypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Note that we can specify any groupId and artifactId as we want.</p>
+<p>Then navigate to the project directory and add these dependencies to the pom.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;3.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;1.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.7.1&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.pig&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;pig&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;0.14.0&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we can use any version of Pig and Hadoop as we want but should make sure that all the tools are compatible ahead.</p>
+<p>After that, edit the App.java file under “testudfs” directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package testudfs;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import org.apache.pig.EvalFunc;</span><br><span class="line">import org.apache.pig.data.Tuple;</span><br><span class="line">import org.apache.pig.impl.util.WrappedIOException;</span><br><span class="line"></span><br><span class="line">public class App extends EvalFunc&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public String <span class="built_in">exec</span>(Tuple input) throws IOException &#123;</span><br><span class="line">        <span class="keyword">if</span>(input == null || input.size() == 0)</span><br><span class="line">                <span class="built_in">return</span> null;</span><br><span class="line"></span><br><span class="line">        try&#123;</span><br><span class="line">                String str = (String)input.get(0);</span><br><span class="line">                <span class="built_in">return</span> <span class="string">"This is : "</span>+str;</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">                throw new IOException(<span class="string">"Caught exception processing</span><br><span class="line">input row "</span> + e.getMessage(), e);</span><br><span class="line"> 	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note that in the above code, in UDF every input come in the from of tuple and EvalFunc is the UDF which return the same value which it get as a input; and the exec is the function which EvalFunc call as default. There are four kinds of UDFs that can be created by users.</p>
+<p>At last, run these commands under project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn install -DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>If no errors show up, then copy the jar file to the project directory.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp target/scriptPig-1.0-SNAPSHOT.jar ./</span><br></pre></td></tr></table></figure></p>
+<p>Note that this step is not required and is just for the ease of our operation.</p>
+<p>Now create a txt file named “student.txt” and write down these names:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">John</span><br><span class="line">Green</span><br><span class="line">Allen</span><br><span class="line">Kitty</span><br><span class="line">Fish</span><br><span class="line">Peter</span><br></pre></td></tr></table></figure></p>
+<h3 id="Run-UDF-in-Pig-Environment"><a href="#Run-UDF-in-Pig-Environment" class="headerlink" title="Run UDF in Pig Environment"></a>Run UDF in Pig Environment</h3><p>Here is the <a href="http://yular.github.io/2015/09/03/Pig-Install-and-Basic-Commands/">tutorial</a> to setup a Pig in the machine.</p>
+<p>After pig is installed successfully, run this command to boost pig in the local mode:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig -x <span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
+<p>Then we will enter into the Grunt shell environment. At first, we should register the jar file into Pig environment using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">register scriptPig-1.0-SNAPSHOT.jar;</span><br></pre></td></tr></table></figure></p>
+<p>If our jar file is under other directory, please remember to provide the correct path.<br>Secondly, load the data file into Pig environment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = LOAD <span class="string">'student.txt'</span> as (name:chararray);</span><br></pre></td></tr></table></figure></p>
+<p>In the third step, add our UDF to the Pig script:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = FOREACH A GENERATE testudfs.App(name);</span><br></pre></td></tr></table></figure></p>
+<p>At last, run this command and we can see the output if all the things go well:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DUMP B;</span><br></pre></td></tr></table></figure></p>
+<p>Part of the output should be similar like the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">HadoopVersion   PigVersion      UserId  StartedAt       FinishedAt      Features</span><br><span class="line">2.7.1   0.14.0  yular-centos      2015-11-02 20:19:27     2015-11-02 20:19:29     UNKNOWN</span><br><span class="line"></span><br><span class="line">Success!</span><br><span class="line"></span><br><span class="line">Job Stats (time <span class="keyword">in</span> seconds):</span><br><span class="line">JobId   Maps    Reduces MaxMapTime      M<span class="keyword">in</span>MapTime      AvgMapTime MedianMapTime   MaxReduceTime   M<span class="keyword">in</span>ReduceTime   AvgReduceTime MedianReducetime        Alias   Feature Outputs  </span><br><span class="line">job_<span class="built_in">local</span>801987401_0001 1       0       n/a     n/a     n/a     n/a  0       0       0       0       A,B     MAP_ONLY file:/tmp/temp321109562/tmp1046007842,</span><br><span class="line"></span><br><span class="line">Input(s):</span><br><span class="line">Successfully <span class="built_in">read</span> 6 records from: <span class="string">"MyPathTo/student.txt"</span></span><br><span class="line"></span><br><span class="line">Output(s):</span><br><span class="line">Successfully stored 6 records <span class="keyword">in</span>: <span class="string">"file:/tmp/temp321109562/tmp1046007842"</span></span><br><span class="line"></span><br><span class="line">Counters:</span><br><span class="line">Total records written : 6</span><br><span class="line">Total bytes written : 0</span><br><span class="line">Spillable Memory Manager spill count : 0</span><br><span class="line">Total bags proactively spilled: 0</span><br><span class="line">Total records proactively spilled: 0</span><br><span class="line"></span><br><span class="line">Job DAG:</span><br><span class="line">job_<span class="built_in">local</span>801987401_0001</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2015-11-02 20:19:29,801 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,802 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,803 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,808 [main] INFO org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success!</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - fs.default.name is deprecated. Instead, use fs.defaultFS</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - io.bytes.per.checksum is deprecated. Instead, use dfs.bytes-per-checksum</span><br><span class="line">2015-11-02 20:19:29,810 [main] WARN org.apache.pig.data.SchemaTupleBackend - SchemaTupleBackend has already been initialized </span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input paths to process : 1</span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.pig.backend.hadoop.executionengine.util.MapRedUtil - Total</span><br><span class="line">input paths to process : 1</span><br><span class="line">(This is : John)</span><br><span class="line">(This is : Green)</span><br><span class="line">(This is : Allen)</span><br><span class="line">(This is : Kitty)</span><br><span class="line">(This is : Fish)</span><br><span class="line">(This is : Peter)</span><br></pre></td></tr></table></figure></p>
+<p>Hop this tutorial is helpful~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-20T02:51:18.000Z"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">2015-10-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">SSL Certification Serverside Deployment Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the simple guide to deploy SSL certification on server side. Currently, we use Tomcat8 in this tutorial.</p>
+<h4 id="Generate-the-pfx-file-on-Windows"><a href="#Generate-the-pfx-file-on-Windows" class="headerlink" title="Generate the pfx file on Windows"></a>Generate the pfx file on Windows</h4><p>Here is a good <a href="https://major.io/2007/03/23/exporting-ssl-certificates-from-windows-to-linux/" target="_blank" rel="external">tutorial</a>. </p>
+<p>After we get the pfx file, please remember the password and send this file to the remote server.</p>
+<h4 id="Decrypt-the-PFX-File"><a href="#Decrypt-the-PFX-File" class="headerlink" title="Decrypt the PFX File"></a>Decrypt the PFX File</h4><p>In this step, we run the following command to decrypt the pfx file created in the last step.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in file.pfx -out file.pem</span><br></pre></td></tr></table></figure></p>
+<p>We will be asked to provide the password for the PFX file in this step. Once we enter that, we will again be asked to provide a new password which is used to encrypt the private key. Please remember this password also. Here we set the new password as “changeit” in our example.</p>
+<p>When this step is complete, we should have a PEM file. Open the file in a text editor and copy the private key and certificate to different files. Remember to keep the dashed lines intact when we copy the certificates. There is some additional text above the key, and also between the key and certificate – this text should be ignored and should not be included in the certificate and key files.</p>
+<p>Now we will get a file.key and a file.crt file.</p>
+<h4 id="Decrypt-the-private-key"><a href="#Decrypt-the-private-key" class="headerlink" title="Decrypt the private key"></a>Decrypt the private key</h4><p>In this step, run this command to decrypt the private key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in file.key -out file.key</span><br></pre></td></tr></table></figure></p>
+<p>Again openSSL will ask for a password to decrypt the key, and this is the password we set when you decrypted the PFX.</p>
+<h4 id="Generate-the-SSL-Certificate"><a href="#Generate-the-SSL-Certificate" class="headerlink" title="Generate the SSL Certificate"></a>Generate the SSL Certificate</h4><p>In this step, we will create a new PFX certificate through the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile more.crt</span><br></pre></td></tr></table></figure></p>
+<p>In this step, OpenSSL will us to enter a new passowrd for this pfx file and in this tutorial, we use “changeit” again. Note that the more.crt is optional in some cases. And then we can install certificate.pfx into Tomcat8 like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/tomcat8/sso</span><br><span class="line">cp certificate.pfx /opt/tomcat8/sso</span><br><span class="line">cp file.key /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br><span class="line">cp file.crt /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Configure-Tomcat8"><a href="#Configure-Tomcat8" class="headerlink" title="Configure Tomcat8"></a>Configure Tomcat8</h4><p>The last step is about server configuration. For Tomcat, the only thing we have to do is to edit its server.xml file which is under its own conf directory. So run this command to open it in vim:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/tomcat8/conf/server.xml</span><br><span class="line">``` </span><br><span class="line">And <span class="keyword">then</span> edit the &lt;Connector&gt; tag and change it as follows:</span><br><span class="line">``` bash</span><br><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span><br><span class="line"></span><br><span class="line"> maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"> keystoreType=<span class="string">"PKCS12"</span></span><br><span class="line"></span><br><span class="line"> keystoreFile=<span class="string">"/opt/tomcat8/sso/certificate.pfx"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line"> clientAuth=<span class="string">"false"</span> sslProtocol=<span class="string">"TLS"</span></span><br><span class="line"></span><br><span class="line"> ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>If we skip the step to generate a new pfx file, then the following context of <connector> should also work:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11AprProtocol"</span></span><br><span class="line"></span><br><span class="line">  maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"> </span><br><span class="line">  keystoreType=<span class="string">"PKCS12"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateFile=<span class="string">"/opt/tomcat8/sso/file.crt"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateKeyFile=<span class="string">"/opt/tomcat8/sso/file.key"</span></span><br><span class="line"></span><br><span class="line">  SSLVerifyClient=<span class="string">"optional"</span> SSLProtocol=<span class="string">"TLSv1+TLSv1.1+TLSv1.2"</span> </span><br><span class="line"></span><br><span class="line">  ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></connector></p>
+<p>Actually, the ciphers field is not necessary in some cases. But if when we re/start the server and visit the website, we get a WEAK PASSWORD or similar exception, then that field is needed.</p>
+<p>Now just re/start the server and type <a href="https://your_url" target="_blank" rel="external">https://your_url</a> to see whether it works.</p>
+<p>Hope this tutorial is helpful and welcome any feedbacks~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -519,99 +642,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:40:52.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-IV/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-IV/">USACO Training Problem Solution List IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:40:47.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-III/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-III/">USACO Training Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/10/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -645,7 +680,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>38</small></li>
@@ -684,13 +719,15 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
   
-    <li><a href="/tags/Lua/">Lua</a><small>4</small></li>
+    <li><a href="/tags/Lua/">Lua</a><small>5</small></li>
   
     <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>10</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>4</small></li>
   
     <li><a href="/tags/R/">R</a><small>1</small></li>
+  
+    <li><a href="/tags/Redis/">Redis</a><small>1</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -710,9 +747,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.43px;">C</a> <a href="/tags/C/" style="font-size: 11.43px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 14.29px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.43px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 15.71px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.43px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.71px;">Linux</a> <a href="/tags/Lua/" style="font-size: 12.86px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.86px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.14px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.75px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
@@ -733,6 +770,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a>
       </li>
     
@@ -742,14 +787,6 @@
     
       <li>
         <a href="/2017/01/08/Lua-MongoDB-QuickStart/">Lua MongoDB QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/08/Lua-MySQL-QuickStart/">Lua MySQL QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/08/LuaRocks-QuickStart/">LuaRocks QuickStart</a>
       </li>
     
   </ul>
