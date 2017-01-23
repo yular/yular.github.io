@@ -223,9 +223,9 @@
     <link href="http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/"/>
     <id>http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/</id>
     <published>2016-12-30T09:19:53.000Z</published>
-    <updated>2017-01-23T08:59:30.000Z</updated>
+    <updated>2017-01-23T09:02:44.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. &lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. This is the official website of &lt;a href=&quot;https://jena.apache.org/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apache Jena&lt;/a&gt;, &lt;a href=&quot;https://jena.apache.org/tutorials/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt; and &lt;a href=&quot;https://jena.apache.org/getting_started/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;get started document&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;Download-Apache-Jena&quot;&gt;&lt;a href=&quot;#Download-Apache-Jena&quot; class=&quot;headerlink&quot; title=&quot;Download Apache Jena&quot;&gt;&lt;/a&gt;Download Apache Jena&lt;/h2&gt;&lt;p&gt;Download Apache Jena from this &lt;a href=&quot;https://jena.apache.org/download/index.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt;. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.&lt;/p&gt;
 &lt;p&gt;Extract the software from tar ball and move them to /usr/local:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar xvzf apache-jena-3.1.1.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv apache-jena-3.1.1 /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;h2 id=&quot;Set-Environment-PATH&quot;&gt;&lt;a href=&quot;#Set-Environment-PATH&quot; class=&quot;headerlink&quot; title=&quot;Set Environment PATH&quot;&gt;&lt;/a&gt;Set Environment PATH&lt;/h2&gt;&lt;p&gt;Edit ~/.bashrc file and put following content in that file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; JENAROOT=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/apache-jena-3.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$JENAROOT&lt;/span&gt;/bin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -236,8 +236,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. &lt;/p&gt;
-&lt;h2 id=&quot;Download-Apache-Jena&quot;&gt;&lt;a href=&quot;#Download-Apache-Jena&quot; class=&quot;headerli
+      &lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. This is the official website of &lt;a href=&quot;https://jena.apache.org/index.html&quot; targe
     
     </summary>
     
