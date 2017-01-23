@@ -100,7 +100,14 @@
     <div class="entry">
       
       
-        
+        <p>Here is the tutorial to install Apache Jena on CentOS. </p>
+<h2 id="Download-Apache-Jena"><a href="#Download-Apache-Jena" class="headerlink" title="Download Apache Jena"></a>Download Apache Jena</h2><p>Download Apache Jena from this <a href="https://jena.apache.org/download/index.cgi" target="_blank" rel="external">link</a>. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.</p>
+<p>Extract the software from tar ball and move them to /usr/local:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf apache-jena-3.1.1.tar.gz</span><br><span class="line">mv apache-jena-3.1.1 /usr/<span class="built_in">local</span>/</span><br></pre></td></tr></table></figure></p>
+<h2 id="Set-Environment-PATH"><a href="#Set-Environment-PATH" class="headerlink" title="Set Environment PATH"></a>Set Environment PATH</h2><p>Edit ~/.bashrc file and put following content in that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JENAROOT=/usr/<span class="built_in">local</span>/apache-jena-3.1.1</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JENAROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Now try this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparql --version</span><br></pre></td></tr></table></figure></p>
+<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jena:       VERSION: 3.1.1</span><br><span class="line">Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">ARQ:        VERSION: 3.1.1</span><br><span class="line">ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">RIOT:       VERSION: 3.1.1</span><br><span class="line">RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -125,7 +132,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comentarios</h1>
+  <h1 class="title">Kommentare</h1>
 
   
   <div id="disqus_thread">
@@ -165,7 +172,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>38</small></li>
@@ -232,7 +239,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Nube de Etiquetas</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.75px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
