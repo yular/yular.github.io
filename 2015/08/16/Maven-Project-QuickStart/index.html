@@ -111,7 +111,7 @@
 <p>Note: If we want to write the code in eclipse, use this command before write the actual code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn eclipse:eclipse</span><br></pre></td></tr></table></figure></p>
 <p>3.Compile, Deploy and Run the Java Program<br>Compile the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean</span><br><span class="line">$ mvn install</span><br></pre></td></tr></table></figure></p>
 <p>Deploy (Package) the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn package</span><br></pre></td></tr></table></figure></p>
-<p>Run the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -jar target/calculator-1.0-SNAPSHOT.jar com.yulartech.app.App</span><br></pre></td></tr></table></figure></p>
+<p>Run the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -cp target/calculator-1.0-SNAPSHOT.jar com.yulartech.app.App</span><br></pre></td></tr></table></figure></p>
 <p>Then when you provide two integers for this program, it will return the sum of them. Press “Ctrl + C” then the program will be terminated.</p>
 
       
