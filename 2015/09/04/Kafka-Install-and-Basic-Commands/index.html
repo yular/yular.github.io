@@ -101,19 +101,21 @@
       
       
         <p>Here is the official website of <a href="http://kafka.apache.org/" target="_blank" rel="external">Kafka</a>.</p>
-<p>###KafKa Install<br>Here is the official document of <a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">Kafka Install</a>.</p>
+<h3 id="KafKa-Install"><a href="#KafKa-Install" class="headerlink" title="KafKa Install"></a>KafKa Install</h3><p>Here is the official document of <a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">Kafka Install</a>.</p>
 <p>Now the following is the guide of kafka installation:</p>
-<p>#####Download and Un-tar Kafka<br><a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">click here</a> to download Kafka.</p>
+<h5 id="Download-and-Un-tar-Kafka"><a href="#Download-and-Un-tar-Kafka" class="headerlink" title="Download and Un-tar Kafka"></a>Download and Un-tar Kafka</h5><p><a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">click here</a> to download Kafka.</p>
 <p>Run this command to un-tar Kafka<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf kafka_[version code].tgz</span><br><span class="line"><span class="built_in">cd</span> kafka_[version code]</span><br></pre></td></tr></table></figure></p>
 <p>Now the stand-alone mode of Kafka is setup.</p>
-<p>###Start Kafka Server<br>Kafka uses ZooKeeper so we need to first start a ZooKeeper server. If we do not have one, run the following scripts under Kafka project to get a quick-and-dirty single-node ZooKeeper instance.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Start-Kafka-Server"><a href="#Start-Kafka-Server" class="headerlink" title="Start Kafka Server"></a>Start Kafka Server</h3><p>Kafka uses ZooKeeper so we need to first start a ZooKeeper server. If we do not have one, run the following scripts under Kafka project to get a quick-and-dirty single-node ZooKeeper instance.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></p>
 <p>If we have already installed a Zookeeper instance, check the <a href="http://yular.github.io/2015/09/03/Zookeeper-Install-and-Basic-Commands/">this link</a> to see how to start it.</p>
 <p>After ZooKeeper is boost, open a new terminal tab/window and run this script:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></p>
 <p>Note that if Kafa fails to start because it cannot create the log directory, do these steps:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi config/server.properties <span class="comment"># See what is the value of log.dir item; initially it should be /var/kafka-logs and let us modify it as /tmp/kafka-log</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">sudo mkdir kafka-logs</span><br><span class="line">sudo chmod 777 kafka-logs</span><br></pre></td></tr></table></figure></p>
 <p>Now the Kafka cluster is running.</p>
 <hr>
 
-<p>###Kafka Basic Example<br>When Kafka server is running, follow these steps to run a simple example.</p>
+<h3 id="Kafka-Basic-Example"><a href="#Kafka-Basic-Example" class="headerlink" title="Kafka Basic Example"></a>Kafka Basic Example</h3><p>When Kafka server is running, follow these steps to run a simple example.</p>
 <p>At first, open a new terminal tab/window and then create a topic named “test”:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
 <p>And we can run this script to list all existing topics:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure></p>
 <p>If the topic is generated successfully, then start a publisher to send some message:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
@@ -146,7 +148,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Comments</h1>
+  <h1 class="title">Kommentare</h1>
 
   
   <div id="disqus_thread">
@@ -253,7 +255,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.25px;">C</a> <a href="/tags/C/" style="font-size: 11.25px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.75px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.25px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.25px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.25px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.25px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.75px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.25px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
