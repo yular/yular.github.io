@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 4 | YBC HomePage</title>
+  <title>Seite 4 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,157 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-06-04T01:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
+<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
+<p>Here is a simple guide to download, build and install Lua on Centos.</p>
+<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
+<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
+<p>If Lua is installed successfully, this command will be executed successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lua</span><br><span class="line"><span class="comment"># Command output : </span></span><br><span class="line">Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-31T16:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Xor-sequence"><a href="#Xor-sequence" class="headerlink" title="Xor-sequence"></a>Xor-sequence</h3><p><a href="https://www.hackerrank.com/challenges/xor-se" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/xor-se.cpp" target="_blank" rel="external">Code</a><br>A kind of construction problem. At first, figure out the pattern which is a repeating sequence: 0,1,2,2,6,7,0,0. And then calculate the result based on the given position.</p>
+<hr>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Bit-Manipulation/">Bit Manipulation</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-31T16:08:08.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">2016-05-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">Hackerrank InterviewStreet Algorithm Problem Solution List String</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Bear-and-Steady-Gene"><a href="#Bear-and-Steady-Gene" class="headerlink" title="Bear and Steady Gene"></a>Bear and Steady Gene</h3><p><a href="https://www.hackerrank.com/challenges/bear-and-steady-gene" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp" target="_blank" rel="external">Code</a><br>A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.</p>
+<hr>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/String/">String</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -422,158 +573,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-31T03:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/">official website of redis</a>.</p>
-<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart">official tutorial</a>.</p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/03/30/Redis-QuickStart/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-27T22:36:14.000Z"><a href="/2016/03/27/CSS-Pattern-List/">2016-03-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.</p>
-<p><a href="http://lea.verou.me/css3patterns/" target="_blank" rel="external">CSS3 Patterns Gallery</a><br><a href="http://subtlepatterns.com/" target="_blank" rel="external">Subtle Patterns</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-25T07:58:10.000Z"><a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">2016-03-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">MongoDB Quick Start on Mac</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the tutorial about how to install and run MonogoDB on mac. Below is the link of official document:<br><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">official document</a></p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -648,7 +652,9 @@
   
     <li><a href="/tags/Lua/">Lua</a><small>5</small></li>
   
-    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>10</small></li>
+    <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>11</small></li>
+  
+    <li><a href="/tags/Natural-Language-Processing/">Natural Language Processing</a><small>1</small></li>
   
     <li><a href="/tags/Python/">Python</a><small>4</small></li>
   
@@ -674,9 +680,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.22px;">C</a> <a href="/tags/C/" style="font-size: 11.11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.89px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.56px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11.11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.22px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.44px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.56px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13.33px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.78px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/C/" style="font-size: 11px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 11px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 17px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 13px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 13px;">Tools</a> <a href="/tags/Web/" style="font-size: 18px;">Web</a>
   </div>
 </div>
 
@@ -697,23 +703,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">Penn Treebank Part-Of-Speech Tags List</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/">ElasticSearch QuickStart: Basic Commands Usage</a>
+      </li>
+    
+      <li>
+        <a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">ElasticSearch QuickStart: Introduction and Installation</a>
+      </li>
+    
+      <li>
         <a href="/2017/01/28/C-Redis-QuickStart/">C Redis QuickStart</a>
       </li>
     
       <li>
         <a href="/2017/01/28/2017-Reading-List/">2017 Reading List</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a>
       </li>
     
   </ul>

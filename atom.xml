@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-01-29T08:09:57.000Z</updated>
+  <updated>2017-01-29T21:14:04.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Penn Treebank Part-Of-Speech Tags List</title>
+    <link href="http://yular.github.io/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/"/>
+    <id>http://yular.github.io/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/</id>
+    <published>2017-01-29T21:07:54.000Z</published>
+    <updated>2017-01-29T21:14:04.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Below is the list of tags defined in Penn Treebank project. Now they are well-known as POS (Part-Of-Speech) tags used in NLP. Here is &lt;a href=&quot;https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of original list&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;1.CC - Coordinating conjunction&lt;br&gt;2.CD - Cardinal number&lt;br&gt;3.DT - Determiner&lt;br&gt;4.EX - Existential there&lt;br&gt;5.FW -Foreign word&lt;br&gt;6.IN - Preposition or subordinating conjunction&lt;br&gt;7.JJ - Adjective&lt;br&gt;8.JJR - Adjective, comparative&lt;br&gt;9.JJS - Adjective, superlative&lt;br&gt;10.LS - List item marker&lt;br&gt;11.MD - Modal&lt;br&gt;12.NN - Noun, singular or mass&lt;br&gt;13.NNS - Noun, plural&lt;br&gt;14.NNP - Proper noun, singular&lt;br&gt;15.NNPS - Proper noun, plural&lt;br&gt;16.PDT - Predeterminer&lt;br&gt;17.POS - Possessive ending&lt;br&gt;18.PRP - Personal pronoun&lt;br&gt;19.PRP$ - Possessive pronoun&lt;br&gt;20.RB - Adverb&lt;br&gt;21.RBR - Adverb, comparative&lt;br&gt;22.RBS - Adverb, superlative&lt;br&gt;23.RP - Particle&lt;br&gt;24.SYM - Symbol&lt;br&gt;25.TO - to&lt;br&gt;26.UH - Interjection&lt;br&gt;27.VB - Verb, base form&lt;br&gt;28.VBD - Verb, past tense&lt;br&gt;29.VBG - Verb, gerund or present participle&lt;br&gt;30.VBN - Verb, past participle&lt;br&gt;31.VBP - Verb, non-3rd person singular present&lt;br&gt;32.VBZ - Verb, 3rd person singular present&lt;br&gt;33.WDT - Wh-determiner&lt;br&gt;34.WP - Wh-pronoun&lt;br&gt;35.WP$ - Possessive wh-pronoun&lt;br&gt;36.WRB - Wh-adverb&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Below is the list of tags defined in Penn Treebank project. Now they are well-known as POS (Part-Of-Speech) tags used in NLP. Here is &lt;a 
+    
+    </summary>
+    
+    
+      <category term="Machine Learning" scheme="http://yular.github.io/tags/Machine-Learning/"/>
+    
+      <category term="Natural Language Processing" scheme="http://yular.github.io/tags/Natural-Language-Processing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch QuickStart: Basic Commands Usage</title>
+    <link href="http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/"/>
+    <id>http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/</id>
+    <published>2017-01-29T21:03:06.000Z</published>
+    <updated>2017-01-29T21:03:06.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ElasticSearch QuickStart: Introduction and Installation</title>
+    <link href="http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/"/>
+    <id>http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/</id>
+    <published>2017-01-29T21:02:49.000Z</published>
+    <updated>2017-01-29T21:02:49.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>C Redis QuickStart</title>
@@ -510,140 +566,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Install Multiple Python on CentOS</title>
-    <link href="http://yular.github.io/2016/07/02/Install-Multiple-Python-on-CentOS/"/>
-    <id>http://yular.github.io/2016/07/02/Install-Multiple-Python-on-CentOS/</id>
-    <published>2016-07-02T19:10:03.000Z</published>
-    <updated>2016-07-02T22:12:05.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is another good &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Sometimes we have to install the other versions of python on the OS because the original python may not meet requirement. It will be better that keep the stability of system as philosophy behind “if it ain’t broke, don’t fix it”. So we will not use system management tool YUM to install python but update OS and install required dependencies.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Preparing-System-Environment&quot;&gt;&lt;a href=&quot;#Preparing-System-Environment&quot; class=&quot;headerlink&quot; title=&quot;Preparing System Environment&quot;&gt;&lt;/a&gt;Preparing System Environment&lt;/h3&gt;&lt;h4 id=&quot;Update-CentOS&quot;&gt;&lt;a href=&quot;#Update-CentOS&quot; class=&quot;headerlink&quot; title=&quot;Update CentOS&quot;&gt;&lt;/a&gt;Update CentOS&lt;/h4&gt;&lt;p&gt;Execute this command to do the update:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum -y update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h4 id=&quot;Install-Dependencies&quot;&gt;&lt;a href=&quot;#Install-Dependencies&quot; class=&quot;headerlink&quot; title=&quot;Install Dependencies&quot;&gt;&lt;/a&gt;Install Dependencies&lt;/h4&gt;&lt;p&gt;Here we use YUM to install development tools. We use groupinstall to do it. YUM Software Groups consist of bunch of commonly used tools (applications) bundled together, ready for download all at the same time via execution of a single command and stating a group name.&lt;/p&gt;
-&lt;p&gt;Here is the command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum groupinstall -y development&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Or&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum groupinstall -y &lt;span class=&quot;string&quot;&gt;&#39;development tools&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Or&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;If applications like wget and xz-libs are not installed, please install them through these commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install wget&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install xz-libs&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-Python-3-or-Python-2-7&quot;&gt;&lt;a href=&quot;#Install-Python-3-or-Python-2-7&quot; class=&quot;headerlink&quot; title=&quot;Install Python 3 or Python 2.7&quot;&gt;&lt;/a&gt;Install Python 3 or Python 2.7&lt;/h3&gt;&lt;p&gt;At first, we can go to Python official website to &lt;a href=&quot;https://www.python.org/downloads/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;download Python&lt;/a&gt;. Or execute following commands to download Python:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 2.7.6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 3.3.3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget http://www.python.org/ftp/python/3.3.3/Python-3.3.3.tar.xz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then extract the compressed source archive through following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 2.7.6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xz &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; Python-2.7.6.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -xvf Python-2.7.6.tar&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 3.3.3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;xz &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; Python-3.3.3.tar.xz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -xvf Python-3.3.3.tar&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then before we build the source, we should make sure that all the dependencies and environment are ready. It can be done through these commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 2.7.6&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; Python-2.7.6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 3.3.3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; Python-3.3.3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure --prefix=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that prefix option means the location where we will put the new python binary. There are many other options and use any of them if needed.&lt;/p&gt;
-&lt;p&gt;At last, to avoid new python overwritting original python in the system, we should execute this command to build and install python.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;make &amp;amp;&amp;amp; make altinstall&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;After the installation is done,  if we check /usr/local/bin (or the location specified in –prefix option), we will find a new executable files called python3.5 or python2.7.&lt;/p&gt;
-&lt;p&gt;Just add the /usr/local/bin into $PATH variable in ~/.bashrc file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;string&quot;&gt;&quot;/usr/local/bin:&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Install-pip&quot;&gt;&lt;a href=&quot;#Install-pip&quot; class=&quot;headerlink&quot; title=&quot;Install pip&quot;&gt;&lt;/a&gt;Install pip&lt;/h3&gt;&lt;p&gt;First, we may have to install the dependency of pip - setuptools:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Download the installation tarball&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wget --no-check-certificate https://pypi.python.org/packages/&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt;/s/setuptools/setuptools-1.4.2.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Extract the files:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar -xvf setuptools-1.4.2.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Install setuptools using python (Here we use Python2.7)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; setuptools-1.4.2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;python2.7 setup.py install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then execute following command to install pip:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 2.7&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Python 3.3&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python3.3 -&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is another good &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4&quot; target
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yular.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>(Re)Install MySQL on CentOS Guide</title>
-    <link href="http://yular.github.io/2016/07/02/Install-MySQL-on-CentOS-Guide/"/>
-    <id>http://yular.github.io/2016/07/02/Install-MySQL-on-CentOS-Guide/</id>
-    <published>2016-07-02T18:23:21.000Z</published>
-    <updated>2016-07-02T19:06:26.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;http://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial of MySQL installation&lt;/a&gt; for MySQL installation on CentOS. Below is our tutorial.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Remove-MySQL-from-CentOS-Optional&quot;&gt;&lt;a href=&quot;#Remove-MySQL-from-CentOS-Optional&quot; class=&quot;headerlink&quot; title=&quot;Remove MySQL from CentOS (Optional)&quot;&gt;&lt;/a&gt;Remove MySQL from CentOS (Optional)&lt;/h3&gt;&lt;p&gt;If we have already installed MySQL on CentOS, we should remove it first. Here is the &lt;a href=&quot;http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/&quot;&gt;tutorial to remove MySQL on CentOS&lt;/a&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Download-MySQL-rpm&quot;&gt;&lt;a href=&quot;#Download-MySQL-rpm&quot; class=&quot;headerlink&quot; title=&quot;Download MySQL rpm&quot;&gt;&lt;/a&gt;Download MySQL rpm&lt;/h3&gt;&lt;p&gt;Go to this page to download MySQL rpm: &lt;a href=&quot;http://dev.mysql.com/downloads/repo/yum/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Download MySQL rpm&lt;/a&gt;. Here we choose mysql57-community-release-el7-8.noarch.rpm, which is Red Hat Enterprise Linux 5 / Oracle Linux 5 (Architecture Independent), RPM Package.&lt;/p&gt;
-&lt;h3 id=&quot;Replace-original-rpm-package-with-downloaded-package&quot;&gt;&lt;a href=&quot;#Replace-original-rpm-package-with-downloaded-package&quot; class=&quot;headerlink&quot; title=&quot;Replace original rpm package with downloaded package&quot;&gt;&lt;/a&gt;Replace original rpm package with downloaded package&lt;/h3&gt;&lt;p&gt;Execute this command to refresh the rpm package:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo rpm -Uvh /path/to/mysql57-community-release-el7-8.noarch.rpm&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Now the system-wide update by the yum update command will automatically upgrade MySQL packages on CentOS.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-MySQL&quot;&gt;&lt;a href=&quot;#Install-MySQL&quot; class=&quot;headerlink&quot; title=&quot;Install MySQL&quot;&gt;&lt;/a&gt;Install MySQL&lt;/h3&gt;&lt;p&gt;Run the following command to install MySQL:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum install mysql-community-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;It will install MySQL and all its dependency.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;MySQL-Operation-Commands&quot;&gt;&lt;a href=&quot;#MySQL-Operation-Commands&quot; class=&quot;headerlink&quot; title=&quot;MySQL Operation Commands&quot;&gt;&lt;/a&gt;MySQL Operation Commands&lt;/h3&gt;&lt;p&gt;Start MySQL server command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo service mysqld start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Check MySQL status command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo service mysqld status&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;MySQL will automatically generate a default password for root user. To get that password, execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo grep &lt;span class=&quot;string&quot;&gt;&#39;temporary password&#39;&lt;/span&gt; /var/&lt;span class=&quot;built_in&quot;&gt;log&lt;/span&gt;/mysqld.log&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Now we should run MySQL using root user at first. Here is the command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql -uroot -p&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;After that, we should change password of root user, otherwise we cannot do any operations on MySQL. Here is the requirement of valid root password: &lt;a href=&quot;http://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;check here&lt;/a&gt;. To change root password, execute this command in MySQL console:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ALTER USER &lt;span class=&quot;string&quot;&gt;&#39;root&#39;&lt;/span&gt;@&lt;span class=&quot;string&quot;&gt;&#39;localhost&#39;&lt;/span&gt; IDENTIFIED BY &lt;span class=&quot;string&quot;&gt;&#39;MyNewPass4!&#39;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Upgrade MySQL server command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum update mysql-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum update&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Restart MySQL server command. Since MySQL server always restars after an update by Yum, we can use following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum list installed | grep &lt;span class=&quot;string&quot;&gt;&quot;^mysql&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo yum update package-name&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;After update process is done, execute mysql_upgrade to resolve any incompatibilities between the old data and the upgraded software..&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Securing-MySQL-Installation-for-MySQL-5-6-Only&quot;&gt;&lt;a href=&quot;#Securing-MySQL-Installation-for-MySQL-5-6-Only&quot; class=&quot;headerlink&quot; title=&quot;Securing MySQL Installation (for MySQL 5.6 Only)&quot;&gt;&lt;/a&gt;Securing MySQL Installation (for MySQL 5.6 Only)&lt;/h3&gt;&lt;p&gt;Execute this command to change root password, remove anonymous users and test databases, disable remote login using root user and reload privilege table.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql_secure_installation&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-MySQL-Dev&quot;&gt;&lt;a href=&quot;#Install-MySQL-Dev&quot; class=&quot;headerlink&quot; title=&quot;Install MySQL Dev&quot;&gt;&lt;/a&gt;Install MySQL Dev&lt;/h3&gt;&lt;p&gt;For MySQL developers, especially for those who will write programs to communicate with MySQL, mysql-devel is very important. Execute this command to install it:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo yum -y install mysql-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Or we can download connector packages here: &lt;a href=&quot;http://dev.mysql.com/doc/index-connectors.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Download MySQL Connector Package&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I will provide connector installation and test tutorial later.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the &lt;a href=&quot;http://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial of MySQL i
-    
-    </summary>
-    
-    
-      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Remove MySQL from CentOS Guide</title>
-    <link href="http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/"/>
-    <id>http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/</id>
-    <published>2016-07-02T17:28:48.000Z</published>
-    <updated>2016-07-02T18:02:16.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the guide to completely remove MySQL from CentOS/RedHat OS.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Check-the-List-of-MySQL-rpm-installed&quot;&gt;&lt;a href=&quot;#Check-the-List-of-MySQL-rpm-installed&quot; class=&quot;headerlink&quot; title=&quot;Check the List of MySQL rpm installed&quot;&gt;&lt;/a&gt;Check the List of MySQL rpm installed&lt;/h3&gt;&lt;p&gt;Execute the following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$rpm&lt;/span&gt; -qa | grep mysql&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;or&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$yum&lt;/span&gt; list installed | grep mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then we can see a list of rpm like this:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-libs-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql57-community-release-el7-8.noarch&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-devel-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-server-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-common-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-libs-compat-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-client-5.7.13-1.el7.x86_64&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql57-community-release.noarch       el7-8                           installed&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Remove-MySQL-related-packages&quot;&gt;&lt;a href=&quot;#Remove-MySQL-related-packages&quot; class=&quot;headerlink&quot; title=&quot;Remove MySQL-related packages&quot;&gt;&lt;/a&gt;Remove MySQL-related packages&lt;/h3&gt;&lt;p&gt;Execute this command to uninstall the above packages:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Sometimes it may not completely remove mysql. So we may have to execute the following commands:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum remove mysql mysql-server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Cleanup-MySQL-Directories&quot;&gt;&lt;a href=&quot;#Cleanup-MySQL-Directories&quot; class=&quot;headerlink&quot; title=&quot;Cleanup MySQL Directories&quot;&gt;&lt;/a&gt;Cleanup MySQL Directories&lt;/h3&gt;&lt;p&gt;Remove data directory of MySQL (Do the backup if needed):&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Backup&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv /var/lib/mysql /var/lib/mysql_bp&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#Remove&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rm -rf /var/lib/mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then remove cnf file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rm -rf /etc/my.cnf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the guide to completely remove MySQL from CentOS/RedHat OS.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Check-the-List-of-MySQL-rpm-installed&quot;&gt;&lt;a href=&quot;#Ch
-    
-    </summary>
-    
-    
-      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
     
   </entry>
   
