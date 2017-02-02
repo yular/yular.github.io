@@ -215,14 +215,76 @@
     <link href="http://yular.github.io/2017/01/22/Redis-Command-and-DataStructure/"/>
     <id>http://yular.github.io/2017/01/22/Redis-Command-and-DataStructure/</id>
     <published>2017-01-22T09:17:38.000Z</published>
-    <updated>2017-01-22T09:27:03.000Z</updated>
+    <updated>2017-02-02T07:02:24.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the link of &lt;a href=&quot;https://www.tutorialspoint.com/redis/redis_quick_guide.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reids frequent used command and its data structure&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Redis has various data types and data structure which are helpful to efficiently manage data. Here is the &lt;a href=&quot;https://redis.io/topics/data-types-intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official introduction&lt;/a&gt;  and &lt;a href=&quot;https://redis.io/topics/data-types&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website&lt;/a&gt; about data types and their command lines.&lt;/p&gt;
+&lt;p&gt;Below is our summary.&lt;/p&gt;
+&lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h2&gt;&lt;p&gt;Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.&lt;br&gt;A String value can be at max 512 Megabytes in length.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands/#string&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by String&lt;/a&gt; and below is most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.&lt;/li&gt;
+&lt;li&gt;APPEND: Append to strings.&lt;/li&gt;
+&lt;li&gt;GETRANGE and SETRANGE: Use Strings as a random access vectors.&lt;/li&gt;
+&lt;li&gt;GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;List&quot;&gt;&lt;a href=&quot;#List&quot; class=&quot;headerlink&quot; title=&quot;List&quot;&gt;&lt;/a&gt;List&lt;/h2&gt;&lt;p&gt;Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.&lt;br&gt;The max length of a list is 2^32 - 1 elements.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#list&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by List&lt;/a&gt; and below is most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;LPUSH: Inserts a new element on the head of List.&lt;/li&gt;
+&lt;li&gt;RPUSH: Inserts a new element on the tail of List.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Sets&quot;&gt;&lt;a href=&quot;#Sets&quot; class=&quot;headerlink&quot; title=&quot;Sets&quot;&gt;&lt;/a&gt;Sets&lt;/h2&gt;&lt;p&gt;Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.&lt;br&gt;The max number of members in a set is 2^32 - 1.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#set&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by Set&lt;/a&gt; and below is most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SADD: Inserts a new element into Set.&lt;/li&gt;
+&lt;li&gt;SPOP and SRANDMEMBER: Extract elements at random.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Sorted-Sets&quot;&gt;&lt;a href=&quot;#Sorted-Sets&quot; class=&quot;headerlink&quot; title=&quot;Sorted Sets&quot;&gt;&lt;/a&gt;Sorted Sets&lt;/h2&gt;&lt;p&gt;Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.&lt;br&gt;The max number of members in a sorted set is 2^32 - 1.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#sorted_set&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by Sorted Sets&lt;/a&gt; and below is most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ZADD: Inserts a new element into Sorted Set.&lt;/li&gt;
+&lt;li&gt;ZRANGE: Get the elements of which their keys are within the given range.&lt;/li&gt;
+&lt;li&gt;ZRANGEBYSCORE: Get the elements of which their scores are within the given range.&lt;/li&gt;
+&lt;li&gt;ZRANK: Get the rank (or position) of given element.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Hashes&quot;&gt;&lt;a href=&quot;#Hashes&quot; class=&quot;headerlink&quot; title=&quot;Hashes&quot;&gt;&lt;/a&gt;Hashes&lt;/h2&gt;&lt;p&gt;Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.&lt;br&gt;The max number of members in a hash is 2^32 - 1.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;&quot;&gt;list of commands supported by Hash&lt;/a&gt; and below is most common ones:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HMSET: Insert a new element (object) into Hash.&lt;/li&gt;
+&lt;li&gt;HSET: Insert a new field into Hash object.&lt;/li&gt;
+&lt;li&gt;HGETALL: Get the information of element (object).&lt;/li&gt;
+&lt;li&gt;HGET: Get the information of a field of element (object).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Bit-arrays-Bitmaps&quot;&gt;&lt;a href=&quot;#Bit-arrays-Bitmaps&quot; class=&quot;headerlink&quot; title=&quot;Bit arrays (Bitmaps)&quot;&gt;&lt;/a&gt;Bit arrays (Bitmaps)&lt;/h2&gt;&lt;p&gt;Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;HyperLogLogs&quot;&gt;&lt;a href=&quot;#HyperLogLogs&quot; class=&quot;headerlink&quot; title=&quot;HyperLogLogs&quot;&gt;&lt;/a&gt;HyperLogLogs&lt;/h2&gt;&lt;p&gt;HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Keys&quot;&gt;&lt;a href=&quot;#Keys&quot; class=&quot;headerlink&quot; title=&quot;Keys&quot;&gt;&lt;/a&gt;Keys&lt;/h2&gt;&lt;p&gt;keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.&lt;/p&gt;
+&lt;p&gt;A few rules about keys:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Very long keys are not a good idea.&lt;/li&gt;
+&lt;li&gt;Very short keys are often not a good idea.&lt;/li&gt;
+&lt;li&gt;Try to stick with a schema.&lt;/li&gt;
+&lt;li&gt;The maximum allowed key size is 512 MB.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Redis-expires&quot;&gt;&lt;a href=&quot;#Redis-expires&quot; class=&quot;headerlink&quot; title=&quot;Redis expires&quot;&gt;&lt;/a&gt;Redis expires&lt;/h2&gt;&lt;p&gt;Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;Here is the link of &lt;a href=&quot;https://www.tutorialspoint.com/redis/redis_quick_guide.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Reids frequent us
+      &lt;p&gt;Redis has various data types and data structure which are helpful to efficiently manage data. Here is the &lt;a href=&quot;https://redis.io/topic
     
     </summary>
     
