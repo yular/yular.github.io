@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-02-05T20:18:22.000Z</updated>
+  <updated>2017-02-05T20:18:40.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/02/05/Pattern-Expression-in-Java/"/>
     <id>http://yular.github.io/2017/02/05/Pattern-Expression-in-Java/</id>
     <published>2017-02-05T20:15:53.000Z</published>
-    <updated>2017-02-05T20:18:22.000Z</updated>
+    <updated>2017-02-05T20:18:40.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the link of &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pattern Expression List in Java&lt;/a&gt;. This class is published by Oracle in Java 7. We will create a frequent used Pattern Expression list later.&lt;/p&gt;
 </content>
@@ -190,7 +190,7 @@
     <link href="http://yular.github.io/2017/01/28/2017-Reading-List/"/>
     <id>http://yular.github.io/2017/01/28/2017-Reading-List/</id>
     <published>2017-01-29T05:23:11.000Z</published>
-    <updated>2017-02-05T19:48:29.000Z</updated>
+    <updated>2017-02-12T09:15:48.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the list of books that should be read in 2016:&lt;/p&gt;
 &lt;p&gt;1.Mindset&lt;/p&gt;
@@ -219,6 +219,10 @@
 &lt;p&gt;24.Envisioning Information&lt;/p&gt;
 &lt;p&gt;25.Regular Expressions Cookbook&lt;/p&gt;
 &lt;p&gt;27.About Face&lt;/p&gt;
+&lt;p&gt;28.Java Language Specification: &lt;a href=&quot;http://docs.oracle.com/javase/specs/jls/se8/html/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Oracle&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;29.Java Virtual Machine: &lt;a href=&quot;http://docs.oracle.com/javase/specs/jvms/se8/html/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Oracle&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;30.Douban Java Booklist I: &lt;a href=&quot;https://www.douban.com/doulist/2545443/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;从表到里学习JVM实现&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;31.Douban Java Booklist II: &lt;a href=&quot;https://book.douban.com/people/RednaxelaFX/all?start=15&amp;amp;sort=time&amp;amp;rating=all&amp;amp;tag=VM&amp;amp;mode=grid&amp;amp;filter=all&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RednaxelaFX的书/VM(63)&lt;/a&gt;.&lt;/p&gt;
 </content>
     
     <summary type="html">
