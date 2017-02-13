@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 3 | YBC HomePage</title>
+  <title>Page 3 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,59 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-04T17:40:13.000Z"><a href="/2016/07/04/Apache-Livy-Install-Guide/">2016-07-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the github page of <a href="https://github.com/cloudera/livy" target="_blank" rel="external">Apache Livy</a>. It is not difficult to install Livy on the Redhat server. Below is the guide.</p>
+<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>To successfully build and run Livy on Redhat, we need:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spark (1.5.0 or later)</span><br><span class="line">mvn</span><br><span class="line">openjdk-7</span><br><span class="line">python 2.6+ or 3.3+</span><br><span class="line">R (optional)</span><br></pre></td></tr></table></figure></p>
+<p>Note that mvn is only used for building Livy.</p>
+<h3 id="Building-Livy"><a href="#Building-Livy" class="headerlink" title="Building Livy"></a>Building Livy</h3><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:cloudera/livy.git</span><br><span class="line"><span class="built_in">cd</span> livy</span><br><span class="line">mvn package -Dspark.version=1.6.1</span><br></pre></td></tr></table></figure></p>
+<p>Note that -Dspark.version option is not required and by default its value is 1.5.0. If we use a different version of Livy, we should change the value of that option.</p>
+<h3 id="Running-Livy"><a href="#Running-Livy" class="headerlink" title="Running Livy"></a>Running Livy</h3><p>Before running Livy, we should make sure that SPARK_HOME and HADOOP_CONF_DIR are set in OS environment.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/lib/spark</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/etc/hadoop/conf</span><br></pre></td></tr></table></figure></p>
+<p>Then just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/livy-server</span><br></pre></td></tr></table></figure></p>
+<p>By default, Livy is running on the port 8998. We can change it by modifying the livy.conf file.</p>
+<h3 id="Livy-Configuration"><a href="#Livy-Configuration" class="headerlink" title="Livy Configuration"></a>Livy Configuration</h3><p>Here are Livy’s configuration files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">livy.conf: contains the server configuration.</span><br><span class="line">spark-blacklist.conf: list Spark configuration options that users are not allowed to override.</span><br><span class="line"><span class="built_in">log</span>4j.properties: configuration <span class="keyword">for</span> Livy logging.</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -637,69 +690,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-11T06:21:41.000Z"><a href="/2016/06/10/Gradle-QuickStart/">2016-06-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/10/Gradle-QuickStart/">Gradle QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration. Here is its <a href="https://en.wikipedia.org/wiki/Gradle" target="_blank" rel="external">Wiki</a>. And here is <a href="http://gradle.org/getting-started-gradle-java/" target="_blank" rel="external">official website</a>.</p>
-<p>Below is a quickstart guide for Gradle.</p>
-<h3 id="Gradle-Installation"><a href="#Gradle-Installation" class="headerlink" title="Gradle Installation"></a>Gradle Installation</h3><p>Here is the link of <a href="https://docs.gradle.org/current/userguide/installation.html" target="_blank" rel="external">official document</a> about Gradle install.</p>
-<p>For Mac user, it is much easiser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p>
-<p>To test whether gradle is installed successfully, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 2.12</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2016-03-14 08:32:03 UTC</span><br><span class="line">Build number: none</span><br><span class="line">Revision:     b29fbb64ad6b068cb3f05f7e40dc670472129bc0</span><br><span class="line"></span><br><span class="line">Groovy:       2.4.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013</span><br><span class="line">JVM:          1.8.0_51 (Oracle Corporation 25.51-b03)</span><br><span class="line">OS:           Mac OS X 10.11.5 x86_64</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gradle-Project-QuickStart"><a href="#Gradle-Project-QuickStart" class="headerlink" title="Gradle Project QuickStart"></a>Gradle Project QuickStart</h3><p>Here is a quickstart guide to setup a Hello World project.</p>
-<p>Create a new folder for project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir gradle-quickstart</span><br><span class="line"><span class="built_in">cd</span> gradle-quickstart</span><br></pre></td></tr></table></figure></p>
-<p>Then execute this command to check all the available tasks:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">gradle tasks</span><br><span class="line"></span><br><span class="line"><span class="comment">#Here is the sample output:</span></span><br><span class="line">:tasks</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">All tasks runnable from root project</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build Setup tasks</span><br><span class="line">-----------------</span><br><span class="line">init - Initializes a new Gradle build. [incubating]</span><br><span class="line">wrapper - Generates Gradle wrapper files. [incubating]</span><br><span class="line"></span><br><span class="line">Help tasks</span><br><span class="line">----------</span><br><span class="line">buildEnvironment - Displays all buildscript dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">components - Displays the components produced by root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">dependencies - Displays all dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">dependencyInsight - Displays the insight into a specific dependency <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"><span class="built_in">help</span> - Displays a <span class="built_in">help</span> message.</span><br><span class="line">model - Displays the configuration model of root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">projects - Displays the sub-projects of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">properties - Displays the properties of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">tasks - Displays the tasks runnable from root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"></span><br><span class="line">To see all tasks and more detail, run gradle tasks --all</span><br><span class="line"></span><br><span class="line">To see more detail about a task, run gradle <span class="built_in">help</span> --task &lt;task&gt;</span><br><span class="line"></span><br><span class="line">BUILD SUCCESSFUL</span><br><span class="line"></span><br><span class="line">Total time: 1.977 secs</span><br><span class="line"></span><br><span class="line">This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.12/userguide/gradle_daemon.html</span><br></pre></td></tr></table></figure></p>
-<p>Init a Gradle project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Here are the files generated:</span></span><br><span class="line">build.gradle	gradle		gradlew		gradlew.bat	settings.gradle</span><br></pre></td></tr></table></figure></p>
-<p>Edit build.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// Apply the java plugin to add support <span class="keyword">for</span> Java</span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> <span class="built_in">where</span> to find the dependencies of your project</span><br><span class="line">repositories &#123;</span><br><span class="line">    // Use <span class="string">'jcenter'</span> <span class="keyword">for</span> resolving your dependencies.</span><br><span class="line">    // You can <span class="built_in">declare</span> any Maven/Ivy/file repository here.</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> the dependencies <span class="keyword">for</span> your production and <span class="built_in">test</span> code</span><br><span class="line">dependencies &#123;</span><br><span class="line">    // The production code uses the SLF4J logging API at compile time</span><br><span class="line">    compile <span class="string">'org.slf4j:slf4j-api:1.7.21'</span></span><br><span class="line"></span><br><span class="line">    // Declare the dependency <span class="keyword">for</span> your favourite <span class="built_in">test</span> framework you want to use <span class="keyword">in</span> your tests.</span><br><span class="line">    // TestNG is also supported by the Gradle Test task. Just change the</span><br><span class="line">    // <span class="built_in">test</span>Compile dependency to <span class="built_in">test</span>Compile <span class="string">'org.testng:testng:6.8.1'</span> and add</span><br><span class="line">    // <span class="string">'test.useTestNG()'</span> to your build script.</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">task hello &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span>Last &#123;</span><br><span class="line">                println <span class="string">'Hello World!'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Now a simple gradle script is done. We can execute the “hello” task through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle -q hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p>
-<p>The -q option will remove the debug message output.</p>
-<p>Below is the source code of this project.<br><a href="https://github.com/yular/Java-CodeLibrary/tree/master/gradle-quickstart" target="_blank" rel="external">Github Source Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -748,7 +743,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>25</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>26</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -802,7 +797,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.82px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 17.27px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 10px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
@@ -825,6 +820,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/02/12/AWS-Terminology-List/">AWS Terminology List</a>
+      </li>
+    
+      <li>
         <a href="/2017/02/05/Pattern-Expression-in-Java/">Pattern Expression in Java</a>
       </li>
     
@@ -838,10 +837,6 @@
     
       <li>
         <a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">Elasticsearch QuickStart: Introduction and Installation</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/28/C-Redis-QuickStart/">C Redis QuickStart</a>
       </li>
     
   </ul>
