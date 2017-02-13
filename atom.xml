@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-02-13T07:13:17.000Z</updated>
+  <updated>2017-02-13T07:21:41.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SPOJ Basic and Tutorial Solution Summary List</title>
+    <link href="http://yular.github.io/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/"/>
+    <id>http://yular.github.io/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/</id>
+    <published>2017-02-13T07:20:04.000Z</published>
+    <updated>2017-02-13T07:21:41.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of SPOJ Basic and Tutorial problems solution list&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of SPOJ 
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS Terminology List</title>
@@ -780,27 +801,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>HBase Shell Command List Summary</title>
-    <link href="http://yular.github.io/2016/07/16/Hbase-Shell-Command-List-Summary/"/>
-    <id>http://yular.github.io/2016/07/16/Hbase-Shell-Command-List-Summary/</id>
-    <published>2016-07-17T00:07:22.000Z</published>
-    <updated>2016-07-17T00:20:09.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Below is the list of frequent used HBase shell command and at first, here is another &lt;a href=&quot;https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HBase command list&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Below is the list of frequent used HBase shell command and at first, here is another &lt;a href=&quot;https://learnhbase.wordpress.com/2013/03/02
-    
-    </summary>
-    
-    
-      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
     
   </entry>
   
