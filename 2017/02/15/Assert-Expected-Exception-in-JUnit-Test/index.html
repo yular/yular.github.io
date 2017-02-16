@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Maven Including All Dependencies into One Jar Tutorial | YBC HomePage</title>
+  <title>Assert Expected Exception in JUnit Test | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Maven Including All Dependencies into One Jar Tutorial" />
+  <meta property="og:title" content="Assert Expected Exception in JUnit Test" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,21 +89,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-01-10T20:16:45.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">2016-01-10</a></time>
+        <time datetime="2017-02-16T05:00:50.000Z"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">2017-02-15</a></time>
       
       
   
-    <h1 class="title">Maven Including All Dependencies into One Jar Tutorial</h1>
+    <h1 class="title">Assert Expected Exception in JUnit Test</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>When we compile Java Maven project into a jar file, we should include third party jars that are used in the program; otherwise, our programs will fail because of No Class Found Error while running. Here are some ways to include all third party indenpencies into only one jar.</p>
-<p>1.Just download the third party jars, save them into project directories and then compile and create our program jar file using command line.</p>
-<p>2.Use <a href="http://maven.apache.org/plugins/maven-assembly-plugin/" target="_blank" rel="external">Maven Assemble Plugin</a> in our project. In this case, we will get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
-<p>3.Use <a href="https://code.google.com/p/onejar-maven-plugin/" target="_blank" rel="external">Maven One Jar Plugin</a> in our project. In this case, we also get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+        <p>Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.</p>
+<p>The original link is from <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests" target="_blank" rel="external">Stack Overflow</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ExceptionTest &#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public final ExpectedException exception = ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void <span class="function"><span class="title">testIndexOutOfBoundsException</span></span>() &#123;</span><br><span class="line">    Foo foo = new Foo();</span><br><span class="line"></span><br><span class="line">    exception.expect(IndexOutOfBoundsException.class);</span><br><span class="line">    foo.doStuff();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is the link of <a href="https://www.infoq.com/news/2009/07/junit-4.7-rules" target="_blank" rel="external">JUnit 4.7 Per-Test Rules</a>.</p>
+<p>And below is a good way to write the JUnit Test with the same functionality using Java 8. We use <code>Lambda Expressions</code> code style.</p>
+<p>Original link is <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006" target="_blank" rel="external">here</a>, from Stack Overflow again.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void <span class="function"><span class="title">verifiesTypeAndMessage</span></span>() &#123;</span><br><span class="line">    assertThrown(new FooService()::fooMethod)</span><br><span class="line">            .isInstanceOf(IndexOutOfBoundsException.class)</span><br><span class="line">            .hasMessage(<span class="string">"Index Out Of Bound exception occurred"</span>)</span><br><span class="line">            .hasMessageStartingWith(<span class="string">"Runtime"</span>)</span><br><span class="line">            .hasMessageEndingWith(<span class="string">"occurred"</span>)</span><br><span class="line">            .hasMessageContaining(<span class="string">"exception"</span>)</span><br><span class="line">            .hasNoCause();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here are some useful links for the JUnit test in Java 8:<br>1.<a href="http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html" target="_blank" rel="external">http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html</a><br>2.<a href="https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8" target="_blank" rel="external">https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8</a> </p>
 
       
     </div>
@@ -117,7 +121,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/Test/">Test</a>
   </div>
 
         <!-- partial('post/share') -->

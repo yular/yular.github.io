@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-02-13T07:21:41.000Z</updated>
+  <updated>2017-02-16T05:10:45.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Assert Expected Exception in JUnit Test</title>
+    <link href="http://yular.github.io/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/"/>
+    <id>http://yular.github.io/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/</id>
+    <published>2017-02-16T05:00:50.000Z</published>
+    <updated>2017-02-16T05:10:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.&lt;/p&gt;
+&lt;p&gt;The original link is from &lt;a href=&quot;http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class ExceptionTest &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @Rule&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  public final ExpectedException exception = ExpectedException.none();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @Test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  public void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;testIndexOutOfBoundsException&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Foo foo = new Foo();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exception.expect(IndexOutOfBoundsException.class);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    foo.doStuff();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Here is the link of &lt;a href=&quot;https://www.infoq.com/news/2009/07/junit-4.7-rules&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JUnit 4.7 Per-Test Rules&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And below is a good way to write the JUnit Test with the same functionality using Java 8. We use &lt;code&gt;Lambda Expressions&lt;/code&gt; code style.&lt;/p&gt;
+&lt;p&gt;Original link is &lt;a href=&quot;http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here&lt;/a&gt;, from Stack Overflow again.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@Test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;verifiesTypeAndMessage&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    assertThrown(new FooService()::fooMethod)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .isInstanceOf(IndexOutOfBoundsException.class)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessage(&lt;span class=&quot;string&quot;&gt;&quot;Index Out Of Bound exception occurred&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageStartingWith(&lt;span class=&quot;string&quot;&gt;&quot;Runtime&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageEndingWith(&lt;span class=&quot;string&quot;&gt;&quot;occurred&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageContaining(&lt;span class=&quot;string&quot;&gt;&quot;exception&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasNoCause();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Here are some useful links for the JUnit test in Java 8:&lt;br&gt;1.&lt;a href=&quot;http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html&lt;/a&gt;&lt;br&gt;2.&lt;a href=&quot;https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8&lt;/a&gt; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.&lt;/p&gt;
+&lt;p&gt;The original link is from 
+    
+    </summary>
+    
+    
+      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
+    
+  </entry>
   
   <entry>
     <title>SPOJ Basic and Tutorial Solution Summary List</title>
@@ -778,22 +807,6 @@
     <id>http://yular.github.io/2016/07/22/scala-sbt-tool-quickstart/</id>
     <published>2016-07-23T06:09:57.000Z</published>
     <updated>2016-07-23T06:09:57.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Compile scala to java jar tutorial</title>
-    <link href="http://yular.github.io/2016/07/22/Compile-scala-to-java-jar-tutorial/"/>
-    <id>http://yular.github.io/2016/07/22/Compile-scala-to-java-jar-tutorial/</id>
-    <published>2016-07-23T06:09:34.000Z</published>
-    <updated>2016-07-23T06:09:34.000Z</updated>
     
     <content type="html"></content>
     
