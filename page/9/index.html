@@ -90,6 +90,50 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-11-20T07:51:47.000Z"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">2015-11-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">ACM-ICPC Asian Regional Contest</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-11-09T01:02:32.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">2015-11-08</a></time>
       
       
@@ -621,69 +665,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-03T03:48:50.000Z"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">2015-11-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/02/Pig-Local-Maven-UDFs-QuickStart-Guide/">Pig Local Maven UDFs QuickStart Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a quickstart guide to write a simple Pig UDF (User Defined Function) and run it in Pig local mode. Additionally, here is the <a href="http://simmantwidevision.blogspot.com/2013/06/pig-udf-basic-tutorial.html" target="_blank" rel="external">link</a> of a quickstart guide of a non-Maven version.</p>
-<h3 id="Create-a-Maven-project"><a href="#Create-a-Maven-project" class="headerlink" title="Create a Maven project"></a>Create a Maven project</h3><p>Run the following command to create a new Maven project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=testudfs -DartifactId=scriptPig -DarchitypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
-<p>Note that we can specify any groupId and artifactId as we want.</p>
-<p>Then navigate to the project directory and add these dependencies to the pom.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;3.3&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;1.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;hadoop-common&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.7.1&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"> &lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.pig&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;pig&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;0.14.0&lt;/version&gt;</span><br><span class="line"> &lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Note that we can use any version of Pig and Hadoop as we want but should make sure that all the tools are compatible ahead.</p>
-<p>After that, edit the App.java file under “testudfs” directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package testudfs;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import org.apache.pig.EvalFunc;</span><br><span class="line">import org.apache.pig.data.Tuple;</span><br><span class="line">import org.apache.pig.impl.util.WrappedIOException;</span><br><span class="line"></span><br><span class="line">public class App extends EvalFunc&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line">    public String <span class="built_in">exec</span>(Tuple input) throws IOException &#123;</span><br><span class="line">        <span class="keyword">if</span>(input == null || input.size() == 0)</span><br><span class="line">                <span class="built_in">return</span> null;</span><br><span class="line"></span><br><span class="line">        try&#123;</span><br><span class="line">                String str = (String)input.get(0);</span><br><span class="line">                <span class="built_in">return</span> <span class="string">"This is : "</span>+str;</span><br><span class="line">        &#125;catch(Exception e)&#123;</span><br><span class="line">                throw new IOException(<span class="string">"Caught exception processing</span><br><span class="line">input row "</span> + e.getMessage(), e);</span><br><span class="line"> 	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Note that in the above code, in UDF every input come in the from of tuple and EvalFunc is the UDF which return the same value which it get as a input; and the exec is the function which EvalFunc call as default. There are four kinds of UDFs that can be created by users.</p>
-<p>At last, run these commands under project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn install -DskipTests</span><br></pre></td></tr></table></figure></p>
-<p>If no errors show up, then copy the jar file to the project directory.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp target/scriptPig-1.0-SNAPSHOT.jar ./</span><br></pre></td></tr></table></figure></p>
-<p>Note that this step is not required and is just for the ease of our operation.</p>
-<p>Now create a txt file named “student.txt” and write down these names:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">John</span><br><span class="line">Green</span><br><span class="line">Allen</span><br><span class="line">Kitty</span><br><span class="line">Fish</span><br><span class="line">Peter</span><br></pre></td></tr></table></figure></p>
-<h3 id="Run-UDF-in-Pig-Environment"><a href="#Run-UDF-in-Pig-Environment" class="headerlink" title="Run UDF in Pig Environment"></a>Run UDF in Pig Environment</h3><p>Here is the <a href="http://yular.github.io/2015/09/03/Pig-Install-and-Basic-Commands/">tutorial</a> to setup a Pig in the machine.</p>
-<p>After pig is installed successfully, run this command to boost pig in the local mode:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig -x <span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-<p>Then we will enter into the Grunt shell environment. At first, we should register the jar file into Pig environment using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">register scriptPig-1.0-SNAPSHOT.jar;</span><br></pre></td></tr></table></figure></p>
-<p>If our jar file is under other directory, please remember to provide the correct path.<br>Secondly, load the data file into Pig environment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = LOAD <span class="string">'student.txt'</span> as (name:chararray);</span><br></pre></td></tr></table></figure></p>
-<p>In the third step, add our UDF to the Pig script:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = FOREACH A GENERATE testudfs.App(name);</span><br></pre></td></tr></table></figure></p>
-<p>At last, run this command and we can see the output if all the things go well:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DUMP B;</span><br></pre></td></tr></table></figure></p>
-<p>Part of the output should be similar like the following:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">HadoopVersion   PigVersion      UserId  StartedAt       FinishedAt      Features</span><br><span class="line">2.7.1   0.14.0  yular-centos      2015-11-02 20:19:27     2015-11-02 20:19:29     UNKNOWN</span><br><span class="line"></span><br><span class="line">Success!</span><br><span class="line"></span><br><span class="line">Job Stats (time <span class="keyword">in</span> seconds):</span><br><span class="line">JobId   Maps    Reduces MaxMapTime      M<span class="keyword">in</span>MapTime      AvgMapTime MedianMapTime   MaxReduceTime   M<span class="keyword">in</span>ReduceTime   AvgReduceTime MedianReducetime        Alias   Feature Outputs  </span><br><span class="line">job_<span class="built_in">local</span>801987401_0001 1       0       n/a     n/a     n/a     n/a  0       0       0       0       A,B     MAP_ONLY file:/tmp/temp321109562/tmp1046007842,</span><br><span class="line"></span><br><span class="line">Input(s):</span><br><span class="line">Successfully <span class="built_in">read</span> 6 records from: <span class="string">"MyPathTo/student.txt"</span></span><br><span class="line"></span><br><span class="line">Output(s):</span><br><span class="line">Successfully stored 6 records <span class="keyword">in</span>: <span class="string">"file:/tmp/temp321109562/tmp1046007842"</span></span><br><span class="line"></span><br><span class="line">Counters:</span><br><span class="line">Total records written : 6</span><br><span class="line">Total bytes written : 0</span><br><span class="line">Spillable Memory Manager spill count : 0</span><br><span class="line">Total bags proactively spilled: 0</span><br><span class="line">Total records proactively spilled: 0</span><br><span class="line"></span><br><span class="line">Job DAG:</span><br><span class="line">job_<span class="built_in">local</span>801987401_0001</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2015-11-02 20:19:29,801 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,802 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,803 [main] INFO org.apache.hadoop.metrics.jvm.JvmMetrics - Cannot initialize JVM Metrics with processName=JobTracker, sessionId= - already initialized</span><br><span class="line">2015-11-02 20:19:29,808 [main] INFO org.apache.pig.backend.hadoop.executionengine.mapReduceLayer.MapReduceLauncher - Success!</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - fs.default.name is deprecated. Instead, use fs.defaultFS</span><br><span class="line">2015-11-02 20:19:29,810 [main] INFO org.apache.hadoop.conf.Configuration.deprecation - io.bytes.per.checksum is deprecated. Instead, use dfs.bytes-per-checksum</span><br><span class="line">2015-11-02 20:19:29,810 [main] WARN org.apache.pig.data.SchemaTupleBackend - SchemaTupleBackend has already been initialized </span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.hadoop.mapreduce.lib.input.FileInputFormat - Total input paths to process : 1</span><br><span class="line">2015-11-02 20:19:29,818 [main] INFO org.apache.pig.backend.hadoop.executionengine.util.MapRedUtil - Total</span><br><span class="line">input paths to process : 1</span><br><span class="line">(This is : John)</span><br><span class="line">(This is : Green)</span><br><span class="line">(This is : Allen)</span><br><span class="line">(This is : Kitty)</span><br><span class="line">(This is : Fish)</span><br><span class="line">(This is : Peter)</span><br></pre></td></tr></table></figure></p>
-<p>Hop this tutorial is helpful~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -751,7 +732,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>11</small></li>
+    <li><a href="/tags/Java/">Java</a><small>12</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -793,7 +774,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.82px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 17.27px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.91px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.67px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.83px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.33px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.17px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.83px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -814,6 +795,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable/Mutable Class Library</a>
+      </li>
+    
+      <li>
         <a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">Assert Expected Exception in JUnit Test</a>
       </li>
     
@@ -827,10 +812,6 @@
     
       <li>
         <a href="/2017/02/05/Pattern-Expression-in-Java/">Pattern Expression in Java</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">Penn Treebank Part-Of-Speech Tags List</a>
       </li>
     
   </ul>

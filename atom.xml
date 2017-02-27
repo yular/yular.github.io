@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-02-16T05:10:45.000Z</updated>
+  <updated>2017-02-27T09:45:10.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Immutable/Mutable Class Library</title>
+    <link href="http://yular.github.io/2017/02/27/Java-Immutable-Mutable-Class-Library/"/>
+    <id>http://yular.github.io/2017/02/27/Java-Immutable-Mutable-Class-Library/</id>
+    <published>2017-02-27T09:30:27.000Z</published>
+    <updated>2017-02-27T09:45:10.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;https://immutables.github.io/immutable.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of Java Immutable Class&lt;/a&gt; and &lt;a href=&quot;https://immutables.github.io/getstarted.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Getstarted Tutorial&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the &lt;a href=&quot;https://immutables.github.io/immutable.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of Java Immutable Class
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Assert Expected Exception in JUnit Test</title>
@@ -798,22 +819,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>scala sbt tool quickstart</title>
-    <link href="http://yular.github.io/2016/07/22/scala-sbt-tool-quickstart/"/>
-    <id>http://yular.github.io/2016/07/22/scala-sbt-tool-quickstart/</id>
-    <published>2016-07-23T06:09:57.000Z</published>
-    <updated>2016-07-23T06:09:57.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   

@@ -90,6 +90,95 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-07-24T17:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/24/Linux-Important-System-Directories/">Linux Important System Directories</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of important system directories in the Linux operating system. All the information is from Advanced Bash-Scripting Guide.</p>
+<ul>
+<li><p>/bin<br>Binaries (executables). Basic system programs and utilities (such as bash).</p>
+</li>
+<li><p>/usr/bin<br>More system binaries.</p>
+</li>
+<li><p>/usr/local/bin<br>Miscellaneous binaries local to the particular machine.</p>
+</li>
+<li><p>/sbin<br>System binaries. Basic system administrative programs and utilities (such as fsck).</p>
+</li>
+<li><p>/usr/sbin<br>More system administrative programs and utilities.</p>
+</li>
+<li><p>/etc<br>Et cetera. Systemwide configuration scripts.<br>Of particular interest are the /etc/fstab (filesystem table), /etc/mtab (mounted filesystem table), and the /etc/inittab files.</p>
+</li>
+<li><p>/etc/rc.d<br>Boot scripts, on Red Hat and derivative distributions of Linux.</p>
+</li>
+<li><p>/usr/share/doc<br>Documentation for installed packages.</p>
+</li>
+<li><p>/usr/man<br>The systemwide manpages.</p>
+</li>
+<li><p>/dev<br>Device directory. Entries (but not mount points) for physical and virtual devices.</p>
+</li>
+<li><p>/proc<br>Process directory. Contains information and statistics about running processes and kernel parameters.</p>
+</li>
+<li><p>/sys<br>Systemwide device directory. Contains information and statistics about device and device names.</p>
+</li>
+<li><p>/mnt<br>Mount. Directory for mounting hard drive partitions, such as /mnt/dos, and physical devices. In newer Linux distros, the /media directory has taken over as the preferred mount point for I/O devices.</p>
+</li>
+<li><p>/media<br>In newer Linux distros, the preferred mount point for I/O devices, such as CD/DVD drives or USB flash drives.</p>
+</li>
+<li><p>/var<br>Variable (changeable) system files.</p>
+</li>
+<li><p>/var/log<br>Systemwide log files.</p>
+</li>
+<li><p>/var/spool/mail<br>User mail spool.</p>
+</li>
+<li><p>/lib<br>Systemwide library files.</p>
+</li>
+<li><p>/usr/lib<br>More systemwide library files.</p>
+</li>
+<li><p>/tmp<br>System temporary files.</p>
+</li>
+<li><p>/boot<br>System boot directory. The kernel, module links, system map, and boot manager reside here.</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-23T05:28:28.000Z"><a href="/2015/07/22/Linux-Commands-for-System-Operation/">2015-07-22</a></time>
       
       
@@ -976,401 +1065,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-18T18:30:54.000Z"><a href="/2015/07/18/Software-Architecture-Summary-III/">2015-07-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/18/Software-Architecture-Summary-III/">Software Architecture Summary III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Architecture Visualization</em></p>
-<p>###Evaluating Visualization</p>
-<ul>
-<li>Scope and Purpose<br>What is the visualization for? What can it visualize?</li>
-<li>Basic Type<br>Textual? Graphical? Hybrid? Effect?</li>
-<li>Depiction<br>What depiction mechanisms and metaphors are primarily employed by the visualization?</li>
-<li>Interaction<br>What interaction mechanisms and metaphors are primarily employed by the visualization?</li>
-<li>Fidelity<br>How well/completely does the visualization reflect the information in the underlying model?<br>Consistency should be a minimum requirement, but details are often left out</li>
-<li>Consistency<br>How well does the visualization use similar representations for similar concepts?</li>
-<li>Comprehensibility<br>How easy is it for stakeholders to understand and use a visualization</li>
-<li>Dynamism<br>How well does the visualization support models that change over time (dynamic models)?</li>
-<li>View Coordination<br>How well the visualization is connected to and kept consistent with other visualizations</li>
-<li>Aesthetics<br>How pleasing is the visualization (look and feel) to its users?</li>
-<li>Extensibility<br>How easy is it to add new capabilities to a visualization?</li>
-</ul>
-<p>###Canonical Visualizations<br>[1]Each modeling notation is associated with one or more canonical visualizations.</p>
-<p>###Textual Visualizations<br>[1]Depict architectures through ordinary text files</p>
-<ul>
-<li>Generally conform to some syntactic format, like programs conform to a language</li>
-<li>May be natural language, in which case the format is defined by the spelling and grammar rules of the language</li>
-<li>Decorative options: Fonts, colors, bold/italics; Tables, bulleted lists/outlines.</li>
-</ul>
-<p>[2]Interaction<br>(1)Generally through an ordinary text editor or word processor</p>
-<p>(2)Some advanced mechanisms available</p>
-<ul>
-<li>Syntax highlighting</li>
-<li>Static checking</li>
-<li>Autocomplete</li>
-<li>Structural folding</li>
-</ul>
-<p>[3]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Depict entire architecture in a single file</li>
-<li>Good for linear or hierarchical structures</li>
-<li>Hundreds of available editors</li>
-<li>Substantial tool support if syntax is rigorous<br>Disadvantages:</li>
-<li>Can be overwhelming</li>
-<li>Bad for graphlike organizations of information</li>
-<li>Difficult to reorganize information meaningfully</li>
-<li>Learning curve for syntax/semantics </li>
-</ul>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualizing design decisions or effects as (structured) text</li>
-<li>Basic Type<br>Textual</li>
-<li>Depiction<br>Ordered lines of characters possibly grouped into tokens</li>
-<li>Interaction<br>Basic: insert, delete, copy, paste<br>Advanced: coloring, code folding, etc.</li>
-<li>Fidelity<br>Generally canonical</li>
-<li>Consistency<br>Generally good; depends on underlying notation</li>
-<li>Comprehensibility<br>Drops with increasing complexity</li>
-<li>Dynamism<br>Rare, but depends on editor</li>
-<li>View coordination<br>Depends on editor</li>
-<li>Aesthetics<br>Varies; can be overwhelming or elegant and structured</li>
-<li>Extensibility<br>Many extensible editors </li>
-</ul>
-<p>###Graphical Visualizations<br>[1]Depict architectures (primarily) as graphical symbols.</p>
-<p>[2]Generally conform to a symbolic syntax, but may also be ‘free-form’ and stylistic.</p>
-<p>[3]Interaction<br>(1)Generally graphical editors with point-and-click interfaces.</p>
-<p>(2)Editors have varying levels of awareness for different target notations.</p>
-<p>(3)More exotic editors and interaction mechanisms exist in research.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Symbols, colors, and visual decorations more easily parsed by humans than structured text</li>
-<li>Handle non-hierarchical relationships well</li>
-<li>Diverse spatial interaction metaphors (scrolling, zooming) allow intuitive navigation<br>Disadvantages:</li>
-<li>Cost of building and maintaining tool support</li>
-<li>Do not scale as well as text to very large models</li>
-</ul>
-<p>[5]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualizing design decisions as symbolic pictures</li>
-<li>Basic Type<br>Graphical</li>
-<li>Depiction<br>(Possibly) interconnected symbols on a finite canvas</li>
-<li>Interaction<br>Point and click, drag-and-drop direct interactions with symbols, augmented by menus and dialogs</li>
-<li>Fidelity<br>Generally canonical</li>
-<li>Consistency<br>Manual</li>
-<li>Comprehensibility<br>Depends on skill of the modeler and use of consistent symbols/patterns</li>
-<li>Dynamism<br>Some animation capabilities</li>
-<li>View coordination<br>Difficult at best</li>
-<li>Aesthetics<br>Modeler’s responsibility</li>
-<li>Extensibility<br>Adding new symbols is easy, adding semantics is harder </li>
-</ul>
-<p>###Hybrid Visualizations<br>[1]Some notations incorporate substantial parts that are mostly graphical alongside substantial parts that are mostly or wholly textual.</p>
-<p>###UML Visualizations<br>[1]Canonical graphical depictions + tool-specific interactions<br>   XMI: Textual depiction in XML + text-editor interactions</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Canonical graphical depiction common across tools</li>
-<li>Graphical visualizations have similar UI metaphors to PowerPoint-style editors, but with UML semantics</li>
-<li>XMI projection provides textual alternative<br>Disadvantages:</li>
-<li>No standard for interaction as there is for depiction</li>
-<li>In some tools hard to tell where UML model ends and auxiliary models begin</li>
-<li>Most UML visualizations are restricted to (slight variants) of the canonical UML depiction</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualization of UML models</li>
-<li>Basic Type<br>Graphical (diagrams), textual (XMI)</li>
-<li>Depiction<br>Diagrams in UML symbolic vocabulary/XML-formatted text</li>
-<li>Interaction<br>Depends on the editor; generally point-and-click for diagrams; text editor for XMI</li>
-<li>Fidelity<br>Diagrams are canonical, XMI elides layout info</li>
-<li>Consistency<br>Generally good across diagrams; small exceptions</li>
-<li>Comprehensibility<br>Ubiquity assists interpretations</li>
-<li>Dynamism<br>Rare</li>
-<li>View coordination<br>Some editors better than others</li>
-<li>Aesthetics<br>Simple symbols reduce complexity; uniform diagrams</li>
-<li>Extensibility<br>Profile support OK; major language extensions hard </li>
-</ul>
-<p>###Rapide<br>[1]Rapidé models are generally written with a canonical textual visualization, focusing effect visualization of simulation results.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides an intuitive way to visualize the causal relationships between events</li>
-<li>Automatically generated from Rapide specifications<br>Disadvantages:</li>
-<li>Complex applications generate complex graphs</li>
-<li>Difficult to identify why particular causal relationships exist</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Graphical event traces</li>
-<li>Basic Type<br>Graphical</li>
-<li>Depiction<br>Directed acyclic graph of events</li>
-<li>Interaction<br>No substantial interaction with generated event traces</li>
-<li>Fidelity<br>Each trace is an instance; different simulation runs may produce different traces in a non-deterministic system</li>
-<li>Consistency<br>Tiny symbol vocabulary ensures consistency </li>
-<li>Comprehensibility<br>Easy to see causal relationships but difficult to understand why they’re there</li>
-<li>Dynamism<br>No support</li>
-<li>View coordination<br>Event traces are generated automatically from architectural models</li>
-<li>Aesthetics<br>Simple unadorned directed acyclic graph of nodes and edges</li>
-<li>Extensibility<br>Tool set is effectively a ‘black box” </li>
-</ul>
-<p>###Labeled Transition State Analyzer (LTSA)<br>[1]A tool for analyzing and simultaneously visualizing concurrent systems’ behavior using a modeling language called FSP.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides multiple concurrent visualizations of concurrent behavior</li>
-<li>Integrates both model and effect visualizations, textual and graphical depictions</li>
-<li>Can develop domain-specific visualizations to understand abstract models<br>Disadvantages:</li>
-<li>Behavior specification language has somewhat steep learning curve</li>
-<li>Developing domain-specific graphical visualizations can be expensive</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Multiple coordinated visualizations of concurrent systems’ behavior</li>
-<li>Basic Type<br>Textual, Graphical, Effect</li>
-<li>Depiction<br>Text &amp; state machines for models, various effect viz.</li>
-<li>Interaction<br>FSP can be edited textually or graphically</li>
-<li>Fidelity<br>Graphical visualizations may elide some information</li>
-<li>Consistency<br>Limited vocabulary helps ensure consistency </li>
-<li>Comprehensibility<br>FSP has some learning curve; domain-specific effect visualizations are innovative</li>
-<li>Dynamism<br>Animation on state-transition diagrams and domain-specific visualizations</li>
-<li>View coordination<br>Views are coordinated automatically</li>
-<li>Aesthetics<br>State transition diagrams are traditional; domain-specific visualizations can enhance aesthetics</li>
-<li>Extensibility<br>New domain-specific effect visualizations as plug-ins</li>
-</ul>
-<p>###xADL Visualizations<br>[1]Coordinated set of textual, graphical, and effect visualizations for an extensible ADL.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides an example of how to construct a wide variety of (often) coordinated or interrelated visualizations</li>
-<li>Lets users move fluidly from one visualization to another</li>
-<li>Guidance available for extending visualizations or adding new ones<br>Disadvantages:</li>
-<li>Some learning curve to extend graphical editors</li>
-<li>Adding or extending visualizations has to be done carefully so they play well with existing ones</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Multiple coordinated visualizations of xADL models</li>
-<li>Basic Type<br>Textual, Graphical, Effect</li>
-<li>Depiction<br>XML, abbreviated XML, symbol graphs, hybrid effect (MTAT)</li>
-<li>Interaction<br>Visualizations emulate various editing paradigms</li>
-<li>Fidelity<br>Textual &amp; ArchEdit complete; graphical leave detail out</li>
-<li>Consistency<br>Effort to follow conventions</li>
-<li>Comprehensibility<br>Varies; some easier than others</li>
-<li>Dynamism<br>Animation on state-transition diagrams and domain-specific visualizations</li>
-<li>View coordination<br>Many views coordinated ‘live,’ MTAT leverages some animation</li>
-<li>Aesthetics<br>Varies; Archipelago promotes aesthetic improvements by allowing fine customization</li>
-<li>Extensibility<br>Many extensibility mechanisms at different levels</li>
-</ul>
-<p>###Constructing New Visualizations<br>[1]Developing a new visualization can be expensive both in initial development and maintenance</p>
-<p>[2]Must answer many questions in advance</p>
-<ul>
-<li>Can I achieve my goals by extending an existing visualization?</li>
-<li>Can I translate into another notation and use a visualization already available there?</li>
-<li>How will my visualization augment the existing set of visualizations for this notation?</li>
-<li>How will my visualization coordinate with other visualizations?</li>
-<li>(Plus all the evaluation categories we’ve been exploring)</li>
-</ul>
-<p>###New Visualizations: Guidelines</p>
-<ul>
-<li>Borrow elements from similar visualizations<br>Leverages existing stakeholder knowledge<br>Improves comprehensibility</li>
-<li>Be consistent among visualizations<br>Don’t conflict with existing visualizations without a good reason (e.g., developing a domain-specific visualization where the concepts and metaphors are completely different)</li>
-<li>Give meaning to each visual aspect of elements<br>Parsimony is more important than aesthetics<br>Corollary: avoid having non-explicit meaning encoded in visualizations</li>
-<li>Document the meaning of visualizations<br>Visualizations are rarely self-explanatory<br>Focus on mapping between model and visualization</li>
-<li>Balance traditional and innovative interfaces<br>Stakeholders bring a lot of interaction experience to the table<br>But just because a mechanism is popular doesn’t mean it’s ideal</li>
-</ul>
-<p>###New Visualizations: Anti-Guidelines<br>(1)Same Symbol, Different Meaning </p>
-<p>(2)Differences without meaning</p>
-<p>(3)Decorations without meaning</p>
-<p>(4)Borrowed symbol, different meaning</p>
-<p>###Coordinating Multiple Visualizations<br>[1]Peer-to-Peer Coordination<br>Each visualization communicates with each other visualization for updates</p>
-<ul>
-<li>Has scaling problems</li>
-<li>Works best for visualizations known a priori</li>
-</ul>
-<p>[2]Master-Slave</p>
-<ul>
-<li>One visualization is the master and others coordinate through it</li>
-<li>Works best when visualizations are subordinate</li>
-</ul>
-<p>[3]Pull-based</p>
-<ul>
-<li>Visualizations repeatedly poll a model repository for changes</li>
-<li>Potential consistency/staleness problems</li>
-<li>May be necessary if model repository is entirely passive</li>
-<li>May save computing power</li>
-</ul>
-<p>[4]Push-based</p>
-<ul>
-<li>Visualizations actively notified and update themselves whenever model changes for any reason</li>
-<li>Best for multiple simultaneous visualizations</li>
-<li>Hard to debug, must avoid infinite loops and subtle concurrency conditions</li>
-</ul>
-<p>#<em>Implementing Architecture</em><br>[1]Mapping Problem<br>Implementation is the one phase of software engineering that is not optional.<br>Maintaining mapping means ensuring that our architectural intent is reflected in our constructed systems.</p>
-<p>[2]Common Element Mapping<br>(1)Components and Connectors</p>
-<ul>
-<li>Partitions of application computation and communication functionality</li>
-<li>Modules, packages, libraries, classes, explicit components/connectors in middleware</li>
-</ul>
-<p>(2)Interfaces</p>
-<ul>
-<li>Programming-language level interfaces (e.g., APIs/function or method signatures) are common</li>
-<li>State machines or protocols are harder to map</li>
-</ul>
-<p>(3)Configurations</p>
-<ul>
-<li>Interconnections, references, or dependencies between functional partitions</li>
-<li>May be implicit in the implementation</li>
-<li>May be externally specified through a MIL and enabled through middleware</li>
-<li>May involve use of reflection</li>
-</ul>
-<p>(4)Design rationale</p>
-<ul>
-<li>Often does not appear directly in implementation</li>
-<li>Retained in comments and other documentation</li>
-</ul>
-<p>(5)Dynamic Properties (e.g., behavior):</p>
-<ul>
-<li>Usually translate to algorithms of some sort</li>
-<li>Mapping strategy depends on how the behaviors are specified and what translations are available</li>
-<li>Some behavioral specifications are more useful for generating analyses or testing plans</li>
-</ul>
-<p>(6)Non-Functional Properties</p>
-<ul>
-<li>Extremely difficult to do since non-functional properties are abstract and implementations are concrete</li>
-<li>Achieved through a combination of human-centric strategies like inspections, reviews, focus groups, user studies, beta testing, and so on</li>
-</ul>
-<p>[3]One-Way vs. Round Trip Mapping<br>(1)One-way mappings are easier<br>Must be able to understand impact on implementation for an architectural design decision or change</p>
-<p>(2)Two way mappings require more insight<br>Must understand how a change in the implementation impacts architecture-level design decisions</p>
-<p>[4]Architecture Implementation Frameworks<br>(1)Ideal approach: develop architecture based on a known style, select technologies that provide implementation support for each architectural element.</p>
-<p>(2)More on Framework</p>
-<ul>
-<li>Frameworks are meant to assist developers in following a style, but generally do not constrain developers from violating a style if they really want to.</li>
-<li>Developing applications in a target style does not require a framework, but if you follow good software engineering practices, you’ll probably end up developing one anyway.</li>
-<li>Frameworks are generally considered as underlying infrastructure or substrates from an architectural perspective</li>
-</ul>
-<p>(3)Same Style, Different Frameworks</p>
-<ul>
-<li>For a given style, there is no one perfect architecture framework.</li>
-<li>Even in the same (style/target technology) groupings, different frameworks exist due to different qualitative properties of frameworks.</li>
-</ul>
-<p>(4)Evaluating Framework</p>
-<ul>
-<li>Can draw out some of the qualitative properties just mentioned</li>
-<li>Platform support: Target language, operating system, other technologies</li>
-<li>Fidelity</li>
-<li>Matching Assumptions</li>
-<li>Efficiency</li>
-<li>Other quality considerations: Size; Cost; Ease of use; Reliability; Robustness; Availability of source code; Portability and Long-term maintainability and support.</li>
-</ul>
-<p>[5]Middleware and Component Models<br>(1)They are closely related</p>
-<ul>
-<li>Both provide developers with services not available in the underlying OS/language</li>
-<li>CORBA provides well-defined interfaces, portability, remote procedure call…</li>
-<li>JavaBeans provides a standardized packaging framework (the bean) with new kinds of introspection and binding</li>
-</ul>
-<p>(2)Indeed, architecture implementation frameworks are forms of middleware.</p>
-<p>(3)By focusing on services, middleware developers often make other decisions that substantially impact architecture.</p>
-<p>(4)In a very real way, middleware induces an architectural style.</p>
-<p>[6]Resolving Mismatches<br>(1)A style is chosen first, but the middleware selected for implementation does not support (or contradicts) that style<br>   A middleware is chosen first (or independently) and has undue influence on the architectural style used</p>
-<p>(2)Strategies</p>
-<ul>
-<li>Change or adapt the style</li>
-<li>Change the middleware selected</li>
-<li>Develop glue code</li>
-<li>Leverage parts of the middleware and ignore others</li>
-<li>Hide the middleware in components/connectors</li>
-</ul>
-<p>[7]Hiding Middleware in Connectors</p>
-<p>[8]Building a New Framework<br>(1)Occasionally, you need a new framework</p>
-<p>(2)Good framework development is extremely difficult</p>
-<p>[9]New Framework Guidelines<br>(1)Understand the target style first</p>
-<ul>
-<li>Enumerate all the rules and constraints in concrete terms</li>
-<li>Provide example design patterns and corner cases</li>
-</ul>
-<p>(2)Limit the framework to the rules and constraints of the style</p>
-<ul>
-<li>Do not let a particular target application’s needs creep into the framework</li>
-<li>“Rule of three” for applications</li>
-</ul>
-<p>(3)Choose the framework scope</p>
-<ul>
-<li>A framework does not necessarily have to implement all possible stylistic advantages (e.g., dynamism or distribution)</li>
-</ul>
-<p>(4)Avoid over-engineering</p>
-<ul>
-<li>Don’t add capabilities simply because they are clever or “cool”, especially if known target applications won’t use them</li>
-<li>These often add complexity and reduce performance</li>
-</ul>
-<p>(5)Limit overhead for application developers</p>
-<ul>
-<li>Every framework induces some overhead (classes must inherit from framework base classes, communication mechanisms limited)</li>
-<li>Try to put as little overhead as possible on framework users</li>
-</ul>
-<p>(6)Develop strategies and patterns for legacy systems and components</p>
-<ul>
-<li>Almost every large application will need to include elements that were not built to work with a target framework</li>
-<li>Develop strategies for incorporating and wrapping these</li>
-</ul>
-<p>[10]Concurrency<br>(1)Concurrency is one of the most difficult concerns to address in implementation, and often an architecture-level concern.</p>
-<p>[11]Generative Technologies<br>(1)With a sufficiently detailed architectural model, various implementation artifacts can be generated:</p>
-<ul>
-<li>Entire system implementations</li>
-<li>Skeletons or interfaces</li>
-<li>Compositions </li>
-</ul>
-<p>[12]Maintaining Consistency<br>(1)Strategies for maintaining one-way or round-trip mappings</p>
-<ul>
-<li>Create and maintain traceability links from architectural implementation elements</li>
-<li>Make the architectural model part of the implementation</li>
-<li>Generate some or all of the implementation from the architecture</li>
-</ul>
-<p>[13]Framework Objectives</p>
-<ul>
-<li>Traceability</li>
-<li>Platform independence</li>
-<li>Distribution</li>
-<li>Dynamism</li>
-<li>Efficiency</li>
-<li>Observability</li>
-<li>Extensibility</li>
-</ul>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1438,7 +1132,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>11</small></li>
+    <li><a href="/tags/Java/">Java</a><small>12</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -1480,7 +1174,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.82px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 17.27px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.91px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.67px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.83px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.33px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.17px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.83px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -1501,6 +1195,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable/Mutable Class Library</a>
+      </li>
+    
+      <li>
         <a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">Assert Expected Exception in JUnit Test</a>
       </li>
     
@@ -1514,10 +1212,6 @@
     
       <li>
         <a href="/2017/02/05/Pattern-Expression-in-Java/">Pattern Expression in Java</a>
-      </li>
-    
-      <li>
-        <a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">Penn Treebank Part-Of-Speech Tags List</a>
       </li>
     
   </ul>
