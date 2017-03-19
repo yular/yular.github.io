@@ -123,11 +123,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo &quot;Hello World !&quot;</span><br></pre></td></tr></table></figure>
 <p>The plist means running a timed jobs <code>Run the script /Absolute/Path/To/helloworld.sh</code> every 60 seconds and redirect the standard output and standard error as shown.</p>
 <h3 id="Deploy-Timed-Jobs"><a href="#Deploy-Timed-Jobs" class="headerlink" title="Deploy Timed Jobs"></a>Deploy Timed Jobs</h3><p>Use following command to deploy timed job:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl load /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
 <p>After one or more minutes, we execute this command to check job status:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl list | grep crontest</span><br></pre></td></tr></table></figure>
 <p>If we want to cancel the timed job, just run this command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">launchctl unload /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
 
       
     </div>
