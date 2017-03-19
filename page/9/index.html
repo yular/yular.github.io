@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 9 | YBC HomePage</title>
+  <title>Seite 9 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,68 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-06T20:00:54.000Z"><a href="/2015/12/06/Thinking-in-Github-Usage/">2015-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/06/Thinking-in-Github-Usage/">Thinking in Github Usage</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Github is very popular in software industry nowadays. The following is a short summary of how to effectively use Github for source code control.</p>
+<h2 id="Branch-Mangement-Strategy"><a href="#Branch-Mangement-Strategy" class="headerlink" title="Branch Mangement Strategy"></a>Branch Mangement Strategy</h2><p>When we create a repository in Github, we will have a master branch for it by default. Usually we should have these four kinds branches:</p>
+<ol>
+<li>Master branch: This branch should manage the stable version of the project.</li>
+<li>Development branch: This branch should manage the latest version but no necessary the stable version of the project. Every developers should commit their changes to this branch and then these changes will be merged to master branch after this latest version pass the test.</li>
+<li>Personal branch: It is good practice that every developer should have their own development branch. They develop new feature or fix bugs in this branch and then merge the changes to the development branch after their code pass test and code review.</li>
+<li>Bug branch: This branch is temporary. When developers are asked to fix an emergent bug(s) but at the same time they are developing other features, they can create a bug branch to fix this bug, commit and merge the changes, and at last, delete this branch.</li>
+<li>Feature branch: This branch is also tempory. Here is a similar story: Developers again are asked to add a new feature that should be released in a short time, but at the same time they are working on different features or even modules. This should be a daily event in IT company :-) So again, we can create a branch only for the purpose of developing this feature, commit and merge the changes and then delete this branch.<br>Actually, there should be more different kinds of branches and we should create, manage and delete the branches based on project management need.</li>
+</ol>
+<h2 id="Pull-and-Push-Changes"><a href="#Pull-and-Push-Changes" class="headerlink" title="Pull and Push Changes"></a>Pull and Push Changes</h2><p>After we have done the test for our code, we can commit and push the changes to remote repository. Here are the steps to do this:</p>
+<p>####1. Check the status of Git<br>Type this command to see what files are changed or newly added into local workspace:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>Then type this command to see what is changed in a specified file. The changes mean that what is added, modified or deleted in the source code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff /path/to/filename</span><br></pre></td></tr></table></figure></p>
+<p>####2. Edit the Ignore file<br>Some context should not be sent to remote repository, such as some configuration information or database username and password. The files contain these kinds of information should not be included in the Git commitment. To do this, we should create a new file called “.gitignore” in the project directory and list the name of files into it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore <span class="comment"># This is optional because this file may have existed under the project directory.</span></span><br><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure></p>
+<p>####3. Downloaded the changes from teamates<br>If there are/is developer(s) edit the same part of same files and commit the changes, conflicts may happen when other developers try to push/pull the changes to/from repository. So before we add the changes into commitment, we should do the following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment"># Save our changes</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></p>
+<p>If conflicts appear, resolve them manually in the source code.</p>
+<p>####4. Commit the Changes<br>Now we can start to commit our changes. First of all, we should add all or only some of changes into commitment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add -A <span class="comment">#Add all changes</span></span><br><span class="line">git add /path/to/filename1 /path/to/filename2 ... /path/to/filenameN</span><br></pre></td></tr></table></figure></p>
+<p>Then commit and push the changes to remote repository:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"Commitment message"</span></span><br><span class="line">git push remote-name branch-name</span><br></pre></td></tr></table></figure></p>
+<p>####5. Delete the Branches<br>If the branches are only for temporary use. We can delete it if we do not need it any longer.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="_">-d</span> branch-name</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Tools/">Tools</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -564,112 +626,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-11-05T03:53:58.000Z"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-I/">2015-11-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-I/">Hackerrank Data Structure Problem Solution List I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of Hackerrank data structure problem solution list.<br><a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">summary list</a></p>
-<p>Below is the detailed explanation of the idea behind solution.</p>
-<h3 id="Arrays-DS"><a href="#Arrays-DS" class="headerlink" title="Arrays- DS"></a>Arrays- DS</h3><p><a href="https://www.hackerrank.com/challenges/arrays-ds" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/arrays_ds.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Read and save all the integers into an array and then output them in reversal order.</p>
-<hr>
-
-<h3 id="2D-Array-DS"><a href="#2D-Array-DS" class="headerlink" title="2D Array - DS"></a>2D Array - DS</h3><p><a href="https://www.hackerrank.com/challenges/2d-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/2d-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Enumerate upper left corner of each hour glass and compute its sum, and then find the largest one.</p>
-<hr>
-
-<h3 id="Dynamic-Array"><a href="#Dynamic-Array" class="headerlink" title="Dynamic Array"></a>Dynamic Array</h3><p><a href="https://www.hackerrank.com/challenges/dynamic-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/dynamic-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Based on the operation type (1 or 2), do the operation suggested in the problem statement. It should be very straightforward.</p>
-<hr>
-
-<h3 id="Sparse-Array"><a href="#Sparse-Array" class="headerlink" title="Sparse Array"></a>Sparse Array</h3><p><a href="https://www.hackerrank.com/challenges/sparse-arrays" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sparse-arrays.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use Hash Map to save the number of times given strings appear in the list, and then output that value if the query string is found, otherwise, output 0 instead.</p>
-<hr>
-
-<h3 id="Print-the-Elements-of-a-Linked-List"><a href="#Print-the-Elements-of-a-Linked-List" class="headerlink" title="Print the Elements of a Linked List"></a>Print the Elements of a Linked List</h3><p><a href="https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/print-the-elements-of-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use a pointer to go through every element from head to tail and print the value of them.</p>
-<hr>
-
-<h3 id="Insert-a-Node-at-the-Tail-of-a-Linked-List"><a href="#Insert-a-Node-at-the-Tail-of-a-Linked-List" class="headerlink" title="Insert a Node at the Tail of a Linked List"></a>Insert a Node at the Tail of a Linked List</h3><p><a href="https://www.hackerrank.com/challenges/insert-a-node-at-the-tail-of-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insert-a-node-at-the-tail-of-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. At first reach the end of given linked list and then insert the given element there; if the original linked list is empty, just use the given element as head of a new linked list.</p>
-<hr>
-
-<h3 id="Insert-a-node-at-the-head-of-a-linked-list"><a href="#Insert-a-node-at-the-head-of-a-linked-list" class="headerlink" title="Insert a node at the head of a linked list"></a>Insert a node at the head of a linked list</h3><p><a href="https://www.hackerrank.com/challenges/insert-a-node-at-the-head-of-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insert-a-node-at-the-head-of-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just use the given element as the new head of given linked list.</p>
-<hr>
-
-<h3 id="Insert-a-node-at-a-specific-position-in-a-linked-list"><a href="#Insert-a-node-at-a-specific-position-in-a-linked-list" class="headerlink" title="Insert a node at a specific position in a linked list"></a>Insert a node at a specific position in a linked list</h3><p><a href="https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insert-a-node-at-a-specific-position-in-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just move the pointer to the prior position of given one, and then insert the given element between them.</p>
-<hr>
-
-<h3 id="Delete-a-Node"><a href="#Delete-a-Node" class="headerlink" title="Delete a Node"></a>Delete a Node</h3><p><a href="https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/delete-a-node-from-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just move the pointer to the prior element of given one, and then remove the next element.</p>
-<hr>
-
-<h3 id="Print-in-Reverse"><a href="#Print-in-Reverse" class="headerlink" title="Print in Reverse"></a>Print in Reverse</h3><p><a href="https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list-in-reverse" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/print-the-elements-of-a-linked-list-in-reverse.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just visit every element from head to tail and save the value into an array; and then print the value of array elements in reverse order.</p>
-<hr>
-
-<h3 id="Reverse-a-Linked-List"><a href="#Reverse-a-Linked-List" class="headerlink" title="Reverse a Linked List"></a>Reverse a Linked List</h3><p><a href="https://www.hackerrank.com/challenges/reverse-a-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/reverse-a-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just use two pointers and swap every two adjacent elements from head to tail.</p>
-<hr>
-
-<h3 id="Compare-two-Linked-List"><a href="#Compare-two-Linked-List" class="headerlink" title="Compare two Linked List"></a>Compare two Linked List</h3><p><a href="https://www.hackerrank.com/challenges/compare-two-linked-lists" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/compare-two-linked-lists.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use two pointers and each of them goes through the linked list and compare the element one by one.</p>
-<hr>
-
-<h3 id="Merge-two-sorted-Linked-List"><a href="#Merge-two-sorted-Linked-List" class="headerlink" title="Merge two sorted Linked List"></a>Merge two sorted Linked List</h3><p><a href="https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/merge-two-sorted-linked-lists.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use two pointers and each of them goes through the linked list and compare the element one by one. In every comparison, the smaller element will be added to final linked list.</p>
-<hr>
-
-<h3 id="Get-Node-Value"><a href="#Get-Node-Value" class="headerlink" title="Get Node Value"></a>Get Node Value</h3><p><a href="https://www.hackerrank.com/challenges/get-the-value-of-the-node-at-a-specific-position-from-the-tail" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/get-the-value-of-the-node-at-a-specific-position-from-the-tail.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use a pointer to find the total length of linked list and then caculate the position that we can get the final value.</p>
-<hr>
-
-<h3 id="Delete-duplicate-value-nodes-from-a-sorted-linked-list"><a href="#Delete-duplicate-value-nodes-from-a-sorted-linked-list" class="headerlink" title="Delete duplicate-value nodes from a sorted linked list"></a>Delete duplicate-value nodes from a sorted linked list</h3><p><a href="https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/delete-duplicate-value-nodes-from-a-sorted-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use two pointers to go through the given linked list from head to tail. One points to the next element of the other. If the value of them are equal, the delete the node closed to tail.</p>
-<hr>
-
-<h3 id="Detect-a-Cycle"><a href="#Detect-a-Cycle" class="headerlink" title="Detect a Cycle"></a>Detect a Cycle</h3><p><a href="https://www.hackerrank.com/challenges/detect-whether-a-linked-list-contains-a-cycle" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/detect-whether-a-linked-list-contains-a-cycle.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use two pointers. One goes through the linked list one step each time and the other goes through the linked list two steps each time. If they will meet at one node, then there is a cycle.</p>
-<hr>
-
-<h3 id="Find-Merge-Point-of-Two-Lists"><a href="#Find-Merge-Point-of-Two-Lists" class="headerlink" title="Find Merge Point of Two Lists"></a>Find Merge Point of Two Lists</h3><p><a href="https://www.hackerrank.com/challenges/find-the-merge-point-of-two-joined-linked-lists" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/find-the-merge-point-of-two-joined-linked-lists.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Set the next element of tail as the one of the heads.</p>
-<hr>
-
-<h3 id="Insert-a-node-into-a-sorted-doubly-linked-list"><a href="#Insert-a-node-into-a-sorted-doubly-linked-list" class="headerlink" title="Insert a node into a sorted doubly linked list"></a>Insert a node into a sorted doubly linked list</h3><p><a href="https://www.hackerrank.com/challenges/insert-a-node-into-a-sorted-doubly-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insert-a-node-into-a-sorted-doubly-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just use one pointer to figure out the insertion position and then add the new node there.</p>
-<hr>
-
-<h3 id="Reverse-a-doubly-linked-list"><a href="#Reverse-a-doubly-linked-list" class="headerlink" title="Reverse a doubly linked list"></a>Reverse a doubly linked list</h3><p><a href="https://www.hackerrank.com/challenges/reverse-a-doubly-linked-list" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/reverse-a-doubly-linked-list.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use the similar approach of reversing a single linked list.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/10/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -744,6 +705,8 @@
   
     <li><a href="/tags/Lua/">Lua</a><small>5</small></li>
   
+    <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
+  
     <li><a href="/tags/Machine-Learning/">Machine Learning</a><small>11</small></li>
   
     <li><a href="/tags/Natural-Language-Processing/">Natural Language Processing</a><small>1</small></li>
@@ -772,9 +735,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.82px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.91px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 11.82px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 10.91px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -795,6 +758,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/">Deploy Cron Job on Mac Tutorial</a>
+      </li>
+    
+      <li>
         <a href="/2017/03/06/Bash-vs-Zsh/">Bash vs Zsh</a>
       </li>
     
@@ -808,10 +775,6 @@
     
       <li>
         <a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">SPOJ Basic and Tutorial Solution Summary List</a>
-      </li>
-    
-      <li>
-        <a href="/2017/02/12/AWS-Terminology-List/">AWS Terminology List</a>
       </li>
     
   </ul>
