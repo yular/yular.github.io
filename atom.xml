@@ -89,9 +89,16 @@
     <link href="http://yular.github.io/2017/02/27/Java-Immutable-Mutable-Class-Library/"/>
     <id>http://yular.github.io/2017/02/27/Java-Immutable-Mutable-Class-Library/</id>
     <published>2017-02-27T09:30:27.000Z</published>
-    <updated>2017-03-20T10:03:50.000Z</updated>
+    <updated>2017-03-20T10:10:34.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;https://immutables.github.io/immutable.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of Java Immutable Class&lt;/a&gt; and &lt;a href=&quot;https://immutables.github.io/getstarted.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Getstarted Tutorial&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;https://immutables.github.io/immutable.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of Java Immutable Class&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/pulse/20140528113353-16837833-6-benefits-of-programming-with-immutable-objects-in-java&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;benefits of Immutable Class&lt;/a&gt; and &lt;a href=&quot;https://immutables.github.io/getstarted.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Getstarted Tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Generally, the benefits of Immutable class is:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create thread-safe objects.&lt;/li&gt;
+&lt;li&gt;Easy to make program parallel.&lt;/li&gt;
+&lt;li&gt;Keep the internal program state consistent.&lt;/li&gt;
+&lt;li&gt;Cache the references to immutable objects.&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Now below it is our quickstart tutorial.&lt;/p&gt;
 &lt;h3 id=&quot;Setup-Environment&quot;&gt;&lt;a href=&quot;#Setup-Environment&quot; class=&quot;headerlink&quot; title=&quot;Setup Environment&quot;&gt;&lt;/a&gt;Setup Environment&lt;/h3&gt;&lt;p&gt;Here we suggest to use &lt;code&gt;IntelliJ&lt;/code&gt; IDE because this IDE is easy to generate &lt;code&gt;immutable class&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Here is the &lt;a href=&quot;https://immutables.github.io/apt.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt; to enable annotations for &lt;code&gt;immutable class&lt;/code&gt; feature.&lt;/p&gt;
