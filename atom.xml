@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-03-19T00:39:57.000Z</updated>
+  <updated>2017-03-30T08:28:49.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Software Development Engineer Office Desk Tools List</title>
+    <link href="http://yular.github.io/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/"/>
+    <id>http://yular.github.io/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/</id>
+    <published>2017-03-30T08:23:34.000Z</published>
+    <updated>2017-03-30T08:28:49.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the list of desk tools for Software Development Engineer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Laptop&lt;/li&gt;
+&lt;li&gt;Laptop Charger&lt;/li&gt;
+&lt;li&gt;Laptop Holder&lt;/li&gt;
+&lt;li&gt;Monitors (One or Two more)&lt;/li&gt;
+&lt;li&gt;Monitor Stand&lt;/li&gt;
+&lt;li&gt;Earphone&lt;/li&gt;
+&lt;li&gt;Adaptor connecting Laptop, Monitors and Ethernet ( and more …)&lt;/li&gt;
+&lt;li&gt;Mobile Charger&lt;/li&gt;
+&lt;li&gt;Ethernet Cables&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the list of desk tools for Software Development Engineer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Laptop&lt;/li&gt;
+&lt;li&gt;Laptop Charger&lt;/li&gt;
+&lt;li&gt;Laptop Holder&lt;/li&gt;
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
+    
+  </entry>
   
   <entry>
     <title>Deploy Cron Job on Mac Tutorial</title>
@@ -827,33 +863,6 @@
     
     
       <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Apache Jena QuickStart</title>
-    <link href="http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/"/>
-    <id>http://yular.github.io/2016/12/30/Apache-Jena-QuickStart/</id>
-    <published>2016-12-30T09:19:53.000Z</published>
-    <updated>2017-01-23T09:02:44.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. This is the official website of &lt;a href=&quot;https://jena.apache.org/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apache Jena&lt;/a&gt;, &lt;a href=&quot;https://jena.apache.org/tutorials/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt; and &lt;a href=&quot;https://jena.apache.org/getting_started/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;get started document&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Download-Apache-Jena&quot;&gt;&lt;a href=&quot;#Download-Apache-Jena&quot; class=&quot;headerlink&quot; title=&quot;Download Apache Jena&quot;&gt;&lt;/a&gt;Download Apache Jena&lt;/h2&gt;&lt;p&gt;Download Apache Jena from this &lt;a href=&quot;https://jena.apache.org/download/index.cgi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt;. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.&lt;/p&gt;
-&lt;p&gt;Extract the software from tar ball and move them to /usr/local:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;tar xvzf apache-jena-3.1.1.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mv apache-jena-3.1.1 /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Set-Environment-PATH&quot;&gt;&lt;a href=&quot;#Set-Environment-PATH&quot; class=&quot;headerlink&quot; title=&quot;Set Environment PATH&quot;&gt;&lt;/a&gt;Set Environment PATH&lt;/h2&gt;&lt;p&gt;Edit ~/.bashrc file and put following content in that file:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; JENAROOT=/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/apache-jena-3.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;export&lt;/span&gt; PATH=&lt;span class=&quot;variable&quot;&gt;$PATH&lt;/span&gt;:&lt;span class=&quot;variable&quot;&gt;$JENAROOT&lt;/span&gt;/bin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; ~/.bashrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h2&gt;&lt;p&gt;Now try this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sparql --version&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;The output should be similar as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Jena:       VERSION: 3.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ARQ:        VERSION: 3.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;RIOT:       VERSION: 3.1.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the tutorial to install Apache Jena on CentOS. This is the official website of &lt;a href=&quot;https://jena.apache.org/index.html&quot; targe
-    
-    </summary>
-    
-    
-      <category term="SparkSQL" scheme="http://yular.github.io/tags/SparkSQL/"/>
     
   </entry>
   
