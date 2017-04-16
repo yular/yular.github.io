@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-03-30T08:28:49.000Z</updated>
+  <updated>2017-04-16T09:57:06.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thinking in Test</title>
+    <link href="http://yular.github.io/2017/04/16/Thinking-in-Test/"/>
+    <id>http://yular.github.io/2017/04/16/Thinking-in-Test/</id>
+    <published>2017-04-16T09:02:28.000Z</published>
+    <updated>2017-04-16T09:57:06.000Z</updated>
+    
+    <content type="html">&lt;p&gt;This summary may be updated in the future.&lt;/p&gt;
+&lt;p&gt;We need to follow some steps to test service starting from development to deployment. It is very important because it can help us to find issues and fix them as soon as possible before customer experience become worse.&lt;/p&gt;
+&lt;p&gt;Roughly, there are maily &lt;code&gt;Four&lt;/code&gt; steps in the through test on service. They are tests/verification in (local) development, tests while building service in remote machines, tests in different stages of deployment on remote machines, and manual verification of services on remote machines.&lt;/p&gt;
+&lt;p&gt;Here are some details of these steps.&lt;/p&gt;
+&lt;h3 id=&quot;Local-Tests&quot;&gt;&lt;a href=&quot;#Local-Tests&quot; class=&quot;headerlink&quot; title=&quot;Local Tests&quot;&gt;&lt;/a&gt;Local Tests&lt;/h3&gt;&lt;p&gt;When develop service on the local, we need to test it before build and deploy it on remote machines. In local development, at least we need these tests:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unit Tests&lt;/li&gt;
+&lt;li&gt;Integration Tests (Test integration between service and data storage or among different components of the service)&lt;/li&gt;
+&lt;li&gt;Manual Verification&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In this step, we need to check test coverage including class coverage, method coverage and line coverage.&lt;/p&gt;
+&lt;h3 id=&quot;Tests-While-Building-Software-on-Remote-Machines&quot;&gt;&lt;a href=&quot;#Tests-While-Building-Software-on-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Tests While Building Software on Remote Machines&quot;&gt;&lt;/a&gt;Tests While Building Software on Remote Machines&lt;/h3&gt;&lt;p&gt;Before we actually deploy service on remote machines, we need to build it. While building service, we need to run the tests which are written in development. These tests are unit tests and integration tests in the last stage.&lt;/p&gt;
+&lt;p&gt;In this stage, the building process stops if any tests fail.&lt;/p&gt;
+&lt;h3 id=&quot;Tests-After-Deploying-Software-on-Remote-Machines&quot;&gt;&lt;a href=&quot;#Tests-After-Deploying-Software-on-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Tests After Deploying Software on Remote Machines&quot;&gt;&lt;/a&gt;Tests After Deploying Software on Remote Machines&lt;/h3&gt;&lt;p&gt;After deploy service on the remote machines successfully, we need to test the public APIs or performance of the service in all the stages of deployment. Different stages may include Beta stage, Gamma stage, PreProd stage and Prod stage or even more stages.&lt;/p&gt;
+&lt;p&gt;In these stages, we need to run following tests: Load Tests, Fuzz Tests, Code Review Verification and tests gathering performance statistics. &lt;/p&gt;
+&lt;h3 id=&quot;Manual-Verification-After-Deployment-of-Remote-Machines&quot;&gt;&lt;a href=&quot;#Manual-Verification-After-Deployment-of-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Manual Verification After Deployment of Remote Machines&quot;&gt;&lt;/a&gt;Manual Verification After Deployment of Remote Machines&lt;/h3&gt;&lt;p&gt;Even though we deploy service on remote machines successfully, we still need to manually test the service. One way is to test APIs through Web GUI or Command Line Interface. Besides, we can manually change the data storage or the behaviors of system to simulate real world situation.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This summary may be updated in the future.&lt;/p&gt;
+&lt;p&gt;We need to follow some steps to test service starting from development to deployment. I
+    
+    </summary>
+    
+    
+      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
+    
+  </entry>
   
   <entry>
     <title>Software Development Engineer Office Desk Tools List</title>
@@ -828,36 +865,6 @@
     
       &lt;p&gt;Here is the tutorial to write and build Lua application that can communicate with MySQL database.&lt;/p&gt;
 &lt;h2 id=&quot;Dependency-Installation&quot;&gt;&lt;a
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LuaRocks QuickStart</title>
-    <link href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/"/>
-    <id>http://yular.github.io/2017/01/08/LuaRocks-QuickStart/</id>
-    <published>2017-01-09T00:08:02.000Z</published>
-    <updated>2017-01-09T08:31:33.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;https://luarocks.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of LuaRocks&lt;/a&gt;. LuaRocks is the package manager for Lua moduels, which means that we can use it to install or uninstall some specific Lua libraries like LuaMySQL and LuaMongoDB.&lt;/p&gt;
-&lt;p&gt;Below is the tutorial to install LuaRocks.&lt;/p&gt;
-&lt;h2 id=&quot;Install-LuaRocks&quot;&gt;&lt;a href=&quot;#Install-LuaRocks&quot; class=&quot;headerlink&quot; title=&quot;Install LuaRocks&quot;&gt;&lt;/a&gt;Install LuaRocks&lt;/h2&gt;&lt;p&gt;Here we use Centos 7. We will install LuaRocks through command lines as follows (Here is &lt;a href=&quot;https://luarocks.org/#quick-start&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official tutorial&lt;/a&gt;):&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;wget https://luarocks.org/releases/luarocks-2.4.1.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;tar zxpf luarocks-2.4.1.tar.gz&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; luarocks-2.4.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./configure&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo make bootstrap&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Now execute this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If everythings goes well, we can similar output as below:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;LuaRocks 2.4.1, a module deployment system &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; Lua&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NAME&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/luarocks - LuaRocks main &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;-line interface&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SYNOPSIS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        /usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/luarocks [--from=&amp;lt;server&amp;gt; | --only-from=&amp;lt;server&amp;gt;] [--to=&amp;lt;tree&amp;gt;] [VAR=VALUE]... &amp;lt;&lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;&amp;gt; [&amp;lt;argument&amp;gt;] &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GENERAL OPTIONS&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        These apply to all commands, as appropriate:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --server=&amp;lt;server&amp;gt;      Fetch rocks/rockspecs from this server&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               (takes priority over config file)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --only-server=&amp;lt;server&amp;gt; Fetch rocks/rockspecs from this server only&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               (overrides any entries &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the config file)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --only-sources=&amp;lt;url&amp;gt;   Restrict downloads to paths matching the&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               given URL.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --tree=&amp;lt;tree&amp;gt;          Which tree to operate on.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --local                Use the tree &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; the user&lt;span class=&quot;string&quot;&gt;&#39;s home directory.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               To enable it, see &#39;&lt;/span&gt;/usr/&lt;span class=&quot;built_in&quot;&gt;local&lt;/span&gt;/bin/luarocks &lt;span class=&quot;built_in&quot;&gt;help&lt;/span&gt; path&lt;span class=&quot;string&quot;&gt;&#39;.                     &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --verbose              Display verbose output of commands executed.                               &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        --timeout=&amp;lt;seconds&amp;gt;    Timeout on network operations, in seconds.                                 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               0 means no timeout (wait forever).                                         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                               Default is 30.                                                             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                                                                                                          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;VARIABLES                                                                                                 &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Variables from the &quot;variables&quot; table of the configuration file                                    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        can be overriden with VAR=VALUE assignments. &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Install-LuaSocket&quot;&gt;&lt;a href=&quot;#Install-LuaSocket&quot; class=&quot;headerlink&quot; title=&quot;Install LuaSocket&quot;&gt;&lt;/a&gt;Install LuaSocket&lt;/h2&gt;&lt;p&gt;Now we will try to install LuaSocket through LuaRocks. Note that we may need to use sudo command but luarocks may not be identified by sudo. In that case, we can use root user to execute luarocks command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;su root&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;luarocks install luasocket&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;To check that luasocket whether is installed successfully or not, we can enter lua shell and type:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;require &lt;span class=&quot;string&quot;&gt;&quot;socket&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;The output returned by command should be similar as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; require &lt;span class=&quot;string&quot;&gt;&quot;socket&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;table: 0x1&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt;8060&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the &lt;a href=&quot;https://luarocks.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website of LuaRocks&lt;/a&gt;. LuaRocks is the package mana
     
     </summary>
     
