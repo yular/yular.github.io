@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-04-16T09:57:06.000Z</updated>
+  <updated>2017-04-16T10:01:59.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/04/16/Thinking-in-Test/"/>
     <id>http://yular.github.io/2017/04/16/Thinking-in-Test/</id>
     <published>2017-04-16T09:02:28.000Z</published>
-    <updated>2017-04-16T09:57:06.000Z</updated>
+    <updated>2017-04-16T10:01:59.000Z</updated>
     
     <content type="html">&lt;p&gt;This summary may be updated in the future.&lt;/p&gt;
 &lt;p&gt;We need to follow some steps to test service starting from development to deployment. It is very important because it can help us to find issues and fix them as soon as possible before customer experience become worse.&lt;/p&gt;
@@ -33,10 +33,16 @@
 &lt;li&gt;Manual Verification&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;In this step, we need to check test coverage including class coverage, method coverage and line coverage.&lt;/p&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Tests-While-Building-Software-on-Remote-Machines&quot;&gt;&lt;a href=&quot;#Tests-While-Building-Software-on-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Tests While Building Software on Remote Machines&quot;&gt;&lt;/a&gt;Tests While Building Software on Remote Machines&lt;/h3&gt;&lt;p&gt;Before we actually deploy service on remote machines, we need to build it. While building service, we need to run the tests which are written in development. These tests are unit tests and integration tests in the last stage.&lt;/p&gt;
 &lt;p&gt;In this stage, the building process stops if any tests fail.&lt;/p&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Tests-After-Deploying-Software-on-Remote-Machines&quot;&gt;&lt;a href=&quot;#Tests-After-Deploying-Software-on-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Tests After Deploying Software on Remote Machines&quot;&gt;&lt;/a&gt;Tests After Deploying Software on Remote Machines&lt;/h3&gt;&lt;p&gt;After deploy service on the remote machines successfully, we need to test the public APIs or performance of the service in all the stages of deployment. Different stages may include Beta stage, Gamma stage, PreProd stage and Prod stage or even more stages.&lt;/p&gt;
 &lt;p&gt;In these stages, we need to run following tests: Load Tests, Fuzz Tests, Code Review Verification and tests gathering performance statistics. &lt;/p&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Manual-Verification-After-Deployment-of-Remote-Machines&quot;&gt;&lt;a href=&quot;#Manual-Verification-After-Deployment-of-Remote-Machines&quot; class=&quot;headerlink&quot; title=&quot;Manual Verification After Deployment of Remote Machines&quot;&gt;&lt;/a&gt;Manual Verification After Deployment of Remote Machines&lt;/h3&gt;&lt;p&gt;Even though we deploy service on remote machines successfully, we still need to manually test the service. One way is to test APIs through Web GUI or Command Line Interface. Besides, we can manually change the data storage or the behaviors of system to simulate real world situation.&lt;/p&gt;
 </content>
     
