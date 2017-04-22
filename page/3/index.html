@@ -90,6 +90,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-01-09T00:08:36.000Z"><a href="/2017/01/08/Lua-MySQL-QuickStart/">2017-01-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/08/Lua-MySQL-QuickStart/">Lua MySQL QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to write and build Lua application that can communicate with MySQL database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
+<p>We need to install dependency to access MySQL database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install luasql-mysql MYSQL_INCDIR=/usr/include/mysql/</span><br></pre></td></tr></table></figure></p>
+<p>But default dependency miss some libraries or variables. In that case, we need to use different source:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks --from=http://rocks.luarocks.org/dev install luasql-mysql cvs-1 MYSQL_INCDIR=/usr/include/mysql</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MySQL query. The file name is mysql.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">luasql = require <span class="string">"luasql.mysql"</span></span><br><span class="line">env = assert (luasql.mysql())</span><br><span class="line">con = assert (env:connect(<span class="string">"database_name"</span>,<span class="string">"user_name"</span>,<span class="string">"password"</span>,<span class="string">"host_ip"</span>,port))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(env,con)</span><br><span class="line"></span><br><span class="line">cur,errorString = con:execute([[select * from <span class="built_in">test</span>;]])</span><br><span class="line"><span class="built_in">print</span>(cur,errorString )</span><br><span class="line"></span><br><span class="line">row = cur:fetch (&#123;&#125;, <span class="string">"a"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> row <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(string.format(<span class="string">"Id: %s "</span>, row.id))</span><br><span class="line">    row = cur:fetch (row, <span class="string">"a"</span>)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">cur:close()</span><br><span class="line">con:close()</span><br><span class="line">env:close()</span><br></pre></td></tr></table></figure></p>
+<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mysql.lua</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-01-09T00:08:02.000Z"><a href="/2017/01/08/LuaRocks-QuickStart/">2017-01-08</a></time>
       
       
@@ -549,73 +601,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T19:10:03.000Z"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">Install Multiple Python on CentOS</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is another good <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4" target="_blank" rel="external">tutorial</a>.</p>
-<p>Sometimes we have to install the other versions of python on the OS because the original python may not meet requirement. It will be better that keep the stability of system as philosophy behind “if it ain’t broke, don’t fix it”. So we will not use system management tool YUM to install python but update OS and install required dependencies.</p>
-<hr>
-
-<h3 id="Preparing-System-Environment"><a href="#Preparing-System-Environment" class="headerlink" title="Preparing System Environment"></a>Preparing System Environment</h3><h4 id="Update-CentOS"><a href="#Update-CentOS" class="headerlink" title="Update CentOS"></a>Update CentOS</h4><p>Execute this command to do the update:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure></p>
-<h4 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h4><p>Here we use YUM to install development tools. We use groupinstall to do it. YUM Software Groups consist of bunch of commonly used tools (applications) bundled together, ready for download all at the same time via execution of a single command and stating a group name.</p>
-<p>Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y development</span><br></pre></td></tr></table></figure></p>
-<p>Or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">'development tools'</span></span><br></pre></td></tr></table></figure>
-<p>Or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel</span><br></pre></td></tr></table></figure>
-<p>If applications like wget and xz-libs are not installed, please install them through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install wget</span><br><span class="line">sudo yum install xz-libs</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Install-Python-3-or-Python-2-7"><a href="#Install-Python-3-or-Python-2-7" class="headerlink" title="Install Python 3 or Python 2.7"></a>Install Python 3 or Python 2.7</h3><p>At first, we can go to Python official website to <a href="https://www.python.org/downloads/" target="_blank" rel="external">download Python</a>. Or execute following commands to download Python:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">wget http://www.python.org/ftp/python/3.3.3/Python-3.3.3.tar.xz</span><br></pre></td></tr></table></figure></p>
-<p>Then extract the compressed source archive through following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">xz <span class="_">-d</span> Python-2.7.6.tar.xz</span><br><span class="line">tar -xvf Python-2.7.6.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">xz <span class="_">-d</span> Python-3.3.3.tar.xz</span><br><span class="line">tar -xvf Python-3.3.3.tar</span><br></pre></td></tr></table></figure></p>
-<p>Then before we build the source, we should make sure that all the dependencies and environment are ready. It can be done through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line"><span class="built_in">cd</span> Python-2.7.6</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line"><span class="built_in">cd</span> Python-3.3.3</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-<p>Note that prefix option means the location where we will put the new python binary. There are many other options and use any of them if needed.</p>
-<p>At last, to avoid new python overwritting original python in the system, we should execute this command to build and install python.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make altinstall</span><br></pre></td></tr></table></figure></p>
-<p>After the installation is done,  if we check /usr/local/bin (or the location specified in –prefix option), we will find a new executable files called python3.5 or python2.7.</p>
-<p>Just add the /usr/local/bin into $PATH variable in ~/.bashrc file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Install-pip"><a href="#Install-pip" class="headerlink" title="Install pip"></a>Install pip</h3><p>First, we may have to install the dependency of pip - setuptools:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Download the installation tarball</span></span><br><span class="line">wget --no-check-certificate https://pypi.python.org/packages/<span class="built_in">source</span>/s/setuptools/setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Extract the files:</span></span><br><span class="line">tar -xvf setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Install setuptools using python (Here we use Python2.7)</span></span><br><span class="line"><span class="built_in">cd</span> setuptools-1.4.2</span><br><span class="line">python2.7 setup.py install</span><br></pre></td></tr></table></figure></p>
-<p>Then execute following command to install pip:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python3.3 -</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Python/">Python</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -707,6 +692,8 @@
   
     <li><a href="/tags/Redis/">Redis</a><small>1</small></li>
   
+    <li><a href="/tags/Ruby/">Ruby</a><small>1</small></li>
+  
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
     <li><a href="/tags/String/">String</a><small>1</small></li>
@@ -727,7 +714,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -748,6 +735,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a>
+      </li>
+    
+      <li>
         <a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a>
       </li>
     
@@ -761,10 +752,6 @@
     
       <li>
         <a href="/2017/03/06/Bash-vs-Zsh/">Bash vs Zsh</a>
-      </li>
-    
-      <li>
-        <a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable Class QuickStart</a>
       </li>
     
   </ul>

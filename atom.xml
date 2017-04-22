@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-04-16T10:09:39.000Z</updated>
+  <updated>2017-04-22T18:21:46.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ruby CodeStyle Guide</title>
+    <link href="http://yular.github.io/2017/04/22/Ruby-CodeStyle-Guide/"/>
+    <id>http://yular.github.io/2017/04/22/Ruby-CodeStyle-Guide/</id>
+    <published>2017-04-22T18:06:57.000Z</published>
+    <updated>2017-04-22T18:21:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is a good code style guide for Ruby. Click &lt;a href=&quot;https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is a good code style guide for Ruby. Click &lt;a href=&quot;https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals&quot; target=&quot;_bla
+    
+    </summary>
+    
+    
+      <category term="Ruby" scheme="http://yular.github.io/tags/Ruby/"/>
+    
+  </entry>
   
   <entry>
     <title>Thinking in Test</title>
@@ -844,35 +865,6 @@
     
       &lt;p&gt;Here is the tutorial to write and build Lua application that can communicate with MongoDB database.&lt;/p&gt;
 &lt;h2 id=&quot;Dependency-Installation&quot;&gt;
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lua MySQL QuickStart</title>
-    <link href="http://yular.github.io/2017/01/08/Lua-MySQL-QuickStart/"/>
-    <id>http://yular.github.io/2017/01/08/Lua-MySQL-QuickStart/</id>
-    <published>2017-01-09T00:08:36.000Z</published>
-    <updated>2017-01-09T08:37:50.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the tutorial to write and build Lua application that can communicate with MySQL database.&lt;/p&gt;
-&lt;h2 id=&quot;Dependency-Installation&quot;&gt;&lt;a href=&quot;#Dependency-Installation&quot; class=&quot;headerlink&quot; title=&quot;Dependency Installation&quot;&gt;&lt;/a&gt;Dependency Installation&lt;/h2&gt;&lt;p&gt;At first, we need to install LuaRocks. Here is the &lt;a href=&quot;http://yular.github.io/2017/01/08/LuaRocks-QuickStart/&quot;&gt;tutorial&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;We need to install dependency to access MySQL database through Lua. Execute the command to install dependency:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks install luasql-mysql MYSQL_INCDIR=/usr/include/mysql/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;But default dependency miss some libraries or variables. In that case, we need to use different source:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks --from=http://rocks.luarocks.org/dev install luasql-mysql cvs-1 MYSQL_INCDIR=/usr/include/mysql&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Sample-Code&quot;&gt;&lt;a href=&quot;#Sample-Code&quot; class=&quot;headerlink&quot; title=&quot;Sample Code&quot;&gt;&lt;/a&gt;Sample Code&lt;/h2&gt;&lt;p&gt;Below is the sample code to do MySQL query. The file name is mysql.lua:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luasql = require &lt;span class=&quot;string&quot;&gt;&quot;luasql.mysql&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;env = assert (luasql.mysql())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;con = assert (env:connect(&lt;span class=&quot;string&quot;&gt;&quot;database_name&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;user_name&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;password&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;host_ip&quot;&lt;/span&gt;,port))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(env,con)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cur,errorString = con:execute([[select * from &lt;span class=&quot;built_in&quot;&gt;test&lt;/span&gt;;]])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(cur,errorString )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;row = cur:fetch (&amp;#123;&amp;#125;, &lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; row &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;print&lt;/span&gt;(string.format(&lt;span class=&quot;string&quot;&gt;&quot;Id: %s &quot;&lt;/span&gt;, row.id))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    row = cur:fetch (row, &lt;span class=&quot;string&quot;&gt;&quot;a&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cur:close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;con:close()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;env:close()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then execute above lua script using following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;lua mysql.lua&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the tutorial to write and build Lua application that can communicate with MySQL database.&lt;/p&gt;
-&lt;h2 id=&quot;Dependency-Installation&quot;&gt;&lt;a
     
     </summary>
     
