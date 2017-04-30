@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Maven Project QuickStart | YBC HomePage</title>
+  <title>Java Spring vs Google Guice | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Maven Project QuickStart" />
+  <meta property="og:title" content="Java Spring vs Google Guice" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,30 +89,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-08-17T03:19:49.000Z"><a href="/2015/08/16/Maven-Project-QuickStart/">2015-08-16</a></time>
+        <time datetime="2017-04-30T09:48:14.000Z"><a href="/2017/04/30/Java-Spring-vs-Google-Guice/">2017-04-30</a></time>
       
       
   
-    <h1 class="title">Maven Project QuickStart</h1>
+    <h1 class="title">Java Spring vs Google Guice</h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Java General Program:<br>Here is the original link of this quickstart guide: <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="external">QuickStart</a>.</p>
-<p>Mainly there are three steps:</p>
-<ol>
-<li>Create a maven project. Here is the command line example:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.app -DartifactId=calculator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>Note: The groupId, artifactId and architypeArtifactId can be changed.</p>
-<p>2.Write Java program. Here is the sample code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yulartech.app;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">        Scanner scanf = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(scanf.hasNext())&#123;</span><br><span class="line">                a = scanf.nextInt();</span><br><span class="line">                b = scanf.nextInt();</span><br><span class="line">                ans = a + b;</span><br><span class="line">                System.out.println( <span class="string">"Ans is "</span> + ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Note: If we want to write the code in eclipse, use this command before write the actual code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn eclipse:eclipse</span><br></pre></td></tr></table></figure></p>
-<p>3.Compile, Deploy and Run the Java Program<br>Compile the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean</span><br><span class="line">$ mvn install</span><br></pre></td></tr></table></figure></p>
-<p>Deploy (Package) the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn package</span><br></pre></td></tr></table></figure></p>
-<p>Run the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -cp target/calculator-1.0-SNAPSHOT.jar com.yulartech.app.App</span><br></pre></td></tr></table></figure></p>
-<p>Then when you provide two integers for this program, it will return the sum of them. Press “Ctrl + C” then the program will be terminated.</p>
+        <p>Both Java Spring and Google Guice are powerful dependency injection frameworks. Java Spring is a comprehensive stack but Guice only focuses on dependency injection.</p>
+<p>Here is a good <a href="https://github.com/google/guice/wiki/SpringComparison" target="_blank" rel="external">explanation of comparision between Spring and Guice</a>.</p>
 
       
     </div>
