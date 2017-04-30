@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 13 | YBC HomePage</title>
+  <title>Page 13 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,78 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-04T02:53:52.000Z"><a href="/2015/09/03/Hbase-Installation-Guide/">2015-09-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/03/Hbase-Installation-Guide/">HBase Installation Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official guide to <a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="external">install HBase</a>. Below is the installation guide for HBase 0.94.</p>
+<hr>
+
+<h3 id="Environment-Setup"><a href="#Environment-Setup" class="headerlink" title="Environment Setup"></a>Environment Setup</h3><p>Prior to HBase 0.94.x, HBase expected the loopback IP address to be 127.0.0.1 but Ubuntu and some other distributions default to 127.0.1.1, which will cause problems. So we have to check /etc/hosts first and its content should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 localhost</span><br><span class="line">127.0.0.1 ubuntu.ubuntu-domain ubuntu</span><br></pre></td></tr></table></figure></p>
+<p>JDK is required by HBase. Install required JDK version on the OS. Please do remember to set JAVA_HOME variable in the system.</p>
+<hr>
+
+<h3 id="Install-HBase-in-Standalone-Mode"><a href="#Install-HBase-in-Standalone-Mode" class="headerlink" title="Install HBase in Standalone Mode"></a>Install HBase in Standalone Mode</h3><p>Download HBase binary packages from <a href="http://www.apache.org/dyn/closer.cgi/hbase/" target="_blank" rel="external">Apache Download Mirror</a> or we can download source code and build it.</p>
+<p>Here we choose to download binary package and extract it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;-bin.tar.gz</span><br><span class="line"><span class="built_in">cd</span> hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;/</span><br></pre></td></tr></table></figure></p>
+<p>Edit hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:///home/yular/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that file:///home/yular/hbase is the local filesystem directory where HBase and ZooKeeper write data. By default, a new directory is created under /tmp but all the data will be removed when os is reboot.</p>
+<p>To start HBase, use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase starts successfully, execute jps command and output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3145 Jps</span><br><span class="line">6678 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note that a HMaster process is running.</p>
+<p>And then we can start HBase shell like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase shell</span><br></pre></td></tr></table></figure></p>
+<p>The HBase terminal should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Install-HBase-in-Pseudo-Distributed-Local-Mode"><a href="#Install-HBase-in-Pseudo-Distributed-Local-Mode" class="headerlink" title="Install HBase in Pseudo-Distributed Local Mode"></a>Install HBase in Pseudo-Distributed Local Mode</h3><p>At first, stop HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/stop-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>Install and start Hadoop2 system. Here is the tutorial to <a href="http://yular.github.io/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">install and start Hadoop2</a>.</p>
+<p>Then hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;<span class="literal">true</span>&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that the port number in hbase.rootdir should be the same as the one defined in hadoop2 etc/hadoop/ core-site.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we do not need to create hbase folder in HDFS system. When we start HBase, hbase folder will be generated initially.</p>
+<p>To start HBase, use this command (Hadoop2 should be running):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase is running successfully, the output of jps command should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2055 ResourceManager</span><br><span class="line">1149 Jps</span><br><span class="line">3248 NodeManager</span><br><span class="line">5093 NameNode</span><br><span class="line">3799 DataNode</span><br><span class="line">1190 HRegionServer</span><br><span class="line">2467 JobHistoryServer</span><br><span class="line">3120 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note there are two processes relative to HBase running: HRegionServer and HMaster.</p>
+<p>If we can visit <a href="http://localhost:60010" target="_blank" rel="external">http://localhost:60010</a>, we can visit HBase job summary page.</p>
+<p>And if we execute hadoop fs -ls /hbase command, we will some folders that have been created by HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Found 7 items</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/.tmp</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/WALs</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:48 /hbase/corrupt</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/data</span><br><span class="line">-rw-r--r--   3 hbase users         42 2014-06-25 18:41 /hbase/hbase.id</span><br><span class="line">-rw-r--r--   3 hbase users          7 2014-06-25 18:41 /hbase/hbase.version</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/oldWALs</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -618,68 +690,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-12T02:56:56.000Z"><a href="/2015/08/11/Linux-Terminal-Shortcut/">2015-08-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/11/Linux-Terminal-Shortcut/">Linux Terminal Shortcut</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the link of the list of Linux Shortcut keys: <a href="https://help.ubuntu.com/community/UsingTheTerminal#Change_the_text" target="_blank" rel="external">Shortcut</a></p>
-<p>The list is also here:</p>
-<ul>
-<li>Ctrl + A: Moves the cursor to the start of a line.</li>
-<li>Ctrl + E: Moves the cursor to the end of a line.</li>
-<li>Esc + B: Moves to the beginning of the previous or current word.</li>
-<li>Ctrl + K: Deletes from the current cursor position to the end of the line.</li>
-<li>Ctrl + U: Deletes from the start of the line to the current cursor position.</li>
-<li>Ctrl + W: Deletes the word before the cursor.</li>
-<li>Alt + B: Goes back one word at a time.</li>
-<li>Alt + F: Moves forward one word at a time.</li>
-<li>Alt + C: Capitalizes letter where cursor is and moves to end of word.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -746,7 +761,7 @@
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>4</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -786,9 +801,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.64px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -809,6 +824,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a>
+      </li>
+    
+      <li>
         <a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a>
       </li>
     
@@ -822,10 +841,6 @@
     
       <li>
         <a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a>
-      </li>
-    
-      <li>
-        <a href="/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/">Software Development Engineer Office Desk Tools List</a>
       </li>
     
   </ul>

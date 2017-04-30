@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 3 | YBC HomePage</title>
+  <title>Page 3 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,60 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-09T00:09:46.000Z"><a href="/2017/01/08/C-MongoDB-QuickStart/">2017-01-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to write and build a C program to access MongoDB database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>Here is the <a href="http://mongoc.org/libmongoc/current/installing.html" target="_blank" rel="external">tutorial</a> to install necessary dependency and libraries.</p>
+<p>Here is the <a href="http://mongoc.org/libmongoc/current/tutorial.html" target="_blank" rel="external">tutorial</a> of sample code.</p>
+<hr>
+
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Here is a sample code. Open a new C file called mongo_db_connect.c. Remember to replace specific parameters:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;bson.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;bcon.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;mongoc.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main (int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">   mongoc_client_t      *client;</span><br><span class="line">   mongoc_database_t    *database;</span><br><span class="line">   mongoc_collection_t  *collection;</span><br><span class="line">   mongoc_cursor_t      *cursor;</span><br><span class="line">   bson_t               *<span class="built_in">command</span>, reply, *insert, *query;</span><br><span class="line">   const bson_t         *doc;</span><br><span class="line">   bson_error_t         error;</span><br><span class="line">   char                 *str;</span><br><span class="line">   bool                 retval;</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Required to initialize libmongoc<span class="string">'s internals</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_init ();</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Create a new client instance</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   client = mongoc_client_new ("mongodb://0.0.0.0:29000");</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Register the application name so we can track it in the profile logs</span><br><span class="line">    *</span><br><span class="line">    * on the server. This can also be done from the URI (see other examples).</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_client_set_appname (client, "mongodb-connection-status");</span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *      Get a handle on the database "db_name" and collection "coll_name"</span><br><span class="line"> *       </span><br><span class="line"> */</span><br><span class="line">   database = mongoc_client_get_database (client, "database_name");</span><br><span class="line">   collection = mongoc_client_get_collection (client, "database_name", "table_name");</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line"> *</span><br><span class="line"> *       Do work. This example pings the database, prints the result as JSON and</span><br><span class="line"> *       performs an insert        </span><br><span class="line"> */</span><br><span class="line">   command = BCON_NEW ("ping", BCON_INT32 (1));</span><br><span class="line"></span><br><span class="line">   retval = mongoc_client_command_simple (client, "admin", command, NULL, &amp;reply, &amp;error);</span><br><span class="line"></span><br><span class="line">   if (!retval) &#123;</span><br><span class="line">      fprintf (stderr, "%s\n", error.message);</span><br><span class="line">      return EXIT_FAILURE;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   str = bson_as_json (&amp;reply, NULL);</span><br><span class="line">   printf ("Message %s\n", str);</span><br><span class="line"></span><br><span class="line">   bson_destroy (&amp;reply);</span><br><span class="line">   bson_destroy (command);</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line">    * </span><br><span class="line">    *      Insert one document into given database and collection</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">    query = bson_new ();</span><br><span class="line">   cursor = mongoc_collection_find_with_opts (collection, query, NULL, NULL);</span><br><span class="line">   while (mongoc_cursor_next (cursor, &amp;doc)) &#123;</span><br><span class="line">      str = bson_as_json (doc, NULL);</span><br><span class="line">      printf ("%s\n", str);</span><br><span class="line">      bson_free (str);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *        Release our handles and clean up libmongoc</span><br><span class="line"> *        </span><br><span class="line"> */</span><br><span class="line">   mongoc_collection_destroy (collection);</span><br><span class="line">   mongoc_database_destroy (database);</span><br><span class="line">   mongoc_client_destroy (client);</span><br><span class="line">   mongoc_cursor_destroy (cursor);</span><br><span class="line">   mongoc_cleanup ();</span><br><span class="line"></span><br><span class="line">   return 0;</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Compile-and-Build-Program"><a href="#Compile-and-Build-Program" class="headerlink" title="Compile and Build Program"></a>Compile and Build Program</h2><p>Execute following command to compile and build executable C program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mongo_db_connect.c -o mongo_db_connect $(pkg-config --cflags --libs libmongoc-1.0)</span><br></pre></td></tr></table></figure></p>
+<p>Now we can run the program through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo_db_connect</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -538,56 +592,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-17T00:07:22.000Z"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">2016-07-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Below is the list of frequent used HBase shell command and at first, here is another <a href="https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/" target="_blank" rel="external">HBase command list</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -654,7 +663,7 @@
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>4</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -694,9 +703,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.64px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -717,6 +726,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a>
+      </li>
+    
+      <li>
         <a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a>
       </li>
     
@@ -730,10 +743,6 @@
     
       <li>
         <a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a>
-      </li>
-    
-      <li>
-        <a href="/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/">Software Development Engineer Office Desk Tools List</a>
       </li>
     
   </ul>

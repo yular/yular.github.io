@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 11 | YBC HomePage</title>
+  <title>Page 11 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,72 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-20T02:49:23.000Z"><a href="/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">2015-10-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">Node and Angular JS Project Creation Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a simple tutorial to create a project developed in Node and Angular. It is part of a MEAN project but now we only introduce the Node and Angular part.</p>
+<h3 id="Download-and-Install-Node"><a href="#Download-and-Install-Node" class="headerlink" title="Download and Install Node"></a>Download and Install Node</h3><p>Here is the official website of <a href="https://nodejs.org/en/" target="_blank" rel="external">Node</a>. And download the Node.js installer from <a href="https://nodejs.org/download/" target="_blank" rel="external">here</a>.</p>
+<p>In Debian based distributions, there is a name clash with another utility called node. The suggested solution is to also install the nodejs-legacy apt package, which renames node to nodejs. Just type the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs-legacy npm</span><br><span class="line">nodejs --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure></p>
+<p>If we can see the version information of npm and nodejs, it means that Node has been installed on our system successfully.</p>
+<hr>
+
+<h3 id="Create-the-Project"><a href="#Create-the-Project" class="headerlink" title="Create the Project"></a>Create the Project</h3><p>At first, go to the directory where we want to put the project and then run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
+<p>Then the system will ask us to fill in some information such as script information, name and version and when we are done, a package.json file will be generated. Here is my example (remember to set private field as true):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"templatetech"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A code template for AngularJs"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"karma"</span>: <span class="string">"^0.12.16"</span>,</span><br><span class="line">    <span class="string">"karma-chrome-launcher"</span>: <span class="string">"^0.1.4"</span>,</span><br><span class="line">    <span class="string">"karma-firefox-launcher"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="string">"karma-jasmine"</span>: <span class="string">"~0.1.0"</span>,</span><br><span class="line">    <span class="string">"protractor"</span>: <span class="string">"^2.1.0"</span>,</span><br><span class="line">    <span class="string">"http-server"</span>: <span class="string">"^0.6.1"</span>,</span><br><span class="line">    <span class="string">"tmp"</span>: <span class="string">"0.0.23"</span>,</span><br><span class="line">    <span class="string">"bower"</span>: <span class="string">"^1.3.1"</span>,</span><br><span class="line">    <span class="string">"shelljs"</span>: <span class="string">"^0.2.6"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"postinstall"</span>: <span class="string">"bower install"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"prestart"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"http-server -a 0.0.0.0 -p 8000"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"pretest"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"node node_modules/karma/bin/karma start test/karma.conf.js"</span>,</span><br><span class="line">    <span class="string">"test-single-run"</span>: <span class="string">"node node_modules/karma/bin/karma start test/karma.conf.js  --single-run"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"preupdate-webdriver"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"update-webdriver"</span>: <span class="string">"webdriver-manager update"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"preprotractor"</span>: <span class="string">"npm run update-webdriver"</span>,</span><br><span class="line">    <span class="string">"protractor"</span>: <span class="string">"protractor test/protractor-conf.js"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"update-index-async"</span>: <span class="string">"node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + cat('bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"yular"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"GPL-3.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we can edit the package.json anytime we want. Now we can run this command to download the dependencies mentioned in the script field.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>Now that the project is created successfully.</p>
+<hr>
+
+<h3 id="Intall-Helper-Tool"><a href="#Intall-Helper-Tool" class="headerlink" title="Intall Helper Tool"></a>Intall Helper Tool</h3><p>When we run the above command, we may be notified that brow is missing. This will not cause big problems but we had better install brow tool.<br>At first, we should install bower on our system:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g bower</span><br></pre></td></tr></table></figure></p>
+<p>Then in our project directory, create a new json file named “bower.json” and here is the content of my bower.json file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"templatetech"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A code template for AngularJs"</span>, </span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"angular"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-mocks"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"jquery"</span>: <span class="string">"~2.1.1"</span>,</span><br><span class="line">    <span class="string">"bootstrap"</span>: <span class="string">"~3.1.1"</span>,</span><br><span class="line">    <span class="string">"angular-route"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-resource"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-animate"</span>: <span class="string">"1.3.x"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now run this command and we will find that a new folder named “node_modules” will show up:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="npm-Commands"><a href="#npm-Commands" class="headerlink" title="npm Commands:"></a>npm Commands:</h3><p>Start a local development web-server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>Start the Karma unit test runner:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>Run the Protractor end to end (E2E) tests:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run protractor</span><br></pre></td></tr></table></figure></p>
+<p>Install the drivers needed by Protractor:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run update-webdriver</span><br></pre></td></tr></table></figure></p>
+<p>To clean cache to make sure that our change of code can make some effect, type this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -541,55 +607,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:34:29.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-II/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-II/">USACO Training Problem Solution List II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -656,7 +678,7 @@
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>4</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -696,9 +718,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.64px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -719,6 +741,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a>
+      </li>
+    
+      <li>
         <a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a>
       </li>
     
@@ -732,10 +758,6 @@
     
       <li>
         <a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a>
-      </li>
-    
-      <li>
-        <a href="/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/">Software Development Engineer Office Desk Tools List</a>
       </li>
     
   </ul>
