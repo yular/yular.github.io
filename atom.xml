@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-04-30T23:49:12.000Z</updated>
+  <updated>2017-05-07T22:40:05.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thinking in Number Theory</title>
+    <link href="http://yular.github.io/2017/05/07/Thinking-in-Number-Theory/"/>
+    <id>http://yular.github.io/2017/05/07/Thinking-in-Number-Theory/</id>
+    <published>2017-05-07T22:04:19.000Z</published>
+    <updated>2017-05-07T22:40:05.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now here we will propose some generic ideas to think through this kind of problems.&lt;/p&gt;
+&lt;p&gt;This artical will be updated continously.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;1-Prime-Check&quot;&gt;&lt;a href=&quot;#1-Prime-Check&quot; class=&quot;headerlink&quot; title=&quot;1. Prime Check&quot;&gt;&lt;/a&gt;1. Prime Check&lt;/h3&gt;&lt;p&gt;Given an integer, check whether it is a prime or not is a high frequent problem. There are a lot of algorithms to do this check. Some of them are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The naive O(n^1.5) algorithm:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;bool isPrime(int n) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	for (int i = 2; i &amp;lt;= sqrt(n); ++ i)&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		if(n%i == 0)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			return false;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return true;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Sieve of Eratosthenes&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Rabin-Miller primality test algorithm&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sometimes, we need to figure out all the primes within a specific range. In that case, the second algorithm usually is the best choice, expecially for the problems described in the next sections.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;2-Prime-Factors&quot;&gt;&lt;a href=&quot;#2-Prime-Factors&quot; class=&quot;headerlink&quot; title=&quot;2. Prime Factors&quot;&gt;&lt;/a&gt;2. Prime Factors&lt;/h3&gt;&lt;p&gt;In Number Theory problems, we are ussually asked to figure out the factors of a given integer. In this case, a good idea (not always) is to figure out all its prime factors and their powers. To do that, we need to use (not always) &lt;code&gt;Sieve of Eratosthenes&lt;/code&gt; to generate all the primes no larger than given integer. But this solution is not a silver bullet because sometimes the given integer is so large that we do not have enough memory to store all the primes or calculate them within the timebound.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;3-Integer-Generation&quot;&gt;&lt;a href=&quot;#3-Integer-Generation&quot; class=&quot;headerlink&quot; title=&quot;3. Integer Generation&quot;&gt;&lt;/a&gt;3. Integer Generation&lt;/h3&gt;&lt;p&gt;Maybe we find that it is inpractical to divide the given integer into mulplication of primes. Thus, we can try to multiply the primes we have to generate another integer. In this scenario, we do not have to worry about the limited memory to save large number of primes or find all the required primes in a short time. The reason is that even we multiply the same prime for several times (maybe around 30 or even less), we can get a very large integer. Remember, &lt;code&gt;2^64 = 18446744073709551616&lt;/code&gt; .&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now her
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Flowers Symbolism</title>
@@ -811,39 +851,6 @@
     
     
       <category term="Redis" scheme="http://yular.github.io/tags/Redis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Lua Redis QuickStart</title>
-    <link href="http://yular.github.io/2017/01/22/Lua-Redis-QuickStart/"/>
-    <id>http://yular.github.io/2017/01/22/Lua-Redis-QuickStart/</id>
-    <published>2017-01-22T08:20:45.000Z</published>
-    <updated>2017-01-22T09:17:07.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to install lredis can help to learn more c libraries. So we summarize the installation of both libraries here.&lt;/p&gt;
-&lt;h2 id=&quot;lredis-Library-Installation&quot;&gt;&lt;a href=&quot;#lredis-Library-Installation&quot; class=&quot;headerlink&quot; title=&quot;lredis Library Installation&quot;&gt;&lt;/a&gt;lredis Library Installation&lt;/h2&gt;&lt;p&gt;The operating system here is CentOS. And here is the link of &lt;a href=&quot;https://github.com/daurnimator/lredis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github repository&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;Install-Dependencies&quot;&gt;&lt;a href=&quot;#Install-Dependencies&quot; class=&quot;headerlink&quot; title=&quot;Install Dependencies&quot;&gt;&lt;/a&gt;Install Dependencies&lt;/h3&gt;&lt;p&gt;At first, we need to install required dependencies: cqueue &amp;gt;= 20150907 and fifo, as well as required tools &lt;a href=&quot;http://yular.github.io/2017/01/08/LuaRocks-QuickStart/&quot;&gt;luarocks&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Here is its &lt;a href=&quot;https://github.com/wahern/cqueues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github repository&lt;/a&gt;. But to successfully install the library, we need to install openssl devel first, otherwise we may fail to installcqueue because of missing openssl head file.&lt;/p&gt;
-&lt;p&gt;Execute following command to install openssl devel:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;yum install -y openssl-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Then install cqueue library through following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks install cqueues CRYPTO_INCDIR=/usr/include CRYPTO_DIR=/usr/ OPENSSL_INCDIR=/usr/include OPENSSL_DIR=/usr/&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that the value of CRYPTO_INCDIR, CRYPTO_DIR, OPENSSL_INCDIR, and OPENSSL_DIR may be different.&lt;/p&gt;
-&lt;p&gt;Now we will install fifo library. Here is &lt;a href=&quot;https://github.com/daurnimator/fifo.lua&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github Repository&lt;/a&gt;. Following is the command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks install fifo&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Install-lredis-client&quot;&gt;&lt;a href=&quot;#Install-lredis-client&quot; class=&quot;headerlink&quot; title=&quot;Install lredis client&quot;&gt;&lt;/a&gt;Install lredis client&lt;/h3&gt;&lt;p&gt;Here is &lt;a href=&quot;https://github.com/daurnimator/lredis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github Repository&lt;/a&gt;. Execute the command to do installation:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks install --server=http://luarocks.org/dev lredis&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;redis-lua-Library-Installation&quot;&gt;&lt;a href=&quot;#redis-lua-Library-Installation&quot; class=&quot;headerlink&quot; title=&quot;redis-lua Library Installation&quot;&gt;&lt;/a&gt;redis-lua Library Installation&lt;/h2&gt;&lt;p&gt;Here is the link of &lt;a href=&quot;https://github.com/nrk/redis-lua&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github Repository&lt;/a&gt;. Install the library through this command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;luarocks install redis-lua&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that if luarocks command cannot be executed by sudoers, we should use root to do the installation.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to in
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
     
   </entry>
   

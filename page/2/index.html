@@ -90,6 +90,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-02-16T05:00:50.000Z"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">2017-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">Assert Expected Exception in JUnit Test</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.</p>
+<p>The original link is from <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests" target="_blank" rel="external">Stack Overflow</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ExceptionTest &#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public final ExpectedException exception = ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void <span class="function"><span class="title">testIndexOutOfBoundsException</span></span>() &#123;</span><br><span class="line">    Foo foo = new Foo();</span><br><span class="line"></span><br><span class="line">    exception.expect(IndexOutOfBoundsException.class);</span><br><span class="line">    foo.doStuff();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is the link of <a href="https://www.infoq.com/news/2009/07/junit-4.7-rules" target="_blank" rel="external">JUnit 4.7 Per-Test Rules</a>.</p>
+<p>And below is a good way to write the JUnit Test with the same functionality using Java 8. We use <code>Lambda Expressions</code> code style.</p>
+<p>Original link is <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006" target="_blank" rel="external">here</a>, from Stack Overflow again.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void <span class="function"><span class="title">verifiesTypeAndMessage</span></span>() &#123;</span><br><span class="line">    assertThrown(new FooService()::fooMethod)</span><br><span class="line">            .isInstanceOf(IndexOutOfBoundsException.class)</span><br><span class="line">            .hasMessage(<span class="string">"Index Out Of Bound exception occurred"</span>)</span><br><span class="line">            .hasMessageStartingWith(<span class="string">"Runtime"</span>)</span><br><span class="line">            .hasMessageEndingWith(<span class="string">"occurred"</span>)</span><br><span class="line">            .hasMessageContaining(<span class="string">"exception"</span>)</span><br><span class="line">            .hasNoCause();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here are some useful links for the JUnit test in Java 8:<br>1.<a href="http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html" target="_blank" rel="external">http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html</a><br>2.<a href="https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8" target="_blank" rel="external">https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8</a> </p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Test/">Test</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-02-13T07:20:04.000Z"><a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">2017-02-12</a></time>
       
       
@@ -770,63 +822,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-22T08:20:45.000Z"><a href="/2017/01/22/Lua-Redis-QuickStart/">2017-01-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to install lredis can help to learn more c libraries. So we summarize the installation of both libraries here.</p>
-<h2 id="lredis-Library-Installation"><a href="#lredis-Library-Installation" class="headerlink" title="lredis Library Installation"></a>lredis Library Installation</h2><p>The operating system here is CentOS. And here is the link of <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github repository</a>.</p>
-<h3 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h3><p>At first, we need to install required dependencies: cqueue &gt;= 20150907 and fifo, as well as required tools <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">luarocks</a>.</p>
-<p>Here is its <a href="https://github.com/wahern/cqueues" target="_blank" rel="external">Github repository</a>. But to successfully install the library, we need to install openssl devel first, otherwise we may fail to installcqueue because of missing openssl head file.</p>
-<p>Execute following command to install openssl devel:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl-devel</span><br></pre></td></tr></table></figure></p>
-<p>Then install cqueue library through following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install cqueues CRYPTO_INCDIR=/usr/include CRYPTO_DIR=/usr/ OPENSSL_INCDIR=/usr/include OPENSSL_DIR=/usr/</span><br></pre></td></tr></table></figure></p>
-<p>Note that the value of CRYPTO_INCDIR, CRYPTO_DIR, OPENSSL_INCDIR, and OPENSSL_DIR may be different.</p>
-<p>Now we will install fifo library. Here is <a href="https://github.com/daurnimator/fifo.lua" target="_blank" rel="external">Github Repository</a>. Following is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install fifo</span><br></pre></td></tr></table></figure></p>
-<h3 id="Install-lredis-client"><a href="#Install-lredis-client" class="headerlink" title="Install lredis client"></a>Install lredis client</h3><p>Here is <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github Repository</a>. Execute the command to do installation:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install --server=http://luarocks.org/dev lredis</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="redis-lua-Library-Installation"><a href="#redis-lua-Library-Installation" class="headerlink" title="redis-lua Library Installation"></a>redis-lua Library Installation</h2><p>Here is the link of <a href="https://github.com/nrk/redis-lua" target="_blank" rel="external">Github Repository</a>. Install the library through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install redis-lua</span><br></pre></td></tr></table></figure></p>
-<p>Note that if luarocks command cannot be executed by sudoers, we should use root to do the installation.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -857,7 +852,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -868,7 +863,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>39</small></li>
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
@@ -961,6 +956,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a>
+      </li>
+    
+      <li>
         <a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a>
       </li>
     
@@ -974,10 +973,6 @@
     
       <li>
         <a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a>
       </li>
     
   </ul>
