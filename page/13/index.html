@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 13 | YBC HomePage</title>
+  <title>Seite 13 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,187 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-05T06:37:04.000Z"><a href="/2015/09/04/Storm-Install-and-Basic-Commands/">2015-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/04/Storm-Install-and-Basic-Commands/">Storm Install and Basic Commands</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-04T03:30:53.000Z"><a href="/2015/09/03/Hadoop-1.x-Basic-Commands/">2015-09-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/03/Hadoop-1.x-Basic-Commands/">Hadoop Basic Commands</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of official hadoop command document. <a href="http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html#Overview" target="_blank" rel="external">Hadoop Command Official Document</a></p>
+<h3 id="Hadoop-DistCp-Command"><a href="#Hadoop-DistCp-Command" class="headerlink" title="Hadoop DistCp Command"></a>Hadoop DistCp Command</h3><p>This kind of command is used for large inter/intra-cluster copying.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop distcp &lt;<span class="built_in">source</span> uri&gt; &lt;dest uri&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Hadoop-FileSystem-Command"><a href="#Hadoop-FileSystem-Command" class="headerlink" title="Hadoop FileSystem Command"></a>Hadoop FileSystem Command</h3><p>Append single src, or multiple srcs from local file system to the destination file system. Also reads input from stdin and appends to destination file system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -appendToFile src[src ...] dst</span><br></pre></td></tr></table></figure></p>
+<p>Print out the content of a specific file in HDFS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -cat URI[URI ...]</span><br></pre></td></tr></table></figure></p>
+<p>Returns the checksum information of a file.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -checksum URI</span><br></pre></td></tr></table></figure></p>
+<p>Change the permissions of files.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -chmod [-R] &lt;MODE[,MODE]... | OCTALMODE&gt; URI[URI ...]</span><br></pre></td></tr></table></figure></p>
+<p>Change the owner of files.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -chown [-R] [OWNER][:[GROUP]] URI [URI ]</span><br></pre></td></tr></table></figure></p>
+<p>Copy files from source to destination.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadopp fs -cp [<span class="_">-f</span>] [-p | -p[topax]] URI [URI ...] &lt;dest&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Finds all files that match the specified expression and applies selected actions to them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -find &lt;path&gt; ... &lt;expression&gt; ...</span><br></pre></td></tr></table></figure></p>
+<p>Copy local files to HDFS. Similar to put command, except that the source is restricted to a local file reference.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -copyFromLocal &lt;localsrc&gt; URI</span><br></pre></td></tr></table></figure></p>
+<p>Copy files to the local file system. Files that fail the CRC check may be copied with the -ignorecrc option. Files and CRCs may be copied using the -crc option.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -get [-ignorecrc] [-crc] &lt;src&gt; &lt;localdst&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Copy files from HDS to local. Similar to get command, except that the destination is restricted to a local file reference.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -copyToLocal [-ignorecrc] [-crc] URI &lt;localdst&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Get usage output<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop <span class="built_in">help</span></span><br></pre></td></tr></table></figure></p>
+<p>Returns the state of file or children under directory<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -ls [<span class="_">-d</span>] [-h] [-R] [-t] [-S] [-r] [-u] &lt;args&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Takes path uri’s as argument and creates directories.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -mkdir [-p] &lt;paths&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Move files from local to HDFS. Similar to put command, except that the source localsrc is deleted after it’s copied.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -moveFromLocal &lt;localsrc&gt; &lt;dst&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Move files from HDFS to local.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -moveToLocal [-crc] &lt;src&gt; &lt;dst&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Move files from source to destination.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -mv URI [URI ...] &lt;dest&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Copy single src, or multiple srcs from local file system to the destination file system. Also reads input from stdin and writes to destination file system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -put &lt;localsrc&gt; ... &lt;dst&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Delete files specified as args.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -rm [<span class="_">-f</span>] [-r |-R] [-skipTrash] URI [URI ...]</span><br></pre></td></tr></table></figure></p>
+<p>Delete a directory.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -rmdir [--ignore-fail-on-non-empty] URI [URI ...]</span><br></pre></td></tr></table></figure></p>
+<p>Recursive version of delete.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -rmr [-skipTrash] URI [URI ...]</span><br></pre></td></tr></table></figure></p>
+<p>Print statistics about the file/directory at <path></path> in the specified format. Format accepts filesize in blocks (%b), type (%F), group name of owner (%g), name (%n), block size (%o), replication (%r), user name of owner(%u), and modification date (%y, %Y). %y shows UTC date as “yyyy-MM-dd HH:mm:ss” and %Y shows milliseconds since January 1, 1970 UTC. If the format is not specified, %y is used by default.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -stat [format] &lt;path&gt; ...</span><br></pre></td></tr></table></figure></p>
+<p>Displays last kilobyte of the file to stdout.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -tail [<span class="_">-f</span>] URI</span><br></pre></td></tr></table></figure></p>
+<p>Takes a source file and outputs the file in text format.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -text &lt;src&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Truncate all files that match the specified file pattern to the specified length.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -truncate [-w] &lt;length&gt; &lt;paths&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Get the size of files/folders in human readible format:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop fs -du -h URI</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Runs-jar-files"><a href="#Runs-jar-files" class="headerlink" title="Runs jar files"></a>Runs jar files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop jar &lt;jar&gt; [mainClass] args...</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Hadoop-Version-Command"><a href="#Hadoop-Version-Command" class="headerlink" title="Hadoop Version Command"></a>Hadoop Version Command</h3><p>Prints the version of Hadoop system<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop version</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Hadoop-CLASSNAME"><a href="#Hadoop-CLASSNAME" class="headerlink" title="Hadoop CLASSNAME"></a>Hadoop CLASSNAME</h3><p>Runs the class named CLASSNAME<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bin/hadoop CLASSNAME</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-04T03:29:42.000Z"><a href="/2015/09/03/Pig-Install-and-Basic-Commands/">2015-09-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/03/Pig-Install-and-Basic-Commands/">Pig Install and Basic Commands</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official website of <a href="https://pig.apache.org/" target="_blank" rel="external">Apache Pig</a>. The following is the tutorial of pig installation and summary of basic commands.</p>
+<h3 id="Pig-Intallation"><a href="#Pig-Intallation" class="headerlink" title="Pig Intallation"></a>Pig Intallation</h3><p>Download the pig from this <a href="https://pig.apache.org/releases.html#Download" target="_blank" rel="external">link</a>. Just choose any one release. In this tutorial, we use Pig-0.14.0.</p>
+<p>Then unpacked the distribution using these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf pig-0.14.0.tar.gz</span><br><span class="line">mv pig-0.14.0 <span class="string">"the directory you would like to install pig"</span></span><br></pre></td></tr></table></figure></p>
+<p>Add pig-0.14.0/bin to environment path.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="string">"path to pig project directory"</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Quit vim editor and “source” your .bashrc file.</p>
+<p>Run this command to test whether pig works or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig -help</span><br></pre></td></tr></table></figure></p>
+<h3 id="Running-Pig"><a href="#Running-Pig" class="headerlink" title="Running Pig"></a>Running Pig</h3><p>Pig can be run in two modes, namely Local Mode and Mapreduce Mode.<br>In local mode, we can access to a single machine and all files are installed and run using your local host and file system.<br>In mapreduce mode, we can access to a Hadoop cluster and HDFS installation and this mode is the default mode. In this mode, it is required that Hadoop and HDFS should be running.</p>
+<p>To run pig in local, using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pig -x <span class="built_in">local</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main -x <span class="built_in">local</span> <span class="comment">#java command</span></span><br></pre></td></tr></table></figure></p>
+<p>To run pig in mapreduce mode, using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pig</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">pig -x mapreduce</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main  <span class="comment">#java command</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main -x mapreduce <span class="comment">#java command</span></span><br></pre></td></tr></table></figure></p>
+<p>Moreover, we can run pig in interactive mode using the Grunt shell through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig</span><br></pre></td></tr></table></figure></p>
+<p>and then enter Pig Latin statements and Pig commands interactively at the command line.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -557,148 +738,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-19T04:35:01.000Z"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">2015-08-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">My Reading Book List of 2015</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Life/">Life</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-17T07:09:32.000Z"><a href="/2015/08/17/LeetCode-Problem-Solution-List-V/">2015-08-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/17/LeetCode-Problem-Solution-List-V/">LeetCode Problem Solution List V</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>###Add Digits(Easy)<br>Just list 0-109 or even less cases, the answer will be obvious.<br>把1-109的情况写一下就知道了。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_adddigits.cpp" target="_blank" rel="external">Read Code</a></p>
-<hr>
-
-<p>###Ugly Number(Easy)<br>Continue to divide the given number by 2, 3 and 5 before it equals to one or it cannot be divided by all these three numbers evenly. If the number is one, return true; otherwise, return false.<br>将给定的数字不断除以2，3和5直到不能整除它们为止。此时若结果为1则返回true，否则false。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_uglynumber.cpp" target="_blank" rel="external">Read Code</a></p>
-<hr>
-
-<p>###Ugly Number II (Medium)<br>Use Min Heap and Hash Set. Insert integer 1 into heap and count how many numbers have been poped out of the heap. While the count is less than the threshold, every time we pop out the number of top of heap and then multiply it by 2, 3 and 5; we only push the new number into heap if it does not appear before and it should be no larger than INT_MAX. The last number that we get before break out from the while loop is final answer.<br>用小顶堆和哈希表。初始化时将1插入堆中，然后开始计数。在计数器一直不大于给定数时，每次迭代取出堆顶数，将该数字分别乘以2，3和5，若结果没有溢出，就插入堆中。最后一次迭代的结果就是答案。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_uglynumberII.cpp" target="_blank" rel="external">Read Code</a></p>
-<hr> 
-
-<p>###3 Sum Smaller (Medium)<br>Just two loops. At first, sort the array. Then, in the outer loop, go through each integer from end to the third position; in the inner loop, use two pointers to figure out the range that the sum of every two combinations plusing the one from outer loop still less than target integer.<br>先排序。然后两层循环。外层循环从末尾开始枚举到第三个位置；内层循环则用头尾两个指针，一个从数组第一个元素开始，另一个从外循环当前指向的元素的前一个元素开始，一起相向枚举，找出合要求的数组元素组合范围，并将符合要求的组合数目相加即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_3SumSmaller.cpp" target="_blank" rel="external">Read Code</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-08-17T07:07:08.000Z"><a href="/2015/08/17/LeetCode-Problem-Solution-List-IV/">2015-08-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/17/LeetCode-Problem-Solution-List-IV/">LeetCode Problem Solution List IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/14/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -747,7 +791,7 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>26</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>27</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
@@ -805,7 +849,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.64px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.73px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.73px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
@@ -828,23 +872,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/05/30/Amazon-AWS-Training-Resource-List/">Amazon AWS Training Resource List</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/30/Retrofit-Quickstart-Guide/">Retrofit Quickstart Guide</a>
+      </li>
+    
+      <li>
+        <a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">Stub Test vs Mock Test vs Spy Test</a>
+      </li>
+    
+      <li>
         <a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a>
       </li>
     
       <li>
         <a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/30/Java-Spring-vs-Google-Guice/">Java Spring vs Google Guice</a>
-      </li>
-    
-      <li>
-        <a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a>
       </li>
     
   </ul>

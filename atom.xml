@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-05-07T22:40:05.000Z</updated>
+  <updated>2017-05-31T08:16:44.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Amazon AWS Training Resource List</title>
+    <link href="http://yular.github.io/2017/05/30/Amazon-AWS-Training-Resource-List/"/>
+    <id>http://yular.github.io/2017/05/30/Amazon-AWS-Training-Resource-List/</id>
+    <published>2017-05-31T05:26:10.000Z</published>
+    <updated>2017-05-31T08:16:44.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is a list of training resources of Amazon AWS.&lt;/p&gt;
+&lt;h3 id=&quot;QwikLab&quot;&gt;&lt;a href=&quot;#QwikLab&quot; class=&quot;headerlink&quot; title=&quot;QwikLab&quot;&gt;&lt;/a&gt;QwikLab&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://qwiklabs.com/?locale=zh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;This site&lt;/a&gt; offers a lot of AWS labs which can help AWS users to learn how to use various kinds of AWS services.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is a list of training resources of Amazon AWS.&lt;/p&gt;
+&lt;h3 id=&quot;QwikLab&quot;&gt;&lt;a href=&quot;#QwikLab&quot; class=&quot;headerlink&quot; title=&quot;QwikLab&quot;&gt;&lt;/a&gt;QwikLa
+    
+    </summary>
+    
+    
+      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Retrofit Quickstart Guide</title>
+    <link href="http://yular.github.io/2017/05/30/Retrofit-Quickstart-Guide/"/>
+    <id>http://yular.github.io/2017/05/30/Retrofit-Quickstart-Guide/</id>
+    <published>2017-05-31T05:25:42.000Z</published>
+    <updated>2017-05-31T05:25:42.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Stub Test vs Mock Test vs Spy Test</title>
+    <link href="http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/"/>
+    <id>http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/</id>
+    <published>2017-05-31T05:25:29.000Z</published>
+    <updated>2017-05-31T05:25:29.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Thinking in Number Theory</title>
@@ -684,173 +739,6 @@
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
     
       <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C Redis QuickStart</title>
-    <link href="http://yular.github.io/2017/01/28/C-Redis-QuickStart/"/>
-    <id>http://yular.github.io/2017/01/28/C-Redis-QuickStart/</id>
-    <published>2017-01-29T05:43:13.000Z</published>
-    <updated>2017-01-29T08:09:57.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the quickstart tutorial to use hiredis C library to build connection between C program and redis. Here is &lt;a href=&quot;https://github.com/redis/hiredis&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hiredis Github Repository&lt;/a&gt;. The environment here is CentOS 7.&lt;/p&gt;
-&lt;h2 id=&quot;Download-and-Install-hiredis&quot;&gt;&lt;a href=&quot;#Download-and-Install-hiredis&quot; class=&quot;headerlink&quot; title=&quot;Download and Install hiredis&quot;&gt;&lt;/a&gt;Download and Install hiredis&lt;/h2&gt;&lt;p&gt;At first, we need to download the source code using following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git &lt;span class=&quot;built_in&quot;&gt;clone&lt;/span&gt; https://github.com/redis/hiredis.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;The &lt;span class=&quot;built_in&quot;&gt;source&lt;/span&gt; code is written &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; C.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Then go to hiredis directory and install hiredis library into system:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;``` bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; hiredis&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;make&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo make install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that the command make will generate all the required libraries and head files for development while the command make install can create directories and save libraries as well as head files there. Since hiredis will put the libraries and head files under /usr/local/ folder, the C program will fail in compilation with “hiredis.h” not found error.&lt;/p&gt;
-&lt;p&gt;So we need to do following things:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo mkdir /usr/include/hiredis&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo cp libhiredis.so /usr/lib/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo cp hiredis.h /usr/include/hiredis/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo cp read.h /usr/include/hiredis/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo cp sds.h /usr/include/hiredis/&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;ldconfig&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Compile-and-Run-C-program&quot;&gt;&lt;a href=&quot;#Compile-and-Run-C-program&quot; class=&quot;headerlink&quot; title=&quot;Compile and Run C program&quot;&gt;&lt;/a&gt;Compile and Run C program&lt;/h2&gt;&lt;p&gt;Below is the sample code example.c under ./hiredis/examples folder. We need to modify the head file location.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;36&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;37&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;38&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;39&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;40&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;41&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;42&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;43&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;44&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;45&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;46&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;47&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;48&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;49&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;50&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;51&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;52&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;53&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;54&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;55&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;56&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;57&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;58&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;59&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;60&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;61&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;62&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;63&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;64&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;65&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;66&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;67&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;68&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;69&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;70&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;71&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;72&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;73&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;74&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;75&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;76&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;77&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;78&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#include &amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#include &amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#include &amp;lt;hiredis/hiredis.h&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main(int argc, char **argv) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    unsigned int j;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    redisContext *c;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    redisReply *reply;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    const char *hostname = (argc &amp;gt; 1) ? argv[1] : &lt;span class=&quot;string&quot;&gt;&quot;127.0.0.1&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int port = (argc &amp;gt; 2) ? atoi(argv[2]) : 6379;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    struct timeval timeout = &amp;#123; 1, 500000 &amp;#125;; // 1.5 seconds&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    c = redisConnectWithTimeout(hostname, port, timeout);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (c == NULL || c-&amp;gt;err) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (c) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Connection error: %s\n&quot;&lt;/span&gt;, c-&amp;gt;errstr);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            redisFree(c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Connection error: can&#39;t allocate redis context\n&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;exit&lt;/span&gt;(1);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* PING server */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;PING&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;PING: %s\n&quot;&lt;/span&gt;, reply-&amp;gt;str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Set a key */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;SET %s %s&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;foo&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;hello world&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;SET: %s\n&quot;&lt;/span&gt;, reply-&amp;gt;str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Set a key using binary safe API */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;SET %b %b&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&quot;bar&quot;&lt;/span&gt;, (size_t) 3, &lt;span class=&quot;string&quot;&gt;&quot;hello&quot;&lt;/span&gt;, (size_t) 5);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;SET (binary API): %s\n&quot;&lt;/span&gt;, reply-&amp;gt;str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Try a GET and two INCR */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;GET foo&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;GET foo: %s\n&quot;&lt;/span&gt;, reply-&amp;gt;str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;INCR counter&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;INCR counter: %lld\n&quot;&lt;/span&gt;, reply-&amp;gt;&lt;span class=&quot;built_in&quot;&gt;integer&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* again ... */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;INCR counter&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;printf&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;INCR counter: %lld\n&quot;&lt;/span&gt;, reply-&amp;gt;&lt;span class=&quot;built_in&quot;&gt;integer&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Create a list of numbers, from 0 to 9 */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;DEL mylist&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (j = 0; j &amp;lt; 10; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        char buf[64];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        snprintf(buf,64,&lt;span class=&quot;string&quot;&gt;&quot;%u&quot;&lt;/span&gt;,j);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        reply = redisCommand(c,&lt;span class=&quot;string&quot;&gt;&quot;LPUSH mylist element-%s&quot;&lt;/span&gt;, buf);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Let&lt;span class=&quot;string&quot;&gt;&#39;s check what we have inside the list */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    reply = redisCommand(c,&quot;LRANGE mylist 0 -1&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (reply-&amp;gt;type == REDIS_REPLY_ARRAY) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        for (j = 0; j &amp;lt; reply-&amp;gt;elements; j++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            printf(&quot;%u) %s\n&quot;, j, reply-&amp;gt;element[j]-&amp;gt;str);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    freeReplyObject(reply);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    /* Disconnects and frees the context */&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    redisFree(c);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;To compile the program, execute the following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc example.c -o example -lhiredis&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;To execute the program, run the following command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./example&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;The output is like as follows:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;PING: PONG&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SET: OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SET (binary API): OK&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;GET foo: hello world&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INCR counter: 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;INCR counter: 2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0) element-9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1) element-8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2) element-7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3) element-6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4) element-5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5) element-4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6) element-3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7) element-2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8) element-1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9) element-0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the quickstart tutorial to use hiredis C library to build connection between C program and redis. Here is &lt;a href=&quot;https://github
-    
-    </summary>
-    
-    
-      <category term="C" scheme="http://yular.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2017 Reading List</title>
-    <link href="http://yular.github.io/2017/01/28/2017-Reading-List/"/>
-    <id>http://yular.github.io/2017/01/28/2017-Reading-List/</id>
-    <published>2017-01-29T05:23:11.000Z</published>
-    <updated>2017-02-12T09:15:48.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the list of books that should be read in 2016:&lt;/p&gt;
-&lt;p&gt;1.Mindset&lt;/p&gt;
-&lt;p&gt;2.包公传&lt;/p&gt;
-&lt;p&gt;3.名人传&lt;/p&gt;
-&lt;p&gt;4.Java 语言编程设计（进阶）&lt;/p&gt;
-&lt;p&gt;5.Machine Learning (Murphy)&lt;/p&gt;
-&lt;p&gt;6.挑战编程&lt;/p&gt;
-&lt;p&gt;7.Principles of Data Integration&lt;/p&gt;
-&lt;p&gt;8.JVM website &lt;a href=&quot;http://rednaxelafx.iteye.com/blog/362738&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;click here&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;9.犯罪嫌疑人X之献身&lt;/p&gt;
-&lt;p&gt;10.开放社会：改革全球资本主义&lt;/p&gt;
-&lt;p&gt;11.文明的冲突与世界秩序的重建&lt;/p&gt;
-&lt;p&gt;12.旧欧洲 新欧洲 核心欧洲&lt;/p&gt;
-&lt;p&gt;13.欧洲中世纪史&lt;/p&gt;
-&lt;p&gt;14.互联网产品经理全方位入门（44本）&lt;/p&gt;
-&lt;p&gt;15.史记&lt;/p&gt;
-&lt;p&gt;16.道德经&lt;/p&gt;
-&lt;p&gt;17.哈尔罗杰历险记&lt;/p&gt;
-&lt;p&gt;18.Out of Control&lt;/p&gt;
-&lt;p&gt;19.庄子今注今译&lt;/p&gt;
-&lt;p&gt;20.沃伦.巴菲特的投资组合&lt;/p&gt;
-&lt;p&gt;21.Peopleware&lt;/p&gt;
-&lt;p&gt;22.The Design of Everyday Things&lt;/p&gt;
-&lt;p&gt;23.Programming Perls&lt;/p&gt;
-&lt;p&gt;24.Envisioning Information&lt;/p&gt;
-&lt;p&gt;25.Regular Expressions Cookbook&lt;/p&gt;
-&lt;p&gt;27.About Face&lt;/p&gt;
-&lt;p&gt;28.Java Language Specification: &lt;a href=&quot;http://docs.oracle.com/javase/specs/jls/se8/html/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Oracle&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;29.Java Virtual Machine: &lt;a href=&quot;http://docs.oracle.com/javase/specs/jvms/se8/html/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Oracle&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;30.Douban Java Booklist I: &lt;a href=&quot;https://www.douban.com/doulist/2545443/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;从表到里学习JVM实现&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;31.Douban Java Booklist II: &lt;a href=&quot;https://book.douban.com/people/RednaxelaFX/all?start=15&amp;amp;sort=time&amp;amp;rating=all&amp;amp;tag=VM&amp;amp;mode=grid&amp;amp;filter=all&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;RednaxelaFX的书/VM(63)&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the list of books that should be read in 2016:&lt;/p&gt;
-&lt;p&gt;1.Mindset&lt;/p&gt;
-&lt;p&gt;2.包公传&lt;/p&gt;
-&lt;p&gt;3.名人传&lt;/p&gt;
-&lt;p&gt;4.Java 语言编程设计（进阶）&lt;/p&gt;
-&lt;p&gt;5.Machi
-    
-    </summary>
-    
-    
-      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redis Command and DataStructure</title>
-    <link href="http://yular.github.io/2017/01/22/Redis-Command-and-DataStructure/"/>
-    <id>http://yular.github.io/2017/01/22/Redis-Command-and-DataStructure/</id>
-    <published>2017-01-22T09:17:38.000Z</published>
-    <updated>2017-02-02T07:02:24.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Redis has various data types and data structure which are helpful to efficiently manage data. Here is the &lt;a href=&quot;https://redis.io/topics/data-types-intro&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official introduction&lt;/a&gt;  and &lt;a href=&quot;https://redis.io/topics/data-types&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;official website&lt;/a&gt; about data types and their command lines.&lt;/p&gt;
-&lt;p&gt;Below is our summary.&lt;/p&gt;
-&lt;h2 id=&quot;String&quot;&gt;&lt;a href=&quot;#String&quot; class=&quot;headerlink&quot; title=&quot;String&quot;&gt;&lt;/a&gt;String&lt;/h2&gt;&lt;p&gt;Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.&lt;br&gt;A String value can be at max 512 Megabytes in length.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands/#string&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by String&lt;/a&gt; and below is most common ones:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.&lt;/li&gt;
-&lt;li&gt;APPEND: Append to strings.&lt;/li&gt;
-&lt;li&gt;GETRANGE and SETRANGE: Use Strings as a random access vectors.&lt;/li&gt;
-&lt;li&gt;GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;List&quot;&gt;&lt;a href=&quot;#List&quot; class=&quot;headerlink&quot; title=&quot;List&quot;&gt;&lt;/a&gt;List&lt;/h2&gt;&lt;p&gt;Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.&lt;br&gt;The max length of a list is 2^32 - 1 elements.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#list&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by List&lt;/a&gt; and below is most common ones:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;LPUSH: Inserts a new element on the head of List.&lt;/li&gt;
-&lt;li&gt;RPUSH: Inserts a new element on the tail of List.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Sets&quot;&gt;&lt;a href=&quot;#Sets&quot; class=&quot;headerlink&quot; title=&quot;Sets&quot;&gt;&lt;/a&gt;Sets&lt;/h2&gt;&lt;p&gt;Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.&lt;br&gt;The max number of members in a set is 2^32 - 1.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#set&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by Set&lt;/a&gt; and below is most common ones:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;SADD: Inserts a new element into Set.&lt;/li&gt;
-&lt;li&gt;SPOP and SRANDMEMBER: Extract elements at random.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Sorted-Sets&quot;&gt;&lt;a href=&quot;#Sorted-Sets&quot; class=&quot;headerlink&quot; title=&quot;Sorted Sets&quot;&gt;&lt;/a&gt;Sorted Sets&lt;/h2&gt;&lt;p&gt;Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.&lt;br&gt;The max number of members in a sorted set is 2^32 - 1.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;https://redis.io/commands#sorted_set&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;list of commands supported by Sorted Sets&lt;/a&gt; and below is most common ones:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ZADD: Inserts a new element into Sorted Set.&lt;/li&gt;
-&lt;li&gt;ZRANGE: Get the elements of which their keys are within the given range.&lt;/li&gt;
-&lt;li&gt;ZRANGEBYSCORE: Get the elements of which their scores are within the given range.&lt;/li&gt;
-&lt;li&gt;ZRANK: Get the rank (or position) of given element.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Hashes&quot;&gt;&lt;a href=&quot;#Hashes&quot; class=&quot;headerlink&quot; title=&quot;Hashes&quot;&gt;&lt;/a&gt;Hashes&lt;/h2&gt;&lt;p&gt;Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.&lt;br&gt;The max number of members in a hash is 2^32 - 1.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;&quot;&gt;list of commands supported by Hash&lt;/a&gt; and below is most common ones:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;HMSET: Insert a new element (object) into Hash.&lt;/li&gt;
-&lt;li&gt;HSET: Insert a new field into Hash object.&lt;/li&gt;
-&lt;li&gt;HGETALL: Get the information of element (object).&lt;/li&gt;
-&lt;li&gt;HGET: Get the information of a field of element (object).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Bit-arrays-Bitmaps&quot;&gt;&lt;a href=&quot;#Bit-arrays-Bitmaps&quot; class=&quot;headerlink&quot; title=&quot;Bit arrays (Bitmaps)&quot;&gt;&lt;/a&gt;Bit arrays (Bitmaps)&lt;/h2&gt;&lt;p&gt;Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;HyperLogLogs&quot;&gt;&lt;a href=&quot;#HyperLogLogs&quot; class=&quot;headerlink&quot; title=&quot;HyperLogLogs&quot;&gt;&lt;/a&gt;HyperLogLogs&lt;/h2&gt;&lt;p&gt;HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Keys&quot;&gt;&lt;a href=&quot;#Keys&quot; class=&quot;headerlink&quot; title=&quot;Keys&quot;&gt;&lt;/a&gt;Keys&lt;/h2&gt;&lt;p&gt;keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.&lt;/p&gt;
-&lt;p&gt;A few rules about keys:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Very long keys are not a good idea.&lt;/li&gt;
-&lt;li&gt;Very short keys are often not a good idea.&lt;/li&gt;
-&lt;li&gt;Try to stick with a schema.&lt;/li&gt;
-&lt;li&gt;The maximum allowed key size is 512 MB.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h2 id=&quot;Redis-expires&quot;&gt;&lt;a href=&quot;#Redis-expires&quot; class=&quot;headerlink&quot; title=&quot;Redis expires&quot;&gt;&lt;/a&gt;Redis expires&lt;/h2&gt;&lt;p&gt;Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Redis has various data types and data structure which are helpful to efficiently manage data. Here is the &lt;a href=&quot;https://redis.io/topic
-    
-    </summary>
-    
-    
-      <category term="Redis" scheme="http://yular.github.io/tags/Redis/"/>
     
   </entry>
   
