@@ -77,14 +77,19 @@
     <link href="http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/"/>
     <id>http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/</id>
     <published>2017-05-31T05:25:29.000Z</published>
-    <updated>2017-05-31T05:25:29.000Z</updated>
+    <updated>2017-06-02T08:20:25.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the Wikipedia link about &lt;a href=&quot;https://en.wikipedia.org/wiki/Test_double&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Test Double&lt;/a&gt;. There are five kinds of &lt;code&gt;Test Doubles&lt;/code&gt;: &lt;code&gt;Dummy Test&lt;/code&gt;, &lt;code&gt;Fake Test&lt;/code&gt;, &lt;code&gt;Stub Test&lt;/code&gt;, &lt;code&gt;Mock Test&lt;/code&gt; and &lt;code&gt;Spy Test&lt;/code&gt;. Here we focus on the last three kinds of test.&lt;/p&gt;
+&lt;h3 id=&quot;Stub-Test&quot;&gt;&lt;a href=&quot;#Stub-Test&quot; class=&quot;headerlink&quot; title=&quot;Stub Test&quot;&gt;&lt;/a&gt;Stub Test&lt;/h3&gt;&lt;h3 id=&quot;Mock-Test&quot;&gt;&lt;a href=&quot;#Mock-Test&quot; class=&quot;headerlink&quot; title=&quot;Mock Test&quot;&gt;&lt;/a&gt;Mock Test&lt;/h3&gt;&lt;h3 id=&quot;Spy-Test&quot;&gt;&lt;a href=&quot;#Spy-Test&quot; class=&quot;headerlink&quot; title=&quot;Spy Test&quot;&gt;&lt;/a&gt;Spy Test&lt;/h3&gt;</content>
     
     <summary type="html">
     
+      &lt;p&gt;Here is the Wikipedia link about &lt;a href=&quot;https://en.wikipedia.org/wiki/Test_double&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Test Double&lt;/a&gt;. Ther
+    
     </summary>
     
+    
+      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
     
   </entry>
   
