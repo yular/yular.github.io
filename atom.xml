@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-06-01T08:13:50.000Z</updated>
+  <updated>2017-06-30T05:18:50.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS Command Line Interface QuickStart</title>
+    <link href="http://yular.github.io/2017/06/29/AWS-Command-Line-Interface-QuickStart/"/>
+    <id>http://yular.github.io/2017/06/29/AWS-Command-Line-Interface-QuickStart/</id>
+    <published>2017-06-30T05:18:50.000Z</published>
+    <updated>2017-06-30T05:18:50.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ruby YAML Summary</title>
+    <link href="http://yular.github.io/2017/06/29/Ruby-YAML-Summary/"/>
+    <id>http://yular.github.io/2017/06/29/Ruby-YAML-Summary/</id>
+    <published>2017-06-30T05:18:26.000Z</published>
+    <updated>2017-06-30T06:58:33.000Z</updated>
+    
+    <content type="html">&lt;p&gt;YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data serialization standard for all programming languages.&lt;/p&gt;
+&lt;p&gt;Here is the link of &lt;a href=&quot;http://www.yaml.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YAML Org&lt;/a&gt;.&lt;br&gt;Here is the link of &lt;a href=&quot;http://yaml.org/YAML_for_ruby.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YAML Cookbook for Ruby&lt;/a&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data ser
+    
+    </summary>
+    
+    
+      <category term="Ruby" scheme="http://yular.github.io/tags/Ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AWS SAM QuickStart</title>
+    <link href="http://yular.github.io/2017/06/29/AWS-SAM-QuickStart/"/>
+    <id>http://yular.github.io/2017/06/29/AWS-SAM-QuickStart/</id>
+    <published>2017-06-30T05:00:40.000Z</published>
+    <updated>2017-06-30T05:00:40.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Lua User-Defined Types in C</title>
@@ -620,95 +674,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Pattern Expression in Java</title>
-    <link href="http://yular.github.io/2017/02/05/Pattern-Expression-in-Java/"/>
-    <id>http://yular.github.io/2017/02/05/Pattern-Expression-in-Java/</id>
-    <published>2017-02-05T20:15:53.000Z</published>
-    <updated>2017-02-05T20:18:40.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the link of &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Pattern Expression List in Java&lt;/a&gt;. This class is published by Oracle in Java 7. We will create a frequent used Pattern Expression list later.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the link of &lt;a href=&quot;https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Patte
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Penn Treebank Part-Of-Speech Tags List</title>
-    <link href="http://yular.github.io/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/"/>
-    <id>http://yular.github.io/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/</id>
-    <published>2017-01-29T21:07:54.000Z</published>
-    <updated>2017-01-29T21:14:04.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Below is the list of tags defined in Penn Treebank project. Now they are well-known as POS (Part-Of-Speech) tags used in NLP. Here is &lt;a href=&quot;https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of original list&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;1.CC - Coordinating conjunction&lt;br&gt;2.CD - Cardinal number&lt;br&gt;3.DT - Determiner&lt;br&gt;4.EX - Existential there&lt;br&gt;5.FW -Foreign word&lt;br&gt;6.IN - Preposition or subordinating conjunction&lt;br&gt;7.JJ - Adjective&lt;br&gt;8.JJR - Adjective, comparative&lt;br&gt;9.JJS - Adjective, superlative&lt;br&gt;10.LS - List item marker&lt;br&gt;11.MD - Modal&lt;br&gt;12.NN - Noun, singular or mass&lt;br&gt;13.NNS - Noun, plural&lt;br&gt;14.NNP - Proper noun, singular&lt;br&gt;15.NNPS - Proper noun, plural&lt;br&gt;16.PDT - Predeterminer&lt;br&gt;17.POS - Possessive ending&lt;br&gt;18.PRP - Personal pronoun&lt;br&gt;19.PRP$ - Possessive pronoun&lt;br&gt;20.RB - Adverb&lt;br&gt;21.RBR - Adverb, comparative&lt;br&gt;22.RBS - Adverb, superlative&lt;br&gt;23.RP - Particle&lt;br&gt;24.SYM - Symbol&lt;br&gt;25.TO - to&lt;br&gt;26.UH - Interjection&lt;br&gt;27.VB - Verb, base form&lt;br&gt;28.VBD - Verb, past tense&lt;br&gt;29.VBG - Verb, gerund or present participle&lt;br&gt;30.VBN - Verb, past participle&lt;br&gt;31.VBP - Verb, non-3rd person singular present&lt;br&gt;32.VBZ - Verb, 3rd person singular present&lt;br&gt;33.WDT - Wh-determiner&lt;br&gt;34.WP - Wh-pronoun&lt;br&gt;35.WP$ - Possessive wh-pronoun&lt;br&gt;36.WRB - Wh-adverb&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Below is the list of tags defined in Penn Treebank project. Now they are well-known as POS (Part-Of-Speech) tags used in NLP. Here is &lt;a 
-    
-    </summary>
-    
-    
-      <category term="Machine Learning" scheme="http://yular.github.io/tags/Machine-Learning/"/>
-    
-      <category term="Natural Language Processing" scheme="http://yular.github.io/tags/Natural-Language-Processing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ElasticSearch QuickStart: Basic Commands Usage</title>
-    <link href="http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/"/>
-    <id>http://yular.github.io/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/</id>
-    <published>2017-01-29T21:03:06.000Z</published>
-    <updated>2017-01-30T09:15:05.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Below is the frequent/basic commands of Elasticsearch.&lt;/p&gt;
-&lt;h2 id=&quot;Check-Cluster-Health&quot;&gt;&lt;a href=&quot;#Check-Cluster-Health&quot; class=&quot;headerlink&quot; title=&quot;Check Cluster Health&quot;&gt;&lt;/a&gt;Check Cluster Health&lt;/h2&gt;&lt;p&gt;Here is the command to get cluster health of Elasticsearch.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl localhost:9200/_cat/health?v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_&lt;span class=&quot;built_in&quot;&gt;wait&lt;/span&gt;_time active_shards_percent&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1485763076 23:57:56  elasticsearch green           1         1      0   0    0    0        0             0                  -                100.0%&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the command to get nodes health of Elasticsearch.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl localhost:9200/_cat/nodes?v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ip        heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;127.0.0.1            6          95   6    0.12    0.09     0.29 mdi       *      JXmT8Hz&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;List-All-Indices&quot;&gt;&lt;a href=&quot;#List-All-Indices&quot; class=&quot;headerlink&quot; title=&quot;List All Indices&quot;&gt;&lt;/a&gt;List All Indices&lt;/h2&gt;&lt;p&gt;Here is the command to list all indices of cluster:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl localhost:9200/_cat/indices?v&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;health status index uuid pri rep docs.count docs.deleted store.size pri.store.size&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Since we do not save any data in Elasticsearch, we could not see any records.&lt;/p&gt;
-&lt;h2 id=&quot;Indexing-Documents&quot;&gt;&lt;a href=&quot;#Indexing-Documents&quot; class=&quot;headerlink&quot; title=&quot;Indexing Documents&quot;&gt;&lt;/a&gt;Indexing Documents&lt;/h2&gt;&lt;p&gt;Here is a sample command:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -H &lt;span class=&quot;string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; -X PUT &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;&quot;name&quot;:&quot;John Doe&quot;&amp;#125;&#39;&lt;/span&gt; localhost:9200/customer/external/1?pretty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that customer is index, external is type and the Json object {name:John Doe} is the document while 1 is the document ID and it is optional.&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_index&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;customer&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_type&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;external&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;1&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_version&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;created&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_shards&quot;&lt;/span&gt; : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;total&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;successful&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;failed&quot;&lt;/span&gt; : 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;created&quot;&lt;/span&gt; : &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;If we execute the same command with different Json object, then this document will be replaced with new Json object.&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -H &lt;span class=&quot;string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; -X PUT &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;&quot;name&quot;:&quot;James Bryant&quot;&amp;#125;&#39;&lt;/span&gt; localhost:9200/customer/external/1?pretty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_index&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;customer&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_type&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;external&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;1&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_version&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;updated&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_shards&quot;&lt;/span&gt; : &amp;#123;                                                                                                                                              &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;total&quot;&lt;/span&gt; : 2,                                                                                                                                             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;successful&quot;&lt;/span&gt; : 1,                                                                                                                                        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;failed&quot;&lt;/span&gt; : 0                                                                                                                                             &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,                                                                                                                                                         &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;created&quot;&lt;/span&gt; : &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;                                                                                                                                          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Note that version is different (1 becomes 2).&lt;/p&gt;
-&lt;p&gt;Here is sample command without specifying document ID:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -H &lt;span class=&quot;string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; -X POST &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;&quot;name&quot;:&quot;JJ Redic&quot;&amp;#125;&#39;&lt;/span&gt; localhost:9200/customer/external/?pretty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_index&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;customer&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_type&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;external&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;AVnueShHh1ol1utH2JD7&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_version&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;created&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_shards&quot;&lt;/span&gt; : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;total&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;successful&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;failed&quot;&lt;/span&gt; : 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;created&quot;&lt;/span&gt; : &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Updating-Document&quot;&gt;&lt;a href=&quot;#Updating-Document&quot; class=&quot;headerlink&quot; title=&quot;Updating Document&quot;&gt;&lt;/a&gt;Updating Document&lt;/h2&gt;&lt;p&gt;Here is the command to update document:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -H &lt;span class=&quot;string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; -X POST &lt;span class=&quot;_&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;&quot;doc&quot;:&amp;#123;&quot;name&quot;:&quot;JJ Redic&quot;,&quot;age&quot;:20&amp;#125;&amp;#125;&#39;&lt;/span&gt; localhost:9200/customer/external/1/_update?pretty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_index&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;customer&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_type&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;external&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;1&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_version&quot;&lt;/span&gt; : 3,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;updated&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_shards&quot;&lt;/span&gt; : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;total&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;successful&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;failed&quot;&lt;/span&gt; : 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deleting-Document&quot;&gt;&lt;a href=&quot;#Deleting-Document&quot; class=&quot;headerlink&quot; title=&quot;Deleting Document&quot;&gt;&lt;/a&gt;Deleting Document&lt;/h3&gt;&lt;p&gt;Here is the command to delete document:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;curl -H &lt;span class=&quot;string&quot;&gt;&#39;Content-Type: application/json&#39;&lt;/span&gt; -X DELETE localhost:9200/customer/external/2?pretty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the sample output:&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;found&quot;&lt;/span&gt; : &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_index&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;customer&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_type&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;external&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;2&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_version&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt; : &lt;span class=&quot;string&quot;&gt;&quot;deleted&quot;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;string&quot;&gt;&quot;_shards&quot;&lt;/span&gt; : &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;total&quot;&lt;/span&gt; : 2,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;successful&quot;&lt;/span&gt; : 1,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&quot;failed&quot;&lt;/span&gt; : 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Bulk-Processing-Document&quot;&gt;&lt;a href=&quot;#Bulk-Processing-Document&quot; class=&quot;headerlink&quot; title=&quot;Bulk Processing Document&quot;&gt;&lt;/a&gt;Bulk Processing Document&lt;/h2&gt;&lt;p&gt;Check this &lt;a href=&quot;https://www.elastic.co/guide/en/elasticsearch/reference/current/_batch_processing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Below is the frequent/basic commands of Elasticsearch.&lt;/p&gt;
-&lt;h2 id=&quot;Check-Cluster-Health&quot;&gt;&lt;a href=&quot;#Check-Cluster-Health&quot; class=&quot;headerlin
-    
-    </summary>
-    
-    
-      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
     
   </entry>
   

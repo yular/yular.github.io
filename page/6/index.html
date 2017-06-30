@@ -90,6 +90,169 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-06-04T02:31:07.000Z"><a href="/2016/06/03/MongoDB-Install-on-Centos/">2016-06-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/03/MongoDB-Install-on-Centos/">MongoDB Install on Centos</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">official document</a> to install MongoDB on CentOS / RedHat OS.</p>
+<p>Below is a simple version of install guide.</p>
+<h2 id="Configure-the-yum"><a href="#Configure-the-yum" class="headerlink" title="Configure the yum"></a>Configure the yum</h2><p>Create a /etc/yum.repos.d/mongodb-org-3.2.repo file so that we can install MongoDB directly, using yum.</p>
+<p>Copy following content into the repository file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-MongoDB-and-associated-tools"><a href="#Install-MongoDB-and-associated-tools" class="headerlink" title="Install MongoDB and associated tools"></a>Install MongoDB and associated tools</h2><p>Execute following command to install MongoDB:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y mongodb-org</span><br></pre></td></tr></table></figure></p>
+<h2 id="Run-MongoDB-Service"><a href="#Run-MongoDB-Service" class="headerlink" title="Run MongoDB Service"></a>Run MongoDB Service</h2><p>Before we start MongoDB Service, we may have to configure SELinux first.</p>
+<p>Check /etc/selinux/config. The value of variable SELINUX has these three options:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enforcing (by default)</span><br><span class="line">disabled</span><br><span class="line">permissive</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
+<p>If it is in enforcing mode, we may have to execute this command to ensure that MongoDB can use the port:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port <span class="_">-a</span> -t mongod_port_t -p tcp 27017</span><br></pre></td></tr></table></figure></p>
+<p>Or we can change the SELINUX into different mode and reboot the system so that change can take effect.</p>
+<p>By default, MongoDB save data files in /var/lib/mongo and save log files in /var/log/mongodb. All these settigs can be changed in /etc/mongod.conf.</p>
+<p>To start MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod start</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">To restart MongoDB, execute this <span class="built_in">command</span>:</span><br><span class="line">``` bash</span><br><span class="line">sudo service mongod restart</span><br></pre></td></tr></table></figure></p>
+<p>To stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod stop</span><br></pre></td></tr></table></figure></p>
+<h2 id="Verify-MongoDB-Boosting"><a href="#Verify-MongoDB-Boosting" class="headerlink" title="Verify MongoDB Boosting"></a>Verify MongoDB Boosting</h2><p>Check /var/log/mongodb/mongod.log to find the following lines:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[initandlisten] waiting <span class="keyword">for</span> connections on port &lt;port&gt;</span><br></pre></td></tr></table></figure></p>
+<p>where <port> is the port configured in /etc/mongod.conf and 27017 is by default.</port></p>
+<p>Or ensure that MongoDB will start following a system reboot by issuing the following command::<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chkconfig mongod on</span><br></pre></td></tr></table></figure></p>
+<h2 id="Remove-MongoDB"><a href="#Remove-MongoDB" class="headerlink" title="Remove MongoDB"></a>Remove MongoDB</h2><p>After stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum erase $(rpm -qa | grep mongodb-org)</span><br></pre></td></tr></table></figure></p>
+<p>And then remove data files as well as log files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r /var/<span class="built_in">log</span>/mongodb</span><br><span class="line">sudo rm -r /var/lib/mongo</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-06-04T01:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
+<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
+<p>Here is a simple guide to download, build and install Lua on Centos.</p>
+<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
+<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
+<p>If Lua is installed successfully, this command will be executed successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lua</span><br><span class="line"><span class="comment"># Command output : </span></span><br><span class="line">Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-31T16:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Xor-sequence"><a href="#Xor-sequence" class="headerlink" title="Xor-sequence"></a>Xor-sequence</h3><p><a href="https://www.hackerrank.com/challenges/xor-se" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/xor-se.cpp" target="_blank" rel="external">Code</a><br>A kind of construction problem. At first, figure out the pattern which is a repeating sequence: 0,1,2,2,6,7,0,0. And then calculate the result based on the given position.</p>
+<hr>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Bit-Manipulation/">Bit Manipulation</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-05-31T16:08:08.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">2016-05-31</a></time>
       
       
@@ -420,154 +583,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-03T03:58:34.000Z"><a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/">2016-04-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/">Hackerrank Data Structure Problem Solution List IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of Hackerrank data structure problem solution list.<br><a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet">summary list</a></p>
-<p>Below is the detailed explanation of the idea behind solution.</p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-31T03:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/">official website of redis</a>.</p>
-<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart">official tutorial</a>.</p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/03/30/Redis-QuickStart/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-27T22:36:14.000Z"><a href="/2016/03/27/CSS-Pattern-List/">2016-03-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.</p>
-<p><a href="http://lea.verou.me/css3patterns/" target="_blank" rel="external">CSS3 Patterns Gallery</a><br><a href="http://subtlepatterns.com/" target="_blank" rel="external">Subtle Patterns</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -659,7 +674,7 @@
   
     <li><a href="/tags/Redis/">Redis</a><small>1</small></li>
   
-    <li><a href="/tags/Ruby/">Ruby</a><small>1</small></li>
+    <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -681,7 +696,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.5px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.5px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -702,23 +717,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/06/29/AWS-Command-Line-Interface-QuickStart/">AWS Command Line Interface QuickStart</a>
+      </li>
+    
+      <li>
+        <a href="/2017/06/29/Ruby-YAML-Summary/">Ruby YAML Summary</a>
+      </li>
+    
+      <li>
+        <a href="/2017/06/29/AWS-SAM-QuickStart/">AWS SAM QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2017/06/01/Lua-User-Defined-Types-in-C/">Lua User-Defined Types in C</a>
       </li>
     
       <li>
         <a href="/2017/05/30/Amazon-AWS-Training-Resource-List/">Amazon AWS Training Resource List</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/30/Retrofit-Quickstart-Guide/">Retrofit Quickstart Guide</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">Stub Test vs Mock Test vs Spy Test</a>
-      </li>
-    
-      <li>
-        <a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a>
       </li>
     
   </ul>
