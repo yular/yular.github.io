@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-06-30T05:18:50.000Z</updated>
+  <updated>2017-07-24T06:55:45.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>C Extern Function</title>
+    <link href="http://yular.github.io/2017/07/23/C-Extern-Function/"/>
+    <id>http://yular.github.io/2017/07/23/C-Extern-Function/</id>
+    <published>2017-07-24T06:07:24.000Z</published>
+    <updated>2017-07-24T06:55:45.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here we want to define a function in a C program file and would like to write another C program that can use that function. That kind of function is called extern function, which means the function uses &lt;code&gt;extern&lt;/code&gt; keyword.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;http://www.geeksforgeeks.org/understanding-extern-keyword-in-c/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;tutorial about C Extern funciton/variable&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Below is an example from us. The example is about defining and implementing a random mysql hash key generation method.&lt;/p&gt;
+&lt;h3 id=&quot;Define-Extern-Function-in-a-Head-File&quot;&gt;&lt;a href=&quot;#Define-Extern-Function-in-a-Head-File&quot; class=&quot;headerlink&quot; title=&quot;Define Extern Function in a Head File&quot;&gt;&lt;/a&gt;Define Extern Function in a Head File&lt;/h3&gt;&lt;p&gt;To use functions coming from other libs in C, the most common way is to define those functions in head files, and those head files are used as the entries to use functions defined in them. But only functions with &lt;code&gt;extern&lt;/code&gt; keyword can be used by other C programs.&lt;/p&gt;
+&lt;p&gt;Note that using extern functions are different from implementing extern functions.&lt;/p&gt;
+&lt;p&gt;Here is the head file &lt;code&gt;hashkeygenerator.h&lt;/code&gt; that has the definiton of extern function.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include&amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;extern char *generateHashKey();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;Implement-Extern-Function-in-a-C-File&quot;&gt;&lt;a href=&quot;#Implement-Extern-Function-in-a-C-File&quot; class=&quot;headerlink&quot; title=&quot;Implement Extern Function in a C File&quot;&gt;&lt;/a&gt;Implement Extern Function in a C File&lt;/h3&gt;&lt;p&gt;The function should have an algorithm to generate random hash key, and the implementation should be in the C file.&lt;/p&gt;
+&lt;p&gt;Here is the C file &lt;code&gt;hashkeygenerator.c&lt;/code&gt; in this example:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;time.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;quot;hashkeygenerator.h&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char KEY_CHAR_POOL[62] = &amp;quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char FIX_HASH_KEY_PREFIX[5] = &amp;quot;mysql&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;char *hash_key;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;extern char * generateHashKey()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    srand(time(NULL));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    hash_key = (char*) malloc(27);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    strcpy(hash_key, FIX_HASH_KEY_PREFIX);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int i = 5;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    for(i = 5; i &amp;lt; 27; ++ i) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        int idx = (int)( rand()%62 );&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        hash_key[i] = KEY_CHAR_POOL[idx];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    hash_key[5] = hash_key[9] = hash_key[14] = hash_key[20] = &amp;apos;-&amp;apos;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return (char *)hash_key;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Now to compile this C file, use following command:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc -c hashkeygenerator.c&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;The we will find a &lt;code&gt;hashkeygenerator.o&lt;/code&gt; file under the same folder with the head file and C file.&lt;/p&gt;
+&lt;h3 id=&quot;Test-the-Extern-Function&quot;&gt;&lt;a href=&quot;#Test-the-Extern-Function&quot; class=&quot;headerlink&quot; title=&quot;Test the Extern Function&quot;&gt;&lt;/a&gt;Test the Extern Function&lt;/h3&gt;&lt;p&gt;Below is the program to test the extern function above. Note that rand() function will return the same sequence of string if the period between two function calls is too small. Here we make it 10 seconds.&lt;/p&gt;
+&lt;p&gt;See the code below and the file name is &lt;code&gt;testhashkeygenerator.c&lt;/code&gt;:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;string.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;lt;time.h&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;#include &amp;quot;hashkeygenerator.h&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;int main() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    char *key_one = generateHashKey();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    puts(key_one);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    unsigned int retTime = time(0) + 10; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    while (time(0) &amp;lt; retTime);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    char *key_two = generateHashKey();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    puts(key_two);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if(strcmp(key_one, key_two) == 0) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        puts(&amp;quot;Two Identical Keys are generated!&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return 0;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Now we need to generate an executable file by runing this command:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gcc -Wall -o testhashkeygenerator testhashkeygenerator.c hashkeygenerator.o&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;To run the file, use this command:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;./testhashkeygenerator&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;And we will see two random hash key as follow:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mysql-VYb-zJVg-4dcKA-5lymrv                                                                                                                                  &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;mysql-UgP-Owia-NGzmZ-zG7DAB&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/tree/master/Extern-Function&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link of the three files above&lt;/a&gt; in this tutorial.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here we want to define a function in a C program file and would like to write another C program that can use that function. That kind of 
+    
+    </summary>
+    
+    
+      <category term="C" scheme="http://yular.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kaggle Contest Guide Summary</title>
+    <link href="http://yular.github.io/2017/06/30/Kaggle-Contest-Guide-Summary/"/>
+    <id>http://yular.github.io/2017/06/30/Kaggle-Contest-Guide-Summary/</id>
+    <published>2017-07-01T02:18:26.000Z</published>
+    <updated>2017-07-01T02:18:26.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Kaggle Contest QuickStart</title>
+    <link href="http://yular.github.io/2017/06/30/Kaggle-Contest-QuickStart/"/>
+    <id>http://yular.github.io/2017/06/30/Kaggle-Contest-QuickStart/</id>
+    <published>2017-07-01T02:18:11.000Z</published>
+    <updated>2017-07-01T02:18:11.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>AWS Command Line Interface QuickStart</title>
@@ -472,208 +542,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Assert Expected Exception in JUnit Test</title>
-    <link href="http://yular.github.io/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/"/>
-    <id>http://yular.github.io/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/</id>
-    <published>2017-02-16T05:00:50.000Z</published>
-    <updated>2017-02-16T05:10:45.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.&lt;/p&gt;
-&lt;p&gt;The original link is from &lt;a href=&quot;http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Stack Overflow&lt;/a&gt;.&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;public class ExceptionTest &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @Rule&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  public final ExpectedException exception = ExpectedException.none();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  @Test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  public void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;testIndexOutOfBoundsException&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    Foo foo = new Foo();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    exception.expect(IndexOutOfBoundsException.class);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    foo.doStuff();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Here is the link of &lt;a href=&quot;https://www.infoq.com/news/2009/07/junit-4.7-rules&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JUnit 4.7 Per-Test Rules&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;And below is a good way to write the JUnit Test with the same functionality using Java 8. We use &lt;code&gt;Lambda Expressions&lt;/code&gt; code style.&lt;/p&gt;
-&lt;p&gt;Original link is &lt;a href=&quot;http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here&lt;/a&gt;, from Stack Overflow again.&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@Test&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public void &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;title&quot;&gt;verifiesTypeAndMessage&lt;/span&gt;&lt;/span&gt;() &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    assertThrown(new FooService()::fooMethod)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .isInstanceOf(IndexOutOfBoundsException.class)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessage(&lt;span class=&quot;string&quot;&gt;&quot;Index Out Of Bound exception occurred&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageStartingWith(&lt;span class=&quot;string&quot;&gt;&quot;Runtime&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageEndingWith(&lt;span class=&quot;string&quot;&gt;&quot;occurred&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasMessageContaining(&lt;span class=&quot;string&quot;&gt;&quot;exception&quot;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            .hasNoCause();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Here are some useful links for the JUnit test in Java 8:&lt;br&gt;1.&lt;a href=&quot;http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html&lt;/a&gt;&lt;br&gt;2.&lt;a href=&quot;https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8&lt;/a&gt; &lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.&lt;/p&gt;
-&lt;p&gt;The original link is from 
-    
-    </summary>
-    
-    
-      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SPOJ Basic and Tutorial Solution Summary List</title>
-    <link href="http://yular.github.io/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/"/>
-    <id>http://yular.github.io/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/</id>
-    <published>2017-02-13T07:20:04.000Z</published>
-    <updated>2017-02-13T07:21:41.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of SPOJ Basic and Tutorial problems solution list&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of SPOJ 
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWS Terminology List</title>
-    <link href="http://yular.github.io/2017/02/12/AWS-Terminology-List/"/>
-    <id>http://yular.github.io/2017/02/12/AWS-Terminology-List/</id>
-    <published>2017-02-13T02:04:12.000Z</published>
-    <updated>2017-02-13T07:13:17.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is &lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/glos-chap.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of complete list of AWS terminology&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Below is the list of most common used AWS terminoloies.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#ACL&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ACL (access control list)&lt;/a&gt;&lt;br&gt;A document that defines who can access a particular bucket or object. Each bucket and object in Amazon S3 has an ACL. The document defines what each type of user can do, such as write and read permissions.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/api-gateway&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon API Gateway&lt;/a&gt;&lt;br&gt;A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/rds/aurora/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Aurora&lt;/a&gt;&lt;br&gt;A fully managed MySQL-compatible relational database engine that combines the speed and availability of commercial databases with the simplicity and cost-effectiveness of open source databases.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudfront&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon CloudFront&lt;/a&gt;&lt;br&gt;An AWS content delivery service that helps you improve the performance, reliability, and availability of your websites and applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudsearch/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon CloudSearch&lt;/a&gt;&lt;br&gt;A fully managed service in the AWS cloud that makes it easy to set up, manage, and scale a search solution for your website or application.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudwatch/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon CloudWatch&lt;/a&gt;&lt;br&gt;A web service that enables you to monitor and manage various metrics, and configure alarm actions based on data from those metrics.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cognito/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Cognito&lt;/a&gt;&lt;br&gt;A web service that makes it easy to save mobile user data, such as app preferences or game state, in the AWS cloud without writing any back-end code or managing any infrastructure. Amazon Cognito offers mobile identity management and data synchronization across devices.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/devpa&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon DevPay&lt;/a&gt;&lt;br&gt;An easy-to-use online billing and account management service that makes it easy for you to sell an Amazon EC2 AMI or an application built on Amazon S3.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/dynamodb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon DynamoDB&lt;/a&gt;&lt;br&gt;A fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/dynamodb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon DynamoDB Storage Backend for Titan&lt;/a&gt;&lt;br&gt;A storage backend for the Titan graph database implemented on top of Amazon DynamoDB. Titan is a scalable graph database optimized for storing and querying graphs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/dynamodb/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon DynamoDB Streams&lt;/a&gt;&lt;br&gt;An AWS service that captures a time-ordered sequence of item-level modifications in any Amazon DynamoDB table, and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near real time.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ebs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon EBS (Amazon Elastic Block Store)&lt;/a&gt;&lt;br&gt;A service that provides block level storage volumes for use with EC2 instances.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ecr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon ECR (Amazon EC2 Container Registry)&lt;/a&gt;&lt;br&gt;A fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. Amazon ECR is integrated with Amazon EC2 Container Service (Amazon ECS) and AWS Identity and Access Management (IAM).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ecs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon EC2 Container Service&lt;/a&gt;&lt;br&gt;A highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of EC2 instances.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ec2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon EC2 (Amazon Elastic Compute)&lt;/a&gt;&lt;br&gt;A web service that enables you to launch and manage Linux/UNIX and Windows server instances in Amazon’s data centers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/efs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon EFS (Amazon Elastic File System)&lt;/a&gt;&lt;br&gt;A file storage service for EC2 instances. Amazon EFS is easy to use and provides a simple interface with which you can create and configure file systems. Amazon EFS storage capacity grows and shrinks automatically as you add and remove files.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/elasticmapreduce&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon EMR&lt;/a&gt;&lt;br&gt;A web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/elasticache/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon ElastiCache&lt;/a&gt;&lt;br&gt;A web service that simplifies deploying, operating, and scaling an in-memory cache in the cloud. The service improves the performance of web applications by providing information retrieval from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/elasticsearch-service&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon ES (Amazon Elasticsearch Service)&lt;/a&gt;&lt;br&gt;An AWS-managed service for deploying, operating, and scaling Elasticsearch, an open-source search and analytics engine, in the AWS Cloud. Amazon Elasticsearch Service (Amazon ES) also offers security options, high availability, data durability, and direct access to the Elasticsearch APIs.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/gamelift/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon GameLift&lt;/a&gt;&lt;br&gt;A managed service for deploying, operating, and scaling session-based multiplayer games.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/glacier/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Glacier&lt;/a&gt;&lt;br&gt;A secure, durable, and low-cost storage service for data archiving and long-term backup. You can reliably store large or small amounts of data for significantly less than on-premises solutions. Amazon Glacier is optimized for infrequently accessed data, where a retrieval time of several hours is suitable.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/inspector&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Inspector&lt;/a&gt;&lt;br&gt;An automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for vulnerabilities or deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed report with prioritized steps for remediation.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/kinesis/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Kinesis&lt;/a&gt;&lt;br&gt;A platform for streaming data on AWS. Amazon Kinesis offers services that simplify the loading and analysis of streaming data.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/kinesis/firehose/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Kinesis Firehose&lt;/a&gt;&lt;br&gt;A fully managed service for loading streaming data into AWS. Firehose can capture and automatically load streaming data into Amazon S3 and Amazon Redshift , enabling near real-time analytics with existing business intelligence tools and dashboards. Firehose automatically scales to match the throughput of your data and requires no ongoing administration. It can also batch, compress, and encrypt the data before loading it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/kinesis/streams/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Kinesis Streams&lt;/a&gt;&lt;br&gt;A web service for building custom applications that process or analyze streaming data for specialized needs. Amazon Kinesis Streams can continuously capture and store terabytes of data per hour from hundreds of thousands of sources.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/lumberyard/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Lumberyard&lt;/a&gt;&lt;br&gt;A cross-platform, 3D game engine for creating high-quality games. You can connect games to the compute and storage of the AWS cloud and engage fans on Twitch.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Amazon Machine Image (AMI)&lt;br&gt;An encrypted machine image stored in Amazon Elastic Block Store (Amazon EBS) or Amazon Simple Storage Service. AMIs are like a template of a computer’s root drive. They contain the operating system and can also include software and layers of your application, such as database servers, middleware, web servers, and so on.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://aws.amazon.com/machine-learning/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Machine Learning (Amazon ML)&lt;/a&gt;&lt;br&gt;A cloud-based service that creates machine learning (ML) models by finding patterns in your data, and uses these models to process new data and generate predictions.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/mobileanalytics&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Mobile Analytics&lt;/a&gt;&lt;br&gt;A service for collecting, visualizing, understanding, and extracting mobile app usage data at scale.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/redshift/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Redshift&lt;/a&gt;&lt;br&gt;A fully managed, petabyte-scale data warehouse service in the cloud. With Amazon Redshift you can analyze your data using your existing business intelligence tools.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/rds&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon RDS (Amazon Relational Database Service)&lt;/a&gt;&lt;br&gt;A web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ARN (Amazon Resource Name)&lt;br&gt;A standardized way to refer to an AWS resource. For example: arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/route53&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon Route 53&lt;/a&gt;&lt;br&gt;A web service you can use to create a new DNS service or to migrate your existing DNS service to the cloud.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/s3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon S3 (Amazon Simple Storage Service)&lt;/a&gt;&lt;br&gt;Storage for the Internet. You can use it to store and retrieve any amount of data at any time, from anywhere on the web.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/ses&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon SES (Amazon Simple Email Service)&lt;/a&gt;&lt;br&gt;An easy-to-use, cost-effective email solution for applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/sns&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon SNS (Amazon Simple Notification Service)&lt;/a&gt;&lt;br&gt;A web service that enables applications, end-users, and devices to instantly send and receive notifications from the cloud.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/sqs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon SQS (Amazon Simple Queue Service)&lt;/a&gt;&lt;br&gt;Reliable and scalable hosted queues for storing messages as they travel between computers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/swf/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon SWF (Amazon Simple Workflow Service)&lt;/a&gt;&lt;br&gt;A fully managed service that helps developers build, run, and scale background jobs that have parallel or sequential steps. Amazon SWF is like a state tracker and task coordinator in the cloud.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/vpc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon VPC (Amazon Virtual Private Cloud)&lt;/a&gt;&lt;br&gt;A web service for provisioning a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. You control your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/what-is-cloud-computing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS (Amazon Web Services)&lt;/a&gt;&lt;br&gt;An infrastructure web services platform in the cloud for companies of all sizes.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/workspaces/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon WorkSpaces&lt;/a&gt;&lt;br&gt;A managed, secure desktop computing service for provisioning cloud-based desktops and providing users access to documents, applications, and resources from supported devices.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/workspaces/applicationmanager&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Amazon WAM (Amazon WorkSpaces Application Manager)&lt;/a&gt;&lt;br&gt;A web service for deploying and managing applications for Amazon WorkSpaces. Amazon WAM accelerates software deployment, upgrades, patching, and retirement by packaging Windows desktop applications into virtualized application containers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AUC&lt;br&gt;Area Under a Curve. An industry-standard metric to evaluate the quality of a binary classification machine learning model. AUC measures the ability of the model to predict a higher score for positive examples, those that are “correct,” than for negative examples, those that are “incorrect.” The AUC metric returns a decimal value from 0 to 1. AUC values near 1 indicate an ML model that is highly accurate.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudformation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CloudFormation&lt;/a&gt;&lt;br&gt;A service for writing or changing templates that create and delete related AWS resources together as a unit.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudhsm/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CloudHSM&lt;/a&gt;&lt;br&gt;A web service that helps you meet corporate, contractual, and regulatory compliance requirements for data security by using dedicated hardware security module (HSM) appliances within the AWS cloud.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/cloudtrail/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CloudTrail&lt;/a&gt;&lt;br&gt;A web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/codecommit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CodeCommit&lt;/a&gt;&lt;br&gt;A fully managed source control service that makes it easy for companies to host secure and highly scalable private Git repositories.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/codedeploy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CodeDeploy&lt;/a&gt;&lt;br&gt;A service that automates code deployments to any instance, including EC2 instances and instances running on-premises.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/codepipeline&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS CodePipeline&lt;/a&gt;&lt;br&gt;A continuous delivery service for fast and reliable application updates.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/config/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Config&lt;/a&gt;&lt;br&gt;A fully managed service that provides an AWS resource inventory, configuration history, and configuration change notifications for better security and governance. You can create rules that automatically check the configuration of AWS resources that AWS Config records.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/dms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Database Migration Service&lt;/a&gt;&lt;br&gt;A web service that can help you migrate data to and from many widely used commercial and open-source databases.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/datapipeline&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Data Pipeline&lt;/a&gt;&lt;br&gt;A web service for processing and moving data between different AWS compute and storage services, as well as on-premises data sources, at specified intervals.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/directconnect&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Direct Connect&lt;/a&gt;&lt;br&gt;A web service that simplifies establishing a dedicated network connection from your premises to AWS. Using AWS Direct Connect, you can establish private connectivity between AWS and your data center, office, or colocation environment.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/elasticbeanstalk&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Elastic Beanstalk&lt;/a&gt;&lt;br&gt;A web service for deploying and managing applications in the AWS cloud without worrying about the infrastructure that runs those applications.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/iam&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IAM (AWS Identity and Access Management)&lt;/a&gt;&lt;br&gt;A web service that enables Amazon Web Services (AWS) customers to manage users and user permissions within AWS.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/importexport&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Import/Export&lt;/a&gt;&lt;br&gt;A service for transferring large amounts of data between AWS and portable storage devices.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/iot&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS IoT&lt;/a&gt;&lt;br&gt;A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/kms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS KMS (AWS Key Management Service)&lt;/a&gt;&lt;br&gt;A managed service that simplifies the creation and control of encryption keys that are used to encrypt data.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/lambda/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Lambda&lt;/a&gt;&lt;br&gt;A web service that lets you run code without provisioning or managing servers. You can run code for virtually any type of application or back-end service with zero administration. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/partners/aws-marketplace/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Marketplace&lt;/a&gt;&lt;br&gt;A web portal where qualified partners to market and sell their software to AWS customers. AWS Marketplace is an online software store that helps customers find, buy, and immediately start using the software and services that run on AWS.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/mobile&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS Mobile Hub&lt;/a&gt;&lt;br&gt;An integrated console that for building, testing, and monitoring mobile apps.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/iam/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS STS (AWS Security Token Service)&lt;/a&gt;&lt;br&gt;A web service for requesting temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;AWS VPN CloudHub&lt;br&gt;Enables secure communication between branch offices using a simple hub-and-spoke model, with or without a VPC.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://aws.amazon.com/waf/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AWS WAF&lt;/a&gt;&lt;br&gt;A web application firewall service that controls access to content by allowing or blocking web requests based on criteria that you specify, such as header values or the IP addresses that the requests originate from. AWS WAF helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is &lt;a href=&quot;http://docs.aws.amazon.com/general/latest/gr/glos-chap.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;the link of complete list of
-    
-    </summary>
-    
-    
-      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
     
   </entry>
   
