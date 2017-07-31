@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 5 | YBC HomePage</title>
+  <title>Страница 5 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,171 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-30T09:19:53.000Z"><a href="/2016/12/30/Apache-Jena-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Apache-Jena-QuickStart/">Apache Jena QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to install Apache Jena on CentOS. This is the official website of <a href="https://jena.apache.org/index.html" target="_blank" rel="external">Apache Jena</a>, <a href="https://jena.apache.org/tutorials/" target="_blank" rel="external">official tutorial</a> and <a href="https://jena.apache.org/getting_started/" target="_blank" rel="external">get started document</a>.</p>
+<h2 id="Download-Apache-Jena"><a href="#Download-Apache-Jena" class="headerlink" title="Download Apache Jena"></a>Download Apache Jena</h2><p>Download Apache Jena from this <a href="https://jena.apache.org/download/index.cgi" target="_blank" rel="external">link</a>. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.</p>
+<p>Extract the software from tar ball and move them to /usr/local:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf apache-jena-3.1.1.tar.gz</span><br><span class="line">mv apache-jena-3.1.1 /usr/<span class="built_in">local</span>/</span><br></pre></td></tr></table></figure></p>
+<h2 id="Set-Environment-PATH"><a href="#Set-Environment-PATH" class="headerlink" title="Set Environment PATH"></a>Set Environment PATH</h2><p>Edit ~/.bashrc file and put following content in that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JENAROOT=/usr/<span class="built_in">local</span>/apache-jena-3.1.1</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JENAROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Now try this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparql --version</span><br></pre></td></tr></table></figure></p>
+<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jena:       VERSION: 3.1.1</span><br><span class="line">Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">ARQ:        VERSION: 3.1.1</span><br><span class="line">ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">RIOT:       VERSION: 3.1.1</span><br><span class="line">RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/SparkSQL/">SparkSQL</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-30T09:19:20.000Z"><a href="/2016/12/30/Kotlin-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Kotlin-QuickStart/">Kotlin QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official <a href="https://Kotlinlang.org" target="_blank" rel="external">website</a>.</p>
+<p>It has a lot of advantages and we can find them on the official website above. We can write a Kotlin script and then compile and build it as a java jar or java script file to execute. See the <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language" target="_blank" rel="external">wikipedia</a>).</p>
+<p>Below is a quickstart guide to build a Kotlin script as a java jar, which is similar to the official <a href="https://Kotlinlang.org/docs/tutorials/" target="_blank" rel="external">tutorial</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a> to install Kotlin compiler in the OS. We use Centos 7 in this tutorial.</p>
+<p>To manual install the compiler, just download it from <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2" target="_blank" rel="external">Github Release</a>. Then unzip it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip kotlin-compiler-1.0.5-2.zip</span><br></pre></td></tr></table></figure></p>
+<p>Note that current latest version is 1.0.5. The approach for all the other versions.</p>
+<p>Then move the folder to the location we would like to store this compiler and add the bin to PATH variable.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv kotlinc /usr/<span class="built_in">local</span>/kotlinc</span><br></pre></td></tr></table></figure></p>
+<p>Edit ~/.bashrc adding/modifying following lines<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KOTLINC=/usr/<span class="built_in">local</span>/kotlinc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$KOTLINC</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Remember to execute after modification is done.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>Now let us type following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlin -help</span><br></pre></td></tr></table></figure></p>
+<p>The output should similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kotlin: run Kotlin programs, scripts or REPL.</span><br><span class="line"></span><br><span class="line">Usage: kotlin &lt;options&gt; &lt;<span class="built_in">command</span>&gt; &lt;arguments&gt;</span><br><span class="line"><span class="built_in">where</span> <span class="built_in">command</span> may be one of:</span><br><span class="line">  foo.Bar                    Runs the <span class="string">'main'</span> <span class="keyword">function</span> from the class with the given qualified name</span><br><span class="line">  app.jar                    Runs the given JAR file as <span class="string">'java -jar'</span> would <span class="keyword">do</span></span><br><span class="line">                             (-classpath argument is ignored and no Kotlin runtime is added to the classpath)</span><br><span class="line">and possible options include:</span><br><span class="line">  -classpath (-cp) &lt;path&gt;    Paths <span class="built_in">where</span> to find user class files</span><br><span class="line">  -Dname=value               Set a system JVM property</span><br><span class="line">  -J&lt;option&gt;                 Pass an option directly to JVM</span><br><span class="line">  -no-reflect                Don<span class="string">'t include Kotlin reflection implementation into classpath</span><br><span class="line">  -version                   Display Kotlin version</span><br><span class="line">  -help (-h)                 Print a synopsis of options</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Hello-World-Application"><a href="#Hello-World-Application" class="headerlink" title="Hello, World Application"></a>Hello, World Application</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a>.</p>
+<p>Add a new file called hello.kt and below is the content:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    println(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Compile above application using Kotlinc compiler to a java jar:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlinc hello.kt -include-runtime <span class="_">-d</span> hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>Note that -include-runtime option makes the resulting .jar file self-contained and runnable by including the Kotlin runtime library in it. -d option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a .jar file name.</p>
+<p>Now run the application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>The output should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h2><p>Here is the <a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="external">offical tutorial</a> about the basic/common used syntax in Kotlin.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Kotlin/">Kotlin</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-23T06:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
+<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
+<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command to use HBase split policy:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -474,167 +639,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T17:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
-<hr>
-
-<h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
-<p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T03:31:21.000Z"><a href="/2016/07/01/Apache-Livy-QuickStart/">2016-07-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-01T05:42:01.000Z"><a href="/2016/06/30/JupyterHub-Install-Guide/">2016-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/30/JupyterHub-Install-Guide/">JupyterHub Install Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://github.com/jupyterhub/jupyterhub" target="_blank" rel="external">official tutorial</a> to install JupyterHub. It can help to spawn, manage, and proxy multiple instances of the single-user Jupyter notebook (IPython notebook) server.</p>
-<p>Here is our tutorial:</p>
-<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>JupyterHub requires followings application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python 3.3+</span><br><span class="line">NodeJS (Only <span class="keyword">for</span> configurable-http-proxy installation)</span><br><span class="line">TLS certificate and key <span class="keyword">for</span> HTTPS communication</span><br><span class="line">Domain name</span><br></pre></td></tr></table></figure></p>
-<h3 id="Install-JupyterHub"><a href="#Install-JupyterHub" class="headerlink" title="Install JupyterHub"></a>Install JupyterHub</h3><p>At first, we should install Python 3.3+ and pip3 in our OS. Here is the <a href="http://yular.github.io/2016/07/02/Install-Multiple-Python-on-CentOS/">tutorial</a>.</p>
-<p>Then install JupytherHub through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g configurable-http-proxy</span><br><span class="line">pip3 install jupyterhub</span><br></pre></td></tr></table></figure></p>
-<p>Note that -g option means that we will install configurable-http-proxy globally in our OS. If we plan to move Python 3, JupyterHub and configurable-http-proxy to other location, we should remove that option but have to add the file path of it and nodejs/bin in $PATH system variable.</p>
-<h3 id="Run-JupyterHub"><a href="#Run-JupyterHub" class="headerlink" title="Run JupyterHub"></a>Run JupyterHub</h3><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub</span><br></pre></td></tr></table></figure></p>
-<p>By default, it is running on port 8000 and we can visit the website from <a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>. Or we can change the port and ip by this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --ip 0.0.0.0 --port 9090</span><br></pre></td></tr></table></figure></p>
-<h3 id="Configure-JupyterHub"><a href="#Configure-JupyterHub" class="headerlink" title="Configure JupyterHub"></a>Configure JupyterHub</h3><p>Here is the command to generate config file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --generate-config</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Python/">Python</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/6/">Вперед &raquo;</a>
   </nav>
 
 </nav>
@@ -668,7 +677,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Метки</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -683,13 +692,13 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>28</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>9</small></li>
+    <li><a href="/tags/Database/">Database</a><small>10</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -723,6 +732,8 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
+    <li><a href="/tags/Software-Development/">Software Development</a><small>1</small></li>
+  
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
     <li><a href="/tags/String/">String</a><small>1</small></li>
@@ -741,9 +752,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Облако меток</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -764,23 +775,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/">Setup API Gateway Custom Authorizer Lambda Function in Java</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/">Reading Note of The Pragmatic Programmer</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/25/AWS-Cross-Account-Access-through-Assuming-Role-using-IAM/">AWS Cross Account Access through Assuming Role using IAM</a>
       </li>
     
       <li>
         <a href="/2017/07/23/C-Extern-Function/">C Extern Function</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">Kaggle Contest Guide Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/30/Kaggle-Contest-QuickStart/">Kaggle Contest QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/29/AWS-Command-Line-Interface-QuickStart/">AWS Command Line Interface QuickStart</a>
       </li>
     
   </ul>

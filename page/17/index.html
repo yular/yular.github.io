@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 17 | YBC HomePage</title>
+  <title>Страница 17 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,479 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-19T07:39:12.000Z"><a href="/2015/07/19/LeetCode-Problem-Solution-List-III/">2015-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/19/LeetCode-Problem-Solution-List-III/">LeetCode Problem Solution List III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-19T07:39:08.000Z"><a href="/2015/07/19/LeetCode-Problem-Solution-List-II/">2015-07-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/19/LeetCode-Problem-Solution-List-II/">LeetCode Problem Solution List II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-18T18:34:35.000Z"><a href="/2015/07/18/Software-Architecture-Summary-IV/">2015-07-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/18/Software-Architecture-Summary-IV/">Software Architecture Summary IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
+<p>#<em>Software Architecture Analysis</em></p>
+<p><hr></p>
+<p>###What is Architectural Analysis<br>[1]Definition<br>Architectural analysis is the activity of discovering important system properties using the system’s architectural models.</p>
+<p>[2]Important to know</p>
+<ul>
+<li>which questions to ask</li>
+<li>why to ask them</li>
+<li>how to ask them</li>
+<li>how to ensure that they can be answered</li>
+</ul>
+<p>###Concerns Relevant to Architectural Analysis</p>
+<ul>
+<li>Goals of analysis</li>
+<li>Scope of analysis</li>
+<li>Primary architectural concern being analyzed</li>
+<li>Level of formality of architectural models</li>
+<li>Type of analysis</li>
+<li>Level of automation</li>
+<li>System stakeholders interested in analysis</li>
+</ul>
+<p>###Informal Architectural Models and Analysis</p>
+<ul>
+<li>Helps architects get clarification from system customers</li>
+<li>Helps managers ensure project scope</li>
+<li>Not as useful to developers</li>
+</ul>
+<p>###Formal Architectural Models and Analysis</p>
+<ul>
+<li>Helps architects determine component composability</li>
+<li>Helps developers with implementation-level decisions</li>
+<li>Helps with locating and selecting appropriate OTS components</li>
+<li>Helps with automated code generation</li>
+<li>Not as useful for discussions with non-technical stakeholders</li>
+</ul>
+<p>###Architectural Analysis Goals (The four “C”s)</p>
+<ul>
+<li>Completeness</li>
+<li>Consistency</li>
+<li>Compatibility</li>
+<li>Correctness</li>
+</ul>
+<p>####Completeness<br>[1]Completeness is both an external and an internal goal.</p>
+<p>[2]Completeness is external with respect to system requirements:</p>
+<ul>
+<li>Challenged by the complexity of large systems’ requirements and architectures</li>
+<li>Challenged by the many notations used to capture complex requirements as well as architectures<br>[3]Completeness is internal with respect to the architectural intent and modeling notation</li>
+</ul>
+<p>####Consistency<br>[1]Consistency is an internal property of an architectural model, ensuring that different model elements do not contradict one another.</p>
+<p>[2]Dimensions</p>
+<ul>
+<li>Name</li>
+<li>Interface</li>
+<li>Behavior</li>
+<li>Interaction</li>
+<li>Refinement</li>
+</ul>
+<p>[3]Name Consistency<br>(1)Component and connector names<br>(2)Component service names<br>(3)May be non-trivial to establish at the architectural level</p>
+<ul>
+<li>Multiple system elements/services with identical names</li>
+<li>Loose coupling via publish-subscribe or asynchronous event broadcast</li>
+<li>Dynamically adaptable architectures</li>
+</ul>
+<p>[4]Interface Consistency<br>(1)Encompasses name consistency<br>(2)Also involves parameter lists in component services<br>(3)A rich spectrum of choices at the architectural level</p>
+<p>[5]Behavioral Consistency<br>Names and interfaces of interacting components may match, but behaviors need not.</p>
+<p>[6]Interaction Consistency<br>Names, interfaces, and behaviors of interacting components may match, yet they may still be unable to interact properly.</p>
+<p>[7]Refinement Consistency<br>(1)Architectural models are refined during the design process<br>(2)A relationship must be maintained between higher and lower level models</p>
+<ul>
+<li>All elements are preserved in the lower level model</li>
+<li>All design decisions are preserved in the lower-level model</li>
+<li>No new design decisions violate existing design decisions</li>
+</ul>
+<p>####Compatibility<br>Compatibility is an external property of an architectural model, ensuring that the architectural model adheres to guidelines and constraints of a style, a reference architecture and an architectural standard.</p>
+<p>####Correctness</p>
+<p>rrectness is an external property of an architectural model, ensuring that the architectural model fully realizes a system specification and the system’s implementation fully realizes the architecture.</p>
+<p>[2]Inclusion of OTS elements impacts correctness.</p>
+<p>###Scope of Architectural Analysis</p>
+<ul>
+<li>Component- and connector-level</li>
+<li>Subsystem- and system-level</li>
+<li>Data exchanged in a system or subsystem (Data structure; Data flow; Properties of data exchange)</li>
+<li>Architectures at different abstraction levels</li>
+<li>Comparison of two or more architectures (Processing; Data; Integration; Configuration; Non-functional properties)</li>
+</ul>
+<p>###Architectural Concern Being Analyzed</p>
+<ul>
+<li>Structural characteristics</li>
+<li>Behavioral characteristics</li>
+<li>Interaction characteristics</li>
+<li>Non-functional characteristics</li>
+</ul>
+<p>###Level of Automation</p>
+<ul>
+<li>Manual</li>
+<li>Partially automated</li>
+<li>Fully automated</li>
+</ul>
+<p>###Type of Analysis</p>
+<ul>
+<li>Static analysis</li>
+<li>Dynamic analysis</li>
+<li>Scenario-driven analysis (Both static and dynamic)</li>
+</ul>
+<p>###Analysis Stakeholders</p>
+<ul>
+<li>Architects</li>
+<li>Developers</li>
+<li>Managers</li>
+<li>Customers</li>
+<li>Vendors</li>
+</ul>
+<p>###Architectural Style Analysis Dimensions</p>
+<ul>
+<li>What is the design vocabulary (Component and connector types)?</li>
+<li>What are the allowable structural patterns?</li>
+<li>What is the underlying computational model?</li>
+<li>What are the essential invariants of the style?</li>
+<li>What are common examples of its use?</li>
+<li>What are the (dis)advantages of using the style?</li>
+<li>What are the style’s specializations?</li>
+</ul>
+<p>###Architecture Analysis Techniques<br>[1]Categories</p>
+<ul>
+<li>Inspection- and review-based</li>
+<li>Model-based</li>
+<li>Simulation-based</li>
+</ul>
+<p>####Architectural Inspections and Reviews<br>[1]Architectural models studied by human stakeholders for specific properties</p>
+<p>[2]The stakeholders define analysis objective</p>
+<p>[3]Advantages:</p>
+<ul>
+<li>Useful in the case of informal architectural descriptions</li>
+<li>Useful in establishing “soft” system properties</li>
+<li>Able to consider multiple stakeholders’ objectives and multiple architectural properties</li>
+</ul>
+<p>[4]Manual Driven, very expensive</p>
+<p>[5]Nutshell</p>
+<ul>
+<li>Analysis Goals – any</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern – any, but particularly suited for non-functional properties</li>
+<li>Architectural Models – any, but must be geared to stakeholder needs and analysis objectives</li>
+<li>Analysis Types – mostly static and scenario-based</li>
+<li>Automation Level – manual, human intensive</li>
+<li>Stakeholders – any, except perhaps component vendor</li>
+</ul>
+<p>####Model-Based Architectural Analysis<br>[1]Analysis techniques that manipulate architectural description to discover architectural properties</p>
+<p>[2]Tool-driven, hence potentially less costly</p>
+<p>[3]Usually focus on a single architectural aspect</p>
+<p>[4]Techniques typically used in tandem to provide more complete answers</p>
+<p>[5]Disadvantages:</p>
+<ul>
+<li>Typically useful for establishing “hard” architectural properties only.</li>
+<li>Usually focus on a single architectural aspect.</li>
+<li>Scalability may be an issue</li>
+</ul>
+<p>[6]Nutshell</p>
+<ul>
+<li>Analysis Goals – consistency, compatibility, correctness</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern – structural, behavioral, interaction, and possibly non-functional properties</li>
+<li>Architectural Models – semi-formal and formal</li>
+<li>Analysis Types – static</li>
+<li>Automation Level – partially and fully automated</li>
+<li>Stakeholders – mostly architects and developers</li>
+</ul>
+<p>####Architectural Reliability Analysis<br>[1]Reliability is the probability that the system will perform its intended functionality under specified design limits, without failure </p>
+<p>[2]A failure is the occurrence of an incorrect output as a result of an input value that is received, with respect to the specification </p>
+<p>[3]An error is a mental mistake made by the designer or programmer</p>
+<p>[4]A fault or a defect is the manifestation of that error in the system</p>
+<p>[5]Reliability Metrics</p>
+<ul>
+<li>Time to failure</li>
+<li>Time to repair</li>
+<li>Time between failures</li>
+</ul>
+<p>[6]Assessing Reliability at Architectural Level</p>
+<ul>
+<li>Challenged by unknowns</li>
+<li>Challenged by uncertainties</li>
+<li>Architectural reliability values must be qualified by assumptions made to deal with the above uncertainties</li>
+<li>Reliability modeling techniques are needed that deal effectively with uncertainties</li>
+</ul>
+<p>[7]Sources of Available Information</p>
+<ul>
+<li>Domain knowledge: Information on component behavior and usage</li>
+<li>System requirements: Component use cases and required responses to failures</li>
+<li>System model simulation: Simulation traces</li>
+<li>Functionally similar system: Execution traces</li>
+</ul>
+<p>[8]Reliability Calculation: Solving the DTMC</p>
+<p>####Simulation-Based Analysis<br>[1]Requires producing an executable system model.</p>
+<p>[2]Simulation need not exhibit identical behavior to system implementation.</p>
+<p>[3]It needs to be precise and not necessarily accurate.</p>
+<p>[4]Some architectural models may not be amenable to simulation.</p>
+<p>[5]Nutshell</p>
+<ul>
+<li>Analysis Goals – any</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern –behavioral, interaction, and non-functional properties</li>
+<li>Architectural Models – formal</li>
+<li>Analysis Types – dynamic and scenario-based</li>
+<li>Automation Level – fully automated; model mapping may be manual</li>
+<li>Stakeholders – any</li>
+</ul>
+<p>###Analysis Summary<br>[1]Architectural analysis is neither easy nor cheap</p>
+<p>[2]The benefits typically far outweigh the drawbacks</p>
+<p>[3]Early information about the system’s key characteristics is indispensable</p>
+<p>[4]Multiple analysis techniques often should be used in concert</p>
+<p>[5]“How much analysis?”</p>
+<ul>
+<li>This is the key facet of an architect’s job</li>
+<li>Too many will expend resources unnecessarily</li>
+<li>Too few will carry the risk of propagating defects into the final system</li>
+<li>Wrong analyses will have both drawbacks</li>
+</ul>
+<p>###Non-Functional Property<br>[1]Design Guidelines for Ensuring NFPs<br>(1)Overarching Objective<br>Ascertain the role of software architecture in ensuring various NFPs.</p>
+<p>(2)Efficiency<br>Efficiency is a quality that reflects a software system’s ability to meet its performance requirements while minimizing its usage of the resources in its computing environment.</p>
+<p>####Software Components and Efficiency</p>
+<ul>
+<li>Keep the components “small” whenever possible</li>
+<li>Keep component interfaces simple and compact</li>
+<li>Allow multiple interfaces to the same functionality</li>
+<li>Separate data components from processing components</li>
+<li>Separate data from meta-data</li>
+</ul>
+<p>####Software Connectors and Efficiency</p>
+<ul>
+<li>Carefully select connectors</li>
+<li>Use broadcast connectors with caution</li>
+<li>Make use of asynchronous interaction whenever possible</li>
+<li>Use location/distribution transparency judiciously</li>
+</ul>
+<p>####Architectural Configurations and Efficiency</p>
+<ul>
+<li>Keep frequently interacting components “close”</li>
+<li>Carefully select and place connectors in the architecture</li>
+<li>Consider the efficiency impact of selected architectural styles and patterns</li>
+</ul>
+<p>(3)Complexity<br>Complexity is a software system’s a property that is directly proportional to the size of the system, number of its constituent elements, their internal structure, and the number and nature of their interdependencies</p>
+<p>####Software Components and Complexity</p>
+<ul>
+<li>Separate concerns into different components</li>
+<li>Keep only the functionality inside components</li>
+<li>Keep components cohesive</li>
+<li>Be aware of the impact of off-the-shelf components on complexity</li>
+<li>Insulate processing components from changes in data format</li>
+</ul>
+<p>####Software Connectors and Complexity</p>
+<ul>
+<li>Treat connectors explicitly</li>
+<li>Keep only interaction facilities inside connectors</li>
+<li>Separate interaction concerns into different connectors</li>
+<li>Restrict interactions facilitated by each connector</li>
+<li>Be aware of the impact of off-the-shelf connectors on complexity</li>
+</ul>
+<p>####Architectural Configurations and Complexity</p>
+<ul>
+<li>Eliminate unnecessary dependencies</li>
+<li>Manage all dependencies explicitly</li>
+<li>Use hierarchical (de)composition</li>
+</ul>
+<p>(4)Scalability and Heterogeneity<br>Scalability is the capability of a software system to be adapted to meet new requirements of size and scope</p>
+<p>Heterogeneity is the quality of a software system consisting of multiple disparate constituents or functioning in multiple disparate computing environments.</p>
+<p>####Software Components and Scalability</p>
+<ul>
+<li>Give each component a single, clearly defined purpose </li>
+<li>Define each component to have a simple, understandable interface</li>
+<li>Do not burden components with interaction responsibilities</li>
+<li>Avoid unnecessary heterogeneity</li>
+<li>Distribute the data sources </li>
+<li>Replicate data when necessary</li>
+</ul>
+<p>####Software Connectors and Scalability</p>
+<ul>
+<li>Use explicit connectors</li>
+<li>Give each connector a clearly defined responsibility</li>
+<li>Choose the simplest connector suited for the task</li>
+<li>Be aware of differences between direct and indirect dependencies</li>
+<li>Avoid placing application functionality inside connectors</li>
+<li>Leverage explicit connectors to support data scalability</li>
+</ul>
+<p>####Architectural Configurations and Scalability</p>
+<ul>
+<li>Avoid system bottlenecks</li>
+<li>Make use of parallel processing capabilities </li>
+<li>Place the data sources close to the data consumers </li>
+<li>Try to make distribution transparent</li>
+<li>Use appropriate architectural styles</li>
+</ul>
+<p>(5)Adaptability<br>Adaptability is a software system’s ability to satisfy new requirements and adjust to new operating conditions during its lifetime.</p>
+<p>####Software Components and Adaptability</p>
+<ul>
+<li>Give each component a single, clearly defined purpose</li>
+<li>Minimize component interdependencies</li>
+<li>Avoid burdening components with interaction responsibilities</li>
+<li>Separate processing from data</li>
+<li>Separate data from metadata</li>
+</ul>
+<p>####Software Connectors and Adaptability</p>
+<ul>
+<li>Give each connector a clearly defined responsibility</li>
+<li>Make the connectors flexible</li>
+<li>Support connector composability</li>
+</ul>
+<p>####Architectural Configurations and Adaptability</p>
+<ul>
+<li>Leverage explicit connectors</li>
+<li>Try to make distribution transparent</li>
+<li>Use appropriate architectural styles</li>
+</ul>
+<p>(6)Dependability<br>Dependability is a collection of system properties that allows one to rely on a system functioning as required.</p>
+<ul>
+<li>Reliability is the probability that a system will perform its intended functionality under specified design limits, without failure, over a given time period</li>
+<li>Availability is the probability that a system is operational at a particular time</li>
+<li>Robustness is a system’s ability to respond adequately to unanticipated runtime conditions</li>
+<li>Fault-tolerant is a system’s ability to respond gracefully to failures at runtime</li>
+<li>Survivability is a system’s ability to resist, recognize, recover from, and adapt to mission-compromising threats</li>
+<li>Safety denotes the ability of a software system to avoid failures that will result in (1) loss of life, (2) injury, (3) significant damage to property, or (4) destruction of property</li>
+</ul>
+<p>####Software Components and Dependability</p>
+<ul>
+<li>Carefully control external component inter-dependencies</li>
+<li>Provide reflection capabilities in components</li>
+<li>Provide suitable exception handling mechanisms</li>
+<li>Specify the components’ key state invariants</li>
+</ul>
+<p>####Software Connectors and Dependability</p>
+<ul>
+<li>Employ connectors that strictly control component dependencies</li>
+<li>Provide appropriate component interaction guarantees</li>
+<li>Support dependability techniques via advanced connectors</li>
+</ul>
+<p>####Architectural Configurations and Dependability</p>
+<ul>
+<li>Avoid single points of failure</li>
+<li>Provide back-ups of critical functionality and data</li>
+<li>Support non-intrusive system health monitoring</li>
+<li>Support dynamic adaptation</li>
+</ul>
+<p>To Be Continue</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/System-Design/">System Design</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -1844,190 +2317,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T00:31:44.000Z"><a href="/2015/07/15/LintCode-Problem-Solution-List-I/">2015-07-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/15/LintCode-Problem-Solution-List-I/">LintCode Problem Solution List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="http://www.lintcode.com/" target="_blank" rel="external">LintCode</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-<p>###A + B<br>Basic math operator usage.<br>最基本的运算符号使用。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/lintcode_a%2Bb.cpp" target="_blank" rel="external">Read Code</a></p>
-<p>###Trailing Zeros<br>Stirling’s approximation’.<br>运用斯特林公式即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/lintcode_trailingzeros.cpp" target="_blank" rel="external">Read Code</a></p>
-<p>###Digits Count<br>Just read the code. It should be very straightforward.<br>直接看代码吧。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/lintcode_digitcounts.cpp" target="_blank" rel="external">Read Code</a></p>
-<p>###Ugly Number<br>Use min heap. Initially, we push 3, 5, and 7 into heap and set counter as 0. Before counter reaches the upper bound, every time we pop out tht top number and multiply it by 3, 5 and 7 respectively and then push the corresponding numbers back to min heap, and increase the counter by one. The last number poped out from heap is answer.<br>小顶堆题目。初始化时将3，5和7插入堆中，然后设置计数器为1。在计数器的值小于阀值时，每次取出一个数，计数器就加一，然后将该数字分别乘以3，5和7，得到的结果存入到堆中。跳出循环前的出堆的最后一个数，就是答案。<br>代码年代有点远，3，5和7可以存入数组让代码更精简。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/lintcode_uglynumber.cpp" target="_blank" rel="external">Read Code</a></p>
-<p>###Kth Largest Number<br>Use order statistics.<br>用order statistics 算法。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/lintcode_kthlargestelement.cpp" target="_blank" rel="external">Read Code</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T00:31:29.000Z"><a href="/2015/07/15/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Search/">2015-07-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/15/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Search/">Hackerrank / InterviewStreet Algorithm Problem Solution List IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>. </p>
-<h3 id="Sherlock-and-Array"><a href="#Sherlock-and-Array" class="headerlink" title="Sherlock and Array"></a>Sherlock and Array</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Set sum[i] as the sum of all elements from 0 index to i index. Then for every index i, check whether sum[i - 1] and  sum[i + 1] - sum[i] are equal or not.</p>
-<hr>
-
-<h3 id="Ice-Cream-Parlor"><a href="#Ice-Cream-Parlor" class="headerlink" title="Ice Cream Parlor"></a>Ice Cream Parlor</h3><p><a href="https://www.hackerrank.com/challenges/icecream-parlor" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/icecream-parlor.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use binary search.</p>
-<hr>
-
-<h3 id="Maximise-Sum"><a href="#Maximise-Sum" class="headerlink" title="Maximise Sum"></a>Maximise Sum</h3><p><a href="https://www.hackerrank.com/challenges/maximise-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/maximise-sum.cpp" target="_blank" rel="external">Code Link</a><br>Greedy problem.</p>
-<hr>
-
-<h3 id="Missing-Numbers"><a href="#Missing-Numbers" class="headerlink" title="Missing Numbers"></a>Missing Numbers</h3><p><a href="https://www.hackerrank.com/challenges/missing-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/missing-numbers.cpp" target="_blank" rel="external">Code Link</a><br>Hash problem. First map the given numbers to continuous numbers. And then check the missing numbers.</p>
-<hr>
-
-<h3 id="Connected-Cell-in-a-Grid"><a href="#Connected-Cell-in-a-Grid" class="headerlink" title="Connected Cell in a Grid"></a>Connected Cell in a Grid</h3><p><a href="https://www.hackerrank.com/challenges/connected-cell-in-a-grid" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/connected-cell-in-a-grid.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. DFS the connected components and count the number of grids of those components to find the largest regions.</p>
-<hr>
-
-<h3 id="Count-Luck"><a href="#Count-Luck" class="headerlink" title="Count Luck"></a>Count Luck</h3><p><a href="https://www.hackerrank.com/challenges/count-luck" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/count-luck.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Check whether there is a path with k length.</p>
-<hr>
-
-<h3 id="Cut-the-tree"><a href="#Cut-the-tree" class="headerlink" title="Cut the tree"></a>Cut the tree</h3><p><a href="https://www.hackerrank.com/challenges/cut-the-tree" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cut-the-tree.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. Calculate the sum of value of edges of every subtrees and subtract them by the sum of the values of all edges.</p>
-<hr>
-
-<h3 id="Pairs"><a href="#Pairs" class="headerlink" title="Pairs"></a>Pairs</h3><p><a href="https://www.hackerrank.com/challenges/pairs" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/pairs.cpp" target="_blank" rel="external">Code Link</a><br>Sort and Hash problem.</p>
-<hr>
-
-<h3 id="Similar-Pair"><a href="#Similar-Pair" class="headerlink" title="Similar Pair"></a>Similar Pair</h3><p><a href="https://www.hackerrank.com/challenges/similarpair" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/similarpair.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem.</p>
-<hr>
-
-<h3 id="Similar-Pair-1"><a href="#Similar-Pair-1" class="headerlink" title="Similar Pair"></a>Similar Pair</h3><p><a href="https://www.hackerrank.com/challenges/similarpair" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/similarpair.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. </p>
-<hr>
-
-<h3 id="Bike-Racers"><a href="#Bike-Racers" class="headerlink" title="Bike Racers"></a>Bike Racers</h3><p><a href="https://www.hackerrank.com/challenges/bike-racers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bike-racers.cpp" target="_blank" rel="external">Code Link</a><br>Binary Search + Max Match problem. Use binary search to filter out the wrong the paths and then use Hungary algorithm to find the max match.</p>
-<hr>
-
-<h3 id="Task-Scheduling"><a href="#Task-Scheduling" class="headerlink" title="Task Scheduling"></a>Task Scheduling</h3><p><a href="https://www.hackerrank.com/challenges/task-scheduling" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/task-scheduling.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use segment tree.</p>
-<hr>
-
-<h3 id="Playing-with-numbers"><a href="#Playing-with-numbers" class="headerlink" title="Playing with numbers"></a>Playing with numbers</h3><p><a href="https://www.hackerrank.com/challenges/playing-with-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/playing_with_number.cpp" target="_blank" rel="external">Code Link</a><br>Sort the given numbers in non-descending order; then for every query number, adding the current number to sum of all previous query number; after that, if the sum is negative, using binary search to find the lower bound of the absolute value of the sum only in the positive part of the array; if the sum is positiive, using binary search to find the upper bound of the negative value of the sum only in the negative part of the arrary. At last, calculate the absolute value of the sum of the lower/upper bound part adding the sum of query number and the sum of other parts adding the sum of query number and finally, calculate the absolute value of the sum of all these two parts.<br>先对给定数组进行排序。然后将所有已知的查询数进行求和。接下来用二分搜索，如果和是负数，在数组的正数部分找出和的绝对值的下界；若是正数，在数组的负数部分找出和的取反的上界。最后，将&gt;不需要进行二分搜索，和需要进行二分搜索这两部分进行求和。不需要二分搜索和在二分搜索结果以外的部分是直接加上查询和然后求绝对值即可；二分搜索结果范围内的也是这样，但三部分是需要分别&gt;求出各自的绝对值之后再相加，此时的和就是最终答案。</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T00:31:12.000Z"><a href="/2015/07/15/LeetCode-Problem-Solution-List-I/">2015-07-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/15/LeetCode-Problem-Solution-List-I/">LeetCode Problem Solution List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://leetcode.com/" target="_blank" rel="external">LeetCode</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/18/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/18/">Вперед &raquo;</a>
   </nav>
 
 </nav>
@@ -2061,7 +2355,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Метки</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -2076,13 +2370,13 @@
   
     <li><a href="/tags/C/">C++</a><small>2</small></li>
   
-    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>28</small></li>
+    <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
-    <li><a href="/tags/Database/">Database</a><small>9</small></li>
+    <li><a href="/tags/Database/">Database</a><small>10</small></li>
   
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
@@ -2116,6 +2410,8 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
+    <li><a href="/tags/Software-Development/">Software Development</a><small>1</small></li>
+  
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
     <li><a href="/tags/String/">String</a><small>1</small></li>
@@ -2134,9 +2430,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Облако меток</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -2157,23 +2453,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/">Setup API Gateway Custom Authorizer Lambda Function in Java</a>
+      </li>
+    
+      <li>
+        <a href="/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/">Reading Note of The Pragmatic Programmer</a>
+      </li>
+    
+      <li>
         <a href="/2017/07/25/AWS-Cross-Account-Access-through-Assuming-Role-using-IAM/">AWS Cross Account Access through Assuming Role using IAM</a>
       </li>
     
       <li>
         <a href="/2017/07/23/C-Extern-Function/">C Extern Function</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">Kaggle Contest Guide Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/30/Kaggle-Contest-QuickStart/">Kaggle Contest QuickStart</a>
-      </li>
-    
-      <li>
-        <a href="/2017/06/29/AWS-Command-Line-Interface-QuickStart/">AWS Command Line Interface QuickStart</a>
       </li>
     
   </ul>

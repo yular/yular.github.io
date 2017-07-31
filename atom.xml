@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-07-25T07:14:58.000Z</updated>
+  <updated>2017-07-31T08:05:38.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,64 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DynamoDB QuickStart Guide</title>
+    <link href="http://yular.github.io/2017/07/31/DynamoDB-QuickStart-Guide/"/>
+    <id>http://yular.github.io/2017/07/31/DynamoDB-QuickStart-Guide/</id>
+    <published>2017-07-31T08:05:16.000Z</published>
+    <updated>2017-07-31T08:05:38.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Setup API Gateway Custom Authorizer Lambda Function in Java</title>
+    <link href="http://yular.github.io/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/"/>
+    <id>http://yular.github.io/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/</id>
+    <published>2017-07-31T08:03:46.000Z</published>
+    <updated>2017-07-31T08:04:41.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of The Pragmatic Programmer</title>
+    <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
+    <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
+    <published>2017-07-30T07:09:01.000Z</published>
+    <updated>2017-07-30T07:11:19.000Z</updated>
+    
+    <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;.&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>AWS Cross Account Access through Assuming Role using IAM</title>
@@ -411,111 +469,6 @@
     
     
       <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Software Development Engineer Office Desk Tools List</title>
-    <link href="http://yular.github.io/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/"/>
-    <id>http://yular.github.io/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/</id>
-    <published>2017-03-30T08:23:34.000Z</published>
-    <updated>2017-03-30T08:28:49.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the list of desk tools for Software Development Engineer.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Laptop&lt;/li&gt;
-&lt;li&gt;Laptop Charger&lt;/li&gt;
-&lt;li&gt;Laptop Holder&lt;/li&gt;
-&lt;li&gt;Monitors (One or Two more)&lt;/li&gt;
-&lt;li&gt;Monitor Stand&lt;/li&gt;
-&lt;li&gt;Earphone&lt;/li&gt;
-&lt;li&gt;Adaptor connecting Laptop, Monitors and Ethernet ( and more …)&lt;/li&gt;
-&lt;li&gt;Mobile Charger&lt;/li&gt;
-&lt;li&gt;Ethernet Cables&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the list of desk tools for Software Development Engineer.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Laptop&lt;/li&gt;
-&lt;li&gt;Laptop Charger&lt;/li&gt;
-&lt;li&gt;Laptop Holder&lt;/li&gt;
-    
-    </summary>
-    
-    
-      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Deploy Cron Job on Mac Tutorial</title>
-    <link href="http://yular.github.io/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/"/>
-    <id>http://yular.github.io/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/</id>
-    <published>2017-03-13T03:21:18.000Z</published>
-    <updated>2017-03-19T00:39:57.000Z</updated>
-    
-    <content type="html">&lt;p&gt;There are mainly two ways to schedule timed jobs on Mac. One is using &lt;code&gt;cron&lt;/code&gt; command. The other is using Mac &lt;code&gt;launchd&lt;/code&gt; command.&lt;/p&gt;
-&lt;p&gt;Here is the Apple developer guide of &lt;a href=&quot;https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Timed Jobs Using Cron and Launchd&lt;/a&gt; and &lt;a href=&quot;https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html#//apple_ref/doc/uid/TP40001762-104142&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Creating Launch Daemons and Agents&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;And here is a good tutorial about &lt;a href=&quot;http://alvinalexander.com/mac-os-x/mac-osx-startup-crontab-launchd-jobs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Startingup Jobs with Crontab and Launchd&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;This tutorial is about scheduling timed jobs using &lt;code&gt;Launchd&lt;/code&gt; and the reason is as follows:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;The cron utility is launched by launchd(8) when it sees the existence of /etc/crontab or files in /usr/lib/cron/tabs. There should be no need to start it manually.&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;But if we do want to use &lt;code&gt;cron&lt;/code&gt; command to startup timed jobs, this &lt;a href=&quot;http://www.computerhope.com/unix/ucrontab.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt; may be helpful.&lt;/p&gt;
-&lt;p&gt;The basic process is that we need to create a &lt;code&gt;.plist&lt;/code&gt; (plist scripts)  text file, add timed jobs setting inside the file, put that file under certain directory, and then use &lt;code&gt;launchctl&lt;/code&gt; command to start timed jobs.&lt;/p&gt;
-&lt;h3 id=&quot;Choose-Timed-Jobs-Directory&quot;&gt;&lt;a href=&quot;#Choose-Timed-Jobs-Directory&quot; class=&quot;headerlink&quot; title=&quot;Choose Timed Jobs Directory&quot;&gt;&lt;/a&gt;Choose Timed Jobs Directory&lt;/h3&gt;&lt;p&gt;Mac will startup timed jobs that defined in &lt;code&gt;.plist&lt;/code&gt; files under certain directories only. Here is the list of those directories:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;/Library/LaunchDaemons - Put our plist scripts in this folder if our job needs to run even when no users are logged in.&lt;/li&gt;
-&lt;li&gt;/Library/LaunchAgents - Put our plist scripts in this folder if the job is only useful when users are logged in.&lt;/li&gt;
-&lt;li&gt;$HOME/Library/LaunchAgents - Put our plist files in this folder if the job is only useful when users are logged in. &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Note that we need to use &lt;code&gt;sudo&lt;/code&gt; command if we want to put plist scripts under first two directories.&lt;/p&gt;
-&lt;p&gt;Here we plan to create a plist script under /Library/LaunchDaemons. So run this command:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd /Library/LaunchDaemons&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;Create-a-plist-Script&quot;&gt;&lt;a href=&quot;#Create-a-plist-Script&quot; class=&quot;headerlink&quot; title=&quot;Create a plist Script&quot;&gt;&lt;/a&gt;Create a plist Script&lt;/h3&gt;&lt;p&gt;We had better follow Apple’s documentation to name the plist script as it can help to avoid namespace collisions. Run following command:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vi com.yulartech.crontest.plist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Here is content of the plist script above:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!DOCTYPE plist PUBLIC &amp;quot;-//Apple//DTD PLIST 1.0//EN&amp;quot; &amp;quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;plist version=&amp;quot;1.0&amp;quot;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;string&amp;gt;com.yulartech.crontest&amp;lt;/string&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;array&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;lt;string&amp;gt;/Absolute/Path/To/helloworld.sh&amp;lt;/string&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;/array&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;Nice&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;integer&amp;gt;1&amp;lt;/integer&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;StartInterval&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;integer&amp;gt;60&amp;lt;/integer&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;true/&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;StandardErrorPath&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;string&amp;gt;/tmp/AlTest1.err&amp;lt;/string&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;key&amp;gt;StandardOutPath&amp;lt;/key&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;lt;string&amp;gt;/tmp/AlTest1.out&amp;lt;/string&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Here is the content of &lt;code&gt;helloworld.sh&lt;/code&gt; .&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;#!/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;quot;Hello World !&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;The plist means running a timed jobs &lt;code&gt;Run the script /Absolute/Path/To/helloworld.sh&lt;/code&gt; every 60 seconds and redirect the standard output and standard error as shown.&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-Timed-Jobs&quot;&gt;&lt;a href=&quot;#Deploy-Timed-Jobs&quot; class=&quot;headerlink&quot; title=&quot;Deploy Timed Jobs&quot;&gt;&lt;/a&gt;Deploy Timed Jobs&lt;/h3&gt;&lt;p&gt;Use following command to deploy timed job:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo launchctl load /Library/LaunchDaemons/com.yulartech.crontest.plist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;After one or more minutes, we execute this command to check job status:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo launchctl list | grep crontest&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;If we want to cancel the timed job, just run this command:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo launchctl unload /Library/LaunchDaemons/com.yulartech.crontest.plist&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;There are mainly two ways to schedule timed jobs on Mac. One is using &lt;code&gt;cron&lt;/code&gt; command. The other is using Mac &lt;code&gt;launchd&lt;/co
-    
-    </summary>
-    
-    
-      <category term="Mac" scheme="http://yular.github.io/tags/Mac/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Bash vs Zsh</title>
-    <link href="http://yular.github.io/2017/03/06/Bash-vs-Zsh/"/>
-    <id>http://yular.github.io/2017/03/06/Bash-vs-Zsh/</id>
-    <published>2017-03-06T08:43:43.000Z</published>
-    <updated>2017-03-06T09:11:47.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here are the links about comparison of Bash and Zsh. We think they should be useful.&lt;br&gt;&lt;a href=&quot;https://www.quora.com/What-is-the-difference-between-bash-and-zsh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Quora&lt;/a&gt;.&lt;br&gt;&lt;a href=&quot;http://stackabuse.com/zsh-vs-bash/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Stack Abuse&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here are the links about comparison of Bash and Zsh. We think they should be useful.&lt;br&gt;&lt;a href=&quot;https://www.quora.com/What-is-the-differ
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
     
   </entry>
   
