@@ -56,15 +56,67 @@
     <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
     <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
     <published>2017-07-30T07:09:01.000Z</published>
-    <updated>2017-07-30T07:11:19.000Z</updated>
+    <updated>2017-08-01T05:46:02.000Z</updated>
     
-    <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.&lt;/p&gt;
+&lt;p&gt;Tips with a question mark at the end means that I do not fully understand what the tip means.&lt;/p&gt;
+&lt;h3 id=&quot;Design&quot;&gt;&lt;a href=&quot;#Design&quot; class=&quot;headerlink&quot; title=&quot;Design&quot;&gt;&lt;/a&gt;Design&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Design with Contracts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Design by Contract.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Tool&quot;&gt;&lt;a href=&quot;#Tool&quot; class=&quot;headerlink&quot; title=&quot;Tool&quot;&gt;&lt;/a&gt;Tool&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Have a text editor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Best-Practice&quot;&gt;&lt;a href=&quot;#Best-Practice&quot; class=&quot;headerlink&quot; title=&quot;Best Practice(?)&quot;&gt;&lt;/a&gt;Best Practice(?)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Do not Use Manual Procedures.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Debug&quot;&gt;&lt;a href=&quot;#Debug&quot; class=&quot;headerlink&quot; title=&quot;Debug&quot;&gt;&lt;/a&gt;Debug&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Make bug reproducible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Check my code first, and then bugs from third party.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Test early, test often, test automatically.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use Saboteurs to test your testing.&lt;br&gt;It means that appoint a project saboteur, take a separate copy of the source tree, introduce bugs on purpose, and verify that the tests will catch them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test stage coverage, not code/line coverage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Find bugs once.&lt;br&gt;Once a human tester finds a bug, it should be the last time a human tester finds that bug.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Documentation&quot;&gt;&lt;a href=&quot;#Documentation&quot; class=&quot;headerlink&quot; title=&quot;Documentation&quot;&gt;&lt;/a&gt;Documentation&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Treat English as just another programming language.&lt;br&gt;It means that it is important to keep the documentation in a good way.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Build documentation in. Do not bolt it on.(?)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Expectation&quot;&gt;&lt;a href=&quot;#Expectation&quot; class=&quot;headerlink&quot; title=&quot;Expectation&quot;&gt;&lt;/a&gt;Expectation&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Gently Exceed Your Users’ Expectations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Sign Your Work.&lt;br&gt;Be pround of what your have done. (Ownership.)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;.&lt;/p&gt;
-
+      &lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level 
     
     </summary>
     
