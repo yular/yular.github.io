@@ -191,16 +191,107 @@
       
         <p>I just finished reading a book called <code>The Pragmatic Programmer</code>, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.</p>
 <p>Tips with a question mark at the end means that I do not fully understand what the tip means.</p>
-<h3 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h3><ul>
-<li><p>Design with Contracts.</p>
+<h3 id="Fundamental-Guideline-Principle"><a href="#Fundamental-Guideline-Principle" class="headerlink" title="Fundamental Guideline/Principle"></a>Fundamental Guideline/Principle</h3><ul>
+<li><p>DRY: Do not Repeat Yourself<br>Need to get rid of following four kinds of duplication<br><strong> Imposed duplication
+</strong> Inadvertent duplication<br><strong> Impatient duplication
+</strong> Interdeveloper duplication<br>Keep the the low-level knowledge in the code, where it belongs, and reserve the comments for other, high-level explanations.<br>And the goal is :<br>** Make It Easy to Reuse</p>
 </li>
-<li><p>Design by Contract.</p>
+<li><p>Orthogonality<br>It means that signify a kind of independence or decoupling. Two or more things are orthogonal if changes in one do not affect any of the others.<br>The goal is:<br><strong> Eliminate Effects Between Unrelated Things.<br>To maintain orthogonality:
+</strong> Keep code decoupled<br><strong> Avoid global data
+</strong> Avoid similar functions</p>
+</li>
+</ul>
+<p>Examples of orthogonality:<br><strong> AOP
+</strong> CORBA</p>
+<hr>
+
+<h3 id="Understand-the-Goal-Requirement"><a href="#Understand-the-Goal-Requirement" class="headerlink" title="Understand the Goal/Requirement"></a>Understand the Goal/Requirement</h3><ul>
+<li><p>There are NO final decisions.</p>
+</li>
+<li><p>Use Tracer Bullets to Find the Target<br>Prototyping is the reconnaissance and intelligence gathering that takes place before a single trace bullet is fired.<br>Tracer bullets should be a more concrete design plan for customers to view?</p>
+</li>
+<li><p>Prototype to Learn<br>Here are things to prototype:<br><strong> Architecture
+</strong> New functionality in an existing system<br><strong> Structure or contents of external data
+</strong> Performance issues<br>** User interface design</p>
+</li>
+<li><p>Program Close to the Problem domain</p>
 </li>
 </ul>
 <hr>
 
-<h3 id="Tool"><a href="#Tool" class="headerlink" title="Tool"></a>Tool</h3><ul>
-<li>Have a text editor.</li>
+<h3 id="Estimation"><a href="#Estimation" class="headerlink" title="Estimation"></a>Estimation</h3><p>Estimates are based on models of given problem. Here are the basic steps to do estimation:</p>
+<ul>
+<li><p>Understand what is being asked.</p>
+</li>
+<li><p>Build a model of the system.</p>
+</li>
+<li><p>Break the model into components.</p>
+</li>
+<li><p>Give each parameter a value.</p>
+</li>
+<li><p>Calculate the answers.</p>
+</li>
+<li><p>Keep track of estimating powers.</p>
+</li>
+<li><p>Estimating project schedules (Steps are as follows).<br><strong> Check requirements
+</strong> Analyze risk<br><strong> Design, implement, integrate
+</strong> Validate with the users</p>
+</li>
+</ul>
+<hr>
+
+<h3 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h3><ul>
+<li><p>Keep knowledge in Plain Text</p>
+</li>
+<li><p>User the Power of Command Shells.</p>
+</li>
+<li><p>Use a Single Editor Well.<br>It is better to know one editor very well, and use it for all editing tasks: code, documentation, memos, system administration, and so on.<br>A good editor should have following features:<br><strong> Configurable
+</strong> Extensible<br><strong> Programmable
+</strong> Syntax highlighting<br><strong> Auto-completion
+</strong> Auto-indentation<br><strong> Initial code or document boilerplate
+</strong> IDE-like features</p>
+</li>
+<li><p>Always Use Source Code Control</p>
+</li>
+<li><p>Learn a Text Manipulation Language<br>For example, <code>awk</code> and <code>sed</code> commands in Shell.</p>
+</li>
+<li><p>Write Code that Writes Code (Code Generator)<br><strong> Passive code generators are run once to produce a result. (Java Immutable class)
+</strong> Active code generators are used each time their results are required. (Any examples?)</p>
+</li>
+</ul>
+<hr>
+
+<h3 id="Design"><a href="#Design" class="headerlink" title="Design"></a>Design</h3><ul>
+<li><p>Design with Contracts.<br>** Shy contract - A way of separate concerns and decoupling.</p>
+</li>
+<li><p>Design by Contract.<br>Focus on documenting (and agreeing to) the rights and responsibilities of software modules to ensure program correctness. Does no more and no less than the document claims to do.</p>
+</li>
+<li><p>The Law of Demeter for Functions<br>** Minimize Coupling Between Modules.</p>
+</li>
+<li><p>Desing for concurrency using service</p>
+</li>
+</ul>
+<hr>
+
+<h3 id="Coding-Implementation-Practice"><a href="#Coding-Implementation-Practice" class="headerlink" title="Coding/Implementation Practice"></a>Coding/Implementation Practice</h3><ul>
+<li><p>Crash Early.</p>
+</li>
+<li><p>If it Can not Happen, User Assertions to Ensure That It Will not.<br>Precondition Check.</p>
+</li>
+<li><p>Use Exceptions for Exceptional Problems.</p>
+</li>
+<li><p>Finish What You Start<br>The routine or object that allocates a resource should be responsible for deallocating it.</p>
+</li>
+<li><p>Do not program coincidence<br>Need to know the idea behind the code clearly.</p>
+</li>
+<li><p>Do not be a slave to history. Do not let existing code dictate future code.<br>Be critical to existing code.</p>
+</li>
+<li><p>Refactor (Following is the reason to do refactor)<br><strong> Duplication
+</strong> Nonorthogonal design<br><strong> Outdated knowledge
+</strong> Performance</p>
+</li>
+<li><p>Refactor early and often</p>
+</li>
 </ul>
 <hr>
 
@@ -210,7 +301,13 @@
 <hr>
 
 <h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><ul>
+<li><p>Fix the Problem Not the Blame.</p>
+</li>
+<li><p>Do not panic.</p>
+</li>
 <li><p>Make bug reproducible.</p>
+</li>
+<li><p>Do not Assume It - Prove It.</p>
 </li>
 <li><p>Check my code first, and then bugs from third party.</p>
 </li>
@@ -589,7 +686,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -698,7 +795,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>

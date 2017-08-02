@@ -56,20 +56,111 @@
     <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
     <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
     <published>2017-07-30T07:09:01.000Z</published>
-    <updated>2017-08-01T05:46:02.000Z</updated>
+    <updated>2017-08-02T06:48:57.000Z</updated>
     
     <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.&lt;/p&gt;
 &lt;p&gt;Tips with a question mark at the end means that I do not fully understand what the tip means.&lt;/p&gt;
-&lt;h3 id=&quot;Design&quot;&gt;&lt;a href=&quot;#Design&quot; class=&quot;headerlink&quot; title=&quot;Design&quot;&gt;&lt;/a&gt;Design&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Design with Contracts.&lt;/p&gt;
+&lt;h3 id=&quot;Fundamental-Guideline-Principle&quot;&gt;&lt;a href=&quot;#Fundamental-Guideline-Principle&quot; class=&quot;headerlink&quot; title=&quot;Fundamental Guideline/Principle&quot;&gt;&lt;/a&gt;Fundamental Guideline/Principle&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DRY: Do not Repeat Yourself&lt;br&gt;Need to get rid of following four kinds of duplication&lt;br&gt;&lt;strong&gt; Imposed duplication
+&lt;/strong&gt; Inadvertent duplication&lt;br&gt;&lt;strong&gt; Impatient duplication
+&lt;/strong&gt; Interdeveloper duplication&lt;br&gt;Keep the the low-level knowledge in the code, where it belongs, and reserve the comments for other, high-level explanations.&lt;br&gt;And the goal is :&lt;br&gt;** Make It Easy to Reuse&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Design by Contract.&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Orthogonality&lt;br&gt;It means that signify a kind of independence or decoupling. Two or more things are orthogonal if changes in one do not affect any of the others.&lt;br&gt;The goal is:&lt;br&gt;&lt;strong&gt; Eliminate Effects Between Unrelated Things.&lt;br&gt;To maintain orthogonality:
+&lt;/strong&gt; Keep code decoupled&lt;br&gt;&lt;strong&gt; Avoid global data
+&lt;/strong&gt; Avoid similar functions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Examples of orthogonality:&lt;br&gt;&lt;strong&gt; AOP
+&lt;/strong&gt; CORBA&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Understand-the-Goal-Requirement&quot;&gt;&lt;a href=&quot;#Understand-the-Goal-Requirement&quot; class=&quot;headerlink&quot; title=&quot;Understand the Goal/Requirement&quot;&gt;&lt;/a&gt;Understand the Goal/Requirement&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;There are NO final decisions.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use Tracer Bullets to Find the Target&lt;br&gt;Prototyping is the reconnaissance and intelligence gathering that takes place before a single trace bullet is fired.&lt;br&gt;Tracer bullets should be a more concrete design plan for customers to view?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Prototype to Learn&lt;br&gt;Here are things to prototype:&lt;br&gt;&lt;strong&gt; Architecture
+&lt;/strong&gt; New functionality in an existing system&lt;br&gt;&lt;strong&gt; Structure or contents of external data
+&lt;/strong&gt; Performance issues&lt;br&gt;** User interface design&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Program Close to the Problem domain&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Tool&quot;&gt;&lt;a href=&quot;#Tool&quot; class=&quot;headerlink&quot; title=&quot;Tool&quot;&gt;&lt;/a&gt;Tool&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Have a text editor.&lt;/li&gt;
+&lt;h3 id=&quot;Estimation&quot;&gt;&lt;a href=&quot;#Estimation&quot; class=&quot;headerlink&quot; title=&quot;Estimation&quot;&gt;&lt;/a&gt;Estimation&lt;/h3&gt;&lt;p&gt;Estimates are based on models of given problem. Here are the basic steps to do estimation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Understand what is being asked.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Build a model of the system.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Break the model into components.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Give each parameter a value.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Calculate the answers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Keep track of estimating powers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Estimating project schedules (Steps are as follows).&lt;br&gt;&lt;strong&gt; Check requirements
+&lt;/strong&gt; Analyze risk&lt;br&gt;&lt;strong&gt; Design, implement, integrate
+&lt;/strong&gt; Validate with the users&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Tools&quot;&gt;&lt;a href=&quot;#Tools&quot; class=&quot;headerlink&quot; title=&quot;Tools&quot;&gt;&lt;/a&gt;Tools&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Keep knowledge in Plain Text&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;User the Power of Command Shells.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use a Single Editor Well.&lt;br&gt;It is better to know one editor very well, and use it for all editing tasks: code, documentation, memos, system administration, and so on.&lt;br&gt;A good editor should have following features:&lt;br&gt;&lt;strong&gt; Configurable
+&lt;/strong&gt; Extensible&lt;br&gt;&lt;strong&gt; Programmable
+&lt;/strong&gt; Syntax highlighting&lt;br&gt;&lt;strong&gt; Auto-completion
+&lt;/strong&gt; Auto-indentation&lt;br&gt;&lt;strong&gt; Initial code or document boilerplate
+&lt;/strong&gt; IDE-like features&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Always Use Source Code Control&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Learn a Text Manipulation Language&lt;br&gt;For example, &lt;code&gt;awk&lt;/code&gt; and &lt;code&gt;sed&lt;/code&gt; commands in Shell.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Write Code that Writes Code (Code Generator)&lt;br&gt;&lt;strong&gt; Passive code generators are run once to produce a result. (Java Immutable class)
+&lt;/strong&gt; Active code generators are used each time their results are required. (Any examples?)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Design&quot;&gt;&lt;a href=&quot;#Design&quot; class=&quot;headerlink&quot; title=&quot;Design&quot;&gt;&lt;/a&gt;Design&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Design with Contracts.&lt;br&gt;** Shy contract - A way of separate concerns and decoupling.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Design by Contract.&lt;br&gt;Focus on documenting (and agreeing to) the rights and responsibilities of software modules to ensure program correctness. Does no more and no less than the document claims to do.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The Law of Demeter for Functions&lt;br&gt;** Minimize Coupling Between Modules.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Desing for concurrency using service&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Coding-Implementation-Practice&quot;&gt;&lt;a href=&quot;#Coding-Implementation-Practice&quot; class=&quot;headerlink&quot; title=&quot;Coding/Implementation Practice&quot;&gt;&lt;/a&gt;Coding/Implementation Practice&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Crash Early.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;If it Can not Happen, User Assertions to Ensure That It Will not.&lt;br&gt;Precondition Check.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use Exceptions for Exceptional Problems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Finish What You Start&lt;br&gt;The routine or object that allocates a resource should be responsible for deallocating it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not program coincidence&lt;br&gt;Need to know the idea behind the code clearly.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not be a slave to history. Do not let existing code dictate future code.&lt;br&gt;Be critical to existing code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Refactor (Following is the reason to do refactor)&lt;br&gt;&lt;strong&gt; Duplication
+&lt;/strong&gt; Nonorthogonal design&lt;br&gt;&lt;strong&gt; Outdated knowledge
+&lt;/strong&gt; Performance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Refactor early and often&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 
@@ -79,7 +170,13 @@
 &lt;hr&gt;
 
 &lt;h3 id=&quot;Debug&quot;&gt;&lt;a href=&quot;#Debug&quot; class=&quot;headerlink&quot; title=&quot;Debug&quot;&gt;&lt;/a&gt;Debug&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Fix the Problem Not the Blame.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not panic.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Make bug reproducible.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not Assume It - Prove It.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Check my code first, and then bugs from third party.&lt;/p&gt;
 &lt;/li&gt;
