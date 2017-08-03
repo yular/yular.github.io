@@ -56,7 +56,7 @@
     <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
     <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
     <published>2017-07-30T07:09:01.000Z</published>
-    <updated>2017-08-02T06:48:57.000Z</updated>
+    <updated>2017-08-03T08:01:56.000Z</updated>
     
     <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.&lt;/p&gt;
 &lt;p&gt;Tips with a question mark at the end means that I do not fully understand what the tip means.&lt;/p&gt;
@@ -72,6 +72,12 @@
 &lt;/ul&gt;
 &lt;p&gt;Examples of orthogonality:&lt;br&gt;&lt;strong&gt; AOP
 &lt;/strong&gt; CORBA&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;No Broken Windows&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Boiled Frogs&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 
 &lt;h3 id=&quot;Understand-the-Goal-Requirement&quot;&gt;&lt;a href=&quot;#Understand-the-Goal-Requirement&quot; class=&quot;headerlink&quot; title=&quot;Understand the Goal/Requirement&quot;&gt;&lt;/a&gt;Understand the Goal/Requirement&lt;/h3&gt;&lt;ul&gt;
@@ -83,7 +89,15 @@
 &lt;/strong&gt; New functionality in an existing system&lt;br&gt;&lt;strong&gt; Structure or contents of external data
 &lt;/strong&gt; Performance issues&lt;br&gt;** User interface design&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Program Close to the Problem domain&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Program Close to the Problem domain.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not Gather Requirement - Dig for them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Work with a User to Think like a User.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Abstractions Live Longer than Details.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use a Project Glossary.&lt;br&gt;** Project items dictionary.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -137,7 +151,19 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The Law of Demeter for Functions&lt;br&gt;** Minimize Coupling Between Modules.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Desing for concurrency using service&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Analyze Workflow to Improve Concurrency&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Design Using Service&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Always Design for Concurrency&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use Blackboards to Coordinate Workflow&lt;br&gt;** Use the blackboard to coordinate disparate facts and agents, while still maintaining independence and even isolation among participants.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Some Things are Better Done than Described.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not be a Slave to Formal Methods.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Expensive Too Do Not Produce Better Design.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -151,6 +177,12 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Finish What You Start&lt;br&gt;The routine or object that allocates a resource should be responsible for deallocating it.&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dynamic Configuration: Configure, Do not Integrate.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Metadata-Driven Application: Put Abstractions in Code Details in Metadata.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Estimate the Order of Your Algorithms. And Test the estimates.&lt;/p&gt;
+&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do not program coincidence&lt;br&gt;Need to know the idea behind the code clearly.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Do not be a slave to history. Do not let existing code dictate future code.&lt;br&gt;Be critical to existing code.&lt;/p&gt;
@@ -160,6 +192,8 @@
 &lt;/strong&gt; Performance&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Refactor early and often&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do not use Wizard Code You Do not Understand.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
