@@ -56,7 +56,7 @@
     <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
     <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
     <published>2017-07-30T07:09:01.000Z</published>
-    <updated>2017-08-03T08:01:56.000Z</updated>
+    <updated>2017-08-05T04:16:38.000Z</updated>
     
     <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.&lt;/p&gt;
 &lt;p&gt;Tips with a question mark at the end means that I do not fully understand what the tip means.&lt;/p&gt;
@@ -73,9 +73,9 @@
 &lt;p&gt;Examples of orthogonality:&lt;br&gt;&lt;strong&gt; AOP
 &lt;/strong&gt; CORBA&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;No Broken Windows&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;No Broken Windows&lt;br&gt;The team should take the responsibility for the quality of product. High code quality can encourage developers to continue to write high quality of code for the project.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Boiled Frogs&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Boiled Frogs&lt;br&gt;Make sure everyone actively monitors the environment for changes and solve the problems as soon as possible.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -225,6 +225,12 @@
 &lt;li&gt;&lt;p&gt;Test stage coverage, not code/line coverage&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Find bugs once.&lt;br&gt;Once a human tester finds a bug, it should be the last time a human tester finds that bug.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Coding is not done until all the tests run&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test against contract in unit test&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Divide and conquer in testing&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
