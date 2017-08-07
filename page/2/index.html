@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 2 | YBC HomePage</title>
+  <title>Seite 2 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,276 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-07-24T06:07:24.000Z"><a href="/2017/07/23/C-Extern-Function/">2017-07-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/23/C-Extern-Function/">C Extern Function</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here we want to define a function in a C program file and would like to write another C program that can use that function. That kind of function is called extern function, which means the function uses <code>extern</code> keyword.</p>
+<p>Here is a <a href="http://www.geeksforgeeks.org/understanding-extern-keyword-in-c/" target="_blank" rel="external">tutorial about C Extern funciton/variable from Geeksforgeeks</a>.</p>
+<p>Below is an example from us. The example is about defining and implementing a random mysql hash key generation method.</p>
+<hr>
+
+<h3 id="Define-Extern-Function-in-a-Head-File"><a href="#Define-Extern-Function-in-a-Head-File" class="headerlink" title="Define Extern Function in a Head File"></a>Define Extern Function in a Head File</h3><p>To use functions coming from other libs in C, the most common way is to define those functions in head files, and those head files are used as the entries to use functions defined in them. But only functions with <code>extern</code> keyword can be used by other C programs.</p>
+<p>Note that using extern functions are different from implementing extern functions.</p>
+<p>Here is the head file <code>hashkeygenerator.h</code> that has the definiton of extern function.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">extern char *generateHashKey();</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Implement-Extern-Function-in-a-C-File"><a href="#Implement-Extern-Function-in-a-C-File" class="headerlink" title="Implement Extern Function in a C File"></a>Implement Extern Function in a C File</h3><p>The function should have an algorithm to generate random hash key, and the implementation should be in the C file.</p>
+<p>Here is the C file <code>hashkeygenerator.c</code> in this example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;hashkeygenerator.h&quot;</span><br><span class="line"></span><br><span class="line">char KEY_CHAR_POOL[62] = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;</span><br><span class="line">char FIX_HASH_KEY_PREFIX[5] = &quot;mysql&quot;;</span><br><span class="line"></span><br><span class="line">char *hash_key;</span><br><span class="line"></span><br><span class="line">extern char * generateHashKey()&#123;</span><br><span class="line">    srand(time(NULL));</span><br><span class="line">    hash_key = (char*) malloc(27);</span><br><span class="line">    strcpy(hash_key, FIX_HASH_KEY_PREFIX);</span><br><span class="line"></span><br><span class="line">    int i = 5;</span><br><span class="line">    for(i = 5; i &lt; 27; ++ i) &#123;</span><br><span class="line">        int idx = (int)( rand()%62 );</span><br><span class="line">        hash_key[i] = KEY_CHAR_POOL[idx];</span><br><span class="line">    &#125;   </span><br><span class="line">    hash_key[5] = hash_key[9] = hash_key[14] = hash_key[20] = &apos;-&apos;;</span><br><span class="line">    return (char *)hash_key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now to compile this C file, use following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hashkeygenerator.c</span><br></pre></td></tr></table></figure></p>
+<p>The we will find a <code>hashkeygenerator.o</code> file under the same folder with the head file and C file.</p>
+<hr>
+
+<h3 id="Test-the-Extern-Function"><a href="#Test-the-Extern-Function" class="headerlink" title="Test the Extern Function"></a>Test the Extern Function</h3><p>Below is the program to test the extern function above. Note that rand() function will return the same sequence of string if the period between two function calls is too small. Here we make it 10 seconds.</p>
+<p>See the code below and the file name is <code>testhashkeygenerator.c</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;hashkeygenerator.h&quot;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    char *key_one = generateHashKey();</span><br><span class="line">    puts(key_one);</span><br><span class="line"></span><br><span class="line">    unsigned int retTime = time(0) + 10; </span><br><span class="line">    while (time(0) &lt; retTime);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    char *key_two = generateHashKey();</span><br><span class="line">    puts(key_two);</span><br><span class="line"></span><br><span class="line">    if(strcmp(key_one, key_two) == 0) &#123;</span><br><span class="line">        puts(&quot;Two Identical Keys are generated!&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now we need to generate an executable file by runing this command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wall -o testhashkeygenerator testhashkeygenerator.c hashkeygenerator.o</span><br></pre></td></tr></table></figure></p>
+<p>To run the file, use this command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./testhashkeygenerator</span><br></pre></td></tr></table></figure></p>
+<p>And we will see two random hash key as follow:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql-VYb-zJVg-4dcKA-5lymrv                                                                                                                                  </span><br><span class="line">mysql-UgP-Owia-NGzmZ-zG7DAB</span><br></pre></td></tr></table></figure></p>
+<p>Here is the <a href="https://github.com/yular/CCplusplus-Project/tree/master/Extern-Function" target="_blank" rel="external">link of the three files above</a> in this tutorial.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-07-01T02:18:26.000Z"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">2017-06-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">Kaggle Contest Guide Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-07-01T02:18:11.000Z"><a href="/2017/06/30/Kaggle-Contest-QuickStart/">2017-06-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/30/Kaggle-Contest-QuickStart/">Kaggle Contest QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-30T05:18:50.000Z"><a href="/2017/06/29/AWS-Command-Line-Interface-QuickStart/">2017-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/29/AWS-Command-Line-Interface-QuickStart/">AWS Command Line Interface QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-30T05:18:26.000Z"><a href="/2017/06/29/Ruby-YAML-Summary/">2017-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/29/Ruby-YAML-Summary/">Ruby YAML Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data serialization standard for all programming languages.</p>
+<p>Here is the link of <a href="http://www.yaml.org/" target="_blank" rel="external">YAML Org</a>.<br>Here is the link of <a href="http://yaml.org/YAML_for_ruby.html" target="_blank" rel="external">YAML Cookbook for Ruby</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Ruby/">Ruby</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-30T05:00:40.000Z"><a href="/2017/06/29/AWS-SAM-QuickStart/">2017-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/29/AWS-SAM-QuickStart/">AWS SAM QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -258,324 +528,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-05-07T22:04:19.000Z"><a href="/2017/05/07/Thinking-in-Number-Theory/">2017-05-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now here we will propose some generic ideas to think through this kind of problems.</p>
-<p>This artical will be updated continously.</p>
-<hr>
-
-<h3 id="1-Prime-Check"><a href="#1-Prime-Check" class="headerlink" title="1. Prime Check"></a>1. Prime Check</h3><p>Given an integer, check whether it is a prime or not is a high frequent problem. There are a lot of algorithms to do this check. Some of them are as follows:</p>
-<ul>
-<li><p>The naive O(n^1.5) algorithm:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n) &#123;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(n); ++ i)&#123;</span><br><span class="line">		if(n%i == 0)</span><br><span class="line">			return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">Sieve of Eratosthenes</a>.</p>
-</li>
-<li><a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank" rel="external">Rabin-Miller primality test algorithm</a>.</li>
-</ul>
-<p>Sometimes, we need to figure out all the primes within a specific range. In that case, the second algorithm usually is the best choice, expecially for the problems described in the next sections.</p>
-<hr>
-
-<h3 id="2-Prime-Factors"><a href="#2-Prime-Factors" class="headerlink" title="2. Prime Factors"></a>2. Prime Factors</h3><p>In Number Theory problems, we are ussually asked to figure out the factors of a given integer. In this case, a good idea (not always) is to figure out all its prime factors and their powers. To do that, we need to use (not always) <code>Sieve of Eratosthenes</code> to generate all the primes no larger than given integer. But this solution is not a silver bullet because sometimes the given integer is so large that we do not have enough memory to store all the primes or calculate them within the timebound.</p>
-<hr>
-
-<h3 id="3-Integer-Generation"><a href="#3-Integer-Generation" class="headerlink" title="3. Integer Generation"></a>3. Integer Generation</h3><p>Maybe we find that it is inpractical to divide the given integer into mulplication of primes. Thus, we can try to multiply the primes we have to generate another integer. In this scenario, we do not have to worry about the limited memory to save large number of primes or find all the required primes in a short time. The reason is that even we multiply the same prime for several times (maybe around 30 or even less), we can get a very large integer. Remember, <code>2^64 = 18446744073709551616</code> .</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-30T23:43:55.000Z"><a href="/2017/04/30/Flowers-Symbolism/">2017-04-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Every kind of flower has its own meaning/symbolism. Here is the list of <a href="http://baike.baidu.com/item/%E8%8A%B1%E8%AF%AD%E5%BD%95" target="_blank" rel="external">flowers symbolism - Chinese version</a> and <a href="https://en.wikipedia.org/wiki/Plant_symbolism" target="_blank" rel="external">Plant symbolism - English version</a>, or <a href="http://www.buzzle.com/articles/list-of-flower-names-with-meanings-and-pictures.html" target="_blank" rel="external">this link</a> or <a href="http://www.buzzle.com/articles/flowers-meanings-list-of-flowers-and-their-meanings.html" target="_blank" rel="external">this link</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Life/">Life</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-30T10:02:10.000Z"><a href="/2017/04/30/Java-Guice-Library/">2017-04-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://github.com/google/guice/wiki/Motivation" target="_blank" rel="external">official wiki of Guice</a>. Google Guice is a dependency injection framework. Unlike Java Spring which is a comprehensive framework, Guice only focuses on dependency injection feature and now can support AOP.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-30T09:48:14.000Z"><a href="/2017/04/30/Java-Spring-vs-Google-Guice/">2017-04-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/30/Java-Spring-vs-Google-Guice/">Java Spring vs Google Guice</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Both Java Spring and Google Guice are powerful dependency injection frameworks. Java Spring is a comprehensive stack but Guice only focuses on dependency injection.</p>
-<p>Here is a good <a href="https://github.com/google/guice/wiki/SpringComparison" target="_blank" rel="external">explanation of comparision between Spring and Guice</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-22T18:06:57.000Z"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">2017-04-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a good code style guide for Ruby. Click <a href="https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals" target="_blank" rel="external">here</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Ruby/">Ruby</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-16T09:02:28.000Z"><a href="/2017/04/16/Thinking-in-Test/">2017-04-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>This summary may be updated in the future.</p>
-<p>We need to follow some steps to test service starting from development to deployment. It is very important because it can help us to find issues and fix them as soon as possible before customer experience become worse.</p>
-<p>Roughly, there are maily <code>Four</code> steps in the through test on service. They are tests/verification in (local) development, tests while building service in remote machines, tests in different stages of deployment on remote machines, and manual verification of services on remote machines.</p>
-<p>Here are some details of these steps.</p>
-<h2 id="Local-Tests"><a href="#Local-Tests" class="headerlink" title="Local Tests"></a>Local Tests</h2><hr>
-
-<p>When develop service on the local, we need to test it before build and deploy it on remote machines. In local development, at least we need these tests:</p>
-<ul>
-<li>Unit Tests</li>
-<li>Integration Tests (Test integration between service and data storage or among different components of the service)</li>
-<li>Manual Verification</li>
-</ul>
-<p>In this step, we need to check test coverage including class coverage, method coverage and line coverage.</p>
-<h2 id="Tests-While-Building-Software-on-Remote-Machines"><a href="#Tests-While-Building-Software-on-Remote-Machines" class="headerlink" title="Tests While Building Software on Remote Machines"></a>Tests While Building Software on Remote Machines</h2><hr>
-
-<p>Before we actually deploy service on remote machines, we need to build it. While building service, we need to run the tests which are written in development. These tests are unit tests and integration tests in the last stage.</p>
-<p>In this stage, the building process stops if any tests fail.</p>
-<h2 id="Tests-After-Deploying-Software-on-Remote-Machines"><a href="#Tests-After-Deploying-Software-on-Remote-Machines" class="headerlink" title="Tests After Deploying Software on Remote Machines"></a>Tests After Deploying Software on Remote Machines</h2><hr>
-
-<p>After deploy service on the remote machines successfully, we need to test the public APIs or performance of the service in all the stages of deployment. Different stages may include Beta stage, Gamma stage, PreProd stage and Prod stage or even more stages.</p>
-<p>In these stages, we need to run following tests: Load Tests, Fuzz Tests, Code Review Verification and tests gathering performance statistics. </p>
-<hr>
-
-<h2 id="Manual-Verification-After-Deployment-of-Remote-Machines"><a href="#Manual-Verification-After-Deployment-of-Remote-Machines" class="headerlink" title="Manual Verification After Deployment of Remote Machines"></a>Manual Verification After Deployment of Remote Machines</h2><p>Even though we deploy service on remote machines successfully, we still need to manually test the service. One way is to test APIs through Web GUI or Command Line Interface. Besides, we can manually change the data storage or the behaviors of system to simulate real world situation.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/3/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -601,7 +558,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -632,13 +589,15 @@
   
     <li><a href="/tags/Database/">Database</a><small>10</small></li>
   
+    <li><a href="/tags/Design/">Design</a><small>1</small></li>
+  
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
     <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>14</small></li>
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -664,7 +623,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>1</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>4</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -684,9 +643,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -707,23 +666,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a>
+        <a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a>
       </li>
     
       <li>
-        <a href="/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/">Setup API Gateway Custom Authorizer Lambda Function in Java</a>
+        <a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a>
       </li>
     
       <li>
-        <a href="/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/">Reading Note of The Pragmatic Programmer</a>
+        <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
       </li>
     
       <li>
-        <a href="/2017/07/25/AWS-Cross-Account-Access-through-Assuming-Role-using-IAM/">AWS Cross Account Access through Assuming Role using IAM</a>
+        <a href="/2017/08/04/Reading-Note-of-Code-Complete/">Reading Note of Code Complete</a>
       </li>
     
       <li>
-        <a href="/2017/07/23/C-Extern-Function/">C Extern Function</a>
+        <a href="/2017/08/04/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
       </li>
     
   </ul>

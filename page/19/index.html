@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 19 | YBC HomePage</title>
+  <title>Seite 19 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,369 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-12T16:09:27.000Z"><a href="/2015/07/12/MySQL-Command-in-Linux/">2015-07-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/12/MySQL-Command-in-Linux/">MySQL Command &amp;&amp; Usage in Linux</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>MySQL is one of the most widely used database software in the world. It is free, fast and very reliable. The following are the ubuntu linux commands of MySQL. </p>
+<h3 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>To check whether MyAQL service is running or not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Restart-MySQL"><a href="#Restart-MySQL" class="headerlink" title="Restart MySQL"></a>Restart MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mysql restart</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Change-MySQL-password"><a href="#Change-MySQL-password" class="headerlink" title="Change MySQL password"></a>Change MySQL password</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure mysql-server-5.5</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Stop-MySQL"><a href="#Stop-MySQL" class="headerlink" title="Stop MySQL"></a>Stop MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mysql stop</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="MySQL-Tuner"><a href="#MySQL-Tuner" class="headerlink" title="MySQL Tuner"></a>MySQL Tuner</h3><ul>
+<li><p>Install MySQL Tuner</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysqltuner</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Run MySQL Tuner</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysqltuner</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-11T05:28:28.000Z"><a href="/2015/07/10/hello-world/">2015-07-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/10/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-06T19:39:49.000Z"><a href="/2015/07/06/Vim-Commands-and-Practice-Guide/">2015-07-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/06/Vim-Commands-and-Practice-Guide/">Vim Commands and Practice Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of Vim Command Practice Guide (in Chinese), very helpful for me :-)</p>
+<p><a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="external">http://coolshell.cn/articles/5426.html</a></p>
+<p>Actually, there are more commands that may be used in practice. But 90% or even more work can be done through those commands in the blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-25T04:50:35.000Z"><a href="/2015/06/24/Eight-Golden-Rules-in-Web-UI-Design/">2015-06-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/24/Eight-Golden-Rules-in-Web-UI-Design/">Eight Golden Rules in Web UI Design</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In Web user interface design, designers should follow some basic rules so that their work can be more attractive and have perfect user experience. Here are the most acknowledged eight golden rules for user interface design.</p>
+<h2 id="Strive-for-Consistency"><a href="#Strive-for-Consistency" class="headerlink" title="Strive for Consistency"></a>Strive for Consistency</h2><p>This rule means:</p>
+<ul>
+<li>Consistent sequence of actions for similar situations</li>
+<li>Identical Terminology (including prompts, menus, help)</li>
+<li>Consistent visual layout</li>
+</ul>
+<h2 id="Cater-to-universal-usability"><a href="#Cater-to-universal-usability" class="headerlink" title="Cater to universal usability"></a>Cater to universal usability</h2><p>This rule means:</p>
+<ul>
+<li>Recognize the needs of a diverse user group</li>
+<li>Design for plasticity</li>
+<li>Available from Novice to Expert, and covers the disabled.</li>
+</ul>
+<h2 id="Offer-informative-feedback"><a href="#Offer-informative-feedback" class="headerlink" title="Offer informative feedback"></a>Offer informative feedback</h2><p>This rule means:</p>
+<ul>
+<li>For every user action, the system should provide feedback</li>
+<li>Frequency of task affects feedback type</li>
+<li>Visual approaches make feedback easy</li>
+</ul>
+<h2 id="Design-dialogs-to-yield-closure"><a href="#Design-dialogs-to-yield-closure" class="headerlink" title="Design dialogs to yield closure"></a>Design dialogs to yield closure</h2><p>This rule means:</p>
+<ul>
+<li>Action sequences should have a beginning, middle, and end.</li>
+<li>Feedback provides sense of accomplishment</li>
+</ul>
+<h2 id="Prevent-errors"><a href="#Prevent-errors" class="headerlink" title="Prevent errors"></a>Prevent errors</h2><p>This rule means:</p>
+<ul>
+<li>Limit errors a user can make</li>
+<li>In case of errors: detect error, using simple, constructive, and specific instructions, and do not change system state</li>
+<li>Provide complete sequences, meaning that one action can perform a sequence of events, system should log errors and designers should study usage, error patterns, and user preferences via user groups, studies.</li>
+<li>Universal usability can reduce errors</li>
+</ul>
+<h2 id="Permit-easy-reversal-of-actions"><a href="#Permit-easy-reversal-of-actions" class="headerlink" title="Permit easy reversal of actions"></a>Permit easy reversal of actions</h2><p>This rule means:</p>
+<ul>
+<li>Actions should be reversible as much as possible</li>
+<li>Design decision should include history size and what does it mean to undo something</li>
+<li>Let the user know they can reverse an action</li>
+</ul>
+<h2 id="Support-internal-locus-of-control"><a href="#Support-internal-locus-of-control" class="headerlink" title="Support internal locus of control"></a>Support internal locus of control</h2><p>This rule means:</p>
+<ul>
+<li>Experiences operations want to feel in control</li>
+<li>Builds anxiety and dissatisfaction because of surprising interface actions, tedious actions, difficulty in obtaining necessary ability and difficulty in producing action</li>
+<li>Good rules: avoid acausality, make users initiators rather than responders</li>
+</ul>
+<h2 id="Reduce-short-term-memory-load"><a href="#Reduce-short-term-memory-load" class="headerlink" title="Reduce short-term memory load"></a>Reduce short-term memory load</h2><p>This rule means:</p>
+<ul>
+<li>Humans can remember 7 +/- 2 chunks of information</li>
+<li>Display kept simple</li>
+<li>Multiple page displays should be consolidated</li>
+<li>Training if using codes, mnemonics, long sequence of actions</li>
+<li>Online access to command-syntax, abbreviations, codes, etc.</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-17T07:03:41.000Z"><a href="/2015/06/17/E-commerce-Business-Model-Summary/">2015-06-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/17/E-commerce-Business-Model-Summary/">E-commerce Business Model Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of current most widely used business models in E-Commerce. They include B2B, B2C, C2C, P2P and O2O. Their definitions, difference and sample companies are as follows.</p>
+<p>1.B2B<br>In a Business-to-Business E-commerce environment, companies sell their online goods to other companies without being engaged in sales to consumers.</p>
+<p>2.B2C<br>In a Business-to-Consumer E-commerce environment, companies sell their online goods to consumers who are the end users of their products or services. Usually, B2C E-commerce web shops have an open access for any visitor, meaning that there is no need for a person to login in order to make any product related enquiry.</p>
+<p>Example: Amazon</p>
+<p>3.C2C<br>In a Consumer-to-Consumer E-commerce environment consumers sell their online goods to other consumers. </p>
+<p>Example: eBay</p>
+<p>4.C2B<br>In a Consumer-to-Business E-commerce environment, consumers usually post their products or services online on which companies can post their bids. A consumer reviews the bids and selects the company that meets his price expectations.</p>
+<p>4.P2P(L/I …)<br>Peer-to-peer lending commonly abbreviated as P2PL is the practice of lending money to unrelated individuals, or “peers”, without going through a traditional financial intermediary such as a bank or other traditional financial institution. P2PL is not to be confused with peer to peer investing (P2PI). This lending takes place online on peer-to-peer lending companies websites using various different lending platforms and credit checking tools.</p>
+<p>Example: Lending Club</p>
+<p>5.O2O<br>Online To Offline. A kind of offline business model. Here is the definition in <a href="https://zh.wikipedia.org/wiki/O2O" target="_blank" rel="external">Wiki</a>, but only in Chinese.</p>
+<p>Example: Uber and Airbnb</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Business-Model/">Business Model</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-06-15T18:47:18.000Z"><a href="/2015/06/15/Timer-Command-in-Linux/">2015-06-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/06/15/Timer-Command-in-Linux/">Timer Command in Linux</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>If we want the computer with Linux OS to do some tasks in a specific time periodically (daily, weekly or monthly), we can use the “crontab” command. Here may be the link of a good tutorial of this command:<br><a href="http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/" target="_blank" rel="external">http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/</a></p>
+<p>Note: crontab command must be runned by root.<br>At first, we should edit the crontab file and the command is:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ crontab <span class="_">-e</span></span><br></pre></td></tr></table></figure>
+<p>Then we will enter a vim environment to edit the crontab file.</p>
+<p>Here is an example to set that the computer will be shutdowned at 12:30 am every day.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 30 00 * * * /sbin/shutdown -h now</span><br></pre></td></tr></table></figure>
+<p>Here is an example to set that the computer will send a message notifying that users should stop working at the begining of every hour every day.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ 00 * * * * /bin/<span class="built_in">echo</span> <span class="string">"Time to Stand Up, Walk Around and Have a Rest ~~~"</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -433,363 +796,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-05-08T06:54:37.000Z"><a href="/2015/05/07/Maven-Project-for-eclipse-Tutorial/">2015-05-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/05/07/Maven-Project-for-eclipse-Tutorial/">Maven Project for eclipse Tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a step-by-step tutorial to build and run a Maven project in eclipse. Hope that it is useful for every one.</p>
-<p>1.Download the eclipse from the following link:<br><a href="https://eclipse.org/downloads/" target="_blank" rel="external">https://eclipse.org/downloads/</a></p>
-<p>then unzip the compressed file, and you find the eclipse IDE in the directory.</p>
-<p>2.Download and install Maven. Here is the tutorial from Maven official website:<br>Download Maven:<br><a href="https://maven.apache.org/download.cgi" target="_blank" rel="external">https://maven.apache.org/download.cgi</a><br>Install Maven:<br><a href="https://maven.apache.org/download.cgi#Installation" target="_blank" rel="external">https://maven.apache.org/download.cgi#Installation</a></p>
-<p>Note: Different operationg systems have different installation process. For example, in windows, users should configure the system path variable additionally.</p>
-<p>3.Install Maven plugin in eclipse. Here is the tutorial from stackoverflow, quite helpful.<br><a href="http://stackoverflow.com/questions/8620127/maven-in-eclipse-step-by-step-installation" target="_blank" rel="external">http://stackoverflow.com/questions/8620127/maven-in-eclipse-step-by-step-installation</a></p>
-<p>4.Here is a video from Youtu, teaching how to use eclipse IDE to create a Maven project and run it in the IDE.</p>
-<iframe width="854" height="510" src="https://www.youtube.com/embed/n2SJ6pZSD-k" frameborder="0" allowfullscreen></iframe>
-
-<p>5.Moreover, here is the tutorial from Maven official website showing that how to create, compile and run a Maven project using only command line. This is very important because in practice, we have to deploy the Maven project outside of IDE and this skill should be mastered.<br><a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="external">https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html</a></p>
-<p>It is common that we may meet a lot of technical issues in the project. In these cases, go to the following websites. People there can give you a hand if you can find a similar questions or post new questions.<br><a href="https://maven.apache.org/" target="_blank" rel="external">https://maven.apache.org/</a><br><a href="http://stackoverflow.com/" target="_blank" rel="external">http://stackoverflow.com/</a><br><a href="http://www.quora.com/" target="_blank" rel="external">http://www.quora.com/</a></p>
-<p>If you have any suggestions for this tutorial, please do not hesitate to leave them in the comment area below this blog~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-28T18:27:33.000Z"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">2015-02-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">General Approach to Solve Algrithm Problems</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>This blog is the general approach to solve algorithm problems based on my own experience. Hope it will be helpful for those who participate algorithm contest like TopCoder, CodeForce, OI, ACM-ICPC and so on or have to take technical interviews involving algorithms.</p>
-<ol>
-<li><p>Read the Problem Statement<br>Read the problem statement very very very carefully. Do remember that. Understand the following information:<br>(1) What is the meaning of the problem statement.<br>(2) What does the problem ask we to do. To count the cases? To find the maximum/minimum value?<br>(3) What are the constraints of the problem? What is the range of the input? 1&lt;= N &lt;= 100 or 1 &lt;= N &lt;= 1000?<br>(4) What is the input format and output format of the problem?<br>(5) Are both the sample input and output correct?<br>If the problem statement is difficult to understand, ask the problem writter or those who can offer a hand.</p>
-</li>
-<li><p>Build the Mathmatical Model and Design one or more Algorithms<br>After fully understand the problem, we should know how to calculate the sample output given sample input. This step is to find the correct mathematical models to solve the problem. When we find the correct mathmetical models, then we can start to design algorithms that can solve the models correctly (Note: not necessarily efficiently). </p>
-</li>
-<li><p>Validate the Algorithm<br>After the algorithm is proposed, we should then validate it. The tricks are to tet the algorithm with large test case, corner test case, tricky test case and general test case. Make sure that the algorithm are correct and efficient in all these kinds of cases so that we can avoid Wrong Answer, Time Limit Excceed, Memory Limit Excceed or other incorrect message returned by online judege. </p>
-</li>
-<li><p>Optimize the Algorithm<br>If our algorithm can pass all the above cases, congratulations! Our algorithm can receive Accept from online judege. But in some cases, it may not be efficient enough and online judege will return TLE for us. In that case, we should optimize the algorithm. There are mainly two cases:<br>(1) We may have to rebuild the mathematical model so that more efficient algorithms can be used.<br>(2) We only have to use other algorithms for the current model but more efficient techniques should be applied.<br>Sometimes, we can optimize our algorithm even though it is correct and can pass any test cases. This is a good habit and helpful to improve our algorithm design and analysis skills.</p>
-</li>
-</ol>
-<p>5.Double Check Again<br>After optimize the algorithm, we should double check it again to ensure that it can pass all the possible test cases under the constraints of the problem. It is a good custom to be cautious all the time.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-28T17:41:12.000Z"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">2015-02-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">General Approach for Technical Problem Shooting</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>In our work (I mean computer science or relatives), we usually meet a lot of technical problems and some of them are difficult to deal with without any others’ help. In these cases, we have to do problem shooting all by ourselves. Here is the general approach that I used in my work or even daily life to solve technical problems. I think my approach can be also applicable in other area outside computer science.</p>
-<ol>
-<li><p>Master Basic Knowledge of the Area<br>We should know the most common and basic knowledge of the area where the problems are encountered by us, otherwise we may even do not realize some issues have appeared. That may be dangerous in many areas, especially chemistry and nuclear. In computer science, the basic knowledge that we should master should include computer operating system, computer system architecture, computer programming, database, computer network, and programming language. This list may not be complete, but I think those aspects are essential in computer science. If we do not understand the solution provided by others, we should have to go back to pick up or start to learn the basic knowledge.</p>
-</li>
-<li><p>Read or Watch the Tutorial (Document)<br>When we use a new system or product in the first time, it is pretty easy for us to stuck in some problems. When it does happens, remember to read or watch the official instruction at first. Official instructions are the best tutorial in most of the time. Try to finger out the correct parts of the tutorial and use the solutions provided by it.</p>
-</li>
-<li><p>Read or Watch Alternative Tutorial<br>Sometimes we may find that official tutorial is not complete or even out of date! That is really bad for novices. In this case, we should find alternative tutorial through Internet. We can use Google search engine (www.google.com) or other powerful search engines to find the tutorial on the Internet. In most of the cases, we are not the first patch of users who use this product or system. Some one who has tried it before are probabily meet the same problems and find the solutions and post the solution on the Internet. So we can try to find these tutorials through Internet.</p>
-</li>
-<li><p>Read or Watch Problem Shooting Approach<br>In some cases, we may not find the tutorial on the Internet, but we can just find the solution dealing with problems. This is the first step when we meet a technical problem and this approach can save us lots of time because we can skip the lengthy and boring tutorials provided by others. But I do think reading or watching the tutorial or document should be first step. The reason is that tutorial can help us to know the every aspect of the product and thus, when next time we meet a different problem, we may be able to solve it without any help. But if we only know how to solve some specific problems, we may still stuck in other problems in the future. On average, reading or watching tutorials or document first do not cost more time and even save our time. In computer science, currently, stackoverflow and some forums are helpful for those to find approaches to solve their problems.</p>
-</li>
-<li><p>Seek Help<br>Unluckly, we may encouter some rare problems that no one meets before. In this case, we can post our problems on the Internet, send them in emails to experts or seek help from others through other approaches. In computer science, there are multiple forums and websites where people can seek help. They include stackoverflow, Quora and so on. Or we can suscribe our email address in the email list of the community manufactering the product, like Appache Hadoop, Hive, Mahout and so on. People in the community usually are willing to give us a hand and in most of the time reply the email in a short time. We can also seek help through social media like facebook and twitter or just make a phone call to those who may be able to solve the problems.</p>
-</li>
-<li><p>Seek Help from People nearby<br>If some one happens to be nearby, seek help from him/her, especially s/he is our colleague or classmate or friend or family member.</p>
-</li>
-<li><p>Stop<br>If we do fail to find a solution, we may have to give up and leave it alone if it does not harm.</p>
-</li>
-</ol>
-<p>Hope this blog will help :-)</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Life-Thoughts/">Life Thoughts</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-23T05:31:30.000Z"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">2015-02-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">Collections of Web Technology Concept</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>When developing Web application, it is very often to meet many new words when we read the document. Here is the collection of some most frequent concepts that Web developer will see in their work.</p>
-<p>Cross-Domain Solution:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Cross-domain_solution" target="_blank" rel="external">http://en.wikipedia.org/wiki/Cross-domain_solution</a><br>A cross-domain solution (CDS) is a means of information assurance that provides the ability to manually or automatically access or transfer information between two or more differing security domains. They are integrated systems of hardware and software that enable transfer of information among incompatible security domains or levels of classification.<br>The three primary elements demanded from cross domain solutions are data confidentiality, data integrity and data availability.</p>
-<p>Common Gateway Interface:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface" target="_blank" rel="external">http://en.wikipedia.org/wiki/Common_Gateway_Interface</a><br>A Common Gateway Interface(CGI) is a standard method used to generate dynamic content on Web pages and Web applications. It provides an interface between the Web server and programs that generate the Web content when implemented on a Web server. These programs are known as CGI scripts; they are usually written in a scripting language, or any programming language.</p>
-<p>MIME:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/MIME" target="_blank" rel="external">http://en.wikipedia.org/wiki/MIME</a><br>MIME (Multi-Purpose Internet Mail Extensions) is an extension of the original Internet e-mail protocol that lets people use the protocol to exchange different kinds of data files on the Internet: audio, video, images, application programs, and other kinds, as well as the ASCII text handled in the original protocol, the Simple Mail Transfer Protocol (SMTP).<br>MIME as an Internet standard that extends the format of email to support: Text in character sets other than ASCII, Non-text attachments, Message bodies with multiple parts, and Header information in non-ASCII character sets.<br>Although MIME was designed mainly for SMTP, its use today has grown beyond describing the content of email and now often includes descriptions of content type in general, including for the web (see Internet media type) and as a storage for rich content in some commercial products (e.g., IBM Lotus Domino and IBM Lotus Quickr).</p>
-<p>OAuth:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/OAuth" target="_blank" rel="external">http://en.wikipedia.org/wiki/OAuth</a><br>OAuth is an open standard for authorization. OAuth provides client applications a ‘secure delegated access’ to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials.<br>This kind of authorization is often found in social media APIs.</p>
-<p>REST:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">http://en.wikipedia.org/wiki/Representational_state_transfer</a><br>Representational State Transfer (REST) is a software architecture style consisting of guidelines and best practices for creating scalable web services. REST is a coordinated set of constraints applied to the design of components in a distributed hypermedia system that can lead to a more performant and maintainable architecture.<br>REST has gained widespread acceptance across the Web[citation needed] as a simpler alternative to SOAP and WSDL-based Web services. RESTful systems typically, but not always, communicate over the Hypertext Transfer Protocol with the same HTTP verbs (GET, POST, PUT, DELETE, etc.) used by web browsers to retrieve web pages and send data to remote servers.<br>REST is a kind of architecture style instead of web standard.</p>
-<p>SOAP:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/SOAP" target="_blank" rel="external">http://en.wikipedia.org/wiki/SOAP</a><br>SOAP, originally an acronym for Simple Object Access protocol, is a protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on other application layer protocols, most notably Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.<br>SOAP has three major characteristics: extensibility, neutrality and independence.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-23T01:36:56.000Z"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">2015-02-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">Install Android Studio 1.0 on Linux and Windows Tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Android Studio is the IDE for Android Development without the help of Eclipse IDE. Here is the Homepage of Android Studio:<br><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a></p>
-<p>Here is the link of installing Android Studio tutorial:<br><a href="http://developer.android.com/sdk/installing/index.html?pkg=studio" target="_blank" rel="external">http://developer.android.com/sdk/installing/index.html?pkg=studio</a></p>
-<p>But the tutorial from official document may not be complete in some cases. So here I will provide a new tutorial.</p>
-<p>For ubuntu 14.04 LTS, 64 bits<br>(1) Install JDK 6 or higher<br>Here is a good tutorial from stackoverflow about installing Open JDK from ubuntu:<br><a href="http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux" target="_blank" rel="external">http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux</a></p>
-<p>(2)Install ia32-libs<br>Here is a good tutorial from stackoverflow:<br><a href="http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr" target="_blank" rel="external">http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr</a></p>
-<p>The commands that should be used are here:<br>sudo -i<br>cd /etc/apt/sources.list.d<br>echo “deb <a href="http://old-releases.ubuntu.com/ubuntu/" target="_blank" rel="external">http://old-releases.ubuntu.com/ubuntu/</a> raring main restricted universe multiverse” &gt;ia32-libs-raring.list<br>apt-get update<br>apt-get install ia32-libs<br>rm -r ia32-libs-raring.list<br>apt-get update</p>
-<p>(3)Install lib32ncurses5-dev<br>Just use the following command:<br>sudo apt-get install lib32ncurses5-dev</p>
-<p>(4)Install lib32stc++6<br>Go to this website to download the package:<br><a href="http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download" target="_blank" rel="external">http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download</a><br>and then run the commands:<br>sudo dpkg -i DEB_PACKAGE_NAME</p>
-<p>(5)Install libz.so.1<br>Run the commands:<br>sudo apt-get install lib32z1</p>
-<p>(6)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
-<p>(7)Download the Android Studio Zip file from the official homepage and unpack the file into an appropriate location.</p>
-<p>(8)Navigate to the android-studio/bin/ directory in a terminal and execute studio.sh.</p>
-<p>(9)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
-<p>(10)Build the project and run it. Make sure that the studio works.</p>
-<p>For Windows 8.1, 64 bits<br>(1)Install JDK 6 or higher.<br>Here is a good tutorial:<br><a href="http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html" target="_blank" rel="external">http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html</a><br>Remember to set JAVA_HOME variable in the system PATH environment variable. </p>
-<p>(2)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
-<p>(3)Download the Android Studio install exe file and execute it.</p>
-<p>(4)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
-<p>(5)Build the project and run it. Make sure that the studio works.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Android/">Android</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-02-22T21:32:40.000Z"><a href="/2015/02/22/Git-Command-Summary/">2015-02-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/02/22/Git-Command-Summary/">Git Command Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Nowadays Github has become a widely used source version control and project management tool in software engineering. Thus, it is important to know the command lines of Github and use them in practice. Here is the summary of the most frequent used command lines of Github. If you find something inaccurate or missing, please contact me. :-)</p>
-<p>Here is the link of Setting Up Git:<br><a href="http://help.github.com/articles/set-up-git/" target="_blank" rel="external">http://help.github.com/articles/set-up-git/</a></p>
-<p>Here is the link of basic funcitons of Github, which include creating a repository, opening an issue, creating a branch, making a commit, opening a pull request and merge pull request:<br><a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">https://guides.github.com/activities/hello-world/</a></p>
-<p>Here are the frequent used Github commands and their explanation, referred from these links:<br><a href="http://git-scm.com/docs" target="_blank" rel="external">http://git-scm.com/docs</a><br><a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1" target="_blank" rel="external">http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1</a></p>
-<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>Initialize a new Git repository.</p>
-<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><p>Clone a repository into a new directory, which is usually in local; and creates remote-tracking branches for each branch in the cloned repository, and creates and checks out an initial branch forked from the cloned repository’s current active branch.</p>
-<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>List, create, or delete branches.</p>
-<h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><p>Get and set repository and global options. Users can query/set/replace/unset options with this command.</p>
-<h3 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h3><p>Display help information about Git. On default, a list of the most commonly used Git commands are printed out.</p>
-<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>Show the working tree status. Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git.<br>The first one should be done by “git commit”; and last two ones should be done by “git add” and then “git commit”.</p>
-<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>Add files contents to the index found in the working tree, to prepare the content staged for the next commit.</p>
-<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>Record changes to the repository. Stores the current contents of the index in a new commit along with a log message from the user describing the changes.<br>There are several ways to specify the content added:<br>(1) git add command<br>(2) git rm command<br>(3) listing files as arguments to the commit command so that their changes staged in the index will be ignored<br>(4) using -a switch with commit command to add changes from all known files and to remove files in the index removed from working tree<br>(5) using –iteractive or –patch switches to decide one by one which files or hunks should be part of commit.</p>
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>Update the remote refs along with associated objects, using local refs.</p>
-<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><p>Fetch from and integrate with another repository or a local branch. Incorporates changes from a remote repository into the current branch.</p>
-<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>Remove files from the working tree and from the index, but not from just working directory.</p>
-<h3 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h3><p>Move or rename a file, a directory, or a symlink.</p>
-<h3 id="git-checkout-checkout是应用之意"><a href="#git-checkout-checkout是应用之意" class="headerlink" title="git checkout //checkout是应用之意"></a>git checkout //checkout是应用之意</h3><p>Checkout a branch or paths to the working tree. Updates files in the working tree to match the version in the index or the specified tree.</p>
-<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><p>Download objects and refs from another repository. Fetch branches and/or tags from one or more other repositories, along with the objects necessary to complete their histories.</p>
-<h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>Join two or more development histories together. Incoporates changes from the named commits into the current branch.</p>
-<h3 id="git-reset-–hard"><a href="#git-reset-–hard" class="headerlink" title="git reset (–hard )"></a>git reset (–hard <old-commit-id>)</old-commit-id></h3><p>Rollback the respository to the given early commit.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Tools/">Tools</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/18/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/20/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/18/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/20/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -815,7 +826,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -846,13 +857,15 @@
   
     <li><a href="/tags/Database/">Database</a><small>10</small></li>
   
+    <li><a href="/tags/Design/">Design</a><small>1</small></li>
+  
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
     <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>14</small></li>
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -878,7 +891,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>1</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>4</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -898,9 +911,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -921,23 +934,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a>
+        <a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a>
       </li>
     
       <li>
-        <a href="/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/">Setup API Gateway Custom Authorizer Lambda Function in Java</a>
+        <a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a>
       </li>
     
       <li>
-        <a href="/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/">Reading Note of The Pragmatic Programmer</a>
+        <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
       </li>
     
       <li>
-        <a href="/2017/07/25/AWS-Cross-Account-Access-through-Assuming-Role-using-IAM/">AWS Cross Account Access through Assuming Role using IAM</a>
+        <a href="/2017/08/04/Reading-Note-of-Code-Complete/">Reading Note of Code Complete</a>
       </li>
     
       <li>
-        <a href="/2017/07/23/C-Extern-Function/">C Extern Function</a>
+        <a href="/2017/08/04/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
       </li>
     
   </ul>

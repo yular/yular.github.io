@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 13 | YBC HomePage</title>
+  <title>Seite 13 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,348 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-20T02:51:18.000Z"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">2015-10-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">SSL Certification Serverside Deployment Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the simple guide to deploy SSL certification on server side. Currently, we use Tomcat8 in this tutorial.</p>
+<h4 id="Generate-the-pfx-file-on-Windows"><a href="#Generate-the-pfx-file-on-Windows" class="headerlink" title="Generate the pfx file on Windows"></a>Generate the pfx file on Windows</h4><p>Here is a good <a href="https://major.io/2007/03/23/exporting-ssl-certificates-from-windows-to-linux/" target="_blank" rel="external">tutorial</a>. </p>
+<p>After we get the pfx file, please remember the password and send this file to the remote server.</p>
+<h4 id="Decrypt-the-PFX-File"><a href="#Decrypt-the-PFX-File" class="headerlink" title="Decrypt the PFX File"></a>Decrypt the PFX File</h4><p>In this step, we run the following command to decrypt the pfx file created in the last step.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in file.pfx -out file.pem</span><br></pre></td></tr></table></figure></p>
+<p>We will be asked to provide the password for the PFX file in this step. Once we enter that, we will again be asked to provide a new password which is used to encrypt the private key. Please remember this password also. Here we set the new password as “changeit” in our example.</p>
+<p>When this step is complete, we should have a PEM file. Open the file in a text editor and copy the private key and certificate to different files. Remember to keep the dashed lines intact when we copy the certificates. There is some additional text above the key, and also between the key and certificate – this text should be ignored and should not be included in the certificate and key files.</p>
+<p>Now we will get a file.key and a file.crt file.</p>
+<h4 id="Decrypt-the-private-key"><a href="#Decrypt-the-private-key" class="headerlink" title="Decrypt the private key"></a>Decrypt the private key</h4><p>In this step, run this command to decrypt the private key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in file.key -out file.key</span><br></pre></td></tr></table></figure></p>
+<p>Again openSSL will ask for a password to decrypt the key, and this is the password we set when you decrypted the PFX.</p>
+<h4 id="Generate-the-SSL-Certificate"><a href="#Generate-the-SSL-Certificate" class="headerlink" title="Generate the SSL Certificate"></a>Generate the SSL Certificate</h4><p>In this step, we will create a new PFX certificate through the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile more.crt</span><br></pre></td></tr></table></figure></p>
+<p>In this step, OpenSSL will us to enter a new passowrd for this pfx file and in this tutorial, we use “changeit” again. Note that the more.crt is optional in some cases. And then we can install certificate.pfx into Tomcat8 like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/tomcat8/sso</span><br><span class="line">cp certificate.pfx /opt/tomcat8/sso</span><br><span class="line">cp file.key /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br><span class="line">cp file.crt /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Configure-Tomcat8"><a href="#Configure-Tomcat8" class="headerlink" title="Configure Tomcat8"></a>Configure Tomcat8</h4><p>The last step is about server configuration. For Tomcat, the only thing we have to do is to edit its server.xml file which is under its own conf directory. So run this command to open it in vim:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/tomcat8/conf/server.xml</span><br><span class="line">``` </span><br><span class="line">And <span class="keyword">then</span> edit the &lt;Connector&gt; tag and change it as follows:</span><br><span class="line">``` bash</span><br><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span><br><span class="line"></span><br><span class="line"> maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"> keystoreType=<span class="string">"PKCS12"</span></span><br><span class="line"></span><br><span class="line"> keystoreFile=<span class="string">"/opt/tomcat8/sso/certificate.pfx"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line"> clientAuth=<span class="string">"false"</span> sslProtocol=<span class="string">"TLS"</span></span><br><span class="line"></span><br><span class="line"> ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>If we skip the step to generate a new pfx file, then the following context of <connector> should also work:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11AprProtocol"</span></span><br><span class="line"></span><br><span class="line">  maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"> </span><br><span class="line">  keystoreType=<span class="string">"PKCS12"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateFile=<span class="string">"/opt/tomcat8/sso/file.crt"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateKeyFile=<span class="string">"/opt/tomcat8/sso/file.key"</span></span><br><span class="line"></span><br><span class="line">  SSLVerifyClient=<span class="string">"optional"</span> SSLProtocol=<span class="string">"TLSv1+TLSv1.1+TLSv1.2"</span> </span><br><span class="line"></span><br><span class="line">  ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></connector></p>
+<p>Actually, the ciphers field is not necessary in some cases. But if when we re/start the server and visit the website, we get a WEAK PASSWORD or similar exception, then that field is needed.</p>
+<p>Now just re/start the server and type <a href="https://your_url" target="_blank" rel="external">https://your_url</a> to see whether it works.</p>
+<p>Hope this tutorial is helpful and welcome any feedbacks~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-20T02:49:23.000Z"><a href="/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">2015-10-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">Node and Angular JS Project Creation Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a simple tutorial to create a project developed in Node and Angular. It is part of a MEAN project but now we only introduce the Node and Angular part.</p>
+<h3 id="Download-and-Install-Node"><a href="#Download-and-Install-Node" class="headerlink" title="Download and Install Node"></a>Download and Install Node</h3><p>Here is the official website of <a href="https://nodejs.org/en/" target="_blank" rel="external">Node</a>. And download the Node.js installer from <a href="https://nodejs.org/download/" target="_blank" rel="external">here</a>.</p>
+<p>In Debian based distributions, there is a name clash with another utility called node. The suggested solution is to also install the nodejs-legacy apt package, which renames node to nodejs. Just type the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nodejs-legacy npm</span><br><span class="line">nodejs --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure></p>
+<p>If we can see the version information of npm and nodejs, it means that Node has been installed on our system successfully.</p>
+<hr>
+
+<h3 id="Create-the-Project"><a href="#Create-the-Project" class="headerlink" title="Create the Project"></a>Create the Project</h3><p>At first, go to the directory where we want to put the project and then run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
+<p>Then the system will ask us to fill in some information such as script information, name and version and when we are done, a package.json file will be generated. Here is my example (remember to set private field as true):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"templatetech"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A code template for AngularJs"</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"karma"</span>: <span class="string">"^0.12.16"</span>,</span><br><span class="line">    <span class="string">"karma-chrome-launcher"</span>: <span class="string">"^0.1.4"</span>,</span><br><span class="line">    <span class="string">"karma-firefox-launcher"</span>: <span class="string">"^0.1.3"</span>,</span><br><span class="line">    <span class="string">"karma-jasmine"</span>: <span class="string">"~0.1.0"</span>,</span><br><span class="line">    <span class="string">"protractor"</span>: <span class="string">"^2.1.0"</span>,</span><br><span class="line">    <span class="string">"http-server"</span>: <span class="string">"^0.6.1"</span>,</span><br><span class="line">    <span class="string">"tmp"</span>: <span class="string">"0.0.23"</span>,</span><br><span class="line">    <span class="string">"bower"</span>: <span class="string">"^1.3.1"</span>,</span><br><span class="line">    <span class="string">"shelljs"</span>: <span class="string">"^0.2.6"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"postinstall"</span>: <span class="string">"bower install"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"prestart"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"http-server -a 0.0.0.0 -p 8000"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"pretest"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"node node_modules/karma/bin/karma start test/karma.conf.js"</span>,</span><br><span class="line">    <span class="string">"test-single-run"</span>: <span class="string">"node node_modules/karma/bin/karma start test/karma.conf.js  --single-run"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"preupdate-webdriver"</span>: <span class="string">"npm install"</span>,</span><br><span class="line">    <span class="string">"update-webdriver"</span>: <span class="string">"webdriver-manager update"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"preprotractor"</span>: <span class="string">"npm run update-webdriver"</span>,</span><br><span class="line">    <span class="string">"protractor"</span>: <span class="string">"protractor test/protractor-conf.js"</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">"update-index-async"</span>: <span class="string">"node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + cat('bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"yular"</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"GPL-3.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we can edit the package.json anytime we want. Now we can run this command to download the dependencies mentioned in the script field.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>Now that the project is created successfully.</p>
+<hr>
+
+<h3 id="Intall-Helper-Tool"><a href="#Intall-Helper-Tool" class="headerlink" title="Intall Helper Tool"></a>Intall Helper Tool</h3><p>When we run the above command, we may be notified that brow is missing. This will not cause big problems but we had better install brow tool.<br>At first, we should install bower on our system:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g bower</span><br></pre></td></tr></table></figure></p>
+<p>Then in our project directory, create a new json file named “bower.json” and here is the content of my bower.json file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"templatetech"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"A code template for AngularJs"</span>, </span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"angular"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-mocks"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"jquery"</span>: <span class="string">"~2.1.1"</span>,</span><br><span class="line">    <span class="string">"bootstrap"</span>: <span class="string">"~3.1.1"</span>,</span><br><span class="line">    <span class="string">"angular-route"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-resource"</span>: <span class="string">"1.3.x"</span>,</span><br><span class="line">    <span class="string">"angular-animate"</span>: <span class="string">"1.3.x"</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now run this command and we will find that a new folder named “node_modules” will show up:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bower install</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="npm-Commands"><a href="#npm-Commands" class="headerlink" title="npm Commands:"></a>npm Commands:</h3><p>Start a local development web-server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
+<p>Start the Karma unit test runner:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>Run the Protractor end to end (E2E) tests:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run protractor</span><br></pre></td></tr></table></figure></p>
+<p>Install the drivers needed by Protractor:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run update-webdriver</span><br></pre></td></tr></table></figure></p>
+<p>To clean cache to make sure that our change of code can make some effect, type this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-18T01:47:00.000Z"><a href="/2015/10/17/LintCode-Problem-Solution-List-VI/">2015-10-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/17/LintCode-Problem-Solution-List-VI/">LintCode Problem Solution List VI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-18T01:46:52.000Z"><a href="/2015/10/17/LintCode-Problem-Solution-List-V/">2015-10-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/17/LintCode-Problem-Solution-List-V/">LintCode Problem Solution List V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-18T01:46:49.000Z"><a href="/2015/10/17/LintCode-Problem-Solution-List-IV/">2015-10-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/17/LintCode-Problem-Solution-List-IV/">LintCode Problem Solution List IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-09T03:28:17.000Z"><a href="/2015/10/08/Some-Useful-Web-Page-Elements-Open-Source-Project-Library/">2015-10-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/08/Some-Useful-Web-Page-Elements-Open-Source-Project-Library/">Some Useful Web Page Elements Open Source Project/Library</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are some open source projects or libraries of web page elements. Hope this list can be helpful and welcome recommendations of these kinds of libraries and projects.</p>
+<h3 id="JQuery-UI"><a href="#JQuery-UI" class="headerlink" title="JQuery UI"></a>JQuery UI</h3><p><a href="https://jqueryui.com/" target="_blank" rel="external">click here</a><br>Include many kinds of web page elements and is used widely.</p>
+<hr>
+
+<h3 id="Boostnipp"><a href="#Boostnipp" class="headerlink" title="Boostnipp"></a>Boostnipp</h3><p><a href="http://bootsnipp.com/" target="_blank" rel="external">click here</a><br>Include many beautiful and pracitcal web page elements developed in Boostrap.</p>
+<hr>
+
+<h3 id="Boostrap-Component"><a href="#Boostrap-Component" class="headerlink" title="Boostrap Component"></a>Boostrap Component</h3><p><a href="http://getbootstrap.com/components/" target="_blank" rel="external">click here</a><br>Include many kinds of basic web page elements implemented in Boostrap.</p>
+<hr>
+
+<h3 id="Angular-Bootstrap-UI"><a href="#Angular-Bootstrap-UI" class="headerlink" title="Angular Bootstrap  UI"></a>Angular Bootstrap  UI</h3><p><a href="https://angular-ui.github.io/bootstrap/" target="_blank" rel="external">click here</a><br>Include various kinds of web page elements developed in Boostrap and Angualr-js.</p>
+<hr>
+
+<h3 id="Angular-Material-UI"><a href="#Angular-Material-UI" class="headerlink" title="Angular Material UI"></a>Angular Material UI</h3><p><a href="https://material.angularjs.org/latest/" target="_blank" rel="external">click here</a><br>A powerful Angular JS UI library that provides a set of reusable, well-tested, and accessible UI components based on Material Design.</p>
+<hr>
+
+<h3 id="FontAwesome"><a href="#FontAwesome" class="headerlink" title="FontAwesome"></a>FontAwesome</h3><p><a href="https://fortawesome.github.io/Font-Awesome/" target="_blank" rel="external">click here</a><br><a href="https://fortawesome.github.io/Font-Awesome/cheatsheet/" target="_blank" rel="external">click here</a><br>A very useful library provides scalable vector icons that can instantly be customized including size, color, drop shadow, and anything that can be done with the power of CSS.</p>
+<hr>
+
+<h3 id="Angular-Media"><a href="#Angular-Media" class="headerlink" title="Angular Media"></a>Angular Media</h3><p><a href="https://github.com/colthreepv/angular-media-player" target="_blank" rel="external">click here</a><br>An AngularJs media library that support music and video players.</p>
+<hr>
+
+<h3 id="Scrollable-Table"><a href="#Scrollable-Table" class="headerlink" title="Scrollable Table"></a>Scrollable Table</h3><p><a href="https://github.com/alalonde/angular-scrollable-table" target="_blank" rel="external">click here</a><br>An easy to use scrollable table library developed in Boostrap and Angular-js.</p>
+<hr>
+
+<h3 id="Drag-and-Drop-Lists"><a href="#Drag-and-Drop-Lists" class="headerlink" title="Drag and Drop Lists"></a>Drag and Drop Lists</h3><p><a href="https://github.com/marceljuenemann/angular-drag-and-drop-lists" target="_blank" rel="external">click here</a><br>An easy to use drag and drop lists library developed in Boostrap and Angular-js.</p>
+<hr>
+
+<h3 id="Angular-UI-Tree"><a href="#Angular-UI-Tree" class="headerlink" title="Angular UI Tree"></a>Angular UI Tree</h3><p><a href="https://github.com/angular-ui-tree/angular-ui-tree" target="_blank" rel="external">click here</a><br>An easy to use library that provides sorting nested lists, and elements drag &amp; drop support.</p>
+<p><hr></p>
+<h3 id="D3-Js"><a href="#D3-Js" class="headerlink" title="D3 Js"></a>D3 Js</h3><p><a href="https://d3js.org/" target="_blank" rel="external">click here</a><br>A large Javascript library that is useful for data visualization.</p>
+<hr>
+
+<h3 id="UI-Ace"><a href="#UI-Ace" class="headerlink" title="UI.Ace"></a>UI.Ace</h3><p><a href="http://angular-ui.github.io/ui-ace/" target="_blank" rel="external">click here</a><br>An easy to use Angular UI bootstrap library that generate text editor with code hight light feature as well as line number feature.</p>
+<hr>
+
+<h3 id="Angular-Device-Detect"><a href="#Angular-Device-Detect" class="headerlink" title="Angular Device Detect"></a>Angular Device Detect</h3><p><a href="http://code.ciphertrick.com/2015/09/21/detect-os-browser-and-device-in-angularjs/" target="_blank" rel="external">click here</a><br>An Angular Js library that helps to detect the type and version of client part device browsing the website.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -281,328 +623,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:40:47.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-III/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-III/">USACO Training Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:34:29.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-II/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-II/">USACO Training Problem Solution List II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-23T07:34:01.000Z"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-I/">2015-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/23/USACO-Training-Problem-Solution-List-I/">USACO Training Problem Solution List I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-09T03:01:57.000Z"><a href="/2015/09/08/Docker-Install-Guide/">2015-09-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/08/Docker-Install-Guide/">Docker Install Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the official website for <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>, which is one the hottest platform for distributed applications.</p>
-<p>To install Docker on our machine, here is the <a href="http://docs.docker.com/mac/started/" target="_blank" rel="external">official guide</a>.</p>
-<p>Here is my instructions about how to install Docker on Ubuntu 14.04.</p>
-<p>Environment: Ubuntu 14.04<br>Docker: 1.8.1</p>
-<h3 id="Install-wget-command"><a href="#Install-wget-command" class="headerlink" title="Install wget command"></a>Install wget command</h3><p>Check whether our machine has installed wget or not.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> wget</span><br></pre></td></tr></table></figure></p>
-<p>If not, use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install wget</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Install-Docker"><a href="#Install-Docker" class="headerlink" title="Install Docker"></a>Install Docker</h3><p>Using wget to install Docker<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure></p>
-<p>The system will prompts us for our sudo password.</p>
-<hr>
-
-<h3 id="Verifiy-Docker-installation"><a href="#Verifiy-Docker-installation" class="headerlink" title="Verifiy Docker installation"></a>Verifiy Docker installation</h3><p>Using this commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run hello-world</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image <span class="string">'hello-world:latest'</span> locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">535020c3e8ad: Pull complete </span><br><span class="line">af340544ed62: Pull complete </span><br><span class="line">Digest: sha256:a68868bfe696c00866942e8f5ca39e3e31b79c1e50feaee4ce5e28df2f051d5c</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker.</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the <span class="string">"hello-world"</span> image from the Docker Hub.</span><br><span class="line"> 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker Hub account:</span><br><span class="line"> https://hub.docker.com</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/userguide/</span><br></pre></td></tr></table></figure></p>
-<p>But if we fail to run this command because of the following reason:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.20/containers/create: dial unix /var/run/docker.sock: no such file or directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>Here may be the solutions:</p>
-<h5 id="Try-sudo"><a href="#Try-sudo" class="headerlink" title="Try sudo"></a>Try sudo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>The reason is that we usually do not use root in the machine while docker is installed under /usr directory. So we may need to use sudo command.</p>
-<p>or</p>
-<h5 id="Restart-docker-service"><a href="#Restart-docker-service" class="headerlink" title="Restart docker service"></a>Restart docker service</h5><p>At first, let us check whether docker is running or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker status</span><br><span class="line">``` </span><br><span class="line">or</span><br><span class="line">``` bash</span><br><span class="line">$ sudo /etc/init.d/docker status</span><br></pre></td></tr></table></figure></p>
-<p>If the docker is running, the output should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start/running, process 7213</span><br></pre></td></tr></table></figure></p>
-<p>otherwise, restart or start the service:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker restart</span><br><span class="line">or</span><br><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure></p>
-<p>Or</p>
-<h5 id="Not-listen-to-var-run-docker-sock"><a href="#Not-listen-to-var-run-docker-sock" class="headerlink" title="Not listen to /var/run/docker.sock"></a>Not listen to /var/run/docker.sock</h5><p>In this case, please see this <a href="http://askubuntu.com/questions/615394/problem-with-docker" target="_blank" rel="external">link</a>. Hope it can help.</p>
-<p>If more issuses are meet, please leave comments here~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-06T08:25:50.000Z"><a href="/2015/09/06/Mahout-Install-and-Basic-Commands/">2015-09-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/06/Mahout-Install-and-Basic-Commands/">Mahout Install and Basic Commands</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a simple tutorial for Mahout installation and summary of its basic commands.</p>
-<h3 id="Mahout-Installation"><a href="#Mahout-Installation" class="headerlink" title="Mahout Installation"></a>Mahout Installation</h3><p>At first, we should install a Hadoop system on the machine and here are the tutorials of Single Node Hadoop Setup Guide:<a href="http://yular.github.io/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 1.x</a> and <a href="http://yular.github.io/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 2.x</a>.</p>
-<p>Then we can download Mahout from <a href="https://mahout.apache.org/general/downloads.html" target="_blank" rel="external">official website</a> or from <a href="https://github.com/apache/mahout" target="_blank" rel="external">Github</a>. We can download the pre-built jar or source code. </p>
-<p>To install Mahout source code project, run these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf mahout-version.tar.gz <span class="comment">#Optional but needed if we download the tarball</span></span><br><span class="line"><span class="built_in">cd</span> mahout</span><br><span class="line">mvn clean</span><br><span class="line">mvn install -DskipTests</span><br></pre></td></tr></table></figure></p>
-<p>The compile and package process will cost some time but it will be faster if we skip tests when run “mvn install”. If no errors occur, it means the Mahout project has been built successfully and workable now.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-05T06:37:57.000Z"><a href="/2015/09/04/Kafka-Install-and-Basic-Commands/">2015-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/04/Kafka-Install-and-Basic-Commands/">Kafka Install and Basic Commands</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the official website of <a href="http://kafka.apache.org/" target="_blank" rel="external">Kafka</a>.</p>
-<h3 id="KafKa-Install"><a href="#KafKa-Install" class="headerlink" title="KafKa Install"></a>KafKa Install</h3><p>Here is the official document of <a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">Kafka Install</a>.</p>
-<p>Now the following is the guide of kafka installation:</p>
-<h5 id="Download-and-Un-tar-Kafka"><a href="#Download-and-Un-tar-Kafka" class="headerlink" title="Download and Un-tar Kafka"></a>Download and Un-tar Kafka</h5><p><a href="http://kafka.apache.org/documentation.html#quickstart" target="_blank" rel="external">click here</a> to download Kafka.</p>
-<p>Run this command to un-tar Kafka<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf kafka_[version code].tgz</span><br><span class="line"><span class="built_in">cd</span> kafka_[version code]</span><br></pre></td></tr></table></figure></p>
-<p>Now the stand-alone mode of Kafka is setup.</p>
-<hr>
-
-<h3 id="Start-Kafka-Server"><a href="#Start-Kafka-Server" class="headerlink" title="Start Kafka Server"></a>Start Kafka Server</h3><p>Kafka uses ZooKeeper so we need to first start a ZooKeeper server. If we do not have one, run the following scripts under Kafka project to get a quick-and-dirty single-node ZooKeeper instance.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zookeeper-server-start.sh config/zookeeper.properties</span><br></pre></td></tr></table></figure></p>
-<p>If we have already installed a Zookeeper instance, check the <a href="http://yular.github.io/2015/09/03/Zookeeper-Install-and-Basic-Commands/">this link</a> to see how to start it.</p>
-<p>After ZooKeeper is boost, open a new terminal tab/window and run this script:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-server-start.sh config/server.properties</span><br></pre></td></tr></table></figure></p>
-<p>Note that if Kafa fails to start because it cannot create the log directory, do these steps:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi config/server.properties <span class="comment"># See what is the value of log.dir item; initially it should be /var/kafka-logs and let us modify it as /tmp/kafka-log</span></span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">sudo mkdir kafka-logs</span><br><span class="line">sudo chmod 777 kafka-logs</span><br></pre></td></tr></table></figure></p>
-<p>Now the Kafka cluster is running.</p>
-<hr>
-
-<h3 id="Kafka-Basic-Example"><a href="#Kafka-Basic-Example" class="headerlink" title="Kafka Basic Example"></a>Kafka Basic Example</h3><p>When Kafka server is running, follow these steps to run a simple example.</p>
-<p>At first, open a new terminal tab/window and then create a topic named “test”:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
-<p>And we can run this script to list all existing topics:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-topics.sh --list --zookeeper localhost:2181</span><br></pre></td></tr></table></figure></p>
-<p>If the topic is generated successfully, then start a publisher to send some message:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-producer.sh --broker-list localhost:9092 --topic <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
-<p>Note: The topic name should be correct.</p>
-<p>Now open a new terminal tab/window to start a consumer to receive the messages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic <span class="built_in">test</span> --from-beginning</span><br></pre></td></tr></table></figure></p>
-<p>Note: The topic name should be correct.</p>
-<p>Now if we type message on publisher end and send it, then in the consumer end, we will see the message in a short time:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># publisher</span></span><br><span class="line">haha</span><br><span class="line">hoho</span><br><span class="line">hehe</span><br><span class="line"></span><br><span class="line"><span class="comment"># consumer</span></span><br><span class="line">haha</span><br><span class="line">hoho</span><br><span class="line">hehe</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/14/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -628,7 +653,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -659,13 +684,15 @@
   
     <li><a href="/tags/Database/">Database</a><small>10</small></li>
   
+    <li><a href="/tags/Design/">Design</a><small>1</small></li>
+  
     <li><a href="/tags/Graph-Theory/">Graph Theory</a><small>1</small></li>
   
     <li><a href="/tags/IOS/">IOS</a><small>1</small></li>
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>14</small></li>
+    <li><a href="/tags/Java/">Java</a><small>15</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -691,7 +718,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>1</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>4</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -711,9 +738,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 10px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -734,23 +761,23 @@
   <ul class="entry">
     
       <li>
-        <a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a>
+        <a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a>
       </li>
     
       <li>
-        <a href="/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/">Setup API Gateway Custom Authorizer Lambda Function in Java</a>
+        <a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a>
       </li>
     
       <li>
-        <a href="/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/">Reading Note of The Pragmatic Programmer</a>
+        <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
       </li>
     
       <li>
-        <a href="/2017/07/25/AWS-Cross-Account-Access-through-Assuming-Role-using-IAM/">AWS Cross Account Access through Assuming Role using IAM</a>
+        <a href="/2017/08/04/Reading-Note-of-Code-Complete/">Reading Note of Code Complete</a>
       </li>
     
       <li>
-        <a href="/2017/07/23/C-Extern-Function/">C Extern Function</a>
+        <a href="/2017/08/04/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
       </li>
     
   </ul>
