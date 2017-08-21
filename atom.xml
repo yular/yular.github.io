@@ -90,11 +90,46 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/</id>
     <published>2017-08-05T06:54:00.000Z</published>
-    <updated>2017-08-07T06:39:23.000Z</updated>
+    <updated>2017-08-21T07:59:51.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
+&lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;应该去除的注释:&lt;br&gt;&lt;strong&gt; 不恰当的信息
+&lt;/strong&gt; 废弃的注释&lt;br&gt;&lt;strong&gt; 冗余的注释
+&lt;/strong&gt; 糟糕的注释&lt;br&gt;** 注释掉的代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;应当能单个命令签出并构建系统。&lt;/li&gt;
+&lt;li&gt;应当能单个命令运行全部测试。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;输入参数尽量少。没参数最好，一个次之，两个再次，三个更次。三个以上应坚决避免。&lt;/li&gt;
+&lt;li&gt;别输出输入参数。非要修改的话，则修改函数其所在对象的状态。&lt;/li&gt;
+&lt;li&gt;布尔值输入(selector)参数宣告了函数不止做了一件事，会令人迷惑，应当消灭掉。&lt;/li&gt;
+&lt;li&gt;死函数，也就是不被调用的函数，要坚决去掉。&lt;/li&gt;
+&lt;li&gt;不能忽视安全（不一定指网络攻击，函数不做不合法输入的检测也算）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;语言&quot;&gt;&lt;a href=&quot;#语言&quot; class=&quot;headerlink&quot; title=&quot;语言&quot;&gt;&lt;/a&gt;语言&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;尽量减少源文件的语言数量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;设计&quot;&gt;&lt;a href=&quot;#设计&quot; class=&quot;headerlink&quot; title=&quot;设计&quot;&gt;&lt;/a&gt;设计&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Do not repeat yourself (DRY). 别重复。&lt;/li&gt;
+&lt;li&gt;别在错误的抽象层级上写代码。要有正确的抽象模型，较高层次抽象在基类，较低层次抽象在派生类（与实现细节有关），不同层级的概念要放入不同的容器当中。&lt;/li&gt;
+&lt;li&gt;基类应当对派生类一无所知。若无法去除耦合，将基类和派生类部署到不同的jar中来实现物理解耦。&lt;/li&gt;
+&lt;li&gt;接口需要的信息不能过多。比如需要调用过多的函数获得输入参数，从而导致耦合度过高。&lt;/li&gt;
+&lt;li&gt;不互相依赖的东西或模块不该耦合，应当花时间研究声明函数，变量和常量的地方。&lt;/li&gt;
+&lt;li&gt;变量和函数应在靠近被调用的地方定义，本地变量则在首次被使用的位置上声明。&lt;/li&gt;
+&lt;li&gt;若使用静态函数，应确保它没有多态行为（函数名一样但输入输出不同）。&lt;/li&gt;
+&lt;li&gt;用多态替代if/else和switch。&lt;/li&gt;
+&lt;li&gt;把逻辑依赖改为物理依赖。依赖者模块不应对被依赖者模块有假定，它应当明确地询问后者全部信息。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
+&lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;应该去除
     
     </summary>
     
