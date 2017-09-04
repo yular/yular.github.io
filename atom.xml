@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-08-07T06:30:50.000Z</updated>
+  <updated>2017-09-04T23:00:46.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Non Access Modifiers Summary</title>
+    <link href="http://yular.github.io/2017/09/04/Java-Non-Access-Modifiers-Summary/"/>
+    <id>http://yular.github.io/2017/09/04/Java-Non-Access-Modifiers-Summary/</id>
+    <published>2017-09-04T22:13:27.000Z</published>
+    <updated>2017-09-04T23:00:46.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here are the references: &lt;a href=&quot;https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;JSL8&lt;/a&gt; and &lt;a href=&quot;https://www.tutorialspoint.com/java/java_nonaccess_modifiers.htm&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Java Non Access Modifiers from TutorialsPoint&lt;/a&gt;. &lt;/p&gt;
+&lt;h3 id=&quot;Static-Modifier&quot;&gt;&lt;a href=&quot;#Static-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Static Modifier&quot;&gt;&lt;/a&gt;Static Modifier&lt;/h3&gt;&lt;p&gt;Static modifier can be used as variable and method modifier.&lt;/p&gt;
+&lt;h4 id=&quot;Static-Variable&quot;&gt;&lt;a href=&quot;#Static-Variable&quot; class=&quot;headerlink&quot; title=&quot;Static Variable&quot;&gt;&lt;/a&gt;Static Variable&lt;/h4&gt;&lt;p&gt;Static variables will exist independently for all the instances of the class. There is only one copy of every static variable in the memory. It is a kind of class variable and local variables cannot be declared static.&lt;/p&gt;
+&lt;h4 id=&quot;Static-Method&quot;&gt;&lt;a href=&quot;#Static-Method&quot; class=&quot;headerlink&quot; title=&quot;Static Method&quot;&gt;&lt;/a&gt;Static Method&lt;/h4&gt;&lt;p&gt;Static methods will exist independently for all the instances of the class. Static methods can be used directly without any instance variables of any object of the class they are defined in.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Final-Modifier&quot;&gt;&lt;a href=&quot;#Final-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Final Modifier&quot;&gt;&lt;/a&gt;Final Modifier&lt;/h3&gt;&lt;p&gt;Final modifier is used to finalize the implementation/creation of variales, methods, and classes.&lt;/p&gt;
+&lt;h4 id=&quot;Final-Variable&quot;&gt;&lt;a href=&quot;#Final-Variable&quot; class=&quot;headerlink&quot; title=&quot;Final Variable&quot;&gt;&lt;/a&gt;Final Variable&lt;/h4&gt;&lt;p&gt;Every final variable can be explicitly initialized only once and then they cannot be reassigned to refer to a different object. But even though final variables use the same reference all the time, the value of their members can be changed.&lt;/p&gt;
+&lt;p&gt;Usually, final and static modifiers are used together to define constants.&lt;/p&gt;
+&lt;h4 id=&quot;Final-Method&quot;&gt;&lt;a href=&quot;#Final-Method&quot; class=&quot;headerlink&quot; title=&quot;Final Method&quot;&gt;&lt;/a&gt;Final Method&lt;/h4&gt;&lt;p&gt;Final methods cannot be overriddedn by any subclasses. It indicates that the content of these methods should not be changed by any clients.&lt;/p&gt;
+&lt;h4 id=&quot;Final-Class&quot;&gt;&lt;a href=&quot;#Final-Class&quot; class=&quot;headerlink&quot; title=&quot;Final Class&quot;&gt;&lt;/a&gt;Final Class&lt;/h4&gt;&lt;p&gt;Final classes cannot be extended by other classes. It indicates that these classes should not be inherited.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Abstract-Modifier&quot;&gt;&lt;a href=&quot;#Abstract-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Abstract Modifier&quot;&gt;&lt;/a&gt;Abstract Modifier&lt;/h3&gt;&lt;p&gt;Abstract modifier can be used for methods and classes, indicating &lt;code&gt;&amp;quot;change&amp;quot;&lt;/code&gt; the content of these methods or classes in subclasses.&lt;/p&gt;
+&lt;h4 id=&quot;Abstract-Method&quot;&gt;&lt;a href=&quot;#Abstract-Method&quot; class=&quot;headerlink&quot; title=&quot;Abstract Method&quot;&gt;&lt;/a&gt;Abstract Method&lt;/h4&gt;&lt;p&gt;Abstract methods do not have method body and their implementation should be provided by subclasses. Abstract methods can never be final or strict.&lt;br&gt;If a class has one or more abstract methods, it must be declared as abstract.&lt;/p&gt;
+&lt;h4 id=&quot;Abstract-Class&quot;&gt;&lt;a href=&quot;#Abstract-Class&quot; class=&quot;headerlink&quot; title=&quot;Abstract Class&quot;&gt;&lt;/a&gt;Abstract Class&lt;/h4&gt;&lt;p&gt;Abstract classes cannot be instantiated and they are designed for inheritance. Abstract classes can never be final and they can contain both abstract methods and normal methods.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Synchronized-Modifier&quot;&gt;&lt;a href=&quot;#Synchronized-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Synchronized Modifier&quot;&gt;&lt;/a&gt;Synchronized Modifier&lt;/h3&gt;&lt;p&gt;Synchronized modifier can be used for methods and applied on variables (lock a specific variable). It indicates that these methods can be accessed by only one thread at a time. Synchronized modifier is widely used in concurrent situation.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Transient-Modifier&quot;&gt;&lt;a href=&quot;#Transient-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Transient Modifier&quot;&gt;&lt;/a&gt;Transient Modifier&lt;/h3&gt;&lt;p&gt;Transient modifier can be used for variables. It indicates that JVM will skip these variables when it is serializing the objects containing them.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Volatile-Modifier&quot;&gt;&lt;a href=&quot;#Volatile-Modifier&quot; class=&quot;headerlink&quot; title=&quot;Volatile Modifier&quot;&gt;&lt;/a&gt;Volatile Modifier&lt;/h3&gt;&lt;p&gt;Volatile modifier can be used for variables. It indicates that a thread accessing these variables must always merge its own copy of them with the master copy in the memory.&lt;br&gt;Volatile modifier can only be used for variables in instances, which are of type object or private. A volatile object reference can be null.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here a
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Test Driven Development by Example</title>
@@ -90,13 +135,18 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/</id>
     <published>2017-08-05T06:54:00.000Z</published>
-    <updated>2017-08-21T07:59:51.000Z</updated>
+    <updated>2017-08-21T08:02:39.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
 &lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;应该去除的注释:&lt;br&gt;&lt;strong&gt; 不恰当的信息
-&lt;/strong&gt; 废弃的注释&lt;br&gt;&lt;strong&gt; 冗余的注释
-&lt;/strong&gt; 糟糕的注释&lt;br&gt;** 注释掉的代码&lt;/li&gt;
+&lt;li&gt;应该去除的注释:&lt;ul&gt;
+&lt;li&gt;不恰当的信息&lt;/li&gt;
+&lt;li&gt;废弃的注释&lt;/li&gt;
+&lt;li&gt;冗余的注释&lt;/li&gt;
+&lt;li&gt;糟糕的注释&lt;/li&gt;
+&lt;li&gt;注释掉的代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;环境&quot;&gt;&lt;a href=&quot;#环境&quot; class=&quot;headerlink&quot; title=&quot;环境&quot;&gt;&lt;/a&gt;环境&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;应当能单个命令签出并构建系统。&lt;/li&gt;
@@ -608,27 +658,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Stub Test vs Mock Test vs Spy Test</title>
-    <link href="http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/"/>
-    <id>http://yular.github.io/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/</id>
-    <published>2017-05-31T05:25:29.000Z</published>
-    <updated>2017-06-02T08:20:25.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the Wikipedia link about &lt;a href=&quot;https://en.wikipedia.org/wiki/Test_double&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Test Double&lt;/a&gt;. There are five kinds of &lt;code&gt;Test Doubles&lt;/code&gt;: &lt;code&gt;Dummy Test&lt;/code&gt;, &lt;code&gt;Fake Test&lt;/code&gt;, &lt;code&gt;Stub Test&lt;/code&gt;, &lt;code&gt;Mock Test&lt;/code&gt; and &lt;code&gt;Spy Test&lt;/code&gt;. Here we focus on the last three kinds of test.&lt;/p&gt;
-&lt;h3 id=&quot;Stub-Test&quot;&gt;&lt;a href=&quot;#Stub-Test&quot; class=&quot;headerlink&quot; title=&quot;Stub Test&quot;&gt;&lt;/a&gt;Stub Test&lt;/h3&gt;&lt;h3 id=&quot;Mock-Test&quot;&gt;&lt;a href=&quot;#Mock-Test&quot; class=&quot;headerlink&quot; title=&quot;Mock Test&quot;&gt;&lt;/a&gt;Mock Test&lt;/h3&gt;&lt;h3 id=&quot;Spy-Test&quot;&gt;&lt;a href=&quot;#Spy-Test&quot; class=&quot;headerlink&quot; title=&quot;Spy Test&quot;&gt;&lt;/a&gt;Spy Test&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the Wikipedia link about &lt;a href=&quot;https://en.wikipedia.org/wiki/Test_double&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Test Double&lt;/a&gt;. Ther
-    
-    </summary>
-    
-    
-      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
     
   </entry>
   
