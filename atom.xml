@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T02:40:03.000Z</updated>
+  <updated>2017-09-05T05:10:12.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -16,11 +16,140 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Linux System and Adminstrative Commands IV</title>
+    <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/"/>
+    <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/</id>
+    <published>2017-09-05T02:40:54.000Z</published>
+    <updated>2017-09-05T05:10:12.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Network&quot;&gt;&lt;a href=&quot;#Network&quot; class=&quot;headerlink&quot; title=&quot;Network&quot;&gt;&lt;/a&gt;Network&lt;/h2&gt;&lt;h3 id=&quot;nmap&quot;&gt;&lt;a href=&quot;#nmap&quot; class=&quot;headerlink&quot; title=&quot;nmap&quot;&gt;&lt;/a&gt;nmap&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Network mapper and port scanner.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;ifconfig&quot;&gt;&lt;a href=&quot;#ifconfig&quot; class=&quot;headerlink&quot; title=&quot;ifconfig&quot;&gt;&lt;/a&gt;ifconfig&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Network interface configuration and tuning utility.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;netstat&quot;&gt;&lt;a href=&quot;#netstat&quot; class=&quot;headerlink&quot; title=&quot;netstat&quot;&gt;&lt;/a&gt;netstat&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Show current network statistics and information, such as routing tables and active connection.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;iwconfig&quot;&gt;&lt;a href=&quot;#iwconfig&quot; class=&quot;headerlink&quot; title=&quot;iwconfig&quot;&gt;&lt;/a&gt;iwconfig&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Command set of wireless network configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;ip&quot;&gt;&lt;a href=&quot;#ip&quot; class=&quot;headerlink&quot; title=&quot;ip&quot;&gt;&lt;/a&gt;ip&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Utility for setting up, changing, and analyzing IP networks and attached devices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;route&quot;&gt;&lt;a href=&quot;#route&quot; class=&quot;headerlink&quot; title=&quot;route&quot;&gt;&lt;/a&gt;route&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Show info about or making changes to the kernel routing table.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;iptables&quot;&gt;&lt;a href=&quot;#iptables&quot; class=&quot;headerlink&quot; title=&quot;iptables&quot;&gt;&lt;/a&gt;iptables&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;chkconfig&quot;&gt;&lt;a href=&quot;#chkconfig&quot; class=&quot;headerlink&quot; title=&quot;chkconfig&quot;&gt;&lt;/a&gt;chkconfig&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Check network and system configuration.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;tcpdump&quot;&gt;&lt;a href=&quot;#tcpdump&quot; class=&quot;headerlink&quot; title=&quot;tcpdump&quot;&gt;&lt;/a&gt;tcpdump&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A tool for analyzing and troubleshooting traffic on a network by dumping packet headers matching specified criteria.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Filesystem&quot;&gt;&lt;a href=&quot;#Filesystem&quot; class=&quot;headerlink&quot; title=&quot;Filesystem&quot;&gt;&lt;/a&gt;Filesystem&lt;/h2&gt;&lt;h3 id=&quot;mount&quot;&gt;&lt;a href=&quot;#mount&quot; class=&quot;headerlink&quot; title=&quot;mount&quot;&gt;&lt;/a&gt;mount&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Mount a filesystem, usually on an external device.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;unmount&quot;&gt;&lt;a href=&quot;#unmount&quot; class=&quot;headerlink&quot; title=&quot;unmount&quot;&gt;&lt;/a&gt;unmount&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;gnome-mount&quot;&gt;&lt;a href=&quot;#gnome-mount&quot; class=&quot;headerlink&quot; title=&quot;gnome-mount&quot;&gt;&lt;/a&gt;gnome-mount&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;sync&quot;&gt;&lt;a href=&quot;#sync&quot; class=&quot;headerlink&quot; title=&quot;sync&quot;&gt;&lt;/a&gt;sync&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Force an immediate write of all updated data from buffers to hard drive.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;losetup&quot;&gt;&lt;a href=&quot;#losetup&quot; class=&quot;headerlink&quot; title=&quot;losetup&quot;&gt;&lt;/a&gt;losetup&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Set up and configure loopback devices.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;mkswap&quot;&gt;&lt;a href=&quot;#mkswap&quot; class=&quot;headerlink&quot; title=&quot;mkswap&quot;&gt;&lt;/a&gt;mkswap&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;swapon-swapoff&quot;&gt;&lt;a href=&quot;#swapon-swapoff&quot; class=&quot;headerlink&quot; title=&quot;swapon, swapoff&quot;&gt;&lt;/a&gt;swapon, swapoff&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Enable/disable swap partition or file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;mke2fs&quot;&gt;&lt;a href=&quot;#mke2fs&quot; class=&quot;headerlink&quot; title=&quot;mke2fs&quot;&gt;&lt;/a&gt;mke2fs&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Create a Linux ext2 filesystem.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;mkdosfs&quot;&gt;&lt;a href=&quot;#mkdosfs&quot; class=&quot;headerlink&quot; title=&quot;mkdosfs&quot;&gt;&lt;/a&gt;mkdosfs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;tune2fs&quot;&gt;&lt;a href=&quot;#tune2fs&quot; class=&quot;headerlink&quot; title=&quot;tune2fs&quot;&gt;&lt;/a&gt;tune2fs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;dumpe2fs&quot;&gt;&lt;a href=&quot;#dumpe2fs&quot; class=&quot;headerlink&quot; title=&quot;dumpe2fs&quot;&gt;&lt;/a&gt;dumpe2fs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;hdparm&quot;&gt;&lt;a href=&quot;#hdparm&quot; class=&quot;headerlink&quot; title=&quot;hdparm&quot;&gt;&lt;/a&gt;hdparm&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;fdisk&quot;&gt;&lt;a href=&quot;#fdisk&quot; class=&quot;headerlink&quot; title=&quot;fdisk&quot;&gt;&lt;/a&gt;fdisk&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;fsck-e2fsck-debugfs&quot;&gt;&lt;a href=&quot;#fsck-e2fsck-debugfs&quot; class=&quot;headerlink&quot; title=&quot;fsck, e2fsck, debugfs&quot;&gt;&lt;/a&gt;fsck, e2fsck, debugfs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;badlocks&quot;&gt;&lt;a href=&quot;#badlocks&quot; class=&quot;headerlink&quot; title=&quot;badlocks&quot;&gt;&lt;/a&gt;badlocks&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;lsusb-usbmodules&quot;&gt;&lt;a href=&quot;#lsusb-usbmodules&quot; class=&quot;headerlink&quot; title=&quot;lsusb, usbmodules&quot;&gt;&lt;/a&gt;lsusb, usbmodules&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;lspci&quot;&gt;&lt;a href=&quot;#lspci&quot; class=&quot;headerlink&quot; title=&quot;lspci&quot;&gt;&lt;/a&gt;lspci&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;mkbootdisk&quot;&gt;&lt;a href=&quot;#mkbootdisk&quot; class=&quot;headerlink&quot; title=&quot;mkbootdisk&quot;&gt;&lt;/a&gt;mkbootdisk&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;mkisofs&quot;&gt;&lt;a href=&quot;#mkisofs&quot; class=&quot;headerlink&quot; title=&quot;mkisofs&quot;&gt;&lt;/a&gt;mkisofs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;chroot&quot;&gt;&lt;a href=&quot;#chroot&quot; class=&quot;headerlink&quot; title=&quot;chroot&quot;&gt;&lt;/a&gt;chroot&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;lockfile&quot;&gt;&lt;a href=&quot;#lockfile&quot; class=&quot;headerlink&quot; title=&quot;lockfile&quot;&gt;&lt;/a&gt;lockfile&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;flock&quot;&gt;&lt;a href=&quot;#flock&quot; class=&quot;headerlink&quot; title=&quot;flock&quot;&gt;&lt;/a&gt;flock&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;mknod&quot;&gt;&lt;a href=&quot;#mknod&quot; class=&quot;headerlink&quot; title=&quot;mknod&quot;&gt;&lt;/a&gt;mknod&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;MAKEDEV&quot;&gt;&lt;a href=&quot;#MAKEDEV&quot; class=&quot;headerlink&quot; title=&quot;MAKEDEV&quot;&gt;&lt;/a&gt;MAKEDEV&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;tmpwatch&quot;&gt;&lt;a href=&quot;#tmpwatch&quot; class=&quot;headerlink&quot; title=&quot;tmpwatch&quot;&gt;&lt;/a&gt;tmpwatch&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;dump-restore&quot;&gt;&lt;a href=&quot;#dump-restore&quot; class=&quot;headerlink&quot; title=&quot;dump, restore&quot;&gt;&lt;/a&gt;dump, restore&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;fdformat&quot;&gt;&lt;a href=&quot;#fdformat&quot; class=&quot;headerlink&quot; title=&quot;fdformat&quot;&gt;&lt;/a&gt;fdformat&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Network&quot;&gt;&lt;a href=&quot;#Network&quot; class=&quot;headerlink&quot; title=&quot;Network&quot;&gt;&lt;/a&gt;Network&lt;/h2&gt;&lt;h3 id=&quot;nmap&quot;&gt;&lt;a href=&quot;#nmap&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux System and Adminstrative Commands III</title>
     <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-III/"/>
     <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-III/</id>
     <published>2017-09-05T02:22:58.000Z</published>
-    <updated>2017-09-05T02:40:03.000Z</updated>
+    <updated>2017-09-05T02:41:45.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Job-Control&quot;&gt;&lt;a href=&quot;#Job-Control&quot; class=&quot;headerlink&quot; title=&quot;Job Control&quot;&gt;&lt;/a&gt;Job Control&lt;/h2&gt;&lt;h3 id=&quot;ps&quot;&gt;&lt;a href=&quot;#ps&quot; class=&quot;headerlink&quot; title=&quot;ps&quot;&gt;&lt;/a&gt;ps&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Process Statistics: list currently executing processes by owner and PID (process ID).&lt;/li&gt;
@@ -79,7 +208,6 @@
 &lt;h3 id=&quot;service&quot;&gt;&lt;a href=&quot;#service&quot; class=&quot;headerlink&quot; title=&quot;service&quot;&gt;&lt;/a&gt;service&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Starts or stops a system service.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt;
 </content>
     
     <summary type="html">
@@ -896,22 +1024,6 @@
     
     
       <category term="Ruby" scheme="http://yular.github.io/tags/Ruby/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AWS SAM QuickStart</title>
-    <link href="http://yular.github.io/2017/06/29/AWS-SAM-QuickStart/"/>
-    <id>http://yular.github.io/2017/06/29/AWS-SAM-QuickStart/</id>
-    <published>2017-06-30T05:00:40.000Z</published>
-    <updated>2017-06-30T05:00:40.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
