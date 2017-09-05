@@ -90,6 +90,72 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-12-30T09:19:20.000Z"><a href="/2016/12/30/Kotlin-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Kotlin-QuickStart/">Kotlin QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official <a href="https://Kotlinlang.org" target="_blank" rel="external">website</a>.</p>
+<p>It has a lot of advantages and we can find them on the official website above. We can write a Kotlin script and then compile and build it as a java jar or java script file to execute. See the <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language" target="_blank" rel="external">wikipedia</a>).</p>
+<p>Below is a quickstart guide to build a Kotlin script as a java jar, which is similar to the official <a href="https://Kotlinlang.org/docs/tutorials/" target="_blank" rel="external">tutorial</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a> to install Kotlin compiler in the OS. We use Centos 7 in this tutorial.</p>
+<p>To manual install the compiler, just download it from <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2" target="_blank" rel="external">Github Release</a>. Then unzip it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip kotlin-compiler-1.0.5-2.zip</span><br></pre></td></tr></table></figure></p>
+<p>Note that current latest version is 1.0.5. The approach for all the other versions.</p>
+<p>Then move the folder to the location we would like to store this compiler and add the bin to PATH variable.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv kotlinc /usr/<span class="built_in">local</span>/kotlinc</span><br></pre></td></tr></table></figure></p>
+<p>Edit ~/.bashrc adding/modifying following lines<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KOTLINC=/usr/<span class="built_in">local</span>/kotlinc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$KOTLINC</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Remember to execute after modification is done.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>Now let us type following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlin -help</span><br></pre></td></tr></table></figure></p>
+<p>The output should similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kotlin: run Kotlin programs, scripts or REPL.</span><br><span class="line"></span><br><span class="line">Usage: kotlin &lt;options&gt; &lt;<span class="built_in">command</span>&gt; &lt;arguments&gt;</span><br><span class="line"><span class="built_in">where</span> <span class="built_in">command</span> may be one of:</span><br><span class="line">  foo.Bar                    Runs the <span class="string">'main'</span> <span class="keyword">function</span> from the class with the given qualified name</span><br><span class="line">  app.jar                    Runs the given JAR file as <span class="string">'java -jar'</span> would <span class="keyword">do</span></span><br><span class="line">                             (-classpath argument is ignored and no Kotlin runtime is added to the classpath)</span><br><span class="line">and possible options include:</span><br><span class="line">  -classpath (-cp) &lt;path&gt;    Paths <span class="built_in">where</span> to find user class files</span><br><span class="line">  -Dname=value               Set a system JVM property</span><br><span class="line">  -J&lt;option&gt;                 Pass an option directly to JVM</span><br><span class="line">  -no-reflect                Don<span class="string">'t include Kotlin reflection implementation into classpath</span><br><span class="line">  -version                   Display Kotlin version</span><br><span class="line">  -help (-h)                 Print a synopsis of options</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Hello-World-Application"><a href="#Hello-World-Application" class="headerlink" title="Hello, World Application"></a>Hello, World Application</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a>.</p>
+<p>Add a new file called hello.kt and below is the content:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    println(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Compile above application using Kotlinc compiler to a java jar:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlinc hello.kt -include-runtime <span class="_">-d</span> hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>Note that -include-runtime option makes the resulting .jar file self-contained and runnable by including the Kotlin runtime library in it. -d option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a .jar file name.</p>
+<p>Now run the application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>The output should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h2><p>Here is the <a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="external">offical tutorial</a> about the basic/common used syntax in Kotlin.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Kotlin/">Kotlin</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-23T06:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
       
       
@@ -581,50 +647,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T03:31:21.000Z"><a href="/2016/07/01/Apache-Livy-QuickStart/">2016-07-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -702,7 +724,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>9</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>6</small></li>
   
@@ -742,7 +764,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.5px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.33px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.67px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.17px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.67px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.67px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.45px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -763,6 +785,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">Linux System and Adminstrative Commands II</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a>
       </li>
     
@@ -776,10 +802,6 @@
     
       <li>
         <a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a>
-      </li>
-    
-      <li>
-        <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
       </li>
     
   </ul>
