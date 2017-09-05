@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 10 | YBC HomePage</title>
+  <title>Seite 10 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,69 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-22T06:08:08.000Z"><a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">2016-02-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/">Thinking in Dynamic Programming Algorithm</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This summary is more for algorithm contest but it should be also useful for solving industry problems because sometimes we can simply a real world problem to a ideal mathematical problem with some appropriate constraints.</p>
+<p>Dynamic programming algorithm is widely used in computer science and it helps people to solve various problems efficiently. The basic idea behind dynamic programming algorithm is to save the result of previous steps into a table(s) so that if the result of current step depends on previous ones, then the algorithm can retrieve these historic results immediately and apply them to the computation in current step. This is very important because with the help of this table, algorithm does not need to recompute the results of previous steps which may increase the time complexity greatly. That is the reason why dynamic programming algorithm is usually more efficient than navie brute force search algorithm but will provide correct result or optimization solution than heuristic search. However, of course dynamic programming algorithm usually consume more memory than less efficient algorithms. Usually, we call the computation result of previous steps “solution of subproblems” because the result of current step (global problem) is based on them and with iteration continues, all the current steps will become subproblems of future steps. Note that a problem that has subproblems structure means that it can be recursively divided into problems in smaller scale and those subproblems in the same level are independent with each other, and solution of the problem with higher level depends on its subproblems instead of those have higher level.</p>
+<p>To design an efficient dynamic programming algorithm, the key thing is to figure out the dynamic programming formula. With the given formula, the algorithm will iteratively compute the result of current step based on the result of previous steps saved in tables. So in the formula, we should provide base case initially to start the iterative computation. Here is an example. In Fibonacci sequence, the first and second elements are both one, and for every ith element where i &gt; 2, A[i] = A[i - 1] + A[i - 2]. Obviously, we can use dynamic programming algorithm to compute the value of ith element of this sequence. Thus, we can design the dynamic programming formula as follows:<br>                dp[i] = 1 if i &lt;= 2;<br>                dp[i] = dp[i - 1] + dp[i - 2] if i &gt; 2<br>We save the value of every ith element into an array used as a table mentioned above and we can get the ith element with only O(n) time complexity. Note that different dynamic programming formula will lead to different time complexity or different space complexity. Even with the same dynamic programming algorithm formula, different data structure or different algorithms to retrieve historic results will make the original dynamic programming algorithm more/less efficient.</p>
+<p>Dynamic programming algorithm is not the silver bullet but it is one of the best choices for some specific variety of problems. In my eye, these kinds of problems include optimization problem such as find the maximum value or minmum cost of given situation, and the counting problem like counting the number of times of specific case showing up in the problem. In most of time, the given problem can be solved in navie brute force search algorithm with O(n!) or O(2^n) or O(n^C) where C is a large constant time complexity. But if we use dynamic programming algorithm, sometimes we may not solve the problem in linear time complexity but the solution is feasible in practice. The classic case is the famous <a href="https://en.wikipedia.org/wiki/Knapsack_problem" target="_blank" rel="external">Knapsack problem</a>. </p>
+<p>As described above, to design a good dynamic programming algorithm, we should carry out a computation efficiency dynamic programming formula. But that is not the end. After that, we should also consider following things:</p>
+<ol>
+<li>What kind of data structure should be used as table to save historic data?</li>
+<li>What kind of query algorithm should be used to retrieve historic data if we can only used basic array as table?</li>
+<li>Could we use some theorems or mathematic approaches to optimize the algorithm?<br>Actually, there will be more issues but the above are the main ones. The followings are answers to above problems.</li>
+<li>The data structures include hash table (ordered_map or ordered_set or equivalent), binary index tree, segment tree, or even multi-dimensonal arrays and etc.</li>
+<li>The query algorithms include binary search, hash search and etc.</li>
+<li>Of course we can. Sometimes if we want to optimize an O(n!) time complexity algorithm to an O(n^2) algorithm, we may have to use some known theorems so that we can do an intelligent derivation for our formula. Sometimes we may find that there are some patterns inside the subproblems structure which is also helpful to decrease time complexity. But usually these patterns mean a new formula and thus, we may have to redesign it.</li>
+</ol>
+<p>Above all, here is the workflow for dynamic programming algorithm:</p>
+<ol>
+<li>Given a problem, consider is it a good fit for dynamic programming algorithm? Think of the subproblem structure.</li>
+<li>If dynamic programming algorithm is a good choice, design the formula of it.</li>
+<li>See whether we can optimize the algorithm with different data structure or table retrieve algorithm or known theorems or special subproblem patterns? If not and time complexity is not acceptable, go back to step two.</li>
+</ol>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -551,59 +614,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-01-10T20:16:45.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">2016-01-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">Maven Including All Dependencies into One Jar Tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>When we compile Java Maven project into a jar file, we should include third party jars that are used in the program; otherwise, our programs will fail because of No Class Found Error while running. Here are some ways to include all third party indenpencies into only one jar.</p>
-<p>1.Just download the third party jars, save them into project directories and then compile and create our program jar file using command line.</p>
-<p>2.Use <a href="http://maven.apache.org/plugins/maven-assembly-plugin/" target="_blank" rel="external">Maven Assemble Plugin</a> in our project. In this case, we will get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
-<p>3.Use <a href="https://code.google.com/p/onejar-maven-plugin/" target="_blank" rel="external">Maven One Jar Plugin</a> in our project. In this case, we also get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -676,7 +691,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>10</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>11</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>6</small></li>
   
@@ -714,9 +729,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15.45px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
   </div>
 </div>
 
@@ -737,6 +752,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-III/">Linux System and Adminstrative Commands III</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">Linux System and Adminstrative Commands II</a>
       </li>
     
@@ -750,10 +769,6 @@
     
       <li>
         <a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a>
-      </li>
-    
-      <li>
-        <a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a>
       </li>
     
   </ul>

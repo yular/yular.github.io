@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T02:21:21.000Z</updated>
+  <updated>2017-09-05T02:40:03.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux System and Adminstrative Commands III</title>
+    <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-III/"/>
+    <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-III/</id>
+    <published>2017-09-05T02:22:58.000Z</published>
+    <updated>2017-09-05T02:40:03.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Job-Control&quot;&gt;&lt;a href=&quot;#Job-Control&quot; class=&quot;headerlink&quot; title=&quot;Job Control&quot;&gt;&lt;/a&gt;Job Control&lt;/h2&gt;&lt;h3 id=&quot;ps&quot;&gt;&lt;a href=&quot;#ps&quot; class=&quot;headerlink&quot; title=&quot;ps&quot;&gt;&lt;/a&gt;ps&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Process Statistics: list currently executing processes by owner and PID (process ID).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;pgrep-pkill&quot;&gt;&lt;a href=&quot;#pgrep-pkill&quot; class=&quot;headerlink&quot; title=&quot;pgrep, pkill&quot;&gt;&lt;/a&gt;pgrep, pkill&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Combining the ps command with grep or kill.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;pstree&quot;&gt;&lt;a href=&quot;#pstree&quot; class=&quot;headerlink&quot; title=&quot;pstree&quot;&gt;&lt;/a&gt;pstree&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List currently executing processes in &lt;code&gt;tree&lt;/code&gt; format.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;top&quot;&gt;&lt;a href=&quot;#top&quot; class=&quot;headerlink&quot; title=&quot;top&quot;&gt;&lt;/a&gt;top&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Continously updated display of most cpu-intensive processes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;nice&quot;&gt;&lt;a href=&quot;#nice&quot; class=&quot;headerlink&quot; title=&quot;nice&quot;&gt;&lt;/a&gt;nice&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Run a background job with an altered priority.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;nohup&quot;&gt;&lt;a href=&quot;#nohup&quot; class=&quot;headerlink&quot; title=&quot;nohup&quot;&gt;&lt;/a&gt;nohup&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Keeps a command running even after user logs off.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;pidof&quot;&gt;&lt;a href=&quot;#pidof&quot; class=&quot;headerlink&quot; title=&quot;pidof&quot;&gt;&lt;/a&gt;pidof&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Identifies processID (PID) of a running job.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;fuser&quot;&gt;&lt;a href=&quot;#fuser&quot; class=&quot;headerlink&quot; title=&quot;fuser&quot;&gt;&lt;/a&gt;fuser&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Identify the process (by PID) accessing a given file, set of files or directory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;cron&quot;&gt;&lt;a href=&quot;#cron&quot; class=&quot;headerlink&quot; title=&quot;cron&quot;&gt;&lt;/a&gt;cron&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Administrative program scheduler, performing such duties as cleaning up and deleting system log files and updating the slocate database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Process-Control-and-Booting&quot;&gt;&lt;a href=&quot;#Process-Control-and-Booting&quot; class=&quot;headerlink&quot; title=&quot;Process Control and Booting&quot;&gt;&lt;/a&gt;Process Control and Booting&lt;/h2&gt;&lt;h3 id=&quot;init&quot;&gt;&lt;a href=&quot;#init&quot; class=&quot;headerlink&quot; title=&quot;init&quot;&gt;&lt;/a&gt;init&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;telinit&quot;&gt;&lt;a href=&quot;#telinit&quot; class=&quot;headerlink&quot; title=&quot;telinit&quot;&gt;&lt;/a&gt;telinit&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;runlevel&quot;&gt;&lt;a href=&quot;#runlevel&quot; class=&quot;headerlink&quot; title=&quot;runlevel&quot;&gt;&lt;/a&gt;runlevel&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Shows the current and last runlevel.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;halt-shutdown-reboot&quot;&gt;&lt;a href=&quot;#halt-shutdown-reboot&quot; class=&quot;headerlink&quot; title=&quot;halt, shutdown, reboot&quot;&gt;&lt;/a&gt;halt, shutdown, reboot&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;service&quot;&gt;&lt;a href=&quot;#service&quot; class=&quot;headerlink&quot; title=&quot;service&quot;&gt;&lt;/a&gt;service&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Starts or stops a system service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Job-Control&quot;&gt;&lt;a href=&quot;#Job-Control&quot; class=&quot;headerlink&quot; title=&quot;Job Control&quot;&gt;&lt;/a&gt;Job Control&lt;/h2&gt;&lt;h3 id=&quot;ps&quot;&gt;&lt;a href=&quot;#ps&quot; class=&quot;head
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux System and Adminstrative Commands II</title>
@@ -834,24 +912,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Lua User-Defined Types in C</title>
-    <link href="http://yular.github.io/2017/06/01/Lua-User-Defined-Types-in-C/"/>
-    <id>http://yular.github.io/2017/06/01/Lua-User-Defined-Types-in-C/</id>
-    <published>2017-06-01T08:13:28.000Z</published>
-    <updated>2017-06-01T08:13:50.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
     
   </entry>
   
