@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T02:00:31.000Z</updated>
+  <updated>2017-09-05T02:04:52.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-I/"/>
     <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-I/</id>
     <published>2017-09-05T01:44:41.000Z</published>
-    <updated>2017-09-05T02:00:31.000Z</updated>
+    <updated>2017-09-05T02:04:52.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Users-and-Groups&quot;&gt;&lt;a href=&quot;#Users-and-Groups&quot; class=&quot;headerlink&quot; title=&quot;Users and Groups&quot;&gt;&lt;/a&gt;Users and Groups&lt;/h2&gt;&lt;h3 id=&quot;users&quot;&gt;&lt;a href=&quot;#users&quot; class=&quot;headerlink&quot; title=&quot;users&quot;&gt;&lt;/a&gt;users&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Show all logged on users.&lt;/li&gt;
@@ -32,40 +32,86 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;chown-chgrp&quot;&gt;&lt;a href=&quot;#chown-chgrp&quot; class=&quot;headerlink&quot; title=&quot;chown, chgrp&quot;&gt;&lt;/a&gt;chown, chgrp&lt;/h3&gt;&lt;h3 id=&quot;useradd-userdel&quot;&gt;&lt;a href=&quot;#useradd-userdel&quot; class=&quot;headerlink&quot; title=&quot;useradd, userdel&quot;&gt;&lt;/a&gt;useradd, userdel&lt;/h3&gt;&lt;h3 id=&quot;usermod&quot;&gt;&lt;a href=&quot;#usermod&quot; class=&quot;headerlink&quot; title=&quot;usermod&quot;&gt;&lt;/a&gt;usermod&lt;/h3&gt;&lt;ul&gt;
+&lt;h3 id=&quot;chown-chgrp&quot;&gt;&lt;a href=&quot;#chown-chgrp&quot; class=&quot;headerlink&quot; title=&quot;chown, chgrp&quot;&gt;&lt;/a&gt;chown, chgrp&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;useradd-userdel&quot;&gt;&lt;a href=&quot;#useradd-userdel&quot; class=&quot;headerlink&quot; title=&quot;useradd, userdel&quot;&gt;&lt;/a&gt;useradd, userdel&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;usermod&quot;&gt;&lt;a href=&quot;#usermod&quot; class=&quot;headerlink&quot; title=&quot;usermod&quot;&gt;&lt;/a&gt;usermod&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Modify a useraccount’s password, group membership, expiration date and etc.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;groupmod&quot;&gt;&lt;a href=&quot;#groupmod&quot; class=&quot;headerlink&quot; title=&quot;groupmod&quot;&gt;&lt;/a&gt;groupmod&lt;/h3&gt;&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;groupmod&quot;&gt;&lt;a href=&quot;#groupmod&quot; class=&quot;headerlink&quot; title=&quot;groupmod&quot;&gt;&lt;/a&gt;groupmod&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Lists the real and effective user IDs and the group IDs of the user associated with the current process.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;lid&quot;&gt;&lt;a href=&quot;#lid&quot; class=&quot;headerlink&quot; title=&quot;lid&quot;&gt;&lt;/a&gt;lid&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Shows the group(s) a given user belongs to, or the users belonging to a given group.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;who&quot;&gt;&lt;a href=&quot;#who&quot; class=&quot;headerlink&quot; title=&quot;who&quot;&gt;&lt;/a&gt;who&lt;/h3&gt;&lt;h3 id=&quot;w&quot;&gt;&lt;a href=&quot;#w&quot; class=&quot;headerlink&quot; title=&quot;w&quot;&gt;&lt;/a&gt;w&lt;/h3&gt;&lt;h3 id=&quot;logname&quot;&gt;&lt;a href=&quot;#logname&quot; class=&quot;headerlink&quot; title=&quot;logname&quot;&gt;&lt;/a&gt;logname&lt;/h3&gt;&lt;ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;who&quot;&gt;&lt;a href=&quot;#who&quot; class=&quot;headerlink&quot; title=&quot;who&quot;&gt;&lt;/a&gt;who&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;w&quot;&gt;&lt;a href=&quot;#w&quot; class=&quot;headerlink&quot; title=&quot;w&quot;&gt;&lt;/a&gt;w&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;logname&quot;&gt;&lt;a href=&quot;#logname&quot; class=&quot;headerlink&quot; title=&quot;logname&quot;&gt;&lt;/a&gt;logname&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Show current user’s login name.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;su&quot;&gt;&lt;a href=&quot;#su&quot; class=&quot;headerlink&quot; title=&quot;su&quot;&gt;&lt;/a&gt;su&lt;/h3&gt;&lt;h3 id=&quot;sudo&quot;&gt;&lt;a href=&quot;#sudo&quot; class=&quot;headerlink&quot; title=&quot;sudo&quot;&gt;&lt;/a&gt;sudo&lt;/h3&gt;&lt;h3 id=&quot;passwd&quot;&gt;&lt;a href=&quot;#passwd&quot; class=&quot;headerlink&quot; title=&quot;passwd&quot;&gt;&lt;/a&gt;passwd&lt;/h3&gt;&lt;ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;su&quot;&gt;&lt;a href=&quot;#su&quot; class=&quot;headerlink&quot; title=&quot;su&quot;&gt;&lt;/a&gt;su&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;sudo&quot;&gt;&lt;a href=&quot;#sudo&quot; class=&quot;headerlink&quot; title=&quot;sudo&quot;&gt;&lt;/a&gt;sudo&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;passwd&quot;&gt;&lt;a href=&quot;#passwd&quot; class=&quot;headerlink&quot; title=&quot;passwd&quot;&gt;&lt;/a&gt;passwd&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Sets, changes, or manages a user’s password.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;ac&quot;&gt;&lt;a href=&quot;#ac&quot; class=&quot;headerlink&quot; title=&quot;ac&quot;&gt;&lt;/a&gt;ac&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Show users’ logged in time.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;last&quot;&gt;&lt;a href=&quot;#last&quot; class=&quot;headerlink&quot; title=&quot;last&quot;&gt;&lt;/a&gt;last&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;List last logged in users.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;mewgrp&quot;&gt;&lt;a href=&quot;#mewgrp&quot; class=&quot;headerlink&quot; title=&quot;mewgrp&quot;&gt;&lt;/a&gt;mewgrp&lt;/h3&gt;&lt;h2 id=&quot;Terminals&quot;&gt;&lt;a href=&quot;#Terminals&quot; class=&quot;headerlink&quot; title=&quot;Terminals&quot;&gt;&lt;/a&gt;Terminals&lt;/h2&gt;&lt;h3 id=&quot;tty&quot;&gt;&lt;a href=&quot;#tty&quot; class=&quot;headerlink&quot; title=&quot;tty&quot;&gt;&lt;/a&gt;tty&lt;/h3&gt;&lt;ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;mewgrp&quot;&gt;&lt;a href=&quot;#mewgrp&quot; class=&quot;headerlink&quot; title=&quot;mewgrp&quot;&gt;&lt;/a&gt;mewgrp&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h2 id=&quot;Terminals&quot;&gt;&lt;a href=&quot;#Terminals&quot; class=&quot;headerlink&quot; title=&quot;Terminals&quot;&gt;&lt;/a&gt;Terminals&lt;/h2&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;tty&quot;&gt;&lt;a href=&quot;#tty&quot; class=&quot;headerlink&quot; title=&quot;tty&quot;&gt;&lt;/a&gt;tty&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Echoes the terminal filename of current users’ terminal.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;stty&quot;&gt;&lt;a href=&quot;#stty&quot; class=&quot;headerlink&quot; title=&quot;stty&quot;&gt;&lt;/a&gt;stty&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Shows and/or changes terminal settings.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;stterm&quot;&gt;&lt;a href=&quot;#stterm&quot; class=&quot;headerlink&quot; title=&quot;stterm&quot;&gt;&lt;/a&gt;stterm&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Set certain terminal attributes.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;tset&quot;&gt;&lt;a href=&quot;#tset&quot; class=&quot;headerlink&quot; title=&quot;tset&quot;&gt;&lt;/a&gt;tset&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Show or initialize terminal settings.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;setserial&quot;&gt;&lt;a href=&quot;#setserial&quot; class=&quot;headerlink&quot; title=&quot;setserial&quot;&gt;&lt;/a&gt;setserial&lt;/h3&gt;&lt;h3 id=&quot;getty-agetty&quot;&gt;&lt;a href=&quot;#getty-agetty&quot; class=&quot;headerlink&quot; title=&quot;getty, agetty&quot;&gt;&lt;/a&gt;getty, agetty&lt;/h3&gt;&lt;h3 id=&quot;mesg&quot;&gt;&lt;a href=&quot;#mesg&quot; class=&quot;headerlink&quot; title=&quot;mesg&quot;&gt;&lt;/a&gt;mesg&lt;/h3&gt;&lt;h3 id=&quot;wall&quot;&gt;&lt;a href=&quot;#wall&quot; class=&quot;headerlink&quot; title=&quot;wall&quot;&gt;&lt;/a&gt;wall&lt;/h3&gt;&lt;ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;setserial&quot;&gt;&lt;a href=&quot;#setserial&quot; class=&quot;headerlink&quot; title=&quot;setserial&quot;&gt;&lt;/a&gt;setserial&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;getty-agetty&quot;&gt;&lt;a href=&quot;#getty-agetty&quot; class=&quot;headerlink&quot; title=&quot;getty, agetty&quot;&gt;&lt;/a&gt;getty, agetty&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;mesg&quot;&gt;&lt;a href=&quot;#mesg&quot; class=&quot;headerlink&quot; title=&quot;mesg&quot;&gt;&lt;/a&gt;mesg&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;wall&quot;&gt;&lt;a href=&quot;#wall&quot; class=&quot;headerlink&quot; title=&quot;wall&quot;&gt;&lt;/a&gt;wall&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Sending a message to all users at every terminal logged into the network.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
