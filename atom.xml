@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-04T23:00:46.000Z</updated>
+  <updated>2017-09-05T01:57:42.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux System and Adminstrative Commands I</title>
+    <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-I/"/>
+    <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-I/</id>
+    <published>2017-09-05T01:44:41.000Z</published>
+    <updated>2017-09-05T01:57:42.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Users-and-Groups&quot;&gt;&lt;a href=&quot;#Users-and-Groups&quot; class=&quot;headerlink&quot; title=&quot;Users and Groups&quot;&gt;&lt;/a&gt;Users and Groups&lt;/h2&gt;&lt;h3 id=&quot;users&quot;&gt;&lt;a href=&quot;#users&quot; class=&quot;headerlink&quot; title=&quot;users&quot;&gt;&lt;/a&gt;users&lt;/h3&gt;&lt;p&gt;Show all logged on users.&lt;/p&gt;
+&lt;h3 id=&quot;groups&quot;&gt;&lt;a href=&quot;#groups&quot; class=&quot;headerlink&quot; title=&quot;groups&quot;&gt;&lt;/a&gt;groups&lt;/h3&gt;&lt;p&gt;List the current user and the gourps s/he belongs to.&lt;/p&gt;
+&lt;h3 id=&quot;chown-chgrp&quot;&gt;&lt;a href=&quot;#chown-chgrp&quot; class=&quot;headerlink&quot; title=&quot;chown, chgrp&quot;&gt;&lt;/a&gt;chown, chgrp&lt;/h3&gt;&lt;h3 id=&quot;useradd-userdel&quot;&gt;&lt;a href=&quot;#useradd-userdel&quot; class=&quot;headerlink&quot; title=&quot;useradd, userdel&quot;&gt;&lt;/a&gt;useradd, userdel&lt;/h3&gt;&lt;h3 id=&quot;usermod&quot;&gt;&lt;a href=&quot;#usermod&quot; class=&quot;headerlink&quot; title=&quot;usermod&quot;&gt;&lt;/a&gt;usermod&lt;/h3&gt;&lt;p&gt;Modify a useraccount’s password, group membership, expiration date and etc.&lt;/p&gt;
+&lt;h3 id=&quot;groupmod&quot;&gt;&lt;a href=&quot;#groupmod&quot; class=&quot;headerlink&quot; title=&quot;groupmod&quot;&gt;&lt;/a&gt;groupmod&lt;/h3&gt;&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;p&gt;Lists the real and effective user IDs and the group IDs of the user associated with the current process.&lt;/p&gt;
+&lt;h3 id=&quot;lid&quot;&gt;&lt;a href=&quot;#lid&quot; class=&quot;headerlink&quot; title=&quot;lid&quot;&gt;&lt;/a&gt;lid&lt;/h3&gt;&lt;p&gt;Shows the group(s) a given user belongs to, or the users belonging to a given group.&lt;/p&gt;
+&lt;h3 id=&quot;who&quot;&gt;&lt;a href=&quot;#who&quot; class=&quot;headerlink&quot; title=&quot;who&quot;&gt;&lt;/a&gt;who&lt;/h3&gt;&lt;h3 id=&quot;w&quot;&gt;&lt;a href=&quot;#w&quot; class=&quot;headerlink&quot; title=&quot;w&quot;&gt;&lt;/a&gt;w&lt;/h3&gt;&lt;h3 id=&quot;logname&quot;&gt;&lt;a href=&quot;#logname&quot; class=&quot;headerlink&quot; title=&quot;logname&quot;&gt;&lt;/a&gt;logname&lt;/h3&gt;&lt;p&gt;Show current user’s login name.&lt;/p&gt;
+&lt;h3 id=&quot;su&quot;&gt;&lt;a href=&quot;#su&quot; class=&quot;headerlink&quot; title=&quot;su&quot;&gt;&lt;/a&gt;su&lt;/h3&gt;&lt;h3 id=&quot;sudo&quot;&gt;&lt;a href=&quot;#sudo&quot; class=&quot;headerlink&quot; title=&quot;sudo&quot;&gt;&lt;/a&gt;sudo&lt;/h3&gt;&lt;h3 id=&quot;passwd&quot;&gt;&lt;a href=&quot;#passwd&quot; class=&quot;headerlink&quot; title=&quot;passwd&quot;&gt;&lt;/a&gt;passwd&lt;/h3&gt;&lt;p&gt;Sets, changes, or manages a user’s password.&lt;/p&gt;
+&lt;h3 id=&quot;ac&quot;&gt;&lt;a href=&quot;#ac&quot; class=&quot;headerlink&quot; title=&quot;ac&quot;&gt;&lt;/a&gt;ac&lt;/h3&gt;&lt;p&gt;Show users’ logged in time.&lt;/p&gt;
+&lt;h3 id=&quot;last&quot;&gt;&lt;a href=&quot;#last&quot; class=&quot;headerlink&quot; title=&quot;last&quot;&gt;&lt;/a&gt;last&lt;/h3&gt;&lt;p&gt;List last logged in users.&lt;/p&gt;
+&lt;h3 id=&quot;mewgrp&quot;&gt;&lt;a href=&quot;#mewgrp&quot; class=&quot;headerlink&quot; title=&quot;mewgrp&quot;&gt;&lt;/a&gt;mewgrp&lt;/h3&gt;&lt;h2 id=&quot;Terminals&quot;&gt;&lt;a href=&quot;#Terminals&quot; class=&quot;headerlink&quot; title=&quot;Terminals&quot;&gt;&lt;/a&gt;Terminals&lt;/h2&gt;&lt;h3 id=&quot;tty&quot;&gt;&lt;a href=&quot;#tty&quot; class=&quot;headerlink&quot; title=&quot;tty&quot;&gt;&lt;/a&gt;tty&lt;/h3&gt;&lt;p&gt;Echoes the terminal filename of current users’ terminal.&lt;/p&gt;
+&lt;h3 id=&quot;stty&quot;&gt;&lt;a href=&quot;#stty&quot; class=&quot;headerlink&quot; title=&quot;stty&quot;&gt;&lt;/a&gt;stty&lt;/h3&gt;&lt;p&gt;Shows and/or changes terminal settings.&lt;/p&gt;
+&lt;h3 id=&quot;stterm&quot;&gt;&lt;a href=&quot;#stterm&quot; class=&quot;headerlink&quot; title=&quot;stterm&quot;&gt;&lt;/a&gt;stterm&lt;/h3&gt;&lt;p&gt;Set certain terminal attributes.&lt;/p&gt;
+&lt;h3 id=&quot;tset&quot;&gt;&lt;a href=&quot;#tset&quot; class=&quot;headerlink&quot; title=&quot;tset&quot;&gt;&lt;/a&gt;tset&lt;/h3&gt;&lt;p&gt;Show or initialize terminal settings.&lt;/p&gt;
+&lt;h3 id=&quot;setserial&quot;&gt;&lt;a href=&quot;#setserial&quot; class=&quot;headerlink&quot; title=&quot;setserial&quot;&gt;&lt;/a&gt;setserial&lt;/h3&gt;&lt;h3 id=&quot;getty-agetty&quot;&gt;&lt;a href=&quot;#getty-agetty&quot; class=&quot;headerlink&quot; title=&quot;getty, agetty&quot;&gt;&lt;/a&gt;getty, agetty&lt;/h3&gt;&lt;h3 id=&quot;mesg&quot;&gt;&lt;a href=&quot;#mesg&quot; class=&quot;headerlink&quot; title=&quot;mesg&quot;&gt;&lt;/a&gt;mesg&lt;/h3&gt;&lt;h3 id=&quot;wall&quot;&gt;&lt;a href=&quot;#wall&quot; class=&quot;headerlink&quot; title=&quot;wall&quot;&gt;&lt;/a&gt;wall&lt;/h3&gt;&lt;p&gt;Sending a message to all users at every terminal logged into the network.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Users-and-Groups&quot;&gt;&lt;a href=&quot;#Users-and-Groups&quot; class=&quot;headerlink&quot; title=&quot;Users and Groups&quot;&gt;&lt;/a&gt;Users and Groups&lt;/h2&gt;&lt;h3 id=&quot;users&quot;&gt;&lt;a
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Non Access Modifiers Summary</title>
@@ -642,22 +676,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Retrofit Quickstart Guide</title>
-    <link href="http://yular.github.io/2017/05/30/Retrofit-Quickstart-Guide/"/>
-    <id>http://yular.github.io/2017/05/30/Retrofit-Quickstart-Guide/</id>
-    <published>2017-05-31T05:25:42.000Z</published>
-    <updated>2017-05-31T05:25:42.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   

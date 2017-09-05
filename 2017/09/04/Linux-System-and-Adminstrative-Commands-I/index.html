@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 2 | Archives: 2015/8 | YBC HomePage</title>
+  <title>Linux System and Adminstrative Commands I | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="Linux System and Adminstrative Commands I" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -83,25 +83,78 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2015/8</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-05T01:44:41.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">2017-09-04</a></time>
+      
+      
+  
+    <h1 class="title">Linux System and Adminstrative Commands I</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Users-and-Groups"><span class="toc-number">1.</span> <span class="toc-text">Users and Groups</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#users"><span class="toc-number">1.1.</span> <span class="toc-text">users</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groups"><span class="toc-number">1.2.</span> <span class="toc-text">groups</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chown-chgrp"><span class="toc-number">1.3.</span> <span class="toc-text">chown, chgrp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useradd-userdel"><span class="toc-number">1.4.</span> <span class="toc-text">useradd, userdel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usermod"><span class="toc-number">1.5.</span> <span class="toc-text">usermod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groupmod"><span class="toc-number">1.6.</span> <span class="toc-text">groupmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#id"><span class="toc-number">1.7.</span> <span class="toc-text">id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lid"><span class="toc-number">1.8.</span> <span class="toc-text">lid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#who"><span class="toc-number">1.9.</span> <span class="toc-text">who</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#w"><span class="toc-number">1.10.</span> <span class="toc-text">w</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#logname"><span class="toc-number">1.11.</span> <span class="toc-text">logname</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#su"><span class="toc-number">1.12.</span> <span class="toc-text">su</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sudo"><span class="toc-number">1.13.</span> <span class="toc-text">sudo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passwd"><span class="toc-number">1.14.</span> <span class="toc-text">passwd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ac"><span class="toc-number">1.15.</span> <span class="toc-text">ac</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#last"><span class="toc-number">1.16.</span> <span class="toc-text">last</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mewgrp"><span class="toc-number">1.17.</span> <span class="toc-text">mewgrp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminals"><span class="toc-number">2.</span> <span class="toc-text">Terminals</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tty"><span class="toc-number">2.1.</span> <span class="toc-text">tty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stty"><span class="toc-number">2.2.</span> <span class="toc-text">stty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stterm"><span class="toc-number">2.3.</span> <span class="toc-text">stterm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tset"><span class="toc-number">2.4.</span> <span class="toc-text">tset</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setserial"><span class="toc-number">2.5.</span> <span class="toc-text">setserial</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getty-agetty"><span class="toc-number">2.6.</span> <span class="toc-text">getty, agetty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesg"><span class="toc-number">2.7.</span> <span class="toc-text">mesg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wall"><span class="toc-number">2.8.</span> <span class="toc-text">wall</span></a></li></ol></li></ol>
+          </div>
+      
+      
+        <h2 id="Users-and-Groups"><a href="#Users-and-Groups" class="headerlink" title="Users and Groups"></a>Users and Groups</h2><h3 id="users"><a href="#users" class="headerlink" title="users"></a>users</h3><p>Show all logged on users.</p>
+<h3 id="groups"><a href="#groups" class="headerlink" title="groups"></a>groups</h3><p>List the current user and the gourps s/he belongs to.</p>
+<h3 id="chown-chgrp"><a href="#chown-chgrp" class="headerlink" title="chown, chgrp"></a>chown, chgrp</h3><h3 id="useradd-userdel"><a href="#useradd-userdel" class="headerlink" title="useradd, userdel"></a>useradd, userdel</h3><h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><p>Modify a useraccount’s password, group membership, expiration date and etc.</p>
+<h3 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h3><h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><p>Lists the real and effective user IDs and the group IDs of the user associated with the current process.</p>
+<h3 id="lid"><a href="#lid" class="headerlink" title="lid"></a>lid</h3><p>Shows the group(s) a given user belongs to, or the users belonging to a given group.</p>
+<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><h3 id="w"><a href="#w" class="headerlink" title="w"></a>w</h3><h3 id="logname"><a href="#logname" class="headerlink" title="logname"></a>logname</h3><p>Show current user’s login name.</p>
+<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><p>Sets, changes, or manages a user’s password.</p>
+<h3 id="ac"><a href="#ac" class="headerlink" title="ac"></a>ac</h3><p>Show users’ logged in time.</p>
+<h3 id="last"><a href="#last" class="headerlink" title="last"></a>last</h3><p>List last logged in users.</p>
+<h3 id="mewgrp"><a href="#mewgrp" class="headerlink" title="mewgrp"></a>mewgrp</h3><h2 id="Terminals"><a href="#Terminals" class="headerlink" title="Terminals"></a>Terminals</h2><h3 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h3><p>Echoes the terminal filename of current users’ terminal.</p>
+<h3 id="stty"><a href="#stty" class="headerlink" title="stty"></a>stty</h3><p>Shows and/or changes terminal settings.</p>
+<h3 id="stterm"><a href="#stterm" class="headerlink" title="stterm"></a>stterm</h3><p>Set certain terminal attributes.</p>
+<h3 id="tset"><a href="#tset" class="headerlink" title="tset"></a>tset</h3><p>Show or initialize terminal settings.</p>
+<h3 id="setserial"><a href="#setserial" class="headerlink" title="setserial"></a>setserial</h3><h3 id="getty-agetty"><a href="#getty-agetty" class="headerlink" title="getty, agetty"></a>getty, agetty</h3><h3 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h3><h3 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h3><p>Sending a message to all users at every terminal logged into the network.</p>
 
-  <div class="archive">
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-08-04T06:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
-            
-              <h1 class="title"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">Linux Commands for File Operation</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
         </div>
-      </article>
-    
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
   </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Kommentare</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -171,7 +224,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>11</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>9</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>6</small></li>
   
@@ -209,9 +262,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.5px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.33px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.67px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.17px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.67px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.67px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -232,6 +285,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a>
       </li>
     
@@ -245,10 +302,6 @@
     
       <li>
         <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
-      </li>
-    
-      <li>
-        <a href="/2017/08/04/Reading-Note-of-Code-Complete/">Reading Note of Code Complete</a>
       </li>
     
   </ul>
@@ -321,7 +374,7 @@
       var dsq = document.createElement('script');
       dsq.type = 'text/javascript';
       dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
     </script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 16 | YBC HomePage</title>
+  <title>Seite 16 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -360,95 +360,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-08-05T06:58:55.000Z"><a href="/2015/08/04/Linux-Commands-for-System-Management/">2015-08-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/08/04/Linux-Commands-for-System-Management/">Linux Commands for System Management</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>###Change to Others<br>Change to other users existing in the system.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ su root</span><br><span class="line">$ su username</span><br></pre></td></tr></table></figure>
-<p>Note: The system login password of that user is needed.</p>
-<hr>
-
-<p>###Sudo Commands List</p>
-<p>#####Installation Command<br>Install new package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Search the repositories and install the build dependencies for <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get build-dep &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Use aptitude command instead of apt-get:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo aptitude install &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Automatically installs packages upon missing file access and install an uninstalled package using apt-get if a program tries to access a file known to belong in an uninstalled package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo auto-apt run &lt;<span class="built_in">command</span>_string&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Note: Multiple package names can be applied.</p>
-<p>#####Maintenance Command<br>Make sure that the  source list is up-to-date.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>Upgrades all installed packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
-<p>Upgrades the most important packages at the expense of less important ones if necessary.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get dist-upgrade</span><br></pre></td></tr></table></figure></p>
-<p>Updates the package lists and checks for broken dependencies.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get check</span><br></pre></td></tr></table></figure></p>
-<p>Removes .deb files for packages that are no longer installed on the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get clean</span><br></pre></td></tr></table></figure></p>
-<p>Reconfigure the named package.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Place the desired package on hold.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; hold"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
-<p>Removes the “hold” or “locked package” state set by the above command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">"&lt;package_name&gt; install"</span> | dpkg --set-selections</span><br></pre></td></tr></table></figure></p>
-<p>#####Removal commands<br>Removes an installed package, leaving configuration files intact.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get remove &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Completely removes a package and the associated configuration files. But configuration files residing in ~ are not usually affected by this command.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get purge &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Removes packages that were installed by other packages and are no longer needed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get autoremove</span><br></pre></td></tr></table></figure></p>
-<p>#####Search commands<br>Find packages that include <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache search &lt;search_term&gt;</span><br></pre></td></tr></table></figure></search_term></p>
-<p>Find packages whose names contain <search_term>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg <span class="_">-l</span> *&lt;search_term&gt;*</span><br></pre></td></tr></table></figure></search_term></p>
-<p>List files in package <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -L &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Lists files in the <path_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -c &lt;path_name&gt; (exp: foo.deb)</span><br></pre></td></tr></table></figure></path_name></p>
-<p>Determines which installed package owns <package_name>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dlocate &lt;package_name&gt;</span><br></pre></td></tr></table></figure></package_name></p>
-<p>Does the same as dlocate, but does not require the installation of any additional packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg -S &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Acts like dlocate and dpkg -S, but searches all available packages.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-file search &lt;package_name&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Provides a listing of every package in the system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-cache pkgnames</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###Rename a command<br>Use alias to set a command to self-designed command name. For example:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">alias</span> rbt=<span class="string">"sudo reboot"</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###System Resource Management</p>
-<p>#####Memory Management<br>Shows memory and cache usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ free</span><br></pre></td></tr></table></figure></p>
-<p>#####Disk Management<br>List devices, that is, show installed hardware.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ lsdev</span><br></pre></td></tr></table></figure></p>
-<p>Show (disk) file usage, recursively.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ du -ach</span><br></pre></td></tr></table></figure></p>
-<p>Shows filesystem usage in tabular form.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ df</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<p>###Job Management<br>Process Statistics: lists currently executing processes by owner and PID (process ID).<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ps ax/aux</span><br></pre></td></tr></table></figure></p>
-<p>Combining the ps command with grep or kill.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pgrep pattern</span><br><span class="line">$ pkill</span><br></pre></td></tr></table></figure></p>
-<p>Continuously updated display of most cpu-intensive processes.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ top</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-08-04T06:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
       
       
@@ -666,11 +577,100 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-24T17:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/24/Linux-Important-System-Directories/">Linux Important System Directories</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of important system directories in the Linux operating system. All the information is from Advanced Bash-Scripting Guide.</p>
+<ul>
+<li><p>/bin<br>Binaries (executables). Basic system programs and utilities (such as bash).</p>
+</li>
+<li><p>/usr/bin<br>More system binaries.</p>
+</li>
+<li><p>/usr/local/bin<br>Miscellaneous binaries local to the particular machine.</p>
+</li>
+<li><p>/sbin<br>System binaries. Basic system administrative programs and utilities (such as fsck).</p>
+</li>
+<li><p>/usr/sbin<br>More system administrative programs and utilities.</p>
+</li>
+<li><p>/etc<br>Et cetera. Systemwide configuration scripts.<br>Of particular interest are the /etc/fstab (filesystem table), /etc/mtab (mounted filesystem table), and the /etc/inittab files.</p>
+</li>
+<li><p>/etc/rc.d<br>Boot scripts, on Red Hat and derivative distributions of Linux.</p>
+</li>
+<li><p>/usr/share/doc<br>Documentation for installed packages.</p>
+</li>
+<li><p>/usr/man<br>The systemwide manpages.</p>
+</li>
+<li><p>/dev<br>Device directory. Entries (but not mount points) for physical and virtual devices.</p>
+</li>
+<li><p>/proc<br>Process directory. Contains information and statistics about running processes and kernel parameters.</p>
+</li>
+<li><p>/sys<br>Systemwide device directory. Contains information and statistics about device and device names.</p>
+</li>
+<li><p>/mnt<br>Mount. Directory for mounting hard drive partitions, such as /mnt/dos, and physical devices. In newer Linux distros, the /media directory has taken over as the preferred mount point for I/O devices.</p>
+</li>
+<li><p>/media<br>In newer Linux distros, the preferred mount point for I/O devices, such as CD/DVD drives or USB flash drives.</p>
+</li>
+<li><p>/var<br>Variable (changeable) system files.</p>
+</li>
+<li><p>/var/log<br>Systemwide log files.</p>
+</li>
+<li><p>/var/spool/mail<br>User mail spool.</p>
+</li>
+<li><p>/lib<br>Systemwide library files.</p>
+</li>
+<li><p>/usr/lib<br>More systemwide library files.</p>
+</li>
+<li><p>/tmp<br>System temporary files.</p>
+</li>
+<li><p>/boot<br>System boot directory. The kernel, module links, system map, and boot manager reside here.</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/15/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/17/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -743,7 +743,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>11</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>9</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>6</small></li>
   
@@ -781,9 +781,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.82px;">C</a> <a href="/tags/C/" style="font-size: 10.91px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.09px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.45px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.91px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.27px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.73px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.36px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.64px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.36px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.91px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.82px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.55px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.82px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.82px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.18px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 11.67px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design/" style="font-size: 10px;">Design</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.5px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.33px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 11.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 11.67px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.17px;">System Design</a> <a href="/tags/Test/" style="font-size: 11.67px;">Test</a> <a href="/tags/Tools/" style="font-size: 11.67px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -804,6 +804,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a>
       </li>
     
@@ -817,10 +821,6 @@
     
       <li>
         <a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a>
-      </li>
-    
-      <li>
-        <a href="/2017/08/04/Reading-Note-of-Code-Complete/">Reading Note of Code Complete</a>
       </li>
     
   </ul>
