@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T05:18:04.000Z</updated>
+  <updated>2017-09-05T05:50:50.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,176 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux Text Processing Command I</title>
+    <link href="http://yular.github.io/2017/09/04/Linux-Text-Processing-Command-I/"/>
+    <id>http://yular.github.io/2017/09/04/Linux-Text-Processing-Command-I/</id>
+    <published>2017-09-05T05:21:45.000Z</published>
+    <updated>2017-09-05T05:50:50.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;sort&quot;&gt;&lt;a href=&quot;#sort&quot; class=&quot;headerlink&quot; title=&quot;sort&quot;&gt;&lt;/a&gt;sort&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;File sort utility, often used as a filter in a pipe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;tsort&quot;&gt;&lt;a href=&quot;#tsort&quot; class=&quot;headerlink&quot; title=&quot;tsort&quot;&gt;&lt;/a&gt;tsort&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Topological sort.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;uniq&quot;&gt;&lt;a href=&quot;#uniq&quot; class=&quot;headerlink&quot; title=&quot;uniq&quot;&gt;&lt;/a&gt;uniq&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Remove duplicate lines from a sorted file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;expand-unexpand&quot;&gt;&lt;a href=&quot;#expand-unexpand&quot; class=&quot;headerlink&quot; title=&quot;expand, unexpand&quot;&gt;&lt;/a&gt;expand, unexpand&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;expand: a filter converting tabs to spaces. Ofen used in a pipe.&lt;/li&gt;
+&lt;li&gt;unexpand: reverse effect of expand.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;cut&quot;&gt;&lt;a href=&quot;#cut&quot; class=&quot;headerlink&quot; title=&quot;cut&quot;&gt;&lt;/a&gt;&lt;strong&gt;cut&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Widely used for text processing.&lt;/li&gt;
+&lt;li&gt;A tool for extracting fields from files. Can be used in a pipe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;paste&quot;&gt;&lt;a href=&quot;#paste&quot; class=&quot;headerlink&quot; title=&quot;paste&quot;&gt;&lt;/a&gt;&lt;strong&gt;paste&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Tool for merging together different files into a single, multi-column file.&lt;/li&gt;
+&lt;li&gt;When combining with &lt;code&gt;cut&lt;/code&gt;, useful for creating system log files.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;join&quot;&gt;&lt;a href=&quot;#join&quot; class=&quot;headerlink&quot; title=&quot;join&quot;&gt;&lt;/a&gt;&lt;strong&gt;join&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Tool for merging two files in a meaningful fashion, creating a simple version of relational database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;head&quot;&gt;&lt;a href=&quot;#head&quot; class=&quot;headerlink&quot; title=&quot;head&quot;&gt;&lt;/a&gt;&lt;strong&gt;head&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Lists the begining of a file to &lt;code&gt;stdout&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;tail&quot;&gt;&lt;a href=&quot;#tail&quot; class=&quot;headerlink&quot; title=&quot;tail&quot;&gt;&lt;/a&gt;&lt;strong&gt;tail&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List the end of a file to &lt;code&gt;stdout&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;With &lt;code&gt;-f&lt;/code&gt; option, useful for monitoring system.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;grep&quot;&gt;&lt;a href=&quot;#grep&quot; class=&quot;headerlink&quot; title=&quot;grep&quot;&gt;&lt;/a&gt;&lt;strong&gt;grep&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A multi-purpose file search tool that uses Regular Expressions.&lt;/li&gt;
+&lt;li&gt;Command pattern: grep pattern [files …]&lt;/li&gt;
+&lt;li&gt;Very useful in pipe.&lt;/li&gt;
+&lt;li&gt;-i: a case sensitive search.&lt;/li&gt;
+&lt;li&gt;-w: matches only whole words.&lt;/li&gt;
+&lt;li&gt;-r: searches files recursively.&lt;/li&gt;
+&lt;li&gt;-n: lists the matching lines.&lt;/li&gt;
+&lt;li&gt;-v: filters out matches.&lt;/li&gt;
+&lt;li&gt;-c: gives a numerical count of matches.&lt;/li&gt;
+&lt;li&gt;–color: marks the matching string in color.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;agrep&quot;&gt;&lt;a href=&quot;#agrep&quot; class=&quot;headerlink&quot; title=&quot;agrep&quot;&gt;&lt;/a&gt;&lt;strong&gt;agrep&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Approximate grep, extending the capabilities of &lt;code&gt;grep&lt;/code&gt; to approximate matching.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;look&quot;&gt;&lt;a href=&quot;#look&quot; class=&quot;headerlink&quot; title=&quot;look&quot;&gt;&lt;/a&gt;look&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Works like &lt;code&gt;grep&lt;/code&gt;, but does a look up on a “dictionary”, a sorted word list in &lt;code&gt;/usr/dict/words&lt;/code&gt; by default.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;sed&quot;&gt;&lt;a href=&quot;#sed&quot; class=&quot;headerlink&quot; title=&quot;sed&quot;&gt;&lt;/a&gt;&lt;strong&gt;sed&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Non-interactive stream editor, permitting using many ex commands in batch mode.&lt;/li&gt;
+&lt;li&gt;Useful in shell scripts and pipe.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;awk&quot;&gt;&lt;a href=&quot;#awk&quot; class=&quot;headerlink&quot; title=&quot;awk&quot;&gt;&lt;/a&gt;&lt;strong&gt;awk&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;wc&quot;&gt;&lt;a href=&quot;#wc&quot; class=&quot;headerlink&quot; title=&quot;wc&quot;&gt;&lt;/a&gt;wc&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Give a “word count” on a file or I/O stream.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;tr&quot;&gt;&lt;a href=&quot;#tr&quot; class=&quot;headerlink&quot; title=&quot;tr&quot;&gt;&lt;/a&gt;&lt;strong&gt;tr&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Character translation filter.&lt;/li&gt;
+&lt;li&gt;Must use quoting and/or brackets as appropriate.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;fold&quot;&gt;&lt;a href=&quot;#fold&quot; class=&quot;headerlink&quot; title=&quot;fold&quot;&gt;&lt;/a&gt;fold&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A filter that wraps lines of input to a specified width.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;fmt&quot;&gt;&lt;a href=&quot;#fmt&quot; class=&quot;headerlink&quot; title=&quot;fmt&quot;&gt;&lt;/a&gt;fmt&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;col&quot;&gt;&lt;a href=&quot;#col&quot; class=&quot;headerlink&quot; title=&quot;col&quot;&gt;&lt;/a&gt;col&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;column&quot;&gt;&lt;a href=&quot;#column&quot; class=&quot;headerlink&quot; title=&quot;column&quot;&gt;&lt;/a&gt;column&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Column formatter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;colrm&quot;&gt;&lt;a href=&quot;#colrm&quot; class=&quot;headerlink&quot; title=&quot;colrm&quot;&gt;&lt;/a&gt;colrm&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Column removal filter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;nl&quot;&gt;&lt;a href=&quot;#nl&quot; class=&quot;headerlink&quot; title=&quot;nl&quot;&gt;&lt;/a&gt;nl&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Line numbering filter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;pr&quot;&gt;&lt;a href=&quot;#pr&quot; class=&quot;headerlink&quot; title=&quot;pr&quot;&gt;&lt;/a&gt;pr&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Print formatting filter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;gettext&quot;&gt;&lt;a href=&quot;#gettext&quot; class=&quot;headerlink&quot; title=&quot;gettext&quot;&gt;&lt;/a&gt;gettext&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;A set of utilities for localizing and translating the text output of programs into foreign languages.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;msgfmt&quot;&gt;&lt;a href=&quot;#msgfmt&quot; class=&quot;headerlink&quot; title=&quot;msgfmt&quot;&gt;&lt;/a&gt;msgfmt&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;iconv&quot;&gt;&lt;a href=&quot;#iconv&quot; class=&quot;headerlink&quot; title=&quot;iconv&quot;&gt;&lt;/a&gt;iconv&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;recode&quot;&gt;&lt;a href=&quot;#recode&quot; class=&quot;headerlink&quot; title=&quot;recode&quot;&gt;&lt;/a&gt;recode&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;TeX-gs&quot;&gt;&lt;a href=&quot;#TeX-gs&quot; class=&quot;headerlink&quot; title=&quot;TeX,gs&quot;&gt;&lt;/a&gt;TeX,gs&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;texexec&quot;&gt;&lt;a href=&quot;#texexec&quot; class=&quot;headerlink&quot; title=&quot;texexec&quot;&gt;&lt;/a&gt;texexec&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;enscript&quot;&gt;&lt;a href=&quot;#enscript&quot; class=&quot;headerlink&quot; title=&quot;enscript&quot;&gt;&lt;/a&gt;enscript&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;groff-tbl-eqn&quot;&gt;&lt;a href=&quot;#groff-tbl-eqn&quot; class=&quot;headerlink&quot; title=&quot;groff, tbl, eqn&quot;&gt;&lt;/a&gt;groff, tbl, eqn&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;lex-yacc&quot;&gt;&lt;a href=&quot;#lex-yacc&quot; class=&quot;headerlink&quot; title=&quot;lex, yacc&quot;&gt;&lt;/a&gt;lex, yacc&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Lexical analyzer commands.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;sort&quot;&gt;&lt;a href=&quot;#sort&quot; class=&quot;headerlink&quot; title=&quot;sort&quot;&gt;&lt;/a&gt;sort&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;File sort utility, often used as a filter in a pipe.&lt;/li
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux System and Adminstrative Commands V</title>
@@ -1064,22 +1234,6 @@
     <id>http://yular.github.io/2017/06/30/Kaggle-Contest-QuickStart/</id>
     <published>2017-07-01T02:18:11.000Z</published>
     <updated>2017-07-01T02:18:11.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AWS Command Line Interface QuickStart</title>
-    <link href="http://yular.github.io/2017/06/29/AWS-Command-Line-Interface-QuickStart/"/>
-    <id>http://yular.github.io/2017/06/29/AWS-Command-Line-Interface-QuickStart/</id>
-    <published>2017-06-30T05:18:50.000Z</published>
-    <updated>2017-06-30T05:18:50.000Z</updated>
     
     <content type="html"></content>
     

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>R | YBC HomePage</title>
+  <title>Linux Text Processing Command I | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  
+  <meta property="og:title" content="Linux Text Processing Command I" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -83,25 +83,213 @@
 <div class="clearfix"></div>
 </header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">R</h2>
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-05T05:21:45.000Z"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">2017-09-04</a></time>
+      
+      
+  
+    <h1 class="title">Linux Text Processing Command I</h1>
+  
 
+    </header>
+    <div class="entry">
+      
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">1.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tsort"><span class="toc-number">2.</span> <span class="toc-text">tsort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uniq"><span class="toc-number">3.</span> <span class="toc-text">uniq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#expand-unexpand"><span class="toc-number">4.</span> <span class="toc-text">expand, unexpand</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cut"><span class="toc-number">5.</span> <span class="toc-text">cut</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#paste"><span class="toc-number">6.</span> <span class="toc-text">paste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#join"><span class="toc-number">7.</span> <span class="toc-text">join</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#head"><span class="toc-number">8.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail"><span class="toc-number">9.</span> <span class="toc-text">tail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep"><span class="toc-number">10.</span> <span class="toc-text">grep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#agrep"><span class="toc-number">11.</span> <span class="toc-text">agrep</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#look"><span class="toc-number">12.</span> <span class="toc-text">look</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed"><span class="toc-number">13.</span> <span class="toc-text">sed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#awk"><span class="toc-number">14.</span> <span class="toc-text">awk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#wc"><span class="toc-number">15.</span> <span class="toc-text">wc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tr"><span class="toc-number">16.</span> <span class="toc-text">tr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fold"><span class="toc-number">17.</span> <span class="toc-text">fold</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fmt"><span class="toc-number">18.</span> <span class="toc-text">fmt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#col"><span class="toc-number">19.</span> <span class="toc-text">col</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#column"><span class="toc-number">20.</span> <span class="toc-text">column</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#colrm"><span class="toc-number">21.</span> <span class="toc-text">colrm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nl"><span class="toc-number">22.</span> <span class="toc-text">nl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pr"><span class="toc-number">23.</span> <span class="toc-text">pr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gettext"><span class="toc-number">24.</span> <span class="toc-text">gettext</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#msgfmt"><span class="toc-number">25.</span> <span class="toc-text">msgfmt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iconv"><span class="toc-number">26.</span> <span class="toc-text">iconv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recode"><span class="toc-number">27.</span> <span class="toc-text">recode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TeX-gs"><span class="toc-number">28.</span> <span class="toc-text">TeX,gs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#texexec"><span class="toc-number">29.</span> <span class="toc-text">texexec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#enscript"><span class="toc-number">30.</span> <span class="toc-text">enscript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#groff-tbl-eqn"><span class="toc-number">31.</span> <span class="toc-text">groff, tbl, eqn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lex-yacc"><span class="toc-number">32.</span> <span class="toc-text">lex, yacc</span></a></li></ol>
+          </div>
+      
+      
+        <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
+<li>File sort utility, often used as a filter in a pipe.</li>
+</ul>
+<hr>
 
-  <div class="archive">
+<h3 id="tsort"><a href="#tsort" class="headerlink" title="tsort"></a>tsort</h3><ul>
+<li>Topological sort.</li>
+</ul>
+<hr>
+
+<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><ul>
+<li>Remove duplicate lines from a sorted file.</li>
+</ul>
+<hr>
+
+<h3 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand, unexpand"></a>expand, unexpand</h3><ul>
+<li>expand: a filter converting tabs to spaces. Ofen used in a pipe.</li>
+<li>unexpand: reverse effect of expand.</li>
+</ul>
+<hr>
+
+<h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a><strong>cut</strong></h3><ul>
+<li>Widely used for text processing.</li>
+<li>A tool for extracting fields from files. Can be used in a pipe.</li>
+</ul>
+<hr>
+
+<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a><strong>paste</strong></h3><ul>
+<li>Tool for merging together different files into a single, multi-column file.</li>
+<li>When combining with <code>cut</code>, useful for creating system log files.</li>
+</ul>
+<hr>
+
+<h3 id="join"><a href="#join" class="headerlink" title="join"></a><strong>join</strong></h3><ul>
+<li>Tool for merging two files in a meaningful fashion, creating a simple version of relational database.</li>
+</ul>
+<hr>
+
+<h3 id="head"><a href="#head" class="headerlink" title="head"></a><strong>head</strong></h3><ul>
+<li>Lists the begining of a file to <code>stdout</code>.</li>
+</ul>
+<hr>
+
+<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a><strong>tail</strong></h3><ul>
+<li>List the end of a file to <code>stdout</code>.</li>
+<li>With <code>-f</code> option, useful for monitoring system.</li>
+</ul>
+<hr>
+
+<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h3><ul>
+<li>A multi-purpose file search tool that uses Regular Expressions.</li>
+<li>Command pattern: grep pattern [files …]</li>
+<li>Very useful in pipe.</li>
+<li>-i: a case sensitive search.</li>
+<li>-w: matches only whole words.</li>
+<li>-r: searches files recursively.</li>
+<li>-n: lists the matching lines.</li>
+<li>-v: filters out matches.</li>
+<li>-c: gives a numerical count of matches.</li>
+<li>–color: marks the matching string in color.</li>
+</ul>
+<hr>
+
+<h3 id="agrep"><a href="#agrep" class="headerlink" title="agrep"></a><strong>agrep</strong></h3><ul>
+<li>Approximate grep, extending the capabilities of <code>grep</code> to approximate matching.</li>
+</ul>
+<hr>
+
+<h3 id="look"><a href="#look" class="headerlink" title="look"></a>look</h3><ul>
+<li>Works like <code>grep</code>, but does a look up on a “dictionary”, a sorted word list in <code>/usr/dict/words</code> by default.</li>
+</ul>
+<hr>
+
+<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><strong>sed</strong></h3><ul>
+<li>Non-interactive stream editor, permitting using many ex commands in batch mode.</li>
+<li>Useful in shell scripts and pipe.</li>
+</ul>
+<hr>
+
+<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a><strong>awk</strong></h3><ul>
+<li>Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.</li>
+</ul>
+<hr>
+
+<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><ul>
+<li>Give a “word count” on a file or I/O stream.</li>
+</ul>
+<hr>
+
+<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a><strong>tr</strong></h3><ul>
+<li>Character translation filter.</li>
+<li>Must use quoting and/or brackets as appropriate.</li>
+</ul>
+<hr>
+
+<h3 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h3><ul>
+<li>A filter that wraps lines of input to a specified width.</li>
+</ul>
+<hr>
+
+<h3 id="fmt"><a href="#fmt" class="headerlink" title="fmt"></a>fmt</h3><ul>
+<li>Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.</li>
+</ul>
+<hr>
+
+<h3 id="col"><a href="#col" class="headerlink" title="col"></a>col</h3><hr>
+
+<h3 id="column"><a href="#column" class="headerlink" title="column"></a>column</h3><ul>
+<li>Column formatter.</li>
+</ul>
+<hr>
+
+<h3 id="colrm"><a href="#colrm" class="headerlink" title="colrm"></a>colrm</h3><ul>
+<li>Column removal filter.</li>
+</ul>
+<hr>
+
+<h3 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h3><ul>
+<li>Line numbering filter.</li>
+</ul>
+<hr>
+
+<h3 id="pr"><a href="#pr" class="headerlink" title="pr"></a>pr</h3><ul>
+<li>Print formatting filter.</li>
+</ul>
+<hr>
+
+<h3 id="gettext"><a href="#gettext" class="headerlink" title="gettext"></a>gettext</h3><ul>
+<li>A set of utilities for localizing and translating the text output of programs into foreign languages.</li>
+</ul>
+<hr>
+
+<h3 id="msgfmt"><a href="#msgfmt" class="headerlink" title="msgfmt"></a>msgfmt</h3><hr>
+
+<h3 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h3><hr>
+
+<h3 id="recode"><a href="#recode" class="headerlink" title="recode"></a>recode</h3><hr>
+
+<h3 id="TeX-gs"><a href="#TeX-gs" class="headerlink" title="TeX,gs"></a>TeX,gs</h3><hr>
+
+<h3 id="texexec"><a href="#texexec" class="headerlink" title="texexec"></a>texexec</h3><hr>
+
+<h3 id="enscript"><a href="#enscript" class="headerlink" title="enscript"></a>enscript</h3><hr>
+
+<h3 id="groff-tbl-eqn"><a href="#groff-tbl-eqn" class="headerlink" title="groff, tbl, eqn"></a>groff, tbl, eqn</h3><hr>
+
+<h3 id="lex-yacc"><a href="#lex-yacc" class="headerlink" title="lex, yacc"></a>lex, yacc</h3><ul>
+<li>Lexical analyzer commands.</li>
+</ul>
+
+      
+    </div>
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <div class="icon"></div>
-            <time datetime="2015-12-09T08:08:33.000Z"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">2015-12-09</a></time>
-            
-              <h1 class="title"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">R Language Install and Basic Commands</a></h1>
-            
-          </header>
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
         </div>
-      </article>
-    
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
   </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+<section id="comment">
+  <h1 class="title">Comentarios</h1>
+
+  
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+</section>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
@@ -321,7 +509,7 @@
       var dsq = document.createElement('script');
       dsq.type = 'text/javascript';
       dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     }());
     </script>
