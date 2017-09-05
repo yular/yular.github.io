@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T05:10:12.000Z</updated>
+  <updated>2017-09-05T05:18:04.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,91 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux System and Adminstrative Commands V</title>
+    <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-V/"/>
+    <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-V/</id>
+    <published>2017-09-05T05:11:11.000Z</published>
+    <updated>2017-09-05T05:18:04.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;System-Resources&quot;&gt;&lt;a href=&quot;#System-Resources&quot; class=&quot;headerlink&quot; title=&quot;System Resources&quot;&gt;&lt;/a&gt;System Resources&lt;/h2&gt;&lt;h3 id=&quot;ulimit&quot;&gt;&lt;a href=&quot;#ulimit&quot; class=&quot;headerlink&quot; title=&quot;ulimit&quot;&gt;&lt;/a&gt;ulimit&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Set an upper limit on use of system resources.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;quota&quot;&gt;&lt;a href=&quot;#quota&quot; class=&quot;headerlink&quot; title=&quot;quota&quot;&gt;&lt;/a&gt;quota&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Display user or group disk quota.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;setquota&quot;&gt;&lt;a href=&quot;#setquota&quot; class=&quot;headerlink&quot; title=&quot;setquota&quot;&gt;&lt;/a&gt;setquota&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Set user or group disk quotas from command-line.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;umask&quot;&gt;&lt;a href=&quot;#umask&quot; class=&quot;headerlink&quot; title=&quot;umask&quot;&gt;&lt;/a&gt;umask&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;User file creation permission mask.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;rdev&quot;&gt;&lt;a href=&quot;#rdev&quot; class=&quot;headerlink&quot; title=&quot;rdev&quot;&gt;&lt;/a&gt;rdev&lt;/h3&gt;&lt;h2 id=&quot;Module&quot;&gt;&lt;a href=&quot;#Module&quot; class=&quot;headerlink&quot; title=&quot;Module&quot;&gt;&lt;/a&gt;Module&lt;/h2&gt;&lt;h3 id=&quot;lsmod&quot;&gt;&lt;a href=&quot;#lsmod&quot; class=&quot;headerlink&quot; title=&quot;lsmod&quot;&gt;&lt;/a&gt;lsmod&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List installed kernel modules.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;insmod&quot;&gt;&lt;a href=&quot;#insmod&quot; class=&quot;headerlink&quot; title=&quot;insmod&quot;&gt;&lt;/a&gt;insmod&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Force installation of a kernel module.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;rmmod&quot;&gt;&lt;a href=&quot;#rmmod&quot; class=&quot;headerlink&quot; title=&quot;rmmod&quot;&gt;&lt;/a&gt;rmmod&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;modprobe&quot;&gt;&lt;a href=&quot;#modprobe&quot; class=&quot;headerlink&quot; title=&quot;modprobe&quot;&gt;&lt;/a&gt;modprobe&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Module loader that is normally invoked automatically in a startup script.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;depmod&quot;&gt;&lt;a href=&quot;#depmod&quot; class=&quot;headerlink&quot; title=&quot;depmod&quot;&gt;&lt;/a&gt;depmod&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Creates module dependency file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;modinfo&quot;&gt;&lt;a href=&quot;#modinfo&quot; class=&quot;headerlink&quot; title=&quot;modinfo&quot;&gt;&lt;/a&gt;modinfo&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Output information about a loadable module.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Miscellaneous&quot;&gt;&lt;a href=&quot;#Miscellaneous&quot; class=&quot;headerlink&quot; title=&quot;Miscellaneous&quot;&gt;&lt;/a&gt;Miscellaneous&lt;/h2&gt;&lt;h3 id=&quot;env&quot;&gt;&lt;a href=&quot;#env&quot; class=&quot;headerlink&quot; title=&quot;env&quot;&gt;&lt;/a&gt;env&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Runs a program or script with certain environmental variables set or changed without changing the overall system environment.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;ldd&quot;&gt;&lt;a href=&quot;#ldd&quot; class=&quot;headerlink&quot; title=&quot;ldd&quot;&gt;&lt;/a&gt;ldd&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;watch&quot;&gt;&lt;a href=&quot;#watch&quot; class=&quot;headerlink&quot; title=&quot;watch&quot;&gt;&lt;/a&gt;watch&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Run a command repeatedly at specified time intervals.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;strip&quot;&gt;&lt;a href=&quot;#strip&quot; class=&quot;headerlink&quot; title=&quot;strip&quot;&gt;&lt;/a&gt;strip&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;nm&quot;&gt;&lt;a href=&quot;#nm&quot; class=&quot;headerlink&quot; title=&quot;nm&quot;&gt;&lt;/a&gt;nm&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;xrandr&quot;&gt;&lt;a href=&quot;#xrandr&quot; class=&quot;headerlink&quot; title=&quot;xrandr&quot;&gt;&lt;/a&gt;xrandr&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;rdist&quot;&gt;&lt;a href=&quot;#rdist&quot; class=&quot;headerlink&quot; title=&quot;rdist&quot;&gt;&lt;/a&gt;rdist&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;System-Resources&quot;&gt;&lt;a href=&quot;#System-Resources&quot; class=&quot;headerlink&quot; title=&quot;System Resources&quot;&gt;&lt;/a&gt;System Resources&lt;/h2&gt;&lt;h3 id=&quot;ulimit&quot;&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux System and Adminstrative Commands IV</title>
@@ -1002,28 +1087,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Ruby YAML Summary</title>
-    <link href="http://yular.github.io/2017/06/29/Ruby-YAML-Summary/"/>
-    <id>http://yular.github.io/2017/06/29/Ruby-YAML-Summary/</id>
-    <published>2017-06-30T05:18:26.000Z</published>
-    <updated>2017-06-30T06:58:33.000Z</updated>
-    
-    <content type="html">&lt;p&gt;YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data serialization standard for all programming languages.&lt;/p&gt;
-&lt;p&gt;Here is the link of &lt;a href=&quot;http://www.yaml.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YAML Org&lt;/a&gt;.&lt;br&gt;Here is the link of &lt;a href=&quot;http://yaml.org/YAML_for_ruby.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;YAML Cookbook for Ruby&lt;/a&gt;.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data ser
-    
-    </summary>
-    
-    
-      <category term="Ruby" scheme="http://yular.github.io/tags/Ruby/"/>
     
   </entry>
   

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Reading Note of Working Effectively with Legacy Code | YBC HomePage</title>
+  <title>Linux System and Adminstrative Commands V | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="Reading Note of Working Effectively with Legacy Code" />
+  <meta property="og:title" content="Linux System and Adminstrative Commands V" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,18 +89,89 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-08-05T06:59:20.000Z"><a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">2017-08-04</a></time>
+        <time datetime="2017-09-05T05:11:11.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">2017-09-04</a></time>
       
       
   
-    <h1 class="title">Reading Note of Working Effectively with Legacy Code</h1>
+    <h1 class="title">Linux System and Adminstrative Commands V</h1>
   
 
     </header>
     <div class="entry">
       
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#System-Resources"><span class="toc-number">1.</span> <span class="toc-text">System Resources</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ulimit"><span class="toc-number">1.1.</span> <span class="toc-text">ulimit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#quota"><span class="toc-number">1.2.</span> <span class="toc-text">quota</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setquota"><span class="toc-number">1.3.</span> <span class="toc-text">setquota</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#umask"><span class="toc-number">1.4.</span> <span class="toc-text">umask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rdev"><span class="toc-number">1.5.</span> <span class="toc-text">rdev</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Module"><span class="toc-number">2.</span> <span class="toc-text">Module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lsmod"><span class="toc-number">2.1.</span> <span class="toc-text">lsmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#insmod"><span class="toc-number">2.2.</span> <span class="toc-text">insmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rmmod"><span class="toc-number">2.3.</span> <span class="toc-text">rmmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modprobe"><span class="toc-number">2.4.</span> <span class="toc-text">modprobe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#depmod"><span class="toc-number">2.5.</span> <span class="toc-text">depmod</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modinfo"><span class="toc-number">2.6.</span> <span class="toc-text">modinfo</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Miscellaneous"><span class="toc-number">3.</span> <span class="toc-text">Miscellaneous</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#env"><span class="toc-number">3.1.</span> <span class="toc-text">env</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ldd"><span class="toc-number">3.2.</span> <span class="toc-text">ldd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#watch"><span class="toc-number">3.3.</span> <span class="toc-text">watch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#strip"><span class="toc-number">3.4.</span> <span class="toc-text">strip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nm"><span class="toc-number">3.5.</span> <span class="toc-text">nm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xrandr"><span class="toc-number">3.6.</span> <span class="toc-text">xrandr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rdist"><span class="toc-number">3.7.</span> <span class="toc-text">rdist</span></a></li></ol></li></ol>
+          </div>
       
-        
+      
+        <h2 id="System-Resources"><a href="#System-Resources" class="headerlink" title="System Resources"></a>System Resources</h2><h3 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h3><ul>
+<li>Set an upper limit on use of system resources.</li>
+</ul>
+<hr>
+
+<h3 id="quota"><a href="#quota" class="headerlink" title="quota"></a>quota</h3><ul>
+<li>Display user or group disk quota.</li>
+</ul>
+<hr>
+
+<h3 id="setquota"><a href="#setquota" class="headerlink" title="setquota"></a>setquota</h3><ul>
+<li>Set user or group disk quotas from command-line.</li>
+</ul>
+<hr>
+
+<h3 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h3><ul>
+<li>User file creation permission mask.</li>
+</ul>
+<hr>
+
+<h3 id="rdev"><a href="#rdev" class="headerlink" title="rdev"></a>rdev</h3><h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><h3 id="lsmod"><a href="#lsmod" class="headerlink" title="lsmod"></a>lsmod</h3><ul>
+<li>List installed kernel modules.</li>
+</ul>
+<hr>
+
+<h3 id="insmod"><a href="#insmod" class="headerlink" title="insmod"></a>insmod</h3><ul>
+<li>Force installation of a kernel module.</li>
+</ul>
+<hr>
+
+<h3 id="rmmod"><a href="#rmmod" class="headerlink" title="rmmod"></a>rmmod</h3><hr>
+
+<h3 id="modprobe"><a href="#modprobe" class="headerlink" title="modprobe"></a>modprobe</h3><ul>
+<li>Module loader that is normally invoked automatically in a startup script.</li>
+</ul>
+<hr>
+
+<h3 id="depmod"><a href="#depmod" class="headerlink" title="depmod"></a>depmod</h3><ul>
+<li>Creates module dependency file.</li>
+</ul>
+<hr>
+
+<h3 id="modinfo"><a href="#modinfo" class="headerlink" title="modinfo"></a>modinfo</h3><ul>
+<li>Output information about a loadable module.</li>
+</ul>
+<hr>
+
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><ul>
+<li>Runs a program or script with certain environmental variables set or changed without changing the overall system environment.</li>
+</ul>
+<hr>
+
+<h3 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h3><hr>
+
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
+<li>Run a command repeatedly at specified time intervals.</li>
+</ul>
+<hr>
+
+<h3 id="strip"><a href="#strip" class="headerlink" title="strip"></a>strip</h3><hr>
+
+<h3 id="nm"><a href="#nm" class="headerlink" title="nm"></a>nm</h3><hr>
+
+<h3 id="xrandr"><a href="#xrandr" class="headerlink" title="xrandr"></a>xrandr</h3><hr>
+
+<h3 id="rdist"><a href="#rdist" class="headerlink" title="rdist"></a>rdist</h3>
       
     </div>
     
@@ -113,7 +184,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Software-Development/">Software Development</a>
+    <a href="/tags/Java/">Java</a>
   </div>
 
         <!-- partial('post/share') -->
