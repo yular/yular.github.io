@@ -759,14 +759,48 @@
     <link href="http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/"/>
     <id>http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/</id>
     <published>2017-08-07T06:30:50.000Z</published>
-    <updated>2017-08-07T06:30:50.000Z</updated>
+    <updated>2017-09-06T08:32:40.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
+&lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; title=&quot;Overall Rules&quot;&gt;&lt;/a&gt;Overall Rules&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;In Test-Driven Development, there are two basic rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Write new code only if there is a failing automated test.&lt;/li&gt;
+&lt;li&gt;Eliminate duplication.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The two rules above imply the order of tasks of programming:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Red&lt;/li&gt;
+&lt;li&gt;Green&lt;/li&gt;
+&lt;li&gt;Refactor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The three basic steps of Test Driven Development are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Start simply&lt;/li&gt;
+&lt;li&gt;Write automated tests&lt;/li&gt;
+&lt;li&gt;Refactor to add design decisions one at a time&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Two topics where TDD is not good at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Security software&lt;/li&gt;
+&lt;li&gt;Concurrency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
+      &lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
+&lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; 
+    
     </summary>
     
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     
   </entry>
   
