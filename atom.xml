@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-05T05:50:50.000Z</updated>
+  <updated>2017-09-07T08:06:09.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Effective Java I</title>
+    <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/"/>
+    <id>http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/</id>
+    <published>2017-09-07T08:00:28.000Z</published>
+    <updated>2017-09-07T08:06:09.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-constructors&quot; class=&quot;headerlink&quot; title=&quot;Item 1. Consider static factory methods instead of constructors&quot;&gt;&lt;/a&gt;Item 1. Consider static factory methods instead of constructors&lt;/h3&gt;&lt;p&gt;Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-construc
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Java in a Nutshell</title>
+    <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/"/>
+    <id>http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/</id>
+    <published>2017-09-07T07:48:01.000Z</published>
+    <updated>2017-09-07T07:48:01.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Linux Text Processing Command I</title>
@@ -759,7 +796,7 @@
     <link href="http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/"/>
     <id>http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/</id>
     <published>2017-08-07T06:30:50.000Z</published>
-    <updated>2017-09-06T08:32:40.000Z</updated>
+    <updated>2017-09-07T07:54:13.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
 &lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; title=&quot;Overall Rules&quot;&gt;&lt;/a&gt;Overall Rules&lt;/h2&gt;&lt;ul&gt;
@@ -771,9 +808,9 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The two rules above imply the order of tasks of programming:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Red&lt;/li&gt;
-&lt;li&gt;Green&lt;/li&gt;
-&lt;li&gt;Refactor&lt;/li&gt;
+&lt;li&gt;Red: Write a little test that does not work, even does not compile at first&lt;/li&gt;
+&lt;li&gt;Green: Make the test work quickly, committing whatever sins necessary in the process&lt;/li&gt;
+&lt;li&gt;Refactor: Eliminate all the duplication created in just getting the test to work&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;The three basic steps of Test Driven Development are:&lt;/p&gt;
@@ -787,6 +824,15 @@
 &lt;ul&gt;
 &lt;li&gt;Security software&lt;/li&gt;
 &lt;li&gt;Concurrency&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Rhythm of TDD:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quickly add a test&lt;/li&gt;
+&lt;li&gt;Run all tests and see the new one fails&lt;/li&gt;
+&lt;li&gt;Make a little change&lt;/li&gt;
+&lt;li&gt;Run all tests and see them all succeed&lt;/li&gt;
+&lt;li&gt;Refactor to remove duplication&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -921,11 +967,21 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Effective-Java/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Effective-Java/</id>
     <published>2017-08-05T06:53:29.000Z</published>
-    <updated>2017-08-07T06:40:00.000Z</updated>
+    <updated>2017-09-07T08:00:02.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h2 id=&quot;Overall-Summary&quot;&gt;&lt;a href=&quot;#Overall-Summary&quot; class=&quot;headerlink&quot; title=&quot;Overall Summary&quot;&gt;&lt;/a&gt;Overall Summary&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Clarity and simplicity are important and users of a module should never be surprised by its behavior. &lt;/li&gt;
+&lt;li&gt;Modules should be as small as possible but no smaller. &lt;/li&gt;
+&lt;li&gt;Code should be reused rather than copied. The dependencies between modules&lt;/li&gt;
+&lt;li&gt;The dependencies between modules should be kept to a minimum.&lt;/li&gt;
+&lt;li&gt;Errors should be detected as soon as possible after they are made, ideally at compile time.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;Overall-Summary&quot;&gt;&lt;a href=&quot;#Overall-Summary&quot; class=&quot;headerlink&quot; title=&quot;Overall Summary&quot;&gt;&lt;/a&gt;Overall Summary&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;Clarity and 
     
     </summary>
     
@@ -1243,38 +1299,6 @@
     
     
       <category term="C" scheme="http://yular.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kaggle Contest Guide Summary</title>
-    <link href="http://yular.github.io/2017/06/30/Kaggle-Contest-Guide-Summary/"/>
-    <id>http://yular.github.io/2017/06/30/Kaggle-Contest-Guide-Summary/</id>
-    <published>2017-07-01T02:18:26.000Z</published>
-    <updated>2017-07-01T02:18:26.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Kaggle Contest QuickStart</title>
-    <link href="http://yular.github.io/2017/06/30/Kaggle-Contest-QuickStart/"/>
-    <id>http://yular.github.io/2017/06/30/Kaggle-Contest-QuickStart/</id>
-    <published>2017-07-01T02:18:11.000Z</published>
-    <updated>2017-07-01T02:18:11.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
