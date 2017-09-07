@@ -967,12 +967,12 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Effective-Java/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Effective-Java/</id>
     <published>2017-08-05T06:53:29.000Z</published>
-    <updated>2017-09-07T08:00:02.000Z</updated>
+    <updated>2017-09-07T08:08:05.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;Overall-Summary&quot;&gt;&lt;a href=&quot;#Overall-Summary&quot; class=&quot;headerlink&quot; title=&quot;Overall Summary&quot;&gt;&lt;/a&gt;Overall Summary&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;Clarity and simplicity are important and users of a module should never be surprised by its behavior. &lt;/li&gt;
 &lt;li&gt;Modules should be as small as possible but no smaller. &lt;/li&gt;
-&lt;li&gt;Code should be reused rather than copied. The dependencies between modules&lt;/li&gt;
+&lt;li&gt;Code should be reused rather than copied.&lt;/li&gt;
 &lt;li&gt;The dependencies between modules should be kept to a minimum.&lt;/li&gt;
 &lt;li&gt;Errors should be detected as soon as possible after they are made, ideally at compile time.&lt;/li&gt;
 &lt;/ul&gt;
