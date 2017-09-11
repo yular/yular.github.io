@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-11T01:25:41.000Z</updated>
+  <updated>2017-09-11T01:31:17.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/"/>
     <id>http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/</id>
     <published>2017-09-11T00:02:49.000Z</published>
-    <updated>2017-09-11T01:25:41.000Z</updated>
+    <updated>2017-09-11T01:31:17.000Z</updated>
     
     <content type="html">&lt;p&gt;See the meaning of &lt;a href=&quot;https://en.wikipedia.org/wiki/Proxy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Proxy in Wikipedia&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;As we know, when we visit a web service, we may not directly get the access of the hosts where the service is deployed but the hosts which sends the same or reasonable response as the service does. And those hosts are proxies.&lt;/p&gt;
 &lt;p&gt;So in the design pattern, proxy pattern uses the similar mechanism. A class (proxy class) represents the functionality of the other class. Proxy class implements or extends the same interface or abstract class as the class proxied does, and proxy instance contains the instance proxied.&lt;/p&gt;
 &lt;p&gt;See the &lt;a href=&quot;https://en.wikipedia.org/wiki/Proxy_pattern&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Proxy Pattern in Wikipedia&lt;/a&gt;. The diagram there can help to understand the structure of this design pattern.&lt;/p&gt;
 &lt;p&gt;Here is some sample code about Proxy Pattern.&lt;/p&gt;
-&lt;h3 id=&quot;Sample-Code&quot;&gt;&lt;a href=&quot;#Sample-Code&quot; class=&quot;headerlink&quot; title=&quot;Sample Code&quot;&gt;&lt;/a&gt;Sample Code&lt;/h3&gt;&lt;p&gt;Here is the link of below &lt;a href=&quot;&quot;&gt;sample code&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Sample-Code&quot;&gt;&lt;a href=&quot;#Sample-Code&quot; class=&quot;headerlink&quot; title=&quot;Sample Code&quot;&gt;&lt;/a&gt;Sample Code&lt;/h3&gt;&lt;p&gt;Here is the link of below &lt;a href=&quot;https://github.com/yular/Java-CodeLibrary/tree/master/DesignPattern/ProxyPattern/src/com/yulartech/designpattern/proxypattern&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;sample code&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Firt of all, here is the service interface:&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;package com.yulartech.designpattern.proxypattern;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;public interface ImageService &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    void showImage();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;Then the real image service and proxy image service must implement this interface.&lt;/p&gt;
