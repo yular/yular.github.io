@@ -950,7 +950,7 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/</id>
     <published>2017-08-05T06:54:00.000Z</published>
-    <updated>2017-08-21T08:02:39.000Z</updated>
+    <updated>2017-09-11T08:14:59.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
 &lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
@@ -987,6 +987,14 @@
 &lt;li&gt;若使用静态函数，应确保它没有多态行为（函数名一样但输入输出不同）。&lt;/li&gt;
 &lt;li&gt;用多态替代if/else和switch。&lt;/li&gt;
 &lt;li&gt;把逻辑依赖改为物理依赖。依赖者模块不应对被依赖者模块有假定，它应当明确地询问后者全部信息。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;测试不足： 只要还有没被测试探测过的条件或者验证过的计算，测试就是不足够的。&lt;/li&gt;
+&lt;li&gt;测试中使用覆盖率工具。&lt;/li&gt;
+&lt;li&gt;别忽略小测试。被忽略的测试就是对不确定事物的疑问。&lt;/li&gt;
+&lt;li&gt;测试边界条件（尤其是算法）。&lt;/li&gt;
+&lt;li&gt;全面测试相近的缺陷。&lt;/li&gt;
+&lt;li&gt;测试覆盖率的模式有启发性测试，应该快速出结果。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
