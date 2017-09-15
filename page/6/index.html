@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 6 | YBC HomePage</title>
+  <title>Page 6 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,81 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-29T05:23:11.000Z"><a href="/2017/01/28/2017-Reading-List/">2017-01-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/28/2017-Reading-List/">2017 Reading List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of books that should be read in 2016:</p>
+<p>1.Mindset</p>
+<p>2.包公传</p>
+<p>3.名人传</p>
+<p>4.Java 语言编程设计（进阶）</p>
+<p>5.Machine Learning (Murphy)</p>
+<p>6.挑战编程</p>
+<p>7.Principles of Data Integration</p>
+<p>8.JVM website <a href="http://rednaxelafx.iteye.com/blog/362738" target="_blank" rel="external">click here</a></p>
+<p>9.犯罪嫌疑人X之献身</p>
+<p>10.开放社会：改革全球资本主义</p>
+<p>11.文明的冲突与世界秩序的重建</p>
+<p>12.旧欧洲 新欧洲 核心欧洲</p>
+<p>13.欧洲中世纪史</p>
+<p>14.互联网产品经理全方位入门（44本）</p>
+<p>15.史记</p>
+<p>16.道德经</p>
+<p>17.哈尔罗杰历险记</p>
+<p>18.Out of Control</p>
+<p>19.庄子今注今译</p>
+<p>20.沃伦.巴菲特的投资组合</p>
+<p>21.Peopleware</p>
+<p>22.The Design of Everyday Things</p>
+<p>23.Programming Perls</p>
+<p>24.Envisioning Information</p>
+<p>25.Regular Expressions Cookbook</p>
+<p>27.About Face</p>
+<p>28.Java Language Specification: <a href="http://docs.oracle.com/javase/specs/jls/se8/html/index.html" target="_blank" rel="external">Oracle</a></p>
+<p>29.Java Virtual Machine: <a href="http://docs.oracle.com/javase/specs/jvms/se8/html/index.html" target="_blank" rel="external">Oracle</a>.</p>
+<p>30.Douban Java Booklist I: <a href="https://www.douban.com/doulist/2545443/" target="_blank" rel="external">从表到里学习JVM实现</a>.</p>
+<p>31.Douban Java Booklist II: <a href="https://book.douban.com/people/RednaxelaFX/all?start=15&amp;sort=time&amp;rating=all&amp;tag=VM&amp;mode=grid&amp;filter=all" target="_blank" rel="external">RednaxelaFX的书/VM(63)</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -630,59 +705,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
-<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
-<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command to use HBase split policy:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/7/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -781,7 +808,7 @@
   
     <li><a href="/tags/System-Design/">System Design</a><small>7</small></li>
   
-    <li><a href="/tags/Test/">Test</a><small>4</small></li>
+    <li><a href="/tags/Test/">Test</a><small>5</small></li>
   
     <li><a href="/tags/Tools/">Tools</a><small>4</small></li>
   
@@ -793,9 +820,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.31px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -816,6 +843,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a>
       </li>
     
@@ -829,10 +860,6 @@
     
       <li>
         <a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">Reading Note of Java in a Nutshell</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/04/Linux-Text-Processing-Command-I/">Linux Text Processing Command I</a>
       </li>
     
   </ul>

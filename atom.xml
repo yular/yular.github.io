@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-11T08:57:16.000Z</updated>
+  <updated>2017-09-15T06:13:00.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thinking in Test Driven Development</title>
+    <link href="http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/"/>
+    <id>http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/</id>
+    <published>2017-09-15T05:26:09.000Z</published>
+    <updated>2017-09-15T06:13:00.000Z</updated>
+    
+    <content type="html">&lt;p&gt;The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.&lt;/p&gt;
+&lt;p&gt;In my software development model, here are the steps to apply TDD in practice:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fully understand the user requirement.&lt;/li&gt;
+&lt;li&gt;Do a good design for the project, which includes the system design and object-oriented design.&lt;/li&gt;
+&lt;li&gt;Based on the design, list all the features need to accomplish.&lt;/li&gt;
+&lt;li&gt;Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.&lt;/li&gt;
+&lt;li&gt;While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.&lt;/li&gt;
+&lt;li&gt;While refactor the code, keep the code clean so that it is simple, easy to read and maintain.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are some useful tips borrowed from the book.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a test list including all the required tests at the beginning.&lt;/li&gt;
+&lt;li&gt;The goal of each test is to leave the world in exactly the same state before it ran.&lt;/li&gt;
+&lt;li&gt;Each test should represent one step towards overall goal.&lt;/li&gt;
+&lt;li&gt;What should be tested:&lt;ul&gt;
+&lt;li&gt;Conditions&lt;/li&gt;
+&lt;li&gt;Loops&lt;/li&gt;
+&lt;li&gt;Operations&lt;/li&gt;
+&lt;li&gt;Polymorphism&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;What factors should be included in the test:&lt;ul&gt;
+&lt;li&gt;What does the operation belong to.&lt;/li&gt;
+&lt;li&gt;What are the correct inputs.&lt;/li&gt;
+&lt;li&gt;What is the correct output given those input.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Some attributes of tests suggesting a design in trouble:&lt;ul&gt;
+&lt;li&gt;Long setup code.&lt;/li&gt;
+&lt;li&gt;Setup duplication.&lt;/li&gt;
+&lt;li&gt;Long running tests.&lt;/li&gt;
+&lt;li&gt;Fragile tests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Write assert first in the test.&lt;/li&gt;
+&lt;li&gt;To improve test coverage, take a fixed set of tests and simplify the logic of the program.&lt;/li&gt;
+&lt;li&gt;Avoid test coupling. All the tests should be run independently.&lt;/li&gt;
+&lt;li&gt;Isolating tests also helps to decouple objects (Improve the design).&lt;/li&gt;
+&lt;li&gt;Tests should be in a small scale instead of whole application.&lt;/li&gt;
+&lt;li&gt;For common objects needed by several tests, convert local variables into instance variables.&lt;/li&gt;
+&lt;li&gt;Use data that makes the test easy to read and follow.&lt;/li&gt;
+&lt;li&gt;Evident data seems to be an exception to the rule that you do not want magic numbers in your code.&lt;/li&gt;
+&lt;li&gt;When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.&lt;/li&gt;
+&lt;li&gt;To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.&lt;/li&gt;
+&lt;li&gt;To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.&lt;/li&gt;
+&lt;li&gt;Always make sure all the tests are running before check in your own code.&lt;/li&gt;
+&lt;li&gt;Unless have reason to distrust it, do not test code from others. &lt;/li&gt;
+&lt;li&gt;toString method is an exception that does not require test.&lt;/li&gt;
+&lt;li&gt;Physical setup (for working environment): cheap disk, nice chair.&lt;/li&gt;
+&lt;li&gt;Get cheap/slow/old machines for individual email and surfing.&lt;/li&gt;
+&lt;li&gt;Leave a programming session when programming alone, leave the last test broken.&lt;/li&gt;
+&lt;li&gt;Leave a programming session when programming in a team, leave all the test running.&lt;/li&gt;
+&lt;li&gt;Feel lost, throw away the code and start over.&lt;/li&gt;
+&lt;li&gt;Feel tired or stuck, take a break.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have alrea
+    
+    </summary>
+    
+    
+      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
+    
+  </entry>
   
   <entry>
     <title>Aspect Oriented Programming</title>
@@ -864,7 +940,7 @@
     <link href="http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/"/>
     <id>http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/</id>
     <published>2017-08-07T06:30:50.000Z</published>
-    <updated>2017-09-07T07:54:13.000Z</updated>
+    <updated>2017-09-15T06:22:20.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
 &lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; title=&quot;Overall Rules&quot;&gt;&lt;/a&gt;Overall Rules&lt;/h2&gt;&lt;ul&gt;
@@ -902,6 +978,21 @@
 &lt;li&gt;Run all tests and see them all succeed&lt;/li&gt;
 &lt;li&gt;Refactor to remove duplication&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Three ways to pass tests:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Fake it.&lt;/li&gt;
+&lt;li&gt;Obvious implementation.&lt;/li&gt;
+&lt;li&gt;Translate a design object (side effects) into a test case that fails because of the objection, get the code to compile quickly with a stub implementation, made the test work by typing in what seemed like the right code. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Given a problem, first divide it to small independent problems, create tests for each of them, then do refactor on the code.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Detailed-Rules&quot;&gt;&lt;a href=&quot;#Detailed-Rules&quot; class=&quot;headerlink&quot; title=&quot;Detailed Rules&quot;&gt;&lt;/a&gt;Detailed Rules&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Write new code only if you first have a failing automated test. Then eliminate the duplication.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Could not tackle a big test, so invent a small test representing progress, write the test by shameless duplicating and editing, make the test work by copying and editing model code wholescale, promised ourselves to remove duplication.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 </content>
@@ -1099,217 +1190,6 @@
     
     
       <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of The Pragmatic Programmer</title>
-    <link href="http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/"/>
-    <id>http://yular.github.io/2017/07/30/Reading-Note-of-The-Pragmatic-Programmer/</id>
-    <published>2017-07-30T07:09:01.000Z</published>
-    <updated>2017-08-05T04:16:38.000Z</updated>
-    
-    <content type="html">&lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level software engineer. I collected and then categorized the useful tips (personally I think) from that book, and noted and shared them here. And discussion is welcomed.&lt;/p&gt;
-&lt;p&gt;Tips with a question mark at the end means that I do not fully understand what the tip means.&lt;/p&gt;
-&lt;h3 id=&quot;Fundamental-Guideline-Principle&quot;&gt;&lt;a href=&quot;#Fundamental-Guideline-Principle&quot; class=&quot;headerlink&quot; title=&quot;Fundamental Guideline/Principle&quot;&gt;&lt;/a&gt;Fundamental Guideline/Principle&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;DRY: Do not Repeat Yourself&lt;br&gt;Need to get rid of following four kinds of duplication&lt;br&gt;&lt;strong&gt; Imposed duplication
-&lt;/strong&gt; Inadvertent duplication&lt;br&gt;&lt;strong&gt; Impatient duplication
-&lt;/strong&gt; Interdeveloper duplication&lt;br&gt;Keep the the low-level knowledge in the code, where it belongs, and reserve the comments for other, high-level explanations.&lt;br&gt;And the goal is :&lt;br&gt;** Make It Easy to Reuse&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Orthogonality&lt;br&gt;It means that signify a kind of independence or decoupling. Two or more things are orthogonal if changes in one do not affect any of the others.&lt;br&gt;The goal is:&lt;br&gt;&lt;strong&gt; Eliminate Effects Between Unrelated Things.&lt;br&gt;To maintain orthogonality:
-&lt;/strong&gt; Keep code decoupled&lt;br&gt;&lt;strong&gt; Avoid global data
-&lt;/strong&gt; Avoid similar functions&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Examples of orthogonality:&lt;br&gt;&lt;strong&gt; AOP
-&lt;/strong&gt; CORBA&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;No Broken Windows&lt;br&gt;The team should take the responsibility for the quality of product. High code quality can encourage developers to continue to write high quality of code for the project.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Boiled Frogs&lt;br&gt;Make sure everyone actively monitors the environment for changes and solve the problems as soon as possible.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Understand-the-Goal-Requirement&quot;&gt;&lt;a href=&quot;#Understand-the-Goal-Requirement&quot; class=&quot;headerlink&quot; title=&quot;Understand the Goal/Requirement&quot;&gt;&lt;/a&gt;Understand the Goal/Requirement&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;There are NO final decisions.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use Tracer Bullets to Find the Target&lt;br&gt;Prototyping is the reconnaissance and intelligence gathering that takes place before a single trace bullet is fired.&lt;br&gt;Tracer bullets should be a more concrete design plan for customers to view?&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Prototype to Learn&lt;br&gt;Here are things to prototype:&lt;br&gt;&lt;strong&gt; Architecture
-&lt;/strong&gt; New functionality in an existing system&lt;br&gt;&lt;strong&gt; Structure or contents of external data
-&lt;/strong&gt; Performance issues&lt;br&gt;** User interface design&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Program Close to the Problem domain.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not Gather Requirement - Dig for them.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Work with a User to Think like a User.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Abstractions Live Longer than Details.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use a Project Glossary.&lt;br&gt;** Project items dictionary.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Estimation&quot;&gt;&lt;a href=&quot;#Estimation&quot; class=&quot;headerlink&quot; title=&quot;Estimation&quot;&gt;&lt;/a&gt;Estimation&lt;/h3&gt;&lt;p&gt;Estimates are based on models of given problem. Here are the basic steps to do estimation:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Understand what is being asked.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Build a model of the system.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Break the model into components.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Give each parameter a value.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Calculate the answers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Keep track of estimating powers.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Estimating project schedules (Steps are as follows).&lt;br&gt;&lt;strong&gt; Check requirements
-&lt;/strong&gt; Analyze risk&lt;br&gt;&lt;strong&gt; Design, implement, integrate
-&lt;/strong&gt; Validate with the users&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Tools&quot;&gt;&lt;a href=&quot;#Tools&quot; class=&quot;headerlink&quot; title=&quot;Tools&quot;&gt;&lt;/a&gt;Tools&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Keep knowledge in Plain Text&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;User the Power of Command Shells.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use a Single Editor Well.&lt;br&gt;It is better to know one editor very well, and use it for all editing tasks: code, documentation, memos, system administration, and so on.&lt;br&gt;A good editor should have following features:&lt;br&gt;&lt;strong&gt; Configurable
-&lt;/strong&gt; Extensible&lt;br&gt;&lt;strong&gt; Programmable
-&lt;/strong&gt; Syntax highlighting&lt;br&gt;&lt;strong&gt; Auto-completion
-&lt;/strong&gt; Auto-indentation&lt;br&gt;&lt;strong&gt; Initial code or document boilerplate
-&lt;/strong&gt; IDE-like features&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Always Use Source Code Control&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Learn a Text Manipulation Language&lt;br&gt;For example, &lt;code&gt;awk&lt;/code&gt; and &lt;code&gt;sed&lt;/code&gt; commands in Shell.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Write Code that Writes Code (Code Generator)&lt;br&gt;&lt;strong&gt; Passive code generators are run once to produce a result. (Java Immutable class)
-&lt;/strong&gt; Active code generators are used each time their results are required. (Any examples?)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Design&quot;&gt;&lt;a href=&quot;#Design&quot; class=&quot;headerlink&quot; title=&quot;Design&quot;&gt;&lt;/a&gt;Design&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Design with Contracts.&lt;br&gt;** Shy contract - A way of separate concerns and decoupling.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Design by Contract.&lt;br&gt;Focus on documenting (and agreeing to) the rights and responsibilities of software modules to ensure program correctness. Does no more and no less than the document claims to do.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The Law of Demeter for Functions&lt;br&gt;** Minimize Coupling Between Modules.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Analyze Workflow to Improve Concurrency&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Design Using Service&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Always Design for Concurrency&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use Blackboards to Coordinate Workflow&lt;br&gt;** Use the blackboard to coordinate disparate facts and agents, while still maintaining independence and even isolation among participants.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Some Things are Better Done than Described.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not be a Slave to Formal Methods.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Expensive Too Do Not Produce Better Design.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Coding-Implementation-Practice&quot;&gt;&lt;a href=&quot;#Coding-Implementation-Practice&quot; class=&quot;headerlink&quot; title=&quot;Coding/Implementation Practice&quot;&gt;&lt;/a&gt;Coding/Implementation Practice&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Crash Early.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;If it Can not Happen, User Assertions to Ensure That It Will not.&lt;br&gt;Precondition Check.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use Exceptions for Exceptional Problems.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Finish What You Start&lt;br&gt;The routine or object that allocates a resource should be responsible for deallocating it.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Dynamic Configuration: Configure, Do not Integrate.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Metadata-Driven Application: Put Abstractions in Code Details in Metadata.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Estimate the Order of Your Algorithms. And Test the estimates.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not program coincidence&lt;br&gt;Need to know the idea behind the code clearly.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not be a slave to history. Do not let existing code dictate future code.&lt;br&gt;Be critical to existing code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Refactor (Following is the reason to do refactor)&lt;br&gt;&lt;strong&gt; Duplication
-&lt;/strong&gt; Nonorthogonal design&lt;br&gt;&lt;strong&gt; Outdated knowledge
-&lt;/strong&gt; Performance&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Refactor early and often&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not use Wizard Code You Do not Understand.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Best-Practice&quot;&gt;&lt;a href=&quot;#Best-Practice&quot; class=&quot;headerlink&quot; title=&quot;Best Practice(?)&quot;&gt;&lt;/a&gt;Best Practice(?)&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Do not Use Manual Procedures.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Debug&quot;&gt;&lt;a href=&quot;#Debug&quot; class=&quot;headerlink&quot; title=&quot;Debug&quot;&gt;&lt;/a&gt;Debug&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Fix the Problem Not the Blame.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not panic.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Make bug reproducible.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do not Assume It - Prove It.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Check my code first, and then bugs from third party.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Test early, test often, test automatically.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Use Saboteurs to test your testing.&lt;br&gt;It means that appoint a project saboteur, take a separate copy of the source tree, introduce bugs on purpose, and verify that the tests will catch them.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Test stage coverage, not code/line coverage&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Find bugs once.&lt;br&gt;Once a human tester finds a bug, it should be the last time a human tester finds that bug.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Coding is not done until all the tests run&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Test against contract in unit test&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Divide and conquer in testing&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Documentation&quot;&gt;&lt;a href=&quot;#Documentation&quot; class=&quot;headerlink&quot; title=&quot;Documentation&quot;&gt;&lt;/a&gt;Documentation&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Treat English as just another programming language.&lt;br&gt;It means that it is important to keep the documentation in a good way.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Build documentation in. Do not bolt it on.(?)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Expectation&quot;&gt;&lt;a href=&quot;#Expectation&quot; class=&quot;headerlink&quot; title=&quot;Expectation&quot;&gt;&lt;/a&gt;Expectation&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Gently Exceed Your Users’ Expectations.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Sign Your Work.&lt;br&gt;Be pround of what your have done. (Ownership.)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;I just finished reading a book called &lt;code&gt;The Pragmatic Programmer&lt;/code&gt;, and found that this book was really helpful for entry level 
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
     
   </entry>
   
