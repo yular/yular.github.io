@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-15T06:13:00.000Z</updated>
+  <updated>2017-09-15T06:24:02.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/"/>
     <id>http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/</id>
     <published>2017-09-15T05:26:09.000Z</published>
-    <updated>2017-09-15T06:13:00.000Z</updated>
+    <updated>2017-09-15T06:24:02.000Z</updated>
     
     <content type="html">&lt;p&gt;The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.&lt;/p&gt;
 &lt;p&gt;In my software development model, here are the steps to apply TDD in practice:&lt;/p&gt;
@@ -32,6 +32,8 @@
 &lt;li&gt;While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.&lt;/li&gt;
 &lt;li&gt;While refactor the code, keep the code clean so that it is simple, easy to read and maintain.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;p&gt;Here are some useful tips borrowed from the book.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Create a test list including all the required tests at the beginning.&lt;/li&gt;
@@ -160,13 +162,29 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/</id>
     <published>2017-09-07T08:00:28.000Z</published>
-    <updated>2017-09-11T08:26:19.000Z</updated>
+    <updated>2017-09-18T07:02:16.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-constructors&quot; class=&quot;headerlink&quot; title=&quot;Item 1. Consider static factory methods instead of constructors&quot;&gt;&lt;/a&gt;Item 1. Consider static factory methods instead of constructors&lt;/h3&gt;&lt;p&gt;Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.&lt;/p&gt;
 &lt;p&gt;But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.&lt;/p&gt;
 &lt;h3 id=&quot;Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters&quot;&gt;&lt;a href=&quot;#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters&quot; class=&quot;headerlink&quot; title=&quot;Item 2. Consider a builder when faced with many constructor parameters.&quot;&gt;&lt;/a&gt;Item 2. Consider a builder when faced with many constructor parameters.&lt;/h3&gt;&lt;p&gt;Builder is a static class.&lt;/p&gt;
 &lt;p&gt;The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.&lt;/p&gt;
 &lt;h3 id=&quot;Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type&quot;&gt;&lt;a href=&quot;#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type&quot; class=&quot;headerlink&quot; title=&quot;Item 3. Enforce the singleton property with a private constructor or an enum type.&quot;&gt;&lt;/a&gt;Item 3. Enforce the singleton property with a private constructor or an enum type.&lt;/h3&gt;&lt;p&gt;Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.&lt;/p&gt;
+&lt;h3 id=&quot;Item-4-Enforce-noninstantiability-with-a-private-constructor&quot;&gt;&lt;a href=&quot;#Item-4-Enforce-noninstantiability-with-a-private-constructor&quot; class=&quot;headerlink&quot; title=&quot;Item 4. Enforce noninstantiability with a private constructor.&quot;&gt;&lt;/a&gt;Item 4. Enforce noninstantiability with a private constructor.&lt;/h3&gt;&lt;p&gt;This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.&lt;/p&gt;
+&lt;h3 id=&quot;Item-5-Avoid-creating-unnecessary-objects&quot;&gt;&lt;a href=&quot;#Item-5-Avoid-creating-unnecessary-objects&quot; class=&quot;headerlink&quot; title=&quot;Item 5. Avoid creating unnecessary objects.&quot;&gt;&lt;/a&gt;Item 5. Avoid creating unnecessary objects.&lt;/h3&gt;&lt;p&gt;Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.&lt;/p&gt;
+&lt;p&gt;So do not use following code:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s = new String(&amp;quot;abc&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;but use:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s = &amp;quot;abc&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h4 id=&quot;Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing&quot;&gt;&lt;a href=&quot;#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing&quot; class=&quot;headerlink&quot; title=&quot;Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.&quot;&gt;&lt;/a&gt;Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.&lt;/h4&gt;&lt;h4 id=&quot;Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes&quot;&gt;&lt;a href=&quot;#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes&quot; class=&quot;headerlink&quot; title=&quot;Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.&quot;&gt;&lt;/a&gt;Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.&lt;/h4&gt;&lt;h3 id=&quot;Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen&quot;&gt;&lt;a href=&quot;#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen&quot; class=&quot;headerlink&quot; title=&quot;Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)&quot;&gt;&lt;/a&gt;Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)&lt;/h3&gt;&lt;p&gt;Two ways to do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Exception rather than norm: Null out references once they become obsolete.&lt;/li&gt;
+&lt;li&gt;Best way: Let the variable containing the reference fall out of scope.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Source of memory leak:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A class manages its own memory.&lt;/li&gt;
+&lt;li&gt;Cache. Solution: use weak hashmap.&lt;/li&gt;
+&lt;li&gt;Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
@@ -1068,7 +1086,7 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/</id>
     <published>2017-08-05T06:54:00.000Z</published>
-    <updated>2017-09-11T08:14:59.000Z</updated>
+    <updated>2017-09-18T06:44:50.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
 &lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
@@ -1085,12 +1103,26 @@
 &lt;li&gt;应当能单个命令签出并构建系统。&lt;/li&gt;
 &lt;li&gt;应当能单个命令运行全部测试。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&quot;名称&quot;&gt;&lt;a href=&quot;#名称&quot; class=&quot;headerlink&quot; title=&quot;名称&quot;&gt;&lt;/a&gt;名称&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;采用描述性名称。要经常性地重新评估名称的正确性。&lt;/li&gt;
+&lt;li&gt;名称要与抽象层级相符合（名称要反映类和函数的抽象层级）。&lt;/li&gt;
+&lt;li&gt;尽可能使用标准命名法 (Google or Amazon)。&lt;/li&gt;
+&lt;li&gt;名称无歧义。&lt;/li&gt;
+&lt;li&gt;名称长度应和作用范围有关。名称越长作用范围越大。&lt;/li&gt;
+&lt;li&gt;名称中避免使用编码（别用匈牙利语命名法）。&lt;/li&gt;
+&lt;li&gt;名称中要说明副作用。&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&quot;函数&quot;&gt;&lt;a href=&quot;#函数&quot; class=&quot;headerlink&quot; title=&quot;函数&quot;&gt;&lt;/a&gt;函数&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;输入参数尽量少。没参数最好，一个次之，两个再次，三个更次。三个以上应坚决避免。&lt;/li&gt;
 &lt;li&gt;别输出输入参数。非要修改的话，则修改函数其所在对象的状态。&lt;/li&gt;
 &lt;li&gt;布尔值输入(selector)参数宣告了函数不止做了一件事，会令人迷惑，应当消灭掉。&lt;/li&gt;
 &lt;li&gt;死函数，也就是不被调用的函数，要坚决去掉。&lt;/li&gt;
 &lt;li&gt;不能忽视安全（不一定指网络攻击，函数不做不合法输入的检测也算）。&lt;/li&gt;
+&lt;li&gt;函数只做一件事。&lt;/li&gt;
+&lt;li&gt;函数中的语句应该在同一个抽象层级上。&lt;/li&gt;
+&lt;li&gt;别用算子参数（直接将结果赋值到一个变量然后用此变量作为函数参数才是对的）。&lt;/li&gt;
+&lt;li&gt;别忽视不正确的边界行为。&lt;/li&gt;
+&lt;li&gt;函数名称应传达其行为。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;语言&quot;&gt;&lt;a href=&quot;#语言&quot; class=&quot;headerlink&quot; title=&quot;语言&quot;&gt;&lt;/a&gt;语言&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;尽量减少源文件的语言数量。&lt;/li&gt;
@@ -1105,6 +1137,19 @@
 &lt;li&gt;若使用静态函数，应确保它没有多态行为（函数名一样但输入输出不同）。&lt;/li&gt;
 &lt;li&gt;用多态替代if/else和switch。&lt;/li&gt;
 &lt;li&gt;把逻辑依赖改为物理依赖。依赖者模块不应对被依赖者模块有假定，它应当明确地询问后者全部信息。&lt;/li&gt;
+&lt;li&gt;在较高层级放置可配置数据 （比如默认常量或配置值）。&lt;/li&gt;
+&lt;li&gt;别混肴视听（比如实现了没被使用的方法）。&lt;/li&gt;
+&lt;li&gt;保持代码的前后一致（比如命名规则一致）。&lt;/li&gt;
+&lt;li&gt;代码出现的位置应是读者自然而然期待的地方（最小惊异原则）。&lt;/li&gt;
+&lt;li&gt;函数或类应实现其他程序员有理由期待的行为（最小惊异原则）。&lt;/li&gt;
+&lt;li&gt;尽量消除特性依赖（Guice DI算是例外）。类的方法只应对其所属类中的变量和函数感兴趣（内聚），而不要通过其他类的对象的访问器和修改器操作自己的内部数据。&lt;/li&gt;
+&lt;li&gt;不掩盖时序耦合（也就是workflow函数要体现其调用的子函数之间的时序耦合关系）。好的方法是创建子函数调用顺序队伍，和将函数返回的变量作为接下来调用的子函数的输入参数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;依赖和继承&quot;&gt;&lt;a href=&quot;#依赖和继承&quot; class=&quot;headerlink&quot; title=&quot;依赖和继承&quot;&gt;&lt;/a&gt;依赖和继承&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;别继承常量（用静态导入常量）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;算法&quot;&gt;&lt;a href=&quot;#算法&quot; class=&quot;headerlink&quot; title=&quot;算法&quot;&gt;&lt;/a&gt;算法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;通过重构（让代码更有表达力）和单元测试，来确认算法是正确的。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;测试&quot;&gt;&lt;a href=&quot;#测试&quot; class=&quot;headerlink&quot; title=&quot;测试&quot;&gt;&lt;/a&gt;测试&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;测试不足： 只要还有没被测试探测过的条件或者验证过的计算，测试就是不足够的。&lt;/li&gt;
@@ -1113,6 +1158,17 @@
 &lt;li&gt;测试边界条件（尤其是算法）。&lt;/li&gt;
 &lt;li&gt;全面测试相近的缺陷。&lt;/li&gt;
 &lt;li&gt;测试覆盖率的模式有启发性测试，应该快速出结果。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;一般性问题&quot;&gt;&lt;a href=&quot;#一般性问题&quot; class=&quot;headerlink&quot; title=&quot;一般性问题&quot;&gt;&lt;/a&gt;一般性问题&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;避免使用否定性条件。&lt;/li&gt;
+&lt;li&gt;避免传递浏览（遵守得墨忒定律，不提倡使用 a.getS().getG().getC()来调用方法C）。&lt;/li&gt;
+&lt;li&gt;通过使用通配符避免过长的导入清单。&lt;/li&gt;
+&lt;li&gt;遵循基于通用行业规范的一套编码标准。&lt;/li&gt;
+&lt;li&gt;用变量命名代替魔术数（比如用常量表示魔术数）。&lt;/li&gt;
+&lt;li&gt;用函数来封装条件（比如将if语句中的布尔逻辑抽象成函数）。&lt;/li&gt;
+&lt;li&gt;别随意。构建代码需要理由且理由要与代码结构契合。不合理的结构就要修改，合理的则要保持和推广。&lt;/li&gt;
+&lt;li&gt;封装边界条件。&lt;/li&gt;
+&lt;li&gt;会用enum类型，尤其是在枚举情况下。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
