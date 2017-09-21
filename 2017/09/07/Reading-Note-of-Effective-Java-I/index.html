@@ -99,6 +99,12 @@
     </header>
     <div class="entry">
       
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-1-Consider-static-factory-methods-instead-of-constructors"><span class="toc-number">1.</span> <span class="toc-text">Item 1. Consider static factory methods instead of constructors</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><span class="toc-number">2.</span> <span class="toc-text">Item 2. Consider a builder when faced with many constructor parameters.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><span class="toc-number">3.</span> <span class="toc-text">Item 3. Enforce the singleton property with a private constructor or an enum type.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-4-Enforce-noninstantiability-with-a-private-constructor"><span class="toc-number">4.</span> <span class="toc-text">Item 4. Enforce noninstantiability with a private constructor.</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-5-Avoid-creating-unnecessary-objects"><span class="toc-number">5.</span> <span class="toc-text">Item 5. Avoid creating unnecessary objects.</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><span class="toc-number">5.1.</span> <span class="toc-text">Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><span class="toc-number">5.2.</span> <span class="toc-text">Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><span class="toc-number">6.</span> <span class="toc-text">Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-7-Avoid-finalizers"><span class="toc-number">7.</span> <span class="toc-text">Item 7. Avoid finalizers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-8-Obey-the-general-contract-when-overriding-equals"><span class="toc-number">8.</span> <span class="toc-text">Item 8. Obey the general contract when overriding equals</span></a></li></ol>
+          </div>
+      
       
         <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
 <p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
@@ -125,13 +131,26 @@
 <ul>
 <li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
 <li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer.</li>
+<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
 </ul>
 <p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
 <p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
 <p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
 <p>Use finalizer to terminate noncritical native resources.</p>
 <p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
+<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
+<li>Each instance of the class is inherently unique.</li>
+<li>Do not care whether the class provides a logical equality test.</li>
+<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
+<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
+</ul>
+<p>equals method general contract:</p>
+<ul>
+<li>Reflexive</li>
+<li>Symmetric</li>
+<li>Transitive</li>
+<li>Consitent</li>
+</ul>
 
       
     </div>

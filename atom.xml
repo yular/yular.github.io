@@ -162,7 +162,7 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/</id>
     <published>2017-09-07T08:00:28.000Z</published>
-    <updated>2017-09-20T08:12:10.000Z</updated>
+    <updated>2017-09-21T08:25:25.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-constructors&quot; class=&quot;headerlink&quot; title=&quot;Item 1. Consider static factory methods instead of constructors&quot;&gt;&lt;/a&gt;Item 1. Consider static factory methods instead of constructors&lt;/h3&gt;&lt;p&gt;Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.&lt;/p&gt;
 &lt;p&gt;But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.&lt;/p&gt;
@@ -189,13 +189,26 @@
 &lt;ul&gt;
 &lt;li&gt;Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.&lt;/li&gt;
 &lt;li&gt;Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.&lt;/li&gt;
-&lt;li&gt;There is a severe performance penalty for using finalizer.&lt;/li&gt;
+&lt;li&gt;There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.&lt;/p&gt;
 &lt;p&gt;Finalizer can be used to log a warning if it finds that the resource has not been terminated.&lt;/p&gt;
 &lt;p&gt;Finalizer can be used as a safety net in case of explicit termination methods are not called.&lt;/p&gt;
 &lt;p&gt;Use finalizer to terminate noncritical native resources.&lt;/p&gt;
 &lt;p&gt;Remember to invoke &lt;code&gt;super.finalize&lt;/code&gt; when have to use finalizer. &lt;/p&gt;
+&lt;h3 id=&quot;Item-8-Obey-the-general-contract-when-overriding-equals&quot;&gt;&lt;a href=&quot;#Item-8-Obey-the-general-contract-when-overriding-equals&quot; class=&quot;headerlink&quot; title=&quot;Item 8. Obey the general contract when overriding equals&quot;&gt;&lt;/a&gt;Item 8. Obey the general contract when overriding equals&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Each instance of the class is inherently unique.&lt;/li&gt;
+&lt;li&gt;Do not care whether the class provides a logical equality test.&lt;/li&gt;
+&lt;li&gt;A super class has already overriden equals and its behavior is appropriate for this class.&lt;/li&gt;
+&lt;li&gt;The class is private or package-private, and you are certain that its equals methods will never be invoked.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;equals method general contract:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Reflexive&lt;/li&gt;
+&lt;li&gt;Symmetric&lt;/li&gt;
+&lt;li&gt;Transitive&lt;/li&gt;
+&lt;li&gt;Consitent&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">

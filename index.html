@@ -337,13 +337,26 @@
 <ul>
 <li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
 <li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer.</li>
+<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
 </ul>
 <p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
 <p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
 <p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
 <p>Use finalizer to terminate noncritical native resources.</p>
 <p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
+<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
+<li>Each instance of the class is inherently unique.</li>
+<li>Do not care whether the class provides a logical equality test.</li>
+<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
+<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
+</ul>
+<p>equals method general contract:</p>
+<ul>
+<li>Reflexive</li>
+<li>Symmetric</li>
+<li>Transitive</li>
+<li>Consitent</li>
+</ul>
 
       
     </div>
