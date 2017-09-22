@@ -162,7 +162,7 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/</id>
     <published>2017-09-07T08:00:28.000Z</published>
-    <updated>2017-09-21T08:25:25.000Z</updated>
+    <updated>2017-09-22T08:06:22.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-constructors&quot; class=&quot;headerlink&quot; title=&quot;Item 1. Consider static factory methods instead of constructors&quot;&gt;&lt;/a&gt;Item 1. Consider static factory methods instead of constructors&lt;/h3&gt;&lt;p&gt;Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.&lt;/p&gt;
 &lt;p&gt;But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.&lt;/p&gt;
@@ -204,10 +204,19 @@
 &lt;/ul&gt;
 &lt;p&gt;equals method general contract:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Reflexive&lt;/li&gt;
-&lt;li&gt;Symmetric&lt;/li&gt;
-&lt;li&gt;Transitive&lt;/li&gt;
-&lt;li&gt;Consitent&lt;/li&gt;
+&lt;li&gt;Reflexive: x.equals(x) must be true.&lt;/li&gt;
+&lt;li&gt;Symmetric: x.equals(y) is true then y.equals(x) must be true.&lt;/li&gt;
+&lt;li&gt;Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.&lt;/li&gt;
+&lt;li&gt;Consitent: x.equals(y) is the same result always unless object is modified.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.&lt;/p&gt;
+&lt;p&gt;Important notes to write equals method:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Can add a value component to a subclass of an abstract class without violating the equals contract.&lt;/li&gt;
+&lt;li&gt;Do not write an equals method depending on unreliable resources.&lt;/li&gt;
+&lt;li&gt;Non-nullity: all objects must be unequal to null.&lt;/li&gt;
+&lt;li&gt;A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.&lt;/li&gt;
+&lt;li&gt;When finished writing equals method, check if it is symmetric, transitive and consistent.&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     

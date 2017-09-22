@@ -146,10 +146,19 @@
 </ul>
 <p>equals method general contract:</p>
 <ul>
-<li>Reflexive</li>
-<li>Symmetric</li>
-<li>Transitive</li>
-<li>Consitent</li>
+<li>Reflexive: x.equals(x) must be true.</li>
+<li>Symmetric: x.equals(y) is true then y.equals(x) must be true.</li>
+<li>Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.</li>
+<li>Consitent: x.equals(y) is the same result always unless object is modified.</li>
+</ul>
+<p>Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.</p>
+<p>Important notes to write equals method:</p>
+<ul>
+<li>Can add a value component to a subclass of an abstract class without violating the equals contract.</li>
+<li>Do not write an equals method depending on unreliable resources.</li>
+<li>Non-nullity: all objects must be unequal to null.</li>
+<li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
+<li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
 </ul>
 
       
