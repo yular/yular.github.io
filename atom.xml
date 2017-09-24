@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-15T06:24:02.000Z</updated>
+  <updated>2017-09-24T01:35:18.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 9 New Features</title>
+    <link href="http://yular.github.io/2017/09/23/Java-9-New-Features/"/>
+    <id>http://yular.github.io/2017/09/23/Java-9-New-Features/</id>
+    <published>2017-09-24T01:08:51.000Z</published>
+    <updated>2017-09-24T01:35:18.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from &lt;a href=&quot;http://openjdk.java.net/projects/jdk9/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OpenJDK official page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;(To be continue)&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from &lt;a href=&quot;http://openjdk
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Thinking in Test Driven Development</title>
@@ -1261,24 +1283,6 @@
     
     
       <category term="Database" scheme="http://yular.github.io/tags/Database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Setup API Gateway Custom Authorizer Lambda Function in Java</title>
-    <link href="http://yular.github.io/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/"/>
-    <id>http://yular.github.io/2017/07/31/Setup-API-Gateway-Custom-Authorizer-Lambda-Function-in-Java/</id>
-    <published>2017-07-31T08:03:46.000Z</published>
-    <updated>2017-07-31T08:04:41.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Cloud Computing" scheme="http://yular.github.io/tags/Cloud-Computing/"/>
     
   </entry>
   
