@@ -1141,9 +1141,10 @@
     <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/"/>
     <id>http://yular.github.io/2017/08/04/Reading-Note-of-Clean-Code/</id>
     <published>2017-08-05T06:54:00.000Z</published>
-    <updated>2017-09-18T06:44:50.000Z</updated>
+    <updated>2017-09-25T08:31:44.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
+&lt;p&gt;优雅和高效的代码。代码逻辑直截了当，缺陷无处隐藏。尽量减少依赖关系便于维护。依据某种分层策略完善错误处理代码。性能调至最优。&lt;br&gt;减少重复代码，提高表达能力，提早构建简单抽象。&lt;br&gt;时时保持代码整洁（童子军军规：让营地比你来时更干净）。&lt;/p&gt;
 &lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;应该去除的注释:&lt;ul&gt;
 &lt;li&gt;不恰当的信息&lt;/li&gt;
@@ -1230,8 +1231,7 @@
     <summary type="html">
     
       &lt;p&gt;Here is the overall summary of Clean Code priciples.&lt;/p&gt;
-&lt;h3 id=&quot;注释&quot;&gt;&lt;a href=&quot;#注释&quot; class=&quot;headerlink&quot; title=&quot;注释&quot;&gt;&lt;/a&gt;注释&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;应该去除
+&lt;p&gt;优雅和高效的代码。代码逻辑直截了当，缺陷无处隐藏。尽量减少依赖关系便于维护。依据某种分层策略完善错误处理代码。性能调至最优。&lt;br&gt;减少重复代码，提高表达
     
     </summary>
     
