@@ -360,15 +360,23 @@
       
         <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
 <p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
+<hr>
+
 <h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2. Consider a builder when faced with many constructor parameters."></a>Item 2. Consider a builder when faced with many constructor parameters.</h3><p>Builder is a static class.</p>
 <p>The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.</p>
 <h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3. Enforce the singleton property with a private constructor or an enum type."></a>Item 3. Enforce the singleton property with a private constructor or an enum type.</h3><p>Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.</p>
+<hr>
+
 <h3 id="Item-4-Enforce-noninstantiability-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantiability-with-a-private-constructor" class="headerlink" title="Item 4. Enforce noninstantiability with a private constructor."></a>Item 4. Enforce noninstantiability with a private constructor.</h3><p>This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.</p>
+<hr>
+
 <h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5. Avoid creating unnecessary objects."></a>Item 5. Avoid creating unnecessary objects.</h3><p>Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.</p>
 <p>So do not use following code:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
 <p>but use:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abc&quot;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
+<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><hr>
+
+<h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
 <ul>
 <li>Exception rather than norm: Null out references once they become obsolete.</li>
 <li>Best way: Let the variable containing the reference fall out of scope.</li>
@@ -379,6 +387,8 @@
 <li>Cache. Solution: use weak hashmap.</li>
 <li>Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.</li>
 </ul>
+<hr>
+
 <h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7. Avoid finalizers"></a>Item 7. Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: </p>
 <ul>
 <li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
@@ -390,6 +400,8 @@
 <p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
 <p>Use finalizer to terminate noncritical native resources.</p>
 <p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
+<hr>
+
 <h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
 <li>Each instance of the class is inherently unique.</li>
 <li>Do not care whether the class provides a logical equality test.</li>
@@ -412,7 +424,17 @@
 <li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
 <li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
 </ul>
+<hr>
 
+<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9. Always override hashCode when you override equals"></a>Item 9. Always override hashCode when you override equals</h3><ul>
+<li>Do not try to be too clever.</li>
+<li>Do not substitute another type for Object in the equals declaration.</li>
+<li>Equal objects must have equal hashcodes.</li>
+<li>Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.</li>
+</ul>
+<hr>
+
+<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10. Always override toString"></a>Item 10. Always override toString</h3>
       
     </div>
     
