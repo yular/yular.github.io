@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-27T07:58:23.000Z</updated>
+  <updated>2017-09-28T08:25:46.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,12 +20,19 @@
     <link href="http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/"/>
     <id>http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/</id>
     <published>2017-09-27T07:51:21.000Z</published>
-    <updated>2017-09-27T07:58:23.000Z</updated>
+    <updated>2017-09-28T08:25:46.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-11-Override-clone-judiciously&quot;&gt;&lt;a href=&quot;#Item-11-Override-clone-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 11. Override clone judiciously&quot;&gt;&lt;/a&gt;Item 11. Override clone judiciously&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.&lt;/li&gt;
+&lt;li&gt;If override the clone method in a nonfinal class, should return an object obtained by invoking super.clone().&lt;/li&gt;
+&lt;li&gt;In practice, a class implemeneting Cloneable is expected to provide a properly functioning public clone method.&lt;/li&gt;
+&lt;li&gt;clone method: never make the client do anything the library can do for the client.&lt;/li&gt;
+&lt;li&gt;In effect, the clone method functions as another constructor; you must ensure that it does no harm to the original object and that it properly establishes invariants on the clone.&lt;/li&gt;
+&lt;li&gt;The clone architecture is incompatible with normal use of final fields referring to mutable objects.&lt;/li&gt;
+&lt;li&gt;Like a constructor, a clone method cannot invoke any nonfinal (overriden) methods on the clone under construction.&lt;/li&gt;
+&lt;li&gt;A fine approach to object copying is to provide a copy constructor or copy factory.&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+&lt;h3 id=&quot;Item-12-Consider-implementing-Comparable&quot;&gt;&lt;a href=&quot;#Item-12-Consider-implementing-Comparable&quot; class=&quot;headerlink&quot; title=&quot;Item 12. Consider implementing Comparable&quot;&gt;&lt;/a&gt;Item 12. Consider implementing Comparable&lt;/h3&gt;&lt;h3 id=&quot;Item-13-Minimize-the-accessibility-of-classes-and-members&quot;&gt;&lt;a href=&quot;#Item-13-Minimize-the-accessibility-of-classes-and-members&quot; class=&quot;headerlink&quot; title=&quot;Item 13. Minimize the accessibility of classes and members&quot;&gt;&lt;/a&gt;Item 13. Minimize the accessibility of classes and members&lt;/h3&gt;</content>
     
     <summary type="html">
     

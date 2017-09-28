@@ -102,14 +102,21 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-11-Override-clone-judiciously"><span class="toc-number">1.</span> <span class="toc-text">Item 11. Override clone judiciously</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-11-Override-clone-judiciously"><span class="toc-number">1.</span> <span class="toc-text">Item 11. Override clone judiciously</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-12-Consider-implementing-Comparable"><span class="toc-number">2.</span> <span class="toc-text">Item 12. Consider implementing Comparable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-13-Minimize-the-accessibility-of-classes-and-members"><span class="toc-number">3.</span> <span class="toc-text">Item 13. Minimize the accessibility of classes and members</span></a></li></ol>
           </div>
       
       
         <h3 id="Item-11-Override-clone-judiciously"><a href="#Item-11-Override-clone-judiciously" class="headerlink" title="Item 11. Override clone judiciously"></a>Item 11. Override clone judiciously</h3><ul>
 <li>Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.</li>
+<li>If override the clone method in a nonfinal class, should return an object obtained by invoking super.clone().</li>
+<li>In practice, a class implemeneting Cloneable is expected to provide a properly functioning public clone method.</li>
+<li>clone method: never make the client do anything the library can do for the client.</li>
+<li>In effect, the clone method functions as another constructor; you must ensure that it does no harm to the original object and that it properly establishes invariants on the clone.</li>
+<li>The clone architecture is incompatible with normal use of final fields referring to mutable objects.</li>
+<li>Like a constructor, a clone method cannot invoke any nonfinal (overriden) methods on the clone under construction.</li>
+<li>A fine approach to object copying is to provide a copy constructor or copy factory.</li>
 </ul>
-
+<h3 id="Item-12-Consider-implementing-Comparable"><a href="#Item-12-Consider-implementing-Comparable" class="headerlink" title="Item 12. Consider implementing Comparable"></a>Item 12. Consider implementing Comparable</h3><h3 id="Item-13-Minimize-the-accessibility-of-classes-and-members"><a href="#Item-13-Minimize-the-accessibility-of-classes-and-members" class="headerlink" title="Item 13. Minimize the accessibility of classes and members"></a>Item 13. Minimize the accessibility of classes and members</h3>
       
     </div>
     
