@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-30T06:40:33.000Z</updated>
+  <updated>2017-09-30T08:20:51.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/"/>
     <id>http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/</id>
     <published>2017-09-27T07:51:21.000Z</published>
-    <updated>2017-09-30T06:40:33.000Z</updated>
+    <updated>2017-09-30T08:20:51.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-11-Override-clone-judiciously&quot;&gt;&lt;a href=&quot;#Item-11-Override-clone-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 11. Override clone judiciously&quot;&gt;&lt;/a&gt;Item 11. Override clone judiciously&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.&lt;/li&gt;
@@ -69,6 +69,39 @@
 &lt;p&gt;Composition: the existing class becomes a component of a new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is called forwarding and &lt;code&gt;Decorator pattern&lt;/code&gt;. And combination of composition and forwarding is loosely referred to as delegation.&lt;/p&gt;
 &lt;p&gt;Inheritance is appropriate only in circumstances where the subclass is a subtype of the superclass.&lt;/p&gt;
 &lt;p&gt;Wrapper classes (composition) are not suited for callback framework.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-17-Design-and-document-for-inheritance-or-else-prohibit-it&quot;&gt;&lt;a href=&quot;#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it&quot; class=&quot;headerlink&quot; title=&quot;Item 17. Design and document for inheritance or else prohibit it&quot;&gt;&lt;/a&gt;Item 17. Design and document for inheritance or else prohibit it&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;The class must document precisely the effects of overriding any method and its self-use of overridable methods.&lt;/li&gt;
+&lt;li&gt;To allow programmers to write efficient subclasses without undue pain, a class may have to provide hooks into its internal working in the form of judiciously chosen protected methods or even protected methods or even protected fields. That helps subclasses reuse them more easily.&lt;/li&gt;
+&lt;li&gt;The only way to test a class designed for inheritance is to write subclasses. Experience shows that three subclasses are sufficient to test an standard class.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To allow inheritance, follow these rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Constructors must not invoke overridable methods.&lt;/li&gt;
+&lt;li&gt;If implement Clonable and Serializable in a class, neither clone nor readObject may invoke an override method directly or indirectly.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Designing a class for inheritance places substantial limitations on the class. &lt;/p&gt;
+&lt;p&gt;The best solution to inheritance problem is to prohibit subclassing in classes that are not designed and documented to be safely subclassed. Two ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Declare the class final.&lt;/li&gt;
+&lt;li&gt;Make all the constructors private or package-private and to add public static factories in place of the constructors.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-18-Prefer-interfaces-to-abstract-classes&quot;&gt;&lt;a href=&quot;#Item-18-Prefer-interfaces-to-abstract-classes&quot; class=&quot;headerlink&quot; title=&quot;Item 18. Prefer interfaces to abstract classes&quot;&gt;&lt;/a&gt;Item 18. Prefer interfaces to abstract classes&lt;/h3&gt;&lt;p&gt;Extending abstract class means subclass is a type of abstract class. Existing classes can be easily retrofitted to implement a new interface.&lt;/p&gt;
+&lt;p&gt;Interfaces are ideal for defining mixins. Mixins mean a class can implement in addition to its primary type to declare that it provides some optional behavior. They allow the construction of nonhierarchical type framework.&lt;/p&gt;
+&lt;p&gt;Interfaces enable safe, powerful functionality enhancements.&lt;/p&gt;
+&lt;p&gt;Combine the virtues of interfaces and abstract class by providing an abstract skeletal implementation class to go with each nontrivial interface exported. A typical skeletal implementation is an abstract class implements interface(s). So it is designed for inheritance.&lt;/p&gt;
+&lt;p&gt;Simple implementation is that it implements an interface and is designed for inheritance but not abstract.&lt;/p&gt;
+&lt;p&gt;Abstract class is far easier to evolve than interface is. Once interface is released and widely implemented, it is almost impossible to change. Really need to get it right in the first time.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-19-Use-interfaces-only-to-define-type&quot;&gt;&lt;a href=&quot;#Item-19-Use-interfaces-only-to-define-type&quot; class=&quot;headerlink&quot; title=&quot;Item 19. Use interfaces only to define type&quot;&gt;&lt;/a&gt;Item 19. Use interfaces only to define type&lt;/h3&gt;&lt;p&gt;The constant interface pattern is a poor use of interfaces.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-20-Prefer-class-hierarchies-to-tagged-classes&quot;&gt;&lt;a href=&quot;#Item-20-Prefer-class-hierarchies-to-tagged-classes&quot; class=&quot;headerlink&quot; title=&quot;Item 20. Prefer class hierarchies to tagged classes&quot;&gt;&lt;/a&gt;Item 20. Prefer class hierarchies to tagged classes&lt;/h3&gt;&lt;p&gt;Tag class is the class whose instances come in two or more flavors and contain a tag field indicating the flavor of the instance.&lt;/p&gt;
+&lt;p&gt;So all in all: Interface &amp;gt; abstract class &amp;gt; tagged class. ( &amp;gt; means preference)&lt;/p&gt;
 </content>
     
     <summary type="html">

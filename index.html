@@ -148,6 +148,39 @@
 <p>Composition: the existing class becomes a component of a new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is called forwarding and <code>Decorator pattern</code>. And combination of composition and forwarding is loosely referred to as delegation.</p>
 <p>Inheritance is appropriate only in circumstances where the subclass is a subtype of the superclass.</p>
 <p>Wrapper classes (composition) are not suited for callback framework.</p>
+<hr>
+
+<h3 id="Item-17-Design-and-document-for-inheritance-or-else-prohibit-it"><a href="#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 17. Design and document for inheritance or else prohibit it"></a>Item 17. Design and document for inheritance or else prohibit it</h3><ul>
+<li>The class must document precisely the effects of overriding any method and its self-use of overridable methods.</li>
+<li>To allow programmers to write efficient subclasses without undue pain, a class may have to provide hooks into its internal working in the form of judiciously chosen protected methods or even protected methods or even protected fields. That helps subclasses reuse them more easily.</li>
+<li>The only way to test a class designed for inheritance is to write subclasses. Experience shows that three subclasses are sufficient to test an standard class.</li>
+</ul>
+<p>To allow inheritance, follow these rules:</p>
+<ul>
+<li>Constructors must not invoke overridable methods.</li>
+<li>If implement Clonable and Serializable in a class, neither clone nor readObject may invoke an override method directly or indirectly.</li>
+</ul>
+<p>Designing a class for inheritance places substantial limitations on the class. </p>
+<p>The best solution to inheritance problem is to prohibit subclassing in classes that are not designed and documented to be safely subclassed. Two ways:</p>
+<ul>
+<li>Declare the class final.</li>
+<li>Make all the constructors private or package-private and to add public static factories in place of the constructors.</li>
+</ul>
+<hr>
+
+<h3 id="Item-18-Prefer-interfaces-to-abstract-classes"><a href="#Item-18-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 18. Prefer interfaces to abstract classes"></a>Item 18. Prefer interfaces to abstract classes</h3><p>Extending abstract class means subclass is a type of abstract class. Existing classes can be easily retrofitted to implement a new interface.</p>
+<p>Interfaces are ideal for defining mixins. Mixins mean a class can implement in addition to its primary type to declare that it provides some optional behavior. They allow the construction of nonhierarchical type framework.</p>
+<p>Interfaces enable safe, powerful functionality enhancements.</p>
+<p>Combine the virtues of interfaces and abstract class by providing an abstract skeletal implementation class to go with each nontrivial interface exported. A typical skeletal implementation is an abstract class implements interface(s). So it is designed for inheritance.</p>
+<p>Simple implementation is that it implements an interface and is designed for inheritance but not abstract.</p>
+<p>Abstract class is far easier to evolve than interface is. Once interface is released and widely implemented, it is almost impossible to change. Really need to get it right in the first time.</p>
+<hr>
+
+<h3 id="Item-19-Use-interfaces-only-to-define-type"><a href="#Item-19-Use-interfaces-only-to-define-type" class="headerlink" title="Item 19. Use interfaces only to define type"></a>Item 19. Use interfaces only to define type</h3><p>The constant interface pattern is a poor use of interfaces.</p>
+<hr>
+
+<h3 id="Item-20-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-20-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 20. Prefer class hierarchies to tagged classes"></a>Item 20. Prefer class hierarchies to tagged classes</h3><p>Tag class is the class whose instances come in two or more flavors and contain a tag field indicating the flavor of the instance.</p>
+<p>So all in all: Interface &gt; abstract class &gt; tagged class. ( &gt; means preference)</p>
 
       
     </div>
@@ -1055,7 +1088,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/2/">Вперед &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1089,7 +1122,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -1166,7 +1199,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
