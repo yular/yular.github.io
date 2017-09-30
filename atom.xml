@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-09-28T08:25:46.000Z</updated>
+  <updated>2017-09-30T06:40:33.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/"/>
     <id>http://yular.github.io/2017/09/27/Reading-Note-of-Effective-Java-II/</id>
     <published>2017-09-27T07:51:21.000Z</published>
-    <updated>2017-09-28T08:25:46.000Z</updated>
+    <updated>2017-09-30T06:40:33.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-11-Override-clone-judiciously&quot;&gt;&lt;a href=&quot;#Item-11-Override-clone-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 11. Override clone judiciously&quot;&gt;&lt;/a&gt;Item 11. Override clone judiciously&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.&lt;/li&gt;
@@ -32,7 +32,44 @@
 &lt;li&gt;Like a constructor, a clone method cannot invoke any nonfinal (overriden) methods on the clone under construction.&lt;/li&gt;
 &lt;li&gt;A fine approach to object copying is to provide a copy constructor or copy factory.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;Item-12-Consider-implementing-Comparable&quot;&gt;&lt;a href=&quot;#Item-12-Consider-implementing-Comparable&quot; class=&quot;headerlink&quot; title=&quot;Item 12. Consider implementing Comparable&quot;&gt;&lt;/a&gt;Item 12. Consider implementing Comparable&lt;/h3&gt;&lt;h3 id=&quot;Item-13-Minimize-the-accessibility-of-classes-and-members&quot;&gt;&lt;a href=&quot;#Item-13-Minimize-the-accessibility-of-classes-and-members&quot; class=&quot;headerlink&quot; title=&quot;Item 13. Minimize the accessibility of classes and members&quot;&gt;&lt;/a&gt;Item 13. Minimize the accessibility of classes and members&lt;/h3&gt;</content>
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-12-Consider-implementing-Comparable&quot;&gt;&lt;a href=&quot;#Item-12-Consider-implementing-Comparable&quot; class=&quot;headerlink&quot; title=&quot;Item 12. Consider implementing Comparable&quot;&gt;&lt;/a&gt;Item 12. Consider implementing Comparable&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;compareTo contract includes reflexivity, symmetry, and transitivity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-13-Minimize-the-accessibility-of-classes-and-members&quot;&gt;&lt;a href=&quot;#Item-13-Minimize-the-accessibility-of-classes-and-members&quot; class=&quot;headerlink&quot; title=&quot;Item 13. Minimize the accessibility of classes and members&quot;&gt;&lt;/a&gt;Item 13. Minimize the accessibility of classes and members&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Information hiding: make each class or member as inaccessible as possible.&lt;/li&gt;
+&lt;li&gt;It is acceptable to make a private member of a public class pack-private to test it, but it is not acceptable to raise the accessibility any higher than that.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-14-In-public-classes-use-accessor-methods-not-public-fields&quot;&gt;&lt;a href=&quot;#Item-14-In-public-classes-use-accessor-methods-not-public-fields&quot; class=&quot;headerlink&quot; title=&quot;Item 14. In public classes, use accessor methods, not public fields&quot;&gt;&lt;/a&gt;Item 14. In public classes, use accessor methods, not public fields&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Classes with public mutable fields are not thread-safe and instance fields should never be public.&lt;/li&gt;
+&lt;li&gt;Only exception is to expose constants via public static final fields, assuming that the constants form an integral part of the abstractions provided by the class.&lt;/li&gt;
+&lt;li&gt;In public classes, use accessor methods, not public fields. But if a class is package-private or a private nested class, it is fine to expose its data fields.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-15-Minimize-mutability&quot;&gt;&lt;a href=&quot;#Item-15-Minimize-mutability&quot; class=&quot;headerlink&quot; title=&quot;Item 15. Minimize mutability&quot;&gt;&lt;/a&gt;Item 15. Minimize mutability&lt;/h3&gt;&lt;p&gt;Five rules to make a class immutable:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not provide any methods modifying the object’s state.&lt;/li&gt;
+&lt;li&gt;Ensure that the class cannot be extended.&lt;/li&gt;
+&lt;li&gt;Make all fields final.&lt;/li&gt;
+&lt;li&gt;Make all fields private.&lt;/li&gt;
+&lt;li&gt;Ensure exclusive access to any mutable components.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Functional programming approach enables immutability.&lt;/p&gt;
+&lt;p&gt;Immutable objects are simple, inherently thread-safe, can be shared freely, and require no synchronization.&lt;/p&gt;
+&lt;p&gt;Classes should be immutable unless there is a very good reason to make them mutable. If a class cannot be made immutable, limit its mutability as much as possible.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-16-Favor-composition-over-inheritance&quot;&gt;&lt;a href=&quot;#Item-16-Favor-composition-over-inheritance&quot; class=&quot;headerlink&quot; title=&quot;Item 16. Favor composition over inheritance&quot;&gt;&lt;/a&gt;Item 16. Favor composition over inheritance&lt;/h3&gt;&lt;p&gt;Unlike method invocation, inheritance violates encapsulation.&lt;/p&gt;
+&lt;p&gt;Composition: the existing class becomes a component of a new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is called forwarding and &lt;code&gt;Decorator pattern&lt;/code&gt;. And combination of composition and forwarding is loosely referred to as delegation.&lt;/p&gt;
+&lt;p&gt;Inheritance is appropriate only in circumstances where the subclass is a subtype of the superclass.&lt;/p&gt;
+&lt;p&gt;Wrapper classes (composition) are not suited for callback framework.&lt;/p&gt;
+</content>
     
     <summary type="html">
     
