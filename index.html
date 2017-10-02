@@ -90,6 +90,315 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-02T06:18:39.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-63-Include-failure-capture-information-in-detail-message"><a href="#Item-63-Include-failure-capture-information-in-detail-message" class="headerlink" title="Item 63. Include failure-capture information in detail message"></a>Item 63. Include failure-capture information in detail message</h3><p>To capture the failure, the detail message of an exception should contain the values of all parameters and fields that contributed to the exception.</p>
+<hr>
+
+<h3 id="Item-64-Strive-for-failure-atomicity"><a href="#Item-64-Strive-for-failure-atomicity" class="headerlink" title="Item 64. Strive for failure atomicity"></a>Item 64. Strive for failure atomicity</h3><p>A failed method invocation should leave the object in the state that it was in prior to the invocation.</p>
+<hr>
+
+<h3 id="Item-65-Do-not-ignore-exceptions"><a href="#Item-65-Do-not-ignore-exceptions" class="headerlink" title="Item 65. Do not ignore exceptions"></a>Item 65. Do not ignore exceptions</h3><p>At the very least, the catch block (empty one) should contain a comment explaining why it is appropriate to ignore the exception.</p>
+<hr>
+
+<h3 id="Item-66-Synchronize-access-to-shared-mutable-data"><a href="#Item-66-Synchronize-access-to-shared-mutable-data" class="headerlink" title="Item 66. Synchronize access to shared mutable data"></a>Item 66. Synchronize access to shared mutable data</h3><p>When multiple threads share mutable data, each thread that reads or writes the data must perform synchronization.</p>
+<p>Do not use <code>Thread.stop</code>.</p>
+<hr>
+
+<h3 id="Item-67-Avoid-excessive-synchronization"><a href="#Item-67-Avoid-excessive-synchronization" class="headerlink" title="Item 67. Avoid excessive synchronization"></a>Item 67. Avoid excessive synchronization</h3><p>To avoid liveness and safety failures, never cede control to the client within a synchronized method or block.</p>
+<p>Do as little work as possible inside synchronized regions.</p>
+<hr>
+
+<h3 id="Item-68-Prefer-executors-and-tasks-to-threads"><a href="#Item-68-Prefer-executors-and-tasks-to-threads" class="headerlink" title="Item 68. Prefer executors and tasks to threads"></a>Item 68. Prefer executors and tasks to threads</h3><hr>
+
+<h3 id="Item-69-Prefer-concurrency-utilities-to-wait-and-notify"><a href="#Item-69-Prefer-concurrency-utilities-to-wait-and-notify" class="headerlink" title="Item 69. Prefer concurrency utilities to wait and notify"></a>Item 69. Prefer concurrency utilities to wait and notify</h3><p>Here are some rules:</p>
+<ul>
+<li>Use <code>ConcurrentHashMap</code> in preference to <code>Collections.synchronizeMap</code> or <code>Hashtable</code>.</li>
+<li>For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.</li>
+<li>Always use wait loop idiom to invoke the wait method; never invoke it outside of a loop.</li>
+</ul>
+<hr>
+
+<h3 id="Item-70-Document-thread-safety"><a href="#Item-70-Document-thread-safety" class="headerlink" title="Item 70. Document thread safety"></a>Item 70. Document thread safety</h3><p>To enable safe concurrent use, a class must clearly document what level of thread safety it supports:</p>
+<ul>
+<li>immutable</li>
+<li>unconditionally thread-safe: instances are mutable but the class has sufficient internal synchronization.</li>
+<li>conditionally thread-safe: like unconditionally thread-safe, but some methods require external synchronization.</li>
+<li>not thread-safe</li>
+<li>thread-hostile</li>
+</ul>
+<p>If write an unconditionally thread-safe class, consider using a private lock object in place of synchronized methods.</p>
+<hr>
+
+<h3 id="Item-71-Use-lazy-initialization-judiciously"><a href="#Item-71-Use-lazy-initialization-judiciously" class="headerlink" title="Item 71. Use lazy initialization judiciously"></a>Item 71. Use lazy initialization judiciously</h3><p>Under most circumstances, normal initialization is preferable to lazy initialization.</p>
+<p>Here are the rules:</p>
+<ul>
+<li>To use lazy initialization for a static field, use the lazy initialization holder for class idiom.</li>
+<li>To use lazy initialization for an instance field, use the double-check idiom, which is that once without locking, and then if the field appears to be uninitialized, a second time with locking.</li>
+</ul>
+<hr>
+
+<h3 id="Item-72-Do-not-depend-on-the-thread-scheduler"><a href="#Item-72-Do-not-depend-on-the-thread-scheduler" class="headerlink" title="Item 72. Do not depend on the thread scheduler"></a>Item 72. Do not depend on the thread scheduler</h3><p>Here are the rules:</p>
+<ul>
+<li>Do not fix the program by putting in calls to <code>Thread.yield</code>.</li>
+<li>Thread priorities are the least portable features of Java platform.</li>
+</ul>
+<hr>
+
+<h3 id="Item-73-Avoid-thread-groups"><a href="#Item-73-Avoid-thread-groups" class="headerlink" title="Item 73. Avoid thread groups"></a>Item 73. Avoid thread groups</h3><p>Thread groups are obsolete.</p>
+<hr>
+
+<h3 id="Item-74-Implement-Serializable-judiciously"><a href="#Item-74-Implement-Serializable-judiciously" class="headerlink" title="Item 74. Implement Serializable judiciously"></a>Item 74. Implement Serializable judiciously</h3><p>Here are the reasons and rules:</p>
+<ul>
+<li>Implementing Serializable decreases the flexibility to change a class’s implementation once it has been released.</li>
+<li>Implementing Serializable increases the likelihood of bugs and security holes.</li>
+<li>Implementing Serializable increases the testing burden associated with releasing a new version of a class.</li>
+<li>Classes designed for inheritance should rarely implement Serializable, and interfaces should rarely extend it. Provide a parameterless constructor on nonserializable classes designed for inheritance.</li>
+<li>Inner class should not implement Serializable.</li>
+</ul>
+<hr>
+
+<h3 id="Item-75-Consider-using-a-custom-serialized-form"><a href="#Item-75-Consider-using-a-custom-serialized-form" class="headerlink" title="Item 75. Consider using a custom serialized form"></a>Item 75. Consider using a custom serialized form</h3><p>The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.<br>Often must provide a <code>readObject</code> method to ensure invariants and security when use default serialized form.</p>
+<p>The disadvantages of using default serialized form when an object’s physical representation differs substantially from its logical data content:</p>
+<ul>
+<li>It permanetly ties the exported API to the current internal repesentation.</li>
+<li>It can consume excessive space.</li>
+<li>It can consume excessive time.</li>
+<li>It can cause stack overflows.</li>
+</ul>
+<p>If all instance fields are transient, it is technically permissible to dispense with invoking <code>defaultWriteObject</code> and <code>defaultReadObject</code> but it is not recommended.</p>
+<p>Must impose any synchronization on object serialization that would impose on any other method that reads the entire state of the object.</p>
+<p>Regardless of what serialized form choosed, decalre an explicit serial verison UID in every serializable class.</p>
+<h3 id="Item-76-Write-readObject-methods-defensively"><a href="#Item-76-Write-readObject-methods-defensively" class="headerlink" title="Item 76. Write readObject methods defensively"></a>Item 76. Write readObject methods defensively</h3><p>When an object is deserialized, it is critical to defensively copy any field containing an object references that a client must not posses.</p>
+<p>Do not use the <code>writeUnshared</code> and <code>readUnshared</code> methods.</p>
+<hr>
+
+<h3 id="Item-77-For-instance-control-prefer-enum-type-to-readResolve"><a href="#Item-77-For-instance-control-prefer-enum-type-to-readResolve" class="headerlink" title="Item 77. For instance control, prefer enum type to readResolve"></a>Item 77. For instance control, prefer enum type to readResolve</h3><p>If depend on readResolve for instance control, all instances fields with object reference types must be declared transient.</p>
+<hr>
+
+<h3 id="Item-78-Consider-serialization-proxies-instead-of-serialized-instances"><a href="#Item-78-Consider-serialization-proxies-instead-of-serialized-instances" class="headerlink" title="Item 78. Consider serialization proxies instead of serialized instances"></a>Item 78. Consider serialization proxies instead of serialized instances</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-10-02T05:20:52.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-51-Beware-of-performance-of-string-concatenation"><a href="#Item-51-Beware-of-performance-of-string-concatenation" class="headerlink" title="Item 51. Beware of performance of string concatenation"></a>Item 51. Beware of performance of string concatenation</h3><p>To achieve acceptable performance, use a StringBuilder in place of a String.</p>
+<hr>
+
+<h3 id="Item-52-Refer-to-objects-by-their-interfaces"><a href="#Item-52-Refer-to-objects-by-their-interfaces" class="headerlink" title="Item 52. Refer to objects by their interfaces"></a>Item 52. Refer to objects by their interfaces</h3><p>If appropriate interface types exist, then parameters, return values, vraibales, and fields should all be declared using interface types.</p>
+<hr>
+
+<h3 id="Item-53-Prefer-interfaces-to-reflection"><a href="#Item-53-Prefer-interfaces-to-reflection" class="headerlink" title="Item 53. Prefer interfaces to reflection"></a>Item 53. Prefer interfaces to reflection</h3><p>As a rule, objects should not be accesed reflectively in normal applications at runtime.</p>
+<ul>
+<li>Lose all the benefits of compile-time type checking.</li>
+<li>The code required to perform reflective access is clumsy and verbose.</li>
+<li>Performance suffers.</li>
+</ul>
+<hr>
+
+<h3 id="Item-54-Use-native-methods-judiciously"><a href="#Item-54-Use-native-methods-judiciously" class="headerlink" title="Item 54. Use native methods judiciously"></a>Item 54. Use native methods judiciously</h3><p>Java Native Interface (JNI) allows Java applications to call native methods, which are special methods written in native programming languages such as C or C++.</p>
+<hr>
+
+<h3 id="Item-55-Optimize-judiciously"><a href="#Item-55-Optimize-judiciously" class="headerlink" title="Item 55. Optimize judiciously"></a>Item 55. Optimize judiciously</h3><p>Here are the rules:</p>
+<ul>
+<li>Strive to write good programs rather than fast ones.</li>
+<li>Strive to aovid design decisions that limit performance.</li>
+<li>Consider the performance consequences of API design decisions.</li>
+<li>Measure performance before and after each attempted optimization.</li>
+</ul>
+<hr>
+
+<h3 id="Item-56-Adhere-to-generally-accepted-naming-conventions"><a href="#Item-56-Adhere-to-generally-accepted-naming-conventions" class="headerlink" title="Item 56. Adhere to generally accepted naming conventions"></a>Item 56. Adhere to generally accepted naming conventions</h3><hr>
+
+<h3 id="Item-57-Use-exceptions-only-for-exceptional-conditions"><a href="#Item-57-Use-exceptions-only-for-exceptional-conditions" class="headerlink" title="Item 57. Use exceptions only for exceptional conditions"></a>Item 57. Use exceptions only for exceptional conditions</h3><p>Never use exceptions for ordinary control flow. And good APIs must not enforce users to do that.</p>
+<hr>
+
+<h3 id="Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><a href="#Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors" class="headerlink" title="Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors"></a>Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors</h3><p>Exceptions which are subclass of Exception, are recoverable. Exceptions which are subclass of Error, are unrecoverable.</p>
+<p>RuntimeException is unchecked exception. Thus, all of the unchecked throwables implemented should subclass RuntimeException.</p>
+<hr>
+
+<h3 id="Item-59-Avoid-unnecessary-use-of-checked-exceptions"><a href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions" class="headerlink" title="Item 59. Avoid unnecessary use of checked exceptions"></a>Item 59. Avoid unnecessary use of checked exceptions</h3><hr>
+
+<h3 id="Item-60-Favor-the-use-of-standard-exceptions"><a href="#Item-60-Favor-the-use-of-standard-exceptions" class="headerlink" title="Item 60. Favor the use of standard exceptions"></a>Item 60. Favor the use of standard exceptions</h3><hr>
+
+<h3 id="Item-61-Throw-exceptions-appropriate-to-the-abstraction"><a href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction" class="headerlink" title="Item 61. Throw exceptions appropriate to the abstraction"></a>Item 61. Throw exceptions appropriate to the abstraction</h3><p>Higher layers catch low-level exceptions and, in their place, throw exceptions that can be explained in terms of the high-level abstraction.</p>
+<p>While exception translation is superior to mindless propagation of exceptions from lower layers, it should not be overused.</p>
+<hr>
+
+<h3 id="Item-62-Document-all-exceptions-thrown-by-each-method"><a href="#Item-62-Document-all-exceptions-thrown-by-each-method" class="headerlink" title="Item 62. Document all exceptions thrown by each method"></a>Item 62. Document all exceptions thrown by each method</h3><p>Always declare checked exceptions individually, and document precisely the conditions under which each one is thrown using the Javadoc <code>@throws</code> tag.</p>
+<p>Use the Javadoc <code>@throws</code> tag to document each unchecked exception that a method can throw, but do not use the throws keyword to include unchecked exceptions in the method declaration.</p>
+<p>If an exception is thrown by many methods in a class for the same reason, it is acceptable to document the exception in the class’s documentation comment.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-10-02T05:02:21.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-41-Use-overloading-judiciously"><a href="#Item-41-Use-overloading-judiciously" class="headerlink" title="Item 41. Use overloading judiciously"></a>Item 41. Use overloading judiciously</h3><p>A safe and conservative policy is never to export two overloadings with the same number of parameters.</p>
+<hr>
+
+<h3 id="Item-42-Use-varargs-judiciously"><a href="#Item-42-Use-varargs-judiciously" class="headerlink" title="Item 42. Use varargs judiciously"></a>Item 42. Use varargs judiciously</h3><p>Use varargs only when a call really operates on a variable-length sequence of values.</p>
+<hr>
+
+<h3 id="Item-43-Return-empty-arrays-or-collections-not-nulls"><a href="#Item-43-Return-empty-arrays-or-collections-not-nulls" class="headerlink" title="Item 43. Return empty arrays or collections, not nulls"></a>Item 43. Return empty arrays or collections, not nulls</h3><hr>
+
+<h3 id="Item-44-Write-doc-comments-for-all-exposed-API-elements"><a href="#Item-44-Write-doc-comments-for-all-exposed-API-elements" class="headerlink" title="Item 44. Write doc comments for all exposed API elements"></a>Item 44. Write doc comments for all exposed API elements</h3><p>Here are the rules:</p>
+<ul>
+<li>To document API properly, must precede every exported class, interface, constructor, method and field declaration with a doc comment.</li>
+<li>The doc comment for a method should describe succinctly the contract between the method and its client.</li>
+<li>No longer necessary to use the HTML <code>&lt;code&gt;</code> or <code>&lt;tt&gt;</code> tages in doc comments: the Javadoc {@code} tag is preferable because it eliminates the need to escape HTML metacharacters.</li>
+<li>To document a generic type or method, be sure to document all type parameters.</li>
+<li>To document an enum type, be sure to document the constants.</li>
+<li>To document an annotation type, be sure to document any members as well as type itself.</li>
+</ul>
+<hr>
+
+<h3 id="Item-45-Minimize-the-scope-of-local-variables"><a href="#Item-45-Minimize-the-scope-of-local-variables" class="headerlink" title="Item 45. Minimize the scope of local variables"></a>Item 45. Minimize the scope of local variables</h3><p>Declare the local variables where they are first used. And the declaration should contain an initializer.</p>
+<p>Keep methods small and focused.</p>
+<hr>
+
+<h3 id="Item-46-Prefer-for-each-loops-to-traditional-for-loops"><a href="#Item-46-Prefer-for-each-loops-to-traditional-for-loops" class="headerlink" title="Item 46. Prefer for-each loops to traditional for loops"></a>Item 46. Prefer for-each loops to traditional for loops</h3><p>Three situations where for-each loop should not be used:</p>
+<ul>
+<li>Filtering</li>
+<li>Transforming</li>
+<li>Parallel iteration</li>
+</ul>
+<hr>
+
+<h3 id="Item-47-Know-and-use-libraries"><a href="#Item-47-Know-and-use-libraries" class="headerlink" title="Item 47. Know and use libraries"></a>Item 47. Know and use libraries</h3><hr>
+
+<h3 id="Item-48-Avoid-float-and-double-if-exact-answers-are-required"><a href="#Item-48-Avoid-float-and-double-if-exact-answers-are-required" class="headerlink" title="Item 48. Avoid float and double if exact answers are required"></a>Item 48. Avoid float and double if exact answers are required</h3><hr>
+
+<h3 id="Item-49-Prefer-primitive-types-to-boxed-primitives"><a href="#Item-49-Prefer-primitive-types-to-boxed-primitives" class="headerlink" title="Item 49. Prefer primitive types to boxed primitives"></a>Item 49. Prefer primitive types to boxed primitives</h3><p>Autoboxing reduces the verbosity but not the danger of using boxed primitives.</p>
+<hr>
+
+<h3 id="Item-50-Avoid-strings-where-other-types-are-more-appropriate"><a href="#Item-50-Avoid-strings-where-other-types-are-more-appropriate" class="headerlink" title="Item 50. Avoid strings where other types are more appropriate"></a>Item 50. Avoid strings where other types are more appropriate</h3><p>Strings are poor substitutes for other value types.</p>
+<ul>
+<li>Poor substitutes for enum types.</li>
+<li>Poor substitutes for aggregate types.</li>
+<li><ul>
+<li>Poor substitutes for capabilities.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-02T04:34:37.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">2017-10-01</a></time>
       
       
@@ -654,363 +963,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-07T08:00:28.000Z"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">Reading Note of Effective Java I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
-<p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
-<hr>
-
-<h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2. Consider a builder when faced with many constructor parameters."></a>Item 2. Consider a builder when faced with many constructor parameters.</h3><p>Builder is a static class.</p>
-<p>The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.</p>
-<h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3. Enforce the singleton property with a private constructor or an enum type."></a>Item 3. Enforce the singleton property with a private constructor or an enum type.</h3><p>Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.</p>
-<hr>
-
-<h3 id="Item-4-Enforce-noninstantiability-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantiability-with-a-private-constructor" class="headerlink" title="Item 4. Enforce noninstantiability with a private constructor."></a>Item 4. Enforce noninstantiability with a private constructor.</h3><p>This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.</p>
-<hr>
-
-<h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5. Avoid creating unnecessary objects."></a>Item 5. Avoid creating unnecessary objects.</h3><p>Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.</p>
-<p>So do not use following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
-<p>but use:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abc&quot;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><hr>
-
-<h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
-<ul>
-<li>Exception rather than norm: Null out references once they become obsolete.</li>
-<li>Best way: Let the variable containing the reference fall out of scope.</li>
-</ul>
-<p>Source of memory leak:</p>
-<ul>
-<li>A class manages its own memory.</li>
-<li>Cache. Solution: use weak hashmap.</li>
-<li>Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.</li>
-</ul>
-<hr>
-
-<h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7. Avoid finalizers"></a>Item 7. Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: </p>
-<ul>
-<li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
-<li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
-</ul>
-<p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
-<p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
-<p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
-<p>Use finalizer to terminate noncritical native resources.</p>
-<p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
-<hr>
-
-<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
-<li>Each instance of the class is inherently unique.</li>
-<li>Do not care whether the class provides a logical equality test.</li>
-<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
-<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
-</ul>
-<p>equals method general contract:</p>
-<ul>
-<li>Reflexive: x.equals(x) must be true.</li>
-<li>Symmetric: x.equals(y) is true then y.equals(x) must be true.</li>
-<li>Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.</li>
-<li>Consitent: x.equals(y) is the same result always unless object is modified.</li>
-</ul>
-<p>Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.</p>
-<p>Important notes to write equals method:</p>
-<ul>
-<li>Can add a value component to a subclass of an abstract class without violating the equals contract.</li>
-<li>Do not write an equals method depending on unreliable resources.</li>
-<li>Non-nullity: all objects must be unequal to null.</li>
-<li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
-<li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
-</ul>
-<hr>
-
-<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9. Always override hashCode when you override equals"></a>Item 9. Always override hashCode when you override equals</h3><ul>
-<li>Do not try to be too clever.</li>
-<li>Do not substitute another type for Object in the equals declaration.</li>
-<li>Equal objects must have equal hashcodes.</li>
-<li>Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.</li>
-</ul>
-<hr>
-
-<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10. Always override toString"></a>Item 10. Always override toString</h3><ul>
-<li>It is recommended to override toString and even in subclasses.</li>
-<li>In practice, toString method should return all of the interesting information contained in the object.</li>
-<li>Whether or not decide to specify the format of toString return value, clearly document intentions, provide programmatic access to all of the information contained in the value returned by toString.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-07T07:48:01.000Z"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">Reading Note of Java in a Nutshell</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T05:21:45.000Z"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">Linux Text Processing Command I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
-<li>File sort utility, often used as a filter in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="tsort"><a href="#tsort" class="headerlink" title="tsort"></a>tsort</h3><ul>
-<li>Topological sort.</li>
-</ul>
-<hr>
-
-<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><ul>
-<li>Remove duplicate lines from a sorted file.</li>
-</ul>
-<hr>
-
-<h3 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand, unexpand"></a>expand, unexpand</h3><ul>
-<li>expand: a filter converting tabs to spaces. Ofen used in a pipe.</li>
-<li>unexpand: reverse effect of expand.</li>
-</ul>
-<hr>
-
-<h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a><strong>cut</strong></h3><ul>
-<li>Widely used for text processing.</li>
-<li>A tool for extracting fields from files. Can be used in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a><strong>paste</strong></h3><ul>
-<li>Tool for merging together different files into a single, multi-column file.</li>
-<li>When combining with <code>cut</code>, useful for creating system log files.</li>
-</ul>
-<hr>
-
-<h3 id="join"><a href="#join" class="headerlink" title="join"></a><strong>join</strong></h3><ul>
-<li>Tool for merging two files in a meaningful fashion, creating a simple version of relational database.</li>
-</ul>
-<hr>
-
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a><strong>head</strong></h3><ul>
-<li>Lists the begining of a file to <code>stdout</code>.</li>
-</ul>
-<hr>
-
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a><strong>tail</strong></h3><ul>
-<li>List the end of a file to <code>stdout</code>.</li>
-<li>With <code>-f</code> option, useful for monitoring system.</li>
-</ul>
-<hr>
-
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h3><ul>
-<li>A multi-purpose file search tool that uses Regular Expressions.</li>
-<li>Command pattern: grep pattern [files …]</li>
-<li>Very useful in pipe.</li>
-<li>-i: a case sensitive search.</li>
-<li>-w: matches only whole words.</li>
-<li>-r: searches files recursively.</li>
-<li>-n: lists the matching lines.</li>
-<li>-v: filters out matches.</li>
-<li>-c: gives a numerical count of matches.</li>
-<li>–color: marks the matching string in color.</li>
-</ul>
-<hr>
-
-<h3 id="agrep"><a href="#agrep" class="headerlink" title="agrep"></a><strong>agrep</strong></h3><ul>
-<li>Approximate grep, extending the capabilities of <code>grep</code> to approximate matching.</li>
-</ul>
-<hr>
-
-<h3 id="look"><a href="#look" class="headerlink" title="look"></a>look</h3><ul>
-<li>Works like <code>grep</code>, but does a look up on a “dictionary”, a sorted word list in <code>/usr/dict/words</code> by default.</li>
-</ul>
-<hr>
-
-<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><strong>sed</strong></h3><ul>
-<li>Non-interactive stream editor, permitting using many ex commands in batch mode.</li>
-<li>Useful in shell scripts and pipe.</li>
-</ul>
-<hr>
-
-<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a><strong>awk</strong></h3><ul>
-<li>Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.</li>
-</ul>
-<hr>
-
-<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><ul>
-<li>Give a “word count” on a file or I/O stream.</li>
-</ul>
-<hr>
-
-<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a><strong>tr</strong></h3><ul>
-<li>Character translation filter.</li>
-<li>Must use quoting and/or brackets as appropriate.</li>
-</ul>
-<hr>
-
-<h3 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h3><ul>
-<li>A filter that wraps lines of input to a specified width.</li>
-</ul>
-<hr>
-
-<h3 id="fmt"><a href="#fmt" class="headerlink" title="fmt"></a>fmt</h3><ul>
-<li>Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.</li>
-</ul>
-<hr>
-
-<h3 id="col"><a href="#col" class="headerlink" title="col"></a>col</h3><hr>
-
-<h3 id="column"><a href="#column" class="headerlink" title="column"></a>column</h3><ul>
-<li>Column formatter.</li>
-</ul>
-<hr>
-
-<h3 id="colrm"><a href="#colrm" class="headerlink" title="colrm"></a>colrm</h3><ul>
-<li>Column removal filter.</li>
-</ul>
-<hr>
-
-<h3 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h3><ul>
-<li>Line numbering filter.</li>
-</ul>
-<hr>
-
-<h3 id="pr"><a href="#pr" class="headerlink" title="pr"></a>pr</h3><ul>
-<li>Print formatting filter.</li>
-</ul>
-<hr>
-
-<h3 id="gettext"><a href="#gettext" class="headerlink" title="gettext"></a>gettext</h3><ul>
-<li>A set of utilities for localizing and translating the text output of programs into foreign languages.</li>
-</ul>
-<hr>
-
-<h3 id="msgfmt"><a href="#msgfmt" class="headerlink" title="msgfmt"></a>msgfmt</h3><hr>
-
-<h3 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h3><hr>
-
-<h3 id="recode"><a href="#recode" class="headerlink" title="recode"></a>recode</h3><hr>
-
-<h3 id="TeX-gs"><a href="#TeX-gs" class="headerlink" title="TeX,gs"></a>TeX,gs</h3><hr>
-
-<h3 id="texexec"><a href="#texexec" class="headerlink" title="texexec"></a>texexec</h3><hr>
-
-<h3 id="enscript"><a href="#enscript" class="headerlink" title="enscript"></a>enscript</h3><hr>
-
-<h3 id="groff-tbl-eqn"><a href="#groff-tbl-eqn" class="headerlink" title="groff, tbl, eqn"></a>groff, tbl, eqn</h3><hr>
-
-<h3 id="lex-yacc"><a href="#lex-yacc" class="headerlink" title="lex, yacc"></a>lex, yacc</h3><ul>
-<li>Lexical analyzer commands.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1080,7 +1032,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>25</small></li>
+    <li><a href="/tags/Java/">Java</a><small>28</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -1149,23 +1101,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
       </li>
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
       </li>
     
   </ul>

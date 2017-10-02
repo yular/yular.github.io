@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-10-02T05:01:09.000Z</updated>
+  <updated>2017-10-02T07:04:17.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,243 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Effective Java VII</title>
+    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VII/"/>
+    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VII/</id>
+    <published>2017-10-02T06:18:39.000Z</published>
+    <updated>2017-10-02T07:04:17.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Item-63-Include-failure-capture-information-in-detail-message&quot;&gt;&lt;a href=&quot;#Item-63-Include-failure-capture-information-in-detail-message&quot; class=&quot;headerlink&quot; title=&quot;Item 63. Include failure-capture information in detail message&quot;&gt;&lt;/a&gt;Item 63. Include failure-capture information in detail message&lt;/h3&gt;&lt;p&gt;To capture the failure, the detail message of an exception should contain the values of all parameters and fields that contributed to the exception.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-64-Strive-for-failure-atomicity&quot;&gt;&lt;a href=&quot;#Item-64-Strive-for-failure-atomicity&quot; class=&quot;headerlink&quot; title=&quot;Item 64. Strive for failure atomicity&quot;&gt;&lt;/a&gt;Item 64. Strive for failure atomicity&lt;/h3&gt;&lt;p&gt;A failed method invocation should leave the object in the state that it was in prior to the invocation.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-65-Do-not-ignore-exceptions&quot;&gt;&lt;a href=&quot;#Item-65-Do-not-ignore-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 65. Do not ignore exceptions&quot;&gt;&lt;/a&gt;Item 65. Do not ignore exceptions&lt;/h3&gt;&lt;p&gt;At the very least, the catch block (empty one) should contain a comment explaining why it is appropriate to ignore the exception.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-66-Synchronize-access-to-shared-mutable-data&quot;&gt;&lt;a href=&quot;#Item-66-Synchronize-access-to-shared-mutable-data&quot; class=&quot;headerlink&quot; title=&quot;Item 66. Synchronize access to shared mutable data&quot;&gt;&lt;/a&gt;Item 66. Synchronize access to shared mutable data&lt;/h3&gt;&lt;p&gt;When multiple threads share mutable data, each thread that reads or writes the data must perform synchronization.&lt;/p&gt;
+&lt;p&gt;Do not use &lt;code&gt;Thread.stop&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-67-Avoid-excessive-synchronization&quot;&gt;&lt;a href=&quot;#Item-67-Avoid-excessive-synchronization&quot; class=&quot;headerlink&quot; title=&quot;Item 67. Avoid excessive synchronization&quot;&gt;&lt;/a&gt;Item 67. Avoid excessive synchronization&lt;/h3&gt;&lt;p&gt;To avoid liveness and safety failures, never cede control to the client within a synchronized method or block.&lt;/p&gt;
+&lt;p&gt;Do as little work as possible inside synchronized regions.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-68-Prefer-executors-and-tasks-to-threads&quot;&gt;&lt;a href=&quot;#Item-68-Prefer-executors-and-tasks-to-threads&quot; class=&quot;headerlink&quot; title=&quot;Item 68. Prefer executors and tasks to threads&quot;&gt;&lt;/a&gt;Item 68. Prefer executors and tasks to threads&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-69-Prefer-concurrency-utilities-to-wait-and-notify&quot;&gt;&lt;a href=&quot;#Item-69-Prefer-concurrency-utilities-to-wait-and-notify&quot; class=&quot;headerlink&quot; title=&quot;Item 69. Prefer concurrency utilities to wait and notify&quot;&gt;&lt;/a&gt;Item 69. Prefer concurrency utilities to wait and notify&lt;/h3&gt;&lt;p&gt;Here are some rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;ConcurrentHashMap&lt;/code&gt; in preference to &lt;code&gt;Collections.synchronizeMap&lt;/code&gt; or &lt;code&gt;Hashtable&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.&lt;/li&gt;
+&lt;li&gt;Always use wait loop idiom to invoke the wait method; never invoke it outside of a loop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-70-Document-thread-safety&quot;&gt;&lt;a href=&quot;#Item-70-Document-thread-safety&quot; class=&quot;headerlink&quot; title=&quot;Item 70. Document thread safety&quot;&gt;&lt;/a&gt;Item 70. Document thread safety&lt;/h3&gt;&lt;p&gt;To enable safe concurrent use, a class must clearly document what level of thread safety it supports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;immutable&lt;/li&gt;
+&lt;li&gt;unconditionally thread-safe: instances are mutable but the class has sufficient internal synchronization.&lt;/li&gt;
+&lt;li&gt;conditionally thread-safe: like unconditionally thread-safe, but some methods require external synchronization.&lt;/li&gt;
+&lt;li&gt;not thread-safe&lt;/li&gt;
+&lt;li&gt;thread-hostile&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If write an unconditionally thread-safe class, consider using a private lock object in place of synchronized methods.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-71-Use-lazy-initialization-judiciously&quot;&gt;&lt;a href=&quot;#Item-71-Use-lazy-initialization-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 71. Use lazy initialization judiciously&quot;&gt;&lt;/a&gt;Item 71. Use lazy initialization judiciously&lt;/h3&gt;&lt;p&gt;Under most circumstances, normal initialization is preferable to lazy initialization.&lt;/p&gt;
+&lt;p&gt;Here are the rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To use lazy initialization for a static field, use the lazy initialization holder for class idiom.&lt;/li&gt;
+&lt;li&gt;To use lazy initialization for an instance field, use the double-check idiom, which is that once without locking, and then if the field appears to be uninitialized, a second time with locking.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-72-Do-not-depend-on-the-thread-scheduler&quot;&gt;&lt;a href=&quot;#Item-72-Do-not-depend-on-the-thread-scheduler&quot; class=&quot;headerlink&quot; title=&quot;Item 72. Do not depend on the thread scheduler&quot;&gt;&lt;/a&gt;Item 72. Do not depend on the thread scheduler&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do not fix the program by putting in calls to &lt;code&gt;Thread.yield&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Thread priorities are the least portable features of Java platform.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-73-Avoid-thread-groups&quot;&gt;&lt;a href=&quot;#Item-73-Avoid-thread-groups&quot; class=&quot;headerlink&quot; title=&quot;Item 73. Avoid thread groups&quot;&gt;&lt;/a&gt;Item 73. Avoid thread groups&lt;/h3&gt;&lt;p&gt;Thread groups are obsolete.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-74-Implement-Serializable-judiciously&quot;&gt;&lt;a href=&quot;#Item-74-Implement-Serializable-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 74. Implement Serializable judiciously&quot;&gt;&lt;/a&gt;Item 74. Implement Serializable judiciously&lt;/h3&gt;&lt;p&gt;Here are the reasons and rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Implementing Serializable decreases the flexibility to change a class’s implementation once it has been released.&lt;/li&gt;
+&lt;li&gt;Implementing Serializable increases the likelihood of bugs and security holes.&lt;/li&gt;
+&lt;li&gt;Implementing Serializable increases the testing burden associated with releasing a new version of a class.&lt;/li&gt;
+&lt;li&gt;Classes designed for inheritance should rarely implement Serializable, and interfaces should rarely extend it. Provide a parameterless constructor on nonserializable classes designed for inheritance.&lt;/li&gt;
+&lt;li&gt;Inner class should not implement Serializable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-75-Consider-using-a-custom-serialized-form&quot;&gt;&lt;a href=&quot;#Item-75-Consider-using-a-custom-serialized-form&quot; class=&quot;headerlink&quot; title=&quot;Item 75. Consider using a custom serialized form&quot;&gt;&lt;/a&gt;Item 75. Consider using a custom serialized form&lt;/h3&gt;&lt;p&gt;The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.&lt;br&gt;Often must provide a &lt;code&gt;readObject&lt;/code&gt; method to ensure invariants and security when use default serialized form.&lt;/p&gt;
+&lt;p&gt;The disadvantages of using default serialized form when an object’s physical representation differs substantially from its logical data content:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;It permanetly ties the exported API to the current internal repesentation.&lt;/li&gt;
+&lt;li&gt;It can consume excessive space.&lt;/li&gt;
+&lt;li&gt;It can consume excessive time.&lt;/li&gt;
+&lt;li&gt;It can cause stack overflows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If all instance fields are transient, it is technically permissible to dispense with invoking &lt;code&gt;defaultWriteObject&lt;/code&gt; and &lt;code&gt;defaultReadObject&lt;/code&gt; but it is not recommended.&lt;/p&gt;
+&lt;p&gt;Must impose any synchronization on object serialization that would impose on any other method that reads the entire state of the object.&lt;/p&gt;
+&lt;p&gt;Regardless of what serialized form choosed, decalre an explicit serial verison UID in every serializable class.&lt;/p&gt;
+&lt;h3 id=&quot;Item-76-Write-readObject-methods-defensively&quot;&gt;&lt;a href=&quot;#Item-76-Write-readObject-methods-defensively&quot; class=&quot;headerlink&quot; title=&quot;Item 76. Write readObject methods defensively&quot;&gt;&lt;/a&gt;Item 76. Write readObject methods defensively&lt;/h3&gt;&lt;p&gt;When an object is deserialized, it is critical to defensively copy any field containing an object references that a client must not posses.&lt;/p&gt;
+&lt;p&gt;Do not use the &lt;code&gt;writeUnshared&lt;/code&gt; and &lt;code&gt;readUnshared&lt;/code&gt; methods.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-77-For-instance-control-prefer-enum-type-to-readResolve&quot;&gt;&lt;a href=&quot;#Item-77-For-instance-control-prefer-enum-type-to-readResolve&quot; class=&quot;headerlink&quot; title=&quot;Item 77. For instance control, prefer enum type to readResolve&quot;&gt;&lt;/a&gt;Item 77. For instance control, prefer enum type to readResolve&lt;/h3&gt;&lt;p&gt;If depend on readResolve for instance control, all instances fields with object reference types must be declared transient.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-78-Consider-serialization-proxies-instead-of-serialized-instances&quot;&gt;&lt;a href=&quot;#Item-78-Consider-serialization-proxies-instead-of-serialized-instances&quot; class=&quot;headerlink&quot; title=&quot;Item 78. Consider serialization proxies instead of serialized instances&quot;&gt;&lt;/a&gt;Item 78. Consider serialization proxies instead of serialized instances&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Item-63-Include-failure-capture-information-in-detail-message&quot;&gt;&lt;a href=&quot;#Item-63-Include-failure-capture-information-in-detail-messa
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Effective Java VI</title>
+    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/"/>
+    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/</id>
+    <published>2017-10-02T05:20:52.000Z</published>
+    <updated>2017-10-02T06:18:31.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;headerlink&quot; title=&quot;Item 51. Beware of performance of string concatenation&quot;&gt;&lt;/a&gt;Item 51. Beware of performance of string concatenation&lt;/h3&gt;&lt;p&gt;To achieve acceptable performance, use a StringBuilder in place of a String.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-52-Refer-to-objects-by-their-interfaces&quot;&gt;&lt;a href=&quot;#Item-52-Refer-to-objects-by-their-interfaces&quot; class=&quot;headerlink&quot; title=&quot;Item 52. Refer to objects by their interfaces&quot;&gt;&lt;/a&gt;Item 52. Refer to objects by their interfaces&lt;/h3&gt;&lt;p&gt;If appropriate interface types exist, then parameters, return values, vraibales, and fields should all be declared using interface types.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-53-Prefer-interfaces-to-reflection&quot;&gt;&lt;a href=&quot;#Item-53-Prefer-interfaces-to-reflection&quot; class=&quot;headerlink&quot; title=&quot;Item 53. Prefer interfaces to reflection&quot;&gt;&lt;/a&gt;Item 53. Prefer interfaces to reflection&lt;/h3&gt;&lt;p&gt;As a rule, objects should not be accesed reflectively in normal applications at runtime.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lose all the benefits of compile-time type checking.&lt;/li&gt;
+&lt;li&gt;The code required to perform reflective access is clumsy and verbose.&lt;/li&gt;
+&lt;li&gt;Performance suffers.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-54-Use-native-methods-judiciously&quot;&gt;&lt;a href=&quot;#Item-54-Use-native-methods-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 54. Use native methods judiciously&quot;&gt;&lt;/a&gt;Item 54. Use native methods judiciously&lt;/h3&gt;&lt;p&gt;Java Native Interface (JNI) allows Java applications to call native methods, which are special methods written in native programming languages such as C or C++.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-55-Optimize-judiciously&quot;&gt;&lt;a href=&quot;#Item-55-Optimize-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 55. Optimize judiciously&quot;&gt;&lt;/a&gt;Item 55. Optimize judiciously&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Strive to write good programs rather than fast ones.&lt;/li&gt;
+&lt;li&gt;Strive to aovid design decisions that limit performance.&lt;/li&gt;
+&lt;li&gt;Consider the performance consequences of API design decisions.&lt;/li&gt;
+&lt;li&gt;Measure performance before and after each attempted optimization.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-56-Adhere-to-generally-accepted-naming-conventions&quot;&gt;&lt;a href=&quot;#Item-56-Adhere-to-generally-accepted-naming-conventions&quot; class=&quot;headerlink&quot; title=&quot;Item 56. Adhere to generally accepted naming conventions&quot;&gt;&lt;/a&gt;Item 56. Adhere to generally accepted naming conventions&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-57-Use-exceptions-only-for-exceptional-conditions&quot;&gt;&lt;a href=&quot;#Item-57-Use-exceptions-only-for-exceptional-conditions&quot; class=&quot;headerlink&quot; title=&quot;Item 57. Use exceptions only for exceptional conditions&quot;&gt;&lt;/a&gt;Item 57. Use exceptions only for exceptional conditions&lt;/h3&gt;&lt;p&gt;Never use exceptions for ordinary control flow. And good APIs must not enforce users to do that.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors&quot;&gt;&lt;a href=&quot;#Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors&quot; class=&quot;headerlink&quot; title=&quot;Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors&quot;&gt;&lt;/a&gt;Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors&lt;/h3&gt;&lt;p&gt;Exceptions which are subclass of Exception, are recoverable. Exceptions which are subclass of Error, are unrecoverable.&lt;/p&gt;
+&lt;p&gt;RuntimeException is unchecked exception. Thus, all of the unchecked throwables implemented should subclass RuntimeException.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot;&gt;&lt;a href=&quot;#Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 59. Avoid unnecessary use of checked exceptions&quot;&gt;&lt;/a&gt;Item 59. Avoid unnecessary use of checked exceptions&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-60-Favor-the-use-of-standard-exceptions&quot;&gt;&lt;a href=&quot;#Item-60-Favor-the-use-of-standard-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 60. Favor the use of standard exceptions&quot;&gt;&lt;/a&gt;Item 60. Favor the use of standard exceptions&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot;&gt;&lt;a href=&quot;#Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot; class=&quot;headerlink&quot; title=&quot;Item 61. Throw exceptions appropriate to the abstraction&quot;&gt;&lt;/a&gt;Item 61. Throw exceptions appropriate to the abstraction&lt;/h3&gt;&lt;p&gt;Higher layers catch low-level exceptions and, in their place, throw exceptions that can be explained in terms of the high-level abstraction.&lt;/p&gt;
+&lt;p&gt;While exception translation is superior to mindless propagation of exceptions from lower layers, it should not be overused.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-62-Document-all-exceptions-thrown-by-each-method&quot;&gt;&lt;a href=&quot;#Item-62-Document-all-exceptions-thrown-by-each-method&quot; class=&quot;headerlink&quot; title=&quot;Item 62. Document all exceptions thrown by each method&quot;&gt;&lt;/a&gt;Item 62. Document all exceptions thrown by each method&lt;/h3&gt;&lt;p&gt;Always declare checked exceptions individually, and document precisely the conditions under which each one is thrown using the Javadoc &lt;code&gt;@throws&lt;/code&gt; tag.&lt;/p&gt;
+&lt;p&gt;Use the Javadoc &lt;code&gt;@throws&lt;/code&gt; tag to document each unchecked exception that a method can throw, but do not use the throws keyword to include unchecked exceptions in the method declaration.&lt;/p&gt;
+&lt;p&gt;If an exception is thrown by many methods in a class for the same reason, it is acceptable to document the exception in the class’s documentation comment.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;heade
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Effective Java V</title>
+    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-V/"/>
+    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-V/</id>
+    <published>2017-10-02T05:02:21.000Z</published>
+    <updated>2017-10-02T05:20:47.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Item-41-Use-overloading-judiciously&quot;&gt;&lt;a href=&quot;#Item-41-Use-overloading-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 41. Use overloading judiciously&quot;&gt;&lt;/a&gt;Item 41. Use overloading judiciously&lt;/h3&gt;&lt;p&gt;A safe and conservative policy is never to export two overloadings with the same number of parameters.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-42-Use-varargs-judiciously&quot;&gt;&lt;a href=&quot;#Item-42-Use-varargs-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 42. Use varargs judiciously&quot;&gt;&lt;/a&gt;Item 42. Use varargs judiciously&lt;/h3&gt;&lt;p&gt;Use varargs only when a call really operates on a variable-length sequence of values.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-43-Return-empty-arrays-or-collections-not-nulls&quot;&gt;&lt;a href=&quot;#Item-43-Return-empty-arrays-or-collections-not-nulls&quot; class=&quot;headerlink&quot; title=&quot;Item 43. Return empty arrays or collections, not nulls&quot;&gt;&lt;/a&gt;Item 43. Return empty arrays or collections, not nulls&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-44-Write-doc-comments-for-all-exposed-API-elements&quot;&gt;&lt;a href=&quot;#Item-44-Write-doc-comments-for-all-exposed-API-elements&quot; class=&quot;headerlink&quot; title=&quot;Item 44. Write doc comments for all exposed API elements&quot;&gt;&lt;/a&gt;Item 44. Write doc comments for all exposed API elements&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To document API properly, must precede every exported class, interface, constructor, method and field declaration with a doc comment.&lt;/li&gt;
+&lt;li&gt;The doc comment for a method should describe succinctly the contract between the method and its client.&lt;/li&gt;
+&lt;li&gt;No longer necessary to use the HTML &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;tt&amp;gt;&lt;/code&gt; tages in doc comments: the Javadoc {@code} tag is preferable because it eliminates the need to escape HTML metacharacters.&lt;/li&gt;
+&lt;li&gt;To document a generic type or method, be sure to document all type parameters.&lt;/li&gt;
+&lt;li&gt;To document an enum type, be sure to document the constants.&lt;/li&gt;
+&lt;li&gt;To document an annotation type, be sure to document any members as well as type itself.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-45-Minimize-the-scope-of-local-variables&quot;&gt;&lt;a href=&quot;#Item-45-Minimize-the-scope-of-local-variables&quot; class=&quot;headerlink&quot; title=&quot;Item 45. Minimize the scope of local variables&quot;&gt;&lt;/a&gt;Item 45. Minimize the scope of local variables&lt;/h3&gt;&lt;p&gt;Declare the local variables where they are first used. And the declaration should contain an initializer.&lt;/p&gt;
+&lt;p&gt;Keep methods small and focused.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-46-Prefer-for-each-loops-to-traditional-for-loops&quot;&gt;&lt;a href=&quot;#Item-46-Prefer-for-each-loops-to-traditional-for-loops&quot; class=&quot;headerlink&quot; title=&quot;Item 46. Prefer for-each loops to traditional for loops&quot;&gt;&lt;/a&gt;Item 46. Prefer for-each loops to traditional for loops&lt;/h3&gt;&lt;p&gt;Three situations where for-each loop should not be used:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Filtering&lt;/li&gt;
+&lt;li&gt;Transforming&lt;/li&gt;
+&lt;li&gt;Parallel iteration&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-47-Know-and-use-libraries&quot;&gt;&lt;a href=&quot;#Item-47-Know-and-use-libraries&quot; class=&quot;headerlink&quot; title=&quot;Item 47. Know and use libraries&quot;&gt;&lt;/a&gt;Item 47. Know and use libraries&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-48-Avoid-float-and-double-if-exact-answers-are-required&quot;&gt;&lt;a href=&quot;#Item-48-Avoid-float-and-double-if-exact-answers-are-required&quot; class=&quot;headerlink&quot; title=&quot;Item 48. Avoid float and double if exact answers are required&quot;&gt;&lt;/a&gt;Item 48. Avoid float and double if exact answers are required&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-49-Prefer-primitive-types-to-boxed-primitives&quot;&gt;&lt;a href=&quot;#Item-49-Prefer-primitive-types-to-boxed-primitives&quot; class=&quot;headerlink&quot; title=&quot;Item 49. Prefer primitive types to boxed primitives&quot;&gt;&lt;/a&gt;Item 49. Prefer primitive types to boxed primitives&lt;/h3&gt;&lt;p&gt;Autoboxing reduces the verbosity but not the danger of using boxed primitives.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Item-50-Avoid-strings-where-other-types-are-more-appropriate&quot;&gt;&lt;a href=&quot;#Item-50-Avoid-strings-where-other-types-are-more-appropriate&quot; class=&quot;headerlink&quot; title=&quot;Item 50. Avoid strings where other types are more appropriate&quot;&gt;&lt;/a&gt;Item 50. Avoid strings where other types are more appropriate&lt;/h3&gt;&lt;p&gt;Strings are poor substitutes for other value types.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Poor substitutes for enum types.&lt;/li&gt;
+&lt;li&gt;Poor substitutes for aggregate types.&lt;/li&gt;
+&lt;li&gt;&lt;ul&gt;
+&lt;li&gt;Poor substitutes for capabilities.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Item-41-Use-overloading-judiciously&quot;&gt;&lt;a href=&quot;#Item-41-Use-overloading-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 41. Use overloadi
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Effective Java IV</title>
@@ -1347,60 +1584,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</title>
-    <link href="http://yular.github.io/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/"/>
-    <id>http://yular.github.io/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/</id>
-    <published>2017-08-05T07:00:29.000Z</published>
-    <updated>2017-09-10T23:56:03.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Design Pattern" scheme="http://yular.github.io/tags/Design-Pattern/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Working Effectively with Legacy Code</title>
-    <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/"/>
-    <id>http://yular.github.io/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/</id>
-    <published>2017-08-05T06:59:20.000Z</published>
-    <updated>2017-08-07T06:40:25.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete</title>
-    <link href="http://yular.github.io/2017/08/04/Reading-Note-of-Code-Complete/"/>
-    <id>http://yular.github.io/2017/08/04/Reading-Note-of-Code-Complete/</id>
-    <published>2017-08-05T06:54:08.000Z</published>
-    <updated>2017-08-07T06:39:47.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
     
   </entry>
   

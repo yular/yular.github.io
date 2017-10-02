@@ -90,6 +90,174 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-17T00:07:22.000Z"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">2016-07-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Below is the list of frequent used HBase shell command and at first, here is another <a href="https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/" target="_blank" rel="external">HBase command list</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-04T17:40:13.000Z"><a href="/2016/07/04/Apache-Livy-Install-Guide/">2016-07-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the github page of <a href="https://github.com/cloudera/livy" target="_blank" rel="external">Apache Livy</a>. It is not difficult to install Livy on the Redhat server. Below is the guide.</p>
+<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>To successfully build and run Livy on Redhat, we need:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spark (1.5.0 or later)</span><br><span class="line">mvn</span><br><span class="line">openjdk-7</span><br><span class="line">python 2.6+ or 3.3+</span><br><span class="line">R (optional)</span><br></pre></td></tr></table></figure></p>
+<p>Note that mvn is only used for building Livy.</p>
+<h3 id="Building-Livy"><a href="#Building-Livy" class="headerlink" title="Building Livy"></a>Building Livy</h3><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:cloudera/livy.git</span><br><span class="line"><span class="built_in">cd</span> livy</span><br><span class="line">mvn package -Dspark.version=1.6.1</span><br></pre></td></tr></table></figure></p>
+<p>Note that -Dspark.version option is not required and by default its value is 1.5.0. If we use a different version of Livy, we should change the value of that option.</p>
+<h3 id="Running-Livy"><a href="#Running-Livy" class="headerlink" title="Running Livy"></a>Running Livy</h3><p>Before running Livy, we should make sure that SPARK_HOME and HADOOP_CONF_DIR are set in OS environment.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/lib/spark</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/etc/hadoop/conf</span><br></pre></td></tr></table></figure></p>
+<p>Then just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/livy-server</span><br></pre></td></tr></table></figure></p>
+<p>By default, Livy is running on the port 8998. We can change it by modifying the livy.conf file.</p>
+<h3 id="Livy-Configuration"><a href="#Livy-Configuration" class="headerlink" title="Livy Configuration"></a>Livy Configuration</h3><p>Here are Livy’s configuration files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">livy.conf: contains the server configuration.</span><br><span class="line">spark-blacklist.conf: list Spark configuration options that users are not allowed to override.</span><br><span class="line"><span class="built_in">log</span>4j.properties: configuration <span class="keyword">for</span> Livy logging.</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-03T22:18:56.000Z"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">2016-07-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">Apache Livy Spark Coding in Python Console Quickstart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://github.com/cloudera/livy" target="_blank" rel="external">official tutorial of submiting pyspark jobs in Livy</a>. Below is the my PySpark quickstart guide.</p>
+<p>In Livy, the structure of REST API is /sessions/sessionid/statements/statementid. So to submit a new request to Livy, we should ask Livy to create a new independent session first, then inside that session, we will ask Livy to create one or multiple statements to process code.</p>
+<hr>
+
+<h3 id="Install-Required-Library"><a href="#Install-Required-Library" class="headerlink" title="Install Required Library"></a>Install Required Library</h3><p>At first, we need to install requests library of Python. We can use pip. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install requests</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="PySpark-Code"><a href="#PySpark-Code" class="headerlink" title="PySpark Code"></a>PySpark Code</h3><p>Enter python console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></p>
+<p>Then in python console, type following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import json, pprint, requests, textwrap</span><br><span class="line">host = <span class="string">'http://localhost:8998'</span></span><br><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">hs_r = requests.post(host + <span class="string">'/sessions'</span>, data=json.dumps(data), headers=headers)</span><br><span class="line">hs_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>Note that change the port number if it is not the default one. The code above helps to create a new session in Spark.<br>And if we have to change the configuration of spark-submit, the data object should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>,<span class="string">'conf'</span>:&#123;<span class="string">'spark.executor.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>,<span class="string">'spark.driver.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Next, get the session URL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + hs_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">sn_r = requests.get(session_url, headers=headers)</span><br><span class="line">sn_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>Note that hs_r.headers[‘Location’] may not give us the correct value because it may be ‘null/sessions/sessionid’. In that case, we should use the following code instead,. In our case, since it is the first session, the id is 0.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + <span class="string">'/sessions/0'</span></span><br></pre></td></tr></table></figure></p>
+<p>Now we should generate the code and submit to the corresponding statement REST API.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">statements_url = session_url + <span class="string">'/statements'</span></span><br><span class="line">data = &#123; <span class="string">'code'</span>: textwrap(<span class="string">""</span><span class="string">"\</span><br><span class="line">import org.apache.spark.SparkContext;</span><br><span class="line">import org.apache.spark.sql.hive.HiveContext; </span><br><span class="line">val sqlContext=new HiveContext(sc);</span><br><span class="line">val df=sqlContext.sql("</span>use db1<span class="string">");</span><br><span class="line">val res=sqlContext.sql("</span>select * from tb1 <span class="built_in">limit</span> 10 <span class="string">").collect();</span><br><span class="line">res.map(t =&gt; t(0)).foreach(println);</span><br><span class="line">"</span><span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line">stm_r = requests.post(statements_url, data=json.dumps(data), headers=headers)</span><br><span class="line">stm_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>After that, we can get the running result from the statement REST API using following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">statement_url = host + stm_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">res = requests.get(statement_url, headers=headers)</span><br><span class="line">pprint.pprint(res.json())</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions occur, we can find the result in the output field.</p>
+<p>At last, we can delete current session:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.delete(session_url, headers=headers)</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Submit-Python-File-to-REST-API"><a href="#Submit-Python-File-to-REST-API" class="headerlink" title="Submit Python File to REST API"></a>Submit Python File to REST API</h3><p>Here the Livy is in yarn-client mode. This guide can also be used in local mode. Below is the content of python file submitted (The file name is test.py.):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pyspark import SparkContext</span><br><span class="line">from pyspark.sql import HiveContext</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">'yarn-client'</span>,<span class="string">'pyspark'</span>)</span><br><span class="line">sqlContext = HiveContext(sc)</span><br><span class="line">sqlContext.sql(<span class="string">"use db1"</span>)</span><br><span class="line">sqlContext.sql(<span class="string">"select * from tb1 limit 10"</span>).show()</span><br></pre></td></tr></table></figure></p>
+<p>Here is the command to POST python file to Livy REST API for batch job. Livy will automatically create a new session identified by batchid for this job.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST --data <span class="string">'&#123;"file":"file:/home/yular/livy_code/test.py",</span><br><span class="line">"conf":&#123;"spark.executor.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar","spark.driver.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar"&#125;</span><br><span class="line">&#125;'</span> -H <span class="string">"Content-Type: application/json"</span> localhost:8998/batches</span><br></pre></td></tr></table></figure></p>
+<p>Note that in yarn-client and yarn-cluster mode, by default Livy use hdfs file protocol. So if we write /home/yular/livy_code/test.py, then in Livy, the file path becomes hdfs://home/yular/livy_code/test.py which may cause exception. So we have to specify file protocol.</p>
+<p>To check the status of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0 | python -m json.tool</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, we can see the result in the output field of json returned.</p>
+<p>To check the log of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0/<span class="built_in">log</span> | python -m json.tool</span><br></pre></td></tr></table></figure></p>
+<p>To remove the batch session, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE localhost:8998/batches/0</span><br></pre></td></tr></table></figure></p>
+<p>Note that 0 is the batch id. In our case, the id is 0 but it should be subject to change.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-02T19:10:03.000Z"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">2016-07-02</a></time>
       
       
@@ -510,182 +678,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-11T07:15:50.000Z"><a href="/2016/06/11/Gradle-Java-QuickStart/">2016-06-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/11/Gradle-Java-QuickStart/">Gradle Java QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a quickstart tutorial for gradle java project.</p>
-<h3 id="Install-Gradle"><a href="#Install-Gradle" class="headerlink" title="Install Gradle"></a>Install Gradle</h3><p>Here is the official tutorial for <a href="https://docs.gradle.org/current/userguide/installation.html" target="_blank" rel="external">Gradle Installation</a>.</p>
-<p>For Mac users, just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gradle-Project"><a href="#Gradle-Project" class="headerlink" title="Gradle Project"></a>Gradle Project</h3><p>Create project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir java-quickstart</span><br><span class="line"><span class="built_in">cd</span> java-quickstart</span><br></pre></td></tr></table></figure></p>
-<p>Init a Gradle Java project using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle init --type java-library</span><br><span class="line"></span><br><span class="line"><span class="comment"># Files and folders generated:</span></span><br><span class="line">build.gradle	gradle		gradlew		gradlew.bat	settings.gradle	src</span><br></pre></td></tr></table></figure></p>
-<p>The src/main/java/Library.java and src/test/java/LibraryTest.java files are generated by gradle and we can remove them.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf src/main/java/Library.java</span><br><span class="line">rm -rf src/<span class="built_in">test</span>/java/LibraryTest.java </span><br><span class="line">mkdir -p src/main/java/com/yulartech/template</span><br><span class="line">vi src/main/com/yulartech/template/Main.java</span><br></pre></td></tr></table></figure>
-<p>And here is the source code of Main class:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args)&#123;</span><br><span class="line">                System.out.println(<span class="string">" Hello World! "</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Edit build.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// Apply the java plugin to add support <span class="keyword">for</span> Java</span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> <span class="built_in">where</span> to find the dependencies of your project</span><br><span class="line">repositories &#123;</span><br><span class="line">    // Use <span class="string">'jcenter'</span> <span class="keyword">for</span> resolving your dependencies.</span><br><span class="line">    // You can <span class="built_in">declare</span> any Maven/Ivy/file repository here.</span><br><span class="line">//    jcenter()</span><br><span class="line">    mavenCentral()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> the dependencies <span class="keyword">for</span> your production and <span class="built_in">test</span> code</span><br><span class="line">dependencies &#123;</span><br><span class="line">    // The production code uses the SLF4J logging API at compile time</span><br><span class="line">    compile <span class="string">'org.slf4j:slf4j-api:1.7.18'</span></span><br><span class="line"></span><br><span class="line">    // Declare the dependency <span class="keyword">for</span> your favourite <span class="built_in">test</span> framework you want to use <span class="keyword">in</span> your tests.</span><br><span class="line">    // TestNG is also supported by the Gradle Test task. Just change the</span><br><span class="line">    // <span class="built_in">test</span>Compile dependency to <span class="built_in">test</span>Compile <span class="string">'org.testng:testng:6.8.1'</span> and add</span><br><span class="line">    // <span class="string">'test.useTestNG()'</span> to your build script.</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jar &#123;</span><br><span class="line">        manifest &#123;</span><br><span class="line"></span><br><span class="line">                attributes(<span class="string">"Main-Class"</span>: <span class="string">"com.yulartech.template.Main"</span>)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Edit settings.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// To <span class="built_in">declare</span> projects as part of a multi-project build use the <span class="string">'include'</span> method</span><br><span class="line">include <span class="string">'shared'</span></span><br><span class="line">include <span class="string">'api'</span></span><br><span class="line">include <span class="string">'services:webservice'</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">rootProject.name = <span class="string">'java-quickstart'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Build-and-Run-Gradle-Java-Project"><a href="#Build-and-Run-Gradle-Java-Project" class="headerlink" title="Build and Run Gradle Java Project"></a>Build and Run Gradle Java Project</h3><p>Here is the command to build and run the project.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gradle clean build</span><br><span class="line">java -jar build/libs/java-quickstart.jar</span><br></pre></td></tr></table></figure></p>
-<p>And we can see the output like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">:clean</span><br><span class="line">:compileJava</span><br><span class="line">:processResources UP-TO-DATE</span><br><span class="line">:classes</span><br><span class="line">:jar</span><br><span class="line">:assemble</span><br><span class="line">:compileTestJava UP-TO-DATE</span><br><span class="line">:processTestResources UP-TO-DATE</span><br><span class="line">:<span class="built_in">test</span>Classes UP-TO-DATE</span><br><span class="line">:<span class="built_in">test</span> UP-TO-DATE</span><br><span class="line">:check UP-TO-DATE</span><br><span class="line">:build</span><br><span class="line"></span><br><span class="line">BUILD SUCCESSFUL</span><br><span class="line"></span><br><span class="line">Total time: 4.032 secs</span><br><span class="line"></span><br><span class="line"> Hello World!</span><br></pre></td></tr></table></figure></p>
-<p>Here is the link of source code.<br><a href="https://github.com/yular/Java-CodeLibrary/tree/master/gradle-quickstart" target="_blank" rel="external">Github Source Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-11T06:21:41.000Z"><a href="/2016/06/10/Gradle-QuickStart/">2016-06-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/10/Gradle-QuickStart/">Gradle QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration. Here is its <a href="https://en.wikipedia.org/wiki/Gradle" target="_blank" rel="external">Wiki</a>. And here is <a href="http://gradle.org/getting-started-gradle-java/" target="_blank" rel="external">official website</a>.</p>
-<p>Below is a quickstart guide for Gradle.</p>
-<h3 id="Gradle-Installation"><a href="#Gradle-Installation" class="headerlink" title="Gradle Installation"></a>Gradle Installation</h3><p>Here is the link of <a href="https://docs.gradle.org/current/userguide/installation.html" target="_blank" rel="external">official document</a> about Gradle install.</p>
-<p>For Mac user, it is much easiser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p>
-<p>To test whether gradle is installed successfully, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 2.12</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2016-03-14 08:32:03 UTC</span><br><span class="line">Build number: none</span><br><span class="line">Revision:     b29fbb64ad6b068cb3f05f7e40dc670472129bc0</span><br><span class="line"></span><br><span class="line">Groovy:       2.4.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013</span><br><span class="line">JVM:          1.8.0_51 (Oracle Corporation 25.51-b03)</span><br><span class="line">OS:           Mac OS X 10.11.5 x86_64</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gradle-Project-QuickStart"><a href="#Gradle-Project-QuickStart" class="headerlink" title="Gradle Project QuickStart"></a>Gradle Project QuickStart</h3><p>Here is a quickstart guide to setup a Hello World project.</p>
-<p>Create a new folder for project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir gradle-quickstart</span><br><span class="line"><span class="built_in">cd</span> gradle-quickstart</span><br></pre></td></tr></table></figure></p>
-<p>Then execute this command to check all the available tasks:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">gradle tasks</span><br><span class="line"></span><br><span class="line"><span class="comment">#Here is the sample output:</span></span><br><span class="line">:tasks</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">All tasks runnable from root project</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build Setup tasks</span><br><span class="line">-----------------</span><br><span class="line">init - Initializes a new Gradle build. [incubating]</span><br><span class="line">wrapper - Generates Gradle wrapper files. [incubating]</span><br><span class="line"></span><br><span class="line">Help tasks</span><br><span class="line">----------</span><br><span class="line">buildEnvironment - Displays all buildscript dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">components - Displays the components produced by root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">dependencies - Displays all dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">dependencyInsight - Displays the insight into a specific dependency <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"><span class="built_in">help</span> - Displays a <span class="built_in">help</span> message.</span><br><span class="line">model - Displays the configuration model of root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">projects - Displays the sub-projects of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">properties - Displays the properties of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">tasks - Displays the tasks runnable from root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"></span><br><span class="line">To see all tasks and more detail, run gradle tasks --all</span><br><span class="line"></span><br><span class="line">To see more detail about a task, run gradle <span class="built_in">help</span> --task &lt;task&gt;</span><br><span class="line"></span><br><span class="line">BUILD SUCCESSFUL</span><br><span class="line"></span><br><span class="line">Total time: 1.977 secs</span><br><span class="line"></span><br><span class="line">This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.12/userguide/gradle_daemon.html</span><br></pre></td></tr></table></figure></p>
-<p>Init a Gradle project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Here are the files generated:</span></span><br><span class="line">build.gradle	gradle		gradlew		gradlew.bat	settings.gradle</span><br></pre></td></tr></table></figure></p>
-<p>Edit build.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// Apply the java plugin to add support <span class="keyword">for</span> Java</span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> <span class="built_in">where</span> to find the dependencies of your project</span><br><span class="line">repositories &#123;</span><br><span class="line">    // Use <span class="string">'jcenter'</span> <span class="keyword">for</span> resolving your dependencies.</span><br><span class="line">    // You can <span class="built_in">declare</span> any Maven/Ivy/file repository here.</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> the dependencies <span class="keyword">for</span> your production and <span class="built_in">test</span> code</span><br><span class="line">dependencies &#123;</span><br><span class="line">    // The production code uses the SLF4J logging API at compile time</span><br><span class="line">    compile <span class="string">'org.slf4j:slf4j-api:1.7.21'</span></span><br><span class="line"></span><br><span class="line">    // Declare the dependency <span class="keyword">for</span> your favourite <span class="built_in">test</span> framework you want to use <span class="keyword">in</span> your tests.</span><br><span class="line">    // TestNG is also supported by the Gradle Test task. Just change the</span><br><span class="line">    // <span class="built_in">test</span>Compile dependency to <span class="built_in">test</span>Compile <span class="string">'org.testng:testng:6.8.1'</span> and add</span><br><span class="line">    // <span class="string">'test.useTestNG()'</span> to your build script.</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">task hello &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span>Last &#123;</span><br><span class="line">                println <span class="string">'Hello World!'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Now a simple gradle script is done. We can execute the “hello” task through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle -q hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p>
-<p>The -q option will remove the debug message output.</p>
-<p>Below is the source code of this project.<br><a href="https://github.com/yular/Java-CodeLibrary/tree/master/gradle-quickstart" target="_blank" rel="external">Github Source Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-04T02:31:07.000Z"><a href="/2016/06/03/MongoDB-Install-on-Centos/">2016-06-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/03/MongoDB-Install-on-Centos/">MongoDB Install on Centos</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">official document</a> to install MongoDB on CentOS / RedHat OS.</p>
-<p>Below is a simple version of install guide.</p>
-<h2 id="Configure-the-yum"><a href="#Configure-the-yum" class="headerlink" title="Configure the yum"></a>Configure the yum</h2><p>Create a /etc/yum.repos.d/mongodb-org-3.2.repo file so that we can install MongoDB directly, using yum.</p>
-<p>Copy following content into the repository file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc</span><br></pre></td></tr></table></figure></p>
-<h2 id="Install-MongoDB-and-associated-tools"><a href="#Install-MongoDB-and-associated-tools" class="headerlink" title="Install MongoDB and associated tools"></a>Install MongoDB and associated tools</h2><p>Execute following command to install MongoDB:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y mongodb-org</span><br></pre></td></tr></table></figure></p>
-<h2 id="Run-MongoDB-Service"><a href="#Run-MongoDB-Service" class="headerlink" title="Run MongoDB Service"></a>Run MongoDB Service</h2><p>Before we start MongoDB Service, we may have to configure SELinux first.</p>
-<p>Check /etc/selinux/config. The value of variable SELINUX has these three options:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enforcing (by default)</span><br><span class="line">disabled</span><br><span class="line">permissive</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<p>If it is in enforcing mode, we may have to execute this command to ensure that MongoDB can use the port:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port <span class="_">-a</span> -t mongod_port_t -p tcp 27017</span><br></pre></td></tr></table></figure></p>
-<p>Or we can change the SELINUX into different mode and reboot the system so that change can take effect.</p>
-<p>By default, MongoDB save data files in /var/lib/mongo and save log files in /var/log/mongodb. All these settigs can be changed in /etc/mongod.conf.</p>
-<p>To start MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod start</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">To restart MongoDB, execute this <span class="built_in">command</span>:</span><br><span class="line">``` bash</span><br><span class="line">sudo service mongod restart</span><br></pre></td></tr></table></figure></p>
-<p>To stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod stop</span><br></pre></td></tr></table></figure></p>
-<h2 id="Verify-MongoDB-Boosting"><a href="#Verify-MongoDB-Boosting" class="headerlink" title="Verify MongoDB Boosting"></a>Verify MongoDB Boosting</h2><p>Check /var/log/mongodb/mongod.log to find the following lines:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[initandlisten] waiting <span class="keyword">for</span> connections on port &lt;port&gt;</span><br></pre></td></tr></table></figure></p>
-<p>where <port> is the port configured in /etc/mongod.conf and 27017 is by default.</port></p>
-<p>Or ensure that MongoDB will start following a system reboot by issuing the following command::<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chkconfig mongod on</span><br></pre></td></tr></table></figure></p>
-<h2 id="Remove-MongoDB"><a href="#Remove-MongoDB" class="headerlink" title="Remove MongoDB"></a>Remove MongoDB</h2><p>After stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum erase $(rpm -qa | grep mongodb-org)</span><br></pre></td></tr></table></figure></p>
-<p>And then remove data files as well as log files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r /var/<span class="built_in">log</span>/mongodb</span><br><span class="line">sudo rm -r /var/lib/mongo</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -755,7 +747,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>25</small></li>
+    <li><a href="/tags/Java/">Java</a><small>28</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -824,23 +816,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
       </li>
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
       </li>
     
   </ul>

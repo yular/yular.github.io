@@ -90,6 +90,180 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-08-08T03:48:19.000Z"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">Java Spring Framework Maven QuickStart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-08T03:47:20.000Z"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">Linux Mail Server exim4 Setup Guide (without docker) and JavaMail QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Exim is a message transfer agent (MTA) for use on Unix sytems connected to the Internet. And Exim4 is the default MTA on Debian system. It is easy to install and configure exim4 under Debian system. Here we setup Exim4 as a mail server to transfer message. The MTA implements both the client and server portions of SMTP or uses Postfix protocol.</p>
+<p>Here is the official page of Exim: <a href="http://www.exim.org/" target="_blank" rel="external">Exim</a></p>
+<p>The following are the steps of setup a mail server using Exim4. Here is a good tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04" target="_blank" rel="external">tutorial</a></p>
+<p>#####1.Installation<br>To install Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install exim4</span><br></pre></td></tr></table></figure></p>
+<p>#####2.Configuration<br>To configure Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure exim4-config</span><br></pre></td></tr></table></figure></p>
+<p>Then we will see a configuration interface.</p>
+<p>#######Mail Server Configuration<br>Choose the first one: internet site; mail is sent and received directly using SMTP.<br><img src="https://c1.staticflickr.com/1/481/20225786738_af70fdae0d_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Type FQDN<br>Type the hostname.domainname.tld format string as the FQDN for our mail address. Actually, any domain names can be used here even some existing mail domain name. </p>
+<p>Here is the standard input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname.domainname.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here is my input:<br><img src="https://c1.staticflickr.com/1/441/20405421232_208355ffcf_n.jpg" alt=""> </p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######SMTP Listner<br>Usually, the default value is the best choice. See below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1;::1</span><br></pre></td></tr></table></figure></p>
+<p>This is a kind of IPv6 address.</p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Mail Destination<br>Add all the mail destinations that we want for which Exim should accept mail. We can list our:</p>
+<ul>
+<li>FQDN</li>
+<li>localhost</li>
+<li>local hostname</li>
+</ul>
+<p>Use ; to separate each address.<br><img src="https://c1.staticflickr.com/1/509/20405590912_2a0fbc0de5_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Relay Options<br>For me, I left all relay options blank.</p>
+<p>Keep pressing the “Tap” key to highlight “<ok>“ and pressing Enter.</ok></p>
+<p>#######DNS Queries<br>For me, select “<no>“ and press Enter.</no></p>
+<p>#######Delivery Method<br>For me, I choose the first option: mbox format in /var/mail.<br><img src="https://c1.staticflickr.com/1/547/19791748654_fa3d3355c3_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Spliting File<br>For me, I choose “<no>“.</no></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Postmaster address<br>Enter the below text, substituting “you” “yourdomain” &amp; “tld” with our own values:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root you@yourdomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>And everything is done.</p>
+<p>#####Test Mail<br>Use the following command to do the test:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"This is the first mail"</span> | mail <span class="_">-s</span> <span class="string">"Hello Subject"</span> someone@somedomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here you can use your gmail or other public mail server to do the test. If everything goes well, you may find the email is in the spam :-)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-04T06:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">Linux Commands for File Operation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>###Tar Files or Directories<br>Compress or Decompress files or directories</p>
+<p>#####For tar<br>Unpackage:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Filename.tar</span><br></pre></td></tr></table></figure></p>
+<p>Package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar cvf Filename.tar Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For gz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip Filename.gz</span><br><span class="line">$ gzip <span class="_">-d</span> Filename.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip Filename</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.gz and .tgz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf Filename.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zcvf Filename.tar.gz Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 <span class="_">-d</span> Filename.bz</span><br><span class="line">$ bunzip2 Filename.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf Filename.tar.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .zip<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ unzip Filename.zip</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip Filename.zip Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .rar<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar x Filename.rar</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar a Filename.rar Dirname</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-07-30T18:22:38.000Z"><a href="/2015/07/30/C-Makefile-for-Linux/">2015-07-30</a></time>
       
       
@@ -581,140 +755,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:39.000Z"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LintCode-Problem-Solution-List-III/">LintCode Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:34.000Z"><a href="/2015/07/19/LintCode-Problem-Solution-List-II/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LintCode-Problem-Solution-List-II/">LintCode Problem Solution List II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the complete list of solution summary:<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md" target="_blank" rel="external">summary list for LintCode</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-19T07:39:12.000Z"><a href="/2015/07/19/LeetCode-Problem-Solution-List-III/">2015-07-19</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/19/LeetCode-Problem-Solution-List-III/">LeetCode Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -784,7 +824,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>25</small></li>
+    <li><a href="/tags/Java/">Java</a><small>28</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -853,23 +893,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a>
+      </li>
+    
+      <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
       </li>
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
       </li>
     
   </ul>
