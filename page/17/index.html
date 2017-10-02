@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 17 | YBC HomePage</title>
+  <title>Страница 17 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,54 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-24T04:53:25.000Z"><a href="/2015/08/23/LeetCode-Problem-Solution-List-VI/">2015-08-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/23/LeetCode-Problem-Solution-List-VI/">LeetCode Problem Solution List VI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="First-Bad-Version"><a href="#First-Bad-Version" class="headerlink" title="First Bad Version"></a>First Bad Version</h3><p>Using binary search algorithm.<br>用二分搜索即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_first-bad-version.cpp" target="_blank" rel="external">Read Code</a></p>
+<h3 id="Wiggle-Sort"><a href="#Wiggle-Sort" class="headerlink" title="Wiggle Sort"></a>Wiggle Sort</h3><p>A classic Google Interview problem. Start from index one, and then check whether is the largest one among its two adjacent numbers; if not, swap it with the largest one; after that go to the next two element until reaching the end.<br>经典的谷歌面试题。从第二个元素开始，比较当前元素和与其相邻两个元素的大小，将最大那个与它交换位置；然后每次移动到下两个元素，直到到达数组末尾。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_wigglesort.cpp" target="_blank" rel="external">Read Code</a></p>
+<h3 id="Range-Sum-Query-Mutable"><a href="#Range-Sum-Query-Mutable" class="headerlink" title="Range Sum Query - Mutable"></a>Range Sum Query - Mutable</h3><p>A kind of data structure problem. We can use segment tree or binary index tree to solve it. For those who do not know what is segment tree, click <a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">here</a>; those who do not know binary index tree, click <a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">here</a>.<br>裸的数据结构题，用线段树或者树状数组即可。无需做任何变换，直接套模板即可。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_range-sum-query-mutable.cpp" target="_blank" rel="external">Read Code</a>.</p>
+<h3 id="Range-Sum-Query-2D-Mutable"><a href="#Range-Sum-Query-2D-Mutable" class="headerlink" title="Range Sum Query 2D - Mutable"></a>Range Sum Query 2D - Mutable</h3><p>A data structure problem. Here we can use segement tree or binary index tree but both of them should be 2D. For those who do not know what is segment tree, click <a href="https://en.wikipedia.org/wiki/Segment_tree" target="_blank" rel="external">here</a>; those who do not know binary index tree, click <a href="https://www.topcoder.com/community/data-science/data-science-tutorials/binary-indexed-trees/" target="_blank" rel="external">here</a>.<br>裸的二维线段树或者树状数组题目，直接套模板即可，不需要做任何变换。<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/leetcode_range-sum-query-2d-mutable.cpp" target="_blank" rel="external">Read Code</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -560,61 +608,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-28T16:48:05.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">2015-07-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">Hackerrank / InterviewStreet Algorithm Problem Solution List Game Theory Section</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Game-of-Stones"><a href="#Game-of-Stones" class="headerlink" title="Game of Stones"></a>Game of Stones</h3><p><a href="https://www.hackerrank.com/challenges/game-of-stones-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/game-of-stones-1.cpp" target="_blank" rel="external">Code</a><br>A kind of game theory problem. The basic rule is that for any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[i] = ((1&amp;sg[i-2]&amp;sg[i-3]&amp;sg[i-5])^1).  </p>
-<h3 id="Tower-Breakers"><a href="#Tower-Breakers" class="headerlink" title="Tower Breakers"></a>Tower Breakers</h3><p><a href="https://www.hackerrank.com/challenges/tower-breakers-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/tower-breakers-1.cpp" target="_blank" rel="external">Code</a><br>A sort of game theory problem. If the height of tower is 1 or the number of towers is even, second player wins; otherwise, first player wins.</p>
-<h3 id="A-Chessboard-Game"><a href="#A-Chessboard-Game" class="headerlink" title="A Chessboard Game"></a>A Chessboard Game</h3><p><a href="https://www.hackerrank.com/challenges/a-chessboard-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/a-chessboard-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. Use dfs. For any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[x][y] = ((1&amp;sg[x-2][y+1]&amp;sg[x-2][y-1]&amp;sg[x+1][y-2]&amp;sg[x-1][y-2])^1).</p>
-<h3 id="Introduction-to-Nim-Game"><a href="#Introduction-to-Nim-Game" class="headerlink" title="Introduction to Nim Game"></a>Introduction to Nim Game</h3><p><a href="https://www.hackerrank.com/challenges/nim-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/nim-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. for every test case, xor all the given integers together, if the result is non-zero, then first player win; otherwise, second player wins.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/18/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/16/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/18/">Вперед &raquo;</a>
   </nav>
 
 </nav>
@@ -640,7 +638,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -648,7 +646,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Метки</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -679,7 +677,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>23</small></li>
+    <li><a href="/tags/Java/">Java</a><small>24</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -725,7 +723,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Облако меток</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -748,6 +746,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
+      </li>
+    
+      <li>
         <a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a>
       </li>
     
@@ -761,10 +763,6 @@
     
       <li>
         <a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern (In Java)</a>
       </li>
     
   </ul>
