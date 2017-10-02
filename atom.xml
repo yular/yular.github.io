@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-10-02T07:04:17.000Z</updated>
+  <updated>2017-10-02T07:45:00.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小结：巴菲特之路和投资组合</title>
+    <link href="http://yular.github.io/2017/10/02/%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%B7%B4%E8%8F%B2%E7%89%B9%E4%B9%8B%E8%B7%AF%E5%92%8C%E6%8A%95%E8%B5%84%E7%BB%84%E5%90%88/"/>
+    <id>http://yular.github.io/2017/10/02/小结：巴菲特之路和投资组合/</id>
+    <published>2017-10-02T07:42:40.000Z</published>
+    <updated>2017-10-02T07:45:00.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;推荐读物&quot;&gt;&lt;a href=&quot;#推荐读物&quot; class=&quot;headerlink&quot; title=&quot;推荐读物&quot;&gt;&lt;/a&gt;推荐读物&lt;/h3&gt;&lt;p&gt;本杰明.格雷厄姆：《证券分析》《聪明的投资者》&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;推荐读物&quot;&gt;&lt;a href=&quot;#推荐读物&quot; class=&quot;headerlink&quot; title=&quot;推荐读物&quot;&gt;&lt;/a&gt;推荐读物&lt;/h3&gt;&lt;p&gt;本杰明.格雷厄姆：《证券分析》《聪明的投资者》&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Finance" scheme="http://yular.github.io/tags/Finance/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Effective Java VII</title>
@@ -1505,80 +1527,6 @@
     <summary type="html">
     
       &lt;p&gt;Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here a
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Test Driven Development by Example</title>
-    <link href="http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/"/>
-    <id>http://yular.github.io/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/</id>
-    <published>2017-08-07T06:30:50.000Z</published>
-    <updated>2017-09-15T06:22:20.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
-&lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; title=&quot;Overall Rules&quot;&gt;&lt;/a&gt;Overall Rules&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;In Test-Driven Development, there are two basic rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Write new code only if there is a failing automated test.&lt;/li&gt;
-&lt;li&gt;Eliminate duplication.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The two rules above imply the order of tasks of programming:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Red: Write a little test that does not work, even does not compile at first&lt;/li&gt;
-&lt;li&gt;Green: Make the test work quickly, committing whatever sins necessary in the process&lt;/li&gt;
-&lt;li&gt;Refactor: Eliminate all the duplication created in just getting the test to work&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;The three basic steps of Test Driven Development are:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Start simply&lt;/li&gt;
-&lt;li&gt;Write automated tests&lt;/li&gt;
-&lt;li&gt;Refactor to add design decisions one at a time&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Two topics where TDD is not good at:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Security software&lt;/li&gt;
-&lt;li&gt;Concurrency&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Rhythm of TDD:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Quickly add a test&lt;/li&gt;
-&lt;li&gt;Run all tests and see the new one fails&lt;/li&gt;
-&lt;li&gt;Make a little change&lt;/li&gt;
-&lt;li&gt;Run all tests and see them all succeed&lt;/li&gt;
-&lt;li&gt;Refactor to remove duplication&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Three ways to pass tests:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fake it.&lt;/li&gt;
-&lt;li&gt;Obvious implementation.&lt;/li&gt;
-&lt;li&gt;Translate a design object (side effects) into a test case that fails because of the objection, get the code to compile quickly with a stub implementation, made the test work by typing in what seemed like the right code. &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Given a problem, first divide it to small independent problems, create tests for each of them, then do refactor on the code.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Detailed-Rules&quot;&gt;&lt;a href=&quot;#Detailed-Rules&quot; class=&quot;headerlink&quot; title=&quot;Detailed Rules&quot;&gt;&lt;/a&gt;Detailed Rules&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Write new code only if you first have a failing automated test. Then eliminate the duplication.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Could not tackle a big test, so invent a small test representing progress, write the test by shameless duplicating and editing, make the test work by copying and editing model code wholescale, promised ourselves to remove duplication.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the summary of &lt;code&gt;Test Driven Development&lt;/code&gt; book.&lt;/p&gt;
-&lt;h2 id=&quot;Overall-Rules&quot;&gt;&lt;a href=&quot;#Overall-Rules&quot; class=&quot;headerlink&quot; 
     
     </summary>
     
