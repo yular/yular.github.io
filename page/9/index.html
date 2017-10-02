@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Страница 9 | YBC HomePage</title>
+  <title>Seite 9 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,59 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-06-04T01:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
+<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
+<p>Here is a simple guide to download, build and install Lua on Centos.</p>
+<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
+<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
+<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
+<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
+<p>If Lua is installed successfully, this command will be executed successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lua</span><br><span class="line"><span class="comment"># Command output : </span></span><br><span class="line">Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -520,62 +573,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-03-31T03:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/">official website of redis</a>.</p>
-<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart">official tutorial</a>.</p>
-      
-    </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/03/30/Redis-QuickStart/#more" class="more-link">More</a>
-      </div>
-    </footer>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Назад</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/10/">Вперед &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/10/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -609,7 +611,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -640,7 +642,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>24</small></li>
+    <li><a href="/tags/Java/">Java</a><small>25</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -686,7 +688,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -709,6 +711,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
       </li>
     
@@ -722,10 +728,6 @@
     
       <li>
         <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a>
       </li>
     
   </ul>

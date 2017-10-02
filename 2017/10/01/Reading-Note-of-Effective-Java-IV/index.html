@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>CDN online libraries for Web Developers | YBC HomePage</title>
+  <title>Reading Note of Effective Java IV | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -14,7 +14,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="CDN online libraries for Web Developers" />
+  <meta property="og:title" content="Reading Note of Effective Java IV" />
   <meta property="og:site_name" content="YBC HomePage" />
 
   <meta name="google-site-verification" content="IK-tjIwORWUinhhD-XZkyX5FWQgd568VBgmJorjK7Bg" />
@@ -89,23 +89,73 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-02-28T20:13:17.000Z"><a href="/2016/02/28/CDN-online-libraries-for-Web-Developers/">2016-02-28</a></time>
+        <time datetime="2017-10-02T04:34:37.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">2017-10-01</a></time>
       
       
   
-    <h1 class="title">CDN online libraries for Web Developers</h1>
+    <h1 class="title">Reading Note of Effective Java IV</h1>
   
 
     </header>
     <div class="entry">
       
+          <div id="toc" class="toc-article">
+            <strong class="toc-title aligncenter">Content</strong>
+            <hr>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-31-Use-instance-fields-instead-of-ordinals"><span class="toc-number">1.</span> <span class="toc-text">Item 31. Use instance fields instead of ordinals</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-32-Use-EnumSet-instead-of-bit-fields"><span class="toc-number">2.</span> <span class="toc-text">Item 32. Use EnumSet instead of bit fields</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-33-Use-EnumMap-instead-of-ordinal-indexing"><span class="toc-number">3.</span> <span class="toc-text">Item 33. Use EnumMap instead of ordinal indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-34-Emulate-extensible-enums-with-interface"><span class="toc-number">4.</span> <span class="toc-text">Item 34. Emulate extensible enums with interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-35-Prefer-annotations-to-naming-patterns"><span class="toc-number">5.</span> <span class="toc-text">Item 35. Prefer annotations to naming patterns</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-36-Consistently-use-the-Override-annotation"><span class="toc-number">6.</span> <span class="toc-text">Item 36. Consistently use the Override annotation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-37-Use-marker-interfaces-to-define-types"><span class="toc-number">7.</span> <span class="toc-text">Item 37. Use marker interfaces to define types</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-38-Check-parameters-for-validity"><span class="toc-number">8.</span> <span class="toc-text">Item 38. Check parameters for validity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-39-Make-defensive-copies-when-needed"><span class="toc-number">9.</span> <span class="toc-text">Item 39. Make defensive copies when needed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Item-40-Design-method-signatures-carefully"><span class="toc-number">10.</span> <span class="toc-text">Item 40. Design method signatures carefully</span></a></li></ol>
+          </div>
       
-        <p>Sometimes when we read web page HTML code, we may see the following stuffs:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.7/angular2.min.js"</span> &gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p>If we paste the link of the src attribute to the browser, we will see the source code of that angular js file. That means we can access the library from Internet resource without download it to our project folder: thus we can save more disk space!</p>
-<p>Here are links of the three of the main CDN services that web developers use for the project.<br>1.cdnjs.com<br><a href="https://cdnjs.com/" target="_blank" rel="external">Click Here</a>.<br><img src="https://c2.staticflickr.com/2/1662/25058960300_17505675c9_b.jpg" alt="cdnjs homepage"></p>
-<p>2.JSDELIVR<br><a href="https://www.jsdelivr.com/" target="_blank" rel="external">Click Here</a>.<br><img src="https://c2.staticflickr.com/2/1528/24986975619_952eb0e490_b.jpg" alt="JSDELIVR homepage"></p>
-<p>3.Google APIs<br><a href="https://developers.google.com/speed/libraries/" target="_blank" rel="external">Click Here</a>.<br><img src="https://c2.staticflickr.com/2/1572/25236359982_7f8b220ccc_b.jpg" alt="Google APIs"></p>
-<p>4.Bootstrap CDN<br><a href="https://www.bootstrapcdn.com/" target="_blank" rel="external">Click Here</a>.<br><img src="https://c2.staticflickr.com/2/1604/25139383580_d31866c6c7_b.jpg" alt="Bootstrap CDN"></p>
+      
+        <h3 id="Item-31-Use-instance-fields-instead-of-ordinals"><a href="#Item-31-Use-instance-fields-instead-of-ordinals" class="headerlink" title="Item 31. Use instance fields instead of ordinals"></a>Item 31. Use instance fields instead of ordinals</h3><p>All enums have an ordinal method returning the numerical position of each enum constant in its type.</p>
+<p>Never derive a value associated with an enum from its ordinal; store it in an instance field instead.</p>
+<hr>
+
+<h3 id="Item-32-Use-EnumSet-instead-of-bit-fields"><a href="#Item-32-Use-EnumSet-instead-of-bit-fields" class="headerlink" title="Item 32. Use EnumSet instead of bit fields"></a>Item 32. Use EnumSet instead of bit fields</h3><p>Especially an enum type will be used in sets</p>
+<hr>
+
+<h3 id="Item-33-Use-EnumMap-instead-of-ordinal-indexing"><a href="#Item-33-Use-EnumMap-instead-of-ordinal-indexing" class="headerlink" title="Item 33. Use EnumMap instead of ordinal indexing"></a>Item 33. Use EnumMap instead of ordinal indexing</h3><hr>
+
+<h3 id="Item-34-Emulate-extensible-enums-with-interface"><a href="#Item-34-Emulate-extensible-enums-with-interface" class="headerlink" title="Item 34. Emulate extensible enums with interface"></a>Item 34. Emulate extensible enums with interface</h3><p>One compelling use case for extensible enumerated types is operation codes.</p>
+<hr>
+
+<h3 id="Item-35-Prefer-annotations-to-naming-patterns"><a href="#Item-35-Prefer-annotations-to-naming-patterns" class="headerlink" title="Item 35. Prefer annotations to naming patterns"></a>Item 35. Prefer annotations to naming patterns</h3><p>All programmers should use predefined annotation types provided by the Java platform.</p>
+<hr>
+
+<h3 id="Item-36-Consistently-use-the-Override-annotation"><a href="#Item-36-Consistently-use-the-Override-annotation" class="headerlink" title="Item 36. Consistently use the Override annotation"></a>Item 36. Consistently use the Override annotation</h3><p>Should use the Override annotation on every method declaration that you believe to override a superclass declaration.</p>
+<p>One exception is that in concrete classes, need not annotate methods that you believe to override abstract methods declaration.</p>
+<hr>
+
+<h3 id="Item-37-Use-marker-interfaces-to-define-types"><a href="#Item-37-Use-marker-interfaces-to-define-types" class="headerlink" title="Item 37. Use marker interfaces to define types"></a>Item 37. Use marker interfaces to define types</h3><p>Advantages of marker interface:</p>
+<ul>
+<li>Define a type implemented by instances of the marked class but marker annotations do not;</li>
+<li>Maker interface can be targeted more precisely and if an annotation type is declared with target ElementType.TYPE, it can be applied to any class or interface.</li>
+<li>Must use marker interface if marker only applies to classes and interfaces, or want to write one or more methods accepting only objects having this marking.</li>
+<li>If want to limit the use of marker to elements of a particular interface, define the marker as a subinterface of that interface.</li>
+</ul>
+<p>Advantages of marker annotations over marker interfaces:</p>
+<ul>
+<li>It is possible to add more information to an annotation type after it is already in use by adding one or more annotation elements with defaults.</li>
+<li>Must use an annotation if the marker applies to any program element other than a class or interface.</li>
+</ul>
+<hr>
+
+<h3 id="Item-38-Check-parameters-for-validity"><a href="#Item-38-Check-parameters-for-validity" class="headerlink" title="Item 38. Check parameters for validity"></a>Item 38. Check parameters for validity</h3><p>For public methods, use Javadoc <code>@throws</code> tag to document the exception that will be thrown if a restriction on parameter values is violated. For nonpublic methods, use assertion to check parameters.</p>
+<p>Constructor should check the validity of parameters stored away for later use.</p>
+<p>Exception is the case in which the validity check would be expensive or impractical and it is performed implicitly.</p>
+<p>Should design methods to be as general as it is practical to make them. The fewer restriction on parameters, the better; Document all the restrictions and enforce them with explicit checks at the beginning of the method body.</p>
+<hr>
+
+<h3 id="Item-39-Make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39. Make defensive copies when needed"></a>Item 39. Make defensive copies when needed</h3><p>Must program defensively with assumption that clients of class will do their best to destroy its invariants.</p>
+<hr>
+
+<h3 id="Item-40-Design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40. Design method signatures carefully"></a>Item 40. Design method signatures carefully</h3><p>Here are the rules:</p>
+<ul>
+<li>Choose method names carefully.</li>
+<li>Do not go overboard in providing convenience methods.</li>
+<li>Avoid long parameter lists.</li>
+<li>For parameter types, favor interfaces over classes.</li>
+<li>Prefer two-element enum type to boolean parameters.</li>
+</ul>
 
       
     </div>
@@ -119,7 +169,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Web/">Web</a>
+    <a href="/tags/Java/">Java</a>
   </div>
 
         <!-- partial('post/share') -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Страница 3 | YBC HomePage</title>
+  <title>Seite 3 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,133 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-08-05T06:54:00.000Z"><a href="/2017/08/04/Reading-Note-of-Clean-Code/">2017-08-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/08/04/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the overall summary of Clean Code priciples.</p>
+<p>优雅和高效的代码。代码逻辑直截了当，缺陷无处隐藏。尽量减少依赖关系便于维护。依据某种分层策略完善错误处理代码。性能调至最优。<br>减少重复代码，提高表达能力，提早构建简单抽象。<br>时时保持代码整洁（童子军军规：让营地比你来时更干净）。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
+<li>应该去除的注释:<ul>
+<li>不恰当的信息</li>
+<li>废弃的注释</li>
+<li>冗余的注释</li>
+<li>糟糕的注释</li>
+<li>注释掉的代码</li>
+</ul>
+</li>
+</ul>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
+<li>应当能单个命令签出并构建系统。</li>
+<li>应当能单个命令运行全部测试。</li>
+</ul>
+<h3 id="名称"><a href="#名称" class="headerlink" title="名称"></a>名称</h3><ul>
+<li>采用描述性名称。要经常性地重新评估名称的正确性。</li>
+<li>名称要与抽象层级相符合（名称要反映类和函数的抽象层级）。</li>
+<li>尽可能使用标准命名法 (Google or Amazon)。</li>
+<li>名称无歧义。</li>
+<li>名称长度应和作用范围有关。名称越长作用范围越大。</li>
+<li>名称中避免使用编码（别用匈牙利语命名法）。</li>
+<li>名称中要说明副作用。</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>输入参数尽量少。没参数最好，一个次之，两个再次，三个更次。三个以上应坚决避免。</li>
+<li>别输出输入参数。非要修改的话，则修改函数其所在对象的状态。</li>
+<li>布尔值输入(selector)参数宣告了函数不止做了一件事，会令人迷惑，应当消灭掉。</li>
+<li>死函数，也就是不被调用的函数，要坚决去掉。</li>
+<li>不能忽视安全（不一定指网络攻击，函数不做不合法输入的检测也算）。</li>
+<li>函数只做一件事。</li>
+<li>函数中的语句应该在同一个抽象层级上。</li>
+<li>别用算子参数（直接将结果赋值到一个变量然后用此变量作为函数参数才是对的）。</li>
+<li>别忽视不正确的边界行为。</li>
+<li>函数名称应传达其行为。</li>
+</ul>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><ul>
+<li>尽量减少源文件的语言数量。</li>
+</ul>
+<h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><ul>
+<li>Do not repeat yourself (DRY). 别重复。</li>
+<li>别在错误的抽象层级上写代码。要有正确的抽象模型，较高层次抽象在基类，较低层次抽象在派生类（与实现细节有关），不同层级的概念要放入不同的容器当中。</li>
+<li>基类应当对派生类一无所知。若无法去除耦合，将基类和派生类部署到不同的jar中来实现物理解耦。</li>
+<li>接口需要的信息不能过多。比如需要调用过多的函数获得输入参数，从而导致耦合度过高。</li>
+<li>不互相依赖的东西或模块不该耦合，应当花时间研究声明函数，变量和常量的地方。</li>
+<li>变量和函数应在靠近被调用的地方定义，本地变量则在首次被使用的位置上声明。</li>
+<li>若使用静态函数，应确保它没有多态行为（函数名一样但输入输出不同）。</li>
+<li>用多态替代if/else和switch。</li>
+<li>把逻辑依赖改为物理依赖。依赖者模块不应对被依赖者模块有假定，它应当明确地询问后者全部信息。</li>
+<li>在较高层级放置可配置数据 （比如默认常量或配置值）。</li>
+<li>别混肴视听（比如实现了没被使用的方法）。</li>
+<li>保持代码的前后一致（比如命名规则一致）。</li>
+<li>代码出现的位置应是读者自然而然期待的地方（最小惊异原则）。</li>
+<li>函数或类应实现其他程序员有理由期待的行为（最小惊异原则）。</li>
+<li>尽量消除特性依赖（Guice DI算是例外）。类的方法只应对其所属类中的变量和函数感兴趣（内聚），而不要通过其他类的对象的访问器和修改器操作自己的内部数据。</li>
+<li>不掩盖时序耦合（也就是workflow函数要体现其调用的子函数之间的时序耦合关系）。好的方法是创建子函数调用顺序队伍，和将函数返回的变量作为接下来调用的子函数的输入参数。</li>
+</ul>
+<h3 id="依赖和继承"><a href="#依赖和继承" class="headerlink" title="依赖和继承"></a>依赖和继承</h3><ul>
+<li>别继承常量（用静态导入常量）。</li>
+</ul>
+<h3 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h3><ul>
+<li>通过重构（让代码更有表达力）和单元测试，来确认算法是正确的。</li>
+</ul>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><ul>
+<li>测试不足： 只要还有没被测试探测过的条件或者验证过的计算，测试就是不足够的。</li>
+<li>测试中使用覆盖率工具。</li>
+<li>别忽略小测试。被忽略的测试就是对不确定事物的疑问。</li>
+<li>测试边界条件（尤其是算法）。</li>
+<li>全面测试相近的缺陷。</li>
+<li>测试覆盖率的模式有启发性测试，应该快速出结果。</li>
+</ul>
+<h3 id="一般性问题"><a href="#一般性问题" class="headerlink" title="一般性问题"></a>一般性问题</h3><ul>
+<li>避免使用否定性条件。</li>
+<li>避免传递浏览（遵守得墨忒定律，不提倡使用 a.getS().getG().getC()来调用方法C）。</li>
+<li>通过使用通配符避免过长的导入清单。</li>
+<li>遵循基于通用行业规范的一套编码标准。</li>
+<li>用变量命名代替魔术数（比如用常量表示魔术数）。</li>
+<li>用函数来封装条件（比如将if语句中的布尔逻辑抽象成函数）。</li>
+<li>别随意。构建代码需要理由且理由要与代码结构契合。不合理的结构就要修改，合理的则要保持和推广。</li>
+<li>封装边界条件。</li>
+<li>会用enum类型，尤其是在枚举情况下。</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Software-Development/">Software Development</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -688,57 +815,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-06-30T05:18:26.000Z"><a href="/2017/06/29/Ruby-YAML-Summary/">2017-06-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/06/29/Ruby-YAML-Summary/">Ruby YAML Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data serialization standard for all programming languages.</p>
-<p>Here is the link of <a href="http://www.yaml.org/" target="_blank" rel="external">YAML Org</a>.<br>Here is the link of <a href="http://yaml.org/YAML_for_ruby.html" target="_blank" rel="external">YAML Cookbook for Ruby</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Ruby/">Ruby</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Назад</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/4/">Вперед &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -772,7 +853,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -803,7 +884,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>24</small></li>
+    <li><a href="/tags/Java/">Java</a><small>25</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
@@ -849,7 +930,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.23px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 18.46px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -872,6 +953,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a>
       </li>
     
@@ -885,10 +970,6 @@
     
       <li>
         <a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a>
-      </li>
-    
-      <li>
-        <a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a>
       </li>
     
   </ul>
