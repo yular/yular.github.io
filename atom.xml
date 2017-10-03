@@ -785,14 +785,80 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/</id>
     <published>2017-09-07T07:48:01.000Z</published>
-    <updated>2017-09-07T07:48:01.000Z</updated>
+    <updated>2017-10-03T08:05:16.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java in a Nutshell&lt;/code&gt; (JDK 7 and 8 version).&lt;/p&gt;
+&lt;h3 id=&quot;JVM-and-Java-Platform&quot;&gt;&lt;a href=&quot;#JVM-and-Java-Platform&quot; class=&quot;headerlink&quot; title=&quot;JVM and Java Platform&quot;&gt;&lt;/a&gt;JVM and Java Platform&lt;/h3&gt;&lt;p&gt;JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.&lt;/p&gt;
+&lt;p&gt;Java platform uses just-in-time compilation to take the advantage of the fact that parts of Java program are called more frequently.&lt;/p&gt;
+&lt;p&gt;Two ways to run other languages on JVM:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Have a source code compiler producing class files.&lt;/li&gt;
+&lt;li&gt;Implement an interpreter and runtime in Java, and then interpret the source form of the language.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Software-Construction&quot;&gt;&lt;a href=&quot;#Software-Construction&quot; class=&quot;headerlink&quot; title=&quot;Software Construction&quot;&gt;&lt;/a&gt;Software Construction&lt;/h3&gt;&lt;p&gt;There are mainly elevent steps as below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problem Definition&lt;/li&gt;
+&lt;li&gt;Requirement Development&lt;/li&gt;
+&lt;li&gt;Construction Planning&lt;/li&gt;
+&lt;li&gt;Software Architecture or High Level Design&lt;/li&gt;
+&lt;li&gt;Detailed Design&lt;/li&gt;
+&lt;li&gt;Coding and Debugging&lt;/li&gt;
+&lt;li&gt;Unit Testing&lt;/li&gt;
+&lt;li&gt;Integration Testing&lt;/li&gt;
+&lt;li&gt;Integration&lt;/li&gt;
+&lt;li&gt;System Testing&lt;/li&gt;
+&lt;li&gt;Corrective Maintenance&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Coding-and-Style&quot;&gt;&lt;a href=&quot;#Coding-and-Style&quot; class=&quot;headerlink&quot; title=&quot;Coding and Style&quot;&gt;&lt;/a&gt;Coding and Style&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Handling-Exception&quot;&gt;&lt;a href=&quot;#Handling-Exception&quot; class=&quot;headerlink&quot; title=&quot;Handling Exception&quot;&gt;&lt;/a&gt;Handling Exception&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Security&quot;&gt;&lt;a href=&quot;#Security&quot; class=&quot;headerlink&quot; title=&quot;Security&quot;&gt;&lt;/a&gt;Security&lt;/h3&gt;&lt;p&gt;A safe program includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All objects start off in a legal state after creation.&lt;/li&gt;
+&lt;li&gt;Externally accessible methods transition objects between legal state.&lt;/li&gt;
+&lt;li&gt;External accessible methods must not return with object in an inconsistent state.&lt;/li&gt;
+&lt;li&gt;External accessible methods must reset object to a legal state before throwing (exceptions).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Concurrency&quot;&gt;&lt;a href=&quot;#Concurrency&quot; class=&quot;headerlink&quot; title=&quot;Concurrency&quot;&gt;&lt;/a&gt;Concurrency&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;IO&quot;&gt;&lt;a href=&quot;#IO&quot; class=&quot;headerlink&quot; title=&quot;IO&quot;&gt;&lt;/a&gt;IO&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Time&quot;&gt;&lt;a href=&quot;#Time&quot; class=&quot;headerlink&quot; title=&quot;Time&quot;&gt;&lt;/a&gt;Time&lt;/h3&gt;&lt;p&gt;Use Java 8 Date and Time API: java.time&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Command-Line-Interface&quot;&gt;&lt;a href=&quot;#Command-Line-Interface&quot; class=&quot;headerlink&quot; title=&quot;Command Line Interface&quot;&gt;&lt;/a&gt;Command Line Interface&lt;/h3&gt;&lt;p&gt;Here are the most frequently used Java commands:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;javac&lt;/li&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;li&gt;jar&lt;/li&gt;
+&lt;li&gt;javadoc&lt;/li&gt;
+&lt;li&gt;jdeps&lt;/li&gt;
+&lt;li&gt;jps&lt;/li&gt;
+&lt;li&gt;jstat&lt;/li&gt;
+&lt;li&gt;jstatd&lt;/li&gt;
+&lt;li&gt;jinfo&lt;/li&gt;
+&lt;li&gt;jstack&lt;/li&gt;
+&lt;li&gt;jmap&lt;/li&gt;
+&lt;li&gt;javap&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
+      &lt;p&gt;Here is the summary of the book &lt;code&gt;Java in a Nutshell&lt;/code&gt; (JDK 7 and 8 version).&lt;/p&gt;
+&lt;h3 id=&quot;JVM-and-Java-Platform&quot;&gt;&lt;a href=&quot;#JVM-a
+    
     </summary>
     
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     
   </entry>
   
