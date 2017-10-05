@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 2 | YBC HomePage</title>
+  <title>Page 2 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,53 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-11T08:51:57.000Z"><a href="/2017/09/11/Aspect-Oriented-Programming/">2017-09-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming" target="_blank" rel="external">Aspect-oriented programming in Wikipedia</a>.</p>
+<p>Aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification, such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, core to the functionality. AOP forms a basis for aspect-oriented software development.</p>
+<p>Note that AOP usually uses <a href="http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern</a> in its implementation.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Design-Pattern/">Design Pattern</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -1213,80 +1260,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T22:13:27.000Z"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here are the references: <a href="https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf" target="_blank" rel="external">JSL8</a> and <a href="https://www.tutorialspoint.com/java/java_nonaccess_modifiers.htm" target="_blank" rel="external">Java Non Access Modifiers from TutorialsPoint</a>. </p>
-<h3 id="Static-Modifier"><a href="#Static-Modifier" class="headerlink" title="Static Modifier"></a>Static Modifier</h3><p>Static modifier can be used as variable and method modifier.</p>
-<h4 id="Static-Variable"><a href="#Static-Variable" class="headerlink" title="Static Variable"></a>Static Variable</h4><p>Static variables will exist independently for all the instances of the class. There is only one copy of every static variable in the memory. It is a kind of class variable and local variables cannot be declared static.</p>
-<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>Static methods will exist independently for all the instances of the class. Static methods can be used directly without any instance variables of any object of the class they are defined in.</p>
-<hr>
-
-<h3 id="Final-Modifier"><a href="#Final-Modifier" class="headerlink" title="Final Modifier"></a>Final Modifier</h3><p>Final modifier is used to finalize the implementation/creation of variales, methods, and classes.</p>
-<h4 id="Final-Variable"><a href="#Final-Variable" class="headerlink" title="Final Variable"></a>Final Variable</h4><p>Every final variable can be explicitly initialized only once and then they cannot be reassigned to refer to a different object. But even though final variables use the same reference all the time, the value of their members can be changed.</p>
-<p>Usually, final and static modifiers are used together to define constants.</p>
-<h4 id="Final-Method"><a href="#Final-Method" class="headerlink" title="Final Method"></a>Final Method</h4><p>Final methods cannot be overriddedn by any subclasses. It indicates that the content of these methods should not be changed by any clients.</p>
-<h4 id="Final-Class"><a href="#Final-Class" class="headerlink" title="Final Class"></a>Final Class</h4><p>Final classes cannot be extended by other classes. It indicates that these classes should not be inherited.</p>
-<hr>
-
-<h3 id="Abstract-Modifier"><a href="#Abstract-Modifier" class="headerlink" title="Abstract Modifier"></a>Abstract Modifier</h3><p>Abstract modifier can be used for methods and classes, indicating <code>&quot;change&quot;</code> the content of these methods or classes in subclasses.</p>
-<h4 id="Abstract-Method"><a href="#Abstract-Method" class="headerlink" title="Abstract Method"></a>Abstract Method</h4><p>Abstract methods do not have method body and their implementation should be provided by subclasses. Abstract methods can never be final or strict.<br>If a class has one or more abstract methods, it must be declared as abstract.</p>
-<h4 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h4><p>Abstract classes cannot be instantiated and they are designed for inheritance. Abstract classes can never be final and they can contain both abstract methods and normal methods.</p>
-<hr>
-
-<h3 id="Synchronized-Modifier"><a href="#Synchronized-Modifier" class="headerlink" title="Synchronized Modifier"></a>Synchronized Modifier</h3><p>Synchronized modifier can be used for methods and applied on variables (lock a specific variable). It indicates that these methods can be accessed by only one thread at a time. Synchronized modifier is widely used in concurrent situation.</p>
-<hr>
-
-<h3 id="Transient-Modifier"><a href="#Transient-Modifier" class="headerlink" title="Transient Modifier"></a>Transient Modifier</h3><p>Transient modifier can be used for variables. It indicates that JVM will skip these variables when it is serializing the objects containing them.</p>
-<hr>
-
-<h3 id="Volatile-Modifier"><a href="#Volatile-Modifier" class="headerlink" title="Volatile Modifier"></a>Volatile Modifier</h3><p>Volatile modifier can be used for variables. It indicates that a thread accessing these variables must always merge its own copy of them with the master copy in the memory.<br>Volatile modifier can only be used for variables in instances, which are of type object or private. A volatile object reference can be null.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/3/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -1355,6 +1333,8 @@
   
     <li><a href="/tags/Java/">Java</a><small>29</small></li>
   
+    <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
+  
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
     <li><a href="/tags/Life/">Life</a><small>5</small></li>
@@ -1399,9 +1379,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.17px;">Java</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.5px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.17px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.5px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
 </div>
 
@@ -1422,6 +1402,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/04/ReactJS-QuickStart/">ReactJS QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/02/小结：巴菲特之路和投资组合/">小结：巴菲特之路和投资组合</a>
       </li>
     
@@ -1435,10 +1419,6 @@
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a>
       </li>
     
   </ul>
