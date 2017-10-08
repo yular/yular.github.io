@@ -102,6 +102,40 @@
       
         <p>Here is the official page of <a href="https://reactjs.org/docs/installation.html#trying-out-react" target="_blank" rel="external">React</a> which describes how to try out ReactJS.</p>
 <p>Below is the Quickstart guide to install, configure and run the firt React app on the local. </p>
+<h3 id="Install-NodeJS"><a href="#Install-NodeJS" class="headerlink" title="Install NodeJS"></a>Install NodeJS</h3><p>Here we use npm to manage project dependencies. Here is <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS official website</a>, where we can download and install <code>npm</code>.</p>
+<hr>
+
+<h3 id="Install-Gloabl-ReactJS-App-Creation-Package"><a href="#Install-Gloabl-ReactJS-App-Creation-Package" class="headerlink" title="Install Gloabl ReactJS App Creation Package"></a>Install Gloabl ReactJS App Creation Package</h3><p>Install <code>Create React App</code> package globally in npm. <code>Create React App</code> is the best way to start building a new React single page application. It helps to set up development environment to use the latest JavaScript features, provides a nice developer experience, and optimizes app for production.</p>
+<p>Here are the commands to install the package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Init-ReactJS-App"><a href="#Init-ReactJS-App" class="headerlink" title="Init ReactJS App"></a>Init ReactJS App</h3><p>Here are the commands to init ReactJS application and start it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create-react-app first-react-app</span><br><span class="line"></span><br><span class="line">cd first-react-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-ReactJS-as-dependencies-in-Application"><a href="#Install-ReactJS-as-dependencies-in-Application" class="headerlink" title="Install ReactJS as dependencies in Application"></a>Install ReactJS as dependencies in Application</h3><p>Here are the commands to install ReactJS as dependencies using <code>npm</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install --save react react-dom</span><br></pre></td></tr></table></figure>
+<p>After execute <code>npm init</code> command, we will be asked to provide some basic profile information of the app like app name, author name, license and etc. All these information will appear in <code>package.json</code>.</p>
+<hr>
+
+<h3 id="Enabling-ES6-and-JSX"><a href="#Enabling-ES6-and-JSX" class="headerlink" title="Enabling ES6 and JSX"></a>Enabling ES6 and JSX</h3><p>We recommand to use <code>ES6</code> and <code>JSX</code> through <code>Babel</code>. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.</p>
+<p>Here is the <a href="http://babeljs.io/" target="_blank" rel="external">Babel official website</a> and <a href="https://babeljs.io/docs/setup/" target="_blank" rel="external">Babel setup instructions</a>. </p>
+<p>Here we use <code>CLI</code> way to install <code>babel-preset-react</code> and <code>babel-preset-es2015</code>. And enable them in <code>.babelrc</code> configuration file.</p>
+<p>Here are the commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-cli</span><br><span class="line">npm install --save-dev babel-preset-react</span><br><span class="line">npm install --save-dev babel-preset-es2015</span><br><span class="line"></span><br><span class="line">touch .babelrc</span><br><span class="line">echo &apos;&#123; &quot;presets&quot;: [&quot;es2015&quot;] &#125;&apos; &gt; .babelrc</span><br></pre></td></tr></table></figure>
+<p>As Babel is a JavaScript compiler, we can test it in following steps.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;console.log([1, 2, 3].map(n =&gt; n + 1))&apos; &gt; index.js</span><br><span class="line">./node_modules/.bin/babel index.js</span><br></pre></td></tr></table></figure>
+<p>The output is similar as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">console.log([1, 2, 3].map(function (n) &#123;</span><br><span class="line">  return n + 1;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-webpack-as-dependencies-in-Application"><a href="#Install-webpack-as-dependencies-in-Application" class="headerlink" title="Install webpack as dependencies in Application"></a>Install webpack as dependencies in Application</h3><p>A bundler like <code>webpack</code> or <code>Browserify</code> can help to write modular code and bundle it together into small packages to optimize load time.</p>
+<p>Here is the <a href="https://webpack.js.org/" target="_blank" rel="external">webpack offical website</a>. And here is the command to install webpack:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br></pre></td></tr></table></figure>
+<p>So here is the final complete version of package.json file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;first-react-app&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;react&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-dom&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-scripts&quot;: &quot;1.0.14&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;react-scripts start&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;react-scripts build&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,</span><br><span class="line">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;description&quot;: &quot;This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.26.0&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;webpack&quot;: &quot;^3.6.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;yular&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now if we run the command <code>npm start</code>, we can still see the same page as before.</p>
 
       
     </div>
@@ -127,7 +161,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Комментарии</h1>
+  <h1 class="title">Comments</h1>
 
   
   <div id="disqus_thread">
@@ -167,7 +201,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Метки</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -248,7 +282,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Облако меток</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.17px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.5px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
   </div>
