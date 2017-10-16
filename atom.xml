@@ -971,7 +971,7 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/</id>
     <published>2017-09-07T07:48:01.000Z</published>
-    <updated>2017-10-03T08:05:16.000Z</updated>
+    <updated>2017-10-16T08:28:14.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java in a Nutshell&lt;/code&gt; (JDK 7 and 8 version).&lt;/p&gt;
 &lt;h3 id=&quot;JVM-and-Java-Platform&quot;&gt;&lt;a href=&quot;#JVM-and-Java-Platform&quot; class=&quot;headerlink&quot; title=&quot;JVM and Java Platform&quot;&gt;&lt;/a&gt;JVM and Java Platform&lt;/h3&gt;&lt;p&gt;JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.&lt;/p&gt;
@@ -999,7 +999,13 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Coding-and-Style&quot;&gt;&lt;a href=&quot;#Coding-and-Style&quot; class=&quot;headerlink&quot; title=&quot;Coding and Style&quot;&gt;&lt;/a&gt;Coding and Style&lt;/h3&gt;&lt;hr&gt;
+&lt;h3 id=&quot;Coding-and-Style&quot;&gt;&lt;a href=&quot;#Coding-and-Style&quot; class=&quot;headerlink&quot; title=&quot;Coding and Style&quot;&gt;&lt;/a&gt;Coding and Style&lt;/h3&gt;&lt;p&gt;Lambda expressions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A lambda expression is an anonymous collection of executable Java code, essentially a method body.&lt;/li&gt;
+&lt;li&gt;Syntax of lambda expressions is like: ( paramlist ) -&amp;gt; { statements }.&lt;/li&gt;
+&lt;li&gt;When a lambda expression is used as a value, it is automatically converted to a new object of the correct type for the variable being placed into. This autoconversion and type inference is essential to Java’s approach to lambda expression.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 
 &lt;h3 id=&quot;Handling-Exception&quot;&gt;&lt;a href=&quot;#Handling-Exception&quot; class=&quot;headerlink&quot; title=&quot;Handling Exception&quot;&gt;&lt;/a&gt;Handling Exception&lt;/h3&gt;&lt;hr&gt;
 
@@ -1010,6 +1016,7 @@
 &lt;li&gt;External accessible methods must not return with object in an inconsistent state.&lt;/li&gt;
 &lt;li&gt;External accessible methods must reset object to a legal state before throwing (exceptions).&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Use &lt;code&gt;java.util.Arrays.equals&lt;/code&gt; to compare the content of two arrays.&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h3 id=&quot;Concurrency&quot;&gt;&lt;a href=&quot;#Concurrency&quot; class=&quot;headerlink&quot; title=&quot;Concurrency&quot;&gt;&lt;/a&gt;Concurrency&lt;/h3&gt;&lt;hr&gt;
