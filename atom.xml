@@ -972,7 +972,7 @@
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/</id>
     <published>2017-09-07T07:48:01.000Z</published>
-    <updated>2017-10-22T23:46:30.000Z</updated>
+    <updated>2017-10-22T23:48:19.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java in a Nutshell&lt;/code&gt; (JDK 7 and 8 version).&lt;/p&gt;
 &lt;h3 id=&quot;JVM-and-Java-Platform&quot;&gt;&lt;a href=&quot;#JVM-and-Java-Platform&quot; class=&quot;headerlink&quot; title=&quot;JVM and Java Platform&quot;&gt;&lt;/a&gt;JVM and Java Platform&lt;/h3&gt;&lt;p&gt;JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.&lt;/p&gt;
