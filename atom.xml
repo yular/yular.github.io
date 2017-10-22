@@ -324,7 +324,7 @@
     <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/"/>
     <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/</id>
     <published>2017-10-02T05:20:52.000Z</published>
-    <updated>2017-10-02T06:18:31.000Z</updated>
+    <updated>2017-10-22T23:32:56.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;headerlink&quot; title=&quot;Item 51. Beware of performance of string concatenation&quot;&gt;&lt;/a&gt;Item 51. Beware of performance of string concatenation&lt;/h3&gt;&lt;p&gt;To achieve acceptable performance, use a StringBuilder in place of a String.&lt;/p&gt;
 &lt;hr&gt;
@@ -363,7 +363,8 @@
 
 &lt;h3 id=&quot;Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot;&gt;&lt;a href=&quot;#Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 59. Avoid unnecessary use of checked exceptions&quot;&gt;&lt;/a&gt;Item 59. Avoid unnecessary use of checked exceptions&lt;/h3&gt;&lt;hr&gt;
 
-&lt;h3 id=&quot;Item-60-Favor-the-use-of-standard-exceptions&quot;&gt;&lt;a href=&quot;#Item-60-Favor-the-use-of-standard-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 60. Favor the use of standard exceptions&quot;&gt;&lt;/a&gt;Item 60. Favor the use of standard exceptions&lt;/h3&gt;&lt;hr&gt;
+&lt;h3 id=&quot;Item-60-Favor-the-use-of-standard-exceptions&quot;&gt;&lt;a href=&quot;#Item-60-Favor-the-use-of-standard-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 60. Favor the use of standard exceptions&quot;&gt;&lt;/a&gt;Item 60. Favor the use of standard exceptions&lt;/h3&gt;&lt;p&gt;Java 7 and 8: Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called &lt;code&gt;AutoCloseable&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
 
 &lt;h3 id=&quot;Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot;&gt;&lt;a href=&quot;#Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot; class=&quot;headerlink&quot; title=&quot;Item 61. Throw exceptions appropriate to the abstraction&quot;&gt;&lt;/a&gt;Item 61. Throw exceptions appropriate to the abstraction&lt;/h3&gt;&lt;p&gt;Higher layers catch low-level exceptions and, in their place, throw exceptions that can be explained in terms of the high-level abstraction.&lt;/p&gt;
 &lt;p&gt;While exception translation is superior to mindless propagation of exceptions from lower layers, it should not be overused.&lt;/p&gt;
@@ -967,11 +968,11 @@
   </entry>
   
   <entry>
-    <title>Reading Note of Java in a Nutshell</title>
+    <title>Reading Note of Java in a Nutshell (Java 7 and 8)</title>
     <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/"/>
     <id>http://yular.github.io/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/</id>
     <published>2017-09-07T07:48:01.000Z</published>
-    <updated>2017-10-16T08:28:14.000Z</updated>
+    <updated>2017-10-22T23:46:30.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java in a Nutshell&lt;/code&gt; (JDK 7 and 8 version).&lt;/p&gt;
 &lt;h3 id=&quot;JVM-and-Java-Platform&quot;&gt;&lt;a href=&quot;#JVM-and-Java-Platform&quot; class=&quot;headerlink&quot; title=&quot;JVM and Java Platform&quot;&gt;&lt;/a&gt;JVM and Java Platform&lt;/h3&gt;&lt;p&gt;JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.&lt;/p&gt;
@@ -999,15 +1000,33 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Coding-and-Style&quot;&gt;&lt;a href=&quot;#Coding-and-Style&quot; class=&quot;headerlink&quot; title=&quot;Coding and Style&quot;&gt;&lt;/a&gt;Coding and Style&lt;/h3&gt;&lt;p&gt;Lambda expressions:&lt;/p&gt;
+&lt;h3 id=&quot;Coding-and-Style&quot;&gt;&lt;a href=&quot;#Coding-and-Style&quot; class=&quot;headerlink&quot; title=&quot;Coding and Style&quot;&gt;&lt;/a&gt;Coding and Style&lt;/h3&gt;&lt;p&gt;Singleton&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use a framework (usually dependency injection) to provide singleton automatically.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lambda expressions:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A lambda expression is an anonymous collection of executable Java code, essentially a method body.&lt;/li&gt;
 &lt;li&gt;Syntax of lambda expressions is like: ( paramlist ) -&amp;gt; { statements }.&lt;/li&gt;
 &lt;li&gt;When a lambda expression is used as a value, it is automatically converted to a new object of the correct type for the variable being placed into. This autoconversion and type inference is essential to Java’s approach to lambda expression.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Naming Convention:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Class: Class names are nouns to represent objects.&lt;/li&gt;
+&lt;li&gt;Interface: Interface names are adjective if to provide additional information about the class, otherwise are nouns to work like abstract superclasses.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Label statements:&lt;br&gt;A label statement is simply a statement that has been given a name by prepending an identifer and a colon to it.&lt;/p&gt;
+&lt;p&gt;Generic type:&lt;br&gt;For wildcard, it is legal to write in following style: List&amp;lt;?&amp;gt; objects = new ArrayList&lt;string&gt;(). List&lt;string&gt; is subtype of List&amp;lt;?&amp;gt;. But List&amp;lt;?&amp;gt; is not a subtype of any List&lt;t&gt;.&lt;/t&gt;&lt;/string&gt;&lt;/string&gt;&lt;/p&gt;
+&lt;p&gt;Reflection (Convert specific to general):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Only deal with cases immediately applicable to problem domain.&lt;/li&gt;
+&lt;li&gt;To use reflection: Class&amp;lt;?&amp;gt; clz = getSomeClassObject(); Object rcvz = clz.newInstance();&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Datatype Overflow:&lt;br&gt;Integer arithmetic never overflow or underflow because numbers just wrap around.&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Handling-Exception&quot;&gt;&lt;a href=&quot;#Handling-Exception&quot; class=&quot;headerlink&quot; title=&quot;Handling Exception&quot;&gt;&lt;/a&gt;Handling Exception&lt;/h3&gt;&lt;hr&gt;
+&lt;h3 id=&quot;Handling-Exception&quot;&gt;&lt;a href=&quot;#Handling-Exception&quot; class=&quot;headerlink&quot; title=&quot;Handling Exception&quot;&gt;&lt;/a&gt;Handling Exception&lt;/h3&gt;&lt;p&gt;Exceptions are Throwable objects and that exceptions fall into two main categories, specified by the Error and Exception subclass. Any exception object that is an Error is unchecked.&lt;/p&gt;
+&lt;hr&gt;
 
 &lt;h3 id=&quot;Security&quot;&gt;&lt;a href=&quot;#Security&quot; class=&quot;headerlink&quot; title=&quot;Security&quot;&gt;&lt;/a&gt;Security&lt;/h3&gt;&lt;p&gt;A safe program includes:&lt;/p&gt;
 &lt;ul&gt;
@@ -1019,11 +1038,34 @@
 &lt;p&gt;Use &lt;code&gt;java.util.Arrays.equals&lt;/code&gt; to compare the content of two arrays.&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Concurrency&quot;&gt;&lt;a href=&quot;#Concurrency&quot; class=&quot;headerlink&quot; title=&quot;Concurrency&quot;&gt;&lt;/a&gt;Concurrency&lt;/h3&gt;&lt;hr&gt;
+&lt;h3 id=&quot;Concurrency&quot;&gt;&lt;a href=&quot;#Concurrency&quot; class=&quot;headerlink&quot; title=&quot;Concurrency&quot;&gt;&lt;/a&gt;Concurrency&lt;/h3&gt;&lt;p&gt;Two collectors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parallel collectors, using multiple threads to perform collections.&lt;/li&gt;
+&lt;li&gt;Concurrent collectors, running at the same time as application threads are still running.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 
-&lt;h3 id=&quot;IO&quot;&gt;&lt;a href=&quot;#IO&quot; class=&quot;headerlink&quot; title=&quot;IO&quot;&gt;&lt;/a&gt;IO&lt;/h3&gt;&lt;hr&gt;
+&lt;h3 id=&quot;IO&quot;&gt;&lt;a href=&quot;#IO&quot; class=&quot;headerlink&quot; title=&quot;IO&quot;&gt;&lt;/a&gt;IO&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Use Readers and Writers to do IO operation.&lt;/li&gt;
+&lt;li&gt;Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called &lt;code&gt;AutoCloseable&lt;/code&gt;.&lt;br&gt;TWR style is like: try(InputStream is = new FileInputStream(“”)) {  …  }&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;File&lt;/code&gt; class for file operation and &lt;code&gt;Path&lt;/code&gt; class for file system path operation.&lt;/li&gt;
+&lt;li&gt;For high-performance IO, use &lt;code&gt;ByteBuffer&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;For Async IO, use &lt;code&gt;AsynchronousFileChannel&lt;/code&gt; for file IO, &lt;code&gt;AsynchronousSocketChannel&lt;/code&gt; for client socket IO, and &lt;code&gt;AsynchronousServerSocketChannel&lt;/code&gt; for asynchronous sockets  accepting incoming connection.&lt;/li&gt;
+&lt;li&gt;For network, use &lt;code&gt;java.net&lt;/code&gt; or &lt;code&gt;javax.net&lt;/code&gt; packages.&lt;/li&gt;
+&lt;li&gt;For Async style, use Future-Based style, Callback-Based style and watchservice on a directory.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;MappedByteBuffer&lt;/code&gt; to store a memory-mapped file into memory.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; Note &lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ByteBuffer&lt;/code&gt; and &lt;code&gt;MappedByteBuffer&lt;/code&gt; are &lt;strong&gt;NIO&lt;/strong&gt; buffers which are low-level abstraction for high-performance IO.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
 
-&lt;h3 id=&quot;Time&quot;&gt;&lt;a href=&quot;#Time&quot; class=&quot;headerlink&quot; title=&quot;Time&quot;&gt;&lt;/a&gt;Time&lt;/h3&gt;&lt;p&gt;Use Java 8 Date and Time API: java.time&lt;/p&gt;
+&lt;h3 id=&quot;Time&quot;&gt;&lt;a href=&quot;#Time&quot; class=&quot;headerlink&quot; title=&quot;Time&quot;&gt;&lt;/a&gt;Time&lt;/h3&gt;&lt;p&gt;Use Java 8 Date and Time API: java.time .&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Garbage-Collection&quot;&gt;&lt;a href=&quot;#Garbage-Collection&quot; class=&quot;headerlink&quot; title=&quot;Garbage Collection&quot;&gt;&lt;/a&gt;Garbage Collection&lt;/h3&gt;&lt;p&gt;Concurrent Mark and Sweep (CMS):&lt;br&gt;Only used to collect the old generation-conjunction with a parallel collector that is to clean young generation.&lt;/p&gt;
+&lt;p&gt;G1:&lt;br&gt;Used in high throughput environment and allows users to specify pause goals, which is low-pause collector.&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h3 id=&quot;Command-Line-Interface&quot;&gt;&lt;a href=&quot;#Command-Line-Interface&quot; class=&quot;headerlink&quot; title=&quot;Command Line Interface&quot;&gt;&lt;/a&gt;Command Line Interface&lt;/h3&gt;&lt;p&gt;Here are the most frequently used Java commands:&lt;/p&gt;
@@ -1040,6 +1082,12 @@
 &lt;li&gt;jstack&lt;/li&gt;
 &lt;li&gt;jmap&lt;/li&gt;
 &lt;li&gt;javap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Miscellaneous&quot;&gt;&lt;a href=&quot;#Miscellaneous&quot; class=&quot;headerlink&quot; title=&quot;Miscellaneous&quot;&gt;&lt;/a&gt;Miscellaneous&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nashorn&lt;/li&gt;
+&lt;li&gt;JVisualVM&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
