@@ -699,7 +699,7 @@
     <link href="http://yular.github.io/2017/09/23/Java-9-New-Features/"/>
     <id>http://yular.github.io/2017/09/23/Java-9-New-Features/</id>
     <published>2017-09-24T01:08:51.000Z</published>
-    <updated>2017-10-16T07:25:32.000Z</updated>
+    <updated>2017-10-23T03:43:30.000Z</updated>
     
     <content type="html">&lt;p&gt;Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from &lt;a href=&quot;http://openjdk.java.net/projects/jdk9/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OpenJDK official page&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;Java-9-REPL-JShell&quot;&gt;&lt;a href=&quot;#Java-9-REPL-JShell&quot; class=&quot;headerlink&quot; title=&quot;Java 9 REPL(JShell)&quot;&gt;&lt;/a&gt;Java 9 REPL(JShell)&lt;/h3&gt;&lt;p&gt;In Java 9, we can use a command line tool called &lt;code&gt;JShell&lt;/code&gt; to execute Java statement, which is similar to python shell. The command to start JSell is:&lt;/p&gt;
@@ -709,7 +709,16 @@
 &lt;p&gt;jshell&amp;gt; List immutableEmptyList = List.of();&lt;br&gt;immutableEmptyList ==&amp;gt; []&lt;/p&gt;
 &lt;p&gt;jshell&amp;gt; List immutableList = List.of(“one”,”two”,”three”);&lt;br&gt;immutableList ==&amp;gt; [one, two, three]&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;** Immutable Map **&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;jshell&amp;gt; Map immutableEmptyMap = Map.of()&lt;br&gt;immutableEmptyMap ==&amp;gt; {}&lt;/p&gt;
-&lt;p&gt;jshell&amp;gt; Map immutableMap = Map.of(“one”, 1, “two”, 2, “three”, 3)&lt;br&gt;immutableMap ==&amp;gt; {three=3, two=2, one=1}&lt;br&gt;```&lt;/p&gt;
+&lt;p&gt;jshell&amp;gt; Map immutableMap = Map.of(“one”, 1, “two”, 2, “three”, 3)&lt;br&gt;immutableMap ==&amp;gt; {three=3, two=2, one=1}&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;### Private Methods in Interface&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;In Java 9, users can define private static or non-static methods inside interface.&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;See this sample code:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;import java.time.Clock;&lt;br&gt;import java.time.Duration;&lt;br&gt;import java.time.Instant;&lt;/p&gt;
+&lt;p&gt;public interface isDatabaseItem {&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Long defaultTimeToLive = generateDefaultTimeToLive();
+
+private static Long generateDefaultTimeToLive() {
+    Instant currentTime = Instant.now( Clock.systemDefaultZone() );
+    return currentTime.plus( Duration.ofSeconds(1L) ).getEpochSecond();
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;br&gt;```&lt;/p&gt;
 &lt;p&gt;(To be continue)&lt;/p&gt;
 </content>
     
