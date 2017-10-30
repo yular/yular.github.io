@@ -90,6 +90,50 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-30T07:39:52.000Z"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">2017-10-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">Reading Note of Java Concurrency in Practice I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-05T01:45:50.000Z"><a href="/2017/10/04/ReactJS-QuickStart/">2017-10-04</a></time>
       
       
@@ -1017,113 +1061,11 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-15T05:26:09.000Z"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">2017-09-14</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.</p>
-<p>In my software development model, here are the steps to apply TDD in practice:</p>
-<ul>
-<li>Fully understand the user requirement.</li>
-<li>Do a good design for the project, which includes the system design and object-oriented design.</li>
-<li>Based on the design, list all the features need to accomplish.</li>
-<li>Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.</li>
-<li>While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.</li>
-<li>While refactor the code, keep the code clean so that it is simple, easy to read and maintain.</li>
-</ul>
-<hr>
-
-<p>Here are some useful tips borrowed from the book.</p>
-<ul>
-<li>Create a test list including all the required tests at the beginning.</li>
-<li>The goal of each test is to leave the world in exactly the same state before it ran.</li>
-<li>Each test should represent one step towards overall goal.</li>
-<li>What should be tested:<ul>
-<li>Conditions</li>
-<li>Loops</li>
-<li>Operations</li>
-<li>Polymorphism</li>
-</ul>
-</li>
-<li>What factors should be included in the test:<ul>
-<li>What does the operation belong to.</li>
-<li>What are the correct inputs.</li>
-<li>What is the correct output given those input.</li>
-</ul>
-</li>
-<li>Some attributes of tests suggesting a design in trouble:<ul>
-<li>Long setup code.</li>
-<li>Setup duplication.</li>
-<li>Long running tests.</li>
-<li>Fragile tests.</li>
-</ul>
-</li>
-<li>Write assert first in the test.</li>
-<li>To improve test coverage, take a fixed set of tests and simplify the logic of the program.</li>
-<li>Avoid test coupling. All the tests should be run independently.</li>
-<li>Isolating tests also helps to decouple objects (Improve the design).</li>
-<li>Tests should be in a small scale instead of whole application.</li>
-<li>For common objects needed by several tests, convert local variables into instance variables.</li>
-<li>Use data that makes the test easy to read and follow.</li>
-<li>Evident data seems to be an exception to the rule that you do not want magic numbers in your code.</li>
-<li>When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.</li>
-<li>To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.</li>
-<li>To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.</li>
-<li>Always make sure all the tests are running before check in your own code.</li>
-<li>Unless have reason to distrust it, do not test code from others. </li>
-<li>toString method is an exception that does not require test.</li>
-<li>Physical setup (for working environment): cheap disk, nice chair.</li>
-<li>Get cheap/slow/old machines for individual email and surfing.</li>
-<li>Leave a programming session when programming alone, leave the last test broken.</li>
-<li>Leave a programming session when programming in a team, leave all the test running.</li>
-<li>Feel lost, throw away the code and start over.</li>
-<li>Feel tired or stuck, take a break.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/2/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -1157,7 +1099,7 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -1190,7 +1132,7 @@ private static Long generateDefaultTimeToLive() {
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>29</small></li>
+    <li><a href="/tags/Java/">Java</a><small>30</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -1238,9 +1180,9 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 19.17px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.17px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.5px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.5px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 18.33px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -1261,6 +1203,10 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">Reading Note of Java Concurrency in Practice I</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/04/ReactJS-QuickStart/">ReactJS QuickStart</a>
       </li>
     
@@ -1274,10 +1220,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a>
       </li>
     
   </ul>
