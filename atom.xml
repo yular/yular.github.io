@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-10-30T07:40:17.000Z</updated>
+  <updated>2017-11-03T06:28:28.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Java Concurrency in Practice II</title>
+    <link href="http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/"/>
+    <id>http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/</id>
+    <published>2017-11-03T06:28:16.000Z</published>
+    <updated>2017-11-03T06:28:28.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Java Concurrency in Practice I</title>
@@ -1583,127 +1601,6 @@ private static Long generateDefaultTimeToLive() {
     <summary type="html">
     
       &lt;h2 id=&quot;Job-Control&quot;&gt;&lt;a href=&quot;#Job-Control&quot; class=&quot;headerlink&quot; title=&quot;Job Control&quot;&gt;&lt;/a&gt;Job Control&lt;/h2&gt;&lt;h3 id=&quot;ps&quot;&gt;&lt;a href=&quot;#ps&quot; class=&quot;head
-    
-    </summary>
-    
-    
-      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux System and Adminstrative Commands II</title>
-    <link href="http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-II/"/>
-    <id>http://yular.github.io/2017/09/04/Linux-System-and-Adminstrative-Commands-II/</id>
-    <published>2017-09-05T02:06:10.000Z</published>
-    <updated>2017-09-05T02:21:21.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;Information-and-Statistics&quot;&gt;&lt;a href=&quot;#Information-and-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Information and Statistics&quot;&gt;&lt;/a&gt;Information and Statistics&lt;/h2&gt;&lt;h3 id=&quot;uname&quot;&gt;&lt;a href=&quot;#uname&quot; class=&quot;headerlink&quot; title=&quot;uname&quot;&gt;&lt;/a&gt;uname&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;arch&quot;&gt;&lt;a href=&quot;#arch&quot; class=&quot;headerlink&quot; title=&quot;arch&quot;&gt;&lt;/a&gt;arch&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show system architecture.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;lastcomm&quot;&gt;&lt;a href=&quot;#lastcomm&quot; class=&quot;headerlink&quot; title=&quot;lastcomm&quot;&gt;&lt;/a&gt;lastcomm&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Gives information of previous commands, as stored in the &lt;code&gt;/var/account/pacct&lt;/code&gt; file.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;lastlog&quot;&gt;&lt;a href=&quot;#lastlog&quot; class=&quot;headerlink&quot; title=&quot;lastlog&quot;&gt;&lt;/a&gt;lastlog&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;lsof&quot;&gt;&lt;a href=&quot;#lsof&quot; class=&quot;headerlink&quot; title=&quot;lsof&quot;&gt;&lt;/a&gt;lsof&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;List open files.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;strace&quot;&gt;&lt;a href=&quot;#strace&quot; class=&quot;headerlink&quot; title=&quot;strace&quot;&gt;&lt;/a&gt;strace&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;System trace: diagnostic and debugging tool for tracing system calls and signals.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;ltrace&quot;&gt;&lt;a href=&quot;#ltrace&quot; class=&quot;headerlink&quot; title=&quot;ltrace&quot;&gt;&lt;/a&gt;ltrace&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Library trace: diagnostic and debugging tool that traces library calls invoked by a given command.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;nc&quot;&gt;&lt;a href=&quot;#nc&quot; class=&quot;headerlink&quot; title=&quot;nc&quot;&gt;&lt;/a&gt;nc&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;A complete toolkit for connecting to and listening to TCP and UDP ports.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;free&quot;&gt;&lt;a href=&quot;#free&quot; class=&quot;headerlink&quot; title=&quot;free&quot;&gt;&lt;/a&gt;free&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show memory and cache usage in tabular form.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;proinfo&quot;&gt;&lt;a href=&quot;#proinfo&quot; class=&quot;headerlink&quot; title=&quot;proinfo&quot;&gt;&lt;/a&gt;proinfo&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Extract and list information and statistics from the &lt;code&gt;/proc&lt;/code&gt; pseudo-filesystem.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;lsdev&quot;&gt;&lt;a href=&quot;#lsdev&quot; class=&quot;headerlink&quot; title=&quot;lsdev&quot;&gt;&lt;/a&gt;lsdev&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;List devices (installed hardware).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;du&quot;&gt;&lt;a href=&quot;#du&quot; class=&quot;headerlink&quot; title=&quot;du&quot;&gt;&lt;/a&gt;du&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show disk file usage recusively.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;df&quot;&gt;&lt;a href=&quot;#df&quot; class=&quot;headerlink&quot; title=&quot;df&quot;&gt;&lt;/a&gt;df&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show filesystem usage in tabular form.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;dmesg&quot;&gt;&lt;a href=&quot;#dmesg&quot; class=&quot;headerlink&quot; title=&quot;dmesg&quot;&gt;&lt;/a&gt;dmesg&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;stat&quot;&gt;&lt;a href=&quot;#stat&quot; class=&quot;headerlink&quot; title=&quot;stat&quot;&gt;&lt;/a&gt;stat&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Gives detailed and verbose statistics on a given file or set of files.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;vmstat&quot;&gt;&lt;a href=&quot;#vmstat&quot; class=&quot;headerlink&quot; title=&quot;vmstat&quot;&gt;&lt;/a&gt;vmstat&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show virtual memory statistics.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;uptime&quot;&gt;&lt;a href=&quot;#uptime&quot; class=&quot;headerlink&quot; title=&quot;uptime&quot;&gt;&lt;/a&gt;uptime&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show how long the system has been running.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;hostname&quot;&gt;&lt;a href=&quot;#hostname&quot; class=&quot;headerlink&quot; title=&quot;hostname&quot;&gt;&lt;/a&gt;hostname&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Lists the hostname of system.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;hostid&quot;&gt;&lt;a href=&quot;#hostid&quot; class=&quot;headerlink&quot; title=&quot;hostid&quot;&gt;&lt;/a&gt;hostid&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Echo a 32-bit hexadecimal numerical identifier for the host machine.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;sar&quot;&gt;&lt;a href=&quot;#sar&quot; class=&quot;headerlink&quot; title=&quot;sar&quot;&gt;&lt;/a&gt;sar&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;readelf&quot;&gt;&lt;a href=&quot;#readelf&quot; class=&quot;headerlink&quot; title=&quot;readelf&quot;&gt;&lt;/a&gt;readelf&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;size&quot;&gt;&lt;a href=&quot;#size&quot; class=&quot;headerlink&quot; title=&quot;size&quot;&gt;&lt;/a&gt;size&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Show the segment sizes of a binary executable or archive file.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;System-Logs&quot;&gt;&lt;a href=&quot;#System-Logs&quot; class=&quot;headerlink&quot; title=&quot;System Logs&quot;&gt;&lt;/a&gt;System Logs&lt;/h2&gt;&lt;h3 id=&quot;logger&quot;&gt;&lt;a href=&quot;#logger&quot; class=&quot;headerlink&quot; title=&quot;logger&quot;&gt;&lt;/a&gt;logger&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Append a user-generated message to the system log &lt;code&gt;/var/log/messages&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;logrotate&quot;&gt;&lt;a href=&quot;#logrotate&quot; class=&quot;headerlink&quot; title=&quot;logrotate&quot;&gt;&lt;/a&gt;logrotate&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Manage the system log files, rotating, compressing, deleting, and/or e-mailing them, as appropriate.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Information-and-Statistics&quot;&gt;&lt;a href=&quot;#Information-and-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Information and Statistics&quot;&gt;&lt;/a&gt;Informat
     
     </summary>
     

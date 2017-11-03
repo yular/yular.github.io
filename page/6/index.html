@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Página 6 | YBC HomePage</title>
+  <title>Page 6 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,78 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-03-13T03:21:18.000Z"><a href="/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/">2017-03-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/">Deploy Cron Job on Mac Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>There are mainly two ways to schedule timed jobs on Mac. One is using <code>cron</code> command. The other is using Mac <code>launchd</code> command.</p>
+<p>Here is the Apple developer guide of <a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html" target="_blank" rel="external">Timed Jobs Using Cron and Launchd</a> and <a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html#//apple_ref/doc/uid/TP40001762-104142" target="_blank" rel="external">Creating Launch Daemons and Agents</a>.</p>
+<p>And here is a good tutorial about <a href="http://alvinalexander.com/mac-os-x/mac-osx-startup-crontab-launchd-jobs" target="_blank" rel="external">Startingup Jobs with Crontab and Launchd</a>.</p>
+<p>This tutorial is about scheduling timed jobs using <code>Launchd</code> and the reason is as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The cron utility is launched by launchd(8) when it sees the existence of /etc/crontab or files in /usr/lib/cron/tabs. There should be no need to start it manually.</span><br></pre></td></tr></table></figure>
+<p>But if we do want to use <code>cron</code> command to startup timed jobs, this <a href="http://www.computerhope.com/unix/ucrontab.htm" target="_blank" rel="external">link</a> may be helpful.</p>
+<p>The basic process is that we need to create a <code>.plist</code> (plist scripts)  text file, add timed jobs setting inside the file, put that file under certain directory, and then use <code>launchctl</code> command to start timed jobs.</p>
+<h3 id="Choose-Timed-Jobs-Directory"><a href="#Choose-Timed-Jobs-Directory" class="headerlink" title="Choose Timed Jobs Directory"></a>Choose Timed Jobs Directory</h3><p>Mac will startup timed jobs that defined in <code>.plist</code> files under certain directories only. Here is the list of those directories:</p>
+<ul>
+<li>/Library/LaunchDaemons - Put our plist scripts in this folder if our job needs to run even when no users are logged in.</li>
+<li>/Library/LaunchAgents - Put our plist scripts in this folder if the job is only useful when users are logged in.</li>
+<li>$HOME/Library/LaunchAgents - Put our plist files in this folder if the job is only useful when users are logged in. </li>
+</ul>
+<p>Note that we need to use <code>sudo</code> command if we want to put plist scripts under first two directories.</p>
+<p>Here we plan to create a plist script under /Library/LaunchDaemons. So run this command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/LaunchDaemons</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-plist-Script"><a href="#Create-a-plist-Script" class="headerlink" title="Create a plist Script"></a>Create a plist Script</h3><p>We had better follow Apple’s documentation to name the plist script as it can help to avoid namespace collisions. Run following command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
+<p>Here is content of the plist script above:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">  &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;com.yulartech.crontest&lt;/string&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">  &lt;array&gt;</span><br><span class="line">    &lt;string&gt;/Absolute/Path/To/helloworld.sh&lt;/string&gt;</span><br><span class="line">  &lt;/array&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;Nice&lt;/key&gt;</span><br><span class="line">  &lt;integer&gt;1&lt;/integer&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StartInterval&lt;/key&gt;</span><br><span class="line">  &lt;integer&gt;60&lt;/integer&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StandardErrorPath&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/tmp/AlTest1.err&lt;/string&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StandardOutPath&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/tmp/AlTest1.out&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Here is the content of <code>helloworld.sh</code> .</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo &quot;Hello World !&quot;</span><br></pre></td></tr></table></figure>
+<p>The plist means running a timed jobs <code>Run the script /Absolute/Path/To/helloworld.sh</code> every 60 seconds and redirect the standard output and standard error as shown.</p>
+<h3 id="Deploy-Timed-Jobs"><a href="#Deploy-Timed-Jobs" class="headerlink" title="Deploy Timed Jobs"></a>Deploy Timed Jobs</h3><p>Use following command to deploy timed job:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
+<p>After one or more minutes, we execute this command to check job status:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl list | grep crontest</span><br></pre></td></tr></table></figure>
+<p>If we want to cancel the timed job, just run this command:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Mac/">Mac</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -710,63 +782,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-29T05:43:13.000Z"><a href="/2017/01/28/C-Redis-QuickStart/">2017-01-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/28/C-Redis-QuickStart/">C Redis QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the quickstart tutorial to use hiredis C library to build connection between C program and redis. Here is <a href="https://github.com/redis/hiredis" target="_blank" rel="external">hiredis Github Repository</a>. The environment here is CentOS 7.</p>
-<h2 id="Download-and-Install-hiredis"><a href="#Download-and-Install-hiredis" class="headerlink" title="Download and Install hiredis"></a>Download and Install hiredis</h2><p>At first, we need to download the source code using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/redis/hiredis.git</span><br><span class="line">``` </span><br><span class="line">The <span class="built_in">source</span> code is written <span class="keyword">in</span> C.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Then go to hiredis directory and install hiredis library into system:</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">cd</span> hiredis</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
-<p>Note that the command make will generate all the required libraries and head files for development while the command make install can create directories and save libraries as well as head files there. Since hiredis will put the libraries and head files under /usr/local/ folder, the C program will fail in compilation with “hiredis.h” not found error.</p>
-<p>So we need to do following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/include/hiredis</span><br><span class="line">sudo cp libhiredis.so /usr/lib/</span><br><span class="line">sudo cp hiredis.h /usr/include/hiredis/</span><br><span class="line">sudo cp read.h /usr/include/hiredis/</span><br><span class="line">sudo cp sds.h /usr/include/hiredis/</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure></p>
-<h2 id="Compile-and-Run-C-program"><a href="#Compile-and-Run-C-program" class="headerlink" title="Compile and Run C program"></a>Compile and Run C program</h2><p>Below is the sample code example.c under ./hiredis/examples folder. We need to modify the head file location.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;hiredis/hiredis.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv) &#123;</span><br><span class="line">    unsigned int j;</span><br><span class="line">    redisContext *c;</span><br><span class="line">    redisReply *reply;</span><br><span class="line">    const char *hostname = (argc &gt; 1) ? argv[1] : <span class="string">"127.0.0.1"</span>;</span><br><span class="line">    int port = (argc &gt; 2) ? atoi(argv[2]) : 6379;</span><br><span class="line"></span><br><span class="line">    struct timeval timeout = &#123; 1, 500000 &#125;; // 1.5 seconds</span><br><span class="line">    c = redisConnectWithTimeout(hostname, port, timeout);</span><br><span class="line">    <span class="keyword">if</span> (c == NULL || c-&gt;err) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Connection error: %s\n"</span>, c-&gt;errstr);</span><br><span class="line">            redisFree(c);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Connection error: can't allocate redis context\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">exit</span>(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* PING server */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"PING"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"PING: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Set a key */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"SET %s %s"</span>, <span class="string">"foo"</span>, <span class="string">"hello world"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"SET: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Set a key using binary safe API */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"SET %b %b"</span>, <span class="string">"bar"</span>, (size_t) 3, <span class="string">"hello"</span>, (size_t) 5);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"SET (binary API): %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Try a GET and two INCR */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"GET foo"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"GET foo: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    reply = redisCommand(c,<span class="string">"INCR counter"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"INCR counter: %lld\n"</span>, reply-&gt;<span class="built_in">integer</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line">    /* again ... */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"INCR counter"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"INCR counter: %lld\n"</span>, reply-&gt;<span class="built_in">integer</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Create a list of numbers, from 0 to 9 */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"DEL mylist"</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line">    <span class="keyword">for</span> (j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">        char buf[64];</span><br><span class="line"></span><br><span class="line">        snprintf(buf,64,<span class="string">"%u"</span>,j);</span><br><span class="line">        reply = redisCommand(c,<span class="string">"LPUSH mylist element-%s"</span>, buf);</span><br><span class="line">        freeReplyObject(reply);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* Let<span class="string">'s check what we have inside the list */</span><br><span class="line">    reply = redisCommand(c,"LRANGE mylist 0 -1");</span><br><span class="line">    if (reply-&gt;type == REDIS_REPLY_ARRAY) &#123;</span><br><span class="line">        for (j = 0; j &lt; reply-&gt;elements; j++) &#123;</span><br><span class="line">            printf("%u) %s\n", j, reply-&gt;element[j]-&gt;str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Disconnects and frees the context */</span><br><span class="line">    redisFree(c);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>To compile the program, execute the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc example.c -o example -lhiredis</span><br></pre></td></tr></table></figure></p>
-<p>To execute the program, run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./example</span><br></pre></td></tr></table></figure></p>
-<p>The output is like as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">PING: PONG</span><br><span class="line">SET: OK</span><br><span class="line">SET (binary API): OK</span><br><span class="line">GET foo: hello world</span><br><span class="line">INCR counter: 1</span><br><span class="line">INCR counter: 2</span><br><span class="line">0) element-9</span><br><span class="line">1) element-8</span><br><span class="line">2) element-7</span><br><span class="line">3) element-6</span><br><span class="line">4) element-5</span><br><span class="line">5) element-4</span><br><span class="line">6) element-3</span><br><span class="line">7) element-2</span><br><span class="line">8) element-1</span><br><span class="line">9) element-0</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/C/">C</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/7/">Siguiente &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -792,7 +812,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -800,7 +820,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
@@ -833,7 +853,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>30</small></li>
+    <li><a href="/tags/Java/">Java</a><small>31</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -881,7 +901,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Nube de Etiquetas</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 12.31px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -904,6 +924,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">Reading Note of Java Concurrency in Practice II</a>
+      </li>
+    
+      <li>
         <a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">Reading Note of Java Concurrency in Practice I</a>
       </li>
     
@@ -917,10 +941,6 @@
     
       <li>
         <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a>
       </li>
     
   </ul>
