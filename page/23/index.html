@@ -90,6 +90,72 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-02-16T06:16:25.000Z"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">Useful Java Command in Shell Script</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This post can be updated in the future.<br>Some times we will use command line to compile or run Java program in Linux Console. As far as I know, three kinds of command are used very often and they include: java, maven and Apache ant. Here are the list of the usage of these three commands.</p>
+<ol>
+<li>Java<br>java - Launches a Java application<br>java [options] class [arguments]<br>java [options] -jar file.jar [arguments]<br>javaw [options] class [arguments]<br>javaw [options] -jar file.jar [arguments]</li>
+</ol>
+<p>javac - Java Language Programming Compiler<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac [options] [sourcefiles] [classes] [@argfiles]</span><br></pre></td></tr></table></figure></p>
+<p>jar - The Java Archive Tool<br>      combines multiple files into a single JAR archive file<br>Create jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar c[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Update jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar u[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Extract jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar x[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>List table of contents of jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar t[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Add index to jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar i jarfile [-Joption]</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Maven<br>Compile Application Sources (Change to the directory containing pom.xml)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn compile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Compile Test Sources and Run Unit Tests<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>Create a JAR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
+<p>Install JAR File in Local Repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install</span><br></pre></td></tr></table></figure></p>
+<p>Remove the Target Directory with All the Build Data Before Starting so that it is fresh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Ant<br>Build the Ant Project<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ant runtime</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-02-16T05:34:02.000Z"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">2015-02-15</a></time>
       
       
@@ -306,7 +372,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>31</small></li>
+    <li><a href="/tags/Java/">Java</a><small>32</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -377,6 +443,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
+      </li>
+    
+      <li>
         <a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">Reading Note of Java Concurrency in Practice II</a>
       </li>
     
@@ -390,10 +460,6 @@
     
       <li>
         <a href="/2017/10/02/小结：巴菲特之路和投资组合/">小结：巴菲特之路和投资组合</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
       </li>
     
   </ul>

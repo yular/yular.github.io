@@ -90,6 +90,65 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-07-02T17:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
+<hr>
+
+<h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
+<p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
+<p>or</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
+<p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
+<p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-07-02T03:31:21.000Z"><a href="/2016/07/01/Apache-Livy-QuickStart/">2016-07-01</a></time>
       
       
@@ -585,55 +644,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-05-31T16:08:08.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">2016-05-31</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">Hackerrank InterviewStreet Algorithm Problem Solution List String</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Bear-and-Steady-Gene"><a href="#Bear-and-Steady-Gene" class="headerlink" title="Bear and Steady Gene"></a>Bear and Steady Gene</h3><p><a href="https://www.hackerrank.com/challenges/bear-and-steady-gene" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp" target="_blank" rel="external">Code</a><br>A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.</p>
-<hr>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/String/">String</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -705,7 +715,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>31</small></li>
+    <li><a href="/tags/Java/">Java</a><small>32</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -776,6 +786,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
+      </li>
+    
+      <li>
         <a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">Reading Note of Java Concurrency in Practice II</a>
       </li>
     
@@ -789,10 +803,6 @@
     
       <li>
         <a href="/2017/10/02/小结：巴菲特之路和投资组合/">小结：巴菲特之路和投资组合</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
       </li>
     
   </ul>

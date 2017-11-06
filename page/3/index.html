@@ -90,6 +90,107 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-09-05T02:22:58.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-III/">2017-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-III/">Linux System and Adminstrative Commands III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="Job-Control"><a href="#Job-Control" class="headerlink" title="Job Control"></a>Job Control</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><ul>
+<li>Process Statistics: list currently executing processes by owner and PID (process ID).</li>
+</ul>
+<hr>
+
+<h3 id="pgrep-pkill"><a href="#pgrep-pkill" class="headerlink" title="pgrep, pkill"></a>pgrep, pkill</h3><ul>
+<li>Combining the ps command with grep or kill.</li>
+</ul>
+<hr>
+
+<h3 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h3><ul>
+<li>List currently executing processes in <code>tree</code> format.</li>
+</ul>
+<hr>
+
+<h3 id="top"><a href="#top" class="headerlink" title="top"></a>top</h3><ul>
+<li>Continously updated display of most cpu-intensive processes.</li>
+</ul>
+<hr>
+
+<h3 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h3><ul>
+<li>Run a background job with an altered priority.</li>
+</ul>
+<hr>
+
+<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><ul>
+<li>Keeps a command running even after user logs off.</li>
+</ul>
+<hr>
+
+<h3 id="pidof"><a href="#pidof" class="headerlink" title="pidof"></a>pidof</h3><ul>
+<li>Identifies processID (PID) of a running job.</li>
+</ul>
+<hr>
+
+<h3 id="fuser"><a href="#fuser" class="headerlink" title="fuser"></a>fuser</h3><ul>
+<li>Identify the process (by PID) accessing a given file, set of files or directory.</li>
+</ul>
+<hr>
+
+<h3 id="cron"><a href="#cron" class="headerlink" title="cron"></a>cron</h3><ul>
+<li>Administrative program scheduler, performing such duties as cleaning up and deleting system log files and updating the slocate database.</li>
+</ul>
+<h2 id="Process-Control-and-Booting"><a href="#Process-Control-and-Booting" class="headerlink" title="Process Control and Booting"></a>Process Control and Booting</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><hr>
+
+<h3 id="telinit"><a href="#telinit" class="headerlink" title="telinit"></a>telinit</h3><hr>
+
+<h3 id="runlevel"><a href="#runlevel" class="headerlink" title="runlevel"></a>runlevel</h3><ul>
+<li>Shows the current and last runlevel.</li>
+</ul>
+<hr>
+
+<h3 id="halt-shutdown-reboot"><a href="#halt-shutdown-reboot" class="headerlink" title="halt, shutdown, reboot"></a>halt, shutdown, reboot</h3><hr>
+
+<h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><ul>
+<li>Starts or stops a system service.</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-09-05T02:06:10.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">2017-09-04</a></time>
       
       
@@ -841,59 +942,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-07-31T08:05:16.000Z"><a href="/2017/07/31/DynamoDB-QuickStart-Guide/">2017-07-31</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/07/31/DynamoDB-QuickStart-Guide/">DynamoDB QuickStart Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>DynamoDB is a <code>NOSQL Distributed Cloud Database Service</code> provided by <code>Amazon Web Service</code>. Here is the <a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="external">DynamoDB Official Website</a>. And here is the paper <a href="https://dl.acm.org/citation.cfm?id=2213945" target="_blank" rel="external">Amazon dynamoDB: a seamlessly scalable non-relational database service</a> talking about the technical details of DynamoDB.</p>
-<p>Here we do not discuss too much technical design and implementation details but more about how to use DynamoDB service. </p>
-<h3 id="Create-DynamoDB-Tables"><a href="#Create-DynamoDB-Tables" class="headerlink" title="Create DynamoDB Tables"></a>Create DynamoDB Tables</h3><p>There are roughly three ways to create DynamoDB tables. Note that DynamoDB does not require users to create a database first and then create tables under that database. Here are the three ways:</p>
-<ul>
-<li>Through AWS DynamoDB console GUI.</li>
-<li>Through AWS SDK (Java, Python or any programming language supported by the SDK) in source code.</li>
-<li>Through SAM (AWS Serverless Application Model).</li>
-</ul>
-<p>(To be continue)  </p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -965,7 +1013,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>31</small></li>
+    <li><a href="/tags/Java/">Java</a><small>32</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -1036,6 +1084,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
+      </li>
+    
+      <li>
         <a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">Reading Note of Java Concurrency in Practice II</a>
       </li>
     
@@ -1049,10 +1101,6 @@
     
       <li>
         <a href="/2017/10/02/小结：巴菲特之路和投资组合/">小结：巴菲特之路和投资组合</a>
-      </li>
-    
-      <li>
-        <a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a>
       </li>
     
   </ul>
