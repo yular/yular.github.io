@@ -74,11 +74,15 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-10-30T07:40:17.000Z</updated>
+    <updated>2017-11-27T09:35:51.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
+
     
     </summary>
     
@@ -771,7 +775,7 @@
     <link href="http://yular.github.io/2017/09/23/Java-9-New-Features/"/>
     <id>http://yular.github.io/2017/09/23/Java-9-New-Features/</id>
     <published>2017-09-24T01:08:51.000Z</published>
-    <updated>2017-11-13T09:16:20.000Z</updated>
+    <updated>2017-11-27T09:29:15.000Z</updated>
     
     <content type="html">&lt;p&gt;Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from &lt;a href=&quot;http://openjdk.java.net/projects/jdk9/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;OpenJDK official page&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;Java-9-REPL-JShell&quot;&gt;&lt;a href=&quot;#Java-9-REPL-JShell&quot; class=&quot;headerlink&quot; title=&quot;Java 9 REPL(JShell)&quot;&gt;&lt;/a&gt;Java 9 REPL(JShell)&lt;/h3&gt;&lt;p&gt;In Java 9, we can use a command line tool called &lt;code&gt;JShell&lt;/code&gt; to execute Java statement, which is similar to python shell. The command to start JSell is:&lt;/p&gt;
@@ -791,7 +795,7 @@ private static Long generateDefaultTimeToLive() {
     return currentTime.plus( Duration.ofSeconds(1L) ).getEpochSecond();
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;}&lt;br&gt;```&lt;/p&gt;
-&lt;h3 id=&quot;Modue-Definition&quot;&gt;&lt;a href=&quot;#Modue-Definition&quot; class=&quot;headerlink&quot; title=&quot;Modue Definition&quot;&gt;&lt;/a&gt;Modue Definition&lt;/h3&gt;&lt;h3 id=&quot;Http2-Client&quot;&gt;&lt;a href=&quot;#Http2-Client&quot; class=&quot;headerlink&quot; title=&quot;Http2 Client&quot;&gt;&lt;/a&gt;Http2 Client&lt;/h3&gt;&lt;p&gt;(To be continue)&lt;/p&gt;
+&lt;h3 id=&quot;Modue-Definition&quot;&gt;&lt;a href=&quot;#Modue-Definition&quot; class=&quot;headerlink&quot; title=&quot;Modue Definition&quot;&gt;&lt;/a&gt;Modue Definition&lt;/h3&gt;&lt;h3 id=&quot;Http2-Client&quot;&gt;&lt;a href=&quot;#Http2-Client&quot; class=&quot;headerlink&quot; title=&quot;Http2 Client&quot;&gt;&lt;/a&gt;Http2 Client&lt;/h3&gt;&lt;h3 id=&quot;Improvements-in-Stream-API&quot;&gt;&lt;a href=&quot;#Improvements-in-Stream-API&quot; class=&quot;headerlink&quot; title=&quot;Improvements in Stream API&quot;&gt;&lt;/a&gt;Improvements in Stream API&lt;/h3&gt;&lt;p&gt;(To be continue)&lt;/p&gt;
 </content>
     
     <summary type="html">
