@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-12-03T21:24:37.000Z</updated>
+  <updated>2017-12-03T21:34:25.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Clean Code</title>
+    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Clean-Code/"/>
+    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Clean-Code/</id>
+    <published>2017-12-03T21:34:25.000Z</published>
+    <updated>2017-12-03T21:34:25.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Code Complete III</title>
@@ -1000,107 +1016,6 @@ private static Long generateDefaultTimeToLive() {
     
     
       <category term="Design Pattern" scheme="http://yular.github.io/tags/Design-Pattern/"/>
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java I</title>
-    <link href="http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/"/>
-    <id>http://yular.github.io/2017/09/07/Reading-Note-of-Effective-Java-I/</id>
-    <published>2017-09-07T08:00:28.000Z</published>
-    <updated>2017-09-27T07:56:06.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-constructors&quot; class=&quot;headerlink&quot; title=&quot;Item 1. Consider static factory methods instead of constructors&quot;&gt;&lt;/a&gt;Item 1. Consider static factory methods instead of constructors&lt;/h3&gt;&lt;p&gt;Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.&lt;/p&gt;
-&lt;p&gt;But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters&quot;&gt;&lt;a href=&quot;#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters&quot; class=&quot;headerlink&quot; title=&quot;Item 2. Consider a builder when faced with many constructor parameters.&quot;&gt;&lt;/a&gt;Item 2. Consider a builder when faced with many constructor parameters.&lt;/h3&gt;&lt;p&gt;Builder is a static class.&lt;/p&gt;
-&lt;p&gt;The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.&lt;/p&gt;
-&lt;h3 id=&quot;Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type&quot;&gt;&lt;a href=&quot;#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type&quot; class=&quot;headerlink&quot; title=&quot;Item 3. Enforce the singleton property with a private constructor or an enum type.&quot;&gt;&lt;/a&gt;Item 3. Enforce the singleton property with a private constructor or an enum type.&lt;/h3&gt;&lt;p&gt;Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-4-Enforce-noninstantiability-with-a-private-constructor&quot;&gt;&lt;a href=&quot;#Item-4-Enforce-noninstantiability-with-a-private-constructor&quot; class=&quot;headerlink&quot; title=&quot;Item 4. Enforce noninstantiability with a private constructor.&quot;&gt;&lt;/a&gt;Item 4. Enforce noninstantiability with a private constructor.&lt;/h3&gt;&lt;p&gt;This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-5-Avoid-creating-unnecessary-objects&quot;&gt;&lt;a href=&quot;#Item-5-Avoid-creating-unnecessary-objects&quot; class=&quot;headerlink&quot; title=&quot;Item 5. Avoid creating unnecessary objects.&quot;&gt;&lt;/a&gt;Item 5. Avoid creating unnecessary objects.&lt;/h3&gt;&lt;p&gt;Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.&lt;/p&gt;
-&lt;p&gt;So do not use following code:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s = new String(&amp;quot;abc&amp;quot;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;but use:&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;String s = &amp;quot;abc&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h4 id=&quot;Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing&quot;&gt;&lt;a href=&quot;#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing&quot; class=&quot;headerlink&quot; title=&quot;Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.&quot;&gt;&lt;/a&gt;Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.&lt;/h4&gt;&lt;h4 id=&quot;Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes&quot;&gt;&lt;a href=&quot;#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes&quot; class=&quot;headerlink&quot; title=&quot;Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.&quot;&gt;&lt;/a&gt;Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.&lt;/h4&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen&quot;&gt;&lt;a href=&quot;#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen&quot; class=&quot;headerlink&quot; title=&quot;Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)&quot;&gt;&lt;/a&gt;Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)&lt;/h3&gt;&lt;p&gt;Two ways to do:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Exception rather than norm: Null out references once they become obsolete.&lt;/li&gt;
-&lt;li&gt;Best way: Let the variable containing the reference fall out of scope.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Source of memory leak:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A class manages its own memory.&lt;/li&gt;
-&lt;li&gt;Cache. Solution: use weak hashmap.&lt;/li&gt;
-&lt;li&gt;Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-7-Avoid-finalizers&quot;&gt;&lt;a href=&quot;#Item-7-Avoid-finalizers&quot; class=&quot;headerlink&quot; title=&quot;Item 7. Avoid finalizers&quot;&gt;&lt;/a&gt;Item 7. Avoid finalizers&lt;/h3&gt;&lt;p&gt;Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.&lt;/li&gt;
-&lt;li&gt;Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.&lt;/li&gt;
-&lt;li&gt;There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.&lt;/p&gt;
-&lt;p&gt;Finalizer can be used to log a warning if it finds that the resource has not been terminated.&lt;/p&gt;
-&lt;p&gt;Finalizer can be used as a safety net in case of explicit termination methods are not called.&lt;/p&gt;
-&lt;p&gt;Use finalizer to terminate noncritical native resources.&lt;/p&gt;
-&lt;p&gt;Remember to invoke &lt;code&gt;super.finalize&lt;/code&gt; when have to use finalizer. &lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-8-Obey-the-general-contract-when-overriding-equals&quot;&gt;&lt;a href=&quot;#Item-8-Obey-the-general-contract-when-overriding-equals&quot; class=&quot;headerlink&quot; title=&quot;Item 8. Obey the general contract when overriding equals&quot;&gt;&lt;/a&gt;Item 8. Obey the general contract when overriding equals&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Each instance of the class is inherently unique.&lt;/li&gt;
-&lt;li&gt;Do not care whether the class provides a logical equality test.&lt;/li&gt;
-&lt;li&gt;A super class has already overriden equals and its behavior is appropriate for this class.&lt;/li&gt;
-&lt;li&gt;The class is private or package-private, and you are certain that its equals methods will never be invoked.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;equals method general contract:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Reflexive: x.equals(x) must be true.&lt;/li&gt;
-&lt;li&gt;Symmetric: x.equals(y) is true then y.equals(x) must be true.&lt;/li&gt;
-&lt;li&gt;Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.&lt;/li&gt;
-&lt;li&gt;Consitent: x.equals(y) is the same result always unless object is modified.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.&lt;/p&gt;
-&lt;p&gt;Important notes to write equals method:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Can add a value component to a subclass of an abstract class without violating the equals contract.&lt;/li&gt;
-&lt;li&gt;Do not write an equals method depending on unreliable resources.&lt;/li&gt;
-&lt;li&gt;Non-nullity: all objects must be unequal to null.&lt;/li&gt;
-&lt;li&gt;A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.&lt;/li&gt;
-&lt;li&gt;When finished writing equals method, check if it is symmetric, transitive and consistent.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-9-Always-override-hashCode-when-you-override-equals&quot;&gt;&lt;a href=&quot;#Item-9-Always-override-hashCode-when-you-override-equals&quot; class=&quot;headerlink&quot; title=&quot;Item 9. Always override hashCode when you override equals&quot;&gt;&lt;/a&gt;Item 9. Always override hashCode when you override equals&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Do not try to be too clever.&lt;/li&gt;
-&lt;li&gt;Do not substitute another type for Object in the equals declaration.&lt;/li&gt;
-&lt;li&gt;Equal objects must have equal hashcodes.&lt;/li&gt;
-&lt;li&gt;Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-10-Always-override-toString&quot;&gt;&lt;a href=&quot;#Item-10-Always-override-toString&quot; class=&quot;headerlink&quot; title=&quot;Item 10. Always override toString&quot;&gt;&lt;/a&gt;Item 10. Always override toString&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;It is recommended to override toString and even in subclasses.&lt;/li&gt;
-&lt;li&gt;In practice, toString method should return all of the interesting information contained in the object.&lt;/li&gt;
-&lt;li&gt;Whether or not decide to specify the format of toString return value, clearly document intentions, provide programmatic access to all of the information contained in the value returned by toString.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-1-Consider-static-factory-methods-instead-of-constructors&quot;&gt;&lt;a href=&quot;#Item-1-Consider-static-factory-methods-instead-of-construc
-    
-    </summary>
-    
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     

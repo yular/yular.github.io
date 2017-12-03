@@ -90,6 +90,51 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-02-05T20:15:53.000Z"><a href="/2017/02/05/Pattern-Expression-in-Java/">2017-02-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/02/05/Pattern-Expression-in-Java/">Pattern Expression in Java</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html" target="_blank" rel="external">Pattern Expression List in Java</a>. This class is published by Oracle in Java 7. We will create a frequent used Pattern Expression list later.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-01-29T21:07:54.000Z"><a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">2017-01-29</a></time>
       
       
@@ -674,58 +719,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-09T00:08:50.000Z"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">2017-01-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">Lua MongoDB QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the tutorial to write and build Lua application that can communicate with MongoDB database.</p>
-<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
-<p>We need to install dependency to access MongoDB database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install lua-mongo</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Dependency-Document"><a href="#Dependency-Document" class="headerlink" title="Dependency Document"></a>Dependency Document</h2><p>Here is <a href="https://github.com/neoxic/lua-mongo/blob/master/doc/main.md" target="_blank" rel="external">the link of document</a> and <a href="https://github.com/neoxic/lua-mongo" target="_blank" rel="external">its Github</a>.</p>
-<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MongoDB query. The file name is mongoDB.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">local</span> mongo = require(<span class="string">'mongo'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> client = mongo.Client <span class="string">'mongodb://host_ip:port'</span></span><br><span class="line"><span class="built_in">local</span> database = client:getDatabase(<span class="string">'database_name'</span>)</span><br><span class="line"><span class="built_in">local</span> collection = database:getCollection(<span class="string">'table_name'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> query = mongo.BSON <span class="string">'&#123; "id" : &#123; "$gt" : "0" &#125; &#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> document <span class="keyword">in</span> collection:find(query):iterator()</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(document.id, document.name)</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
-<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mongoDB.lua</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -868,6 +861,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
       </li>
     
@@ -881,10 +878,6 @@
     
       <li>
         <a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">Reading Note of Java Concurrency in Practice IV</a>
-      </li>
-    
-      <li>
-        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
       </li>
     
   </ul>

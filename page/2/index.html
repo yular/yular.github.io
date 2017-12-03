@@ -90,6 +90,134 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-02T06:18:39.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">Reading Note of Effective Java VII</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-63-Include-failure-capture-information-in-detail-message"><a href="#Item-63-Include-failure-capture-information-in-detail-message" class="headerlink" title="Item 63. Include failure-capture information in detail message"></a>Item 63. Include failure-capture information in detail message</h3><p>To capture the failure, the detail message of an exception should contain the values of all parameters and fields that contributed to the exception.</p>
+<hr>
+
+<h3 id="Item-64-Strive-for-failure-atomicity"><a href="#Item-64-Strive-for-failure-atomicity" class="headerlink" title="Item 64. Strive for failure atomicity"></a>Item 64. Strive for failure atomicity</h3><p>A failed method invocation should leave the object in the state that it was in prior to the invocation.</p>
+<hr>
+
+<h3 id="Item-65-Do-not-ignore-exceptions"><a href="#Item-65-Do-not-ignore-exceptions" class="headerlink" title="Item 65. Do not ignore exceptions"></a>Item 65. Do not ignore exceptions</h3><p>At the very least, the catch block (empty one) should contain a comment explaining why it is appropriate to ignore the exception.</p>
+<hr>
+
+<h3 id="Item-66-Synchronize-access-to-shared-mutable-data"><a href="#Item-66-Synchronize-access-to-shared-mutable-data" class="headerlink" title="Item 66. Synchronize access to shared mutable data"></a>Item 66. Synchronize access to shared mutable data</h3><p>When multiple threads share mutable data, each thread that reads or writes the data must perform synchronization.</p>
+<p>Do not use <code>Thread.stop</code>.</p>
+<hr>
+
+<h3 id="Item-67-Avoid-excessive-synchronization"><a href="#Item-67-Avoid-excessive-synchronization" class="headerlink" title="Item 67. Avoid excessive synchronization"></a>Item 67. Avoid excessive synchronization</h3><p>To avoid liveness and safety failures, never cede control to the client within a synchronized method or block.</p>
+<p>Do as little work as possible inside synchronized regions.</p>
+<hr>
+
+<h3 id="Item-68-Prefer-executors-and-tasks-to-threads"><a href="#Item-68-Prefer-executors-and-tasks-to-threads" class="headerlink" title="Item 68. Prefer executors and tasks to threads"></a>Item 68. Prefer executors and tasks to threads</h3><hr>
+
+<h3 id="Item-69-Prefer-concurrency-utilities-to-wait-and-notify"><a href="#Item-69-Prefer-concurrency-utilities-to-wait-and-notify" class="headerlink" title="Item 69. Prefer concurrency utilities to wait and notify"></a>Item 69. Prefer concurrency utilities to wait and notify</h3><p>Here are some rules:</p>
+<ul>
+<li>Use <code>ConcurrentHashMap</code> in preference to <code>Collections.synchronizeMap</code> or <code>Hashtable</code>.</li>
+<li>For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.</li>
+<li>Always use wait loop idiom to invoke the wait method; never invoke it outside of a loop.</li>
+</ul>
+<hr>
+
+<h3 id="Item-70-Document-thread-safety"><a href="#Item-70-Document-thread-safety" class="headerlink" title="Item 70. Document thread safety"></a>Item 70. Document thread safety</h3><p>To enable safe concurrent use, a class must clearly document what level of thread safety it supports:</p>
+<ul>
+<li>immutable</li>
+<li>unconditionally thread-safe: instances are mutable but the class has sufficient internal synchronization.</li>
+<li>conditionally thread-safe: like unconditionally thread-safe, but some methods require external synchronization.</li>
+<li>not thread-safe</li>
+<li>thread-hostile</li>
+</ul>
+<p>If write an unconditionally thread-safe class, consider using a private lock object in place of synchronized methods.</p>
+<hr>
+
+<h3 id="Item-71-Use-lazy-initialization-judiciously"><a href="#Item-71-Use-lazy-initialization-judiciously" class="headerlink" title="Item 71. Use lazy initialization judiciously"></a>Item 71. Use lazy initialization judiciously</h3><p>Under most circumstances, normal initialization is preferable to lazy initialization.</p>
+<p>Here are the rules:</p>
+<ul>
+<li>To use lazy initialization for a static field, use the lazy initialization holder for class idiom.</li>
+<li>To use lazy initialization for an instance field, use the double-check idiom, which is that once without locking, and then if the field appears to be uninitialized, a second time with locking.</li>
+</ul>
+<hr>
+
+<h3 id="Item-72-Do-not-depend-on-the-thread-scheduler"><a href="#Item-72-Do-not-depend-on-the-thread-scheduler" class="headerlink" title="Item 72. Do not depend on the thread scheduler"></a>Item 72. Do not depend on the thread scheduler</h3><p>Here are the rules:</p>
+<ul>
+<li>Do not fix the program by putting in calls to <code>Thread.yield</code>.</li>
+<li>Thread priorities are the least portable features of Java platform.</li>
+</ul>
+<hr>
+
+<h3 id="Item-73-Avoid-thread-groups"><a href="#Item-73-Avoid-thread-groups" class="headerlink" title="Item 73. Avoid thread groups"></a>Item 73. Avoid thread groups</h3><p>Thread groups are obsolete.</p>
+<hr>
+
+<h3 id="Item-74-Implement-Serializable-judiciously"><a href="#Item-74-Implement-Serializable-judiciously" class="headerlink" title="Item 74. Implement Serializable judiciously"></a>Item 74. Implement Serializable judiciously</h3><p>Here are the reasons and rules:</p>
+<ul>
+<li>Implementing Serializable decreases the flexibility to change a class’s implementation once it has been released.</li>
+<li>Implementing Serializable increases the likelihood of bugs and security holes.</li>
+<li>Implementing Serializable increases the testing burden associated with releasing a new version of a class.</li>
+<li>Classes designed for inheritance should rarely implement Serializable, and interfaces should rarely extend it. Provide a parameterless constructor on nonserializable classes designed for inheritance.</li>
+<li>Inner class should not implement Serializable.</li>
+</ul>
+<hr>
+
+<h3 id="Item-75-Consider-using-a-custom-serialized-form"><a href="#Item-75-Consider-using-a-custom-serialized-form" class="headerlink" title="Item 75. Consider using a custom serialized form"></a>Item 75. Consider using a custom serialized form</h3><p>The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.<br>Often must provide a <code>readObject</code> method to ensure invariants and security when use default serialized form.</p>
+<p>The disadvantages of using default serialized form when an object’s physical representation differs substantially from its logical data content:</p>
+<ul>
+<li>It permanetly ties the exported API to the current internal repesentation.</li>
+<li>It can consume excessive space.</li>
+<li>It can consume excessive time.</li>
+<li>It can cause stack overflows.</li>
+</ul>
+<p>If all instance fields are transient, it is technically permissible to dispense with invoking <code>defaultWriteObject</code> and <code>defaultReadObject</code> but it is not recommended.</p>
+<p>Must impose any synchronization on object serialization that would impose on any other method that reads the entire state of the object.</p>
+<p>Regardless of what serialized form choosed, decalre an explicit serial verison UID in every serializable class.</p>
+<h3 id="Item-76-Write-readObject-methods-defensively"><a href="#Item-76-Write-readObject-methods-defensively" class="headerlink" title="Item 76. Write readObject methods defensively"></a>Item 76. Write readObject methods defensively</h3><p>When an object is deserialized, it is critical to defensively copy any field containing an object references that a client must not posses.</p>
+<p>Do not use the <code>writeUnshared</code> and <code>readUnshared</code> methods.</p>
+<hr>
+
+<h3 id="Item-77-For-instance-control-prefer-enum-type-to-readResolve"><a href="#Item-77-For-instance-control-prefer-enum-type-to-readResolve" class="headerlink" title="Item 77. For instance control, prefer enum type to readResolve"></a>Item 77. For instance control, prefer enum type to readResolve</h3><p>If depend on readResolve for instance control, all instances fields with object reference types must be declared transient.</p>
+<hr>
+
+<h3 id="Item-78-Consider-serialization-proxies-instead-of-serialized-instances"><a href="#Item-78-Consider-serialization-proxies-instead-of-serialized-instances" class="headerlink" title="Item 78. Consider serialization proxies instead of serialized instances"></a>Item 78. Consider serialization proxies instead of serialized instances</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-02T05:20:52.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">2017-10-01</a></time>
       
       
@@ -853,131 +981,6 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-07T08:00:28.000Z"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">Reading Note of Effective Java I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
-<p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
-<hr>
-
-<h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2. Consider a builder when faced with many constructor parameters."></a>Item 2. Consider a builder when faced with many constructor parameters.</h3><p>Builder is a static class.</p>
-<p>The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.</p>
-<h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3. Enforce the singleton property with a private constructor or an enum type."></a>Item 3. Enforce the singleton property with a private constructor or an enum type.</h3><p>Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.</p>
-<hr>
-
-<h3 id="Item-4-Enforce-noninstantiability-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantiability-with-a-private-constructor" class="headerlink" title="Item 4. Enforce noninstantiability with a private constructor."></a>Item 4. Enforce noninstantiability with a private constructor.</h3><p>This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.</p>
-<hr>
-
-<h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5. Avoid creating unnecessary objects."></a>Item 5. Avoid creating unnecessary objects.</h3><p>Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.</p>
-<p>So do not use following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
-<p>but use:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abc&quot;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><hr>
-
-<h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
-<ul>
-<li>Exception rather than norm: Null out references once they become obsolete.</li>
-<li>Best way: Let the variable containing the reference fall out of scope.</li>
-</ul>
-<p>Source of memory leak:</p>
-<ul>
-<li>A class manages its own memory.</li>
-<li>Cache. Solution: use weak hashmap.</li>
-<li>Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.</li>
-</ul>
-<hr>
-
-<h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7. Avoid finalizers"></a>Item 7. Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: </p>
-<ul>
-<li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
-<li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
-</ul>
-<p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
-<p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
-<p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
-<p>Use finalizer to terminate noncritical native resources.</p>
-<p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
-<hr>
-
-<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
-<li>Each instance of the class is inherently unique.</li>
-<li>Do not care whether the class provides a logical equality test.</li>
-<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
-<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
-</ul>
-<p>equals method general contract:</p>
-<ul>
-<li>Reflexive: x.equals(x) must be true.</li>
-<li>Symmetric: x.equals(y) is true then y.equals(x) must be true.</li>
-<li>Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.</li>
-<li>Consitent: x.equals(y) is the same result always unless object is modified.</li>
-</ul>
-<p>Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.</p>
-<p>Important notes to write equals method:</p>
-<ul>
-<li>Can add a value component to a subclass of an abstract class without violating the equals contract.</li>
-<li>Do not write an equals method depending on unreliable resources.</li>
-<li>Non-nullity: all objects must be unequal to null.</li>
-<li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
-<li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
-</ul>
-<hr>
-
-<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9. Always override hashCode when you override equals"></a>Item 9. Always override hashCode when you override equals</h3><ul>
-<li>Do not try to be too clever.</li>
-<li>Do not substitute another type for Object in the equals declaration.</li>
-<li>Equal objects must have equal hashcodes.</li>
-<li>Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.</li>
-</ul>
-<hr>
-
-<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10. Always override toString"></a>Item 10. Always override toString</h3><ul>
-<li>It is recommended to override toString and even in subclasses.</li>
-<li>In practice, toString method should return all of the interesting information contained in the object.</li>
-<li>Whether or not decide to specify the format of toString return value, clearly document intentions, provide programmatic access to all of the information contained in the value returned by toString.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1120,6 +1123,10 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
       </li>
     
@@ -1133,10 +1140,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">Reading Note of Java Concurrency in Practice IV</a>
-      </li>
-    
-      <li>
-        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
       </li>
     
   </ul>

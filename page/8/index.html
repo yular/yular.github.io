@@ -90,6 +90,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-01-09T00:08:50.000Z"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">2017-01-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">Lua MongoDB QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to write and build Lua application that can communicate with MongoDB database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
+<p>We need to install dependency to access MongoDB database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install lua-mongo</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Dependency-Document"><a href="#Dependency-Document" class="headerlink" title="Dependency Document"></a>Dependency Document</h2><p>Here is <a href="https://github.com/neoxic/lua-mongo/blob/master/doc/main.md" target="_blank" rel="external">the link of document</a> and <a href="https://github.com/neoxic/lua-mongo" target="_blank" rel="external">its Github</a>.</p>
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MongoDB query. The file name is mongoDB.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">local</span> mongo = require(<span class="string">'mongo'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> client = mongo.Client <span class="string">'mongodb://host_ip:port'</span></span><br><span class="line"><span class="built_in">local</span> database = client:getDatabase(<span class="string">'database_name'</span>)</span><br><span class="line"><span class="built_in">local</span> collection = database:getCollection(<span class="string">'table_name'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> query = mongo.BSON <span class="string">'&#123; "id" : &#123; "$gt" : "0" &#125; &#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> document <span class="keyword">in</span> collection:find(query):iterator()</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(document.id, document.name)</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mongoDB.lua</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-01-09T00:08:36.000Z"><a href="/2017/01/08/Lua-MySQL-QuickStart/">2017-01-08</a></time>
       
       
@@ -531,76 +583,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-03T22:18:56.000Z"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">2016-07-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">Apache Livy Spark Coding in Python Console Quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://github.com/cloudera/livy" target="_blank" rel="external">official tutorial of submiting pyspark jobs in Livy</a>. Below is the my PySpark quickstart guide.</p>
-<p>In Livy, the structure of REST API is /sessions/sessionid/statements/statementid. So to submit a new request to Livy, we should ask Livy to create a new independent session first, then inside that session, we will ask Livy to create one or multiple statements to process code.</p>
-<hr>
-
-<h3 id="Install-Required-Library"><a href="#Install-Required-Library" class="headerlink" title="Install Required Library"></a>Install Required Library</h3><p>At first, we need to install requests library of Python. We can use pip. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install requests</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="PySpark-Code"><a href="#PySpark-Code" class="headerlink" title="PySpark Code"></a>PySpark Code</h3><p>Enter python console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></p>
-<p>Then in python console, type following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import json, pprint, requests, textwrap</span><br><span class="line">host = <span class="string">'http://localhost:8998'</span></span><br><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">hs_r = requests.post(host + <span class="string">'/sessions'</span>, data=json.dumps(data), headers=headers)</span><br><span class="line">hs_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>Note that change the port number if it is not the default one. The code above helps to create a new session in Spark.<br>And if we have to change the configuration of spark-submit, the data object should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>,<span class="string">'conf'</span>:&#123;<span class="string">'spark.executor.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>,<span class="string">'spark.driver.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Next, get the session URL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + hs_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">sn_r = requests.get(session_url, headers=headers)</span><br><span class="line">sn_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>Note that hs_r.headers[‘Location’] may not give us the correct value because it may be ‘null/sessions/sessionid’. In that case, we should use the following code instead,. In our case, since it is the first session, the id is 0.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + <span class="string">'/sessions/0'</span></span><br></pre></td></tr></table></figure></p>
-<p>Now we should generate the code and submit to the corresponding statement REST API.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">statements_url = session_url + <span class="string">'/statements'</span></span><br><span class="line">data = &#123; <span class="string">'code'</span>: textwrap(<span class="string">""</span><span class="string">"\</span><br><span class="line">import org.apache.spark.SparkContext;</span><br><span class="line">import org.apache.spark.sql.hive.HiveContext; </span><br><span class="line">val sqlContext=new HiveContext(sc);</span><br><span class="line">val df=sqlContext.sql("</span>use db1<span class="string">");</span><br><span class="line">val res=sqlContext.sql("</span>select * from tb1 <span class="built_in">limit</span> 10 <span class="string">").collect();</span><br><span class="line">res.map(t =&gt; t(0)).foreach(println);</span><br><span class="line">"</span><span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line">stm_r = requests.post(statements_url, data=json.dumps(data), headers=headers)</span><br><span class="line">stm_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>After that, we can get the running result from the statement REST API using following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">statement_url = host + stm_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">res = requests.get(statement_url, headers=headers)</span><br><span class="line">pprint.pprint(res.json())</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions occur, we can find the result in the output field.</p>
-<p>At last, we can delete current session:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.delete(session_url, headers=headers)</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Submit-Python-File-to-REST-API"><a href="#Submit-Python-File-to-REST-API" class="headerlink" title="Submit Python File to REST API"></a>Submit Python File to REST API</h3><p>Here the Livy is in yarn-client mode. This guide can also be used in local mode. Below is the content of python file submitted (The file name is test.py.):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pyspark import SparkContext</span><br><span class="line">from pyspark.sql import HiveContext</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">'yarn-client'</span>,<span class="string">'pyspark'</span>)</span><br><span class="line">sqlContext = HiveContext(sc)</span><br><span class="line">sqlContext.sql(<span class="string">"use db1"</span>)</span><br><span class="line">sqlContext.sql(<span class="string">"select * from tb1 limit 10"</span>).show()</span><br></pre></td></tr></table></figure></p>
-<p>Here is the command to POST python file to Livy REST API for batch job. Livy will automatically create a new session identified by batchid for this job.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST --data <span class="string">'&#123;"file":"file:/home/yular/livy_code/test.py",</span><br><span class="line">"conf":&#123;"spark.executor.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar","spark.driver.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar"&#125;</span><br><span class="line">&#125;'</span> -H <span class="string">"Content-Type: application/json"</span> localhost:8998/batches</span><br></pre></td></tr></table></figure></p>
-<p>Note that in yarn-client and yarn-cluster mode, by default Livy use hdfs file protocol. So if we write /home/yular/livy_code/test.py, then in Livy, the file path becomes hdfs://home/yular/livy_code/test.py which may cause exception. So we have to specify file protocol.</p>
-<p>To check the status of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0 | python -m json.tool</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions are thrown out, we can see the result in the output field of json returned.</p>
-<p>To check the log of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0/<span class="built_in">log</span> | python -m json.tool</span><br></pre></td></tr></table></figure></p>
-<p>To remove the batch session, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE localhost:8998/batches/0</span><br></pre></td></tr></table></figure></p>
-<p>Note that 0 is the batch id. In our case, the id is 0 but it should be subject to change.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -743,6 +725,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
       </li>
     
@@ -756,10 +742,6 @@
     
       <li>
         <a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">Reading Note of Java Concurrency in Practice IV</a>
-      </li>
-    
-      <li>
-        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a>
       </li>
     
   </ul>
