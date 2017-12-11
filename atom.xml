@@ -146,12 +146,15 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-12-04T10:11:09.000Z</updated>
+    <updated>2017-12-11T08:07:03.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;大多数现代操作系统把线程作为时序调度的基本单元，而不是进程。&lt;/li&gt;
 &lt;li&gt;多线程的开销：上下文切换。&lt;/li&gt;
+&lt;li&gt;线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。&lt;/li&gt;
+&lt;li&gt;活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。&lt;/li&gt;
+&lt;li&gt;用annotation (@ThreadSafe for example)来标记线程安全程度。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
