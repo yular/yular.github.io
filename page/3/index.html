@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 3 | YBC HomePage</title>
+  <title>Seite 3 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,68 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-11T00:02:49.000Z"><a href="/2017/09/10/Proxy-Pattern-In-Java/">2017-09-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern (In Java)</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>See the meaning of <a href="https://en.wikipedia.org/wiki/Proxy" target="_blank" rel="external">Proxy in Wikipedia</a>.</p>
+<p>As we know, when we visit a web service, we may not directly get the access of the hosts where the service is deployed but the hosts which sends the same or reasonable response as the service does. And those hosts are proxies.</p>
+<p>So in the design pattern, proxy pattern uses the similar mechanism. A class (proxy class) represents the functionality of the other class. Proxy class implements or extends the same interface or abstract class as the class proxied does, and proxy instance contains the instance proxied.</p>
+<p>See the <a href="https://en.wikipedia.org/wiki/Proxy_pattern" target="_blank" rel="external">Proxy Pattern in Wikipedia</a>. The diagram there can help to understand the structure of this design pattern.</p>
+<p>Here is some sample code about Proxy Pattern.</p>
+<h3 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h3><p>Here is the link of below <a href="https://github.com/yular/Java-CodeLibrary/tree/master/DesignPattern/ProxyPattern/src/com/yulartech/designpattern/proxypattern" target="_blank" rel="external">sample code</a>.</p>
+<p>Firt of all, here is the service interface:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public interface ImageService &#123;</span><br><span class="line">    void showImage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Then the real image service and proxy image service must implement this interface.</p>
+<p>Real image service source code is below:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class RealImageService implements ImageService &#123;</span><br><span class="line">    private String imageFileName;</span><br><span class="line"></span><br><span class="line">    RealImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        upLoadImage();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void upLoadImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Successfully upload image %s to the service.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Show the image %s.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Proxy image service source code is below:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class ProxyImageService implements ImageService&#123;</span><br><span class="line">    private RealImageService realImageService;</span><br><span class="line">    private String imageFileName;</span><br><span class="line">    private boolean isImageCached;</span><br><span class="line"></span><br><span class="line">    public ProxyImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        this.isImageCached = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        if (realImageService == null) &#123;</span><br><span class="line">            realImageService = new RealImageService(imageFileName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (isImageCached) &#123;</span><br><span class="line">            final String msg = String.format(&quot;Get image %s from cache in proxy. &quot;, imageFileName);</span><br><span class="line">            System.out.print(msg);</span><br><span class="line">        &#125;</span><br><span class="line">        realImageService.showImage();</span><br><span class="line">        cacheImageInProxy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void cacheImageInProxy() &#123;</span><br><span class="line">        isImageCached = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>At last, implement a Main class to run the demo:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        String imageFileName = &quot;test-image.png&quot;;</span><br><span class="line">        ProxyImageService proxyImageService = new ProxyImageService(imageFileName);</span><br><span class="line"></span><br><span class="line">        //Show image from actual service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        //Show image from proxy service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And if everything goes well, output should be:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Successfully upload image test-image.png to the service.</span><br><span class="line">Show the image test-image.png.</span><br><span class="line"></span><br><span class="line">Get image test-image.png from cache in proxy. Show the image test-image.png.</span><br></pre></td></tr></table></figure>
+<p>That means we can retrieve images from proxy in cache instead of actual image service: Proxy class just represents the functionality of the other class.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Design-Pattern/">Design Pattern</a>, <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -1274,108 +1336,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-08-07T06:30:50.000Z"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">2017-08-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of <code>Test Driven Development</code> book.</p>
-<h2 id="Overall-Rules"><a href="#Overall-Rules" class="headerlink" title="Overall Rules"></a>Overall Rules</h2><ul>
-<li><p>In Test-Driven Development, there are two basic rules:</p>
-<ul>
-<li>Write new code only if there is a failing automated test.</li>
-<li>Eliminate duplication.</li>
-</ul>
-</li>
-<li><p>The two rules above imply the order of tasks of programming:</p>
-<ul>
-<li>Red: Write a little test that does not work, even does not compile at first</li>
-<li>Green: Make the test work quickly, committing whatever sins necessary in the process</li>
-<li>Refactor: Eliminate all the duplication created in just getting the test to work</li>
-</ul>
-</li>
-<li><p>The three basic steps of Test Driven Development are:</p>
-<ul>
-<li>Start simply</li>
-<li>Write automated tests</li>
-<li>Refactor to add design decisions one at a time</li>
-</ul>
-</li>
-<li><p>Two topics where TDD is not good at:</p>
-<ul>
-<li>Security software</li>
-<li>Concurrency</li>
-</ul>
-</li>
-<li><p>Rhythm of TDD:</p>
-<ul>
-<li>Quickly add a test</li>
-<li>Run all tests and see the new one fails</li>
-<li>Make a little change</li>
-<li>Run all tests and see them all succeed</li>
-<li>Refactor to remove duplication</li>
-</ul>
-</li>
-<li><p>Three ways to pass tests:</p>
-<ul>
-<li>Fake it.</li>
-<li>Obvious implementation.</li>
-<li>Translate a design object (side effects) into a test case that fails because of the objection, get the code to compile quickly with a stub implementation, made the test work by typing in what seemed like the right code. </li>
-</ul>
-</li>
-<li><p>Given a problem, first divide it to small independent problems, create tests for each of them, then do refactor on the code.</p>
-</li>
-</ul>
-<h3 id="Detailed-Rules"><a href="#Detailed-Rules" class="headerlink" title="Detailed Rules"></a>Detailed Rules</h3><ul>
-<li><p>Write new code only if you first have a failing automated test. Then eliminate the duplication.</p>
-</li>
-<li><p>Could not tackle a big test, so invent a small test representing progress, write the test by shameless duplicating and editing, make the test work by copying and editing model code wholescale, promised ourselves to remove duplication.</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1470,7 +1435,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>6</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -1490,9 +1455,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 13.85px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.62px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -1513,6 +1478,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/11/Reading-Note-of-Code-Complete-IV/">Reading Note of Code Complete IV</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
       </li>
     
@@ -1526,10 +1495,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">Reading Note of Code Complete I</a>
-      </li>
-    
-      <li>
-        <a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">Reading Note of Java Concurrency in Practice IV</a>
       </li>
     
   </ul>
