@@ -164,7 +164,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-12-11T08:07:03.000Z</updated>
+    <updated>2017-12-18T06:12:22.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -173,6 +173,11 @@
 &lt;li&gt;线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。&lt;/li&gt;
 &lt;li&gt;活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。&lt;/li&gt;
 &lt;li&gt;用annotation (@ThreadSafe for example)来标记线程安全程度。&lt;/li&gt;
+&lt;li&gt;线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用对象，而不是对象完成了什么。&lt;/li&gt;
+&lt;li&gt;线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。&lt;/li&gt;
+&lt;li&gt;共享：是指一个变量可以被多个线程访问。&lt;/li&gt;
+&lt;li&gt;可变：是指变量的值在其生命周期内可变。&lt;/li&gt;
+&lt;li&gt;对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
