@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-12-11T08:23:17.000Z</updated>
+  <updated>2017-12-22T22:46:45.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Summary I</title>
+    <link href="http://yular.github.io/2017/12/22/Java-Summary-I/"/>
+    <id>http://yular.github.io/2017/12/22/Java-Summary-I/</id>
+    <published>2017-12-22T22:46:37.000Z</published>
+    <updated>2017-12-22T22:46:45.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Code Complete IV</title>
@@ -1004,29 +1022,6 @@ private static Long generateDefaultTimeToLive() {
     
     
       <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Aspect Oriented Programming</title>
-    <link href="http://yular.github.io/2017/09/11/Aspect-Oriented-Programming/"/>
-    <id>http://yular.github.io/2017/09/11/Aspect-Oriented-Programming/</id>
-    <published>2017-09-11T08:51:57.000Z</published>
-    <updated>2017-09-11T08:57:16.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is &lt;a href=&quot;https://en.wikipedia.org/wiki/Aspect-oriented_programming&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Aspect-oriented programming in Wikipedia&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification, such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, core to the functionality. AOP forms a basis for aspect-oriented software development.&lt;/p&gt;
-&lt;p&gt;Note that AOP usually uses &lt;a href=&quot;http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/&quot;&gt;Proxy Pattern&lt;/a&gt; in its implementation.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is &lt;a href=&quot;https://en.wikipedia.org/wiki/Aspect-oriented_programming&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Aspect-oriented programming in
-    
-    </summary>
-    
-    
-      <category term="Design Pattern" scheme="http://yular.github.io/tags/Design-Pattern/"/>
     
   </entry>
   

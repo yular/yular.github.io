@@ -90,6 +90,75 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-09-04T22:13:27.000Z"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">2017-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here are the references: <a href="https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf" target="_blank" rel="external">JSL8</a> and <a href="https://www.tutorialspoint.com/java/java_nonaccess_modifiers.htm" target="_blank" rel="external">Java Non Access Modifiers from TutorialsPoint</a>. </p>
+<h3 id="Static-Modifier"><a href="#Static-Modifier" class="headerlink" title="Static Modifier"></a>Static Modifier</h3><p>Static modifier can be used as variable and method modifier.</p>
+<h4 id="Static-Variable"><a href="#Static-Variable" class="headerlink" title="Static Variable"></a>Static Variable</h4><p>Static variables will exist independently for all the instances of the class. There is only one copy of every static variable in the memory. It is a kind of class variable and local variables cannot be declared static.</p>
+<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>Static methods will exist independently for all the instances of the class. Static methods can be used directly without any instance variables of any object of the class they are defined in.</p>
+<hr>
+
+<h3 id="Final-Modifier"><a href="#Final-Modifier" class="headerlink" title="Final Modifier"></a>Final Modifier</h3><p>Final modifier is used to finalize the implementation/creation of variales, methods, and classes.</p>
+<h4 id="Final-Variable"><a href="#Final-Variable" class="headerlink" title="Final Variable"></a>Final Variable</h4><p>Every final variable can be explicitly initialized only once and then they cannot be reassigned to refer to a different object. But even though final variables use the same reference all the time, the value of their members can be changed.</p>
+<p>Usually, final and static modifiers are used together to define constants.</p>
+<h4 id="Final-Method"><a href="#Final-Method" class="headerlink" title="Final Method"></a>Final Method</h4><p>Final methods cannot be overriddedn by any subclasses. It indicates that the content of these methods should not be changed by any clients.</p>
+<h4 id="Final-Class"><a href="#Final-Class" class="headerlink" title="Final Class"></a>Final Class</h4><p>Final classes cannot be extended by other classes. It indicates that these classes should not be inherited.</p>
+<hr>
+
+<h3 id="Abstract-Modifier"><a href="#Abstract-Modifier" class="headerlink" title="Abstract Modifier"></a>Abstract Modifier</h3><p>Abstract modifier can be used for methods and classes, indicating <code>&quot;change&quot;</code> the content of these methods or classes in subclasses.</p>
+<h4 id="Abstract-Method"><a href="#Abstract-Method" class="headerlink" title="Abstract Method"></a>Abstract Method</h4><p>Abstract methods do not have method body and their implementation should be provided by subclasses. Abstract methods can never be final or strict.<br>If a class has one or more abstract methods, it must be declared as abstract.</p>
+<h4 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h4><p>Abstract classes cannot be instantiated and they are designed for inheritance. Abstract classes can never be final and they can contain both abstract methods and normal methods.</p>
+<hr>
+
+<h3 id="Synchronized-Modifier"><a href="#Synchronized-Modifier" class="headerlink" title="Synchronized Modifier"></a>Synchronized Modifier</h3><p>Synchronized modifier can be used for methods and applied on variables (lock a specific variable). It indicates that these methods can be accessed by only one thread at a time. Synchronized modifier is widely used in concurrent situation.</p>
+<hr>
+
+<h3 id="Transient-Modifier"><a href="#Transient-Modifier" class="headerlink" title="Transient Modifier"></a>Transient Modifier</h3><p>Transient modifier can be used for variables. It indicates that JVM will skip these variables when it is serializing the objects containing them.</p>
+<hr>
+
+<h3 id="Volatile-Modifier"><a href="#Volatile-Modifier" class="headerlink" title="Volatile Modifier"></a>Volatile Modifier</h3><p>Volatile modifier can be used for variables. It indicates that a thread accessing these variables must always merge its own copy of them with the master copy in the memory.<br>Volatile modifier can only be used for variables in instances, which are of type object or private. A volatile object reference can be null.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-08-07T06:30:50.000Z"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">2017-08-06</a></time>
       
       
@@ -765,45 +834,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-07-01T02:18:26.000Z"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">2017-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">Kaggle Contest Guide Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -875,7 +905,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>33</small></li>
+    <li><a href="/tags/Java/">Java</a><small>34</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -946,6 +976,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/22/Java-Summary-I/">Java Summary I</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/11/Reading-Note-of-Code-Complete-IV/">Reading Note of Code Complete IV</a>
       </li>
     
@@ -959,10 +993,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-II/">Reading Note of Code Complete II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">Reading Note of Code Complete I</a>
       </li>
     
   </ul>

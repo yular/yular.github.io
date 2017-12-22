@@ -90,6 +90,86 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-05T01:45:50.000Z"><a href="/2017/10/04/ReactJS-QuickStart/">2017-10-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/04/ReactJS-QuickStart/">ReactJS QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official page of <a href="https://reactjs.org/docs/installation.html#trying-out-react" target="_blank" rel="external">React</a> which describes how to try out ReactJS.</p>
+<p>Below is the Quickstart guide to install, configure and run the firt React app on the local. </p>
+<h3 id="Install-NodeJS"><a href="#Install-NodeJS" class="headerlink" title="Install NodeJS"></a>Install NodeJS</h3><p>Here we use npm to manage project dependencies. Here is <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS official website</a>, where we can download and install <code>npm</code>.</p>
+<hr>
+
+<h3 id="Install-Gloabl-ReactJS-App-Creation-Package"><a href="#Install-Gloabl-ReactJS-App-Creation-Package" class="headerlink" title="Install Gloabl ReactJS App Creation Package"></a>Install Gloabl ReactJS App Creation Package</h3><p>Install <code>Create React App</code> package globally in npm. <code>Create React App</code> is the best way to start building a new React single page application. It helps to set up development environment to use the latest JavaScript features, provides a nice developer experience, and optimizes app for production.</p>
+<p>Here are the commands to install the package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Init-ReactJS-App"><a href="#Init-ReactJS-App" class="headerlink" title="Init ReactJS App"></a>Init ReactJS App</h3><p>Here are the commands to init ReactJS application and start it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create-react-app first-react-app</span><br><span class="line"></span><br><span class="line">cd first-react-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-ReactJS-as-dependencies-in-Application"><a href="#Install-ReactJS-as-dependencies-in-Application" class="headerlink" title="Install ReactJS as dependencies in Application"></a>Install ReactJS as dependencies in Application</h3><p>Here are the commands to install ReactJS as dependencies using <code>npm</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install --save react react-dom</span><br></pre></td></tr></table></figure>
+<p>After execute <code>npm init</code> command, we will be asked to provide some basic profile information of the app like app name, author name, license and etc. All these information will appear in <code>package.json</code>.</p>
+<hr>
+
+<h3 id="Enabling-ES6-and-JSX"><a href="#Enabling-ES6-and-JSX" class="headerlink" title="Enabling ES6 and JSX"></a>Enabling ES6 and JSX</h3><p>We recommand to use <code>ES6</code> and <code>JSX</code> through <code>Babel</code>. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.</p>
+<p>Here is the <a href="http://babeljs.io/" target="_blank" rel="external">Babel official website</a> and <a href="https://babeljs.io/docs/setup/" target="_blank" rel="external">Babel setup instructions</a>. </p>
+<p>Here we use <code>CLI</code> way to install <code>babel-preset-react</code> and <code>babel-preset-es2015</code>. And enable them in <code>.babelrc</code> configuration file.</p>
+<p>Here are the commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-cli</span><br><span class="line">npm install --save-dev babel-preset-react</span><br><span class="line">npm install --save-dev babel-preset-es2015</span><br><span class="line"></span><br><span class="line">touch .babelrc</span><br><span class="line">echo &apos;&#123; &quot;presets&quot;: [&quot;es2015&quot;] &#125;&apos; &gt; .babelrc</span><br></pre></td></tr></table></figure>
+<p>As Babel is a JavaScript compiler, we can test it in following steps.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;console.log([1, 2, 3].map(n =&gt; n + 1))&apos; &gt; index.js</span><br><span class="line">./node_modules/.bin/babel index.js</span><br></pre></td></tr></table></figure>
+<p>The output is similar as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">console.log([1, 2, 3].map(function (n) &#123;</span><br><span class="line">  return n + 1;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-webpack-as-dependencies-in-Application"><a href="#Install-webpack-as-dependencies-in-Application" class="headerlink" title="Install webpack as dependencies in Application"></a>Install webpack as dependencies in Application</h3><p>A bundler like <code>webpack</code> or <code>Browserify</code> can help to write modular code and bundle it together into small packages to optimize load time.</p>
+<p>Here is the <a href="https://webpack.js.org/" target="_blank" rel="external">webpack offical website</a>. And here is the command to install webpack:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br></pre></td></tr></table></figure>
+<p>So here is the final complete version of package.json file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;first-react-app&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;react&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-dom&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-scripts&quot;: &quot;1.0.14&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;react-scripts start&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;react-scripts build&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,</span><br><span class="line">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;description&quot;: &quot;This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.26.0&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;webpack&quot;: &quot;^3.6.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;yular&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now if we run the command <code>npm start</code>, we can still see the same page as before.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Javascript/">Javascript</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-02T07:42:40.000Z"><a href="/2017/10/02/小结：巴菲特之路和投资组合/">2017-10-02</a></time>
       
       
@@ -1057,53 +1137,6 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-11T08:51:57.000Z"><a href="/2017/09/11/Aspect-Oriented-Programming/">2017-09-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming" target="_blank" rel="external">Aspect-oriented programming in Wikipedia</a>.</p>
-<p>Aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification, such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, core to the functionality. AOP forms a basis for aspect-oriented software development.</p>
-<p>Note that AOP usually uses <a href="http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern</a> in its implementation.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1175,7 +1208,7 @@ private static Long generateDefaultTimeToLive() {
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>33</small></li>
+    <li><a href="/tags/Java/">Java</a><small>34</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -1246,6 +1279,10 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/22/Java-Summary-I/">Java Summary I</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/11/Reading-Note-of-Code-Complete-IV/">Reading Note of Code Complete IV</a>
       </li>
     
@@ -1259,10 +1296,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-II/">Reading Note of Code Complete II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">Reading Note of Code Complete I</a>
       </li>
     
   </ul>

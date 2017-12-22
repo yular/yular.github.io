@@ -90,6 +90,51 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-02-13T07:20:04.000Z"><a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">2017-02-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">SPOJ Basic and Tutorial Solution Summary List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is <a href="https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md" target="_blank" rel="external">the link of SPOJ Basic and Tutorial problems solution list</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-02-13T02:04:12.000Z"><a href="/2017/02/12/AWS-Terminology-List/">2017-02-12</a></time>
       
       
@@ -788,60 +833,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-09T00:09:46.000Z"><a href="/2017/01/08/C-MongoDB-QuickStart/">2017-01-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the tutorial to write and build a C program to access MongoDB database.</p>
-<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>Here is the <a href="http://mongoc.org/libmongoc/current/installing.html" target="_blank" rel="external">tutorial</a> to install necessary dependency and libraries.</p>
-<p>Here is the <a href="http://mongoc.org/libmongoc/current/tutorial.html" target="_blank" rel="external">tutorial</a> of sample code.</p>
-<hr>
-
-<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Here is a sample code. Open a new C file called mongo_db_connect.c. Remember to replace specific parameters:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;bson.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;bcon.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;mongoc.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main (int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">   mongoc_client_t      *client;</span><br><span class="line">   mongoc_database_t    *database;</span><br><span class="line">   mongoc_collection_t  *collection;</span><br><span class="line">   mongoc_cursor_t      *cursor;</span><br><span class="line">   bson_t               *<span class="built_in">command</span>, reply, *insert, *query;</span><br><span class="line">   const bson_t         *doc;</span><br><span class="line">   bson_error_t         error;</span><br><span class="line">   char                 *str;</span><br><span class="line">   bool                 retval;</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Required to initialize libmongoc<span class="string">'s internals</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_init ();</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Create a new client instance</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   client = mongoc_client_new ("mongodb://0.0.0.0:29000");</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Register the application name so we can track it in the profile logs</span><br><span class="line">    *</span><br><span class="line">    * on the server. This can also be done from the URI (see other examples).</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_client_set_appname (client, "mongodb-connection-status");</span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *      Get a handle on the database "db_name" and collection "coll_name"</span><br><span class="line"> *       </span><br><span class="line"> */</span><br><span class="line">   database = mongoc_client_get_database (client, "database_name");</span><br><span class="line">   collection = mongoc_client_get_collection (client, "database_name", "table_name");</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line"> *</span><br><span class="line"> *       Do work. This example pings the database, prints the result as JSON and</span><br><span class="line"> *       performs an insert        </span><br><span class="line"> */</span><br><span class="line">   command = BCON_NEW ("ping", BCON_INT32 (1));</span><br><span class="line"></span><br><span class="line">   retval = mongoc_client_command_simple (client, "admin", command, NULL, &amp;reply, &amp;error);</span><br><span class="line"></span><br><span class="line">   if (!retval) &#123;</span><br><span class="line">      fprintf (stderr, "%s\n", error.message);</span><br><span class="line">      return EXIT_FAILURE;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   str = bson_as_json (&amp;reply, NULL);</span><br><span class="line">   printf ("Message %s\n", str);</span><br><span class="line"></span><br><span class="line">   bson_destroy (&amp;reply);</span><br><span class="line">   bson_destroy (command);</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line">    * </span><br><span class="line">    *      Insert one document into given database and collection</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">    query = bson_new ();</span><br><span class="line">   cursor = mongoc_collection_find_with_opts (collection, query, NULL, NULL);</span><br><span class="line">   while (mongoc_cursor_next (cursor, &amp;doc)) &#123;</span><br><span class="line">      str = bson_as_json (doc, NULL);</span><br><span class="line">      printf ("%s\n", str);</span><br><span class="line">      bson_free (str);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *        Release our handles and clean up libmongoc</span><br><span class="line"> *        </span><br><span class="line"> */</span><br><span class="line">   mongoc_collection_destroy (collection);</span><br><span class="line">   mongoc_database_destroy (database);</span><br><span class="line">   mongoc_client_destroy (client);</span><br><span class="line">   mongoc_cursor_destroy (cursor);</span><br><span class="line">   mongoc_cleanup ();</span><br><span class="line"></span><br><span class="line">   return 0;</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Compile-and-Build-Program"><a href="#Compile-and-Build-Program" class="headerlink" title="Compile and Build Program"></a>Compile and Build Program</h2><p>Execute following command to compile and build executable C program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mongo_db_connect.c -o mongo_db_connect $(pkg-config --cflags --libs libmongoc-1.0)</span><br></pre></td></tr></table></figure></p>
-<p>Now we can run the program through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo_db_connect</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/C/">C</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -913,7 +904,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>33</small></li>
+    <li><a href="/tags/Java/">Java</a><small>34</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -984,6 +975,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/22/Java-Summary-I/">Java Summary I</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/11/Reading-Note-of-Code-Complete-IV/">Reading Note of Code Complete IV</a>
       </li>
     
@@ -997,10 +992,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-II/">Reading Note of Code Complete II</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">Reading Note of Code Complete I</a>
       </li>
     
   </ul>
