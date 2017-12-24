@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 8 | YBC HomePage</title>
+  <title>Seite 8 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,63 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-22T08:20:45.000Z"><a href="/2017/01/22/Lua-Redis-QuickStart/">2017-01-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to install lredis can help to learn more c libraries. So we summarize the installation of both libraries here.</p>
+<h2 id="lredis-Library-Installation"><a href="#lredis-Library-Installation" class="headerlink" title="lredis Library Installation"></a>lredis Library Installation</h2><p>The operating system here is CentOS. And here is the link of <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github repository</a>.</p>
+<h3 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h3><p>At first, we need to install required dependencies: cqueue &gt;= 20150907 and fifo, as well as required tools <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">luarocks</a>.</p>
+<p>Here is its <a href="https://github.com/wahern/cqueues" target="_blank" rel="external">Github repository</a>. But to successfully install the library, we need to install openssl devel first, otherwise we may fail to installcqueue because of missing openssl head file.</p>
+<p>Execute following command to install openssl devel:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl-devel</span><br></pre></td></tr></table></figure></p>
+<p>Then install cqueue library through following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install cqueues CRYPTO_INCDIR=/usr/include CRYPTO_DIR=/usr/ OPENSSL_INCDIR=/usr/include OPENSSL_DIR=/usr/</span><br></pre></td></tr></table></figure></p>
+<p>Note that the value of CRYPTO_INCDIR, CRYPTO_DIR, OPENSSL_INCDIR, and OPENSSL_DIR may be different.</p>
+<p>Now we will install fifo library. Here is <a href="https://github.com/daurnimator/fifo.lua" target="_blank" rel="external">Github Repository</a>. Following is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install fifo</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-lredis-client"><a href="#Install-lredis-client" class="headerlink" title="Install lredis client"></a>Install lredis client</h3><p>Here is <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github Repository</a>. Execute the command to do installation:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install --server=http://luarocks.org/dev lredis</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="redis-lua-Library-Installation"><a href="#redis-lua-Library-Installation" class="headerlink" title="redis-lua Library Installation"></a>redis-lua Library Installation</h2><p>Here is the link of <a href="https://github.com/nrk/redis-lua" target="_blank" rel="external">Github Repository</a>. Install the library through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install redis-lua</span><br></pre></td></tr></table></figure></p>
+<p>Note that if luarocks command cannot be executed by sudoers, we should use root to do the installation.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -553,50 +610,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:09:34.000Z"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">Compile scala to java jar tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -663,7 +681,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>34</small></li>
+    <li><a href="/tags/Java/">Java</a><small>35</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -711,7 +729,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.62px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -734,6 +752,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/23/Java-Summary-II/">Java Summary II</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/22/Java-Summary-I/">Java Summary I</a>
       </li>
     
@@ -747,10 +769,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-II/">Reading Note of Code Complete II</a>
       </li>
     
   </ul>

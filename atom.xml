@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2017-12-22T22:46:45.000Z</updated>
+  <updated>2017-12-24T06:23:30.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Summary II</title>
+    <link href="http://yular.github.io/2017/12/23/Java-Summary-II/"/>
+    <id>http://yular.github.io/2017/12/23/Java-Summary-II/</id>
+    <published>2017-12-24T06:22:42.000Z</published>
+    <updated>2017-12-24T06:23:30.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Summary I</title>
@@ -944,84 +962,6 @@ private static Long generateDefaultTimeToLive() {
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Thinking in Test Driven Development</title>
-    <link href="http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/"/>
-    <id>http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/</id>
-    <published>2017-09-15T05:26:09.000Z</published>
-    <updated>2017-09-15T06:24:02.000Z</updated>
-    
-    <content type="html">&lt;p&gt;The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.&lt;/p&gt;
-&lt;p&gt;In my software development model, here are the steps to apply TDD in practice:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Fully understand the user requirement.&lt;/li&gt;
-&lt;li&gt;Do a good design for the project, which includes the system design and object-oriented design.&lt;/li&gt;
-&lt;li&gt;Based on the design, list all the features need to accomplish.&lt;/li&gt;
-&lt;li&gt;Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.&lt;/li&gt;
-&lt;li&gt;While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.&lt;/li&gt;
-&lt;li&gt;While refactor the code, keep the code clean so that it is simple, easy to read and maintain.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;p&gt;Here are some useful tips borrowed from the book.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Create a test list including all the required tests at the beginning.&lt;/li&gt;
-&lt;li&gt;The goal of each test is to leave the world in exactly the same state before it ran.&lt;/li&gt;
-&lt;li&gt;Each test should represent one step towards overall goal.&lt;/li&gt;
-&lt;li&gt;What should be tested:&lt;ul&gt;
-&lt;li&gt;Conditions&lt;/li&gt;
-&lt;li&gt;Loops&lt;/li&gt;
-&lt;li&gt;Operations&lt;/li&gt;
-&lt;li&gt;Polymorphism&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;What factors should be included in the test:&lt;ul&gt;
-&lt;li&gt;What does the operation belong to.&lt;/li&gt;
-&lt;li&gt;What are the correct inputs.&lt;/li&gt;
-&lt;li&gt;What is the correct output given those input.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Some attributes of tests suggesting a design in trouble:&lt;ul&gt;
-&lt;li&gt;Long setup code.&lt;/li&gt;
-&lt;li&gt;Setup duplication.&lt;/li&gt;
-&lt;li&gt;Long running tests.&lt;/li&gt;
-&lt;li&gt;Fragile tests.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Write assert first in the test.&lt;/li&gt;
-&lt;li&gt;To improve test coverage, take a fixed set of tests and simplify the logic of the program.&lt;/li&gt;
-&lt;li&gt;Avoid test coupling. All the tests should be run independently.&lt;/li&gt;
-&lt;li&gt;Isolating tests also helps to decouple objects (Improve the design).&lt;/li&gt;
-&lt;li&gt;Tests should be in a small scale instead of whole application.&lt;/li&gt;
-&lt;li&gt;For common objects needed by several tests, convert local variables into instance variables.&lt;/li&gt;
-&lt;li&gt;Use data that makes the test easy to read and follow.&lt;/li&gt;
-&lt;li&gt;Evident data seems to be an exception to the rule that you do not want magic numbers in your code.&lt;/li&gt;
-&lt;li&gt;When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.&lt;/li&gt;
-&lt;li&gt;To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.&lt;/li&gt;
-&lt;li&gt;To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.&lt;/li&gt;
-&lt;li&gt;Always make sure all the tests are running before check in your own code.&lt;/li&gt;
-&lt;li&gt;Unless have reason to distrust it, do not test code from others. &lt;/li&gt;
-&lt;li&gt;toString method is an exception that does not require test.&lt;/li&gt;
-&lt;li&gt;Physical setup (for working environment): cheap disk, nice chair.&lt;/li&gt;
-&lt;li&gt;Get cheap/slow/old machines for individual email and surfing.&lt;/li&gt;
-&lt;li&gt;Leave a programming session when programming alone, leave the last test broken.&lt;/li&gt;
-&lt;li&gt;Leave a programming session when programming in a team, leave all the test running.&lt;/li&gt;
-&lt;li&gt;Feel lost, throw away the code and start over.&lt;/li&gt;
-&lt;li&gt;Feel tired or stuck, take a break.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have alrea
-    
-    </summary>
-    
-    
-      <category term="Test" scheme="http://yular.github.io/tags/Test/"/>
     
   </entry>
   
