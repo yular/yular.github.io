@@ -90,6 +90,113 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-01-22T09:17:38.000Z"><a href="/2017/01/22/Redis-Command-and-DataStructure/">2017-01-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Redis has various data types and data structure which are helpful to efficiently manage data. Here is the <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="external">official introduction</a>  and <a href="https://redis.io/topics/data-types" target="_blank" rel="external">official website</a> about data types and their command lines.</p>
+<p>Below is our summary.</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.<br>A String value can be at max 512 Megabytes in length.</p>
+<p>Here is the <a href="https://redis.io/commands/#string" target="_blank" rel="external">list of commands supported by String</a> and below is most common ones:</p>
+<ul>
+<li>INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.</li>
+<li>APPEND: Append to strings.</li>
+<li>GETRANGE and SETRANGE: Use Strings as a random access vectors.</li>
+<li>GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.<br>The max length of a list is 2^32 - 1 elements.</p>
+<p>Here is the <a href="https://redis.io/commands#list" target="_blank" rel="external">list of commands supported by List</a> and below is most common ones:</p>
+<ul>
+<li>LPUSH: Inserts a new element on the head of List.</li>
+<li>RPUSH: Inserts a new element on the tail of List.</li>
+</ul>
+<hr>
+
+<h2 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h2><p>Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.<br>The max number of members in a set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#set" target="_blank" rel="external">list of commands supported by Set</a> and below is most common ones:</p>
+<ul>
+<li>SADD: Inserts a new element into Set.</li>
+<li>SPOP and SRANDMEMBER: Extract elements at random.</li>
+</ul>
+<hr>
+
+<h2 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted Sets"></a>Sorted Sets</h2><p>Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.<br>The max number of members in a sorted set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#sorted_set" target="_blank" rel="external">list of commands supported by Sorted Sets</a> and below is most common ones:</p>
+<ul>
+<li>ZADD: Inserts a new element into Sorted Set.</li>
+<li>ZRANGE: Get the elements of which their keys are within the given range.</li>
+<li>ZRANGEBYSCORE: Get the elements of which their scores are within the given range.</li>
+<li>ZRANK: Get the rank (or position) of given element.</li>
+</ul>
+<hr>
+
+<h2 id="Hashes"><a href="#Hashes" class="headerlink" title="Hashes"></a>Hashes</h2><p>Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.<br>The max number of members in a hash is 2^32 - 1.</p>
+<p>Here is the <a href="">list of commands supported by Hash</a> and below is most common ones:</p>
+<ul>
+<li>HMSET: Insert a new element (object) into Hash.</li>
+<li>HSET: Insert a new field into Hash object.</li>
+<li>HGETALL: Get the information of element (object).</li>
+<li>HGET: Get the information of a field of element (object).</li>
+</ul>
+<hr>
+
+<h2 id="Bit-arrays-Bitmaps"><a href="#Bit-arrays-Bitmaps" class="headerlink" title="Bit arrays (Bitmaps)"></a>Bit arrays (Bitmaps)</h2><p>Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.</p>
+<hr>
+
+<h2 id="HyperLogLogs"><a href="#HyperLogLogs" class="headerlink" title="HyperLogLogs"></a>HyperLogLogs</h2><p>HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.</p>
+<hr>
+
+<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><p>keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.</p>
+<p>A few rules about keys:</p>
+<ul>
+<li>Very long keys are not a good idea.</li>
+<li>Very short keys are often not a good idea.</li>
+<li>Try to stick with a schema.</li>
+<li>The maximum allowed key size is 512 MB.</li>
+</ul>
+<hr>
+
+<h2 id="Redis-expires"><a href="#Redis-expires" class="headerlink" title="Redis expires"></a>Redis expires</h2><p>Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Redis/">Redis</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-01-22T08:20:45.000Z"><a href="/2017/01/22/Lua-Redis-QuickStart/">2017-01-22</a></time>
       
       
@@ -571,50 +678,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:09:57.000Z"><a href="/2016/07/22/scala-sbt-tool-quickstart/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/scala-sbt-tool-quickstart/">scala sbt tool quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -709,7 +777,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>8</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -731,7 +799,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.62px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.29px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.86px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.57px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -752,6 +820,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/26/Reading-Note-of-Code-Complete-V/">Reading Note of Code Complete V</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/23/Java-Summary-II/">Java Summary II</a>
       </li>
     
@@ -765,10 +837,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
       </li>
     
   </ul>

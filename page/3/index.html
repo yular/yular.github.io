@@ -90,6 +90,87 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-09-24T01:08:51.000Z"><a href="/2017/09/23/Java-9-New-Features/">2017-09-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from <a href="http://openjdk.java.net/projects/jdk9/" target="_blank" rel="external">OpenJDK official page</a>.</p>
+<p>Here is a good summary. See this <a href="http://www.baeldung.com/new-java-9" target="_blank" rel="external">link</a>.</p>
+<h3 id="Java-9-REPL-JShell"><a href="#Java-9-REPL-JShell" class="headerlink" title="Java 9 REPL(JShell)"></a>Java 9 REPL(JShell)</h3><p>In Java 9, we can use a command line tool called <code>JShell</code> to execute Java statement, which is similar to python shell. The command to start JSell is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; jshell</span><br><span class="line"></span><br><span class="line">(output is similar as follow)</span><br><span class="line">|  Welcome to JShell -- Version 9</span><br><span class="line">|  For an introduction type: /help intro</span><br></pre></td></tr></table></figure>
+<p>And we can write and execute Java code as following simple example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; int a = 10, b = 20;</span><br><span class="line">a ==&gt; 10</span><br><span class="line">b ==&gt; 20</span><br><span class="line"></span><br><span class="line">jshell&gt; int c = a + b;</span><br><span class="line">c ==&gt; 30</span><br><span class="line"></span><br><span class="line">jshell&gt; int sum = a + b + c;</span><br><span class="line">sum ==&gt; 60</span><br><span class="line"></span><br><span class="line">jshell&gt; System.out.println(&quot;Sum of a, b and c is : &quot; + sum);</span><br><span class="line">Sum of a, b and c is : 60</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Factory Methods for Immutable Data Structures</span><br><span class="line"></span><br><span class="line">In Java 9, factory methods for immutable List, Set, Map and Map.Entry are available to create empty or non-empty Collection object. They are `of()` methods. </span><br><span class="line"></span><br><span class="line">Here are some simple examples:</span><br><span class="line"></span><br><span class="line">** Immutable List  **</span><br></pre></td></tr></table></figure>
+<p>jshell&gt; List immutableEmptyList = List.of();<br>immutableEmptyList ==&gt; []</p>
+<p>jshell&gt; List immutableList = List.of(“one”,”two”,”three”);<br>immutableList ==&gt; [one, two, three]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">** Immutable Map **</span><br></pre></td></tr></table></figure></p>
+<p>jshell&gt; Map immutableEmptyMap = Map.of()<br>immutableEmptyMap ==&gt; {}</p>
+<p>jshell&gt; Map immutableMap = Map.of(“one”, 1, “two”, 2, “three”, 3)<br>immutableMap ==&gt; {three=3, two=2, one=1}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Private Methods in Interface</span><br><span class="line"></span><br><span class="line">In Java 9, users can define private static or non-static methods inside interface.</span><br><span class="line"></span><br><span class="line">See this sample code:</span><br></pre></td></tr></table></figure></p>
+<p>import java.time.Clock;<br>import java.time.Duration;<br>import java.time.Instant;</p>
+<p>public interface isDatabaseItem {</p>
+<pre><code>Long defaultTimeToLive = generateDefaultTimeToLive();
+
+private static Long generateDefaultTimeToLive() {
+    Instant currentTime = Instant.now( Clock.systemDefaultZone() );
+    return currentTime.plus( Duration.ofSeconds(1L) ).getEpochSecond();
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Modue Definition</span><br><span class="line"></span><br><span class="line">A modular system provides capabilities similar to OSGi framework’s system. Modules have a concept of dependencies, can export a public API and keep implementation details hidden/private. One of the main motivations here is to provide modular JVM, which can run on devices with a lot less available memory. The JVM could run with only those modules and APIs which are required by the application. </span><br><span class="line"></span><br><span class="line">Simply put, the modules are going to be described in a file called module-info.java located in the top of java code hierarchy. Here is a sample code from [OpenJDK](http://openjdk.java.net/projects/jigsaw/quick-start).</span><br></pre></td></tr></table></figure></p>
+<p>src/org.astro/module-info.java<br>src/org.astro/org/astro/World.java<br>src/com.greetings/com/greetings/Main.java<br>src/com.greetings/module-info.java</p>
+<p>$ cat src/org.astro/module-info.java<br>module org.astro {<br>    exports org.astro;<br>}</p>
+<p>$ cat src/org.astro/org/astro/World.java<br>package org.astro;<br>public class World {<br>   public static String name() {<br>        return “world”;<br>   }<br>}</p>
+<p>$ cat src/com.greetings/module-info.java<br>module com.greetings {<br>    requires org.astro;<br>}</p>
+<p>$ cat src/com.greetings/com/greetings/Main.java<br>package com.greetings;<br>import org.astro.World;<br>public class Main {<br>    public static void main(String[] args) {<br>        System.out.format(“Greetings %s!%n”, World.name());<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Http2 Client</span><br><span class="line">The new API is located under the `java.net.http package`. It should support both HTTP/2 protocol and WebSocket handshake, with performance that should be comparable with the Apache HttpClient, Netty and Jetty. And HTTP Client JEP is moved to Incubator module, which is `jdk.incubator.http`.</span><br><span class="line"></span><br><span class="line">Here is the sample code about GET request:</span><br></pre></td></tr></table></figure></p>
+<p>URI httpURI = new URI(“<a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>“);<br>HttpRequest request = HttpRequest.create(httpURI).GET();<br>HttpResponse response = request.response();<br>String responseBody = response.body(HttpResponse.asString());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Stream API</span><br><span class="line">Four new methods are added to `java.util.Stream` interface. Two of them are very important: dropWhile and takeWhile methods. </span><br><span class="line"></span><br><span class="line">The `takeWhile()` takes a predicate as an argument and returns a Stream of subset of the given Stream values until that Predicate returns false for first time. If first value does NOT satisfy that Predicate, it just returns an empty Stream.</span><br><span class="line"></span><br><span class="line">Here is the sample code about `takeWhile()` method:</span><br></pre></td></tr></table></figure></p>
+<p>Stream.of(1,2,3,4,5,6,7,8,9,10).takeWhile(i -&gt; i &lt; 5 ).forEach(System.out::println);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Diamond Operator for Anonymous Inner Class</span><br><span class="line">Now diamond operator in conjunction with anonymous inner classes is supported in Java 9.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>FooClass<integer> fc = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};</integer></p>
+<p>FooClass&lt;? extends Integer&gt; fc0 = new FooClass&lt;&gt;(1) {<br>    // anonymous inner class<br>};</p>
+<p>FooClass&lt;?&gt; fc1 = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Process API</span><br><span class="line">Some new classes and methods are added for controlling and managing OS processes. Two main ones are `java.lang.ProcessHandle` and `java.lang.ProcessHandle.Info`. </span><br><span class="line"></span><br><span class="line">Here is the sample code of `java.lang.ProcessHandle` usage:</span><br></pre></td></tr></table></figure></p>
+<p>ProcessHandle self = ProcessHandle.current();<br>long PID = self.getPid();<br>ProcessHandle.Info procInfo = self.info();</p>
+<p>Optional<string[]> args = procInfo.arguments();<br>Optional<string> cmd =  procInfo.commandLine();<br>Optional<instant> startTime = procInfo.startInstant();<br>Optional<duration> cpuUsage = procInfo.totalCpuDuration();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">And here is the sample code of stopping all the running child processes using destroy():</span><br></pre></td></tr></table></figure></duration></instant></string></string[]></p>
+<p>childProc = ProcessHandle.current().children();<br>childProc.forEach(procHandle -&gt; {<br>    assertTrue(“Could not kill process “ + procHandle.getPid(), procHandle.destroy());<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Optional Class to Stream</span><br><span class="line">Use `java.util.Optional.stream()` to use the Stream API on Optional elements. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>List<string> filteredList = listOfOptionals.stream()<br>  .flatMap(Optional::stream)<br>  .collect(Collectors.toList());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Reactive Streams</span><br><span class="line">The Reactive Streams publish-subscribe framework is supported in Java 9 to to implement Asynchronous, Scalable and Parallel applications very easily. </span><br><span class="line"></span><br><span class="line">Here are following API to develop Reactive Streams in Java-based applications.</span><br><span class="line">* java.util.concurrent.Flow</span><br><span class="line">* java.util.concurrent.Flow.Publisher</span><br><span class="line">* java.util.concurrent.Flow.Subscriber</span><br><span class="line">* java.util.concurrent.Flow.Processor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Try-With-Resources</span><br><span class="line">Now if the resource is referenced by a final or effectively final variable, a try-with-resources statement can manage a resource without a new variable being declared. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></string></p>
+<p>MyAutoCloseable mac = new MyAutoCloseable();<br>try (mac) {<br>    // do some stuff with mac<br>}</p>
+<p>try (new MyAutoCloseable() { }.finalWrapper.finalCloseable) {<br>   // do some stuff with finalCloseable<br>} catch (Exception ex) { }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in CompletableFuture API</span><br><span class="line">Now `CompletableFuture` API supports some delays, timeouts and better sub-classing, and has some utility methods.</span><br><span class="line"></span><br><span class="line">Here is the sample code of `delayedExecutor()`, which is static utility method used to return a new Executor that submits a task to the default executor after the given delay.</span><br></pre></td></tr></table></figure></p>
+<p>Executor exe = CompletableFuture.delayedExecutor(50L, TimeUnit.SECONDS);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Мulti-Resolution Image API</span><br><span class="line">The interface `java.awt.image.MultiResolutionImage` encapsulates a set of images with different resolutions into a single object. We can retrieve a resolution-specific image variant based on a given DPI metric and set of image transformations or retrieve all of the variants in the image.</span><br><span class="line"></span><br><span class="line">The `java.awt.Graphics` class gets variant from a multi-resolution image based on the current display DPI metric and any applied transformations.</span><br><span class="line"></span><br><span class="line">The class `java.awt.image.BaseMultiResolutionImage` provides basic implementation.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>BufferedImage[] resolutionVariants = ….<br>MultiResolutionImage bmrImage<br>  = new BaseMultiResolutionImage(baseIndex, resolutionVariants);<br>Image testRVImage = bmrImage.getResolutionVariant(16, 16);<br>assertSame(“Images should be the same”, testRVImage, resolutionVariants[3]);<br>```</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-09-15T05:26:09.000Z"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">2017-09-14</a></time>
       
       
@@ -1135,156 +1216,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T02:06:10.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">Linux System and Adminstrative Commands II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Information-and-Statistics"><a href="#Information-and-Statistics" class="headerlink" title="Information and Statistics"></a>Information and Statistics</h2><h3 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h3><hr>
-
-<h3 id="arch"><a href="#arch" class="headerlink" title="arch"></a>arch</h3><ul>
-<li>Show system architecture.</li>
-</ul>
-<hr>
-
-<h3 id="lastcomm"><a href="#lastcomm" class="headerlink" title="lastcomm"></a>lastcomm</h3><ul>
-<li>Gives information of previous commands, as stored in the <code>/var/account/pacct</code> file.</li>
-</ul>
-<hr>
-
-<h3 id="lastlog"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</h3><hr>
-
-<h3 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h3><ul>
-<li>List open files.</li>
-</ul>
-<hr>
-
-<h3 id="strace"><a href="#strace" class="headerlink" title="strace"></a>strace</h3><ul>
-<li>System trace: diagnostic and debugging tool for tracing system calls and signals.</li>
-</ul>
-<hr>
-
-<h3 id="ltrace"><a href="#ltrace" class="headerlink" title="ltrace"></a>ltrace</h3><ul>
-<li>Library trace: diagnostic and debugging tool that traces library calls invoked by a given command.</li>
-</ul>
-<hr>
-
-<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><ul>
-<li>A complete toolkit for connecting to and listening to TCP and UDP ports.</li>
-</ul>
-<hr>
-
-<h3 id="free"><a href="#free" class="headerlink" title="free"></a>free</h3><ul>
-<li>Show memory and cache usage in tabular form.</li>
-</ul>
-<hr>
-
-<h3 id="proinfo"><a href="#proinfo" class="headerlink" title="proinfo"></a>proinfo</h3><ul>
-<li>Extract and list information and statistics from the <code>/proc</code> pseudo-filesystem.</li>
-</ul>
-<hr>
-
-<h3 id="lsdev"><a href="#lsdev" class="headerlink" title="lsdev"></a>lsdev</h3><ul>
-<li>List devices (installed hardware).</li>
-</ul>
-<hr>
-
-<h3 id="du"><a href="#du" class="headerlink" title="du"></a>du</h3><ul>
-<li>Show disk file usage recusively.</li>
-</ul>
-<hr>
-
-<h3 id="df"><a href="#df" class="headerlink" title="df"></a>df</h3><ul>
-<li>Show filesystem usage in tabular form.</li>
-</ul>
-<hr>
-
-<h3 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h3><hr>
-
-<h3 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h3><ul>
-<li>Gives detailed and verbose statistics on a given file or set of files.</li>
-</ul>
-<hr>
-
-<h3 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h3><ul>
-<li>Show virtual memory statistics.</li>
-</ul>
-<hr>
-
-<h3 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h3><ul>
-<li>Show how long the system has been running.</li>
-</ul>
-<hr>
-
-<h3 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h3><ul>
-<li>Lists the hostname of system.</li>
-</ul>
-<hr>
-
-<h3 id="hostid"><a href="#hostid" class="headerlink" title="hostid"></a>hostid</h3><ul>
-<li>Echo a 32-bit hexadecimal numerical identifier for the host machine.</li>
-</ul>
-<hr>
-
-<h3 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h3><hr>
-
-<h3 id="readelf"><a href="#readelf" class="headerlink" title="readelf"></a>readelf</h3><hr>
-
-<h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><ul>
-<li>Show the segment sizes of a binary executable or archive file.</li>
-</ul>
-<h2 id="System-Logs"><a href="#System-Logs" class="headerlink" title="System Logs"></a>System Logs</h2><h3 id="logger"><a href="#logger" class="headerlink" title="logger"></a>logger</h3><ul>
-<li>Append a user-generated message to the system log <code>/var/log/messages</code>.</li>
-</ul>
-<hr>
-
-<h3 id="logrotate"><a href="#logrotate" class="headerlink" title="logrotate"></a>logrotate</h3><ul>
-<li>Manage the system log files, rotating, compressing, deleting, and/or e-mailing them, as appropriate.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1379,7 +1315,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>8</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -1401,7 +1337,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.23px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.08px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.85px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.62px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.62px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.29px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 12.86px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 13.57px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -1422,6 +1358,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2017/12/26/Reading-Note-of-Code-Complete-V/">Reading Note of Code Complete V</a>
+      </li>
+    
+      <li>
         <a href="/2017/12/23/Java-Summary-II/">Java Summary II</a>
       </li>
     
@@ -1435,10 +1375,6 @@
     
       <li>
         <a href="/2017/12/03/Reading-Note-of-Clean-Code/">Reading Note of Clean Code</a>
-      </li>
-    
-      <li>
-        <a href="/2017/12/03/Reading-Note-of-Code-Complete-III/">Reading Note of Code Complete III</a>
       </li>
     
   </ul>
