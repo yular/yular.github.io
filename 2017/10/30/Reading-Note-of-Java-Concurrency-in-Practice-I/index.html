@@ -102,7 +102,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-Safety"><span class="toc-number">2.</span> <span class="toc-text">Thread Safety</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">3.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principles"><span class="toc-number">4.</span> <span class="toc-text">Principles</span></a></li></ol>
           </div>
       
       
@@ -113,12 +113,29 @@
 <li>线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。</li>
 <li>活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。</li>
 <li>用annotation (@ThreadSafe for example)来标记线程安全程度。</li>
-<li>线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用对象，而不是对象完成了什么。</li>
-<li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
+<li>以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。</li>
+</ul>
+<hr>
+
+<h3 id="Thread-Safety"><a href="#Thread-Safety" class="headerlink" title="Thread Safety"></a>Thread Safety</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ul>
 <li>共享：是指一个变量可以被多个线程访问。</li>
 <li>可变：是指变量的值在其生命周期内可变。</li>
 <li>对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。</li>
-<li>以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。</li>
+<li>线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&gt;对象，而不是对象完成了什么。</li>
+</ul>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<li>方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。</li>
+<li>无状态对象永远是线程安全的。</li>
+</ul>
+<h3 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h3><ul>
+<li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
+<li>修复潜在线程安全问题的方法：<ul>
+<li>不要跨线程共享变量。</li>
+<li>状态变量不可变。</li>
+<li>在任何访问状态变量的时候使用同步。</li>
+</ul>
+</li>
+<li>一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。</li>
 </ul>
 
       
