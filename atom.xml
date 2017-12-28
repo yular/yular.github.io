@@ -218,7 +218,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-12-27T09:00:51.000Z</updated>
+    <updated>2017-12-28T09:19:06.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -236,6 +236,7 @@
 &lt;li&gt;可变：是指变量的值在其生命周期内可变。&lt;/li&gt;
 &lt;li&gt;对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。&lt;/li&gt;
 &lt;li&gt;线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&amp;gt;对象，而不是对象完成了什么。&lt;/li&gt;
+&lt;li&gt;线程安全的定义：当多个线程访问一个类时，如果不考虑这些线程在运行环境下的调度和交替执行，并且不需要额外的同步以及调用方代码作额外的其他协调，这个类的行为依然正确，则此类是线程安全的。这种类封装了必要的同步，客户不需要额外提供。同时，对线程安全类的实例进行顺序或并发的一系列操作，都不会导致实例处于无效状态。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。&lt;/li&gt;
