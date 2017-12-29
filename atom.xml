@@ -218,7 +218,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-12-28T09:19:06.000Z</updated>
+    <updated>2017-12-29T09:10:37.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -251,6 +251,9 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。&lt;/li&gt;
+&lt;li&gt;设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。&lt;/li&gt;
+&lt;li&gt;要约束状态变量的有效值或者状态转换，需要原子性和封装性。&lt;/li&gt;
+&lt;li&gt;创建一个状态依赖的类，要使用平台与类库提供的底层机制。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
