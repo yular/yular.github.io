@@ -218,7 +218,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2017-12-29T09:10:37.000Z</updated>
+    <updated>2018-01-03T09:27:40.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -241,6 +241,7 @@
 &lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。&lt;/li&gt;
 &lt;li&gt;无状态对象永远是线程安全的。&lt;/li&gt;
+&lt;li&gt;java.util.concurrent.atomic 包含了原子变量类。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&quot;Principles&quot;&gt;&lt;a href=&quot;#Principles&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。&lt;/li&gt;
@@ -254,6 +255,7 @@
 &lt;li&gt;设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。&lt;/li&gt;
 &lt;li&gt;要约束状态变量的有效值或者状态转换，需要原子性和封装性。&lt;/li&gt;
 &lt;li&gt;创建一个状态依赖的类，要使用平台与类库提供的底层机制。&lt;/li&gt;
+&lt;li&gt;为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
