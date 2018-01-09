@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-06T22:49:17.000Z</updated>
+  <updated>2018-01-09T08:41:38.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Advanced Encryption Standard (AES) Summary</title>
+    <link href="http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/"/>
+    <id>http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/</id>
+    <published>2018-01-09T08:28:35.000Z</published>
+    <updated>2018-01-09T08:41:38.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Encryption_Standard&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia link of AES&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Different-Modes-of-AES&quot;&gt;&lt;a href=&quot;#Different-Modes-of-AES&quot; class=&quot;headerlink&quot; title=&quot;Different Modes of AES&quot;&gt;&lt;/a&gt;Different Modes of AES&lt;/h3&gt;&lt;h4 id=&quot;ECB&quot;&gt;&lt;a href=&quot;#ECB&quot; class=&quot;headerlink&quot; title=&quot;ECB&quot;&gt;&lt;/a&gt;ECB&lt;/h4&gt;&lt;h4 id=&quot;PCBC&quot;&gt;&lt;a href=&quot;#PCBC&quot; class=&quot;headerlink&quot; title=&quot;PCBC&quot;&gt;&lt;/a&gt;PCBC&lt;/h4&gt;&lt;h4 id=&quot;CFB&quot;&gt;&lt;a href=&quot;#CFB&quot; class=&quot;headerlink&quot; title=&quot;CFB&quot;&gt;&lt;/a&gt;CFB&lt;/h4&gt;&lt;h4 id=&quot;OFB&quot;&gt;&lt;a href=&quot;#OFB&quot; class=&quot;headerlink&quot; title=&quot;OFB&quot;&gt;&lt;/a&gt;OFB&lt;/h4&gt;&lt;h4 id=&quot;CTR&quot;&gt;&lt;a href=&quot;#CTR&quot; class=&quot;headerlink&quot; title=&quot;CTR&quot;&gt;&lt;/a&gt;CTR&lt;/h4&gt;&lt;h4 id=&quot;CBC&quot;&gt;&lt;a href=&quot;#CBC&quot; class=&quot;headerlink&quot; title=&quot;CBC&quot;&gt;&lt;/a&gt;CBC&lt;/h4&gt;&lt;h4 id=&quot;GCM&quot;&gt;&lt;a href=&quot;#GCM&quot; class=&quot;headerlink&quot; title=&quot;GCM&quot;&gt;&lt;/a&gt;GCM&lt;/h4&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of How To Win Friends and Influence People</title>
@@ -794,77 +815,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Item-31-Use-instance-fields-instead-of-ordinals&quot;&gt;&lt;a href=&quot;#Item-31-Use-instance-fields-instead-of-ordinals&quot; class=&quot;headerlink&quot; title
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java III</title>
-    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-III/"/>
-    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-III/</id>
-    <published>2017-10-02T00:52:05.000Z</published>
-    <updated>2017-10-02T02:56:37.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-21-Use-function-objects-to-represent-strategies&quot;&gt;&lt;a href=&quot;#Item-21-Use-function-objects-to-represent-strategies&quot; class=&quot;headerlink&quot; title=&quot;Item 21. Use function objects to represent strategies&quot;&gt;&lt;/a&gt;Item 21. Use function objects to represent strategies&lt;/h3&gt;&lt;p&gt;Strategy pattern is to allow the caller of a function to specialize its behavior by passing in a second function. Function objects are instances of classes implementing interfaces whose methods perform operations on other objects, passed explicitly to that methods. A typical concrete strategy class is stateless, has no fields, and thus all instances are functionally equivalent.&lt;/p&gt;
-&lt;p&gt;In Java, to implement Strategy pattern, declare an interface to represent the strategy, and a class that implements this interface for each concrete strategy.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-22-Favor-static-member-classes-over-nonstatic&quot;&gt;&lt;a href=&quot;#Item-22-Favor-static-member-classes-over-nonstatic&quot; class=&quot;headerlink&quot; title=&quot;Item 22. Favor static member classes over nonstatic.&quot;&gt;&lt;/a&gt;Item 22. Favor static member classes over nonstatic.&lt;/h3&gt;&lt;p&gt;Static member clases are kinds of nested class. One common use of a static member class is as a public helper class, useful only in conjunction with its outer class. The association between a nonstatic member class instance and its enclosing instance is established when the former is created, and it cannot be modified thereafter. The association takes up time and space for nonstatic member class construction.&lt;/p&gt;
-&lt;p&gt;One common use of a nonstatic member class is to define an Adapter allowing an instance of the outer clas to be viewed as an instance of some unrelated class. Each instance of a nonstatic member class is implicitly associated with an enclosing instance of its enclosing class. Within instance methods of a nonstatic member class, can invoke methods on the enclosing instance or obtain a reference to the enclosing instance using the &lt;em&gt; qualified this&lt;/em&gt; construct.&lt;/p&gt;
-&lt;p&gt;If declare a member class does not require access to an enclosing instance, always use static modifier in declaration.&lt;/p&gt;
-&lt;p&gt;Common use of private static member classe is to reperesent components of the object represented by their enclosing class.&lt;/p&gt;
-&lt;p&gt;Common use of anonymous classes is to create function objects on the fly, to create process objects, such as Runnable, Thread, or TimerTask instances, and within static factory methods.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-23-Do-not-use-raw-types-in-new-code&quot;&gt;&lt;a href=&quot;#Item-23-Do-not-use-raw-types-in-new-code&quot; class=&quot;headerlink&quot; title=&quot;Item 23. Do not use raw types in new code&quot;&gt;&lt;/a&gt;Item 23. Do not use raw types in new code&lt;/h3&gt;&lt;p&gt;A class or interface whose declaration has one or more type parameters is a generic class or interface, and they are called generic types. For example, List&lt;e&gt; is generic type. &lt;/e&gt;&lt;/p&gt;
-&lt;p&gt;Each generic type defines a set of parameterized types, which consists of actual type parameters corresponding to the generic type as formal type parameters. For example, List&lt;string&gt;.&lt;/string&gt;&lt;/p&gt;
-&lt;p&gt;Each generic type defines a raw type, which is the name of the generic type used without any accompanying actual tpye parameters. For example, List.&lt;/p&gt;
-&lt;p&gt;It is fine to use types parameterized to allow insertion of arbitrary objects. For example, List&lt;object&gt;.&lt;/object&gt;&lt;/p&gt;
-&lt;p&gt;If the element type is unknown and does not matter, use unbounded wildcard types. When use unbouned wilcard types, not only cannot put any element except null into a Collection&amp;lt;?&amp;gt;, but also cannot assume anything about the type of the objects that user get out. For example,Set&amp;lt;?&amp;gt;. To use unbounded wildcard type, do this: &lt;code&gt;Set&amp;lt;?&amp;gt; st = new Set&amp;lt;String&amp;gt;()&lt;/code&gt; by specifying a type; otherwise, no element can be inserted to the data collection. If these restrictions are unacceptable, use generic methods or bounded wildcard types.&lt;/p&gt;
-&lt;p&gt;Two exceptions to the rule of disallowing raw types, both stem from the fact that generic type information is erased at runtime.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Must use raw type in class literals. For example, List.class.&lt;/li&gt;
-&lt;li&gt;The preferred way to use the instanceof operator with generic types is o instanceof Set.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Bounded type: exp. &lt;e extends=&quot;&quot; number=&quot;&quot;&gt;.&lt;/e&gt;&lt;/p&gt;
-&lt;p&gt;Bounded wildcard type: exp. &amp;lt;? extends Number&amp;gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-24-Eliminate-unchecked-warnings-Ensure-typesafe&quot;&gt;&lt;a href=&quot;#Item-24-Eliminate-unchecked-warnings-Ensure-typesafe&quot; class=&quot;headerlink&quot; title=&quot;Item 24. Eliminate unchecked warnings. (Ensure typesafe)&quot;&gt;&lt;/a&gt;Item 24. Eliminate unchecked warnings. (Ensure typesafe)&lt;/h3&gt;&lt;p&gt;If cannot eliminate a warning, prove that the code provoking the warning is typesafe, and only then suppress the warning with an &lt;code&gt;@SuppressWarnings(&amp;quot;unchecked&amp;quot;)&lt;/code&gt; annotation. And add a comment saying why it is safe to do so.&lt;/p&gt;
-&lt;p&gt;Always use the Suppress-Warnings annotation on the smallest scope possible.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-25-Prefer-lists-to-arrays&quot;&gt;&lt;a href=&quot;#Item-25-Prefer-lists-to-arrays&quot; class=&quot;headerlink&quot; title=&quot;Item 25. Prefer lists to arrays&quot;&gt;&lt;/a&gt;Item 25. Prefer lists to arrays&lt;/h3&gt;&lt;p&gt;Arrays are covariant (if Sub is a subtype of Super, Sub[] is also a subtype of Super[]), and reified (know and enforce element types at runtime). &lt;/p&gt;
-&lt;p&gt;Generics are invariant and erasure (enforce type constraints only at compile time and discard them at runtime).&lt;/p&gt;
-&lt;p&gt;Do not mix use generics and arrays. For example, List&lt;string&gt;[].&lt;/string&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-26-Favor-generic-types&quot;&gt;&lt;a href=&quot;#Item-26-Favor-generic-types&quot; class=&quot;headerlink&quot; title=&quot;Item 26. Favor generic types&quot;&gt;&lt;/a&gt;Item 26. Favor generic types&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-27-Favor-generic-methods&quot;&gt;&lt;a href=&quot;#Item-27-Favor-generic-methods&quot; class=&quot;headerlink&quot; title=&quot;Item 27. Favor generic methods&quot;&gt;&lt;/a&gt;Item 27. Favor generic methods&lt;/h3&gt;&lt;p&gt;The type parameter list, which declares the type parameter, goes between the method’s modifiers and it’s return type.&lt;/p&gt;
-&lt;p&gt;Recursive type bound is that a type parameter is bounded by some expression involving that type parameter itself. For example, interface Comparable&lt;t&gt; .&lt;/t&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-28-Use-bounded-wildcards-to-increase-API-flexibility&quot;&gt;&lt;a href=&quot;#Item-28-Use-bounded-wildcards-to-increase-API-flexibility&quot; class=&quot;headerlink&quot; title=&quot;Item 28. Use bounded wildcards to increase API flexibility&quot;&gt;&lt;/a&gt;Item 28. Use bounded wildcards to increase API flexibility&lt;/h3&gt;&lt;p&gt;For maximum flexibility, use wildcard types on input parameters representing producers (extends E) or consumers (super E), which is PECS rule. But do not use wildcard types are return types.&lt;/p&gt;
-&lt;p&gt;PECS rules: producers-extends, consumers-super. Both Comparable and Comparator are consumer pattern.&lt;/p&gt;
-&lt;p&gt;Properly used, wildcard types are nearly invisible to users of a class. If the user of a class has to think about wildcard types, there is probably something wrong with the class’s API.&lt;/p&gt;
-&lt;p&gt;If a type parameter appears once in a method declaration, replace it with a wildcard. Replace unbounded type parameter with unbounded wildcard, and replace bounded type parameter with bounded wildcard.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-29-Consider-typesafe-heterogeneous-containers&quot;&gt;&lt;a href=&quot;#Item-29-Consider-typesafe-heterogeneous-containers&quot; class=&quot;headerlink&quot; title=&quot;Item 29. Consider typesafe heterogeneous containers&quot;&gt;&lt;/a&gt;Item 29. Consider typesafe heterogeneous containers&lt;/h3&gt;&lt;p&gt;For example, Map&lt;class&lt;?&gt;, Object&amp;gt; typesafe and all keys are of different types.&lt;/class&lt;?&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-30-Use-enums-instead-of-int-constants&quot;&gt;&lt;a href=&quot;#Item-30-Use-enums-instead-of-int-constants&quot; class=&quot;headerlink&quot; title=&quot;Item 30. Use enums instead of int constants&quot;&gt;&lt;/a&gt;Item 30. Use enums instead of int constants&lt;/h3&gt;&lt;p&gt;To associate data with enum constants, declare instance fields and write a constructor that takes the data and stores it in the fields. If enum is generally useful, it should be a top level class; if its use is tied to a specific top-level class, it should be a member class of the top level class.&lt;/p&gt;
-&lt;p&gt;Use constants specific method implementation pattern. Can combine with constant-specific data. The disadvantages is to make it harder to share code among enum constants.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-21-Use-function-objects-to-represent-strategies&quot;&gt;&lt;a href=&quot;#Item-21-Use-function-objects-to-represent-strategies&quot; class=&quot;headerl
     
     </summary>
     
