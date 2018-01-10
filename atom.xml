@@ -257,7 +257,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2018-01-08T07:18:55.000Z</updated>
+    <updated>2018-01-10T09:30:12.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -300,6 +300,7 @@
 &lt;/ul&gt;
 &lt;h3 id=&quot;Lock&quot;&gt;&lt;a href=&quot;#Lock&quot; class=&quot;headerlink&quot; title=&quot;Lock&quot;&gt;&lt;/a&gt;Lock&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。&lt;/li&gt;
+&lt;li&gt;将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
