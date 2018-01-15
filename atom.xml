@@ -185,11 +185,23 @@
     <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/"/>
     <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/</id>
     <published>2017-12-03T21:22:17.000Z</published>
-    <updated>2017-12-03T21:24:20.000Z</updated>
+    <updated>2018-01-15T06:18:18.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Problem Definition: A problem definition defines what the problem is without any reference to possible solutions. The problem definition should be in user language, and described from a useras point of view. &lt;/li&gt;
+&lt;li&gt;Requirement: Requirements describe in detail what a software system is supposed to do, and they are the first step toward a solution.&lt;/li&gt;
+&lt;li&gt;Data Design: Data should be normally accessed directly by only one subsystem or class, except through access classes or routines allowing access to the data in controlled and abstract ways.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Marjor classes: 20% of the classes make up 80% of the system behaviour.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;I
     
     </summary>
     
@@ -257,7 +269,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2018-01-15T06:00:54.000Z</updated>
+    <updated>2018-01-15T06:03:41.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -298,6 +310,8 @@
 &lt;li&gt;创建一个状态依赖的类，要使用平台与类库提供的底层机制。&lt;/li&gt;
 &lt;li&gt;为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Lock&quot;&gt;&lt;a href=&quot;#Lock&quot; class=&quot;headerlink&quot; title=&quot;Lock&quot;&gt;&lt;/a&gt;Lock&lt;/h3&gt;&lt;h4 id=&quot;Principles-1&quot;&gt;&lt;a href=&quot;#Principles-1&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;锁不仅仅是保证同步和互斥，也是保证内存可见。&lt;/li&gt;
 &lt;li&gt;内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。&lt;/li&gt;

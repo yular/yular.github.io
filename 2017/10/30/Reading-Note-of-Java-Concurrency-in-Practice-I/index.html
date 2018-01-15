@@ -145,6 +145,8 @@
 <li>创建一个状态依赖的类，要使用平台与类库提供的底层机制。</li>
 <li>为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。</li>
 </ul>
+<hr>
+
 <h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h4 id="Principles-1"><a href="#Principles-1" class="headerlink" title="Principles"></a>Principles</h4><ul>
 <li>锁不仅仅是保证同步和互斥，也是保证内存可见。</li>
 <li>内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。</li>
