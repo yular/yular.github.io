@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-09T08:41:38.000Z</updated>
+  <updated>2018-01-17T06:02:09.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Summary III</title>
+    <link href="http://yular.github.io/2018/01/16/Java-Summary-III/"/>
+    <id>http://yular.github.io/2018/01/16/Java-Summary-III/</id>
+    <published>2018-01-17T06:01:59.000Z</published>
+    <updated>2018-01-17T06:02:09.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Summary II</title>
+    <link href="http://yular.github.io/2018/01/16/Java-Summary-II-1/"/>
+    <id>http://yular.github.io/2018/01/16/Java-Summary-II-1/</id>
+    <published>2018-01-17T06:01:19.000Z</published>
+    <updated>2018-01-17T06:01:19.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Advanced Encryption Standard (AES) Summary</title>
@@ -77,7 +111,7 @@
     <link href="http://yular.github.io/2017/12/23/Java-Summary-II/"/>
     <id>http://yular.github.io/2017/12/23/Java-Summary-II/</id>
     <published>2017-12-24T06:22:42.000Z</published>
-    <updated>2017-12-24T06:23:30.000Z</updated>
+    <updated>2018-01-17T06:01:41.000Z</updated>
     
     <content type="html"></content>
     
@@ -696,143 +730,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;heade
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java V</title>
-    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-V/"/>
-    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-V/</id>
-    <published>2017-10-02T05:02:21.000Z</published>
-    <updated>2017-10-02T05:20:47.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-41-Use-overloading-judiciously&quot;&gt;&lt;a href=&quot;#Item-41-Use-overloading-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 41. Use overloading judiciously&quot;&gt;&lt;/a&gt;Item 41. Use overloading judiciously&lt;/h3&gt;&lt;p&gt;A safe and conservative policy is never to export two overloadings with the same number of parameters.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-42-Use-varargs-judiciously&quot;&gt;&lt;a href=&quot;#Item-42-Use-varargs-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 42. Use varargs judiciously&quot;&gt;&lt;/a&gt;Item 42. Use varargs judiciously&lt;/h3&gt;&lt;p&gt;Use varargs only when a call really operates on a variable-length sequence of values.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-43-Return-empty-arrays-or-collections-not-nulls&quot;&gt;&lt;a href=&quot;#Item-43-Return-empty-arrays-or-collections-not-nulls&quot; class=&quot;headerlink&quot; title=&quot;Item 43. Return empty arrays or collections, not nulls&quot;&gt;&lt;/a&gt;Item 43. Return empty arrays or collections, not nulls&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-44-Write-doc-comments-for-all-exposed-API-elements&quot;&gt;&lt;a href=&quot;#Item-44-Write-doc-comments-for-all-exposed-API-elements&quot; class=&quot;headerlink&quot; title=&quot;Item 44. Write doc comments for all exposed API elements&quot;&gt;&lt;/a&gt;Item 44. Write doc comments for all exposed API elements&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To document API properly, must precede every exported class, interface, constructor, method and field declaration with a doc comment.&lt;/li&gt;
-&lt;li&gt;The doc comment for a method should describe succinctly the contract between the method and its client.&lt;/li&gt;
-&lt;li&gt;No longer necessary to use the HTML &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; or &lt;code&gt;&amp;lt;tt&amp;gt;&lt;/code&gt; tages in doc comments: the Javadoc {@code} tag is preferable because it eliminates the need to escape HTML metacharacters.&lt;/li&gt;
-&lt;li&gt;To document a generic type or method, be sure to document all type parameters.&lt;/li&gt;
-&lt;li&gt;To document an enum type, be sure to document the constants.&lt;/li&gt;
-&lt;li&gt;To document an annotation type, be sure to document any members as well as type itself.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-45-Minimize-the-scope-of-local-variables&quot;&gt;&lt;a href=&quot;#Item-45-Minimize-the-scope-of-local-variables&quot; class=&quot;headerlink&quot; title=&quot;Item 45. Minimize the scope of local variables&quot;&gt;&lt;/a&gt;Item 45. Minimize the scope of local variables&lt;/h3&gt;&lt;p&gt;Declare the local variables where they are first used. And the declaration should contain an initializer.&lt;/p&gt;
-&lt;p&gt;Keep methods small and focused.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-46-Prefer-for-each-loops-to-traditional-for-loops&quot;&gt;&lt;a href=&quot;#Item-46-Prefer-for-each-loops-to-traditional-for-loops&quot; class=&quot;headerlink&quot; title=&quot;Item 46. Prefer for-each loops to traditional for loops&quot;&gt;&lt;/a&gt;Item 46. Prefer for-each loops to traditional for loops&lt;/h3&gt;&lt;p&gt;Three situations where for-each loop should not be used:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Filtering&lt;/li&gt;
-&lt;li&gt;Transforming&lt;/li&gt;
-&lt;li&gt;Parallel iteration&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-47-Know-and-use-libraries&quot;&gt;&lt;a href=&quot;#Item-47-Know-and-use-libraries&quot; class=&quot;headerlink&quot; title=&quot;Item 47. Know and use libraries&quot;&gt;&lt;/a&gt;Item 47. Know and use libraries&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-48-Avoid-float-and-double-if-exact-answers-are-required&quot;&gt;&lt;a href=&quot;#Item-48-Avoid-float-and-double-if-exact-answers-are-required&quot; class=&quot;headerlink&quot; title=&quot;Item 48. Avoid float and double if exact answers are required&quot;&gt;&lt;/a&gt;Item 48. Avoid float and double if exact answers are required&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-49-Prefer-primitive-types-to-boxed-primitives&quot;&gt;&lt;a href=&quot;#Item-49-Prefer-primitive-types-to-boxed-primitives&quot; class=&quot;headerlink&quot; title=&quot;Item 49. Prefer primitive types to boxed primitives&quot;&gt;&lt;/a&gt;Item 49. Prefer primitive types to boxed primitives&lt;/h3&gt;&lt;p&gt;Autoboxing reduces the verbosity but not the danger of using boxed primitives.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-50-Avoid-strings-where-other-types-are-more-appropriate&quot;&gt;&lt;a href=&quot;#Item-50-Avoid-strings-where-other-types-are-more-appropriate&quot; class=&quot;headerlink&quot; title=&quot;Item 50. Avoid strings where other types are more appropriate&quot;&gt;&lt;/a&gt;Item 50. Avoid strings where other types are more appropriate&lt;/h3&gt;&lt;p&gt;Strings are poor substitutes for other value types.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Poor substitutes for enum types.&lt;/li&gt;
-&lt;li&gt;Poor substitutes for aggregate types.&lt;/li&gt;
-&lt;li&gt;&lt;ul&gt;
-&lt;li&gt;Poor substitutes for capabilities.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-41-Use-overloading-judiciously&quot;&gt;&lt;a href=&quot;#Item-41-Use-overloading-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 41. Use overloadi
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java IV</title>
-    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-IV/"/>
-    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-IV/</id>
-    <published>2017-10-02T04:34:37.000Z</published>
-    <updated>2017-10-02T05:01:09.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-31-Use-instance-fields-instead-of-ordinals&quot;&gt;&lt;a href=&quot;#Item-31-Use-instance-fields-instead-of-ordinals&quot; class=&quot;headerlink&quot; title=&quot;Item 31. Use instance fields instead of ordinals&quot;&gt;&lt;/a&gt;Item 31. Use instance fields instead of ordinals&lt;/h3&gt;&lt;p&gt;All enums have an ordinal method returning the numerical position of each enum constant in its type.&lt;/p&gt;
-&lt;p&gt;Never derive a value associated with an enum from its ordinal; store it in an instance field instead.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-32-Use-EnumSet-instead-of-bit-fields&quot;&gt;&lt;a href=&quot;#Item-32-Use-EnumSet-instead-of-bit-fields&quot; class=&quot;headerlink&quot; title=&quot;Item 32. Use EnumSet instead of bit fields&quot;&gt;&lt;/a&gt;Item 32. Use EnumSet instead of bit fields&lt;/h3&gt;&lt;p&gt;Especially an enum type will be used in sets&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-33-Use-EnumMap-instead-of-ordinal-indexing&quot;&gt;&lt;a href=&quot;#Item-33-Use-EnumMap-instead-of-ordinal-indexing&quot; class=&quot;headerlink&quot; title=&quot;Item 33. Use EnumMap instead of ordinal indexing&quot;&gt;&lt;/a&gt;Item 33. Use EnumMap instead of ordinal indexing&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-34-Emulate-extensible-enums-with-interface&quot;&gt;&lt;a href=&quot;#Item-34-Emulate-extensible-enums-with-interface&quot; class=&quot;headerlink&quot; title=&quot;Item 34. Emulate extensible enums with interface&quot;&gt;&lt;/a&gt;Item 34. Emulate extensible enums with interface&lt;/h3&gt;&lt;p&gt;One compelling use case for extensible enumerated types is operation codes.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-35-Prefer-annotations-to-naming-patterns&quot;&gt;&lt;a href=&quot;#Item-35-Prefer-annotations-to-naming-patterns&quot; class=&quot;headerlink&quot; title=&quot;Item 35. Prefer annotations to naming patterns&quot;&gt;&lt;/a&gt;Item 35. Prefer annotations to naming patterns&lt;/h3&gt;&lt;p&gt;All programmers should use predefined annotation types provided by the Java platform.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-36-Consistently-use-the-Override-annotation&quot;&gt;&lt;a href=&quot;#Item-36-Consistently-use-the-Override-annotation&quot; class=&quot;headerlink&quot; title=&quot;Item 36. Consistently use the Override annotation&quot;&gt;&lt;/a&gt;Item 36. Consistently use the Override annotation&lt;/h3&gt;&lt;p&gt;Should use the Override annotation on every method declaration that you believe to override a superclass declaration.&lt;/p&gt;
-&lt;p&gt;One exception is that in concrete classes, need not annotate methods that you believe to override abstract methods declaration.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-37-Use-marker-interfaces-to-define-types&quot;&gt;&lt;a href=&quot;#Item-37-Use-marker-interfaces-to-define-types&quot; class=&quot;headerlink&quot; title=&quot;Item 37. Use marker interfaces to define types&quot;&gt;&lt;/a&gt;Item 37. Use marker interfaces to define types&lt;/h3&gt;&lt;p&gt;Advantages of marker interface:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Define a type implemented by instances of the marked class but marker annotations do not;&lt;/li&gt;
-&lt;li&gt;Maker interface can be targeted more precisely and if an annotation type is declared with target ElementType.TYPE, it can be applied to any class or interface.&lt;/li&gt;
-&lt;li&gt;Must use marker interface if marker only applies to classes and interfaces, or want to write one or more methods accepting only objects having this marking.&lt;/li&gt;
-&lt;li&gt;If want to limit the use of marker to elements of a particular interface, define the marker as a subinterface of that interface.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Advantages of marker annotations over marker interfaces:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It is possible to add more information to an annotation type after it is already in use by adding one or more annotation elements with defaults.&lt;/li&gt;
-&lt;li&gt;Must use an annotation if the marker applies to any program element other than a class or interface.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-38-Check-parameters-for-validity&quot;&gt;&lt;a href=&quot;#Item-38-Check-parameters-for-validity&quot; class=&quot;headerlink&quot; title=&quot;Item 38. Check parameters for validity&quot;&gt;&lt;/a&gt;Item 38. Check parameters for validity&lt;/h3&gt;&lt;p&gt;For public methods, use Javadoc &lt;code&gt;@throws&lt;/code&gt; tag to document the exception that will be thrown if a restriction on parameter values is violated. For nonpublic methods, use assertion to check parameters.&lt;/p&gt;
-&lt;p&gt;Constructor should check the validity of parameters stored away for later use.&lt;/p&gt;
-&lt;p&gt;Exception is the case in which the validity check would be expensive or impractical and it is performed implicitly.&lt;/p&gt;
-&lt;p&gt;Should design methods to be as general as it is practical to make them. The fewer restriction on parameters, the better; Document all the restrictions and enforce them with explicit checks at the beginning of the method body.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-39-Make-defensive-copies-when-needed&quot;&gt;&lt;a href=&quot;#Item-39-Make-defensive-copies-when-needed&quot; class=&quot;headerlink&quot; title=&quot;Item 39. Make defensive copies when needed&quot;&gt;&lt;/a&gt;Item 39. Make defensive copies when needed&lt;/h3&gt;&lt;p&gt;Must program defensively with assumption that clients of class will do their best to destroy its invariants.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-40-Design-method-signatures-carefully&quot;&gt;&lt;a href=&quot;#Item-40-Design-method-signatures-carefully&quot; class=&quot;headerlink&quot; title=&quot;Item 40. Design method signatures carefully&quot;&gt;&lt;/a&gt;Item 40. Design method signatures carefully&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Choose method names carefully.&lt;/li&gt;
-&lt;li&gt;Do not go overboard in providing convenience methods.&lt;/li&gt;
-&lt;li&gt;Avoid long parameter lists.&lt;/li&gt;
-&lt;li&gt;For parameter types, favor interfaces over classes.&lt;/li&gt;
-&lt;li&gt;Prefer two-element enum type to boolean parameters.&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-31-Use-instance-fields-instead-of-ordinals&quot;&gt;&lt;a href=&quot;#Item-31-Use-instance-fields-instead-of-ordinals&quot; class=&quot;headerlink&quot; title
     
     </summary>
     
