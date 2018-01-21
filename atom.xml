@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-17T06:02:09.000Z</updated>
+  <updated>2018-01-21T02:42:25.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Programming in Lua 4th Edition</title>
+    <link href="http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/"/>
+    <id>http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/</id>
+    <published>2018-01-21T01:32:04.000Z</published>
+    <updated>2018-01-21T02:42:25.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;h4 id=&quot;Stand-Alone-Interpreter&quot;&gt;&lt;a href=&quot;#Stand-Alone-Interpreter&quot; class=&quot;headerlink&quot; title=&quot;Stand-Alone Interpreter&quot;&gt;&lt;/a&gt;Stand-Alone Interpreter&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Useful Lua idiom&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;x = x or v&lt;/code&gt; is equivalent to &lt;code&gt;if not x then x = v end&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;((a and b)or c) is equivalent to C expression&lt;/code&gt;a?b:c`.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Arithmetic-Operators&quot;&gt;&lt;a href=&quot;#Arithmetic-Operators&quot; class=&quot;headerlink&quot; title=&quot;Arithmetic Operators&quot;&gt;&lt;/a&gt;Arithmetic Operators&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Division&lt;ul&gt;
+&lt;li&gt;float division is &lt;code&gt;/&lt;/code&gt;, which is the same as other programming lanuage.&lt;/li&gt;
+&lt;li&gt;integer division is &lt;code&gt;//&lt;/code&gt;, which is called “floor division”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Strings&quot;&gt;&lt;a href=&quot;#Strings&quot; class=&quot;headerlink&quot; title=&quot;Strings&quot;&gt;&lt;/a&gt;Strings&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Strings in Lua are immutable values.&lt;/li&gt;
+&lt;li&gt;Strings in Lua are subject to automatic memory management, like all other Lua objects (table, functions, etc).&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Use &lt;code&gt;..&lt;/code&gt; to concatenate two strings.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Any numeric operation applied to a string tries to convert the string to a number. This coersion is also applied in other places that expect a number, such as the argument to &lt;code&gt;math.sin&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;h4 id=&quot;Stand-Alone-Interpreter&quot;&gt;&lt;a href=&quot;#Stand-Alone-Interp
+    
+    </summary>
+    
+    
+      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
+    
+  </entry>
   
   <entry>
     <title>Java Summary III</title>
@@ -663,73 +705,6 @@
     <summary type="html">
     
       &lt;h3 id=&quot;Item-63-Include-failure-capture-information-in-detail-message&quot;&gt;&lt;a href=&quot;#Item-63-Include-failure-capture-information-in-detail-messa
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java VI</title>
-    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/"/>
-    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VI/</id>
-    <published>2017-10-02T05:20:52.000Z</published>
-    <updated>2017-10-22T23:32:56.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;headerlink&quot; title=&quot;Item 51. Beware of performance of string concatenation&quot;&gt;&lt;/a&gt;Item 51. Beware of performance of string concatenation&lt;/h3&gt;&lt;p&gt;To achieve acceptable performance, use a StringBuilder in place of a String.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-52-Refer-to-objects-by-their-interfaces&quot;&gt;&lt;a href=&quot;#Item-52-Refer-to-objects-by-their-interfaces&quot; class=&quot;headerlink&quot; title=&quot;Item 52. Refer to objects by their interfaces&quot;&gt;&lt;/a&gt;Item 52. Refer to objects by their interfaces&lt;/h3&gt;&lt;p&gt;If appropriate interface types exist, then parameters, return values, vraibales, and fields should all be declared using interface types.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-53-Prefer-interfaces-to-reflection&quot;&gt;&lt;a href=&quot;#Item-53-Prefer-interfaces-to-reflection&quot; class=&quot;headerlink&quot; title=&quot;Item 53. Prefer interfaces to reflection&quot;&gt;&lt;/a&gt;Item 53. Prefer interfaces to reflection&lt;/h3&gt;&lt;p&gt;As a rule, objects should not be accesed reflectively in normal applications at runtime.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Lose all the benefits of compile-time type checking.&lt;/li&gt;
-&lt;li&gt;The code required to perform reflective access is clumsy and verbose.&lt;/li&gt;
-&lt;li&gt;Performance suffers.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-54-Use-native-methods-judiciously&quot;&gt;&lt;a href=&quot;#Item-54-Use-native-methods-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 54. Use native methods judiciously&quot;&gt;&lt;/a&gt;Item 54. Use native methods judiciously&lt;/h3&gt;&lt;p&gt;Java Native Interface (JNI) allows Java applications to call native methods, which are special methods written in native programming languages such as C or C++.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-55-Optimize-judiciously&quot;&gt;&lt;a href=&quot;#Item-55-Optimize-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 55. Optimize judiciously&quot;&gt;&lt;/a&gt;Item 55. Optimize judiciously&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Strive to write good programs rather than fast ones.&lt;/li&gt;
-&lt;li&gt;Strive to aovid design decisions that limit performance.&lt;/li&gt;
-&lt;li&gt;Consider the performance consequences of API design decisions.&lt;/li&gt;
-&lt;li&gt;Measure performance before and after each attempted optimization.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-56-Adhere-to-generally-accepted-naming-conventions&quot;&gt;&lt;a href=&quot;#Item-56-Adhere-to-generally-accepted-naming-conventions&quot; class=&quot;headerlink&quot; title=&quot;Item 56. Adhere to generally accepted naming conventions&quot;&gt;&lt;/a&gt;Item 56. Adhere to generally accepted naming conventions&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-57-Use-exceptions-only-for-exceptional-conditions&quot;&gt;&lt;a href=&quot;#Item-57-Use-exceptions-only-for-exceptional-conditions&quot; class=&quot;headerlink&quot; title=&quot;Item 57. Use exceptions only for exceptional conditions&quot;&gt;&lt;/a&gt;Item 57. Use exceptions only for exceptional conditions&lt;/h3&gt;&lt;p&gt;Never use exceptions for ordinary control flow. And good APIs must not enforce users to do that.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors&quot;&gt;&lt;a href=&quot;#Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors&quot; class=&quot;headerlink&quot; title=&quot;Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors&quot;&gt;&lt;/a&gt;Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors&lt;/h3&gt;&lt;p&gt;Exceptions which are subclass of Exception, are recoverable. Exceptions which are subclass of Error, are unrecoverable.&lt;/p&gt;
-&lt;p&gt;RuntimeException is unchecked exception. Thus, all of the unchecked throwables implemented should subclass RuntimeException.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot;&gt;&lt;a href=&quot;#Item-59-Avoid-unnecessary-use-of-checked-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 59. Avoid unnecessary use of checked exceptions&quot;&gt;&lt;/a&gt;Item 59. Avoid unnecessary use of checked exceptions&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-60-Favor-the-use-of-standard-exceptions&quot;&gt;&lt;a href=&quot;#Item-60-Favor-the-use-of-standard-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 60. Favor the use of standard exceptions&quot;&gt;&lt;/a&gt;Item 60. Favor the use of standard exceptions&lt;/h3&gt;&lt;p&gt;Java 7 and 8: Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called &lt;code&gt;AutoCloseable&lt;/code&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot;&gt;&lt;a href=&quot;#Item-61-Throw-exceptions-appropriate-to-the-abstraction&quot; class=&quot;headerlink&quot; title=&quot;Item 61. Throw exceptions appropriate to the abstraction&quot;&gt;&lt;/a&gt;Item 61. Throw exceptions appropriate to the abstraction&lt;/h3&gt;&lt;p&gt;Higher layers catch low-level exceptions and, in their place, throw exceptions that can be explained in terms of the high-level abstraction.&lt;/p&gt;
-&lt;p&gt;While exception translation is superior to mindless propagation of exceptions from lower layers, it should not be overused.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-62-Document-all-exceptions-thrown-by-each-method&quot;&gt;&lt;a href=&quot;#Item-62-Document-all-exceptions-thrown-by-each-method&quot; class=&quot;headerlink&quot; title=&quot;Item 62. Document all exceptions thrown by each method&quot;&gt;&lt;/a&gt;Item 62. Document all exceptions thrown by each method&lt;/h3&gt;&lt;p&gt;Always declare checked exceptions individually, and document precisely the conditions under which each one is thrown using the Javadoc &lt;code&gt;@throws&lt;/code&gt; tag.&lt;/p&gt;
-&lt;p&gt;Use the Javadoc &lt;code&gt;@throws&lt;/code&gt; tag to document each unchecked exception that a method can throw, but do not use the throws keyword to include unchecked exceptions in the method declaration.&lt;/p&gt;
-&lt;p&gt;If an exception is thrown by many methods in a class for the same reason, it is acceptable to document the exception in the class’s documentation comment.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-51-Beware-of-performance-of-string-concatenation&quot;&gt;&lt;a href=&quot;#Item-51-Beware-of-performance-of-string-concatenation&quot; class=&quot;heade
     
     </summary>
     
