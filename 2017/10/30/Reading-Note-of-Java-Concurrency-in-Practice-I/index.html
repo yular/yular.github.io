@@ -102,7 +102,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-Safety"><span class="toc-number">2.</span> <span class="toc-text">Thread Safety</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">3.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principles"><span class="toc-number">4.</span> <span class="toc-text">Principles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-number">5.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles-1"><span class="toc-number">5.1.</span> <span class="toc-text">Principles</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-Safety"><span class="toc-number">2.</span> <span class="toc-text">Thread Safety</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">3.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principles"><span class="toc-number">4.</span> <span class="toc-text">Principles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-number">5.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles-1"><span class="toc-number">5.1.</span> <span class="toc-text">Principles</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPool"><span class="toc-number">6.</span> <span class="toc-text">ThreadPool</span></a></li></ol>
           </div>
       
       
@@ -153,6 +153,11 @@
 <li>将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。</li>
 <li>每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。</li>
 <li>对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。</li>
+</ul>
+<hr>
+
+<h3 id="ThreadPool"><a href="#ThreadPool" class="headerlink" title="ThreadPool"></a>ThreadPool</h3><ul>
+<li>定制线程池的大小。</li>
 </ul>
 
       
@@ -252,7 +257,7 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>36</small></li>
+    <li><a href="/tags/Java/">Java</a><small>37</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
@@ -323,6 +328,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/01/22/Java-Summary-IV/">Java Summary IV</a>
+      </li>
+    
+      <li>
         <a href="/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/">Reading Note of Programming in Lua 4th Edition</a>
       </li>
     
@@ -336,10 +345,6 @@
     
       <li>
         <a href="/2018/01/09/Advanced-Encryption-Standard-AES-Summary/">Advanced Encryption Standard (AES) Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/06/Reading-Note-of-How-To-Win-Friends-and-Influence-People/">Reading Note of How To Win Friends and Influence People</a>
       </li>
     
   </ul>

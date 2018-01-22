@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-22T07:00:55.000Z</updated>
+  <updated>2018-01-22T09:38:33.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java Summary IV</title>
+    <link href="http://yular.github.io/2018/01/22/Java-Summary-IV/"/>
+    <id>http://yular.github.io/2018/01/22/Java-Summary-IV/</id>
+    <published>2018-01-22T09:38:19.000Z</published>
+    <updated>2018-01-22T09:38:33.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Programming in Lua 4th Edition</title>
@@ -261,7 +279,7 @@
     <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/"/>
     <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/</id>
     <published>2017-12-03T21:22:17.000Z</published>
-    <updated>2018-01-15T06:18:18.000Z</updated>
+    <updated>2018-01-22T09:51:10.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
@@ -271,6 +289,10 @@
 &lt;/ul&gt;
 &lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Marjor classes: 20% of the classes make up 80% of the system behaviour.&lt;/li&gt;
+&lt;li&gt;Things to do to make the best of changing requirements during construction:&lt;ul&gt;
+&lt;li&gt;Use the requirements checklist to access the quality of requirement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
@@ -345,7 +367,7 @@
     <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
     <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
     <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2018-01-15T06:03:41.000Z</updated>
+    <updated>2018-01-22T09:49:46.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
 &lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
@@ -394,6 +416,11 @@
 &lt;li&gt;将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。&lt;/li&gt;
 &lt;li&gt;每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。&lt;/li&gt;
 &lt;li&gt;对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;ThreadPool&quot;&gt;&lt;a href=&quot;#ThreadPool&quot; class=&quot;headerlink&quot; title=&quot;ThreadPool&quot;&gt;&lt;/a&gt;ThreadPool&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;定制线程池的大小。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
@@ -606,110 +633,6 @@
     
     
       <category term="Finance" scheme="http://yular.github.io/tags/Finance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Java VII</title>
-    <link href="http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VII/"/>
-    <id>http://yular.github.io/2017/10/01/Reading-Note-of-Effective-Java-VII/</id>
-    <published>2017-10-02T06:18:39.000Z</published>
-    <updated>2017-10-02T07:04:17.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Item-63-Include-failure-capture-information-in-detail-message&quot;&gt;&lt;a href=&quot;#Item-63-Include-failure-capture-information-in-detail-message&quot; class=&quot;headerlink&quot; title=&quot;Item 63. Include failure-capture information in detail message&quot;&gt;&lt;/a&gt;Item 63. Include failure-capture information in detail message&lt;/h3&gt;&lt;p&gt;To capture the failure, the detail message of an exception should contain the values of all parameters and fields that contributed to the exception.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-64-Strive-for-failure-atomicity&quot;&gt;&lt;a href=&quot;#Item-64-Strive-for-failure-atomicity&quot; class=&quot;headerlink&quot; title=&quot;Item 64. Strive for failure atomicity&quot;&gt;&lt;/a&gt;Item 64. Strive for failure atomicity&lt;/h3&gt;&lt;p&gt;A failed method invocation should leave the object in the state that it was in prior to the invocation.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-65-Do-not-ignore-exceptions&quot;&gt;&lt;a href=&quot;#Item-65-Do-not-ignore-exceptions&quot; class=&quot;headerlink&quot; title=&quot;Item 65. Do not ignore exceptions&quot;&gt;&lt;/a&gt;Item 65. Do not ignore exceptions&lt;/h3&gt;&lt;p&gt;At the very least, the catch block (empty one) should contain a comment explaining why it is appropriate to ignore the exception.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-66-Synchronize-access-to-shared-mutable-data&quot;&gt;&lt;a href=&quot;#Item-66-Synchronize-access-to-shared-mutable-data&quot; class=&quot;headerlink&quot; title=&quot;Item 66. Synchronize access to shared mutable data&quot;&gt;&lt;/a&gt;Item 66. Synchronize access to shared mutable data&lt;/h3&gt;&lt;p&gt;When multiple threads share mutable data, each thread that reads or writes the data must perform synchronization.&lt;/p&gt;
-&lt;p&gt;Do not use &lt;code&gt;Thread.stop&lt;/code&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-67-Avoid-excessive-synchronization&quot;&gt;&lt;a href=&quot;#Item-67-Avoid-excessive-synchronization&quot; class=&quot;headerlink&quot; title=&quot;Item 67. Avoid excessive synchronization&quot;&gt;&lt;/a&gt;Item 67. Avoid excessive synchronization&lt;/h3&gt;&lt;p&gt;To avoid liveness and safety failures, never cede control to the client within a synchronized method or block.&lt;/p&gt;
-&lt;p&gt;Do as little work as possible inside synchronized regions.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-68-Prefer-executors-and-tasks-to-threads&quot;&gt;&lt;a href=&quot;#Item-68-Prefer-executors-and-tasks-to-threads&quot; class=&quot;headerlink&quot; title=&quot;Item 68. Prefer executors and tasks to threads&quot;&gt;&lt;/a&gt;Item 68. Prefer executors and tasks to threads&lt;/h3&gt;&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-69-Prefer-concurrency-utilities-to-wait-and-notify&quot;&gt;&lt;a href=&quot;#Item-69-Prefer-concurrency-utilities-to-wait-and-notify&quot; class=&quot;headerlink&quot; title=&quot;Item 69. Prefer concurrency utilities to wait and notify&quot;&gt;&lt;/a&gt;Item 69. Prefer concurrency utilities to wait and notify&lt;/h3&gt;&lt;p&gt;Here are some rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Use &lt;code&gt;ConcurrentHashMap&lt;/code&gt; in preference to &lt;code&gt;Collections.synchronizeMap&lt;/code&gt; or &lt;code&gt;Hashtable&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.&lt;/li&gt;
-&lt;li&gt;Always use wait loop idiom to invoke the wait method; never invoke it outside of a loop.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-70-Document-thread-safety&quot;&gt;&lt;a href=&quot;#Item-70-Document-thread-safety&quot; class=&quot;headerlink&quot; title=&quot;Item 70. Document thread safety&quot;&gt;&lt;/a&gt;Item 70. Document thread safety&lt;/h3&gt;&lt;p&gt;To enable safe concurrent use, a class must clearly document what level of thread safety it supports:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;immutable&lt;/li&gt;
-&lt;li&gt;unconditionally thread-safe: instances are mutable but the class has sufficient internal synchronization.&lt;/li&gt;
-&lt;li&gt;conditionally thread-safe: like unconditionally thread-safe, but some methods require external synchronization.&lt;/li&gt;
-&lt;li&gt;not thread-safe&lt;/li&gt;
-&lt;li&gt;thread-hostile&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If write an unconditionally thread-safe class, consider using a private lock object in place of synchronized methods.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-71-Use-lazy-initialization-judiciously&quot;&gt;&lt;a href=&quot;#Item-71-Use-lazy-initialization-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 71. Use lazy initialization judiciously&quot;&gt;&lt;/a&gt;Item 71. Use lazy initialization judiciously&lt;/h3&gt;&lt;p&gt;Under most circumstances, normal initialization is preferable to lazy initialization.&lt;/p&gt;
-&lt;p&gt;Here are the rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To use lazy initialization for a static field, use the lazy initialization holder for class idiom.&lt;/li&gt;
-&lt;li&gt;To use lazy initialization for an instance field, use the double-check idiom, which is that once without locking, and then if the field appears to be uninitialized, a second time with locking.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-72-Do-not-depend-on-the-thread-scheduler&quot;&gt;&lt;a href=&quot;#Item-72-Do-not-depend-on-the-thread-scheduler&quot; class=&quot;headerlink&quot; title=&quot;Item 72. Do not depend on the thread scheduler&quot;&gt;&lt;/a&gt;Item 72. Do not depend on the thread scheduler&lt;/h3&gt;&lt;p&gt;Here are the rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Do not fix the program by putting in calls to &lt;code&gt;Thread.yield&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Thread priorities are the least portable features of Java platform.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-73-Avoid-thread-groups&quot;&gt;&lt;a href=&quot;#Item-73-Avoid-thread-groups&quot; class=&quot;headerlink&quot; title=&quot;Item 73. Avoid thread groups&quot;&gt;&lt;/a&gt;Item 73. Avoid thread groups&lt;/h3&gt;&lt;p&gt;Thread groups are obsolete.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-74-Implement-Serializable-judiciously&quot;&gt;&lt;a href=&quot;#Item-74-Implement-Serializable-judiciously&quot; class=&quot;headerlink&quot; title=&quot;Item 74. Implement Serializable judiciously&quot;&gt;&lt;/a&gt;Item 74. Implement Serializable judiciously&lt;/h3&gt;&lt;p&gt;Here are the reasons and rules:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Implementing Serializable decreases the flexibility to change a class’s implementation once it has been released.&lt;/li&gt;
-&lt;li&gt;Implementing Serializable increases the likelihood of bugs and security holes.&lt;/li&gt;
-&lt;li&gt;Implementing Serializable increases the testing burden associated with releasing a new version of a class.&lt;/li&gt;
-&lt;li&gt;Classes designed for inheritance should rarely implement Serializable, and interfaces should rarely extend it. Provide a parameterless constructor on nonserializable classes designed for inheritance.&lt;/li&gt;
-&lt;li&gt;Inner class should not implement Serializable.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-75-Consider-using-a-custom-serialized-form&quot;&gt;&lt;a href=&quot;#Item-75-Consider-using-a-custom-serialized-form&quot; class=&quot;headerlink&quot; title=&quot;Item 75. Consider using a custom serialized form&quot;&gt;&lt;/a&gt;Item 75. Consider using a custom serialized form&lt;/h3&gt;&lt;p&gt;The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.&lt;br&gt;Often must provide a &lt;code&gt;readObject&lt;/code&gt; method to ensure invariants and security when use default serialized form.&lt;/p&gt;
-&lt;p&gt;The disadvantages of using default serialized form when an object’s physical representation differs substantially from its logical data content:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;It permanetly ties the exported API to the current internal repesentation.&lt;/li&gt;
-&lt;li&gt;It can consume excessive space.&lt;/li&gt;
-&lt;li&gt;It can consume excessive time.&lt;/li&gt;
-&lt;li&gt;It can cause stack overflows.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If all instance fields are transient, it is technically permissible to dispense with invoking &lt;code&gt;defaultWriteObject&lt;/code&gt; and &lt;code&gt;defaultReadObject&lt;/code&gt; but it is not recommended.&lt;/p&gt;
-&lt;p&gt;Must impose any synchronization on object serialization that would impose on any other method that reads the entire state of the object.&lt;/p&gt;
-&lt;p&gt;Regardless of what serialized form choosed, decalre an explicit serial verison UID in every serializable class.&lt;/p&gt;
-&lt;h3 id=&quot;Item-76-Write-readObject-methods-defensively&quot;&gt;&lt;a href=&quot;#Item-76-Write-readObject-methods-defensively&quot; class=&quot;headerlink&quot; title=&quot;Item 76. Write readObject methods defensively&quot;&gt;&lt;/a&gt;Item 76. Write readObject methods defensively&lt;/h3&gt;&lt;p&gt;When an object is deserialized, it is critical to defensively copy any field containing an object references that a client must not posses.&lt;/p&gt;
-&lt;p&gt;Do not use the &lt;code&gt;writeUnshared&lt;/code&gt; and &lt;code&gt;readUnshared&lt;/code&gt; methods.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-77-For-instance-control-prefer-enum-type-to-readResolve&quot;&gt;&lt;a href=&quot;#Item-77-For-instance-control-prefer-enum-type-to-readResolve&quot; class=&quot;headerlink&quot; title=&quot;Item 77. For instance control, prefer enum type to readResolve&quot;&gt;&lt;/a&gt;Item 77. For instance control, prefer enum type to readResolve&lt;/h3&gt;&lt;p&gt;If depend on readResolve for instance control, all instances fields with object reference types must be declared transient.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Item-78-Consider-serialization-proxies-instead-of-serialized-instances&quot;&gt;&lt;a href=&quot;#Item-78-Consider-serialization-proxies-instead-of-serialized-instances&quot; class=&quot;headerlink&quot; title=&quot;Item 78. Consider serialization proxies instead of serialized instances&quot;&gt;&lt;/a&gt;Item 78. Consider serialization proxies instead of serialized instances&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Item-63-Include-failure-capture-information-in-detail-message&quot;&gt;&lt;a href=&quot;#Item-63-Include-failure-capture-information-in-detail-messa
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     
   </entry>
   
