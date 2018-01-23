@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 3 | YBC HomePage</title>
+  <title>Seite 3 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,183 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-10-30T07:39:52.000Z"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">2017-10-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">Reading Note of Java Concurrency in Practice I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of the book <code>Java Concurrency in Practice</code>. </p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>大多数现代操作系统把线程作为时序调度的基本单元，而不是进程。</li>
+<li>多线程的开销：上下文切换。</li>
+<li>线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。</li>
+<li>活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。</li>
+<li>用annotation (@ThreadSafe for example)来标记线程安全程度。</li>
+<li>以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。</li>
+</ul>
+<hr>
+
+<h3 id="Thread-Safety"><a href="#Thread-Safety" class="headerlink" title="Thread Safety"></a>Thread Safety</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ul>
+<li>共享：是指一个变量可以被多个线程访问。</li>
+<li>可变：是指变量的值在其生命周期内可变。</li>
+<li>对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。</li>
+<li>线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&gt;对象，而不是对象完成了什么。</li>
+<li>线程安全的定义：当多个线程访问一个类时，如果不考虑这些线程在运行环境下的调度和交替执行，并且不需要额外的同步以及调用方代码作额外的其他协调，这个类的行为依然正确，则此类是线程安全的。这种类封装了必要的同步，客户不需要额外提供。同时，对线程安全类的实例进行顺序或并发的一系列操作，都不会导致实例处于无效状态。</li>
+<li>原子操作：指的是一个操作，对于所有操作（包括自己），满足这种状态：假设有操作A和B，如果从执行操作A的线程角度看，当其他线程执行B时，要么B没执行，要么B全部执行完成，这样A和B互为原子操作。</li>
+<li>弱并发：请求排队等候并依次处理。</li>
+</ul>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<li>方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。</li>
+<li>无状态对象永远是线程安全的。</li>
+<li>java.util.concurrent.atomic 包含了原子变量类。</li>
+</ul>
+<h3 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h3><ul>
+<li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
+<li>修复潜在线程安全问题的方法：<ul>
+<li>不要跨线程共享变量。</li>
+<li>状态变量不可变。</li>
+<li>在任何访问状态变量的时候使用同步。</li>
+</ul>
+</li>
+<li>一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。</li>
+<li>设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。</li>
+<li>要约束状态变量的有效值或者状态转换，需要原子性和封装性。</li>
+<li>创建一个状态依赖的类，要使用平台与类库提供的底层机制。</li>
+<li>为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。</li>
+</ul>
+<hr>
+
+<h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h4 id="Principles-1"><a href="#Principles-1" class="headerlink" title="Principles"></a>Principles</h4><ul>
+<li>锁不仅仅是保证同步和互斥，也是保证内存可见。</li>
+<li>内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。</li>
+<li>将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。</li>
+<li>每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。</li>
+<li>对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。</li>
+</ul>
+<hr>
+
+<h3 id="ThreadPool"><a href="#ThreadPool" class="headerlink" title="ThreadPool"></a>ThreadPool</h3><ul>
+<li>定制线程池的大小。</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-10-05T01:45:50.000Z"><a href="/2017/10/04/ReactJS-QuickStart/">2017-10-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/04/ReactJS-QuickStart/">ReactJS QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official page of <a href="https://reactjs.org/docs/installation.html#trying-out-react" target="_blank" rel="external">React</a> which describes how to try out ReactJS.</p>
+<p>Below is the Quickstart guide to install, configure and run the firt React app on the local. </p>
+<h3 id="Install-NodeJS"><a href="#Install-NodeJS" class="headerlink" title="Install NodeJS"></a>Install NodeJS</h3><p>Here we use npm to manage project dependencies. Here is <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS official website</a>, where we can download and install <code>npm</code>.</p>
+<hr>
+
+<h3 id="Install-Gloabl-ReactJS-App-Creation-Package"><a href="#Install-Gloabl-ReactJS-App-Creation-Package" class="headerlink" title="Install Gloabl ReactJS App Creation Package"></a>Install Gloabl ReactJS App Creation Package</h3><p>Install <code>Create React App</code> package globally in npm. <code>Create React App</code> is the best way to start building a new React single page application. It helps to set up development environment to use the latest JavaScript features, provides a nice developer experience, and optimizes app for production.</p>
+<p>Here are the commands to install the package:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Init-ReactJS-App"><a href="#Init-ReactJS-App" class="headerlink" title="Init ReactJS App"></a>Init ReactJS App</h3><p>Here are the commands to init ReactJS application and start it:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">create-react-app first-react-app</span><br><span class="line"></span><br><span class="line">cd first-react-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-ReactJS-as-dependencies-in-Application"><a href="#Install-ReactJS-as-dependencies-in-Application" class="headerlink" title="Install ReactJS as dependencies in Application"></a>Install ReactJS as dependencies in Application</h3><p>Here are the commands to install ReactJS as dependencies using <code>npm</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br><span class="line">npm install --save react react-dom</span><br></pre></td></tr></table></figure>
+<p>After execute <code>npm init</code> command, we will be asked to provide some basic profile information of the app like app name, author name, license and etc. All these information will appear in <code>package.json</code>.</p>
+<hr>
+
+<h3 id="Enabling-ES6-and-JSX"><a href="#Enabling-ES6-and-JSX" class="headerlink" title="Enabling ES6 and JSX"></a>Enabling ES6 and JSX</h3><p>We recommand to use <code>ES6</code> and <code>JSX</code> through <code>Babel</code>. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.</p>
+<p>Here is the <a href="http://babeljs.io/" target="_blank" rel="external">Babel official website</a> and <a href="https://babeljs.io/docs/setup/" target="_blank" rel="external">Babel setup instructions</a>. </p>
+<p>Here we use <code>CLI</code> way to install <code>babel-preset-react</code> and <code>babel-preset-es2015</code>. And enable them in <code>.babelrc</code> configuration file.</p>
+<p>Here are the commands:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-cli</span><br><span class="line">npm install --save-dev babel-preset-react</span><br><span class="line">npm install --save-dev babel-preset-es2015</span><br><span class="line"></span><br><span class="line">touch .babelrc</span><br><span class="line">echo &apos;&#123; &quot;presets&quot;: [&quot;es2015&quot;] &#125;&apos; &gt; .babelrc</span><br></pre></td></tr></table></figure>
+<p>As Babel is a JavaScript compiler, we can test it in following steps.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;console.log([1, 2, 3].map(n =&gt; n + 1))&apos; &gt; index.js</span><br><span class="line">./node_modules/.bin/babel index.js</span><br></pre></td></tr></table></figure>
+<p>The output is similar as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">console.log([1, 2, 3].map(function (n) &#123;</span><br><span class="line">  return n + 1;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Install-webpack-as-dependencies-in-Application"><a href="#Install-webpack-as-dependencies-in-Application" class="headerlink" title="Install webpack as dependencies in Application"></a>Install webpack as dependencies in Application</h3><p>A bundler like <code>webpack</code> or <code>Browserify</code> can help to write modular code and bundle it together into small packages to optimize load time.</p>
+<p>Here is the <a href="https://webpack.js.org/" target="_blank" rel="external">webpack offical website</a>. And here is the command to install webpack:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev webpack</span><br></pre></td></tr></table></figure>
+<p>So here is the final complete version of package.json file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;first-react-app&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.1.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;react&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-dom&quot;: &quot;^16.0.0&quot;,</span><br><span class="line">    &quot;react-scripts&quot;: &quot;1.0.14&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;react-scripts start&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;react-scripts build&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;react-scripts test --env=jsdom&quot;,</span><br><span class="line">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;description&quot;: &quot;This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.js&quot;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.26.0&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.6.0&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;webpack&quot;: &quot;^3.6.0&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;author&quot;: &quot;yular&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;ISC&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now if we run the command <code>npm start</code>, we can still see the same page as before.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Javascript/">Javascript</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -955,160 +1132,11 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-15T05:26:09.000Z"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">2017-09-14</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.</p>
-<p>In my software development model, here are the steps to apply TDD in practice:</p>
-<ul>
-<li>Fully understand the user requirement.</li>
-<li>Do a good design for the project, which includes the system design and object-oriented design.</li>
-<li>Based on the design, list all the features need to accomplish.</li>
-<li>Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.</li>
-<li>While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.</li>
-<li>While refactor the code, keep the code clean so that it is simple, easy to read and maintain.</li>
-</ul>
-<hr>
-
-<p>Here are some useful tips borrowed from the book.</p>
-<ul>
-<li>Create a test list including all the required tests at the beginning.</li>
-<li>The goal of each test is to leave the world in exactly the same state before it ran.</li>
-<li>Each test should represent one step towards overall goal.</li>
-<li>What should be tested:<ul>
-<li>Conditions</li>
-<li>Loops</li>
-<li>Operations</li>
-<li>Polymorphism</li>
-</ul>
-</li>
-<li>What factors should be included in the test:<ul>
-<li>What does the operation belong to.</li>
-<li>What are the correct inputs.</li>
-<li>What is the correct output given those input.</li>
-</ul>
-</li>
-<li>Some attributes of tests suggesting a design in trouble:<ul>
-<li>Long setup code.</li>
-<li>Setup duplication.</li>
-<li>Long running tests.</li>
-<li>Fragile tests.</li>
-</ul>
-</li>
-<li>Write assert first in the test.</li>
-<li>To improve test coverage, take a fixed set of tests and simplify the logic of the program.</li>
-<li>Avoid test coupling. All the tests should be run independently.</li>
-<li>Isolating tests also helps to decouple objects (Improve the design).</li>
-<li>Tests should be in a small scale instead of whole application.</li>
-<li>For common objects needed by several tests, convert local variables into instance variables.</li>
-<li>Use data that makes the test easy to read and follow.</li>
-<li>Evident data seems to be an exception to the rule that you do not want magic numbers in your code.</li>
-<li>When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.</li>
-<li>To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.</li>
-<li>To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.</li>
-<li>Always make sure all the tests are running before check in your own code.</li>
-<li>Unless have reason to distrust it, do not test code from others. </li>
-<li>toString method is an exception that does not require test.</li>
-<li>Physical setup (for working environment): cheap disk, nice chair.</li>
-<li>Get cheap/slow/old machines for individual email and surfing.</li>
-<li>Leave a programming session when programming alone, leave the last test broken.</li>
-<li>Leave a programming session when programming in a team, leave all the test running.</li>
-<li>Feel lost, throw away the code and start over.</li>
-<li>Feel tired or stuck, take a break.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-11T08:51:57.000Z"><a href="/2017/09/11/Aspect-Oriented-Programming/">2017-09-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/11/Aspect-Oriented-Programming/">Aspect Oriented Programming</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is <a href="https://en.wikipedia.org/wiki/Aspect-oriented_programming" target="_blank" rel="external">Aspect-oriented programming in Wikipedia</a>.</p>
-<p>Aspect-oriented programming (AOP) is a programming paradigm that aims to increase modularity by allowing the separation of cross-cutting concerns. It does so by adding additional behavior to existing code (an advice) without modifying the code itself, instead separately specifying which code is modified via a “pointcut” specification, such as “log all function calls when the function’s name begins with ‘set’”. This allows behaviors that are not central to the business logic (such as logging) to be added to a program without cluttering the code, core to the functionality. AOP forms a basis for aspect-oriented software development.</p>
-<p>Note that AOP usually uses <a href="http://yular.github.io/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern</a> in its implementation.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/4/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1145,7 +1173,7 @@ private static Long generateDefaultTimeToLive() {
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
@@ -1223,9 +1251,9 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.29px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -1246,6 +1274,14 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2018/01/22/LintCode-Problem-Solution-List/">LintCode Problem Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/22/LeetCode-Problem-Solution-List/">LeetCode Problem Solution List</a>
+      </li>
+    
+      <li>
         <a href="/2018/01/22/Timus-Online-Judge-Problem-Solution-List/">Timus Online Judge Problem Solution List</a>
       </li>
     
@@ -1255,14 +1291,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/">Reading Note of Programming in Lua 4th Edition</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/16/Java-Summary-III/">Java Summary III</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/16/Java-Summary-II-1/">Java Summary II</a>
       </li>
     
   </ul>

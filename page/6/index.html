@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 6 | YBC HomePage</title>
+  <title>Seite 6 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -84,6 +84,113 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-07-24T06:07:24.000Z"><a href="/2017/07/23/C-Extern-Function/">2017-07-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/07/23/C-Extern-Function/">C Extern Function</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here we want to define a function in a C program file and would like to write another C program that can use that function. That kind of function is called extern function, which means the function uses <code>extern</code> keyword.</p>
+<p>Here is a <a href="http://www.geeksforgeeks.org/understanding-extern-keyword-in-c/" target="_blank" rel="external">tutorial about C Extern funciton/variable from Geeksforgeeks</a>.</p>
+<p>Below is an example from us. The example is about defining and implementing a random mysql hash key generation method.</p>
+<hr>
+
+<h3 id="Define-Extern-Function-in-a-Head-File"><a href="#Define-Extern-Function-in-a-Head-File" class="headerlink" title="Define Extern Function in a Head File"></a>Define Extern Function in a Head File</h3><p>To use functions coming from other libs in C, the most common way is to define those functions in head files, and those head files are used as the entries to use functions defined in them. But only functions with <code>extern</code> keyword can be used by other C programs.</p>
+<p>Note that using extern functions are different from implementing extern functions.</p>
+<p>Here is the head file <code>hashkeygenerator.h</code> that has the definiton of extern function.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">extern char *generateHashKey();</span><br></pre></td></tr></table></figure>
+<hr>
+
+<h3 id="Implement-Extern-Function-in-a-C-File"><a href="#Implement-Extern-Function-in-a-C-File" class="headerlink" title="Implement Extern Function in a C File"></a>Implement Extern Function in a C File</h3><p>The function should have an algorithm to generate random hash key, and the implementation should be in the C file.</p>
+<p>Here is the C file <code>hashkeygenerator.c</code> in this example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;hashkeygenerator.h&quot;</span><br><span class="line"></span><br><span class="line">char KEY_CHAR_POOL[62] = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;</span><br><span class="line">char FIX_HASH_KEY_PREFIX[5] = &quot;mysql&quot;;</span><br><span class="line"></span><br><span class="line">char *hash_key;</span><br><span class="line"></span><br><span class="line">extern char * generateHashKey()&#123;</span><br><span class="line">    srand(time(NULL));</span><br><span class="line">    hash_key = (char*) malloc(27);</span><br><span class="line">    strcpy(hash_key, FIX_HASH_KEY_PREFIX);</span><br><span class="line"></span><br><span class="line">    int i = 5;</span><br><span class="line">    for(i = 5; i &lt; 27; ++ i) &#123;</span><br><span class="line">        int idx = (int)( rand()%62 );</span><br><span class="line">        hash_key[i] = KEY_CHAR_POOL[idx];</span><br><span class="line">    &#125;   </span><br><span class="line">    hash_key[5] = hash_key[9] = hash_key[14] = hash_key[20] = &apos;-&apos;;</span><br><span class="line">    return (char *)hash_key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now to compile this C file, use following command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c hashkeygenerator.c</span><br></pre></td></tr></table></figure></p>
+<p>The we will find a <code>hashkeygenerator.o</code> file under the same folder with the head file and C file.</p>
+<hr>
+
+<h3 id="Test-the-Extern-Function"><a href="#Test-the-Extern-Function" class="headerlink" title="Test the Extern Function"></a>Test the Extern Function</h3><p>Below is the program to test the extern function above. Note that rand() function will return the same sequence of string if the period between two function calls is too small. Here we make it 10 seconds.</p>
+<p>See the code below and the file name is <code>testhashkeygenerator.c</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;time.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;hashkeygenerator.h&quot;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line"></span><br><span class="line">    char *key_one = generateHashKey();</span><br><span class="line">    puts(key_one);</span><br><span class="line"></span><br><span class="line">    unsigned int retTime = time(0) + 10; </span><br><span class="line">    while (time(0) &lt; retTime);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    char *key_two = generateHashKey();</span><br><span class="line">    puts(key_two);</span><br><span class="line"></span><br><span class="line">    if(strcmp(key_one, key_two) == 0) &#123;</span><br><span class="line">        puts(&quot;Two Identical Keys are generated!&quot;);</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now we need to generate an executable file by runing this command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -Wall -o testhashkeygenerator testhashkeygenerator.c hashkeygenerator.o</span><br></pre></td></tr></table></figure></p>
+<p>To run the file, use this command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./testhashkeygenerator</span><br></pre></td></tr></table></figure></p>
+<p>And we will see two random hash key as follow:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql-VYb-zJVg-4dcKA-5lymrv                                                                                                                                  </span><br><span class="line">mysql-UgP-Owia-NGzmZ-zG7DAB</span><br></pre></td></tr></table></figure></p>
+<p>Here is the <a href="https://github.com/yular/CCplusplus-Project/tree/master/Extern-Function" target="_blank" rel="external">link of the three files above</a> in this tutorial.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-07-01T02:18:26.000Z"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">2017-06-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/30/Kaggle-Contest-Guide-Summary/">Kaggle Contest Guide Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -421,120 +528,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-05-07T22:04:19.000Z"><a href="/2017/05/07/Thinking-in-Number-Theory/">2017-05-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now here we will propose some generic ideas to think through this kind of problems.</p>
-<p>This artical will be updated continously.</p>
-<hr>
-
-<h3 id="1-Prime-Check"><a href="#1-Prime-Check" class="headerlink" title="1. Prime Check"></a>1. Prime Check</h3><p>Given an integer, check whether it is a prime or not is a high frequent problem. There are a lot of algorithms to do this check. Some of them are as follows:</p>
-<ul>
-<li><p>The naive O(n^1.5) algorithm:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n) &#123;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(n); ++ i)&#123;</span><br><span class="line">		if(n%i == 0)</span><br><span class="line">			return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">Sieve of Eratosthenes</a>.</p>
-</li>
-<li><a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank" rel="external">Rabin-Miller primality test algorithm</a>.</li>
-</ul>
-<p>Sometimes, we need to figure out all the primes within a specific range. In that case, the second algorithm usually is the best choice, expecially for the problems described in the next sections.</p>
-<hr>
-
-<h3 id="2-Prime-Factors"><a href="#2-Prime-Factors" class="headerlink" title="2. Prime Factors"></a>2. Prime Factors</h3><p>In Number Theory problems, we are ussually asked to figure out the factors of a given integer. In this case, a good idea (not always) is to figure out all its prime factors and their powers. To do that, we need to use (not always) <code>Sieve of Eratosthenes</code> to generate all the primes no larger than given integer. But this solution is not a silver bullet because sometimes the given integer is so large that we do not have enough memory to store all the primes or calculate them within the timebound.</p>
-<hr>
-
-<h3 id="3-Integer-Generation"><a href="#3-Integer-Generation" class="headerlink" title="3. Integer Generation"></a>3. Integer Generation</h3><p>Maybe we find that it is inpractical to divide the given integer into mulplication of primes. Thus, we can try to multiply the primes we have to generate another integer. In this scenario, we do not have to worry about the limited memory to save large number of primes or find all the required primes in a short time. The reason is that even we multiply the same prime for several times (maybe around 30 or even less), we can get a very large integer. Remember, <code>2^64 = 18446744073709551616</code> .</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-30T23:43:55.000Z"><a href="/2017/04/30/Flowers-Symbolism/">2017-04-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Every kind of flower has its own meaning/symbolism. Here is the list of <a href="http://baike.baidu.com/item/%E8%8A%B1%E8%AF%AD%E5%BD%95" target="_blank" rel="external">flowers symbolism - Chinese version</a> and <a href="https://en.wikipedia.org/wiki/Plant_symbolism" target="_blank" rel="external">Plant symbolism - English version</a>, or <a href="http://www.buzzle.com/articles/list-of-flower-names-with-meanings-and-pictures.html" target="_blank" rel="external">this link</a> or <a href="http://www.buzzle.com/articles/flowers-meanings-list-of-flowers-and-their-meanings.html" target="_blank" rel="external">this link</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Life/">Life</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/7/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/5/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/7/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -571,7 +569,7 @@
   <h3 class="title">Tags</h3>
   <ul class="entry">
   
-    <li><a href="/tags/Algorithm/">Algorithm</a><small>40</small></li>
+    <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
   
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
@@ -649,9 +647,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 19.29px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -672,6 +670,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/01/22/LintCode-Problem-Solution-List/">LintCode Problem Solution List</a>
+      </li>
+    
+      <li>
+        <a href="/2018/01/22/LeetCode-Problem-Solution-List/">LeetCode Problem Solution List</a>
+      </li>
+    
+      <li>
         <a href="/2018/01/22/Timus-Online-Judge-Problem-Solution-List/">Timus Online Judge Problem Solution List</a>
       </li>
     
@@ -681,14 +687,6 @@
     
       <li>
         <a href="/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/">Reading Note of Programming in Lua 4th Edition</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/16/Java-Summary-III/">Java Summary III</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/16/Java-Summary-II-1/">Java Summary II</a>
       </li>
     
   </ul>

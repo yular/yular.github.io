@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-23T04:50:02.000Z</updated>
+  <updated>2018-01-23T07:45:31.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LintCode Problem Solution List</title>
+    <link href="http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/"/>
+    <id>http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/</id>
+    <published>2018-01-23T07:26:02.000Z</published>
+    <updated>2018-01-23T07:45:31.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://www.lintcode.com/problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LintCode Online Judge&lt;/a&gt;. Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The list will be updated whenever I solve (or optimize the solution) an algorithm problems of LintCode OJ.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://www.lintcode.com/problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode Problem Solution List</title>
+    <link href="http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/"/>
+    <id>http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/</id>
+    <published>2018-01-23T07:24:37.000Z</published>
+    <updated>2018-01-23T07:29:54.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;https://leetcode.com/problemset/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode Online Judge&lt;/a&gt;. Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The list will be updated whenever I solve (or optimize the solution) an algorithm problems of LeetCode OJ.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;https://leetcode.com/problemset/algorithms&quot; target=&quot;_blank&quot; rel=&quot;
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>Timus Online Judge Problem Solution List</title>
@@ -382,136 +426,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Java Concurrency in Practice I</title>
-    <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
-    <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
-    <published>2017-10-30T07:39:52.000Z</published>
-    <updated>2018-01-22T09:49:46.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
-&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;大多数现代操作系统把线程作为时序调度的基本单元，而不是进程。&lt;/li&gt;
-&lt;li&gt;多线程的开销：上下文切换。&lt;/li&gt;
-&lt;li&gt;线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。&lt;/li&gt;
-&lt;li&gt;活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。&lt;/li&gt;
-&lt;li&gt;用annotation (@ThreadSafe for example)来标记线程安全程度。&lt;/li&gt;
-&lt;li&gt;以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Thread-Safety&quot;&gt;&lt;a href=&quot;#Thread-Safety&quot; class=&quot;headerlink&quot; title=&quot;Thread Safety&quot;&gt;&lt;/a&gt;Thread Safety&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;共享：是指一个变量可以被多个线程访问。&lt;/li&gt;
-&lt;li&gt;可变：是指变量的值在其生命周期内可变。&lt;/li&gt;
-&lt;li&gt;对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。&lt;/li&gt;
-&lt;li&gt;线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&amp;gt;对象，而不是对象完成了什么。&lt;/li&gt;
-&lt;li&gt;线程安全的定义：当多个线程访问一个类时，如果不考虑这些线程在运行环境下的调度和交替执行，并且不需要额外的同步以及调用方代码作额外的其他协调，这个类的行为依然正确，则此类是线程安全的。这种类封装了必要的同步，客户不需要额外提供。同时，对线程安全类的实例进行顺序或并发的一系列操作，都不会导致实例处于无效状态。&lt;/li&gt;
-&lt;li&gt;原子操作：指的是一个操作，对于所有操作（包括自己），满足这种状态：假设有操作A和B，如果从执行操作A的线程角度看，当其他线程执行B时，要么B没执行，要么B全部执行完成，这样A和B互为原子操作。&lt;/li&gt;
-&lt;li&gt;弱并发：请求排队等候并依次处理。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。&lt;/li&gt;
-&lt;li&gt;无状态对象永远是线程安全的。&lt;/li&gt;
-&lt;li&gt;java.util.concurrent.atomic 包含了原子变量类。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Principles&quot;&gt;&lt;a href=&quot;#Principles&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。&lt;/li&gt;
-&lt;li&gt;修复潜在线程安全问题的方法：&lt;ul&gt;
-&lt;li&gt;不要跨线程共享变量。&lt;/li&gt;
-&lt;li&gt;状态变量不可变。&lt;/li&gt;
-&lt;li&gt;在任何访问状态变量的时候使用同步。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。&lt;/li&gt;
-&lt;li&gt;设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。&lt;/li&gt;
-&lt;li&gt;要约束状态变量的有效值或者状态转换，需要原子性和封装性。&lt;/li&gt;
-&lt;li&gt;创建一个状态依赖的类，要使用平台与类库提供的底层机制。&lt;/li&gt;
-&lt;li&gt;为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Lock&quot;&gt;&lt;a href=&quot;#Lock&quot; class=&quot;headerlink&quot; title=&quot;Lock&quot;&gt;&lt;/a&gt;Lock&lt;/h3&gt;&lt;h4 id=&quot;Principles-1&quot;&gt;&lt;a href=&quot;#Principles-1&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;锁不仅仅是保证同步和互斥，也是保证内存可见。&lt;/li&gt;
-&lt;li&gt;内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。&lt;/li&gt;
-&lt;li&gt;将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。&lt;/li&gt;
-&lt;li&gt;每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。&lt;/li&gt;
-&lt;li&gt;对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;ThreadPool&quot;&gt;&lt;a href=&quot;#ThreadPool&quot; class=&quot;headerlink&quot; title=&quot;ThreadPool&quot;&gt;&lt;/a&gt;ThreadPool&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;定制线程池的大小。&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
-&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;head
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ReactJS QuickStart</title>
-    <link href="http://yular.github.io/2017/10/04/ReactJS-QuickStart/"/>
-    <id>http://yular.github.io/2017/10/04/ReactJS-QuickStart/</id>
-    <published>2017-10-05T01:45:50.000Z</published>
-    <updated>2017-10-08T08:13:34.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the official page of &lt;a href=&quot;https://reactjs.org/docs/installation.html#trying-out-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;React&lt;/a&gt; which describes how to try out ReactJS.&lt;/p&gt;
-&lt;p&gt;Below is the Quickstart guide to install, configure and run the firt React app on the local. &lt;/p&gt;
-&lt;h3 id=&quot;Install-NodeJS&quot;&gt;&lt;a href=&quot;#Install-NodeJS&quot; class=&quot;headerlink&quot; title=&quot;Install NodeJS&quot;&gt;&lt;/a&gt;Install NodeJS&lt;/h3&gt;&lt;p&gt;Here we use npm to manage project dependencies. Here is &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NodeJS official website&lt;/a&gt;, where we can download and install &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-Gloabl-ReactJS-App-Creation-Package&quot;&gt;&lt;a href=&quot;#Install-Gloabl-ReactJS-App-Creation-Package&quot; class=&quot;headerlink&quot; title=&quot;Install Gloabl ReactJS App Creation Package&quot;&gt;&lt;/a&gt;Install Gloabl ReactJS App Creation Package&lt;/h3&gt;&lt;p&gt;Install &lt;code&gt;Create React App&lt;/code&gt; package globally in npm. &lt;code&gt;Create React App&lt;/code&gt; is the best way to start building a new React single page application. It helps to set up development environment to use the latest JavaScript features, provides a nice developer experience, and optimizes app for production.&lt;/p&gt;
-&lt;p&gt;Here are the commands to install the package:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g create-react-app&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Init-ReactJS-App&quot;&gt;&lt;a href=&quot;#Init-ReactJS-App&quot; class=&quot;headerlink&quot; title=&quot;Init ReactJS App&quot;&gt;&lt;/a&gt;Init ReactJS App&lt;/h3&gt;&lt;p&gt;Here are the commands to init ReactJS application and start it:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;create-react-app first-react-app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd first-react-app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-ReactJS-as-dependencies-in-Application&quot;&gt;&lt;a href=&quot;#Install-ReactJS-as-dependencies-in-Application&quot; class=&quot;headerlink&quot; title=&quot;Install ReactJS as dependencies in Application&quot;&gt;&lt;/a&gt;Install ReactJS as dependencies in Application&lt;/h3&gt;&lt;p&gt;Here are the commands to install ReactJS as dependencies using &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save react react-dom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;After execute &lt;code&gt;npm init&lt;/code&gt; command, we will be asked to provide some basic profile information of the app like app name, author name, license and etc. All these information will appear in &lt;code&gt;package.json&lt;/code&gt;.&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Enabling-ES6-and-JSX&quot;&gt;&lt;a href=&quot;#Enabling-ES6-and-JSX&quot; class=&quot;headerlink&quot; title=&quot;Enabling ES6 and JSX&quot;&gt;&lt;/a&gt;Enabling ES6 and JSX&lt;/h3&gt;&lt;p&gt;We recommand to use &lt;code&gt;ES6&lt;/code&gt; and &lt;code&gt;JSX&lt;/code&gt; through &lt;code&gt;Babel&lt;/code&gt;. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;http://babeljs.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel official website&lt;/a&gt; and &lt;a href=&quot;https://babeljs.io/docs/setup/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel setup instructions&lt;/a&gt;. &lt;/p&gt;
-&lt;p&gt;Here we use &lt;code&gt;CLI&lt;/code&gt; way to install &lt;code&gt;babel-preset-react&lt;/code&gt; and &lt;code&gt;babel-preset-es2015&lt;/code&gt;. And enable them in &lt;code&gt;.babelrc&lt;/code&gt; configuration file.&lt;/p&gt;
-&lt;p&gt;Here are the commands:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-cli&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-preset-react&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-preset-es2015&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;touch .babelrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;apos;&amp;#123; &amp;quot;presets&amp;quot;: [&amp;quot;es2015&amp;quot;] &amp;#125;&amp;apos; &amp;gt; .babelrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;As Babel is a JavaScript compiler, we can test it in following steps.&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;apos;console.log([1, 2, 3].map(n =&amp;gt; n + 1))&amp;apos; &amp;gt; index.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./node_modules/.bin/babel index.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;The output is similar as follows:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;quot;use strict&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log([1, 2, 3].map(function (n) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return n + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-
-&lt;h3 id=&quot;Install-webpack-as-dependencies-in-Application&quot;&gt;&lt;a href=&quot;#Install-webpack-as-dependencies-in-Application&quot; class=&quot;headerlink&quot; title=&quot;Install webpack as dependencies in Application&quot;&gt;&lt;/a&gt;Install webpack as dependencies in Application&lt;/h3&gt;&lt;p&gt;A bundler like &lt;code&gt;webpack&lt;/code&gt; or &lt;code&gt;Browserify&lt;/code&gt; can help to write modular code and bundle it together into small packages to optimize load time.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&quot;https://webpack.js.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webpack offical website&lt;/a&gt;. And here is the command to install webpack:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev webpack&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;So here is the final complete version of package.json file:&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;name&amp;quot;: &amp;quot;first-react-app&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;version&amp;quot;: &amp;quot;0.1.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;private&amp;quot;: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;dependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react&amp;quot;: &amp;quot;^16.0.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-dom&amp;quot;: &amp;quot;^16.0.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-scripts&amp;quot;: &amp;quot;1.0.14&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;scripts&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;start&amp;quot;: &amp;quot;react-scripts start&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;build&amp;quot;: &amp;quot;react-scripts build&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;test&amp;quot;: &amp;quot;react-scripts test --env=jsdom&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eject&amp;quot;: &amp;quot;react-scripts eject&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;description&amp;quot;: &amp;quot;This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;main&amp;quot;: &amp;quot;index.js&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;devDependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-cli&amp;quot;: &amp;quot;^6.26.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-env&amp;quot;: &amp;quot;^1.6.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-es2015&amp;quot;: &amp;quot;^6.24.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-react&amp;quot;: &amp;quot;^6.24.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;webpack&amp;quot;: &amp;quot;^3.6.0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;author&amp;quot;: &amp;quot;yular&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;license&amp;quot;: &amp;quot;ISC&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;Now if we run the command &lt;code&gt;npm start&lt;/code&gt;, we can still see the same page as before.&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the official page of &lt;a href=&quot;https://reactjs.org/docs/installation.html#trying-out-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;React&lt;/
-    
-    </summary>
-    
-    
-      <category term="Javascript" scheme="http://yular.github.io/tags/Javascript/"/>
     
   </entry>
   
