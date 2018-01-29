@@ -94,6 +94,83 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-02-27T09:30:27.000Z"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">2017-02-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable Class QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://immutables.github.io/immutable.html" target="_blank" rel="external">official website of Java Immutable Class</a>, <a href="https://www.linkedin.com/pulse/20140528113353-16837833-6-benefits-of-programming-with-immutable-objects-in-java" target="_blank" rel="external">benefits of Immutable Class</a> and <a href="https://immutables.github.io/getstarted.html" target="_blank" rel="external">Getstarted Tutorial</a>.</p>
+<p>Generally, the benefits of Immutable class is:</p>
+<ul>
+<li>Create thread-safe objects.</li>
+<li>Easy to make program parallel.</li>
+<li>Keep the internal program state consistent.</li>
+<li>Cache the references to immutable objects.</li>
+</ul>
+<p>Now below it is our quickstart tutorial.</p>
+<h3 id="Setup-Environment"><a href="#Setup-Environment" class="headerlink" title="Setup Environment"></a>Setup Environment</h3><p>Here we suggest to use <code>IntelliJ</code> IDE because this IDE is easy to generate <code>immutable class</code>.</p>
+<p>Here is the <a href="https://immutables.github.io/apt.html" target="_blank" rel="external">official tutorial</a> to enable annotations for <code>immutable class</code> feature.</p>
+<h3 id="Create-Java-Project"><a href="#Create-Java-Project" class="headerlink" title="Create Java Project"></a>Create Java Project</h3><p>In IntelliJ, create a <code>Java Maven Project</code>. This part will be provided later as it should be very easy.</p>
+<p>Below is the project basic settings:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupId: com.yulartech.app</span><br><span class="line">artifactId: blog-runner</span><br><span class="line">version: 1.0-SNAPSHOT</span><br></pre></td></tr></table></figure>
+<h3 id="Enable-Annotations"><a href="#Enable-Annotations" class="headerlink" title="Enable Annotations"></a>Enable Annotations</h3><p>Open IntelliJ system preferences panel and edit the settings as follows:</p>
+<ul>
+<li>Check <code>Enable annotation processing</code></li>
+<li>Check <code>Module content root</code></li>
+<li>Edit <code>Production sources directory</code> as <code>generated</code></li>
+<li>Edit <code>Test sources directory</code> as <code>generated_test</code></li>
+</ul>
+<h3 id="Write-Java-Code"><a href="#Write-Java-Code" class="headerlink" title="Write Java Code"></a>Write Java Code</h3><p>Here is the <a href="https://github.com/yular/Java-CodeLibrary/tree/master/blogrunner" target="_blank" rel="external">link of Github Repository of this tutorial project</a>.</p>
+<p>Here is the content of <code>pom.xml</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.yulartech.app&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;blog-runner&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;jdk.version&gt;1.8&lt;/jdk.version&gt;</span><br><span class="line">        &lt;immutable.version&gt;2.4.3&lt;/immutable.version&gt;</span><br><span class="line">        &lt;javamail.version&gt;1.4.7&lt;/javamail.version&gt;</span><br><span class="line">        &lt;mockito.version&gt;2.7.13&lt;/mockito.version&gt;</span><br><span class="line">        &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">        &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;</span><br><span class="line">        &lt;jsoup.version&gt;1.10.1&lt;/jsoup.version&gt;</span><br><span class="line">        &lt;maven-compiler.version&gt;3.2&lt;/maven-compiler.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;junit.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.immutables&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;value&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;immutable.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;javax.mail&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mail&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;javamail.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mockito&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mockito-core&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mockito.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- https://jsoup.org/ --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.jsoup&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jsoup&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;jsoup.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;maven-compiler.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;source&gt;$&#123;jdk.version&#125;&lt;/source&gt;</span><br><span class="line">                    &lt;target&gt;$&#123;jdk.version&#125;&lt;/target&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.4.1&lt;/version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;descriptorRefs&gt;</span><br><span class="line">                        &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                    &lt;/descriptorRefs&gt;</span><br><span class="line">                    &lt;archive&gt;</span><br><span class="line">                        &lt;manifest&gt;</span><br><span class="line">                            &lt;mainClass&gt;com.yulartech.app.App&lt;/mainClass&gt;</span><br><span class="line">                        &lt;/manifest&gt;</span><br><span class="line">                    &lt;/archive&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<p>Then create a package with this path: <code>blogrunner/src/main/java/com/yulartech/domain</code> and class called <code>Blog.java</code>.</p>
+<p>Here is the code.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.domain;</span><br><span class="line"></span><br><span class="line">import org.immutables.value.Value;</span><br><span class="line"></span><br><span class="line">@Value.Immutable</span><br><span class="line">public abstract  class Blog &#123;</span><br><span class="line">    public abstract String blogAuthor();</span><br><span class="line">    public abstract  String blogTitle();</span><br><span class="line">    public abstract  String blogLink();</span><br><span class="line">    public abstract String blogDate();</span><br><span class="line">    public abstract String blogSummary();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Now we build the project inside IntelliJ, and then we can find the generated immutable class under this path <code>target/generated-sources/annotations/com/yulartech/domain/ImmutableBlog.java</code>.</p>
+<p>Now here is the class containing <code>main function</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.app;</span><br><span class="line"></span><br><span class="line">import com.yulartech.domain.ImmutableBlog;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ybc on 3/20/17.</span><br><span class="line"> */</span><br><span class="line">public class App &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        ImmutableBlog blog = ImmutableBlog.builder()</span><br><span class="line">                .blogAuthor(&quot; Yular &quot;)</span><br><span class="line">                .blogTitle(&quot; Java Immutable Objects QuickStart &quot;)</span><br><span class="line">                .blogDate(&quot; 2017-03-20 &quot;)</span><br><span class="line">                .blogLink(&quot; http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ &quot;)</span><br><span class="line">                .blogSummary(&quot; A quickstart tutorial about Java immutable objects &quot;)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        System.out.println(blog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Build-and-Run-the-Project"><a href="#Build-and-Run-the-Project" class="headerlink" title="Build and Run the Project"></a>Build and Run the Project</h3><p>Now again we build the project. This step is optional.</p>
+<p>Then right click the <code>main function</code> and choose the <code>Run App.main()</code> option. We will see the output as follows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog&#123;blogAuthor= Yular , blogTitle= Java Immutable Objects QuickStart , blogLink= http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ , blogDate= 2017-03-20 , blogSummary= A quickstart tutorial about Java immutable objects &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-02-16T05:00:50.000Z"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">2017-02-15</a></time>
       
       
@@ -725,113 +802,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-22T09:17:38.000Z"><a href="/2017/01/22/Redis-Command-and-DataStructure/">2017-01-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Redis has various data types and data structure which are helpful to efficiently manage data. Here is the <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="external">official introduction</a>  and <a href="https://redis.io/topics/data-types" target="_blank" rel="external">official website</a> about data types and their command lines.</p>
-<p>Below is our summary.</p>
-<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.<br>A String value can be at max 512 Megabytes in length.</p>
-<p>Here is the <a href="https://redis.io/commands/#string" target="_blank" rel="external">list of commands supported by String</a> and below is most common ones:</p>
-<ul>
-<li>INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.</li>
-<li>APPEND: Append to strings.</li>
-<li>GETRANGE and SETRANGE: Use Strings as a random access vectors.</li>
-<li>GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.</li>
-</ul>
-<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.<br>The max length of a list is 2^32 - 1 elements.</p>
-<p>Here is the <a href="https://redis.io/commands#list" target="_blank" rel="external">list of commands supported by List</a> and below is most common ones:</p>
-<ul>
-<li>LPUSH: Inserts a new element on the head of List.</li>
-<li>RPUSH: Inserts a new element on the tail of List.</li>
-</ul>
-<hr>
-
-<h2 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h2><p>Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.<br>The max number of members in a set is 2^32 - 1.</p>
-<p>Here is the <a href="https://redis.io/commands#set" target="_blank" rel="external">list of commands supported by Set</a> and below is most common ones:</p>
-<ul>
-<li>SADD: Inserts a new element into Set.</li>
-<li>SPOP and SRANDMEMBER: Extract elements at random.</li>
-</ul>
-<hr>
-
-<h2 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted Sets"></a>Sorted Sets</h2><p>Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.<br>The max number of members in a sorted set is 2^32 - 1.</p>
-<p>Here is the <a href="https://redis.io/commands#sorted_set" target="_blank" rel="external">list of commands supported by Sorted Sets</a> and below is most common ones:</p>
-<ul>
-<li>ZADD: Inserts a new element into Sorted Set.</li>
-<li>ZRANGE: Get the elements of which their keys are within the given range.</li>
-<li>ZRANGEBYSCORE: Get the elements of which their scores are within the given range.</li>
-<li>ZRANK: Get the rank (or position) of given element.</li>
-</ul>
-<hr>
-
-<h2 id="Hashes"><a href="#Hashes" class="headerlink" title="Hashes"></a>Hashes</h2><p>Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.<br>The max number of members in a hash is 2^32 - 1.</p>
-<p>Here is the <a href="">list of commands supported by Hash</a> and below is most common ones:</p>
-<ul>
-<li>HMSET: Insert a new element (object) into Hash.</li>
-<li>HSET: Insert a new field into Hash object.</li>
-<li>HGETALL: Get the information of element (object).</li>
-<li>HGET: Get the information of a field of element (object).</li>
-</ul>
-<hr>
-
-<h2 id="Bit-arrays-Bitmaps"><a href="#Bit-arrays-Bitmaps" class="headerlink" title="Bit arrays (Bitmaps)"></a>Bit arrays (Bitmaps)</h2><p>Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.</p>
-<hr>
-
-<h2 id="HyperLogLogs"><a href="#HyperLogLogs" class="headerlink" title="HyperLogLogs"></a>HyperLogLogs</h2><p>HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.</p>
-<hr>
-
-<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><p>keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.</p>
-<p>A few rules about keys:</p>
-<ul>
-<li>Very long keys are not a good idea.</li>
-<li>Very short keys are often not a good idea.</li>
-<li>Try to stick with a schema.</li>
-<li>The maximum allowed key size is 512 MB.</li>
-</ul>
-<hr>
-
-<h2 id="Redis-expires"><a href="#Redis-expires" class="headerlink" title="Redis expires"></a>Redis expires</h2><p>Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Redis/">Redis</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -915,7 +885,7 @@
   
     <li><a href="/tags/Linux/">Linux</a><small>12</small></li>
   
-    <li><a href="/tags/Lua/">Lua</a><small>7</small></li>
+    <li><a href="/tags/Lua/">Lua</a><small>8</small></li>
   
     <li><a href="/tags/Mac/">Mac</a><small>1</small></li>
   
@@ -953,7 +923,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -974,6 +944,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/">Reading Note of Programming in Lua 4th Edition II</a>
+      </li>
+    
+      <li>
         <a href="/2018/01/22/LintCode-Problem-Solution-List/">LintCode Problem Solution List</a>
       </li>
     
@@ -987,10 +961,6 @@
     
       <li>
         <a href="/2018/01/22/Java-Summary-IV/">Java Summary IV</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/">Reading Note of Programming in Lua 4th Edition</a>
       </li>
     
   </ul>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-01-23T07:45:31.000Z</updated>
+  <updated>2018-01-29T02:11:40.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Programming in Lua 4th Edition II</title>
+    <link href="http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/"/>
+    <id>http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/</id>
+    <published>2018-01-29T00:39:37.000Z</published>
+    <updated>2018-01-29T02:11:40.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
+    
+  </entry>
   
   <entry>
     <title>LintCode Problem Solution List</title>
@@ -101,11 +119,11 @@
   </entry>
   
   <entry>
-    <title>Reading Note of Programming in Lua 4th Edition</title>
+    <title>Reading Note of Programming in Lua 4th Edition I</title>
     <link href="http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/"/>
     <id>http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/</id>
     <published>2018-01-21T01:32:04.000Z</published>
-    <updated>2018-01-22T07:00:55.000Z</updated>
+    <updated>2018-01-29T02:11:08.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;h4 id=&quot;Stand-Alone-Interpreter&quot;&gt;&lt;a href=&quot;#Stand-Alone-Interpreter&quot; class=&quot;headerlink&quot; title=&quot;Stand-Alone Interpreter&quot;&gt;&lt;/a&gt;Stand-Alone Interpreter&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Useful Lua idiom&lt;ul&gt;
@@ -129,7 +147,46 @@
 &lt;li&gt;&lt;p&gt;Any numeric operation applied to a string tries to convert the string to a number. This coersion is also applied in other places that expect a number, such as the argument to &lt;code&gt;math.sin&lt;/code&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;Tables&quot;&gt;&lt;a href=&quot;#Tables&quot; class=&quot;headerlink&quot; title=&quot;Tables&quot;&gt;&lt;/a&gt;Tables&lt;/h3&gt;</content>
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Tables&quot;&gt;&lt;a href=&quot;#Tables&quot; class=&quot;headerlink&quot; title=&quot;Tables&quot;&gt;&lt;/a&gt;Tables&lt;/h3&gt;&lt;h4 id=&quot;Safe-Navigation&quot;&gt;&lt;a href=&quot;#Safe-Navigation&quot; class=&quot;headerlink&quot; title=&quot;Safe Navigation&quot;&gt;&lt;/a&gt;Safe Navigation&lt;/h4&gt;&lt;p&gt;To know whether a given function from a given library is present, use this statement: &lt;code&gt;res = lib?.object1?.object2?.function&lt;/code&gt; or &lt;code&gt;res = (((lib or {}).object1 or {}).object2 or {}).function&lt;/code&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;Libraries&quot;&gt;&lt;a href=&quot;#Libraries&quot; class=&quot;headerlink&quot; title=&quot;Libraries&quot;&gt;&lt;/a&gt;Libraries&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;table.insert: insert an element in a given position of a sequence.&lt;/li&gt;
+&lt;li&gt;table.remove: removes and returns an element from the given position in a sequence.&lt;/li&gt;
+&lt;li&gt;table.move: moves the elements in table a from index f until e (both inclusive) to position t or another table.&lt;/li&gt;
+&lt;li&gt;table.pack: receive any number of arguments and returns a new table with all its arguments (just like {…}).&lt;/li&gt;
+&lt;li&gt;table.unpack: transform a real Lua list (a table) into a return list, which can be given as the parameter list to another function.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Functions&quot;&gt;&lt;a href=&quot;#Functions&quot; class=&quot;headerlink&quot; title=&quot;Functions&quot;&gt;&lt;/a&gt;Functions&lt;/h3&gt;&lt;h4 id=&quot;Generic&quot;&gt;&lt;a href=&quot;#Generic&quot; class=&quot;headerlink&quot; title=&quot;Generic&quot;&gt;&lt;/a&gt;Generic&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Return multiple results from a function: &lt;code&gt;return res1, res2, res3&lt;/code&gt;. And a statement like &lt;code&gt;return (f(x))&lt;/code&gt; always returns one single value.&lt;/li&gt;
+&lt;li&gt;Variadic function, taking a variable number of arguments, uses three dots(…) in the parameter list:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function func(...)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   do sth&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;Tail-Calls&quot;&gt;&lt;a href=&quot;#Tail-Calls&quot; class=&quot;headerlink&quot; title=&quot;Tail Calls&quot;&gt;&lt;/a&gt;Tail Calls&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Lua does tail-call elimination. So in following code:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;function f(x)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	x = x + 1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	return g(x)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;When g returns, control will return directly to the point calling f, and thus, do not use any extra stack space when doing a tail call.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;IO&quot;&gt;&lt;a href=&quot;#IO&quot; class=&quot;headerlink&quot; title=&quot;IO&quot;&gt;&lt;/a&gt;IO&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;io.read: read strings from current input stream. The input parameter includes &lt;code&gt;&amp;quot;a&amp;quot;, &amp;quot;l&amp;quot;, &amp;quot;L&amp;quot;, &amp;quot;n&amp;quot; and number&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;io.write: write strings to current output stream. Use &lt;code&gt;string.format&lt;/code&gt; for full control over the numbers to strings conversion.&lt;/li&gt;
+&lt;li&gt;io.open: open a file.&lt;/li&gt;
+&lt;li&gt;io.flush: flush the current output stream.&lt;/li&gt;
+&lt;li&gt;io.popen: runs a system command and connects the command output (or input) to a new local stream and returns that stream.&lt;/li&gt;
+&lt;li&gt;os.exit: terminates the execution of a program.&lt;/li&gt;
+&lt;li&gt;os.getenv: gets the value of an environment variable. ex: &lt;code&gt;os.getenv(&amp;quot;HOME&amp;quot;)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;os.execute: runs a system command.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Variable-and-Control-Structure&quot;&gt;&lt;a href=&quot;#Variable-and-Control-Structure&quot; class=&quot;headerlink&quot; title=&quot;Variable and Control Structure&quot;&gt;&lt;/a&gt;Variable and Control Structure&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Lua treats all values (including 0 and empty string) as true except false and nil.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
@@ -399,24 +456,6 @@
     <id>http://yular.github.io/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/</id>
     <published>2017-11-06T07:25:12.000Z</published>
     <updated>2017-11-06T07:25:24.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Java Concurrency in Practice II</title>
-    <link href="http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/"/>
-    <id>http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/</id>
-    <published>2017-11-03T06:28:16.000Z</published>
-    <updated>2017-11-03T06:28:28.000Z</updated>
     
     <content type="html"></content>
     
