@@ -94,6 +94,66 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2015-10-20T02:51:18.000Z"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">2015-10-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/">SSL Certification Serverside Deployment Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the simple guide to deploy SSL certification on server side. Currently, we use Tomcat8 in this tutorial.</p>
+<h4 id="Generate-the-pfx-file-on-Windows"><a href="#Generate-the-pfx-file-on-Windows" class="headerlink" title="Generate the pfx file on Windows"></a>Generate the pfx file on Windows</h4><p>Here is a good <a href="https://major.io/2007/03/23/exporting-ssl-certificates-from-windows-to-linux/" target="_blank" rel="external">tutorial</a>. </p>
+<p>After we get the pfx file, please remember the password and send this file to the remote server.</p>
+<h4 id="Decrypt-the-PFX-File"><a href="#Decrypt-the-PFX-File" class="headerlink" title="Decrypt the PFX File"></a>Decrypt the PFX File</h4><p>In this step, we run the following command to decrypt the pfx file created in the last step.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in file.pfx -out file.pem</span><br></pre></td></tr></table></figure></p>
+<p>We will be asked to provide the password for the PFX file in this step. Once we enter that, we will again be asked to provide a new password which is used to encrypt the private key. Please remember this password also. Here we set the new password as “changeit” in our example.</p>
+<p>When this step is complete, we should have a PEM file. Open the file in a text editor and copy the private key and certificate to different files. Remember to keep the dashed lines intact when we copy the certificates. There is some additional text above the key, and also between the key and certificate – this text should be ignored and should not be included in the certificate and key files.</p>
+<p>Now we will get a file.key and a file.crt file.</p>
+<h4 id="Decrypt-the-private-key"><a href="#Decrypt-the-private-key" class="headerlink" title="Decrypt the private key"></a>Decrypt the private key</h4><p>In this step, run this command to decrypt the private key:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -in file.key -out file.key</span><br></pre></td></tr></table></figure></p>
+<p>Again openSSL will ask for a password to decrypt the key, and this is the password we set when you decrypted the PFX.</p>
+<h4 id="Generate-the-SSL-Certificate"><a href="#Generate-the-SSL-Certificate" class="headerlink" title="Generate the SSL Certificate"></a>Generate the SSL Certificate</h4><p>In this step, we will create a new PFX certificate through the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -export -out certificate.pfx -inkey privateKey.key -in certificate.crt -certfile more.crt</span><br></pre></td></tr></table></figure></p>
+<p>In this step, OpenSSL will us to enter a new passowrd for this pfx file and in this tutorial, we use “changeit” again. Note that the more.crt is optional in some cases. And then we can install certificate.pfx into Tomcat8 like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/tomcat8/sso</span><br><span class="line">cp certificate.pfx /opt/tomcat8/sso</span><br><span class="line">cp file.key /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br><span class="line">cp file.crt /opt/tomcat8/sso <span class="comment">#Optional, but neede if we used the second approach mentioned below</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Configure-Tomcat8"><a href="#Configure-Tomcat8" class="headerlink" title="Configure Tomcat8"></a>Configure Tomcat8</h4><p>The last step is about server configuration. For Tomcat, the only thing we have to do is to edit its server.xml file which is under its own conf directory. So run this command to open it in vim:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vi /opt/tomcat8/conf/server.xml</span><br><span class="line">``` </span><br><span class="line">And <span class="keyword">then</span> edit the &lt;Connector&gt; tag and change it as follows:</span><br><span class="line">``` bash</span><br><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11NioProtocol"</span></span><br><span class="line"></span><br><span class="line"> maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"></span><br><span class="line"> keystoreType=<span class="string">"PKCS12"</span></span><br><span class="line"></span><br><span class="line"> keystoreFile=<span class="string">"/opt/tomcat8/sso/certificate.pfx"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line"> clientAuth=<span class="string">"false"</span> sslProtocol=<span class="string">"TLS"</span></span><br><span class="line"></span><br><span class="line"> ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>If we skip the step to generate a new pfx file, then the following context of <connector> should also work:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;Connector port=<span class="string">"8443"</span> protocol=<span class="string">"org.apache.coyote.http11.Http11AprProtocol"</span></span><br><span class="line"></span><br><span class="line">  maxThreads=<span class="string">"150"</span> SSLEnabled=<span class="string">"true"</span> scheme=<span class="string">"https"</span> secure=<span class="string">"true"</span></span><br><span class="line"> </span><br><span class="line">  keystoreType=<span class="string">"PKCS12"</span> keystorePass=<span class="string">"changeit"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateFile=<span class="string">"/opt/tomcat8/sso/file.crt"</span></span><br><span class="line"></span><br><span class="line">  SSLCertificateKeyFile=<span class="string">"/opt/tomcat8/sso/file.key"</span></span><br><span class="line"></span><br><span class="line">  SSLVerifyClient=<span class="string">"optional"</span> SSLProtocol=<span class="string">"TLSv1+TLSv1.1+TLSv1.2"</span> </span><br><span class="line"></span><br><span class="line">  ciphers=<span class="string">"TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,  TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA,TLS_ECDHE_RSA_WITH_RC4_128_SHA,  TLS_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA256,  TLS_RSA_WITH_AES_256_CBC_SHA,SSL_RSA_WITH_RC4_128_SHA"</span>/&gt;</span><br></pre></td></tr></table></figure></connector></p>
+<p>Actually, the ciphers field is not necessary in some cases. But if when we re/start the server and visit the website, we get a WEAK PASSWORD or similar exception, then that field is needed.</p>
+<p>Now just re/start the server and type <a href="https://your_url" target="_blank" rel="external">https://your_url</a> to see whether it works.</p>
+<p>Hope this tutorial is helpful and welcome any feedbacks~</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2015-10-20T02:49:23.000Z"><a href="/2015/10/19/Node-and-Angular-JS-Project-Creation-Tutorial/">2015-10-19</a></time>
       
       
@@ -564,75 +624,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-09-09T03:01:57.000Z"><a href="/2015/09/08/Docker-Install-Guide/">2015-09-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/09/08/Docker-Install-Guide/">Docker Install Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the official website for <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>, which is one the hottest platform for distributed applications.</p>
-<p>To install Docker on our machine, here is the <a href="http://docs.docker.com/mac/started/" target="_blank" rel="external">official guide</a>.</p>
-<p>Here is my instructions about how to install Docker on Ubuntu 14.04.</p>
-<p>Environment: Ubuntu 14.04<br>Docker: 1.8.1</p>
-<h3 id="Install-wget-command"><a href="#Install-wget-command" class="headerlink" title="Install wget command"></a>Install wget command</h3><p>Check whether our machine has installed wget or not.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">which</span> wget</span><br></pre></td></tr></table></figure></p>
-<p>If not, use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br><span class="line">$ sudo apt-get install wget</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Install-Docker"><a href="#Install-Docker" class="headerlink" title="Install Docker"></a>Install Docker</h3><p>Using wget to install Docker<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget -qO- https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure></p>
-<p>The system will prompts us for our sudo password.</p>
-<hr>
-
-<h3 id="Verifiy-Docker-installation"><a href="#Verifiy-Docker-installation" class="headerlink" title="Verifiy Docker installation"></a>Verifiy Docker installation</h3><p>Using this commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run hello-world</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Unable to find image <span class="string">'hello-world:latest'</span> locally</span><br><span class="line">latest: Pulling from library/hello-world</span><br><span class="line">535020c3e8ad: Pull complete </span><br><span class="line">af340544ed62: Pull complete </span><br><span class="line">Digest: sha256:a68868bfe696c00866942e8f5ca39e3e31b79c1e50feaee4ce5e28df2f051d5c</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> hello-world:latest</span><br><span class="line"></span><br><span class="line">Hello from Docker.</span><br><span class="line">This message shows that your installation appears to be working correctly.</span><br><span class="line"></span><br><span class="line">To generate this message, Docker took the following steps:</span><br><span class="line"> 1. The Docker client contacted the Docker daemon.</span><br><span class="line"> 2. The Docker daemon pulled the <span class="string">"hello-world"</span> image from the Docker Hub.</span><br><span class="line"> 3. The Docker daemon created a new container from that image <span class="built_in">which</span> runs the</span><br><span class="line">    executable that produces the output you are currently reading.</span><br><span class="line"> 4. The Docker daemon streamed that output to the Docker client, <span class="built_in">which</span> sent it</span><br><span class="line">    to your terminal.</span><br><span class="line"></span><br><span class="line">To try something more ambitious, you can run an Ubuntu container with:</span><br><span class="line"> $ docker run -it ubuntu bash</span><br><span class="line"></span><br><span class="line">Share images, automate workflows, and more with a free Docker Hub account:</span><br><span class="line"> https://hub.docker.com</span><br><span class="line"></span><br><span class="line">For more examples and ideas, visit:</span><br><span class="line"> https://docs.docker.com/userguide/</span><br></pre></td></tr></table></figure></p>
-<p>But if we fail to run this command because of the following reason:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Post http:///var/run/docker.sock/v1.20/containers/create: dial unix /var/run/docker.sock: no such file or directory.</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
-<p>Here may be the solutions:</p>
-<h5 id="Try-sudo"><a href="#Try-sudo" class="headerlink" title="Try sudo"></a>Try sudo</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo docker run hello-world</span><br></pre></td></tr></table></figure>
-<p>The reason is that we usually do not use root in the machine while docker is installed under /usr directory. So we may need to use sudo command.</p>
-<p>or</p>
-<h5 id="Restart-docker-service"><a href="#Restart-docker-service" class="headerlink" title="Restart docker service"></a>Restart docker service</h5><p>At first, let us check whether docker is running or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker status</span><br><span class="line">``` </span><br><span class="line">or</span><br><span class="line">``` bash</span><br><span class="line">$ sudo /etc/init.d/docker status</span><br></pre></td></tr></table></figure></p>
-<p>If the docker is running, the output should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker start/running, process 7213</span><br></pre></td></tr></table></figure></p>
-<p>otherwise, restart or start the service:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service docker restart</span><br><span class="line">or</span><br><span class="line">$ sudo service docker start</span><br></pre></td></tr></table></figure></p>
-<p>Or</p>
-<h5 id="Not-listen-to-var-run-docker-sock"><a href="#Not-listen-to-var-run-docker-sock" class="headerlink" title="Not listen to /var/run/docker.sock"></a>Not listen to /var/run/docker.sock</h5><p>In this case, please see this <a href="http://askubuntu.com/questions/615394/problem-with-docker" target="_blank" rel="external">link</a>. Hope it can help.</p>
-<p>If more issuses are meet, please leave comments here~</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -663,7 +654,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -732,7 +723,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>8</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>9</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -754,7 +745,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.33px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12px;">C</a> <a href="/tags/C/" style="font-size: 10.67px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.67px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 16px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.33px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.67px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.33px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.67px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.67px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15.33px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.67px;">Test</a> <a href="/tags/Tools/" style="font-size: 12px;">Tools</a> <a href="/tags/Web/" style="font-size: 18px;">Web</a>
   </div>
 </div>
 
@@ -775,6 +766,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/">Reading Note of Working Effectively with Legacy Code I</a>
+      </li>
+    
+      <li>
         <a href="/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/">Reading Note of Programming in Lua 4th Edition II</a>
       </li>
     
@@ -788,10 +783,6 @@
     
       <li>
         <a href="/2018/01/22/Timus-Online-Judge-Problem-Solution-List/">Timus Online Judge Problem Solution List</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/22/Java-Summary-IV/">Java Summary IV</a>
       </li>
     
   </ul>
