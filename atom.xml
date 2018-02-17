@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-17T04:53:58.000Z</updated>
+  <updated>2018-02-17T08:43:23.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -16,16 +16,59 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Reading Note of Working Effectively with Legacy Code II</title>
+    <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
+    <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
+    <published>2018-02-17T06:06:01.000Z</published>
+    <updated>2018-02-17T08:43:23.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique&quot;&gt;&lt;/a&gt;Code Refactor Technique&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定修改点。&lt;/li&gt;
+&lt;li&gt;如果你的修改可以在一个方法中的一处地方以单块连续的语句序列出现，那么在修改点插入一个方法调用，被调用的方法是此用于完成新工作的新方法。然后将这一调用先注释掉。&lt;/li&gt;
+&lt;li&gt;确定你需要原方法中的哪些局部变量，并将它们作为实参传给新方法调用。&lt;/li&gt;
+&lt;li&gt;确定新方法是否需要返回什么值给原方法。如果需要的话就得相应修改对它的调用，使用一个变量来接收其返回值。&lt;/li&gt;
+&lt;li&gt;使用测试驱动（TDD）的开发方法来开发新的方法。&lt;/li&gt;
+&lt;li&gt;使原方法中被注释掉的调用重新生效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新旧代码被清除地隔开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新旧代码会有重复的地方。同时，旧方法和类很可能不被测试覆盖，也很可能不会被继续改善。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;New-Class-Approach&quot;&gt;&lt;a href=&quot;#New-Class-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Class Approach&quot;&gt;&lt;/a&gt;New Class Approach&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Code-Refactor-Technique&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique&quot;&gt;&lt;/a&gt;Code Refactor Tec
+    
+    </summary>
+    
+    
+      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Reading Note of Working Effectively with Legacy Code I</title>
     <link href="http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/"/>
     <id>http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/</id>
     <published>2018-02-09T09:10:21.000Z</published>
-    <updated>2018-02-17T04:53:58.000Z</updated>
+    <updated>2018-02-17T06:15:54.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;修改软件的四个起因：添加新特性，修正bug，改善设计，优化资源使用。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;Tests&quot;&gt;&lt;a href=&quot;#Tests&quot; class=&quot;headerlink&quot; title=&quot;Tests&quot;&gt;&lt;/a&gt;Tests&lt;/h3&gt;&lt;h4 id=&quot;Unit-Test&quot;&gt;&lt;a href=&quot;#Unit-Test&quot; class=&quot;headerlink&quot; title=&quot;Unit Test&quot;&gt;&lt;/a&gt;Unit Test&lt;/h4&gt;&lt;ul&gt;
+&lt;h3 id=&quot;Tests&quot;&gt;&lt;a href=&quot;#Tests&quot; class=&quot;headerlink&quot; title=&quot;Tests&quot;&gt;&lt;/a&gt;Tests&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在进行修改之前，完善好测试，确保修改不会损坏软件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Unit-Test&quot;&gt;&lt;a href=&quot;#Unit-Test&quot; class=&quot;headerlink&quot; title=&quot;Unit Test&quot;&gt;&lt;/a&gt;Unit Test&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;单元测试由一组独立的测试组成，其中每个测试针对一个单独的软件组件。在面向对象中，组件是一个类。&lt;/li&gt;
 &lt;li&gt;单元测试的品质：&lt;ul&gt;
 &lt;li&gt;运行快&lt;/li&gt;
@@ -501,24 +544,6 @@
     
     
       <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Java Concurrency in Practice IV</title>
-    <link href="http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/"/>
-    <id>http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/</id>
-    <published>2017-11-13T08:59:24.000Z</published>
-    <updated>2017-11-13T08:59:36.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
     
   </entry>
   
