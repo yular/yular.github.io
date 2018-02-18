@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-17T08:43:23.000Z</updated>
+  <updated>2018-02-18T03:02:00.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
     <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
     <published>2018-02-17T06:06:01.000Z</published>
-    <updated>2018-02-17T08:43:23.000Z</updated>
+    <updated>2018-02-18T03:02:00.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique&quot;&gt;&lt;/a&gt;Code Refactor Technique&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
+    <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;该方法的步骤：&lt;/p&gt;
@@ -42,11 +42,77 @@
 &lt;ul&gt;
 &lt;li&gt;新旧代码会有重复的地方。同时，旧方法和类很可能不被测试覆盖，也很可能不会被继续改善。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;New-Class-Approach&quot;&gt;&lt;a href=&quot;#New-Class-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Class Approach&quot;&gt;&lt;/a&gt;New Class Approach&lt;/h3&gt;</content>
+&lt;h4 id=&quot;New-Class-Approach&quot;&gt;&lt;a href=&quot;#New-Class-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Class Approach&quot;&gt;&lt;/a&gt;New Class Approach&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;当需要修改一个类，但这个类在对象创建方面有大量的依赖，或者合理时间内没办法使这个类在测试中被实例化时，创建一个新的类来容纳所要进行的改动，并在原类中使用该新类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定修改点。&lt;/li&gt;
+&lt;li&gt;如果你的修改可以在一个方法中的一处地方以单块连续的语句序列出现，那么用一个类来完成这些工作，并为该类起一个恰当的名字。在修改点插入，代码创建该类的对象，调用其方法。然后将刚插入的几行代码注释掉。&lt;/li&gt;
+&lt;li&gt;确定你需要原方法中的哪些局部变量，并将它们作为参数传递给新类的构造函数。&lt;/li&gt;
+&lt;li&gt;确定新类是否需要返回什么值给原方法。如果需要，则在该类中提供一个相应的方法，并在原方法中插入对它的调用来获得其返回值。&lt;/li&gt;
+&lt;li&gt;使用测试驱动（TDD）的开发方法来开发新的方法。&lt;/li&gt;
+&lt;li&gt;使原方法中被注释掉的调用重新生效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在侵入性较强的修改时能更安全地完成工作。&lt;/li&gt;
+&lt;li&gt;不必修改任何已有的头文件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;会使原系统的概念复杂化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Wrap-Method-Approach&quot;&gt;&lt;a href=&quot;#Wrap-Method-Approach&quot; class=&quot;headerlink&quot; title=&quot;Wrap Method Approach&quot;&gt;&lt;/a&gt;Wrap Method Approach&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;需要为现有方法中添加新的行为时，且该行为不属于原方法的职责，可以采用这个方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;主要有两种形式：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个与原方法同名的新方法，并在新方法中调用更名后的原方法。适用于为原方法的既有调用添加行为的情况。&lt;/li&gt;
+&lt;li&gt;增加一个尚未被调用的新方法，其包含了原方法和需要添加的新行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法（情况一）的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定修改点。&lt;/li&gt;
+&lt;li&gt;如果你的修改可以在一处地方以单块连续的语句序列出现，那么将待修改的方法重命名，并使用其原先的名字和签名创建一个新方法。在这么做的时候要“签名保持”。&lt;/li&gt;
+&lt;li&gt;在新方法中调用重命名后的原方法。(TDD)&lt;/li&gt;
+&lt;li&gt;为新特性编写一个方法，并在第二步创建的新方法里调用此方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;情况二的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定修改点。&lt;/li&gt;
+&lt;li&gt;如果你的修改可以在一处地方以单块连续的语句序列出现，用TDD编写一个新方法来容纳新的特性。&lt;/li&gt;
+&lt;li&gt;创建一个函数来调用新旧两个方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不会大量增加现用方法的体积。&lt;/li&gt;
+&lt;li&gt;显式地是新功能独立于既有功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;缺点:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;会导致糟糕的命名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Wrap-Class-Approach&quot;&gt;&lt;a href=&quot;#Wrap-Class-Approach&quot; class=&quot;headerlink&quot; title=&quot;Wrap Class Approach&quot;&gt;&lt;/a&gt;Wrap Class Approach&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Decoractor Pattern的经典应用。保持原有的类和方法不变。创建一个新的类，其定义了新的方法，并在该方法中实现了所需的新行为，并调用原类的需要被修改的方法。该方法适用于进行外覆的代码调用已经大量存在的情况。若新行为只需要添加到少数几个地方，则可以使用非“装饰性”的Wrap Class（外覆类），即不需要更高级的抽象类，如Abstract Class。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法的步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定修改点。&lt;/li&gt;
+&lt;li&gt;如果你的修改可以在一处地方以单块连续的语句序列出现，则新建一个类，该类的构造函数接受需要被外覆的泪的对象为参数。&lt;/li&gt;
+&lt;li&gt;TDD方法为外覆类编写一个方法，该方法负责完成需要添加的新行为。&lt;/li&gt;
+&lt;li&gt;在系统中需要使用新行为的地方创建并使用外覆类的对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;需要使用外覆类的两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;欲添加的行为是完全独立的，并且不希望让底层或不相关的行为污染现有类。&lt;/li&gt;
+&lt;li&gt;原类已经足够大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Refactor-in-Long-Run&quot;&gt;&lt;a href=&quot;#Refactor-in-Long-Run&quot; class=&quot;headerlink&quot; title=&quot;Refactor in Long Run&quot;&gt;&lt;/a&gt;Refactor in Long Run&lt;/h3&gt;</content>
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Code-Refactor-Technique&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique&quot;&gt;&lt;/a&gt;Code Refactor Tec
+      &lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refacto
     
     </summary>
     

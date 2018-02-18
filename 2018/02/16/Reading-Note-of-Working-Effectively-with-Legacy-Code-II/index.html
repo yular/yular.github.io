@@ -106,11 +106,11 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Refactor-Technique"><span class="toc-number">1.</span> <span class="toc-text">Code Refactor Technique</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#New-Methods-Approach"><span class="toc-number">1.1.</span> <span class="toc-text">New Methods Approach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#New-Class-Approach"><span class="toc-number">2.</span> <span class="toc-text">New Class Approach</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Code-Refactor-Technique-for-Limited-Time"><span class="toc-number">1.</span> <span class="toc-text">Code Refactor Technique for Limited Time</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#New-Methods-Approach"><span class="toc-number">1.1.</span> <span class="toc-text">New Methods Approach</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#New-Class-Approach"><span class="toc-number">1.2.</span> <span class="toc-text">New Class Approach</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Wrap-Method-Approach"><span class="toc-number">1.3.</span> <span class="toc-text">Wrap Method Approach</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Wrap-Class-Approach"><span class="toc-number">1.4.</span> <span class="toc-text">Wrap Class Approach</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-in-Long-Run"><span class="toc-number">2.</span> <span class="toc-text">Refactor in Long Run</span></a></li></ol>
           </div>
       
       
-        <h3 id="Code-Refactor-Technique"><a href="#Code-Refactor-Technique" class="headerlink" title="Code Refactor Technique"></a>Code Refactor Technique</h3><h4 id="New-Methods-Approach"><a href="#New-Methods-Approach" class="headerlink" title="New Methods Approach"></a>New Methods Approach</h4><ul>
+        <h3 id="Code-Refactor-Technique-for-Limited-Time"><a href="#Code-Refactor-Technique-for-Limited-Time" class="headerlink" title="Code Refactor Technique for Limited Time"></a>Code Refactor Technique for Limited Time</h3><h4 id="New-Methods-Approach"><a href="#New-Methods-Approach" class="headerlink" title="New Methods Approach"></a>New Methods Approach</h4><ul>
 <li>当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。</li>
 </ul>
 <p>该方法的步骤：</p>
@@ -130,7 +130,73 @@
 <ul>
 <li>新旧代码会有重复的地方。同时，旧方法和类很可能不被测试覆盖，也很可能不会被继续改善。</li>
 </ul>
-<h3 id="New-Class-Approach"><a href="#New-Class-Approach" class="headerlink" title="New Class Approach"></a>New Class Approach</h3>
+<h4 id="New-Class-Approach"><a href="#New-Class-Approach" class="headerlink" title="New Class Approach"></a>New Class Approach</h4><ul>
+<li>当需要修改一个类，但这个类在对象创建方面有大量的依赖，或者合理时间内没办法使这个类在测试中被实例化时，创建一个新的类来容纳所要进行的改动，并在原类中使用该新类。</li>
+</ul>
+<p>该方法的步骤：</p>
+<ul>
+<li>确定修改点。</li>
+<li>如果你的修改可以在一个方法中的一处地方以单块连续的语句序列出现，那么用一个类来完成这些工作，并为该类起一个恰当的名字。在修改点插入，代码创建该类的对象，调用其方法。然后将刚插入的几行代码注释掉。</li>
+<li>确定你需要原方法中的哪些局部变量，并将它们作为参数传递给新类的构造函数。</li>
+<li>确定新类是否需要返回什么值给原方法。如果需要，则在该类中提供一个相应的方法，并在原方法中插入对它的调用来获得其返回值。</li>
+<li>使用测试驱动（TDD）的开发方法来开发新的方法。</li>
+<li>使原方法中被注释掉的调用重新生效。</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>在侵入性较强的修改时能更安全地完成工作。</li>
+<li>不必修改任何已有的头文件。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>会使原系统的概念复杂化。</li>
+</ul>
+<h4 id="Wrap-Method-Approach"><a href="#Wrap-Method-Approach" class="headerlink" title="Wrap Method Approach"></a>Wrap Method Approach</h4><ul>
+<li>需要为现有方法中添加新的行为时，且该行为不属于原方法的职责，可以采用这个方法。</li>
+</ul>
+<p>主要有两种形式：</p>
+<ul>
+<li>创建一个与原方法同名的新方法，并在新方法中调用更名后的原方法。适用于为原方法的既有调用添加行为的情况。</li>
+<li>增加一个尚未被调用的新方法，其包含了原方法和需要添加的新行为。</li>
+</ul>
+<p>该方法（情况一）的步骤：</p>
+<ul>
+<li>确定修改点。</li>
+<li>如果你的修改可以在一处地方以单块连续的语句序列出现，那么将待修改的方法重命名，并使用其原先的名字和签名创建一个新方法。在这么做的时候要“签名保持”。</li>
+<li>在新方法中调用重命名后的原方法。(TDD)</li>
+<li>为新特性编写一个方法，并在第二步创建的新方法里调用此方法。</li>
+</ul>
+<p>情况二的步骤：</p>
+<ul>
+<li>确定修改点。</li>
+<li>如果你的修改可以在一处地方以单块连续的语句序列出现，用TDD编写一个新方法来容纳新的特性。</li>
+<li>创建一个函数来调用新旧两个方法。</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>不会大量增加现用方法的体积。</li>
+<li>显式地是新功能独立于既有功能。</li>
+</ul>
+<p>缺点:</p>
+<ul>
+<li>会导致糟糕的命名。</li>
+</ul>
+<h4 id="Wrap-Class-Approach"><a href="#Wrap-Class-Approach" class="headerlink" title="Wrap Class Approach"></a>Wrap Class Approach</h4><ul>
+<li>Decoractor Pattern的经典应用。保持原有的类和方法不变。创建一个新的类，其定义了新的方法，并在该方法中实现了所需的新行为，并调用原类的需要被修改的方法。该方法适用于进行外覆的代码调用已经大量存在的情况。若新行为只需要添加到少数几个地方，则可以使用非“装饰性”的Wrap Class（外覆类），即不需要更高级的抽象类，如Abstract Class。</li>
+</ul>
+<p>该方法的步骤：</p>
+<ul>
+<li>确定修改点。</li>
+<li>如果你的修改可以在一处地方以单块连续的语句序列出现，则新建一个类，该类的构造函数接受需要被外覆的泪的对象为参数。</li>
+<li>TDD方法为外覆类编写一个方法，该方法负责完成需要添加的新行为。</li>
+<li>在系统中需要使用新行为的地方创建并使用外覆类的对象。</li>
+</ul>
+<p>需要使用外覆类的两种情况：</p>
+<ul>
+<li>欲添加的行为是完全独立的，并且不希望让底层或不相关的行为污染现有类。</li>
+<li>原类已经足够大。</li>
+</ul>
+<h3 id="Refactor-in-Long-Run"><a href="#Refactor-in-Long-Run" class="headerlink" title="Refactor in Long Run"></a>Refactor in Long Run</h3>
       
     </div>
     
@@ -155,7 +221,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
   <div id="disqus_thread">
@@ -276,7 +342,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 15.71px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
