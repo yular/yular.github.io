@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-18T03:02:00.000Z</updated>
+  <updated>2018-02-18T08:23:29.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
     <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
     <published>2018-02-17T06:06:01.000Z</published>
-    <updated>2018-02-18T03:02:00.000Z</updated>
+    <updated>2018-02-18T08:23:29.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。&lt;/li&gt;
@@ -108,7 +108,17 @@
 &lt;li&gt;欲添加的行为是完全独立的，并且不希望让底层或不相关的行为污染现有类。&lt;/li&gt;
 &lt;li&gt;原类已经足够大。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&quot;Refactor-in-Long-Run&quot;&gt;&lt;a href=&quot;#Refactor-in-Long-Run&quot; class=&quot;headerlink&quot; title=&quot;Refactor in Long Run&quot;&gt;&lt;/a&gt;Refactor in Long Run&lt;/h3&gt;</content>
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Refactor-in-Long-Run&quot;&gt;&lt;a href=&quot;#Refactor-in-Long-Run&quot; class=&quot;headerlink&quot; title=&quot;Refactor in Long Run&quot;&gt;&lt;/a&gt;Refactor in Long Run&lt;/h3&gt;&lt;h4 id=&quot;Resolve-Dependencies&quot;&gt;&lt;a href=&quot;#Resolve-Dependencies&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependencies&quot;&gt;&lt;/a&gt;Resolve Dependencies&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;用Inversion of Control pattern来解依赖。被修改的类只知道要用的接口类型（interface type），不必知道接口的具体实现细节。具体的实现细节分为产品实现和测试实现，通过实现（implement interface）共有的接口（interface）来定义。同时，将类分配到不同的包来加快编译过程。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Adding-New-Features&quot;&gt;&lt;a href=&quot;#Adding-New-Features&quot; class=&quot;headerlink&quot; title=&quot;Adding New Features&quot;&gt;&lt;/a&gt;Adding New Features&lt;/h3&gt;&lt;h4 id=&quot;TDD&quot;&gt;&lt;a href=&quot;#TDD&quot; class=&quot;headerlink&quot; title=&quot;TDD&quot;&gt;&lt;/a&gt;TDD&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Check this link: &lt;a href=&quot;http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/&quot;&gt;Test-Driven-Development&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
@@ -126,11 +136,13 @@
     <link href="http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/"/>
     <id>http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/</id>
     <published>2018-02-09T09:10:21.000Z</published>
-    <updated>2018-02-17T06:15:54.000Z</updated>
+    <updated>2018-02-18T08:11:03.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;修改软件的四个起因：添加新特性，修正bug，改善设计，优化资源使用。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Tests&quot;&gt;&lt;a href=&quot;#Tests&quot; class=&quot;headerlink&quot; title=&quot;Tests&quot;&gt;&lt;/a&gt;Tests&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;在进行修改之前，完善好测试，确保修改不会损坏软件。&lt;/li&gt;
 &lt;/ul&gt;
@@ -177,6 +189,8 @@
 &lt;ul&gt;
 &lt;li&gt;传入测试用的对象来替代产品用的对象，从而改变其中该对象被调用方法的行为。或者是重写类的方法，在测试中使用不同的行为。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h3 id=&quot;Tool&quot;&gt;&lt;a href=&quot;#Tool&quot; class=&quot;headerlink&quot; title=&quot;Tool&quot;&gt;&lt;/a&gt;Tool&lt;/h3&gt;&lt;h4 id=&quot;Refactor&quot;&gt;&lt;a href=&quot;#Refactor&quot; class=&quot;headerlink&quot; title=&quot;Refactor&quot;&gt;&lt;/a&gt;Refactor&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;对软件内部结构的一种调整，目的是在不改变软件的外在行为的前提下，提高其可理解性，降低其修改成本。&lt;/li&gt;
 &lt;/ul&gt;
