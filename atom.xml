@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-18T08:23:29.000Z</updated>
+  <updated>2018-02-18T19:24:36.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
     <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
     <published>2018-02-17T06:06:01.000Z</published>
-    <updated>2018-02-18T08:23:29.000Z</updated>
+    <updated>2018-02-18T19:24:36.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。&lt;/li&gt;
@@ -118,6 +118,19 @@
 &lt;h3 id=&quot;Adding-New-Features&quot;&gt;&lt;a href=&quot;#Adding-New-Features&quot; class=&quot;headerlink&quot; title=&quot;Adding New Features&quot;&gt;&lt;/a&gt;Adding New Features&lt;/h3&gt;&lt;h4 id=&quot;TDD&quot;&gt;&lt;a href=&quot;#TDD&quot; class=&quot;headerlink&quot; title=&quot;TDD&quot;&gt;&lt;/a&gt;TDD&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;Check this link: &lt;a href=&quot;http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/&quot;&gt;Test-Driven-Development&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&quot;Programming-by-Difference&quot;&gt;&lt;a href=&quot;#Programming-by-Difference&quot; class=&quot;headerlink&quot; title=&quot;Programming by Difference&quot;&gt;&lt;/a&gt;Programming by Difference&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;使用类的继承，在不直接改变一个类的前提下引入新特性，并添加对应的测试。在添加完特性后，便可以知道要如何添加该特性。最后再根据情况对代码进行重构。之前添加的新继承类有可能会被删除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;该方法要遵守Liskov置换原则（LSP）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;子类对象应当能用于替换代码中任何地方出现的其父类的对象。&lt;/li&gt;
+&lt;li&gt;该原则的一般规则：&lt;ul&gt;
+&lt;li&gt;尽可能避免重写具体方法。&lt;/li&gt;
+&lt;li&gt;若重写了某方法，则看看能否在重写方法中调用被重写的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在规范化的继承体系中，任何类都不会包含同一个方法的多个实现。即任何类都不会重写其父类中的具体方法。&lt;/p&gt;
 </content>
     
     <summary type="html">

@@ -201,6 +201,19 @@
 <h3 id="Adding-New-Features"><a href="#Adding-New-Features" class="headerlink" title="Adding New Features"></a>Adding New Features</h3><h4 id="TDD"><a href="#TDD" class="headerlink" title="TDD"></a>TDD</h4><ul>
 <li>Check this link: <a href="http://yular.github.io/2017/09/14/Thinking-in-Test-Driven-Development/">Test-Driven-Development</a>.</li>
 </ul>
+<h4 id="Programming-by-Difference"><a href="#Programming-by-Difference" class="headerlink" title="Programming by Difference"></a>Programming by Difference</h4><ul>
+<li>使用类的继承，在不直接改变一个类的前提下引入新特性，并添加对应的测试。在添加完特性后，便可以知道要如何添加该特性。最后再根据情况对代码进行重构。之前添加的新继承类有可能会被删除。</li>
+</ul>
+<p>该方法要遵守Liskov置换原则（LSP）：</p>
+<ul>
+<li>子类对象应当能用于替换代码中任何地方出现的其父类的对象。</li>
+<li>该原则的一般规则：<ul>
+<li>尽可能避免重写具体方法。</li>
+<li>若重写了某方法，则看看能否在重写方法中调用被重写的方法。</li>
+</ul>
+</li>
+</ul>
+<p>在规范化的继承体系中，任何类都不会包含同一个方法的多个实现。即任何类都不会重写其父类中的具体方法。</p>
 
       
     </div>

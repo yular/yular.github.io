@@ -4,7 +4,7 @@
   <url>
     <loc>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</loc>
     
-    <lastmod>2018-02-18T08:23:29.000Z</lastmod>
+    <lastmod>2018-02-18T19:24:36.000Z</lastmod>
     
   </url>
   
@@ -1052,14 +1052,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-II/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/12/09/R-Language-Install-and-Basic-Commands/</loc>
+    <loc>http://yular.github.io/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1136,6 +1129,13 @@
   </url>
   
   <url>
+    <loc>http://yular.github.io/2015/02/15/Machine-Learning-Top-Researcher-List/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yular.github.io/2015/07/12/MarkDown-Language/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
@@ -1144,13 +1144,6 @@
   
   <url>
     <loc>http://yular.github.io/2015/09/06/Mahout-Install-and-Basic-Commands/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/02/15/Machine-Learning-Top-Researcher-List/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1171,7 +1164,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/</loc>
+    <loc>http://yular.github.io/2016/01/04/2016-Reading-List/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1227,6 +1220,13 @@
   </url>
   
   <url>
+    <loc>http://yular.github.io/2015/07/21/Interview-Skill-Summary/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yular.github.io/2015/02/15/Iterative-Qsort/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
@@ -1235,13 +1235,6 @@
   
   <url>
     <loc>http://yular.github.io/2015/05/07/Interview-Summary-Behavior-Question/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/07/21/Interview-Skill-Summary/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1283,13 +1276,6 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-IV/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
@@ -1297,14 +1283,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-I/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/</loc>
+    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-IV/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1318,7 +1297,28 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/10/19/SSL-Certification-Serverside-Deployment-Guide/</loc>
+    <loc>http://yular.github.io/2015/07/22/HTTP-Status-Code/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-II/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2016/02/07/SPOJ-Problems-Solution-List-from-One-to-Fifty-Four/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-I/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1339,7 +1339,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/07/22/HTTP-Status-Code/</loc>
+    <loc>http://yular.github.io/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1381,35 +1381,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yular.github.io/2015/07/18/Software-Architecture-Summary-IV/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/04/Spark-Install-and-Basic-Commands/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/04/Storm-Install-and-Basic-Commands/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1423,28 +1395,21 @@
   </url>
   
   <url>
+    <loc>http://yular.github.io/2015/09/04/Storm-Install-and-Basic-Commands/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/09/04/Spark-Install-and-Basic-Commands/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yular.github.io/2015/07/16/System-Design-Interview-Summary/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2016/01/24/Thinking-in-Divide-and-Conquer/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/06/17/E-commerce-Business-Model-Summary/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/12/06/Thinking-in-Github-Usage/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1458,14 +1423,35 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/09/08/Docker-Install-Guide/</loc>
+    <loc>http://yular.github.io/2016/01/24/Thinking-in-Divide-and-Conquer/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/12/06/Thinking-in-Web-Developer/</loc>
+    <loc>http://yular.github.io/2016/02/21/Thinking-in-Dynamic-Programming-Algorithm/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/12/06/Thinking-in-Github-Usage/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/06/17/E-commerce-Business-Model-Summary/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/09/08/Docker-Install-Guide/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1486,28 +1472,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-I/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-IV/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-II/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-III/</loc>
+    <loc>http://yular.github.io/2015/12/06/Thinking-in-Web-Developer/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1521,28 +1486,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-V/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-VI/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/07/06/Vim-Commands-and-Practice-Guide/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yular.github.io/2015/02/15/Useful-Java-Command-in-Shell-Script/</loc>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-II/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1556,14 +1500,49 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/07/30/C-Makefile-for-Linux/</loc>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-I/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/07/10/hello-world/</loc>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-III/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-V/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-IV/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/09/23/USACO-Training-Problem-Solution-List-VI/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/02/15/Useful-Java-Command-in-Shell-Script/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/07/30/C-Makefile-for-Linux/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1584,13 +1563,6 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/12/13/npm-commands-summary/</loc>
-    
-    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yular.github.io/2015/06/08/Algorithm-Contest-Online-Judge-List/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
@@ -1598,7 +1570,35 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2016/01/04/2016-Reading-List/</loc>
+    <loc>http://yular.github.io/2015/07/06/Vim-Commands-and-Practice-Guide/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/12/13/npm-commands-summary/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2015/07/10/hello-world/</loc>
+    
+    <lastmod>2016-03-05T20:46:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yular.github.io/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
@@ -1612,7 +1612,7 @@
   </url>
   
   <url>
-    <loc>http://yular.github.io/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/</loc>
+    <loc>http://yular.github.io/2015/12/09/R-Language-Install-and-Basic-Commands/</loc>
     
     <lastmod>2016-03-05T20:46:12.000Z</lastmod>
     
