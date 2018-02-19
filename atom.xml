@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-18T19:24:36.000Z</updated>
+  <updated>2018-02-19T07:32:33.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,75 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Working Effectively with Legacy Code III</title>
+    <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
+    <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
+    <published>2018-02-18T19:28:56.000Z</published>
+    <updated>2018-02-19T07:32:33.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;构造函数会引入依赖。解除依赖的方法可以有：&lt;ul&gt;
+&lt;li&gt;传Null&lt;/li&gt;
+&lt;li&gt;接口提取: Subclass and Override Method. See &lt;a href=&quot;http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/#Refactor-in-Long-Run&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Hidden-Dependencies&quot;&gt;&lt;a href=&quot;#Hidden-Dependencies&quot; class=&quot;headerlink&quot; title=&quot;Hidden Dependencies&quot;&gt;&lt;/a&gt;Hidden Dependencies&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;构造函数里面隐藏了一些依赖，这些依赖在测试中可能没有正确地实例化，从而导致编译没法通过。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;定义一个新的构造函数，其输入参数为测试中将被模拟的依赖对象。同时，重构原有的构造函数，确保产品代码不受新的构造函数影响。&lt;/li&gt;
+&lt;li&gt;提供setter方法，将测试用的对象依赖覆盖构造函数中创建的产品对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Global-Dependency&quot;&gt;&lt;a href=&quot;#Global-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Global Dependency&quot;&gt;&lt;/a&gt;Global Dependency&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;构造函数中使用了单例对象。这类对象是全局依赖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在提供单例对象的类内部，添加一个setter，用来接收测试用的对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Onion-Dependency&quot;&gt;&lt;a href=&quot;#Onion-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Onion Dependency&quot;&gt;&lt;/a&gt;Onion Dependency&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;构造函数的参数的构造函数包含别的对象，导致创建测试对象很困难。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;直接传入Null。&lt;/li&gt;
+&lt;li&gt;被测类的构造函数的参数实现一个接口（interface），从而更容易地实例化以及模拟该参数的行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Fail-to-Test-A-Method&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Method&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Method&quot;&gt;&lt;/a&gt;Fail to Test A Method&lt;/h3&gt;&lt;h4 id=&quot;Hidden-Methods&quot;&gt;&lt;a href=&quot;#Hidden-Methods&quot; class=&quot;headerlink&quot; title=&quot;Hidden Methods&quot;&gt;&lt;/a&gt;Hidden Methods&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;有时需要测试private methods。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;修改private methods的访问权限，同时可能也需要修改被这些方法调用的方法的访问权限。&lt;/li&gt;
+&lt;li&gt;重构这些private methods，每个新方法的职责更加集中且精确，从而更加容易测试。&lt;/li&gt;
+&lt;li&gt;添加public methods，这些方法可以访问被测试的private methods。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Final-Class&quot;&gt;&lt;a href=&quot;#Final-Class&quot; class=&quot;headerlink&quot; title=&quot;Final Class&quot;&gt;&lt;/a&gt;Final Class&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;这种类的对象作为被测试方法的输入参数时，没办法继承和重写该类，因此Mock方法不再起作用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;解决方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;若该类的父类不是final，则通过Mock父类对象，作为被测函数的输入参数。&lt;/li&gt;
+&lt;li&gt;为作为参数的对象的类实现一个接口（interface），然后测试用的类也实现这个接口，从而可以模拟参数对象的行为。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Working Effectively with Legacy Code II</title>
@@ -598,40 +667,6 @@
     <content type="html"></content>
     
     <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete I</title>
-    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/"/>
-    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/</id>
-    <published>2017-12-03T21:22:17.000Z</published>
-    <updated>2018-01-22T09:51:10.000Z</updated>
-    
-    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;Problem Definition: A problem definition defines what the problem is without any reference to possible solutions. The problem definition should be in user language, and described from a useras point of view. &lt;/li&gt;
-&lt;li&gt;Requirement: Requirements describe in detail what a software system is supposed to do, and they are the first step toward a solution.&lt;/li&gt;
-&lt;li&gt;Data Design: Data should be normally accessed directly by only one subsystem or class, except through access classes or routines allowing access to the data in controlled and abstract ways.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;Marjor classes: 20% of the classes make up 80% of the system behaviour.&lt;/li&gt;
-&lt;li&gt;Things to do to make the best of changing requirements during construction:&lt;ul&gt;
-&lt;li&gt;Use the requirements checklist to access the quality of requirement.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;I
     
     </summary>
     
