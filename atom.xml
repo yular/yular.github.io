@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-19T07:32:33.000Z</updated>
+  <updated>2018-02-21T09:36:21.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
     <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
     <published>2018-02-18T19:28:56.000Z</published>
-    <updated>2018-02-19T07:32:33.000Z</updated>
+    <updated>2018-02-21T09:36:21.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;构造函数会引入依赖。解除依赖的方法可以有：&lt;ul&gt;
@@ -70,6 +70,11 @@
 &lt;ul&gt;
 &lt;li&gt;若该类的父类不是final，则通过Mock父类对象，作为被测函数的输入参数。&lt;/li&gt;
 &lt;li&gt;为作为参数的对象的类实现一个接口（interface），然后测试用的类也实现这个接口，从而可以模拟参数对象的行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;What-Methods-to-Test-during-Refactor&quot;&gt;&lt;a href=&quot;#What-Methods-to-Test-during-Refactor&quot; class=&quot;headerlink&quot; title=&quot;What Methods to Test during Refactor&quot;&gt;&lt;/a&gt;What Methods to Test during Refactor&lt;/h3&gt;&lt;h4 id=&quot;Infer-the-Effect-Introduced-by-Modification-of-Code&quot;&gt;&lt;a href=&quot;#Infer-the-Effect-Introduced-by-Modification-of-Code&quot; class=&quot;headerlink&quot; title=&quot;Infer the Effect Introduced by Modification of Code&quot;&gt;&lt;/a&gt;Infer the Effect Introduced by Modification of Code&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;若代码结构良好，则其中的大多数方法的影响结构也会比较简单。任何改动，只要能够使代码的影响结构图简单化，就能保证代码更易理解和维护。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     
