@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-21T09:36:21.000Z</updated>
+  <updated>2018-02-25T20:52:06.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
     <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
     <published>2018-02-18T19:28:56.000Z</published>
-    <updated>2018-02-21T09:36:21.000Z</updated>
+    <updated>2018-02-25T20:52:06.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;构造函数会引入依赖。解除依赖的方法可以有：&lt;ul&gt;
@@ -75,7 +75,16 @@
 
 &lt;h3 id=&quot;What-Methods-to-Test-during-Refactor&quot;&gt;&lt;a href=&quot;#What-Methods-to-Test-during-Refactor&quot; class=&quot;headerlink&quot; title=&quot;What Methods to Test during Refactor&quot;&gt;&lt;/a&gt;What Methods to Test during Refactor&lt;/h3&gt;&lt;h4 id=&quot;Infer-the-Effect-Introduced-by-Modification-of-Code&quot;&gt;&lt;a href=&quot;#Infer-the-Effect-Introduced-by-Modification-of-Code&quot; class=&quot;headerlink&quot; title=&quot;Infer the Effect Introduced by Modification of Code&quot;&gt;&lt;/a&gt;Infer the Effect Introduced by Modification of Code&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;若代码结构良好，则其中的大多数方法的影响结构也会比较简单。任何改动，只要能够使代码的影响结构图简单化，就能保证代码更易理解和维护。&lt;/li&gt;
+&lt;li&gt;在编写“特征测试”时，要搞清楚被测试对象停止工作时，其调用的对象会受到什么影响。&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h4 id=&quot;How-to-Find-the-Effect-Introduced-by-Modification-of-Code&quot;&gt;&lt;a href=&quot;#How-to-Find-the-Effect-Introduced-by-Modification-of-Code&quot; class=&quot;headerlink&quot; title=&quot;How to Find the Effect Introduced by Modification of Code&quot;&gt;&lt;/a&gt;How to Find the Effect Introduced by Modification of Code&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;确定一个将要修改的方法。&lt;/li&gt;
+&lt;li&gt;如果该方法有返回值，查看它的调用方。&lt;/li&gt;
+&lt;li&gt;看看该方法是否修改了什么值。是则查看其他使用了这些值的方法，以及使用了这些方法的方法。&lt;/li&gt;
+&lt;li&gt;别忘了查看父类和子类，它们可能使用了这些实例变量和方法。&lt;/li&gt;
+&lt;li&gt;查看这些方法的参数，看看修改的代码是否使用了某参数对象或它的方法所返回的对象。&lt;/li&gt;
+&lt;li&gt;找出到目前为止被你所找出的任何方法修改的全局变量和静态数据。&lt;/li&gt;
+&lt;/ol&gt;
 </content>
     
     <summary type="html">
