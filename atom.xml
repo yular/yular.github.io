@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-26T01:45:14.000Z</updated>
+  <updated>2018-02-26T09:39:06.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Working Effectively with Legacy Code IV</title>
+    <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
+    <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
+    <published>2018-02-26T05:19:13.000Z</published>
+    <updated>2018-02-26T09:39:06.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方法分组&lt;br&gt;寻找相似的方法名。将一个类上的所有方法列出来（含访问权限），找出哪些是一伙的。&lt;/li&gt;
+&lt;li&gt;观察隐藏方法&lt;br&gt;大量的私有方法或受保护方法意味着一个类内部有另一个类要抽象出来。&lt;/li&gt;
+&lt;li&gt;寻找可以更改的决定&lt;br&gt;指的是代码中已存在的结构。比如代码中采用了硬编码的地方。&lt;/li&gt;
+&lt;li&gt;寻找内部关系&lt;br&gt;寻找内部变量和方法之间的关系。&lt;/li&gt;
+&lt;li&gt;寻找主要职责&lt;br&gt;用一句话描述该类的职责。&lt;/li&gt;
+&lt;li&gt;当所有方法都行不通时，作一点草稿式重构&lt;/li&gt;
+&lt;li&gt;关注当前工作&lt;br&gt;注意当前正在做的事，如果发现正在为某件事提供另一条解决方案，那么可能意味着这里存在一个应该被提取且替代的职责。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;单一职责原则（SRP）&quot;&gt;&lt;a href=&quot;#单一职责原则（SRP）&quot; class=&quot;headerlink&quot; title=&quot;单一职责原则（SRP）&quot;&gt;&lt;/a&gt;单一职责原则（SRP）&lt;/h5&gt;&lt;p&gt;每个类应该只承担一个职责，其在系统中的意图应当是单一的，且修改它的原因应该只有一个。&lt;/p&gt;
+&lt;h5 id=&quot;接口隔离原则-ISP&quot;&gt;&lt;a href=&quot;#接口隔离原则-ISP&quot; class=&quot;headerlink&quot; title=&quot;接口隔离原则 (ISP)&quot;&gt;&lt;/a&gt;接口隔离原则 (ISP)&lt;/h5&gt;&lt;p&gt;给特定用户使用的方法创建一个接口，并让该类实现这个接口，则用户可以使用“属于它的”那个接口来访问此类。&lt;/p&gt;
+&lt;h4 id=&quot;Class-Extraction-Abstraction&quot;&gt;&lt;a href=&quot;#Class-Extraction-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Class Extraction/Abstraction&quot;&gt;&lt;/a&gt;Class Extraction/Abstraction&lt;/h4&gt;&lt;p&gt;Need to make sure tests can be written for new classes extracted/abstracted from refactor.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Refactor-A-Lot-of-Duplicated-Code&quot;&gt;&lt;a href=&quot;#Refactor-A-Lot-of-Duplicated-Code&quot; class=&quot;headerlink&quot; title=&quot;Refactor A Lot of Duplicated Code&quot;&gt;&lt;/a&gt;Refactor A Lot of Duplicated Code&lt;/h3&gt;&lt;p&gt;Move the duplicated code to a new class or interface and then the original class extends or implements this new class or interface, if the duplicated code is not safe to delete.&lt;/p&gt;
+&lt;h4 id=&quot;开放／封闭原则&quot;&gt;&lt;a href=&quot;#开放／封闭原则&quot; class=&quot;headerlink&quot; title=&quot;开放／封闭原则&quot;&gt;&lt;/a&gt;开放／封闭原则&lt;/h4&gt;&lt;p&gt;代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Resolve-Dependency&quot;&gt;&lt;a href=&quot;#Resolve-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependency&quot;&gt;&lt;/a&gt;Resolve Dependency&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;
+    
+    </summary>
+    
+    
+      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Working Effectively with Legacy Code III</title>
@@ -684,24 +723,6 @@
     <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-III/</id>
     <published>2017-12-03T21:22:27.000Z</published>
     <updated>2017-12-03T21:24:37.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete II</title>
-    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-II/"/>
-    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-II/</id>
-    <published>2017-12-03T21:22:21.000Z</published>
-    <updated>2017-12-03T21:24:28.000Z</updated>
     
     <content type="html"></content>
     

@@ -94,6 +94,97 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-02T05:02:21.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">Reading Note of Effective Java V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-41-Use-overloading-judiciously"><a href="#Item-41-Use-overloading-judiciously" class="headerlink" title="Item 41. Use overloading judiciously"></a>Item 41. Use overloading judiciously</h3><p>A safe and conservative policy is never to export two overloadings with the same number of parameters.</p>
+<hr>
+
+<h3 id="Item-42-Use-varargs-judiciously"><a href="#Item-42-Use-varargs-judiciously" class="headerlink" title="Item 42. Use varargs judiciously"></a>Item 42. Use varargs judiciously</h3><p>Use varargs only when a call really operates on a variable-length sequence of values.</p>
+<hr>
+
+<h3 id="Item-43-Return-empty-arrays-or-collections-not-nulls"><a href="#Item-43-Return-empty-arrays-or-collections-not-nulls" class="headerlink" title="Item 43. Return empty arrays or collections, not nulls"></a>Item 43. Return empty arrays or collections, not nulls</h3><hr>
+
+<h3 id="Item-44-Write-doc-comments-for-all-exposed-API-elements"><a href="#Item-44-Write-doc-comments-for-all-exposed-API-elements" class="headerlink" title="Item 44. Write doc comments for all exposed API elements"></a>Item 44. Write doc comments for all exposed API elements</h3><p>Here are the rules:</p>
+<ul>
+<li>To document API properly, must precede every exported class, interface, constructor, method and field declaration with a doc comment.</li>
+<li>The doc comment for a method should describe succinctly the contract between the method and its client.</li>
+<li>No longer necessary to use the HTML <code>&lt;code&gt;</code> or <code>&lt;tt&gt;</code> tages in doc comments: the Javadoc {@code} tag is preferable because it eliminates the need to escape HTML metacharacters.</li>
+<li>To document a generic type or method, be sure to document all type parameters.</li>
+<li>To document an enum type, be sure to document the constants.</li>
+<li>To document an annotation type, be sure to document any members as well as type itself.</li>
+</ul>
+<hr>
+
+<h3 id="Item-45-Minimize-the-scope-of-local-variables"><a href="#Item-45-Minimize-the-scope-of-local-variables" class="headerlink" title="Item 45. Minimize the scope of local variables"></a>Item 45. Minimize the scope of local variables</h3><p>Declare the local variables where they are first used. And the declaration should contain an initializer.</p>
+<p>Keep methods small and focused.</p>
+<hr>
+
+<h3 id="Item-46-Prefer-for-each-loops-to-traditional-for-loops"><a href="#Item-46-Prefer-for-each-loops-to-traditional-for-loops" class="headerlink" title="Item 46. Prefer for-each loops to traditional for loops"></a>Item 46. Prefer for-each loops to traditional for loops</h3><p>Three situations where for-each loop should not be used:</p>
+<ul>
+<li>Filtering</li>
+<li>Transforming</li>
+<li>Parallel iteration</li>
+</ul>
+<hr>
+
+<h3 id="Item-47-Know-and-use-libraries"><a href="#Item-47-Know-and-use-libraries" class="headerlink" title="Item 47. Know and use libraries"></a>Item 47. Know and use libraries</h3><hr>
+
+<h3 id="Item-48-Avoid-float-and-double-if-exact-answers-are-required"><a href="#Item-48-Avoid-float-and-double-if-exact-answers-are-required" class="headerlink" title="Item 48. Avoid float and double if exact answers are required"></a>Item 48. Avoid float and double if exact answers are required</h3><hr>
+
+<h3 id="Item-49-Prefer-primitive-types-to-boxed-primitives"><a href="#Item-49-Prefer-primitive-types-to-boxed-primitives" class="headerlink" title="Item 49. Prefer primitive types to boxed primitives"></a>Item 49. Prefer primitive types to boxed primitives</h3><p>Autoboxing reduces the verbosity but not the danger of using boxed primitives.</p>
+<hr>
+
+<h3 id="Item-50-Avoid-strings-where-other-types-are-more-appropriate"><a href="#Item-50-Avoid-strings-where-other-types-are-more-appropriate" class="headerlink" title="Item 50. Avoid strings where other types are more appropriate"></a>Item 50. Avoid strings where other types are more appropriate</h3><p>Strings are poor substitutes for other value types.</p>
+<ul>
+<li>Poor substitutes for enum types.</li>
+<li>Poor substitutes for aggregate types.</li>
+<li><ul>
+<li>Poor substitutes for capabilities.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-02T04:34:37.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">2017-10-01</a></time>
       
       
@@ -977,204 +1068,11 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T05:21:45.000Z"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">Linux Text Processing Command I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
-<li>File sort utility, often used as a filter in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="tsort"><a href="#tsort" class="headerlink" title="tsort"></a>tsort</h3><ul>
-<li>Topological sort.</li>
-</ul>
-<hr>
-
-<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><ul>
-<li>Remove duplicate lines from a sorted file.</li>
-</ul>
-<hr>
-
-<h3 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand, unexpand"></a>expand, unexpand</h3><ul>
-<li>expand: a filter converting tabs to spaces. Ofen used in a pipe.</li>
-<li>unexpand: reverse effect of expand.</li>
-</ul>
-<hr>
-
-<h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a><strong>cut</strong></h3><ul>
-<li>Widely used for text processing.</li>
-<li>A tool for extracting fields from files. Can be used in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a><strong>paste</strong></h3><ul>
-<li>Tool for merging together different files into a single, multi-column file.</li>
-<li>When combining with <code>cut</code>, useful for creating system log files.</li>
-</ul>
-<hr>
-
-<h3 id="join"><a href="#join" class="headerlink" title="join"></a><strong>join</strong></h3><ul>
-<li>Tool for merging two files in a meaningful fashion, creating a simple version of relational database.</li>
-</ul>
-<hr>
-
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a><strong>head</strong></h3><ul>
-<li>Lists the begining of a file to <code>stdout</code>.</li>
-</ul>
-<hr>
-
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a><strong>tail</strong></h3><ul>
-<li>List the end of a file to <code>stdout</code>.</li>
-<li>With <code>-f</code> option, useful for monitoring system.</li>
-</ul>
-<hr>
-
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h3><ul>
-<li>A multi-purpose file search tool that uses Regular Expressions.</li>
-<li>Command pattern: grep pattern [files …]</li>
-<li>Very useful in pipe.</li>
-<li>-i: a case sensitive search.</li>
-<li>-w: matches only whole words.</li>
-<li>-r: searches files recursively.</li>
-<li>-n: lists the matching lines.</li>
-<li>-v: filters out matches.</li>
-<li>-c: gives a numerical count of matches.</li>
-<li>–color: marks the matching string in color.</li>
-</ul>
-<hr>
-
-<h3 id="agrep"><a href="#agrep" class="headerlink" title="agrep"></a><strong>agrep</strong></h3><ul>
-<li>Approximate grep, extending the capabilities of <code>grep</code> to approximate matching.</li>
-</ul>
-<hr>
-
-<h3 id="look"><a href="#look" class="headerlink" title="look"></a>look</h3><ul>
-<li>Works like <code>grep</code>, but does a look up on a “dictionary”, a sorted word list in <code>/usr/dict/words</code> by default.</li>
-</ul>
-<hr>
-
-<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><strong>sed</strong></h3><ul>
-<li>Non-interactive stream editor, permitting using many ex commands in batch mode.</li>
-<li>Useful in shell scripts and pipe.</li>
-</ul>
-<hr>
-
-<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a><strong>awk</strong></h3><ul>
-<li>Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.</li>
-</ul>
-<hr>
-
-<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><ul>
-<li>Give a “word count” on a file or I/O stream.</li>
-</ul>
-<hr>
-
-<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a><strong>tr</strong></h3><ul>
-<li>Character translation filter.</li>
-<li>Must use quoting and/or brackets as appropriate.</li>
-</ul>
-<hr>
-
-<h3 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h3><ul>
-<li>A filter that wraps lines of input to a specified width.</li>
-</ul>
-<hr>
-
-<h3 id="fmt"><a href="#fmt" class="headerlink" title="fmt"></a>fmt</h3><ul>
-<li>Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.</li>
-</ul>
-<hr>
-
-<h3 id="col"><a href="#col" class="headerlink" title="col"></a>col</h3><hr>
-
-<h3 id="column"><a href="#column" class="headerlink" title="column"></a>column</h3><ul>
-<li>Column formatter.</li>
-</ul>
-<hr>
-
-<h3 id="colrm"><a href="#colrm" class="headerlink" title="colrm"></a>colrm</h3><ul>
-<li>Column removal filter.</li>
-</ul>
-<hr>
-
-<h3 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h3><ul>
-<li>Line numbering filter.</li>
-</ul>
-<hr>
-
-<h3 id="pr"><a href="#pr" class="headerlink" title="pr"></a>pr</h3><ul>
-<li>Print formatting filter.</li>
-</ul>
-<hr>
-
-<h3 id="gettext"><a href="#gettext" class="headerlink" title="gettext"></a>gettext</h3><ul>
-<li>A set of utilities for localizing and translating the text output of programs into foreign languages.</li>
-</ul>
-<hr>
-
-<h3 id="msgfmt"><a href="#msgfmt" class="headerlink" title="msgfmt"></a>msgfmt</h3><hr>
-
-<h3 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h3><hr>
-
-<h3 id="recode"><a href="#recode" class="headerlink" title="recode"></a>recode</h3><hr>
-
-<h3 id="TeX-gs"><a href="#TeX-gs" class="headerlink" title="TeX,gs"></a>TeX,gs</h3><hr>
-
-<h3 id="texexec"><a href="#texexec" class="headerlink" title="texexec"></a>texexec</h3><hr>
-
-<h3 id="enscript"><a href="#enscript" class="headerlink" title="enscript"></a>enscript</h3><hr>
-
-<h3 id="groff-tbl-eqn"><a href="#groff-tbl-eqn" class="headerlink" title="groff, tbl, eqn"></a>groff, tbl, eqn</h3><hr>
-
-<h3 id="lex-yacc"><a href="#lex-yacc" class="headerlink" title="lex, yacc"></a>lex, yacc</h3><ul>
-<li>Lexical analyzer commands.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1269,7 +1167,7 @@ private static Long generateDefaultTimeToLive() {
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>11</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>12</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -1291,7 +1189,7 @@ private static Long generateDefaultTimeToLive() {
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.43px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -1312,6 +1210,10 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
+      </li>
+    
+      <li>
         <a href="/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/">Reading Note of Working Effectively with Legacy Code III</a>
       </li>
     
@@ -1325,10 +1227,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/">Reading Note of Programming in Lua 4th Edition II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/22/LintCode-Problem-Solution-List/">LintCode Problem Solution List</a>
       </li>
     
   </ul>

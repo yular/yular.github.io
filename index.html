@@ -94,6 +94,69 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-02-26T05:19:13.000Z"><a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">2018-02-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Refactor-Large-Class"><a href="#Refactor-Large-Class" class="headerlink" title="Refactor Large Class"></a>Refactor Large Class</h3><h4 id="Identification-of-Responsibility-of-Class"><a href="#Identification-of-Responsibility-of-Class" class="headerlink" title="Identification of Responsibility of Class"></a>Identification of Responsibility of Class</h4><p>Approaches of identification</p>
+<ul>
+<li>方法分组<br>寻找相似的方法名。将一个类上的所有方法列出来（含访问权限），找出哪些是一伙的。</li>
+<li>观察隐藏方法<br>大量的私有方法或受保护方法意味着一个类内部有另一个类要抽象出来。</li>
+<li>寻找可以更改的决定<br>指的是代码中已存在的结构。比如代码中采用了硬编码的地方。</li>
+<li>寻找内部关系<br>寻找内部变量和方法之间的关系。</li>
+<li>寻找主要职责<br>用一句话描述该类的职责。</li>
+<li>当所有方法都行不通时，作一点草稿式重构</li>
+<li>关注当前工作<br>注意当前正在做的事，如果发现正在为某件事提供另一条解决方案，那么可能意味着这里存在一个应该被提取且替代的职责。</li>
+</ul>
+<h5 id="单一职责原则（SRP）"><a href="#单一职责原则（SRP）" class="headerlink" title="单一职责原则（SRP）"></a>单一职责原则（SRP）</h5><p>每个类应该只承担一个职责，其在系统中的意图应当是单一的，且修改它的原因应该只有一个。</p>
+<h5 id="接口隔离原则-ISP"><a href="#接口隔离原则-ISP" class="headerlink" title="接口隔离原则 (ISP)"></a>接口隔离原则 (ISP)</h5><p>给特定用户使用的方法创建一个接口，并让该类实现这个接口，则用户可以使用“属于它的”那个接口来访问此类。</p>
+<h4 id="Class-Extraction-Abstraction"><a href="#Class-Extraction-Abstraction" class="headerlink" title="Class Extraction/Abstraction"></a>Class Extraction/Abstraction</h4><p>Need to make sure tests can be written for new classes extracted/abstracted from refactor.</p>
+<hr>
+
+<h3 id="Refactor-A-Lot-of-Duplicated-Code"><a href="#Refactor-A-Lot-of-Duplicated-Code" class="headerlink" title="Refactor A Lot of Duplicated Code"></a>Refactor A Lot of Duplicated Code</h3><p>Move the duplicated code to a new class or interface and then the original class extends or implements this new class or interface, if the duplicated code is not safe to delete.</p>
+<h4 id="开放／封闭原则"><a href="#开放／封闭原则" class="headerlink" title="开放／封闭原则"></a>开放／封闭原则</h4><p>代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。</p>
+<hr>
+
+<h3 id="Resolve-Dependency"><a href="#Resolve-Dependency" class="headerlink" title="Resolve Dependency"></a>Resolve Dependency</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Software-Development/">Software Development</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-02-18T19:28:56.000Z"><a href="/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/">2018-02-18</a></time>
       
       
@@ -805,55 +868,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-01-17T06:01:59.000Z"><a href="/2018/01/16/Java-Summary-III/">2018-01-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/01/16/Java-Summary-III/">Java Summary III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -948,7 +967,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>11</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>12</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -970,7 +989,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.43px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -991,6 +1010,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
+      </li>
+    
+      <li>
         <a href="/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/">Reading Note of Working Effectively with Legacy Code III</a>
       </li>
     
@@ -1004,10 +1027,6 @@
     
       <li>
         <a href="/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/">Reading Note of Programming in Lua 4th Edition II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/22/LintCode-Problem-Solution-List/">LintCode Problem Solution List</a>
       </li>
     
   </ul>
