@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-25T20:52:06.000Z</updated>
+  <updated>2018-02-26T01:45:14.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
     <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
     <published>2018-02-18T19:28:56.000Z</published>
-    <updated>2018-02-25T20:52:06.000Z</updated>
+    <updated>2018-02-26T01:45:14.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;构造函数会引入依赖。解除依赖的方法可以有：&lt;ul&gt;
@@ -85,6 +85,31 @@
 &lt;li&gt;查看这些方法的参数，看看修改的代码是否使用了某参数对象或它的方法所返回的对象。&lt;/li&gt;
 &lt;li&gt;找出到目前为止被你所找出的任何方法修改的全局变量和静态数据。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h4 id=&quot;拦截点&quot;&gt;&lt;a href=&quot;#拦截点&quot; class=&quot;headerlink&quot; title=&quot;拦截点&quot;&gt;&lt;/a&gt;拦截点&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;指的是，给定一处修改，在程序中的某些点能够探测到该修改的影响。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;汇点&quot;&gt;&lt;a href=&quot;#汇点&quot; class=&quot;headerlink&quot; title=&quot;汇点&quot;&gt;&lt;/a&gt;汇点&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;指的是影响结构图的隘口，在汇点处编写测试的好处是，只需针对少数几个方法编写测试，就能够探测到大量其他方法的改动目的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;How-to-Write-Test-during-Refactor&quot;&gt;&lt;a href=&quot;#How-to-Write-Test-during-Refactor&quot; class=&quot;headerlink&quot; title=&quot;How to Write Test during Refactor&quot;&gt;&lt;/a&gt;How to Write Test during Refactor&lt;/h3&gt;&lt;h4 id=&quot;Characterization-Test&quot;&gt;&lt;a href=&quot;#Characterization-Test&quot; class=&quot;headerlink&quot; title=&quot;Characterization Test&quot;&gt;&lt;/a&gt;Characterization Test&lt;/h4&gt;&lt;p&gt;Characterization test should verify what system can do in current stage.&lt;/p&gt;
+&lt;p&gt;Steps of Writing Characterization Test:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在测试中调用目标代码。&lt;/li&gt;
+&lt;li&gt;编写一个会失败的断言（assert）。&lt;/li&gt;
+&lt;li&gt;从断言的失败中得知代码的行为。&lt;/li&gt;
+&lt;li&gt;修改测试，让它预测目标代码的行为。&lt;/li&gt;
+&lt;li&gt;重复上述步骤。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Characterization test is not a black box test.&lt;/p&gt;
+&lt;h4 id=&quot;Target-Test&quot;&gt;&lt;a href=&quot;#Target-Test&quot; class=&quot;headerlink&quot; title=&quot;Target Test&quot;&gt;&lt;/a&gt;Target Test&lt;/h4&gt;&lt;p&gt;Target test is a kind of characterization test to verify whether the behaviors of system remain unchanged after refactor is done.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Test-Code-Difficult-to-Deal-With&quot;&gt;&lt;a href=&quot;#Test-Code-Difficult-to-Deal-With&quot; class=&quot;headerlink&quot; title=&quot;Test Code Difficult to Deal With&quot;&gt;&lt;/a&gt;Test Code Difficult to Deal With&lt;/h3&gt;&lt;h4 id=&quot;Class-Naming&quot;&gt;&lt;a href=&quot;#Class-Naming&quot; class=&quot;headerlink&quot; title=&quot;Class Naming&quot;&gt;&lt;/a&gt;Class Naming&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;被测试类需要与之交互的类，可以命名“Fake”类，它们是交互类的子类。&lt;/li&gt;
+&lt;li&gt;被测试类的可以被重写成一个专门用于测试的子类，方便解依赖，可以命名为“Testing”类。&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     
     <summary type="html">
