@@ -106,7 +106,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-Large-Class"><span class="toc-number">1.</span> <span class="toc-text">Refactor Large Class</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Identification-of-Responsibility-of-Class"><span class="toc-number">1.1.</span> <span class="toc-text">Identification of Responsibility of Class</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单一职责原则（SRP）"><span class="toc-number">1.1.1.</span> <span class="toc-text">单一职责原则（SRP）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接口隔离原则-ISP"><span class="toc-number">1.1.2.</span> <span class="toc-text">接口隔离原则 (ISP)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Extraction-Abstraction"><span class="toc-number">1.2.</span> <span class="toc-text">Class Extraction/Abstraction</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-A-Lot-of-Duplicated-Code"><span class="toc-number">2.</span> <span class="toc-text">Refactor A Lot of Duplicated Code</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开放／封闭原则"><span class="toc-number">2.1.</span> <span class="toc-text">开放／封闭原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-Dependency"><span class="toc-number">3.</span> <span class="toc-text">Resolve Dependency</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-Large-Class"><span class="toc-number">1.</span> <span class="toc-text">Refactor Large Class</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Identification-of-Responsibility-of-Class"><span class="toc-number">1.1.</span> <span class="toc-text">Identification of Responsibility of Class</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单一职责原则（SRP）"><span class="toc-number">1.1.1.</span> <span class="toc-text">单一职责原则（SRP）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接口隔离原则-ISP"><span class="toc-number">1.1.2.</span> <span class="toc-text">接口隔离原则 (ISP)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Extraction-Abstraction"><span class="toc-number">1.2.</span> <span class="toc-text">Class Extraction/Abstraction</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-A-Lot-of-Duplicated-Code"><span class="toc-number">2.</span> <span class="toc-text">Refactor A Lot of Duplicated Code</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开放／封闭原则"><span class="toc-number">2.1.</span> <span class="toc-text">开放／封闭原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-Dependency"><span class="toc-number">3.</span> <span class="toc-text">Resolve Dependency</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interface-Abstraction"><span class="toc-number">3.1.</span> <span class="toc-text">Interface Abstraction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Instance-Delegator"><span class="toc-number">3.2.</span> <span class="toc-text">Introduce Instance Delegator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Static-Setting"><span class="toc-number">3.3.</span> <span class="toc-text">Introduce Static Setting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Link-Substitution"><span class="toc-number">3.4.</span> <span class="toc-text">Link Substitution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Constructor"><span class="toc-number">3.5.</span> <span class="toc-text">Parameterize Constructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Method"><span class="toc-number">3.6.</span> <span class="toc-text">Parameterize Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Primitivize-Parameter"><span class="toc-number">3.7.</span> <span class="toc-text">Primitivize Parameter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pull-up-Feature"><span class="toc-number">3.8.</span> <span class="toc-text">Pull up Feature</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Push-Down-Dependency"><span class="toc-number">3.9.</span> <span class="toc-text">Push Down Dependency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Function-with-Function-Pointer"><span class="toc-number">3.10.</span> <span class="toc-text">Replace Function with Function Pointer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Global-Reference-with-Getter"><span class="toc-number">3.11.</span> <span class="toc-text">Replace Global Reference with Getter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subclass-and-Override-Method"><span class="toc-number">3.12.</span> <span class="toc-text">Subclass and Override Method</span></a></li></ol></li></ol>
           </div>
       
       
@@ -129,7 +129,87 @@
 <h4 id="开放／封闭原则"><a href="#开放／封闭原则" class="headerlink" title="开放／封闭原则"></a>开放／封闭原则</h4><p>代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。</p>
 <hr>
 
-<h3 id="Resolve-Dependency"><a href="#Resolve-Dependency" class="headerlink" title="Resolve Dependency"></a>Resolve Dependency</h3>
+<h3 id="Resolve-Dependency"><a href="#Resolve-Dependency" class="headerlink" title="Resolve Dependency"></a>Resolve Dependency</h3><h4 id="Interface-Abstraction"><a href="#Interface-Abstraction" class="headerlink" title="Interface Abstraction"></a>Interface Abstraction</h4><p>Steps to abstract an interface (for testing purpose):</p>
+<ul>
+<li>创建一个新接口，给它起一个好名字。暂时不要往里面添加任何方法。</li>
+<li>让目标类实现该接口。确保编译成功。</li>
+<li>在将要使用伪对象的地方从引用原目标类改为引用新接口。</li>
+<li>编译系统。若编译器汇报接口上缺少某某方法，则添加相应方法，直到编译通过。</li>
+</ul>
+<h4 id="Introduce-Instance-Delegator"><a href="#Introduce-Instance-Delegator" class="headerlink" title="Introduce Instance Delegator"></a>Introduce Instance Delegator</h4><p>Steps:</p>
+<ul>
+<li>找出会在测试中带来问题的静态方法。</li>
+<li>在它所属类上新建一个实例方法（用签名保持方法）。让该实例方法调用／委托目标静态方法。</li>
+<li>找出想要纳入测试的类中有哪些地方使用了那个静态方法。使用参数化方法或其他解依赖技术来提供一个实例给代码中想要调用该静态方法的地方。</li>
+</ul>
+<h4 id="Introduce-Static-Setting"><a href="#Introduce-Static-Setting" class="headerlink" title="Introduce Static Setting"></a>Introduce Static Setting</h4><p>Steps:</p>
+<ul>
+<li>降低构造函数的保护权限。</li>
+<li>往单件类上添加一个静态设置方法。后者的参数类型是对单件类的应用。确保该设置方法在设置新的单件对象之前将旧的对象销毁。</li>
+<li>如果你需要访问单件类里面的受保护或私有方法才能将其设置妥当的话，可以考虑对单件类子类化，也可以对其提取接口并改用该接口的引用来持有单件。</li>
+</ul>
+<h4 id="Link-Substitution"><a href="#Link-Substitution" class="headerlink" title="Link Substitution"></a>Link Substitution</h4><p>Steps:</p>
+<ul>
+<li>找出你想要伪造的函数或类。</li>
+<li>为它们编写另一份定义。</li>
+<li>修改构件参数，让伪对象能够替代真对象被连接到项目中。</li>
+</ul>
+<h4 id="Parameterize-Constructor"><a href="#Parameterize-Constructor" class="headerlink" title="Parameterize Constructor"></a>Parameterize Constructor</h4><p>Steps:</p>
+<ul>
+<li>找出想要参数化的构造函数，并将其复制一份。</li>
+<li>给其中的一份复制增加一个参数，该参数用来传入想要替换的对象。将该构造函数体中的相应的对象创建语句删掉，改为使用新增的那个参数。</li>
+<li>若语言支持委托构造函数，那么删除另一份构造函数的函数体，代以对新构造函数的调用，记得调用时要new一个对应对象出来。</li>
+</ul>
+<h4 id="Parameterize-Method"><a href="#Parameterize-Method" class="headerlink" title="Parameterize Method"></a>Parameterize Method</h4><p>Steps:</p>
+<ul>
+<li>找出想要参数化的方法，并将其复制一份。</li>
+<li>给其中的一份复制增加一个参数，该参数用来传入想要替换的对象。将该构造函数体中的相应的对象创建语句删掉，改为使用新增的那个参数。</li>
+<li>若语言支持委托构造函数，那么删除另一份构造函数的函数体，代以对新构造函数的调用，记得调用时要new一个对应对象出来。</li>
+</ul>
+<h4 id="Primitivize-Parameter"><a href="#Primitivize-Parameter" class="headerlink" title="Primitivize Parameter"></a>Primitivize Parameter</h4><p>Steps:</p>
+<ul>
+<li>编写一个自由函数来实现想要对目标类做的事。同时建立一个中间表示，以便对自由函数进行处理。</li>
+<li>往目标类上添加一个函数来构造这一中间表示，并将实际任务转发给上一步创建的那个自由函数。</li>
+</ul>
+<h4 id="Pull-up-Feature"><a href="#Pull-up-Feature" class="headerlink" title="Pull up Feature"></a>Pull up Feature</h4><p>Steps:</p>
+<ul>
+<li>找出想要提升到抽象基类中去的方法。</li>
+<li>为它们创建一个抽象基类。</li>
+<li>将这些方法转移到该抽象基类中，再编译。</li>
+<li>编译错误会指出方法引用的其他实例成员，将它们也转移到基类中，同时保持签名不变，以尽量减少出错的机会。</li>
+<li>当两个类都成功编译后，为抽象类创建一个测试子类，并往其中添加需要用于配置环境的方法。</li>
+</ul>
+<h4 id="Push-Down-Dependency"><a href="#Push-Down-Dependency" class="headerlink" title="Push Down Dependency"></a>Push Down Dependency</h4><p>Steps:</p>
+<ul>
+<li>在测试中构建目标类。</li>
+<li>找出哪些依赖导致构造函数出问题。</li>
+<li>创建目标类的子类，子类的名字要反映上一步找出的依赖的特征。</li>
+<li>将目标类中的依赖变量和方法全部复制到新建的子类中，注意保持签名；将目标类中的相应方法设为受保护及抽象的；将目标类设为抽象的。</li>
+<li>创建目标类的一个测试类，并在测试中使用该类。</li>
+<li>创建测试类来验证该测试类能确实实例化。</li>
+</ul>
+<h4 id="Replace-Function-with-Function-Pointer"><a href="#Replace-Function-with-Function-Pointer" class="headerlink" title="Replace Function with Function Pointer"></a>Replace Function with Function Pointer</h4><p>Steps:</p>
+<ul>
+<li>找出想要替代的函数声明。</li>
+<li>在每个找到的函数之前创建一个同名的函数指针。</li>
+<li>重命名原函数的声明，以避免跟刚才声明的函数指针重名。</li>
+<li>在一个C文件中初始化这些函数指针，将它们指向相应的函数。</li>
+<li>构建，通过构建错误来找出原函数的函数体。将它们改为新的函数名。</li>
+</ul>
+<h4 id="Replace-Global-Reference-with-Getter"><a href="#Replace-Global-Reference-with-Getter" class="headerlink" title="Replace Global Reference with Getter"></a>Replace Global Reference with Getter</h4><p>Steps:</p>
+<ul>
+<li>找出想要替换的全局引用。</li>
+<li>为其编写一个相应的获取方法。确保该方法可以在派生类中被重写。</li>
+<li>将对全局对象的引用替换为对该获取方法的调用。</li>
+<li>创建测试子类并重写获取方法。</li>
+</ul>
+<h4 id="Subclass-and-Override-Method"><a href="#Subclass-and-Override-Method" class="headerlink" title="Subclass and Override Method"></a>Subclass and Override Method</h4><p>Steps:</p>
+<ul>
+<li>找出想要分离出来的依赖，或者想要进行感知的地点。找出尽量少的一组方法来实现这个目标。</li>
+<li>确定并确保需要重写的方法。适当调整这些方法的权限。</li>
+<li>创建一个子类并在其中重写这些方法。</li>
+</ul>
+
       
     </div>
     
@@ -154,7 +234,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
   <div id="disqus_thread">
@@ -275,7 +355,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-26T09:39:06.000Z</updated>
+  <updated>2018-02-27T09:50:36.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
     <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
     <published>2018-02-26T05:19:13.000Z</published>
-    <updated>2018-02-26T09:39:06.000Z</updated>
+    <updated>2018-02-27T09:50:36.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
 &lt;ul&gt;
@@ -41,7 +41,87 @@
 &lt;h4 id=&quot;开放／封闭原则&quot;&gt;&lt;a href=&quot;#开放／封闭原则&quot; class=&quot;headerlink&quot; title=&quot;开放／封闭原则&quot;&gt;&lt;/a&gt;开放／封闭原则&lt;/h4&gt;&lt;p&gt;代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Resolve-Dependency&quot;&gt;&lt;a href=&quot;#Resolve-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependency&quot;&gt;&lt;/a&gt;Resolve Dependency&lt;/h3&gt;</content>
+&lt;h3 id=&quot;Resolve-Dependency&quot;&gt;&lt;a href=&quot;#Resolve-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependency&quot;&gt;&lt;/a&gt;Resolve Dependency&lt;/h3&gt;&lt;h4 id=&quot;Interface-Abstraction&quot;&gt;&lt;a href=&quot;#Interface-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Interface Abstraction&quot;&gt;&lt;/a&gt;Interface Abstraction&lt;/h4&gt;&lt;p&gt;Steps to abstract an interface (for testing purpose):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个新接口，给它起一个好名字。暂时不要往里面添加任何方法。&lt;/li&gt;
+&lt;li&gt;让目标类实现该接口。确保编译成功。&lt;/li&gt;
+&lt;li&gt;在将要使用伪对象的地方从引用原目标类改为引用新接口。&lt;/li&gt;
+&lt;li&gt;编译系统。若编译器汇报接口上缺少某某方法，则添加相应方法，直到编译通过。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Introduce-Instance-Delegator&quot;&gt;&lt;a href=&quot;#Introduce-Instance-Delegator&quot; class=&quot;headerlink&quot; title=&quot;Introduce Instance Delegator&quot;&gt;&lt;/a&gt;Introduce Instance Delegator&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出会在测试中带来问题的静态方法。&lt;/li&gt;
+&lt;li&gt;在它所属类上新建一个实例方法（用签名保持方法）。让该实例方法调用／委托目标静态方法。&lt;/li&gt;
+&lt;li&gt;找出想要纳入测试的类中有哪些地方使用了那个静态方法。使用参数化方法或其他解依赖技术来提供一个实例给代码中想要调用该静态方法的地方。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Introduce-Static-Setting&quot;&gt;&lt;a href=&quot;#Introduce-Static-Setting&quot; class=&quot;headerlink&quot; title=&quot;Introduce Static Setting&quot;&gt;&lt;/a&gt;Introduce Static Setting&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;降低构造函数的保护权限。&lt;/li&gt;
+&lt;li&gt;往单件类上添加一个静态设置方法。后者的参数类型是对单件类的应用。确保该设置方法在设置新的单件对象之前将旧的对象销毁。&lt;/li&gt;
+&lt;li&gt;如果你需要访问单件类里面的受保护或私有方法才能将其设置妥当的话，可以考虑对单件类子类化，也可以对其提取接口并改用该接口的引用来持有单件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Link-Substitution&quot;&gt;&lt;a href=&quot;#Link-Substitution&quot; class=&quot;headerlink&quot; title=&quot;Link Substitution&quot;&gt;&lt;/a&gt;Link Substitution&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出你想要伪造的函数或类。&lt;/li&gt;
+&lt;li&gt;为它们编写另一份定义。&lt;/li&gt;
+&lt;li&gt;修改构件参数，让伪对象能够替代真对象被连接到项目中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Parameterize-Constructor&quot;&gt;&lt;a href=&quot;#Parameterize-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Parameterize Constructor&quot;&gt;&lt;/a&gt;Parameterize Constructor&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要参数化的构造函数，并将其复制一份。&lt;/li&gt;
+&lt;li&gt;给其中的一份复制增加一个参数，该参数用来传入想要替换的对象。将该构造函数体中的相应的对象创建语句删掉，改为使用新增的那个参数。&lt;/li&gt;
+&lt;li&gt;若语言支持委托构造函数，那么删除另一份构造函数的函数体，代以对新构造函数的调用，记得调用时要new一个对应对象出来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Parameterize-Method&quot;&gt;&lt;a href=&quot;#Parameterize-Method&quot; class=&quot;headerlink&quot; title=&quot;Parameterize Method&quot;&gt;&lt;/a&gt;Parameterize Method&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要参数化的方法，并将其复制一份。&lt;/li&gt;
+&lt;li&gt;给其中的一份复制增加一个参数，该参数用来传入想要替换的对象。将该构造函数体中的相应的对象创建语句删掉，改为使用新增的那个参数。&lt;/li&gt;
+&lt;li&gt;若语言支持委托构造函数，那么删除另一份构造函数的函数体，代以对新构造函数的调用，记得调用时要new一个对应对象出来。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Primitivize-Parameter&quot;&gt;&lt;a href=&quot;#Primitivize-Parameter&quot; class=&quot;headerlink&quot; title=&quot;Primitivize Parameter&quot;&gt;&lt;/a&gt;Primitivize Parameter&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编写一个自由函数来实现想要对目标类做的事。同时建立一个中间表示，以便对自由函数进行处理。&lt;/li&gt;
+&lt;li&gt;往目标类上添加一个函数来构造这一中间表示，并将实际任务转发给上一步创建的那个自由函数。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Pull-up-Feature&quot;&gt;&lt;a href=&quot;#Pull-up-Feature&quot; class=&quot;headerlink&quot; title=&quot;Pull up Feature&quot;&gt;&lt;/a&gt;Pull up Feature&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要提升到抽象基类中去的方法。&lt;/li&gt;
+&lt;li&gt;为它们创建一个抽象基类。&lt;/li&gt;
+&lt;li&gt;将这些方法转移到该抽象基类中，再编译。&lt;/li&gt;
+&lt;li&gt;编译错误会指出方法引用的其他实例成员，将它们也转移到基类中，同时保持签名不变，以尽量减少出错的机会。&lt;/li&gt;
+&lt;li&gt;当两个类都成功编译后，为抽象类创建一个测试子类，并往其中添加需要用于配置环境的方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Push-Down-Dependency&quot;&gt;&lt;a href=&quot;#Push-Down-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Push Down Dependency&quot;&gt;&lt;/a&gt;Push Down Dependency&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在测试中构建目标类。&lt;/li&gt;
+&lt;li&gt;找出哪些依赖导致构造函数出问题。&lt;/li&gt;
+&lt;li&gt;创建目标类的子类，子类的名字要反映上一步找出的依赖的特征。&lt;/li&gt;
+&lt;li&gt;将目标类中的依赖变量和方法全部复制到新建的子类中，注意保持签名；将目标类中的相应方法设为受保护及抽象的；将目标类设为抽象的。&lt;/li&gt;
+&lt;li&gt;创建目标类的一个测试类，并在测试中使用该类。&lt;/li&gt;
+&lt;li&gt;创建测试类来验证该测试类能确实实例化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Replace-Function-with-Function-Pointer&quot;&gt;&lt;a href=&quot;#Replace-Function-with-Function-Pointer&quot; class=&quot;headerlink&quot; title=&quot;Replace Function with Function Pointer&quot;&gt;&lt;/a&gt;Replace Function with Function Pointer&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要替代的函数声明。&lt;/li&gt;
+&lt;li&gt;在每个找到的函数之前创建一个同名的函数指针。&lt;/li&gt;
+&lt;li&gt;重命名原函数的声明，以避免跟刚才声明的函数指针重名。&lt;/li&gt;
+&lt;li&gt;在一个C文件中初始化这些函数指针，将它们指向相应的函数。&lt;/li&gt;
+&lt;li&gt;构建，通过构建错误来找出原函数的函数体。将它们改为新的函数名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Replace-Global-Reference-with-Getter&quot;&gt;&lt;a href=&quot;#Replace-Global-Reference-with-Getter&quot; class=&quot;headerlink&quot; title=&quot;Replace Global Reference with Getter&quot;&gt;&lt;/a&gt;Replace Global Reference with Getter&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要替换的全局引用。&lt;/li&gt;
+&lt;li&gt;为其编写一个相应的获取方法。确保该方法可以在派生类中被重写。&lt;/li&gt;
+&lt;li&gt;将对全局对象的引用替换为对该获取方法的调用。&lt;/li&gt;
+&lt;li&gt;创建测试子类并重写获取方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Subclass-and-Override-Method&quot;&gt;&lt;a href=&quot;#Subclass-and-Override-Method&quot; class=&quot;headerlink&quot; title=&quot;Subclass and Override Method&quot;&gt;&lt;/a&gt;Subclass and Override Method&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要分离出来的依赖，或者想要进行感知的地点。找出尽量少的一组方法来实现这个目标。&lt;/li&gt;
+&lt;li&gt;确定并确保需要重写的方法。适当调整这些方法的权限。&lt;/li&gt;
+&lt;li&gt;创建一个子类并在其中重写这些方法。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
