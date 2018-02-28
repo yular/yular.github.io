@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-27T09:50:36.000Z</updated>
+  <updated>2018-02-28T09:16:38.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
     <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
     <published>2018-02-26T05:19:13.000Z</published>
-    <updated>2018-02-27T09:50:36.000Z</updated>
+    <updated>2018-02-28T09:16:38.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
 &lt;ul&gt;
@@ -41,7 +41,35 @@
 &lt;h4 id=&quot;开放／封闭原则&quot;&gt;&lt;a href=&quot;#开放／封闭原则&quot; class=&quot;headerlink&quot; title=&quot;开放／封闭原则&quot;&gt;&lt;/a&gt;开放／封闭原则&lt;/h4&gt;&lt;p&gt;代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;h3 id=&quot;Resolve-Dependency&quot;&gt;&lt;a href=&quot;#Resolve-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependency&quot;&gt;&lt;/a&gt;Resolve Dependency&lt;/h3&gt;&lt;h4 id=&quot;Interface-Abstraction&quot;&gt;&lt;a href=&quot;#Interface-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Interface Abstraction&quot;&gt;&lt;/a&gt;Interface Abstraction&lt;/h4&gt;&lt;p&gt;Steps to abstract an interface (for testing purpose):&lt;/p&gt;
+&lt;h3 id=&quot;Resolve-Dependency&quot;&gt;&lt;a href=&quot;#Resolve-Dependency&quot; class=&quot;headerlink&quot; title=&quot;Resolve Dependency&quot;&gt;&lt;/a&gt;Resolve Dependency&lt;/h3&gt;&lt;h4 id=&quot;Parameter-Adaptation&quot;&gt;&lt;a href=&quot;#Parameter-Adaptation&quot; class=&quot;headerlink&quot; title=&quot;Parameter Adaptation&quot;&gt;&lt;/a&gt;Parameter Adaptation&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建将被用于该方法的新接口，该接口越简单且能表达的意图越好。&lt;/li&gt;
+&lt;li&gt;为新接口创建一个用于产品代码的实现。&lt;/li&gt;
+&lt;li&gt;为新接口创建一个用于测试的“伪造”实现。&lt;/li&gt;
+&lt;li&gt;编写一个简单的测试用例，将伪对象传给该方法。&lt;/li&gt;
+&lt;li&gt;对该方法作必要的修改以使其能使用新的参数。&lt;/li&gt;
+&lt;li&gt;运行测试来确保能使用伪对象来测试该方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Wrapper-Class-for-Method&quot;&gt;&lt;a href=&quot;#Wrapper-Class-for-Method&quot; class=&quot;headerlink&quot; title=&quot;Wrapper Class for Method&quot;&gt;&lt;/a&gt;Wrapper Class for Method&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个将包含目标方法的类。&lt;/li&gt;
+&lt;li&gt;为该类创建一个构造函数，利用签名保持方法让其和目标方法有相同的参数列表。&lt;/li&gt;
+&lt;li&gt;对于构造函数中的每个参数，创建一个相应的成员变量。&lt;/li&gt;
+&lt;li&gt;在新类中建立一个空的执行方法，通常命名为run。&lt;/li&gt;
+&lt;li&gt;将目标方法的方法体复制到刚才创建的执行方法中，然后编译，并作下一步修改。&lt;/li&gt;
+&lt;li&gt;新类通过编译后，回到原先的目标方法，对其进行修改，让它将工作全权委托给新创建的执行方法。&lt;/li&gt;
+&lt;li&gt;若有必要，使用接口提取来解开对原类的依赖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Definition-Completion&quot;&gt;&lt;a href=&quot;#Definition-Completion&quot; class=&quot;headerlink&quot; title=&quot;Definition Completion&quot;&gt;&lt;/a&gt;Definition Completion&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出想要对其成员函数实施定义替换的类。&lt;/li&gt;
+&lt;li&gt;确认该类的成员函数定义是在源文件而非头文件中。&lt;/li&gt;
+&lt;li&gt;将该头文件包含到待测试类的测试源文件中。&lt;/li&gt;
+&lt;li&gt;确保该类的源文件并不参与构建。&lt;/li&gt;
+&lt;li&gt;构建，找出没替换定义的成员函数。&lt;/li&gt;
+&lt;li&gt;往测试源文件中添加相应的成员函数定义，直到构建成功。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Interface-Abstraction&quot;&gt;&lt;a href=&quot;#Interface-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Interface Abstraction&quot;&gt;&lt;/a&gt;Interface Abstraction&lt;/h4&gt;&lt;p&gt;Steps to abstract an interface (for testing purpose):&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;创建一个新接口，给它起一个好名字。暂时不要往里面添加任何方法。&lt;/li&gt;
 &lt;li&gt;让目标类实现该接口。确保编译成功。&lt;/li&gt;
@@ -120,6 +148,26 @@
 &lt;li&gt;找出想要分离出来的依赖，或者想要进行感知的地点。找出尽量少的一组方法来实现这个目标。&lt;/li&gt;
 &lt;li&gt;确定并确保需要重写的方法。适当调整这些方法的权限。&lt;/li&gt;
 &lt;li&gt;创建一个子类并在其中重写这些方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Replace-Instance-Variable&quot;&gt;&lt;a href=&quot;#Replace-Instance-Variable&quot; class=&quot;headerlink&quot; title=&quot;Replace Instance Variable&quot;&gt;&lt;/a&gt;Replace Instance Variable&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出需要替换的实例变量。&lt;/li&gt;
+&lt;li&gt;创建一个名为supersedeXXX的方法，其中XXX是要替换的变量的名字。&lt;/li&gt;
+&lt;li&gt;在该方法中销毁原先被创建出来的那个对象，换入新建出来的对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Template-Redefinition&quot;&gt;&lt;a href=&quot;#Template-Redefinition&quot; class=&quot;headerlink&quot; title=&quot;Template Redefinition&quot;&gt;&lt;/a&gt;Template Redefinition&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在待测试类中找出你想要替换的特性。&lt;/li&gt;
+&lt;li&gt;将该类做成一个类模板，根据需要替换的变量对它进行参数化，将方法转移到头文件中。&lt;/li&gt;
+&lt;li&gt;给该类模板另起一个名字。比如在原类名字后面添加Impl。&lt;/li&gt;
+&lt;li&gt;在类模板定义之后加上一行typedef。&lt;/li&gt;
+&lt;li&gt;在测试文件中包含该类模板的定义，用新的测试用类型来实例化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Text-Redefinition-ex-Ruby&quot;&gt;&lt;a href=&quot;#Text-Redefinition-ex-Ruby&quot; class=&quot;headerlink&quot; title=&quot;Text Redefinition (ex. Ruby)&quot;&gt;&lt;/a&gt;Text Redefinition (ex. Ruby)&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出你想要替换定义的方法所在的类。&lt;/li&gt;
+&lt;li&gt;在测试源文件头添加一行require引入包含目标类的模块。&lt;/li&gt;
+&lt;li&gt;在测试源文件的开头给每一个想要替换的方法提供新的定义。&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     

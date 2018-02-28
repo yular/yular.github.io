@@ -106,7 +106,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-Large-Class"><span class="toc-number">1.</span> <span class="toc-text">Refactor Large Class</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Identification-of-Responsibility-of-Class"><span class="toc-number">1.1.</span> <span class="toc-text">Identification of Responsibility of Class</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单一职责原则（SRP）"><span class="toc-number">1.1.1.</span> <span class="toc-text">单一职责原则（SRP）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接口隔离原则-ISP"><span class="toc-number">1.1.2.</span> <span class="toc-text">接口隔离原则 (ISP)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Extraction-Abstraction"><span class="toc-number">1.2.</span> <span class="toc-text">Class Extraction/Abstraction</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-A-Lot-of-Duplicated-Code"><span class="toc-number">2.</span> <span class="toc-text">Refactor A Lot of Duplicated Code</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开放／封闭原则"><span class="toc-number">2.1.</span> <span class="toc-text">开放／封闭原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-Dependency"><span class="toc-number">3.</span> <span class="toc-text">Resolve Dependency</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Interface-Abstraction"><span class="toc-number">3.1.</span> <span class="toc-text">Interface Abstraction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Instance-Delegator"><span class="toc-number">3.2.</span> <span class="toc-text">Introduce Instance Delegator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Static-Setting"><span class="toc-number">3.3.</span> <span class="toc-text">Introduce Static Setting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Link-Substitution"><span class="toc-number">3.4.</span> <span class="toc-text">Link Substitution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Constructor"><span class="toc-number">3.5.</span> <span class="toc-text">Parameterize Constructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Method"><span class="toc-number">3.6.</span> <span class="toc-text">Parameterize Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Primitivize-Parameter"><span class="toc-number">3.7.</span> <span class="toc-text">Primitivize Parameter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pull-up-Feature"><span class="toc-number">3.8.</span> <span class="toc-text">Pull up Feature</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Push-Down-Dependency"><span class="toc-number">3.9.</span> <span class="toc-text">Push Down Dependency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Function-with-Function-Pointer"><span class="toc-number">3.10.</span> <span class="toc-text">Replace Function with Function Pointer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Global-Reference-with-Getter"><span class="toc-number">3.11.</span> <span class="toc-text">Replace Global Reference with Getter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subclass-and-Override-Method"><span class="toc-number">3.12.</span> <span class="toc-text">Subclass and Override Method</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-Large-Class"><span class="toc-number">1.</span> <span class="toc-text">Refactor Large Class</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Identification-of-Responsibility-of-Class"><span class="toc-number">1.1.</span> <span class="toc-text">Identification of Responsibility of Class</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#单一职责原则（SRP）"><span class="toc-number">1.1.1.</span> <span class="toc-text">单一职责原则（SRP）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#接口隔离原则-ISP"><span class="toc-number">1.1.2.</span> <span class="toc-text">接口隔离原则 (ISP)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Class-Extraction-Abstraction"><span class="toc-number">1.2.</span> <span class="toc-text">Class Extraction/Abstraction</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Refactor-A-Lot-of-Duplicated-Code"><span class="toc-number">2.</span> <span class="toc-text">Refactor A Lot of Duplicated Code</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开放／封闭原则"><span class="toc-number">2.1.</span> <span class="toc-text">开放／封闭原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resolve-Dependency"><span class="toc-number">3.</span> <span class="toc-text">Resolve Dependency</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameter-Adaptation"><span class="toc-number">3.1.</span> <span class="toc-text">Parameter Adaptation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Wrapper-Class-for-Method"><span class="toc-number">3.2.</span> <span class="toc-text">Wrapper Class for Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition-Completion"><span class="toc-number">3.3.</span> <span class="toc-text">Definition Completion</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Interface-Abstraction"><span class="toc-number">3.4.</span> <span class="toc-text">Interface Abstraction</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Instance-Delegator"><span class="toc-number">3.5.</span> <span class="toc-text">Introduce Instance Delegator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Introduce-Static-Setting"><span class="toc-number">3.6.</span> <span class="toc-text">Introduce Static Setting</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Link-Substitution"><span class="toc-number">3.7.</span> <span class="toc-text">Link Substitution</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Constructor"><span class="toc-number">3.8.</span> <span class="toc-text">Parameterize Constructor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Parameterize-Method"><span class="toc-number">3.9.</span> <span class="toc-text">Parameterize Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Primitivize-Parameter"><span class="toc-number">3.10.</span> <span class="toc-text">Primitivize Parameter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pull-up-Feature"><span class="toc-number">3.11.</span> <span class="toc-text">Pull up Feature</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Push-Down-Dependency"><span class="toc-number">3.12.</span> <span class="toc-text">Push Down Dependency</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Function-with-Function-Pointer"><span class="toc-number">3.13.</span> <span class="toc-text">Replace Function with Function Pointer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Global-Reference-with-Getter"><span class="toc-number">3.14.</span> <span class="toc-text">Replace Global Reference with Getter</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Subclass-and-Override-Method"><span class="toc-number">3.15.</span> <span class="toc-text">Subclass and Override Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Replace-Instance-Variable"><span class="toc-number">3.16.</span> <span class="toc-text">Replace Instance Variable</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Template-Redefinition"><span class="toc-number">3.17.</span> <span class="toc-text">Template Redefinition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Text-Redefinition-ex-Ruby"><span class="toc-number">3.18.</span> <span class="toc-text">Text Redefinition (ex. Ruby)</span></a></li></ol></li></ol>
           </div>
       
       
@@ -129,7 +129,35 @@
 <h4 id="开放／封闭原则"><a href="#开放／封闭原则" class="headerlink" title="开放／封闭原则"></a>开放／封闭原则</h4><p>代码对于扩展是开放的，而对于修改是封闭的。即对于一个好的设计，无需对代码作太多修改就可以添加新特性。</p>
 <hr>
 
-<h3 id="Resolve-Dependency"><a href="#Resolve-Dependency" class="headerlink" title="Resolve Dependency"></a>Resolve Dependency</h3><h4 id="Interface-Abstraction"><a href="#Interface-Abstraction" class="headerlink" title="Interface Abstraction"></a>Interface Abstraction</h4><p>Steps to abstract an interface (for testing purpose):</p>
+<h3 id="Resolve-Dependency"><a href="#Resolve-Dependency" class="headerlink" title="Resolve Dependency"></a>Resolve Dependency</h3><h4 id="Parameter-Adaptation"><a href="#Parameter-Adaptation" class="headerlink" title="Parameter Adaptation"></a>Parameter Adaptation</h4><p>Steps:</p>
+<ul>
+<li>创建将被用于该方法的新接口，该接口越简单且能表达的意图越好。</li>
+<li>为新接口创建一个用于产品代码的实现。</li>
+<li>为新接口创建一个用于测试的“伪造”实现。</li>
+<li>编写一个简单的测试用例，将伪对象传给该方法。</li>
+<li>对该方法作必要的修改以使其能使用新的参数。</li>
+<li>运行测试来确保能使用伪对象来测试该方法。</li>
+</ul>
+<h4 id="Wrapper-Class-for-Method"><a href="#Wrapper-Class-for-Method" class="headerlink" title="Wrapper Class for Method"></a>Wrapper Class for Method</h4><p>Steps:</p>
+<ul>
+<li>创建一个将包含目标方法的类。</li>
+<li>为该类创建一个构造函数，利用签名保持方法让其和目标方法有相同的参数列表。</li>
+<li>对于构造函数中的每个参数，创建一个相应的成员变量。</li>
+<li>在新类中建立一个空的执行方法，通常命名为run。</li>
+<li>将目标方法的方法体复制到刚才创建的执行方法中，然后编译，并作下一步修改。</li>
+<li>新类通过编译后，回到原先的目标方法，对其进行修改，让它将工作全权委托给新创建的执行方法。</li>
+<li>若有必要，使用接口提取来解开对原类的依赖。</li>
+</ul>
+<h4 id="Definition-Completion"><a href="#Definition-Completion" class="headerlink" title="Definition Completion"></a>Definition Completion</h4><p>Steps:</p>
+<ul>
+<li>找出想要对其成员函数实施定义替换的类。</li>
+<li>确认该类的成员函数定义是在源文件而非头文件中。</li>
+<li>将该头文件包含到待测试类的测试源文件中。</li>
+<li>确保该类的源文件并不参与构建。</li>
+<li>构建，找出没替换定义的成员函数。</li>
+<li>往测试源文件中添加相应的成员函数定义，直到构建成功。</li>
+</ul>
+<h4 id="Interface-Abstraction"><a href="#Interface-Abstraction" class="headerlink" title="Interface Abstraction"></a>Interface Abstraction</h4><p>Steps to abstract an interface (for testing purpose):</p>
 <ul>
 <li>创建一个新接口，给它起一个好名字。暂时不要往里面添加任何方法。</li>
 <li>让目标类实现该接口。确保编译成功。</li>
@@ -208,6 +236,26 @@
 <li>找出想要分离出来的依赖，或者想要进行感知的地点。找出尽量少的一组方法来实现这个目标。</li>
 <li>确定并确保需要重写的方法。适当调整这些方法的权限。</li>
 <li>创建一个子类并在其中重写这些方法。</li>
+</ul>
+<h4 id="Replace-Instance-Variable"><a href="#Replace-Instance-Variable" class="headerlink" title="Replace Instance Variable"></a>Replace Instance Variable</h4><p>Steps:</p>
+<ul>
+<li>找出需要替换的实例变量。</li>
+<li>创建一个名为supersedeXXX的方法，其中XXX是要替换的变量的名字。</li>
+<li>在该方法中销毁原先被创建出来的那个对象，换入新建出来的对象。</li>
+</ul>
+<h4 id="Template-Redefinition"><a href="#Template-Redefinition" class="headerlink" title="Template Redefinition"></a>Template Redefinition</h4><p>Steps:</p>
+<ul>
+<li>在待测试类中找出你想要替换的特性。</li>
+<li>将该类做成一个类模板，根据需要替换的变量对它进行参数化，将方法转移到头文件中。</li>
+<li>给该类模板另起一个名字。比如在原类名字后面添加Impl。</li>
+<li>在类模板定义之后加上一行typedef。</li>
+<li>在测试文件中包含该类模板的定义，用新的测试用类型来实例化。</li>
+</ul>
+<h4 id="Text-Redefinition-ex-Ruby"><a href="#Text-Redefinition-ex-Ruby" class="headerlink" title="Text Redefinition (ex. Ruby)"></a>Text Redefinition (ex. Ruby)</h4><p>Steps:</p>
+<ul>
+<li>找出你想要替换定义的方法所在的类。</li>
+<li>在测试源文件头添加一行require引入包含目标类的模块。</li>
+<li>在测试源文件的开头给每一个想要替换的方法提供新的定义。</li>
 </ul>
 
       
