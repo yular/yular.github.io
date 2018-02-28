@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-28T09:16:38.000Z</updated>
+  <updated>2018-02-28T09:45:20.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
     <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
     <published>2018-02-26T05:19:13.000Z</published>
-    <updated>2018-02-28T09:16:38.000Z</updated>
+    <updated>2018-02-28T09:45:20.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
 &lt;ul&gt;
@@ -68,6 +68,50 @@
 &lt;li&gt;确保该类的源文件并不参与构建。&lt;/li&gt;
 &lt;li&gt;构建，找出没替换定义的成员函数。&lt;/li&gt;
 &lt;li&gt;往测试源文件中添加相应的成员函数定义，直到构建成功。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Encapsulate-Global-References&quot;&gt;&lt;a href=&quot;#Encapsulate-Global-References&quot; class=&quot;headerlink&quot; title=&quot;Encapsulate Global References&quot;&gt;&lt;/a&gt;Encapsulate Global References&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出有待封装的全局变量／函数。&lt;/li&gt;
+&lt;li&gt;为它们创建一个类。&lt;/li&gt;
+&lt;li&gt;将全局变量／函数复制到该类中，并注释掉其原始声明。&lt;/li&gt;
+&lt;li&gt;声明新类的一个全局对象。&lt;/li&gt;
+&lt;li&gt;依靠编译器找出所有用到了这些全局变量／函数的地方。&lt;/li&gt;
+&lt;li&gt;将所有对它们的引用加上刚建立的新类的全局对象前缀。&lt;/li&gt;
+&lt;li&gt;在要使用伪对象的地方，利用引入静态设置方法，参数化构造函数，参数化方法或以获取方法替换全局引用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Expose-Static-Method&quot;&gt;&lt;a href=&quot;#Expose-Static-Method&quot; class=&quot;headerlink&quot; title=&quot;Expose Static Method&quot;&gt;&lt;/a&gt;Expose Static Method&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;编写一个测试，访问打算设为公有静态的那个方法。&lt;/li&gt;
+&lt;li&gt;将目标方法提取到一个静态方法中，实施签名保持。&lt;/li&gt;
+&lt;li&gt;编译并修改所有编译错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Extract-and-Override-Method-Caller&quot;&gt;&lt;a href=&quot;#Extract-and-Override-Method-Caller&quot; class=&quot;headerlink&quot; title=&quot;Extract and Override Method Caller&quot;&gt;&lt;/a&gt;Extract and Override Method Caller&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;确定想要提取的调用，找出其所调用的方法声明。&lt;/li&gt;
+&lt;li&gt;在当前类创建一个新的方法，用签名保持来命名新方法。&lt;/li&gt;
+&lt;li&gt;把对目标方法的调用复制到新方法中，在原本调用该方法的地方替换成新方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Extract-and-Override-Factory-Method&quot;&gt;&lt;a href=&quot;#Extract-and-Override-Factory-Method&quot; class=&quot;headerlink&quot; title=&quot;Extract and Override Factory Method&quot;&gt;&lt;/a&gt;Extract and Override Factory Method&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出构造函数中的新建对象处。&lt;/li&gt;
+&lt;li&gt;将所有涉及新建对象的代码全部转移到一个工厂方法中。&lt;/li&gt;
+&lt;li&gt;创建一个测试子类，重写刚才的工厂方法来解除测试中的依赖。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Extract-and-Override-Getter&quot;&gt;&lt;a href=&quot;#Extract-and-Override-Getter&quot; class=&quot;headerlink&quot; title=&quot;Extract and Override Getter&quot;&gt;&lt;/a&gt;Extract and Override Getter&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;找出需要为其引入获取方法的对象。&lt;/li&gt;
+&lt;li&gt;将创建该对象所需的所有逻辑提取到一个获取方法中。&lt;/li&gt;
+&lt;li&gt;将所有对该对象的使用都替换为通过该获取方法来获得，并在所有构造函数中将该对象的引用初始化为null。&lt;/li&gt;
+&lt;li&gt;在获取方法里面加入“首次调用时创建”功能，即单例模式。&lt;/li&gt;
+&lt;li&gt;子类化该类，重写此获取方法并在其中提供测试用对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Implementation-Abstraction&quot;&gt;&lt;a href=&quot;#Implementation-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Implementation Abstraction&quot;&gt;&lt;/a&gt;Implementation Abstraction&lt;/h4&gt;&lt;p&gt;Steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;将目标类复制一份并重命名。&lt;/li&gt;
+&lt;li&gt;将目标类改成接口。&lt;/li&gt;
+&lt;li&gt;将所有公有方法改为抽象方法，并删除接口类文件中不需要的import。&lt;/li&gt;
+&lt;li&gt;让产品类实现该接口。&lt;/li&gt;
+&lt;li&gt;将创建原类对象的地方，修改为创建新的产品类的对象，并保证编译和测试通过。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&quot;Interface-Abstraction&quot;&gt;&lt;a href=&quot;#Interface-Abstraction&quot; class=&quot;headerlink&quot; title=&quot;Interface Abstraction&quot;&gt;&lt;/a&gt;Interface Abstraction&lt;/h4&gt;&lt;p&gt;Steps to abstract an interface (for testing purpose):&lt;/p&gt;
 &lt;ul&gt;
