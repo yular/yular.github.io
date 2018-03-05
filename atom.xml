@@ -565,9 +565,11 @@
     <link href="http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/"/>
     <id>http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/</id>
     <published>2018-01-23T07:26:02.000Z</published>
-    <updated>2018-01-23T07:45:31.000Z</updated>
+    <updated>2018-03-05T02:02:03.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://www.lintcode.com/problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LintCode Online Judge&lt;/a&gt;. Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://www.lintcode.com/problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LintCode Online Judge&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LintCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List in Cpp&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here is the link of &lt;a href=&quot;https://github.com/yular/Python-Interview/blob/master/LintCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List in Python&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The list will be updated whenever I solve (or optimize the solution) an algorithm problems of LintCode OJ.&lt;/p&gt;
 </content>
     
@@ -587,9 +589,10 @@
     <link href="http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/"/>
     <id>http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/</id>
     <published>2018-01-23T07:24:37.000Z</published>
-    <updated>2018-01-23T07:29:54.000Z</updated>
+    <updated>2018-03-05T02:01:08.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;https://leetcode.com/problemset/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode Online Judge&lt;/a&gt;. Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;https://leetcode.com/problemset/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode Online Judge&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Here is the link of &lt;a href=&quot;https://github.com/yular/CC--InterviewProblem/blob/master/LeetCode/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List in Cpp&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The list will be updated whenever I solve (or optimize the solution) an algorithm problems of LeetCode OJ.&lt;/p&gt;
 </content>
     
