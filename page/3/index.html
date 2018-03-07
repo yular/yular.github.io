@@ -299,7 +299,17 @@
     <div class="entry">
       
       
-        
+        <h3 id="解耦的目的与时机"><a href="#解耦的目的与时机" class="headerlink" title="解耦的目的与时机"></a>解耦的目的与时机</h3><h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><h5 id="并发防御原则"><a href="#并发防御原则" class="headerlink" title="并发防御原则"></a>并发防御原则</h5><ul>
+<li>单一权责原则，分离并发相关代码和其他代码；</li>
+<li>限制数据作用域，用synchronized是一个保护共享数据域的方法，总之严格限制对可能被共享的数据的访问；</li>
+<li>使用数据副本，也就是用单线程收集多线程的数据副本然后合并；</li>
+<li>线程应尽可能独立，尝试将数据分解到可被独立线程（可能在不同处理器上）操作的独立子集。</li>
+</ul>
+<h5 id="并发执行模型"><a href="#并发执行模型" class="headerlink" title="并发执行模型"></a>并发执行模型</h5><ul>
+<li><em>
+</em></li>
+</ul>
+
       
     </div>
     
@@ -364,12 +374,12 @@
 <li>弱并发：请求排队等候并依次处理。</li>
 <li>volatile变量：该变量是弱并发的实现，它是共享的，读它时，总会返回由某一个线程所写入的最新值。这种变量的操作不加锁，不引起线程阻塞。volatile 是一种Ad-hoc 限制。</li>
 </ul>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><ul>
 <li>方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。</li>
 <li>无状态对象永远是线程安全的。</li>
 <li>java.util.concurrent.atomic 包含了原子变量类。</li>
 </ul>
-<h3 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h3><ul>
+<h4 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h4><ul>
 <li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
 <li>修复潜在线程安全问题的方法：<ul>
 <li>不要跨线程共享变量。</li>
@@ -382,6 +392,16 @@
 <li>要约束状态变量的有效值或者状态转换，需要原子性和封装性。</li>
 <li>创建一个状态依赖的类，要使用平台与类库提供的底层机制。</li>
 <li>为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。</li>
+<li>不可变性:<ul>
+<li>不可变对象永远是线程安全的。</li>
+<li>不可变对象的状态：<ul>
+<li>它的状态不能在创建后再被修改。</li>
+<li>所有域都是final类型。</li>
+<li>被正确地创建（期间没发生this引用的逸出）。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <hr>
 

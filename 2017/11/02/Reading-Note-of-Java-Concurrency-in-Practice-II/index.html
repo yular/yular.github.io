@@ -106,11 +106,21 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#解耦的目的与时机"><span class="toc-number">1.</span> <span class="toc-text">解耦的目的与时机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Principle"><span class="toc-number">1.1.</span> <span class="toc-text">Principle</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#并发防御原则"><span class="toc-number">1.1.1.</span> <span class="toc-text">并发防御原则</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#并发执行模型"><span class="toc-number">1.1.2.</span> <span class="toc-text">并发执行模型</span></a></li></ol></li></ol></li></ol>
           </div>
       
       
-        
+        <h3 id="解耦的目的与时机"><a href="#解耦的目的与时机" class="headerlink" title="解耦的目的与时机"></a>解耦的目的与时机</h3><h4 id="Principle"><a href="#Principle" class="headerlink" title="Principle"></a>Principle</h4><h5 id="并发防御原则"><a href="#并发防御原则" class="headerlink" title="并发防御原则"></a>并发防御原则</h5><ul>
+<li>单一权责原则，分离并发相关代码和其他代码；</li>
+<li>限制数据作用域，用synchronized是一个保护共享数据域的方法，总之严格限制对可能被共享的数据的访问；</li>
+<li>使用数据副本，也就是用单线程收集多线程的数据副本然后合并；</li>
+<li>线程应尽可能独立，尝试将数据分解到可被独立线程（可能在不同处理器上）操作的独立子集。</li>
+</ul>
+<h5 id="并发执行模型"><a href="#并发执行模型" class="headerlink" title="并发执行模型"></a>并发执行模型</h5><ul>
+<li><em>
+</em></li>
+</ul>
+
       
     </div>
     

@@ -106,7 +106,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-Safety"><span class="toc-number">2.</span> <span class="toc-text">Thread Safety</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic"><span class="toc-number">3.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Principles"><span class="toc-number">4.</span> <span class="toc-text">Principles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-number">5.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles-1"><span class="toc-number">5.1.</span> <span class="toc-text">Principles</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPool"><span class="toc-number">6.</span> <span class="toc-text">ThreadPool</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">7.</span> <span class="toc-text">Debug</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Introduction"><span class="toc-number">1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread-Safety"><span class="toc-number">2.</span> <span class="toc-text">Thread Safety</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Definition"><span class="toc-number">2.1.</span> <span class="toc-text">Definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Basic"><span class="toc-number">2.2.</span> <span class="toc-text">Basic</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles"><span class="toc-number">2.3.</span> <span class="toc-text">Principles</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-number">3.</span> <span class="toc-text">Lock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Principles-1"><span class="toc-number">3.1.</span> <span class="toc-text">Principles</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ThreadPool"><span class="toc-number">4.</span> <span class="toc-text">ThreadPool</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Debug"><span class="toc-number">5.</span> <span class="toc-text">Debug</span></a></li></ol>
           </div>
       
       
@@ -131,12 +131,12 @@
 <li>弱并发：请求排队等候并依次处理。</li>
 <li>volatile变量：该变量是弱并发的实现，它是共享的，读它时，总会返回由某一个线程所写入的最新值。这种变量的操作不加锁，不引起线程阻塞。volatile 是一种Ad-hoc 限制。</li>
 </ul>
-<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><ul>
 <li>方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。</li>
 <li>无状态对象永远是线程安全的。</li>
 <li>java.util.concurrent.atomic 包含了原子变量类。</li>
 </ul>
-<h3 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h3><ul>
+<h4 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h4><ul>
 <li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
 <li>修复潜在线程安全问题的方法：<ul>
 <li>不要跨线程共享变量。</li>
@@ -149,6 +149,16 @@
 <li>要约束状态变量的有效值或者状态转换，需要原子性和封装性。</li>
 <li>创建一个状态依赖的类，要使用平台与类库提供的底层机制。</li>
 <li>为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。</li>
+<li>不可变性:<ul>
+<li>不可变对象永远是线程安全的。</li>
+<li>不可变对象的状态：<ul>
+<li>它的状态不能在创建后再被修改。</li>
+<li>所有域都是final类型。</li>
+<li>被正确地创建（期间没发生this引用的逸出）。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <hr>
 
