@@ -94,6 +94,97 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2017-10-02T05:20:52.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">2017-10-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">Reading Note of Effective Java VI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-51-Beware-of-performance-of-string-concatenation"><a href="#Item-51-Beware-of-performance-of-string-concatenation" class="headerlink" title="Item 51. Beware of performance of string concatenation"></a>Item 51. Beware of performance of string concatenation</h3><p>To achieve acceptable performance, use a StringBuilder in place of a String.</p>
+<hr>
+
+<h3 id="Item-52-Refer-to-objects-by-their-interfaces"><a href="#Item-52-Refer-to-objects-by-their-interfaces" class="headerlink" title="Item 52. Refer to objects by their interfaces"></a>Item 52. Refer to objects by their interfaces</h3><p>If appropriate interface types exist, then parameters, return values, vraibales, and fields should all be declared using interface types.</p>
+<hr>
+
+<h3 id="Item-53-Prefer-interfaces-to-reflection"><a href="#Item-53-Prefer-interfaces-to-reflection" class="headerlink" title="Item 53. Prefer interfaces to reflection"></a>Item 53. Prefer interfaces to reflection</h3><p>As a rule, objects should not be accesed reflectively in normal applications at runtime.</p>
+<ul>
+<li>Lose all the benefits of compile-time type checking.</li>
+<li>The code required to perform reflective access is clumsy and verbose.</li>
+<li>Performance suffers.</li>
+</ul>
+<hr>
+
+<h3 id="Item-54-Use-native-methods-judiciously"><a href="#Item-54-Use-native-methods-judiciously" class="headerlink" title="Item 54. Use native methods judiciously"></a>Item 54. Use native methods judiciously</h3><p>Java Native Interface (JNI) allows Java applications to call native methods, which are special methods written in native programming languages such as C or C++.</p>
+<hr>
+
+<h3 id="Item-55-Optimize-judiciously"><a href="#Item-55-Optimize-judiciously" class="headerlink" title="Item 55. Optimize judiciously"></a>Item 55. Optimize judiciously</h3><p>Here are the rules:</p>
+<ul>
+<li>Strive to write good programs rather than fast ones.</li>
+<li>Strive to aovid design decisions that limit performance.</li>
+<li>Consider the performance consequences of API design decisions.</li>
+<li>Measure performance before and after each attempted optimization.</li>
+</ul>
+<hr>
+
+<h3 id="Item-56-Adhere-to-generally-accepted-naming-conventions"><a href="#Item-56-Adhere-to-generally-accepted-naming-conventions" class="headerlink" title="Item 56. Adhere to generally accepted naming conventions"></a>Item 56. Adhere to generally accepted naming conventions</h3><hr>
+
+<h3 id="Item-57-Use-exceptions-only-for-exceptional-conditions"><a href="#Item-57-Use-exceptions-only-for-exceptional-conditions" class="headerlink" title="Item 57. Use exceptions only for exceptional conditions"></a>Item 57. Use exceptions only for exceptional conditions</h3><p>Never use exceptions for ordinary control flow. And good APIs must not enforce users to do that.</p>
+<hr>
+
+<h3 id="Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors"><a href="#Item-58-Use-checked-exception-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors" class="headerlink" title="Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors"></a>Item 58. Use checked exception for recoverable conditions and runtime exceptions for programming errors</h3><p>Exceptions which are subclass of Exception, are recoverable. Exceptions which are subclass of Error, are unrecoverable.</p>
+<p>RuntimeException is unchecked exception. Thus, all of the unchecked throwables implemented should subclass RuntimeException.</p>
+<hr>
+
+<h3 id="Item-59-Avoid-unnecessary-use-of-checked-exceptions"><a href="#Item-59-Avoid-unnecessary-use-of-checked-exceptions" class="headerlink" title="Item 59. Avoid unnecessary use of checked exceptions"></a>Item 59. Avoid unnecessary use of checked exceptions</h3><hr>
+
+<h3 id="Item-60-Favor-the-use-of-standard-exceptions"><a href="#Item-60-Favor-the-use-of-standard-exceptions" class="headerlink" title="Item 60. Favor the use of standard exceptions"></a>Item 60. Favor the use of standard exceptions</h3><p>Java 7 and 8: Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called <code>AutoCloseable</code>.</p>
+<hr>
+
+<h3 id="Item-61-Throw-exceptions-appropriate-to-the-abstraction"><a href="#Item-61-Throw-exceptions-appropriate-to-the-abstraction" class="headerlink" title="Item 61. Throw exceptions appropriate to the abstraction"></a>Item 61. Throw exceptions appropriate to the abstraction</h3><p>Higher layers catch low-level exceptions and, in their place, throw exceptions that can be explained in terms of the high-level abstraction.</p>
+<p>While exception translation is superior to mindless propagation of exceptions from lower layers, it should not be overused.</p>
+<hr>
+
+<h3 id="Item-62-Document-all-exceptions-thrown-by-each-method"><a href="#Item-62-Document-all-exceptions-thrown-by-each-method" class="headerlink" title="Item 62. Document all exceptions thrown by each method"></a>Item 62. Document all exceptions thrown by each method</h3><p>Always declare checked exceptions individually, and document precisely the conditions under which each one is thrown using the Javadoc <code>@throws</code> tag.</p>
+<p>Use the Javadoc <code>@throws</code> tag to document each unchecked exception that a method can throw, but do not use the throws keyword to include unchecked exceptions in the method declaration.</p>
+<p>If an exception is thrown by many methods in a class for the same reason, it is acceptable to document the exception in the class’s documentation comment.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2017-10-02T05:02:21.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">2017-10-01</a></time>
       
       
@@ -909,165 +1000,6 @@ private static Long generateDefaultTimeToLive() {
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-07T07:48:01.000Z"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">Reading Note of Java in a Nutshell (Java 7 and 8)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of the book <code>Java in a Nutshell</code> (JDK 7 and 8 version).</p>
-<h3 id="JVM-and-Java-Platform"><a href="#JVM-and-Java-Platform" class="headerlink" title="JVM and Java Platform"></a>JVM and Java Platform</h3><p>JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.</p>
-<p>Java platform uses just-in-time compilation to take the advantage of the fact that parts of Java program are called more frequently.</p>
-<p>Two ways to run other languages on JVM:</p>
-<ul>
-<li>Have a source code compiler producing class files.</li>
-<li>Implement an interpreter and runtime in Java, and then interpret the source form of the language.</li>
-</ul>
-<hr>
-
-<h3 id="Software-Construction"><a href="#Software-Construction" class="headerlink" title="Software Construction"></a>Software Construction</h3><p>There are mainly elevent steps as below:</p>
-<ul>
-<li>Problem Definition</li>
-<li>Requirement Development</li>
-<li>Construction Planning</li>
-<li>Software Architecture or High Level Design</li>
-<li>Detailed Design</li>
-<li>Coding and Debugging</li>
-<li>Unit Testing</li>
-<li>Integration Testing</li>
-<li>Integration</li>
-<li>System Testing</li>
-<li>Corrective Maintenance</li>
-</ul>
-<hr>
-
-<h3 id="Coding-and-Style"><a href="#Coding-and-Style" class="headerlink" title="Coding and Style"></a>Coding and Style</h3><p>Singleton</p>
-<ul>
-<li>Use a framework (usually dependency injection) to provide singleton automatically.</li>
-</ul>
-<p>Lambda expressions:</p>
-<ul>
-<li>A lambda expression is an anonymous collection of executable Java code, essentially a method body.</li>
-<li>Syntax of lambda expressions is like: ( paramlist ) -&gt; { statements }.</li>
-<li>When a lambda expression is used as a value, it is automatically converted to a new object of the correct type for the variable being placed into. This autoconversion and type inference is essential to Java’s approach to lambda expression.</li>
-</ul>
-<p>Naming Convention:</p>
-<ul>
-<li>Class: Class names are nouns to represent objects.</li>
-<li>Interface: Interface names are adjective if to provide additional information about the class, otherwise are nouns to work like abstract superclasses.</li>
-</ul>
-<p>Label statements:<br>A label statement is simply a statement that has been given a name by prepending an identifer and a colon to it.</p>
-<p>Generic type:<br>For wildcard, it is legal to write in following style: List&lt;?&gt; objects = new ArrayList<string>(). List<string> is subtype of List&lt;?&gt;. But List&lt;?&gt; is not a subtype of any List<t>.</t></string></string></p>
-<p>Reflection (Convert specific to general):</p>
-<ul>
-<li>Only deal with cases immediately applicable to problem domain.</li>
-<li>To use reflection: Class&lt;?&gt; clz = getSomeClassObject(); Object rcvz = clz.newInstance();</li>
-</ul>
-<p>Datatype Overflow:<br>Integer arithmetic never overflow or underflow because numbers just wrap around.</p>
-<hr>
-
-<h3 id="Handling-Exception"><a href="#Handling-Exception" class="headerlink" title="Handling Exception"></a>Handling Exception</h3><p>Exceptions are Throwable objects and that exceptions fall into two main categories, specified by the Error and Exception subclass. Any exception object that is an Error is unchecked.</p>
-<hr>
-
-<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>A safe program includes:</p>
-<ul>
-<li>All objects start off in a legal state after creation.</li>
-<li>Externally accessible methods transition objects between legal state.</li>
-<li>External accessible methods must not return with object in an inconsistent state.</li>
-<li>External accessible methods must reset object to a legal state before throwing (exceptions).</li>
-</ul>
-<p>Use <code>java.util.Arrays.equals</code> to compare the content of two arrays.</p>
-<hr>
-
-<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><p>Two collectors:</p>
-<ul>
-<li>Parallel collectors, using multiple threads to perform collections.</li>
-<li>Concurrent collectors, running at the same time as application threads are still running.</li>
-</ul>
-<hr>
-
-<h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><ul>
-<li>Use Readers and Writers to do IO operation.</li>
-<li>Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called <code>AutoCloseable</code>.<br>TWR style is like: try(InputStream is = new FileInputStream(“”)) {  …  }</li>
-<li>Use <code>File</code> class for file operation and <code>Path</code> class for file system path operation.</li>
-<li>For high-performance IO, use <code>ByteBuffer</code>. </li>
-<li>For Async IO, use <code>AsynchronousFileChannel</code> for file IO, <code>AsynchronousSocketChannel</code> for client socket IO, and <code>AsynchronousServerSocketChannel</code> for asynchronous sockets  accepting incoming connection.</li>
-<li>For network, use <code>java.net</code> or <code>javax.net</code> packages.</li>
-<li>For Async style, use Future-Based style, Callback-Based style and watchservice on a directory.</li>
-<li>Use <code>MappedByteBuffer</code> to store a memory-mapped file into memory.</li>
-</ul>
-<p><strong> Note </strong>:</p>
-<ul>
-<li><code>ByteBuffer</code> and <code>MappedByteBuffer</code> are <strong>NIO</strong> buffers which are low-level abstraction for high-performance IO.</li>
-</ul>
-<hr>
-
-<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p>Use Java 8 Date and Time API: java.time .</p>
-<hr>
-
-<h3 id="Garbage-Collection"><a href="#Garbage-Collection" class="headerlink" title="Garbage Collection"></a>Garbage Collection</h3><p>Concurrent Mark and Sweep (CMS):<br>Only used to collect the old generation-conjunction with a parallel collector that is to clean young generation.</p>
-<p>G1:<br>Used in high throughput environment and allows users to specify pause goals, which is low-pause collector.</p>
-<hr>
-
-<h3 id="Command-Line-Interface"><a href="#Command-Line-Interface" class="headerlink" title="Command Line Interface"></a>Command Line Interface</h3><p>Here are the most frequently used Java commands:</p>
-<ul>
-<li>javac</li>
-<li>java</li>
-<li>jar</li>
-<li>javadoc</li>
-<li>jdeps</li>
-<li>jps</li>
-<li>jstat</li>
-<li>jstatd</li>
-<li>jinfo</li>
-<li>jstack</li>
-<li>jmap</li>
-<li>javap</li>
-</ul>
-<hr>
-
-<h3 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h3><ul>
-<li>Nashorn</li>
-<li>JVisualVM</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1098,7 +1030,7 @@ private static Long generateDefaultTimeToLive() {
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -1114,6 +1046,8 @@ private static Long generateDefaultTimeToLive() {
     <li><a href="/tags/Android/">Android</a><small>1</small></li>
   
     <li><a href="/tags/Bit-Manipulation/">Bit Manipulation</a><small>1</small></li>
+  
+    <li><a href="/tags/BitCoin/">BitCoin</a><small>1</small></li>
   
     <li><a href="/tags/Business-Model/">Business Model</a><small>1</small></li>
   
@@ -1189,7 +1123,7 @@ private static Long generateDefaultTimeToLive() {
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 15px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 14.29px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -1210,6 +1144,10 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
+      </li>
+    
+      <li>
         <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
@@ -1223,10 +1161,6 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/">Reading Note of Working Effectively with Legacy Code I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/">Reading Note of Programming in Lua 4th Edition II</a>
       </li>
     
   </ul>

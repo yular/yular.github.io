@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-02-28T09:45:20.000Z</updated>
+  <updated>2018-03-13T06:27:33.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BitCoin Information Summary</title>
+    <link href="http://yular.github.io/2018/03/12/BitCoin-Information-Summary/"/>
+    <id>http://yular.github.io/2018/03/12/BitCoin-Information-Summary/</id>
+    <published>2018-03-13T06:24:52.000Z</published>
+    <updated>2018-03-13T06:27:33.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here are the list of helpful links about BitCoin introduction.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/21418402&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;比特币创造的价值在哪？&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here are the list of helpful links about BitCoin introduction.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/21418402&quot; target=&quot;_bl
+    
+    </summary>
+    
+    
+      <category term="BitCoin" scheme="http://yular.github.io/tags/BitCoin/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Working Effectively with Legacy Code IV</title>
@@ -880,24 +906,6 @@
     <id>http://yular.github.io/2017/12/03/Reading-Note-of-Clean-Code/</id>
     <published>2017-12-03T21:34:25.000Z</published>
     <updated>2017-12-03T21:38:12.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete III</title>
-    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-III/"/>
-    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-III/</id>
-    <published>2017-12-03T21:22:27.000Z</published>
-    <updated>2017-12-03T21:24:37.000Z</updated>
     
     <content type="html"></content>
     
