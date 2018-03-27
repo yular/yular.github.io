@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-03-14T08:29:08.000Z</updated>
+  <updated>2018-03-27T06:19:03.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading Note of Patterns of Enterprise Application Architecture II</title>
+    <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/"/>
+    <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/</id>
+    <published>2018-03-27T06:16:50.000Z</published>
+    <updated>2018-03-27T06:19:03.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="http://yular.github.io/tags/System-Design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Patterns of Enterprise Application Architecture I</title>
+    <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/"/>
+    <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/</id>
+    <published>2018-03-27T06:16:46.000Z</published>
+    <updated>2018-03-27T06:18:57.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="http://yular.github.io/tags/System-Design/"/>
+    
+  </entry>
   
   <entry>
     <title>BitCoin Information Summary</title>
@@ -880,42 +916,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete IV</title>
-    <link href="http://yular.github.io/2017/12/11/Reading-Note-of-Code-Complete-IV/"/>
-    <id>http://yular.github.io/2017/12/11/Reading-Note-of-Code-Complete-IV/</id>
-    <published>2017-12-11T08:22:46.000Z</published>
-    <updated>2017-12-11T08:23:17.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Clean Code</title>
-    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Clean-Code/"/>
-    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Clean-Code/</id>
-    <published>2017-12-03T21:34:25.000Z</published>
-    <updated>2017-12-03T21:38:12.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
     
   </entry>
   
