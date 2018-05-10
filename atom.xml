@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-03-27T06:19:03.000Z</updated>
+  <updated>2018-05-10T08:26:50.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Thinking in Ops Readiness</title>
+    <link href="http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/"/>
+    <id>http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/</id>
+    <published>2018-05-10T07:37:47.000Z</published>
+    <updated>2018-05-10T08:26:50.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="System Design" scheme="http://yular.github.io/tags/System-Design/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading Note of Patterns of Enterprise Application Architecture II</title>
@@ -889,24 +907,6 @@
     <id>http://yular.github.io/2017/12/23/Java-Summary-II/</id>
     <published>2017-12-24T06:22:42.000Z</published>
     <updated>2018-01-17T06:01:41.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Summary I</title>
-    <link href="http://yular.github.io/2017/12/22/Java-Summary-I/"/>
-    <id>http://yular.github.io/2017/12/22/Java-Summary-I/</id>
-    <published>2017-12-22T22:46:37.000Z</published>
-    <updated>2017-12-22T22:46:45.000Z</updated>
     
     <content type="html"></content>
     
