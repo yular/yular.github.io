@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-05-10T08:26:50.000Z</updated>
+  <updated>2018-05-15T08:34:10.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,11 +20,42 @@
     <link href="http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/"/>
     <id>http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/</id>
     <published>2018-05-10T07:37:47.000Z</published>
-    <updated>2018-05-10T08:26:50.000Z</updated>
+    <updated>2018-05-15T08:34:10.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a healthy software and detect errors and bugs in software can graduately and finally greatly improve customer experience of the software, and meanwhile reduce the effort and cost of it. Different kinds of software have different strategies for maintainance and monitoring. &lt;/p&gt;
+&lt;p&gt;Here is my experience to do generic Ops Readiness for Web Service. Assume the programing language is Java.&lt;/p&gt;
+&lt;h3 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h3&gt;&lt;p&gt;Before deploy the code on the production machine, do enough testing on local environment. Thus, at first it is important to setup a local development environment that can simulate the production environment, which incluldes the compilers, programing language, database and etc.&lt;/p&gt;
+&lt;p&gt;Then, there are many kinds of tests to be done.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Unit Test: Unit tests should be run when compile and build the service. The tests should be run independently and cost a short time to complete. If the service has multiple modules and developers have to build and compile each of them, in the unit tests of one of these modules, developers can mock the behaviors of other modules if the current module has to communicate whith them.&lt;br&gt;Unit tests should cover as many branches and lines of code as possible. For example, if developers has to test a &lt;code&gt;if else&lt;/code&gt; snippet, then probably two unit tests are required: one to cover the case that if condition is meet, and the other to cover the case that else condition is meet. Unit tests are not black box tests. It is fine for developers to write the tests based on the assumption that the logic of tested code is known.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Integration Test: As mentioned above, in the unit tests, the behaviors of other modules or third-party services used in tested module are mocked, and thus integration tests are required to make sure that when all the modules of the service are integrated together, the service works.&lt;br&gt;Integration tests, in theory, should cover as many branches as possible. But here the branches could have different meaning as the ones mentioned in unit tests because for the client, it only knows the definition of the request of tested APIs. So for example, if a request has two non-null fields, the integration tests can cover cases that one of or both of these fields are null in the request.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Load Test:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fuzz Test:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Manual Test:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At last, here is a suggestion: Test Driven Development is a good software development practice and helpful to build a robust software.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Deployment&quot;&gt;&lt;a href=&quot;#Deployment&quot; class=&quot;headerlink&quot; title=&quot;Deployment&quot;&gt;&lt;/a&gt;Deployment&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Pipeline&quot;&gt;&lt;a href=&quot;#Pipeline&quot; class=&quot;headerlink&quot; title=&quot;Pipeline&quot;&gt;&lt;/a&gt;Pipeline&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Metrics&quot;&gt;&lt;a href=&quot;#Metrics&quot; class=&quot;headerlink&quot; title=&quot;Metrics&quot;&gt;&lt;/a&gt;Metrics&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Monitors&quot;&gt;&lt;a href=&quot;#Monitors&quot; class=&quot;headerlink&quot; title=&quot;Monitors&quot;&gt;&lt;/a&gt;Monitors&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Tickets&quot;&gt;&lt;a href=&quot;#Tickets&quot; class=&quot;headerlink&quot; title=&quot;Tickets&quot;&gt;&lt;/a&gt;Tickets&lt;/h3&gt;&lt;hr&gt;
+
+&lt;h3 id=&quot;Dashboard&quot;&gt;&lt;a href=&quot;#Dashboard&quot; class=&quot;headerlink&quot; title=&quot;Dashboard&quot;&gt;&lt;/a&gt;Dashboard&lt;/h3&gt;</content>
     
     <summary type="html">
+    
+      &lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a 
     
     </summary>
     
