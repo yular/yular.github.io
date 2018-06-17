@@ -106,7 +106,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦的目的与时机"><span class="toc-number">1.</span> <span class="toc-text">解耦的目的与时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#并发防御原则"><span class="toc-number">1.1.</span> <span class="toc-text">并发防御原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发执行模型"><span class="toc-number">1.2.</span> <span class="toc-text">并发执行模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享对象"><span class="toc-number">2.</span> <span class="toc-text">共享对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-对象"><span class="toc-number">2.1.</span> <span class="toc-text">volatile 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布和逸出"><span class="toc-number">2.2.</span> <span class="toc-text">发布和逸出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程封闭"><span class="toc-number">2.3.</span> <span class="toc-text">线程封闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可变性"><span class="toc-number">2.4.</span> <span class="toc-text">不可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全发布"><span class="toc-number">2.5.</span> <span class="toc-text">安全发布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合对象"><span class="toc-number">3.</span> <span class="toc-text">组合对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程安全的类"><span class="toc-number">3.1.</span> <span class="toc-text">线程安全的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例限制"><span class="toc-number">3.2.</span> <span class="toc-text">实例限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#委托线程安全"><span class="toc-number">3.3.</span> <span class="toc-text">委托线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向已有线程安全类添加功能"><span class="toc-number">3.4.</span> <span class="toc-text">向已有线程安全类添加功能</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦的目的与时机"><span class="toc-number">1.</span> <span class="toc-text">解耦的目的与时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#并发防御原则"><span class="toc-number">1.1.</span> <span class="toc-text">并发防御原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发执行模型"><span class="toc-number">1.2.</span> <span class="toc-text">并发执行模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享对象"><span class="toc-number">2.</span> <span class="toc-text">共享对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-对象"><span class="toc-number">2.1.</span> <span class="toc-text">volatile 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布和逸出"><span class="toc-number">2.2.</span> <span class="toc-text">发布和逸出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程封闭"><span class="toc-number">2.3.</span> <span class="toc-text">线程封闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可变性"><span class="toc-number">2.4.</span> <span class="toc-text">不可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全发布"><span class="toc-number">2.5.</span> <span class="toc-text">安全发布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合对象"><span class="toc-number">3.</span> <span class="toc-text">组合对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程安全的类"><span class="toc-number">3.1.</span> <span class="toc-text">线程安全的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#委托线程安全"><span class="toc-number">3.2.</span> <span class="toc-text">委托线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向已有线程安全类添加功能"><span class="toc-number">3.3.</span> <span class="toc-text">向已有线程安全类添加功能</span></a></li></ol></li></ol>
           </div>
       
       
@@ -161,7 +161,19 @@
 <h3 id="线程安全的类"><a href="#线程安全的类" class="headerlink" title="线程安全的类"></a>线程安全的类</h3><ul>
 <li>遵循Java监视器模式的对象封装了所有的可变状态，并由对象自己的内部锁保护。</li>
 </ul>
-<h3 id="实例限制"><a href="#实例限制" class="headerlink" title="实例限制"></a>实例限制</h3><h3 id="委托线程安全"><a href="#委托线程安全" class="headerlink" title="委托线程安全"></a>委托线程安全</h3><h3 id="向已有线程安全类添加功能"><a href="#向已有线程安全类添加功能" class="headerlink" title="向已有线程安全类添加功能"></a>向已有线程安全类添加功能</h3>
+<h3 id="委托线程安全"><a href="#委托线程安全" class="headerlink" title="委托线程安全"></a>委托线程安全</h3><ul>
+<li>如果一个状态变量是线程安全的，没有任何不变约束限制它的值，并且没有任何状态转换限制它的操作，那么它可以安全发布。</li>
+<li>使用私有锁对象，而不是对象的内部锁（或其他可公共访问的锁），好处是：私有的锁对象可以封装锁，这样客户代码无法得到它，而可公共访问的锁允许用户代码正确或不正确地涉及它的同步策略。</li>
+</ul>
+<h3 id="向已有线程安全类添加功能"><a href="#向已有线程安全类添加功能" class="headerlink" title="向已有线程安全类添加功能"></a>向已有线程安全类添加功能</h3><ul>
+<li>向已有的线程安全类添加线程安全功能时，以下三个方法的安全系数是递减的，更容易破坏类原有的同步策略：<ul>
+<li>可以直接修改该类。</li>
+<li>可以拓展该类。</li>
+<li>客户端加上与对象自身保护自己状态所用的相同的锁。</li>
+</ul>
+</li>
+</ul>
+
       
     </div>
     
