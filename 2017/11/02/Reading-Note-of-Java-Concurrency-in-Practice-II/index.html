@@ -106,7 +106,7 @@
           <div id="toc" class="toc-article">
             <strong class="toc-title aligncenter">Content</strong>
             <hr>
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦的目的与时机"><span class="toc-number">1.</span> <span class="toc-text">解耦的目的与时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#并发防御原则"><span class="toc-number">1.1.</span> <span class="toc-text">并发防御原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发执行模型"><span class="toc-number">1.2.</span> <span class="toc-text">并发执行模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享对象"><span class="toc-number">2.</span> <span class="toc-text">共享对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-对象"><span class="toc-number">2.1.</span> <span class="toc-text">volatile 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布和逸出"><span class="toc-number">2.2.</span> <span class="toc-text">发布和逸出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程封闭"><span class="toc-number">2.3.</span> <span class="toc-text">线程封闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可变性"><span class="toc-number">2.4.</span> <span class="toc-text">不可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全发布"><span class="toc-number">2.5.</span> <span class="toc-text">安全发布</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#解耦的目的与时机"><span class="toc-number">1.</span> <span class="toc-text">解耦的目的与时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#并发防御原则"><span class="toc-number">1.1.</span> <span class="toc-text">并发防御原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#并发执行模型"><span class="toc-number">1.2.</span> <span class="toc-text">并发执行模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#共享对象"><span class="toc-number">2.</span> <span class="toc-text">共享对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-对象"><span class="toc-number">2.1.</span> <span class="toc-text">volatile 对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布和逸出"><span class="toc-number">2.2.</span> <span class="toc-text">发布和逸出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线程封闭"><span class="toc-number">2.3.</span> <span class="toc-text">线程封闭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不可变性"><span class="toc-number">2.4.</span> <span class="toc-text">不可变性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安全发布"><span class="toc-number">2.5.</span> <span class="toc-text">安全发布</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组合对象"><span class="toc-number">3.</span> <span class="toc-text">组合对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#线程安全的类"><span class="toc-number">3.1.</span> <span class="toc-text">线程安全的类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例限制"><span class="toc-number">3.2.</span> <span class="toc-text">实例限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#委托线程安全"><span class="toc-number">3.3.</span> <span class="toc-text">委托线程安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#向已有线程安全类添加功能"><span class="toc-number">3.4.</span> <span class="toc-text">向已有线程安全类添加功能</span></a></li></ol></li></ol>
           </div>
       
       
@@ -155,7 +155,13 @@
 <li>任何线程都可以在没有额外的同步下安全地使用一个安全发布的高效不可变对象。</li>
 <li>可变对象必须安全发布，同时必须要线程安全或者锁保护。 </li>
 </ul>
+<hr>
 
+<h2 id="组合对象"><a href="#组合对象" class="headerlink" title="组合对象"></a>组合对象</h2><p>组合是个好策略，即定义一个类，其包含线程安全类作为其域，然后另外定义自身的同步策略。</p>
+<h3 id="线程安全的类"><a href="#线程安全的类" class="headerlink" title="线程安全的类"></a>线程安全的类</h3><ul>
+<li>遵循Java监视器模式的对象封装了所有的可变状态，并由对象自己的内部锁保护。</li>
+</ul>
+<h3 id="实例限制"><a href="#实例限制" class="headerlink" title="实例限制"></a>实例限制</h3><h3 id="委托线程安全"><a href="#委托线程安全" class="headerlink" title="委托线程安全"></a>委托线程安全</h3><h3 id="向已有线程安全类添加功能"><a href="#向已有线程安全类添加功能" class="headerlink" title="向已有线程安全类添加功能"></a>向已有线程安全类添加功能</h3>
       
     </div>
     
@@ -180,7 +186,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
   <div id="disqus_thread">
@@ -303,7 +309,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
