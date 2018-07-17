@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 10 | YBC HomePage</title>
+  <title>Página 10 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,6 +88,251 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-29T05:23:11.000Z"><a href="/2017/01/28/2017-Reading-List/">2017-01-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/28/2017-Reading-List/">2017 Reading List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of books that should be read in 2017:</p>
+<p>1.Mindset</p>
+<p>2.包公传</p>
+<p>3.名人传</p>
+<p>√ 4.Java 语言编程设计（进阶）</p>
+<p>5.Machine Learning (Murphy)</p>
+<p>6.挑战编程</p>
+<p>7.Principles of Data Integration</p>
+<p>8.JVM website <a href="http://rednaxelafx.iteye.com/blog/362738" target="_blank" rel="external">click here</a></p>
+<p>√ 9.犯罪嫌疑人X之献身</p>
+<p>10.开放社会：改革全球资本主义</p>
+<p>11.文明的冲突与世界秩序的重建</p>
+<p>12.旧欧洲 新欧洲 核心欧洲</p>
+<p>13.欧洲中世纪史</p>
+<p>14.互联网产品经理全方位入门（44本）</p>
+<p>15.史记</p>
+<p>16.道德经</p>
+<p>17.哈尔罗杰历险记</p>
+<p>18.Out of Control</p>
+<p>19.庄子今注今译</p>
+<p>20.沃伦.巴菲特的投资组合</p>
+<p>21.Peopleware</p>
+<p>22.The Design of Everyday Things</p>
+<p>23.Programming Perls</p>
+<p>24.Envisioning Information</p>
+<p>25.Regular Expressions Cookbook</p>
+<p>27.About Face</p>
+<p>28.Douban Java Booklist I: <a href="https://www.douban.com/doulist/2545443/" target="_blank" rel="external">从表到里学习JVM实现</a>.</p>
+<p>29.Douban Java Booklist II: <a href="https://book.douban.com/people/RednaxelaFX/all?start=15&amp;sort=time&amp;rating=all&amp;tag=VM&amp;mode=grid&amp;filter=all" target="_blank" rel="external">RednaxelaFX的书/VM(63)</a>.</p>
+<p>√ 30.Effective Java</p>
+<p>√ 31.Clean Code</p>
+<p>√ 32.The Pragmatic Programmer</p>
+<p>33.Java in Nutshell</p>
+<p>√ 34.沃伦·巴菲特之路</p>
+<p>35.Java Concurrency in Practice</p>
+<p>√ 36.Test Driven Development</p>
+<p>37.Code Complete</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-22T09:17:38.000Z"><a href="/2017/01/22/Redis-Command-and-DataStructure/">2017-01-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Redis has various data types and data structure which are helpful to efficiently manage data. Here is the <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="external">official introduction</a>  and <a href="https://redis.io/topics/data-types" target="_blank" rel="external">official website</a> about data types and their command lines.</p>
+<p>Below is our summary.</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.<br>A String value can be at max 512 Megabytes in length.</p>
+<p>Here is the <a href="https://redis.io/commands/#string" target="_blank" rel="external">list of commands supported by String</a> and below is most common ones:</p>
+<ul>
+<li>INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.</li>
+<li>APPEND: Append to strings.</li>
+<li>GETRANGE and SETRANGE: Use Strings as a random access vectors.</li>
+<li>GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.<br>The max length of a list is 2^32 - 1 elements.</p>
+<p>Here is the <a href="https://redis.io/commands#list" target="_blank" rel="external">list of commands supported by List</a> and below is most common ones:</p>
+<ul>
+<li>LPUSH: Inserts a new element on the head of List.</li>
+<li>RPUSH: Inserts a new element on the tail of List.</li>
+</ul>
+<hr>
+
+<h2 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h2><p>Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.<br>The max number of members in a set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#set" target="_blank" rel="external">list of commands supported by Set</a> and below is most common ones:</p>
+<ul>
+<li>SADD: Inserts a new element into Set.</li>
+<li>SPOP and SRANDMEMBER: Extract elements at random.</li>
+</ul>
+<hr>
+
+<h2 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted Sets"></a>Sorted Sets</h2><p>Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.<br>The max number of members in a sorted set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#sorted_set" target="_blank" rel="external">list of commands supported by Sorted Sets</a> and below is most common ones:</p>
+<ul>
+<li>ZADD: Inserts a new element into Sorted Set.</li>
+<li>ZRANGE: Get the elements of which their keys are within the given range.</li>
+<li>ZRANGEBYSCORE: Get the elements of which their scores are within the given range.</li>
+<li>ZRANK: Get the rank (or position) of given element.</li>
+</ul>
+<hr>
+
+<h2 id="Hashes"><a href="#Hashes" class="headerlink" title="Hashes"></a>Hashes</h2><p>Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.<br>The max number of members in a hash is 2^32 - 1.</p>
+<p>Here is the <a href="">list of commands supported by Hash</a> and below is most common ones:</p>
+<ul>
+<li>HMSET: Insert a new element (object) into Hash.</li>
+<li>HSET: Insert a new field into Hash object.</li>
+<li>HGETALL: Get the information of element (object).</li>
+<li>HGET: Get the information of a field of element (object).</li>
+</ul>
+<hr>
+
+<h2 id="Bit-arrays-Bitmaps"><a href="#Bit-arrays-Bitmaps" class="headerlink" title="Bit arrays (Bitmaps)"></a>Bit arrays (Bitmaps)</h2><p>Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.</p>
+<hr>
+
+<h2 id="HyperLogLogs"><a href="#HyperLogLogs" class="headerlink" title="HyperLogLogs"></a>HyperLogLogs</h2><p>HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.</p>
+<hr>
+
+<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><p>keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.</p>
+<p>A few rules about keys:</p>
+<ul>
+<li>Very long keys are not a good idea.</li>
+<li>Very short keys are often not a good idea.</li>
+<li>Try to stick with a schema.</li>
+<li>The maximum allowed key size is 512 MB.</li>
+</ul>
+<hr>
+
+<h2 id="Redis-expires"><a href="#Redis-expires" class="headerlink" title="Redis expires"></a>Redis expires</h2><p>Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Redis/">Redis</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-22T08:20:45.000Z"><a href="/2017/01/22/Lua-Redis-QuickStart/">2017-01-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to install lredis can help to learn more c libraries. So we summarize the installation of both libraries here.</p>
+<h2 id="lredis-Library-Installation"><a href="#lredis-Library-Installation" class="headerlink" title="lredis Library Installation"></a>lredis Library Installation</h2><p>The operating system here is CentOS. And here is the link of <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github repository</a>.</p>
+<h3 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h3><p>At first, we need to install required dependencies: cqueue &gt;= 20150907 and fifo, as well as required tools <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">luarocks</a>.</p>
+<p>Here is its <a href="https://github.com/wahern/cqueues" target="_blank" rel="external">Github repository</a>. But to successfully install the library, we need to install openssl devel first, otherwise we may fail to installcqueue because of missing openssl head file.</p>
+<p>Execute following command to install openssl devel:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl-devel</span><br></pre></td></tr></table></figure></p>
+<p>Then install cqueue library through following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install cqueues CRYPTO_INCDIR=/usr/include CRYPTO_DIR=/usr/ OPENSSL_INCDIR=/usr/include OPENSSL_DIR=/usr/</span><br></pre></td></tr></table></figure></p>
+<p>Note that the value of CRYPTO_INCDIR, CRYPTO_DIR, OPENSSL_INCDIR, and OPENSSL_DIR may be different.</p>
+<p>Now we will install fifo library. Here is <a href="https://github.com/daurnimator/fifo.lua" target="_blank" rel="external">Github Repository</a>. Following is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install fifo</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-lredis-client"><a href="#Install-lredis-client" class="headerlink" title="Install lredis client"></a>Install lredis client</h3><p>Here is <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github Repository</a>. Execute the command to do installation:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install --server=http://luarocks.org/dev lredis</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="redis-lua-Library-Installation"><a href="#redis-lua-Library-Installation" class="headerlink" title="redis-lua Library Installation"></a>redis-lua Library Installation</h2><p>Here is the link of <a href="https://github.com/nrk/redis-lua" target="_blank" rel="external">Github Repository</a>. Install the library through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install redis-lua</span><br></pre></td></tr></table></figure></p>
+<p>Note that if luarocks command cannot be executed by sudoers, we should use root to do the installation.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -470,137 +715,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
-<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
-<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command to use HBase split policy:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:09:57.000Z"><a href="/2016/07/22/scala-sbt-tool-quickstart/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/scala-sbt-tool-quickstart/">scala sbt tool quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-23T06:09:34.000Z"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">Compile scala to java jar tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -626,7 +745,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -634,7 +753,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -654,6 +773,8 @@
     <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Cplusplus/">Cplusplus</a><small>3</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
@@ -717,9 +838,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -740,23 +861,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/">Reading Note of Effective Cplusplus II</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
         <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
       <li>
         <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/">Reading Note of Patterns of Enterprise Application Architecture I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
   </ul>

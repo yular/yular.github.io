@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 5 | YBC HomePage</title>
+  <title>Página 5 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,6 +88,313 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-27T07:51:21.000Z"><a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">2017-09-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h3 id="Item-11-Override-clone-judiciously"><a href="#Item-11-Override-clone-judiciously" class="headerlink" title="Item 11. Override clone judiciously"></a>Item 11. Override clone judiciously</h3><ul>
+<li>Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.</li>
+<li>If override the clone method in a nonfinal class, should return an object obtained by invoking super.clone().</li>
+<li>In practice, a class implemeneting Cloneable is expected to provide a properly functioning public clone method.</li>
+<li>clone method: never make the client do anything the library can do for the client.</li>
+<li>In effect, the clone method functions as another constructor; you must ensure that it does no harm to the original object and that it properly establishes invariants on the clone.</li>
+<li>The clone architecture is incompatible with normal use of final fields referring to mutable objects.</li>
+<li>Like a constructor, a clone method cannot invoke any nonfinal (overriden) methods on the clone under construction.</li>
+<li>A fine approach to object copying is to provide a copy constructor or copy factory.</li>
+</ul>
+<hr>
+
+<h3 id="Item-12-Consider-implementing-Comparable"><a href="#Item-12-Consider-implementing-Comparable" class="headerlink" title="Item 12. Consider implementing Comparable"></a>Item 12. Consider implementing Comparable</h3><ul>
+<li>compareTo contract includes reflexivity, symmetry, and transitivity.</li>
+</ul>
+<hr>
+
+<h3 id="Item-13-Minimize-the-accessibility-of-classes-and-members"><a href="#Item-13-Minimize-the-accessibility-of-classes-and-members" class="headerlink" title="Item 13. Minimize the accessibility of classes and members"></a>Item 13. Minimize the accessibility of classes and members</h3><ul>
+<li>Information hiding: make each class or member as inaccessible as possible.</li>
+<li>It is acceptable to make a private member of a public class pack-private to test it, but it is not acceptable to raise the accessibility any higher than that.</li>
+</ul>
+<hr>
+
+<h3 id="Item-14-In-public-classes-use-accessor-methods-not-public-fields"><a href="#Item-14-In-public-classes-use-accessor-methods-not-public-fields" class="headerlink" title="Item 14. In public classes, use accessor methods, not public fields"></a>Item 14. In public classes, use accessor methods, not public fields</h3><ul>
+<li>Classes with public mutable fields are not thread-safe and instance fields should never be public.</li>
+<li>Only exception is to expose constants via public static final fields, assuming that the constants form an integral part of the abstractions provided by the class.</li>
+<li>In public classes, use accessor methods, not public fields. But if a class is package-private or a private nested class, it is fine to expose its data fields.</li>
+</ul>
+<hr>
+
+<h3 id="Item-15-Minimize-mutability"><a href="#Item-15-Minimize-mutability" class="headerlink" title="Item 15. Minimize mutability"></a>Item 15. Minimize mutability</h3><p>Five rules to make a class immutable:</p>
+<ul>
+<li>Do not provide any methods modifying the object’s state.</li>
+<li>Ensure that the class cannot be extended.</li>
+<li>Make all fields final.</li>
+<li>Make all fields private.</li>
+<li>Ensure exclusive access to any mutable components.</li>
+</ul>
+<p>Functional programming approach enables immutability.</p>
+<p>Immutable objects are simple, inherently thread-safe, can be shared freely, and require no synchronization.</p>
+<p>Classes should be immutable unless there is a very good reason to make them mutable. If a class cannot be made immutable, limit its mutability as much as possible.</p>
+<hr>
+
+<h3 id="Item-16-Favor-composition-over-inheritance"><a href="#Item-16-Favor-composition-over-inheritance" class="headerlink" title="Item 16. Favor composition over inheritance"></a>Item 16. Favor composition over inheritance</h3><p>Unlike method invocation, inheritance violates encapsulation.</p>
+<p>Composition: the existing class becomes a component of a new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is called forwarding and <code>Decorator pattern</code>. And combination of composition and forwarding is loosely referred to as delegation.</p>
+<p>Inheritance is appropriate only in circumstances where the subclass is a subtype of the superclass.</p>
+<p>Wrapper classes (composition) are not suited for callback framework.</p>
+<hr>
+
+<h3 id="Item-17-Design-and-document-for-inheritance-or-else-prohibit-it"><a href="#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 17. Design and document for inheritance or else prohibit it"></a>Item 17. Design and document for inheritance or else prohibit it</h3><ul>
+<li>The class must document precisely the effects of overriding any method and its self-use of overridable methods.</li>
+<li>To allow programmers to write efficient subclasses without undue pain, a class may have to provide hooks into its internal working in the form of judiciously chosen protected methods or even protected methods or even protected fields. That helps subclasses reuse them more easily.</li>
+<li>The only way to test a class designed for inheritance is to write subclasses. Experience shows that three subclasses are sufficient to test an standard class.</li>
+</ul>
+<p>To allow inheritance, follow these rules:</p>
+<ul>
+<li>Constructors must not invoke overridable methods.</li>
+<li>If implement Clonable and Serializable in a class, neither clone nor readObject may invoke an override method directly or indirectly.</li>
+</ul>
+<p>Designing a class for inheritance places substantial limitations on the class. </p>
+<p>The best solution to inheritance problem is to prohibit subclassing in classes that are not designed and documented to be safely subclassed. Two ways:</p>
+<ul>
+<li>Declare the class final.</li>
+<li>Make all the constructors private or package-private and to add public static factories in place of the constructors.</li>
+</ul>
+<hr>
+
+<h3 id="Item-18-Prefer-interfaces-to-abstract-classes"><a href="#Item-18-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 18. Prefer interfaces to abstract classes"></a>Item 18. Prefer interfaces to abstract classes</h3><p>Extending abstract class means subclass is a type of abstract class. Existing classes can be easily retrofitted to implement a new interface.</p>
+<p>Interfaces are ideal for defining mixins. Mixins mean a class can implement in addition to its primary type to declare that it provides some optional behavior. They allow the construction of nonhierarchical type framework.</p>
+<p>Interfaces enable safe, powerful functionality enhancements.</p>
+<p>Combine the virtues of interfaces and abstract class by providing an abstract skeletal implementation class to go with each nontrivial interface exported. A typical skeletal implementation is an abstract class implements interface(s). So it is designed for inheritance.</p>
+<p>Simple implementation is that it implements an interface and is designed for inheritance but not abstract.</p>
+<p>Abstract class is far easier to evolve than interface is. Once interface is released and widely implemented, it is almost impossible to change. Really need to get it right in the first time.</p>
+<hr>
+
+<h3 id="Item-19-Use-interfaces-only-to-define-type"><a href="#Item-19-Use-interfaces-only-to-define-type" class="headerlink" title="Item 19. Use interfaces only to define type"></a>Item 19. Use interfaces only to define type</h3><p>The constant interface pattern is a poor use of interfaces.</p>
+<hr>
+
+<h3 id="Item-20-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-20-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 20. Prefer class hierarchies to tagged classes"></a>Item 20. Prefer class hierarchies to tagged classes</h3><p>Tag class is the class whose instances come in two or more flavors and contain a tag field indicating the flavor of the instance.</p>
+<p>So all in all: Interface &gt; abstract class &gt; tagged class. ( &gt; means preference)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-24T01:08:51.000Z"><a href="/2017/09/23/Java-9-New-Features/">2017-09-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from <a href="http://openjdk.java.net/projects/jdk9/" target="_blank" rel="external">OpenJDK official page</a>.</p>
+<p>Here is a good summary. See this <a href="http://www.baeldung.com/new-java-9" target="_blank" rel="external">link</a>.</p>
+<h3 id="Java-9-REPL-JShell"><a href="#Java-9-REPL-JShell" class="headerlink" title="Java 9 REPL(JShell)"></a>Java 9 REPL(JShell)</h3><p>In Java 9, we can use a command line tool called <code>JShell</code> to execute Java statement, which is similar to python shell. The command to start JSell is:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; jshell</span><br><span class="line"></span><br><span class="line">(output is similar as follow)</span><br><span class="line">|  Welcome to JShell -- Version 9</span><br><span class="line">|  For an introduction type: /help intro</span><br></pre></td></tr></table></figure>
+<p>And we can write and execute Java code as following simple example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; int a = 10, b = 20;</span><br><span class="line">a ==&gt; 10</span><br><span class="line">b ==&gt; 20</span><br><span class="line"></span><br><span class="line">jshell&gt; int c = a + b;</span><br><span class="line">c ==&gt; 30</span><br><span class="line"></span><br><span class="line">jshell&gt; int sum = a + b + c;</span><br><span class="line">sum ==&gt; 60</span><br><span class="line"></span><br><span class="line">jshell&gt; System.out.println(&quot;Sum of a, b and c is : &quot; + sum);</span><br><span class="line">Sum of a, b and c is : 60</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Factory Methods for Immutable Data Structures</span><br><span class="line"></span><br><span class="line">In Java 9, factory methods for immutable List, Set, Map and Map.Entry are available to create empty or non-empty Collection object. They are `of()` methods. </span><br><span class="line"></span><br><span class="line">Here are some simple examples:</span><br><span class="line"></span><br><span class="line">** Immutable List  **</span><br></pre></td></tr></table></figure>
+<p>jshell&gt; List immutableEmptyList = List.of();<br>immutableEmptyList ==&gt; []</p>
+<p>jshell&gt; List immutableList = List.of(“one”,”two”,”three”);<br>immutableList ==&gt; [one, two, three]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">** Immutable Map **</span><br></pre></td></tr></table></figure></p>
+<p>jshell&gt; Map immutableEmptyMap = Map.of()<br>immutableEmptyMap ==&gt; {}</p>
+<p>jshell&gt; Map immutableMap = Map.of(“one”, 1, “two”, 2, “three”, 3)<br>immutableMap ==&gt; {three=3, two=2, one=1}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Private Methods in Interface</span><br><span class="line"></span><br><span class="line">In Java 9, users can define private static or non-static methods inside interface.</span><br><span class="line"></span><br><span class="line">See this sample code:</span><br></pre></td></tr></table></figure></p>
+<p>import java.time.Clock;<br>import java.time.Duration;<br>import java.time.Instant;</p>
+<p>public interface isDatabaseItem {</p>
+<pre><code>Long defaultTimeToLive = generateDefaultTimeToLive();
+
+private static Long generateDefaultTimeToLive() {
+    Instant currentTime = Instant.now( Clock.systemDefaultZone() );
+    return currentTime.plus( Duration.ofSeconds(1L) ).getEpochSecond();
+}
+</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Modue Definition</span><br><span class="line"></span><br><span class="line">A modular system provides capabilities similar to OSGi framework’s system. Modules have a concept of dependencies, can export a public API and keep implementation details hidden/private. One of the main motivations here is to provide modular JVM, which can run on devices with a lot less available memory. The JVM could run with only those modules and APIs which are required by the application. </span><br><span class="line"></span><br><span class="line">Simply put, the modules are going to be described in a file called module-info.java located in the top of java code hierarchy. Here is a sample code from [OpenJDK](http://openjdk.java.net/projects/jigsaw/quick-start).</span><br></pre></td></tr></table></figure></p>
+<p>src/org.astro/module-info.java<br>src/org.astro/org/astro/World.java<br>src/com.greetings/com/greetings/Main.java<br>src/com.greetings/module-info.java</p>
+<p>$ cat src/org.astro/module-info.java<br>module org.astro {<br>    exports org.astro;<br>}</p>
+<p>$ cat src/org.astro/org/astro/World.java<br>package org.astro;<br>public class World {<br>   public static String name() {<br>        return “world”;<br>   }<br>}</p>
+<p>$ cat src/com.greetings/module-info.java<br>module com.greetings {<br>    requires org.astro;<br>}</p>
+<p>$ cat src/com.greetings/com/greetings/Main.java<br>package com.greetings;<br>import org.astro.World;<br>public class Main {<br>    public static void main(String[] args) {<br>        System.out.format(“Greetings %s!%n”, World.name());<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Http2 Client</span><br><span class="line">The new API is located under the `java.net.http package`. It should support both HTTP/2 protocol and WebSocket handshake, with performance that should be comparable with the Apache HttpClient, Netty and Jetty. And HTTP Client JEP is moved to Incubator module, which is `jdk.incubator.http`.</span><br><span class="line"></span><br><span class="line">Here is the sample code about GET request:</span><br></pre></td></tr></table></figure></p>
+<p>URI httpURI = new URI(“<a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>“);<br>HttpRequest request = HttpRequest.create(httpURI).GET();<br>HttpResponse response = request.response();<br>String responseBody = response.body(HttpResponse.asString());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Stream API</span><br><span class="line">Four new methods are added to `java.util.Stream` interface. Two of them are very important: dropWhile and takeWhile methods. </span><br><span class="line"></span><br><span class="line">The `takeWhile()` takes a predicate as an argument and returns a Stream of subset of the given Stream values until that Predicate returns false for first time. If first value does NOT satisfy that Predicate, it just returns an empty Stream.</span><br><span class="line"></span><br><span class="line">Here is the sample code about `takeWhile()` method:</span><br></pre></td></tr></table></figure></p>
+<p>Stream.of(1,2,3,4,5,6,7,8,9,10).takeWhile(i -&gt; i &lt; 5 ).forEach(System.out::println);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Diamond Operator for Anonymous Inner Class</span><br><span class="line">Now diamond operator in conjunction with anonymous inner classes is supported in Java 9.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>FooClass<integer> fc = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};</integer></p>
+<p>FooClass&lt;? extends Integer&gt; fc0 = new FooClass&lt;&gt;(1) {<br>    // anonymous inner class<br>};</p>
+<p>FooClass&lt;?&gt; fc1 = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Process API</span><br><span class="line">Some new classes and methods are added for controlling and managing OS processes. Two main ones are `java.lang.ProcessHandle` and `java.lang.ProcessHandle.Info`. </span><br><span class="line"></span><br><span class="line">Here is the sample code of `java.lang.ProcessHandle` usage:</span><br></pre></td></tr></table></figure></p>
+<p>ProcessHandle self = ProcessHandle.current();<br>long PID = self.getPid();<br>ProcessHandle.Info procInfo = self.info();</p>
+<p>Optional<string[]> args = procInfo.arguments();<br>Optional<string> cmd =  procInfo.commandLine();<br>Optional<instant> startTime = procInfo.startInstant();<br>Optional<duration> cpuUsage = procInfo.totalCpuDuration();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">And here is the sample code of stopping all the running child processes using destroy():</span><br></pre></td></tr></table></figure></duration></instant></string></string[]></p>
+<p>childProc = ProcessHandle.current().children();<br>childProc.forEach(procHandle -&gt; {<br>    assertTrue(“Could not kill process “ + procHandle.getPid(), procHandle.destroy());<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Optional Class to Stream</span><br><span class="line">Use `java.util.Optional.stream()` to use the Stream API on Optional elements. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>List<string> filteredList = listOfOptionals.stream()<br>  .flatMap(Optional::stream)<br>  .collect(Collectors.toList());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Reactive Streams</span><br><span class="line">The Reactive Streams publish-subscribe framework is supported in Java 9 to to implement Asynchronous, Scalable and Parallel applications very easily. </span><br><span class="line"></span><br><span class="line">Here are following API to develop Reactive Streams in Java-based applications.</span><br><span class="line">* java.util.concurrent.Flow</span><br><span class="line">* java.util.concurrent.Flow.Publisher</span><br><span class="line">* java.util.concurrent.Flow.Subscriber</span><br><span class="line">* java.util.concurrent.Flow.Processor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Try-With-Resources</span><br><span class="line">Now if the resource is referenced by a final or effectively final variable, a try-with-resources statement can manage a resource without a new variable being declared. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></string></p>
+<p>MyAutoCloseable mac = new MyAutoCloseable();<br>try (mac) {<br>    // do some stuff with mac<br>}</p>
+<p>try (new MyAutoCloseable() { }.finalWrapper.finalCloseable) {<br>   // do some stuff with finalCloseable<br>} catch (Exception ex) { }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in CompletableFuture API</span><br><span class="line">Now `CompletableFuture` API supports some delays, timeouts and better sub-classing, and has some utility methods.</span><br><span class="line"></span><br><span class="line">Here is the sample code of `delayedExecutor()`, which is static utility method used to return a new Executor that submits a task to the default executor after the given delay.</span><br></pre></td></tr></table></figure></p>
+<p>Executor exe = CompletableFuture.delayedExecutor(50L, TimeUnit.SECONDS);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Мulti-Resolution Image API</span><br><span class="line">The interface `java.awt.image.MultiResolutionImage` encapsulates a set of images with different resolutions into a single object. We can retrieve a resolution-specific image variant based on a given DPI metric and set of image transformations or retrieve all of the variants in the image.</span><br><span class="line"></span><br><span class="line">The `java.awt.Graphics` class gets variant from a multi-resolution image based on the current display DPI metric and any applied transformations.</span><br><span class="line"></span><br><span class="line">The class `java.awt.image.BaseMultiResolutionImage` provides basic implementation.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
+<p>BufferedImage[] resolutionVariants = ….<br>MultiResolutionImage bmrImage<br>  = new BaseMultiResolutionImage(baseIndex, resolutionVariants);<br>Image testRVImage = bmrImage.getResolutionVariant(16, 16);<br>assertSame(“Images should be the same”, testRVImage, resolutionVariants[3]);<br>```</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-15T05:26:09.000Z"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">2017-09-14</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.</p>
+<p>In my software development model, here are the steps to apply TDD in practice:</p>
+<ul>
+<li>Fully understand the user requirement.</li>
+<li>Do a good design for the project, which includes the system design and object-oriented design.</li>
+<li>Based on the design, list all the features need to accomplish.</li>
+<li>Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.</li>
+<li>While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.</li>
+<li>While refactor the code, keep the code clean so that it is simple, easy to read and maintain.</li>
+</ul>
+<hr>
+
+<p>Here are some useful tips borrowed from the book.</p>
+<ul>
+<li>Create a test list including all the required tests at the beginning.</li>
+<li>The goal of each test is to leave the world in exactly the same state before it ran.</li>
+<li>Each test should represent one step towards overall goal.</li>
+<li>What should be tested:<ul>
+<li>Conditions</li>
+<li>Loops</li>
+<li>Operations</li>
+<li>Polymorphism</li>
+</ul>
+</li>
+<li>What factors should be included in the test:<ul>
+<li>What does the operation belong to.</li>
+<li>What are the correct inputs.</li>
+<li>What is the correct output given those input.</li>
+</ul>
+</li>
+<li>Some attributes of tests suggesting a design in trouble:<ul>
+<li>Long setup code.</li>
+<li>Setup duplication.</li>
+<li>Long running tests.</li>
+<li>Fragile tests.</li>
+</ul>
+</li>
+<li>Write assert first in the test.</li>
+<li>To improve test coverage, take a fixed set of tests and simplify the logic of the program.</li>
+<li>Avoid test coupling. All the tests should be run independently.</li>
+<li>Isolating tests also helps to decouple objects (Improve the design).</li>
+<li>Tests should be in a small scale instead of whole application.</li>
+<li>For common objects needed by several tests, convert local variables into instance variables.</li>
+<li>Use data that makes the test easy to read and follow.</li>
+<li>Evident data seems to be an exception to the rule that you do not want magic numbers in your code.</li>
+<li>When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.</li>
+<li>To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.</li>
+<li>To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.</li>
+<li>Always make sure all the tests are running before check in your own code.</li>
+<li>Unless have reason to distrust it, do not test code from others. </li>
+<li>toString method is an exception that does not require test.</li>
+<li>Physical setup (for working environment): cheap disk, nice chair.</li>
+<li>Get cheap/slow/old machines for individual email and surfing.</li>
+<li>Leave a programming session when programming alone, leave the last test broken.</li>
+<li>Leave a programming session when programming in a team, leave all the test running.</li>
+<li>Feel lost, throw away the code and start over.</li>
+<li>Feel tired or stuck, take a break.</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Test/">Test</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -936,393 +1243,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T02:22:58.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-III/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-III/">Linux System and Adminstrative Commands III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Job-Control"><a href="#Job-Control" class="headerlink" title="Job Control"></a>Job Control</h2><h3 id="ps"><a href="#ps" class="headerlink" title="ps"></a>ps</h3><ul>
-<li>Process Statistics: list currently executing processes by owner and PID (process ID).</li>
-</ul>
-<hr>
-
-<h3 id="pgrep-pkill"><a href="#pgrep-pkill" class="headerlink" title="pgrep, pkill"></a>pgrep, pkill</h3><ul>
-<li>Combining the ps command with grep or kill.</li>
-</ul>
-<hr>
-
-<h3 id="pstree"><a href="#pstree" class="headerlink" title="pstree"></a>pstree</h3><ul>
-<li>List currently executing processes in <code>tree</code> format.</li>
-</ul>
-<hr>
-
-<h3 id="top"><a href="#top" class="headerlink" title="top"></a>top</h3><ul>
-<li>Continously updated display of most cpu-intensive processes.</li>
-</ul>
-<hr>
-
-<h3 id="nice"><a href="#nice" class="headerlink" title="nice"></a>nice</h3><ul>
-<li>Run a background job with an altered priority.</li>
-</ul>
-<hr>
-
-<h3 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h3><ul>
-<li>Keeps a command running even after user logs off.</li>
-</ul>
-<hr>
-
-<h3 id="pidof"><a href="#pidof" class="headerlink" title="pidof"></a>pidof</h3><ul>
-<li>Identifies processID (PID) of a running job.</li>
-</ul>
-<hr>
-
-<h3 id="fuser"><a href="#fuser" class="headerlink" title="fuser"></a>fuser</h3><ul>
-<li>Identify the process (by PID) accessing a given file, set of files or directory.</li>
-</ul>
-<hr>
-
-<h3 id="cron"><a href="#cron" class="headerlink" title="cron"></a>cron</h3><ul>
-<li>Administrative program scheduler, performing such duties as cleaning up and deleting system log files and updating the slocate database.</li>
-</ul>
-<h2 id="Process-Control-and-Booting"><a href="#Process-Control-and-Booting" class="headerlink" title="Process Control and Booting"></a>Process Control and Booting</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><hr>
-
-<h3 id="telinit"><a href="#telinit" class="headerlink" title="telinit"></a>telinit</h3><hr>
-
-<h3 id="runlevel"><a href="#runlevel" class="headerlink" title="runlevel"></a>runlevel</h3><ul>
-<li>Shows the current and last runlevel.</li>
-</ul>
-<hr>
-
-<h3 id="halt-shutdown-reboot"><a href="#halt-shutdown-reboot" class="headerlink" title="halt, shutdown, reboot"></a>halt, shutdown, reboot</h3><hr>
-
-<h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><ul>
-<li>Starts or stops a system service.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T02:06:10.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-II/">Linux System and Adminstrative Commands II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Information-and-Statistics"><a href="#Information-and-Statistics" class="headerlink" title="Information and Statistics"></a>Information and Statistics</h2><h3 id="uname"><a href="#uname" class="headerlink" title="uname"></a>uname</h3><hr>
-
-<h3 id="arch"><a href="#arch" class="headerlink" title="arch"></a>arch</h3><ul>
-<li>Show system architecture.</li>
-</ul>
-<hr>
-
-<h3 id="lastcomm"><a href="#lastcomm" class="headerlink" title="lastcomm"></a>lastcomm</h3><ul>
-<li>Gives information of previous commands, as stored in the <code>/var/account/pacct</code> file.</li>
-</ul>
-<hr>
-
-<h3 id="lastlog"><a href="#lastlog" class="headerlink" title="lastlog"></a>lastlog</h3><hr>
-
-<h3 id="lsof"><a href="#lsof" class="headerlink" title="lsof"></a>lsof</h3><ul>
-<li>List open files.</li>
-</ul>
-<hr>
-
-<h3 id="strace"><a href="#strace" class="headerlink" title="strace"></a>strace</h3><ul>
-<li>System trace: diagnostic and debugging tool for tracing system calls and signals.</li>
-</ul>
-<hr>
-
-<h3 id="ltrace"><a href="#ltrace" class="headerlink" title="ltrace"></a>ltrace</h3><ul>
-<li>Library trace: diagnostic and debugging tool that traces library calls invoked by a given command.</li>
-</ul>
-<hr>
-
-<h3 id="nc"><a href="#nc" class="headerlink" title="nc"></a>nc</h3><ul>
-<li>A complete toolkit for connecting to and listening to TCP and UDP ports.</li>
-</ul>
-<hr>
-
-<h3 id="free"><a href="#free" class="headerlink" title="free"></a>free</h3><ul>
-<li>Show memory and cache usage in tabular form.</li>
-</ul>
-<hr>
-
-<h3 id="proinfo"><a href="#proinfo" class="headerlink" title="proinfo"></a>proinfo</h3><ul>
-<li>Extract and list information and statistics from the <code>/proc</code> pseudo-filesystem.</li>
-</ul>
-<hr>
-
-<h3 id="lsdev"><a href="#lsdev" class="headerlink" title="lsdev"></a>lsdev</h3><ul>
-<li>List devices (installed hardware).</li>
-</ul>
-<hr>
-
-<h3 id="du"><a href="#du" class="headerlink" title="du"></a>du</h3><ul>
-<li>Show disk file usage recusively.</li>
-</ul>
-<hr>
-
-<h3 id="df"><a href="#df" class="headerlink" title="df"></a>df</h3><ul>
-<li>Show filesystem usage in tabular form.</li>
-</ul>
-<hr>
-
-<h3 id="dmesg"><a href="#dmesg" class="headerlink" title="dmesg"></a>dmesg</h3><hr>
-
-<h3 id="stat"><a href="#stat" class="headerlink" title="stat"></a>stat</h3><ul>
-<li>Gives detailed and verbose statistics on a given file or set of files.</li>
-</ul>
-<hr>
-
-<h3 id="vmstat"><a href="#vmstat" class="headerlink" title="vmstat"></a>vmstat</h3><ul>
-<li>Show virtual memory statistics.</li>
-</ul>
-<hr>
-
-<h3 id="uptime"><a href="#uptime" class="headerlink" title="uptime"></a>uptime</h3><ul>
-<li>Show how long the system has been running.</li>
-</ul>
-<hr>
-
-<h3 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h3><ul>
-<li>Lists the hostname of system.</li>
-</ul>
-<hr>
-
-<h3 id="hostid"><a href="#hostid" class="headerlink" title="hostid"></a>hostid</h3><ul>
-<li>Echo a 32-bit hexadecimal numerical identifier for the host machine.</li>
-</ul>
-<hr>
-
-<h3 id="sar"><a href="#sar" class="headerlink" title="sar"></a>sar</h3><hr>
-
-<h3 id="readelf"><a href="#readelf" class="headerlink" title="readelf"></a>readelf</h3><hr>
-
-<h3 id="size"><a href="#size" class="headerlink" title="size"></a>size</h3><ul>
-<li>Show the segment sizes of a binary executable or archive file.</li>
-</ul>
-<h2 id="System-Logs"><a href="#System-Logs" class="headerlink" title="System Logs"></a>System Logs</h2><h3 id="logger"><a href="#logger" class="headerlink" title="logger"></a>logger</h3><ul>
-<li>Append a user-generated message to the system log <code>/var/log/messages</code>.</li>
-</ul>
-<hr>
-
-<h3 id="logrotate"><a href="#logrotate" class="headerlink" title="logrotate"></a>logrotate</h3><ul>
-<li>Manage the system log files, rotating, compressing, deleting, and/or e-mailing them, as appropriate.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-05T01:44:41.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Users-and-Groups"><a href="#Users-and-Groups" class="headerlink" title="Users and Groups"></a>Users and Groups</h2><h3 id="users"><a href="#users" class="headerlink" title="users"></a>users</h3><ul>
-<li>Show all logged on users.</li>
-</ul>
-<hr>
-
-<h3 id="groups"><a href="#groups" class="headerlink" title="groups"></a>groups</h3><ul>
-<li>List the current user and the gourps s/he belongs to.</li>
-</ul>
-<hr>
-
-<h3 id="chown-chgrp"><a href="#chown-chgrp" class="headerlink" title="chown, chgrp"></a>chown, chgrp</h3><hr>
-
-<h3 id="useradd-userdel"><a href="#useradd-userdel" class="headerlink" title="useradd, userdel"></a>useradd, userdel</h3><hr>
-
-<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><ul>
-<li>Modify a useraccount’s password, group membership, expiration date and etc.</li>
-</ul>
-<hr>
-
-<h3 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h3><hr>
-
-<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
-<li>Lists the real and effective user IDs and the group IDs of the user associated with the current process.</li>
-</ul>
-<hr>
-
-<h3 id="lid"><a href="#lid" class="headerlink" title="lid"></a>lid</h3><ul>
-<li>Shows the group(s) a given user belongs to, or the users belonging to a given group.</li>
-</ul>
-<hr>
-
-<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><hr>
-
-<h3 id="w"><a href="#w" class="headerlink" title="w"></a>w</h3><hr>
-
-<h3 id="logname"><a href="#logname" class="headerlink" title="logname"></a>logname</h3><ul>
-<li>Show current user’s login name.</li>
-</ul>
-<hr>
-
-<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><hr>
-
-<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><hr>
-
-<h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><ul>
-<li>Sets, changes, or manages a user’s password.</li>
-</ul>
-<hr>
-
-<h3 id="ac"><a href="#ac" class="headerlink" title="ac"></a>ac</h3><ul>
-<li>Show users’ logged in time.</li>
-</ul>
-<hr>
-
-<h3 id="last"><a href="#last" class="headerlink" title="last"></a>last</h3><ul>
-<li>List last logged in users.</li>
-</ul>
-<hr>
-
-<h3 id="mewgrp"><a href="#mewgrp" class="headerlink" title="mewgrp"></a>mewgrp</h3><hr>
-
-<h2 id="Terminals"><a href="#Terminals" class="headerlink" title="Terminals"></a>Terminals</h2><hr>
-
-<h3 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h3><ul>
-<li>Echoes the terminal filename of current users’ terminal.</li>
-</ul>
-<hr>
-
-<h3 id="stty"><a href="#stty" class="headerlink" title="stty"></a>stty</h3><ul>
-<li>Shows and/or changes terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="stterm"><a href="#stterm" class="headerlink" title="stterm"></a>stterm</h3><ul>
-<li>Set certain terminal attributes.</li>
-</ul>
-<hr>
-
-<h3 id="tset"><a href="#tset" class="headerlink" title="tset"></a>tset</h3><ul>
-<li>Show or initialize terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="setserial"><a href="#setserial" class="headerlink" title="setserial"></a>setserial</h3><hr>
-
-<h3 id="getty-agetty"><a href="#getty-agetty" class="headerlink" title="getty, agetty"></a>getty, agetty</h3><hr>
-
-<h3 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h3><hr>
-
-<h3 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h3><ul>
-<li>Sending a message to all users at every terminal logged into the network.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -1348,7 +1273,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -1356,7 +1281,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -1376,6 +1301,8 @@
     <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Cplusplus/">Cplusplus</a><small>3</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
@@ -1439,9 +1366,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -1462,23 +1389,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/">Reading Note of Effective Cplusplus II</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
         <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
       <li>
         <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/">Reading Note of Patterns of Enterprise Application Architecture I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
   </ul>

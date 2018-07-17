@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 8 | YBC HomePage</title>
+  <title>Página 8 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,6 +88,154 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-31T05:25:42.000Z"><a href="/2017/05/30/Retrofit-Quickstart-Guide/">2017-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/30/Retrofit-Quickstart-Guide/">Retrofit Quickstart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-31T05:25:29.000Z"><a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">2017-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">Stub Test vs Mock Test vs Spy Test</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the Wikipedia link about <a href="https://en.wikipedia.org/wiki/Test_double" target="_blank" rel="external">Test Double</a>. There are five kinds of <code>Test Doubles</code>: <code>Dummy Test</code>, <code>Fake Test</code>, <code>Stub Test</code>, <code>Mock Test</code> and <code>Spy Test</code>. Here we focus on the last three kinds of test.</p>
+<h3 id="Stub-Test"><a href="#Stub-Test" class="headerlink" title="Stub Test"></a>Stub Test</h3><h3 id="Mock-Test"><a href="#Mock-Test" class="headerlink" title="Mock Test"></a>Mock Test</h3><h3 id="Spy-Test"><a href="#Spy-Test" class="headerlink" title="Spy Test"></a>Spy Test</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Test/">Test</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-07T22:04:19.000Z"><a href="/2017/05/07/Thinking-in-Number-Theory/">2017-05-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now here we will propose some generic ideas to think through this kind of problems.</p>
+<p>This artical will be updated continously.</p>
+<hr>
+
+<h3 id="1-Prime-Check"><a href="#1-Prime-Check" class="headerlink" title="1. Prime Check"></a>1. Prime Check</h3><p>Given an integer, check whether it is a prime or not is a high frequent problem. There are a lot of algorithms to do this check. Some of them are as follows:</p>
+<ul>
+<li><p>The naive O(n^1.5) algorithm:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n) &#123;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(n); ++ i)&#123;</span><br><span class="line">		if(n%i == 0)</span><br><span class="line">			return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">Sieve of Eratosthenes</a>.</p>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank" rel="external">Rabin-Miller primality test algorithm</a>.</li>
+</ul>
+<p>Sometimes, we need to figure out all the primes within a specific range. In that case, the second algorithm usually is the best choice, expecially for the problems described in the next sections.</p>
+<hr>
+
+<h3 id="2-Prime-Factors"><a href="#2-Prime-Factors" class="headerlink" title="2. Prime Factors"></a>2. Prime Factors</h3><p>In Number Theory problems, we are ussually asked to figure out the factors of a given integer. In this case, a good idea (not always) is to figure out all its prime factors and their powers. To do that, we need to use (not always) <code>Sieve of Eratosthenes</code> to generate all the primes no larger than given integer. But this solution is not a silver bullet because sometimes the given integer is so large that we do not have enough memory to store all the primes or calculate them within the timebound.</p>
+<hr>
+
+<h3 id="3-Integer-Generation"><a href="#3-Integer-Generation" class="headerlink" title="3. Integer Generation"></a>3. Integer Generation</h3><p>Maybe we find that it is inpractical to divide the given integer into mulplication of primes. Thus, we can try to multiply the primes we have to generate another integer. In this scenario, we do not have to worry about the limited memory to save large number of primes or find all the required primes in a short time. The reason is that even we multiply the same prime for several times (maybe around 30 or even less), we can get a very large integer. Remember, <code>2^64 = 18446744073709551616</code> .</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -465,185 +613,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-03-06T08:43:43.000Z"><a href="/2017/03/06/Bash-vs-Zsh/">2017-03-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/03/06/Bash-vs-Zsh/">Bash vs Zsh</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the links about comparison of Bash and Zsh. We think they should be useful.<br><a href="https://www.quora.com/What-is-the-difference-between-bash-and-zsh" target="_blank" rel="external">Quora</a>.<br><a href="http://stackabuse.com/zsh-vs-bash/" target="_blank" rel="external">Stack Abuse</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-02-27T09:30:27.000Z"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">2017-02-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable Class QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://immutables.github.io/immutable.html" target="_blank" rel="external">official website of Java Immutable Class</a>, <a href="https://www.linkedin.com/pulse/20140528113353-16837833-6-benefits-of-programming-with-immutable-objects-in-java" target="_blank" rel="external">benefits of Immutable Class</a> and <a href="https://immutables.github.io/getstarted.html" target="_blank" rel="external">Getstarted Tutorial</a>.</p>
-<p>Generally, the benefits of Immutable class is:</p>
-<ul>
-<li>Create thread-safe objects.</li>
-<li>Easy to make program parallel.</li>
-<li>Keep the internal program state consistent.</li>
-<li>Cache the references to immutable objects.</li>
-</ul>
-<p>Now below it is our quickstart tutorial.</p>
-<h3 id="Setup-Environment"><a href="#Setup-Environment" class="headerlink" title="Setup Environment"></a>Setup Environment</h3><p>Here we suggest to use <code>IntelliJ</code> IDE because this IDE is easy to generate <code>immutable class</code>.</p>
-<p>Here is the <a href="https://immutables.github.io/apt.html" target="_blank" rel="external">official tutorial</a> to enable annotations for <code>immutable class</code> feature.</p>
-<h3 id="Create-Java-Project"><a href="#Create-Java-Project" class="headerlink" title="Create Java Project"></a>Create Java Project</h3><p>In IntelliJ, create a <code>Java Maven Project</code>. This part will be provided later as it should be very easy.</p>
-<p>Below is the project basic settings:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupId: com.yulartech.app</span><br><span class="line">artifactId: blog-runner</span><br><span class="line">version: 1.0-SNAPSHOT</span><br></pre></td></tr></table></figure>
-<h3 id="Enable-Annotations"><a href="#Enable-Annotations" class="headerlink" title="Enable Annotations"></a>Enable Annotations</h3><p>Open IntelliJ system preferences panel and edit the settings as follows:</p>
-<ul>
-<li>Check <code>Enable annotation processing</code></li>
-<li>Check <code>Module content root</code></li>
-<li>Edit <code>Production sources directory</code> as <code>generated</code></li>
-<li>Edit <code>Test sources directory</code> as <code>generated_test</code></li>
-</ul>
-<h3 id="Write-Java-Code"><a href="#Write-Java-Code" class="headerlink" title="Write Java Code"></a>Write Java Code</h3><p>Here is the <a href="https://github.com/yular/Java-CodeLibrary/tree/master/blogrunner" target="_blank" rel="external">link of Github Repository of this tutorial project</a>.</p>
-<p>Here is the content of <code>pom.xml</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.yulartech.app&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;blog-runner&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;jdk.version&gt;1.8&lt;/jdk.version&gt;</span><br><span class="line">        &lt;immutable.version&gt;2.4.3&lt;/immutable.version&gt;</span><br><span class="line">        &lt;javamail.version&gt;1.4.7&lt;/javamail.version&gt;</span><br><span class="line">        &lt;mockito.version&gt;2.7.13&lt;/mockito.version&gt;</span><br><span class="line">        &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">        &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;</span><br><span class="line">        &lt;jsoup.version&gt;1.10.1&lt;/jsoup.version&gt;</span><br><span class="line">        &lt;maven-compiler.version&gt;3.2&lt;/maven-compiler.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;junit.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.immutables&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;value&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;immutable.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;javax.mail&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mail&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;javamail.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mockito&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mockito-core&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mockito.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- https://jsoup.org/ --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.jsoup&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jsoup&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;jsoup.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;maven-compiler.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;source&gt;$&#123;jdk.version&#125;&lt;/source&gt;</span><br><span class="line">                    &lt;target&gt;$&#123;jdk.version&#125;&lt;/target&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.4.1&lt;/version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;descriptorRefs&gt;</span><br><span class="line">                        &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                    &lt;/descriptorRefs&gt;</span><br><span class="line">                    &lt;archive&gt;</span><br><span class="line">                        &lt;manifest&gt;</span><br><span class="line">                            &lt;mainClass&gt;com.yulartech.app.App&lt;/mainClass&gt;</span><br><span class="line">                        &lt;/manifest&gt;</span><br><span class="line">                    &lt;/archive&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
-<p>Then create a package with this path: <code>blogrunner/src/main/java/com/yulartech/domain</code> and class called <code>Blog.java</code>.</p>
-<p>Here is the code.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.domain;</span><br><span class="line"></span><br><span class="line">import org.immutables.value.Value;</span><br><span class="line"></span><br><span class="line">@Value.Immutable</span><br><span class="line">public abstract  class Blog &#123;</span><br><span class="line">    public abstract String blogAuthor();</span><br><span class="line">    public abstract  String blogTitle();</span><br><span class="line">    public abstract  String blogLink();</span><br><span class="line">    public abstract String blogDate();</span><br><span class="line">    public abstract String blogSummary();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Now we build the project inside IntelliJ, and then we can find the generated immutable class under this path <code>target/generated-sources/annotations/com/yulartech/domain/ImmutableBlog.java</code>.</p>
-<p>Now here is the class containing <code>main function</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.app;</span><br><span class="line"></span><br><span class="line">import com.yulartech.domain.ImmutableBlog;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ybc on 3/20/17.</span><br><span class="line"> */</span><br><span class="line">public class App &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        ImmutableBlog blog = ImmutableBlog.builder()</span><br><span class="line">                .blogAuthor(&quot; Yular &quot;)</span><br><span class="line">                .blogTitle(&quot; Java Immutable Objects QuickStart &quot;)</span><br><span class="line">                .blogDate(&quot; 2017-03-20 &quot;)</span><br><span class="line">                .blogLink(&quot; http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ &quot;)</span><br><span class="line">                .blogSummary(&quot; A quickstart tutorial about Java immutable objects &quot;)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        System.out.println(blog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Build-and-Run-the-Project"><a href="#Build-and-Run-the-Project" class="headerlink" title="Build and Run the Project"></a>Build and Run the Project</h3><p>Now again we build the project. This step is optional.</p>
-<p>Then right click the <code>main function</code> and choose the <code>Run App.main()</code> option. We will see the output as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog&#123;blogAuthor= Yular , blogTitle= Java Immutable Objects QuickStart , blogLink= http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ , blogDate= 2017-03-20 , blogSummary= A quickstart tutorial about Java immutable objects &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-02-16T05:00:50.000Z"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">2017-02-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">Assert Expected Exception in JUnit Test</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.</p>
-<p>The original link is from <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests" target="_blank" rel="external">Stack Overflow</a>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ExceptionTest &#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public final ExpectedException exception = ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void <span class="function"><span class="title">testIndexOutOfBoundsException</span></span>() &#123;</span><br><span class="line">    Foo foo = new Foo();</span><br><span class="line"></span><br><span class="line">    exception.expect(IndexOutOfBoundsException.class);</span><br><span class="line">    foo.doStuff();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here is the link of <a href="https://www.infoq.com/news/2009/07/junit-4.7-rules" target="_blank" rel="external">JUnit 4.7 Per-Test Rules</a>.</p>
-<p>And below is a good way to write the JUnit Test with the same functionality using Java 8. We use <code>Lambda Expressions</code> code style.</p>
-<p>Original link is <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006" target="_blank" rel="external">here</a>, from Stack Overflow again.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void <span class="function"><span class="title">verifiesTypeAndMessage</span></span>() &#123;</span><br><span class="line">    assertThrown(new FooService()::fooMethod)</span><br><span class="line">            .isInstanceOf(IndexOutOfBoundsException.class)</span><br><span class="line">            .hasMessage(<span class="string">"Index Out Of Bound exception occurred"</span>)</span><br><span class="line">            .hasMessageStartingWith(<span class="string">"Runtime"</span>)</span><br><span class="line">            .hasMessageEndingWith(<span class="string">"occurred"</span>)</span><br><span class="line">            .hasMessageContaining(<span class="string">"exception"</span>)</span><br><span class="line">            .hasNoCause();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here are some useful links for the JUnit test in Java 8:<br>1.<a href="http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html" target="_blank" rel="external">http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html</a><br>2.<a href="https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8" target="_blank" rel="external">https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8</a> </p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/9/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -669,7 +643,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -677,7 +651,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -697,6 +671,8 @@
     <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Cplusplus/">Cplusplus</a><small>3</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
@@ -760,9 +736,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -783,23 +759,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/">Reading Note of Effective Cplusplus II</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
         <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
       <li>
         <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/">Reading Note of Patterns of Enterprise Application Architecture I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
   </ul>

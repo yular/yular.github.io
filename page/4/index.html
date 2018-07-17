@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 4 | YBC HomePage</title>
+  <title>Página 4 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,6 +88,335 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-06T07:25:12.000Z"><a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">2017-11-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">Reading Note of Java Concurrency in Practice III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="构建块"><a href="#构建块" class="headerlink" title="构建块"></a>构建块</h2><h3 id="同步容器和并发容器"><a href="#同步容器和并发容器" class="headerlink" title="同步容器和并发容器"></a>同步容器和并发容器</h3><ul>
+<li>用并发容器替换同步容器，风险小且拓展性好。</li>
+<li>ConcurrentHashMap返回的迭代器是弱一致性，允许并发修改，可以但不保证感应到在迭代器被创建后，对容器的修改。也不能再独占访问中加锁，即不能使用客户端加锁来创建新的原子操作。</li>
+</ul>
+<h3 id="阻塞队列和生产者－消费者模式"><a href="#阻塞队列和生产者－消费者模式" class="headerlink" title="阻塞队列和生产者－消费者模式"></a>阻塞队列和生产者－消费者模式</h3><ul>
+<li>在设计初期就使用阻塞队列建立对资源的管理，提早做这件事会比日后再修复容易得多。</li>
+<li>SynchronousQueue 这类队列只有在消费者充足时比较合适，总能为下一个任务做好准备。</li>
+<li>连续的线程限制：对于可变对象，生产者－消费者设计和阻塞队列一起，为生产者和消费者之间移交对象所有权提供了连续的线程限制。一个线程约束的对象完全由单一线程所有，但是所有权可以通过安全的发布被转移，这样其他线程只有唯一一个能够得到访问这个对象的权限，并且保证移交之后原线程不能再访问它。</li>
+</ul>
+<h3 id="阻塞和可中断的方法"><a href="#阻塞和可中断的方法" class="headerlink" title="阻塞和可中断的方法"></a>阻塞和可中断的方法</h3><ul>
+<li>中断是一种协调机制。一个线程不能够迫使其他线程停止正在做的事，或者去做别的事。当线程A中断B时，A仅仅是要求B在达成某个方便停止的关键点时，停止正在做的事，如果这样做是正确的。</li>
+<li>处理InterruptedException的两种方法：<ul>
+<li>传递InterruptedException，将其传递给调用者，可以不捕获，也可以捕获后做一些清理工作，最后再抛出；</li>
+<li>恢复中断，即捕获后在当前线程中通过调用interrupt从中断恢复。只有一种情况允许掩盖中断：拓展了Thread，并因此控制了所有处于调用栈上层的代码。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Synchronizer"><a href="#Synchronizer" class="headerlink" title="Synchronizer"></a>Synchronizer</h3><ul>
+<li>Synchronizer是一个对象，根据本身的状态调节线程的控制流。</li>
+<li>闭锁（latch）是一种Synchronizer，可以延迟线程的进度直到线程到达终止状态。</li>
+<li>关卡类似于闭锁，它们能够阻塞一组线程，直到某些事发生，但要求所有线程同时到达关卡点，才能继续处理，否则关卡是失败的，所有未完成的调用都通过BrokenBarrierException终止。</li>
+<li>Exchanger 是关卡的另一种形式，是一种两部关卡，在关卡点会交换数据，比如数据缓冲。</li>
+</ul>
+<h3 id="为计算结果建立高效，可伸缩的告诉缓存"><a href="#为计算结果建立高效，可伸缩的告诉缓存" class="headerlink" title="为计算结果建立高效，可伸缩的告诉缓存"></a>为计算结果建立高效，可伸缩的告诉缓存</h3><ul>
+<li>计数信号量（count semaphore）用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数量。其中二元信号量可以用作互斥锁。</li>
+</ul>
+<hr>
+
+<h2 id="构建并发应用程序"><a href="#构建并发应用程序" class="headerlink" title="构建并发应用程序"></a>构建并发应用程序</h2><ul>
+<li>精灵线程daemon thread是JVM启动时创建的，除了主线程以外，其余所有线程。JVM 退出时，所有存在的精灵线程都会被抛弃，不会执行finally块，也不会释放栈。因此这类线程最好用于家务管理任务，不能替代对服务的生命周期恰当，良好的管理。</li>
+</ul>
+<h3 id="任务执行"><a href="#任务执行" class="headerlink" title="任务执行"></a>任务执行</h3><ul>
+<li>在中等强度的负载水平下，每任务每线程方法是对顺序化执行的良好改进。在实际应用中，web server在高负载下可以平缓地劣化，从而实现高可用性。</li>
+<li>任务不会在自己拥有的线程中执行，而是借用属于服务的线程，比如线程池。</li>
+<li>代码若不是线程的所有者（对于线程池而言，是指任何线程池实现以外的代码），就应该小心地保存中断状态，这样才能让所有者代码最终起作用。</li>
+<li>用ExecutorService管理生产者－消费者服务。将ExecutorService封装到一个更高层的service class中，在其中提供自己的生命周期方法。对于线程持有的服务，只要服务的存在时间大于创建线程的方法存在的时间，那么就应该提供生命周期方法。</li>
+<li>TrackingExecutor存在不可避免的竞争条件导致false positive现象发生：识别出的被取消的任务事实上已经结束。出现的原因是在任务执行最后一条指令，以及线程及线程池记录任务结束之间，线程池可能发生关闭。若任务是幂等的，即两次执行结果和一次的一样，则没问题。</li>
+<li>大量相互独立且同类的任务进行并发处理，会将程序的任务量分配到不同的任务中，这样才能真正获得性能的提升。</li>
+<li>围绕任务的执行来构造应用程序，可以简化开发，便于同步。使用Executor框架来解耦任务的提交与执行策略。同时要为每一个任务分配清晰的边界，比如timeout和任务类别。</li>
+</ul>
+<h3 id="任务取消和关闭"><a href="#任务取消和关闭" class="headerlink" title="任务取消和关闭"></a>任务取消和关闭</h3><ul>
+<li>可取消的活动：外部代码可以在活动自然完成之前，把它更改为完成状态。</li>
+<li>中断通常是实现取消最明智的选择。实际上，使用中断来处理取消之外的任何事情都是不明智的，并且很难支撑起更大的应用。调用interrupt并不会真正中断一个正在运行的线程，仅仅是发出了中断请求。因为每个线程都有自己的中断策略，所以不应该中断线程，除非知道中断对于这个线程意味着什么。</li>
+<li>线程应该只能够被线程的所有者中断：所有者可以把线程的中断策略信息封装到一个合适的取消机制中，比如关闭方法。只有实现了线程中断策略的代码才可以接收中断请求。通用目的的任务和库的代码绝不能接收中断请求。</li>
+<li>用致命药丸管理生产者－消费者线程服务，即将一个可识别对象置于队列之中，意味着得到它时，停止一切工作。此方法只在生产者和消费者数量已知的情况下使用。</li>
+<li>关闭钩子 shutdown hook是使用Runtime.addShutdownHook注册的尚未开始的线程。其应该是线程安全的，全部都是并发执行的，实现方式是对所有服务使用唯一关闭钩子，确保关闭行为在单线程顺序发生，避免竞争条件的出现。</li>
+<li>处理不可中断阻塞：java.io中的同步Socket I/O，关闭底层的Socket; java.nio中的同步I/O，中断后会导致多个在链路操作上的线程抛出 AsynchronousCloseException; Selector 异步I/O，close阻塞于此方法的线程会导致它抛出ClosedSelectorException；获得锁，不能停止阻塞于此的线程，但显示lock提供了lockInterruptibly方法，允许等待一个锁的同时响应中断。</li>
+<li>防止线程泄漏的方法（处理线程反常终止）：用try-catch块中调用任务来捕获未检查异常，或try-finally块确保框架能知晓线程非正常退出，并作出正确反应。实现UncaughtExceptionHandler并设置到线程池中，所有的线程都要给未捕获异常设置一个处理器（handler），这个处理器至少要将异常信息记入日志当中。</li>
+</ul>
+<h3 id="应用线程池"><a href="#应用线程池" class="headerlink" title="应用线程池"></a>应用线程池</h3><ul>
+<li>当任务都是同类的，独立的时候，线程池才会有最佳的工作表现。</li>
+<li>线程池的饱和策略通过调用setRejectedExecutionHandler来修改，有中止abort策略，遗弃discard策略，遗弃最旧的discard-oldest策略。</li>
+<li>调用者运行策略则是让主线程来执行线程池达到饱和后提交上来的任务。</li>
+<li>平缓地劣化：当服务器过载时，它的负荷会逐渐地外移，从线程池到工作队列到应用程序再到TCP层，最终转嫁到用户。</li>
+<li>newCachedThreadPool工厂提供了比定长的线程池更好的队列等候性能。定长线程池是限制当前任务数量的很好选择，可以有效防止导致过载的攻击。</li>
+<li>用beforeExecute, afterExecute, 以及terminate来拓展ThreadPoolExecutor的行为。</li>
+</ul>
+<h3 id="GUI-应用程序"><a href="#GUI-应用程序" class="headerlink" title="GUI 应用程序"></a>GUI 应用程序</h3><ul>
+<li>GUI 是单线程化的。现代GUI框架的模型：模型创建了一个专门的线程，事件派发线程来处理GUI事件。</li>
+<li>GUI需要处理耗时任务时，可以将任务提交给一个独立的Executor来处理，然后该任务结束后，再由Executor发送一个事件给GUI事件线程来更新界面。</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-03T06:28:16.000Z"><a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">2017-11-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">Reading Note of Java Concurrency in Practice II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="解耦的目的与时机"><a href="#解耦的目的与时机" class="headerlink" title="解耦的目的与时机"></a>解耦的目的与时机</h2><h3 id="并发防御原则"><a href="#并发防御原则" class="headerlink" title="并发防御原则"></a>并发防御原则</h3><ul>
+<li>单一权责原则，分离并发相关代码和其他代码；</li>
+<li>限制数据作用域，用synchronized是一个保护共享数据域的方法，总之严格限制对可能被共享的数据的访问；</li>
+<li>使用数据副本，也就是用单线程收集多线程的数据副本然后合并；</li>
+<li>线程应尽可能独立，尝试将数据分解到可被独立线程（可能在不同处理器上）操作的独立子集。</li>
+<li>避免使用一个共享对象的多个方法，也就是一个类中别synchronized多个方法。</li>
+<li>尽可能减小同步区域。</li>
+<li>尽早考虑（系统）关闭问题，尽早令其工作正常。防止因为死锁等并发问题导致系统无法真正关闭。</li>
+</ul>
+<h3 id="并发执行模型"><a href="#并发执行模型" class="headerlink" title="并发执行模型"></a>并发执行模型</h3><ul>
+<li>生产者－消费者模型，一种队列模型。 </li>
+<li>读者－作者模型，主要为读者提供信息，偶尔被作者修改的数据，吞吐量是个问题。</li>
+<li>哲学家吃饭问题。</li>
+<li>在程序中实现一个生产者－消费者的设计，使用Executor通常是最简单的方式。它可以很好地实现任务的提交与执行的解耦。///</li>
+</ul>
+<hr>
+
+<h2 id="共享对象"><a href="#共享对象" class="headerlink" title="共享对象"></a>共享对象</h2><p>线程本地（Thread Local）将每个线程与其持有的数据对象关联起来，提供get和set访问器，为每个使用它的线程维护一份单独的拷贝，所以get总是返回由当前执行线程通过set设置的最新值。这类变量通常用于防止在基于可变的单体或全局变量的设计中，出现不正确的共享。</p>
+<h3 id="volatile-对象"><a href="#volatile-对象" class="headerlink" title="volatile 对象"></a>volatile 对象</h3><p>只有当volatile变量能够简化实现和同步策略的验证时，才使用它们。当验证正确性必须推断可见性问题时，应该避免使用此类变量。正确使用volatile变量的方式包括：</p>
+<ul>
+<li>用于确保它们所引用的对象状态可见性。</li>
+<li>用于标识重要的生命周期事件（比如初始化或关闭）。</li>
+</ul>
+<p>满足以下条件采用volatile变量：</p>
+<ul>
+<li>写入变量时并不依赖其当前值，或者能够确保只有单一线程修改变量的值。</li>
+<li>变量不需要与其他的状态变量共同参与不变约束。</li>
+<li>访问变量时，没有其他原因需要加锁。</li>
+</ul>
+<h3 id="发布和逸出"><a href="#发布和逸出" class="headerlink" title="发布和逸出"></a>发布和逸出</h3><p>不正确和不安全的发布会导致其他线程观察到“局部创建对象”。</p>
+<ul>
+<li>逸出: 在一个对象尚未准备好的时候将其发布，比如变量发布了内部状态或者对象本身没有完成构造。这样会危及线程安全。</li>
+<li>this引用在构造期间的逸出：对象只有通过构造函数返回后，才处于可预言的，稳定的状态，所以从构造函数内部发布的对象，只是一个未完成构造的对象，甚至即使是在构造函数的最后一行发布引用也是如此。这种情况应及时制止。</li>
+</ul>
+<h3 id="线程封闭"><a href="#线程封闭" class="headerlink" title="线程封闭"></a>线程封闭</h3><ul>
+<li>线程封闭是实现线程安全的最简单的方法之一。</li>
+<li>Ad-hoc 线程限制是指维护线程限制性的任务全部落实在实现上的情况。</li>
+<li>栈限制中，只能通过本地变量才可以触及对象。</li>
+</ul>
+<h3 id="不可变性"><a href="#不可变性" class="headerlink" title="不可变性"></a>不可变性</h3><ul>
+<li>将所有域声明成final型，除非它们是可变的。</li>
+</ul>
+<h3 id="安全发布"><a href="#安全发布" class="headerlink" title="安全发布"></a>安全发布</h3><ul>
+<li>为了获得初始化安全性的保证，应满足所有不可变性的条件：不可修改的状态，所有域都是final类型，以及正确地构造。</li>
+<li>为了安全发布对象，对象的引用以及状态必须同时对其他线程可见。正确地做法是：通过静态初始化器初始化对象的引用（public static Holder holder = new Holder(42); ），将它的引用存储到volatile域或AtomicReference；将它的引用存储到正确创建的对象的final域中，或者将它的引用存储到由锁正确保护的域中（将对象放入到线程安全的容器中）。</li>
+<li>任何线程都可以在没有额外的同步下安全地使用一个安全发布的高效不可变对象。</li>
+<li>可变对象必须安全发布，同时必须要线程安全或者锁保护。 </li>
+</ul>
+<hr>
+
+<h2 id="组合对象"><a href="#组合对象" class="headerlink" title="组合对象"></a>组合对象</h2><p>组合是个好策略，即定义一个类，其包含线程安全类作为其域，然后另外定义自身的同步策略。</p>
+<h3 id="线程安全的类"><a href="#线程安全的类" class="headerlink" title="线程安全的类"></a>线程安全的类</h3><ul>
+<li>遵循Java监视器模式的对象封装了所有的可变状态，并由对象自己的内部锁保护。</li>
+</ul>
+<h3 id="委托线程安全"><a href="#委托线程安全" class="headerlink" title="委托线程安全"></a>委托线程安全</h3><ul>
+<li>如果一个状态变量是线程安全的，没有任何不变约束限制它的值，并且没有任何状态转换限制它的操作，那么它可以安全发布。</li>
+<li>使用私有锁对象，而不是对象的内部锁（或其他可公共访问的锁），好处是：私有的锁对象可以封装锁，这样客户代码无法得到它，而可公共访问的锁允许用户代码正确或不正确地涉及它的同步策略。</li>
+</ul>
+<h3 id="向已有线程安全类添加功能"><a href="#向已有线程安全类添加功能" class="headerlink" title="向已有线程安全类添加功能"></a>向已有线程安全类添加功能</h3><ul>
+<li>向已有的线程安全类添加线程安全功能时，以下三个方法的安全系数是递减的，更容易破坏类原有的同步策略：<ul>
+<li>可以直接修改该类。</li>
+<li>可以拓展该类。</li>
+<li>客户端加上与对象自身保护自己状态所用的相同的锁。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-10-30T07:39:52.000Z"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">2017-10-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">Reading Note of Java Concurrency in Practice I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of the book <code>Java Concurrency in Practice</code>. </p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ul>
+<li>大多数现代操作系统把线程作为时序调度的基本单元，而不是进程。</li>
+<li>多线程的开销：上下文切换。</li>
+<li>线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。</li>
+<li>活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。</li>
+<li>用annotation (@ThreadSafe for example)来标记线程安全程度。</li>
+<li>以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。</li>
+</ul>
+<hr>
+
+<h3 id="Thread-Safety"><a href="#Thread-Safety" class="headerlink" title="Thread Safety"></a>Thread Safety</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ul>
+<li>共享：是指一个变量可以被多个线程访问。</li>
+<li>可变：是指变量的值在其生命周期内可变。</li>
+<li>对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。</li>
+<li>线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&gt;对象，而不是对象完成了什么。</li>
+<li>线程安全的定义：当多个线程访问一个类时，如果不考虑这些线程在运行环境下的调度和交替执行，并且不需要额外的同步以及调用方代码作额外的其他协调，这个类的行为依然正确，则此类是线程安全的。这种类封装了必要的同步，客户不需要额外提供。同时，对线程安全类的实例进行顺序或并发的一系列操作，都不会导致实例处于无效状态。</li>
+<li>原子操作：指的是一个操作，对于所有操作（包括自己），满足这种状态：假设有操作A和B，如果从执行操作A的线程角度看，当其他线程执行B时，要么B没执行，要么B全部执行完成，这样A和B互为原子操作。</li>
+<li>弱并发：请求排队等候并依次处理。</li>
+<li>volatile变量：该变量是弱并发的实现，它是共享的，读它时，总会返回由某一个线程所写入的最新值。这种变量的操作不加锁，不引起线程阻塞。volatile 是一种Ad-hoc 限制。</li>
+</ul>
+<h4 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h4><ul>
+<li>方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。</li>
+<li>无状态对象永远是线程安全的。</li>
+<li>java.util.concurrent.atomic 包含了原子变量类。</li>
+</ul>
+<h4 id="Principles"><a href="#Principles" class="headerlink" title="Principles"></a>Principles</h4><ul>
+<li>线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。</li>
+<li>修复潜在线程安全问题的方法：<ul>
+<li>不要跨线程共享变量。</li>
+<li>状态变量不可变。</li>
+<li>在任何访问状态变量的时候使用同步。</li>
+</ul>
+</li>
+<li>一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。</li>
+<li>设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。</li>
+<li>要约束状态变量的有效值或者状态转换，需要原子性和封装性。</li>
+<li>创建一个状态依赖的类，要使用平台与类库提供的底层机制。</li>
+<li>为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。</li>
+<li>不可变性:<ul>
+<li>不可变对象永远是线程安全的。</li>
+<li>不可变对象的状态：<ul>
+<li>它的状态不能在创建后再被修改。</li>
+<li>所有域都是final类型。</li>
+<li>被正确地创建（期间没发生this引用的逸出）。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><h4 id="Principles-1"><a href="#Principles-1" class="headerlink" title="Principles"></a>Principles</h4><ul>
+<li>锁不仅仅是保证同步和互斥，也是保证内存可见。</li>
+<li>内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。</li>
+<li>将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。</li>
+<li>每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。</li>
+<li>对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。</li>
+</ul>
+<hr>
+
+<h3 id="ThreadPool"><a href="#ThreadPool" class="headerlink" title="ThreadPool"></a>ThreadPool</h3><ul>
+<li>定制线程池的大小。</li>
+</ul>
+<hr>
+
+<h3 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h3><ul>
+<li>多线程读double和long时，有可能读到低32位或高32位的数据，因此连过期数据都不是。</li>
+<li>Debug 多线程代码，要考虑多个线程同时和先后执行的每一行代码的情况。</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -834,318 +1163,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-27T07:51:21.000Z"><a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">2017-09-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/27/Reading-Note-of-Effective-Java-II/">Reading Note of Effective Java II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-11-Override-clone-judiciously"><a href="#Item-11-Override-clone-judiciously" class="headerlink" title="Item 11. Override clone judiciously"></a>Item 11. Override clone judiciously</h3><ul>
-<li>Clone: creates an object without calling a constructor. x.clone() != x but x.clone().equals(x). But a well-behaved clone method should call constructor.</li>
-<li>If override the clone method in a nonfinal class, should return an object obtained by invoking super.clone().</li>
-<li>In practice, a class implemeneting Cloneable is expected to provide a properly functioning public clone method.</li>
-<li>clone method: never make the client do anything the library can do for the client.</li>
-<li>In effect, the clone method functions as another constructor; you must ensure that it does no harm to the original object and that it properly establishes invariants on the clone.</li>
-<li>The clone architecture is incompatible with normal use of final fields referring to mutable objects.</li>
-<li>Like a constructor, a clone method cannot invoke any nonfinal (overriden) methods on the clone under construction.</li>
-<li>A fine approach to object copying is to provide a copy constructor or copy factory.</li>
-</ul>
-<hr>
-
-<h3 id="Item-12-Consider-implementing-Comparable"><a href="#Item-12-Consider-implementing-Comparable" class="headerlink" title="Item 12. Consider implementing Comparable"></a>Item 12. Consider implementing Comparable</h3><ul>
-<li>compareTo contract includes reflexivity, symmetry, and transitivity.</li>
-</ul>
-<hr>
-
-<h3 id="Item-13-Minimize-the-accessibility-of-classes-and-members"><a href="#Item-13-Minimize-the-accessibility-of-classes-and-members" class="headerlink" title="Item 13. Minimize the accessibility of classes and members"></a>Item 13. Minimize the accessibility of classes and members</h3><ul>
-<li>Information hiding: make each class or member as inaccessible as possible.</li>
-<li>It is acceptable to make a private member of a public class pack-private to test it, but it is not acceptable to raise the accessibility any higher than that.</li>
-</ul>
-<hr>
-
-<h3 id="Item-14-In-public-classes-use-accessor-methods-not-public-fields"><a href="#Item-14-In-public-classes-use-accessor-methods-not-public-fields" class="headerlink" title="Item 14. In public classes, use accessor methods, not public fields"></a>Item 14. In public classes, use accessor methods, not public fields</h3><ul>
-<li>Classes with public mutable fields are not thread-safe and instance fields should never be public.</li>
-<li>Only exception is to expose constants via public static final fields, assuming that the constants form an integral part of the abstractions provided by the class.</li>
-<li>In public classes, use accessor methods, not public fields. But if a class is package-private or a private nested class, it is fine to expose its data fields.</li>
-</ul>
-<hr>
-
-<h3 id="Item-15-Minimize-mutability"><a href="#Item-15-Minimize-mutability" class="headerlink" title="Item 15. Minimize mutability"></a>Item 15. Minimize mutability</h3><p>Five rules to make a class immutable:</p>
-<ul>
-<li>Do not provide any methods modifying the object’s state.</li>
-<li>Ensure that the class cannot be extended.</li>
-<li>Make all fields final.</li>
-<li>Make all fields private.</li>
-<li>Ensure exclusive access to any mutable components.</li>
-</ul>
-<p>Functional programming approach enables immutability.</p>
-<p>Immutable objects are simple, inherently thread-safe, can be shared freely, and require no synchronization.</p>
-<p>Classes should be immutable unless there is a very good reason to make them mutable. If a class cannot be made immutable, limit its mutability as much as possible.</p>
-<hr>
-
-<h3 id="Item-16-Favor-composition-over-inheritance"><a href="#Item-16-Favor-composition-over-inheritance" class="headerlink" title="Item 16. Favor composition over inheritance"></a>Item 16. Favor composition over inheritance</h3><p>Unlike method invocation, inheritance violates encapsulation.</p>
-<p>Composition: the existing class becomes a component of a new one. Each instance method in the new class invokes the corresponding method on the contained instance of the existing class and returns the results. This is called forwarding and <code>Decorator pattern</code>. And combination of composition and forwarding is loosely referred to as delegation.</p>
-<p>Inheritance is appropriate only in circumstances where the subclass is a subtype of the superclass.</p>
-<p>Wrapper classes (composition) are not suited for callback framework.</p>
-<hr>
-
-<h3 id="Item-17-Design-and-document-for-inheritance-or-else-prohibit-it"><a href="#Item-17-Design-and-document-for-inheritance-or-else-prohibit-it" class="headerlink" title="Item 17. Design and document for inheritance or else prohibit it"></a>Item 17. Design and document for inheritance or else prohibit it</h3><ul>
-<li>The class must document precisely the effects of overriding any method and its self-use of overridable methods.</li>
-<li>To allow programmers to write efficient subclasses without undue pain, a class may have to provide hooks into its internal working in the form of judiciously chosen protected methods or even protected methods or even protected fields. That helps subclasses reuse them more easily.</li>
-<li>The only way to test a class designed for inheritance is to write subclasses. Experience shows that three subclasses are sufficient to test an standard class.</li>
-</ul>
-<p>To allow inheritance, follow these rules:</p>
-<ul>
-<li>Constructors must not invoke overridable methods.</li>
-<li>If implement Clonable and Serializable in a class, neither clone nor readObject may invoke an override method directly or indirectly.</li>
-</ul>
-<p>Designing a class for inheritance places substantial limitations on the class. </p>
-<p>The best solution to inheritance problem is to prohibit subclassing in classes that are not designed and documented to be safely subclassed. Two ways:</p>
-<ul>
-<li>Declare the class final.</li>
-<li>Make all the constructors private or package-private and to add public static factories in place of the constructors.</li>
-</ul>
-<hr>
-
-<h3 id="Item-18-Prefer-interfaces-to-abstract-classes"><a href="#Item-18-Prefer-interfaces-to-abstract-classes" class="headerlink" title="Item 18. Prefer interfaces to abstract classes"></a>Item 18. Prefer interfaces to abstract classes</h3><p>Extending abstract class means subclass is a type of abstract class. Existing classes can be easily retrofitted to implement a new interface.</p>
-<p>Interfaces are ideal for defining mixins. Mixins mean a class can implement in addition to its primary type to declare that it provides some optional behavior. They allow the construction of nonhierarchical type framework.</p>
-<p>Interfaces enable safe, powerful functionality enhancements.</p>
-<p>Combine the virtues of interfaces and abstract class by providing an abstract skeletal implementation class to go with each nontrivial interface exported. A typical skeletal implementation is an abstract class implements interface(s). So it is designed for inheritance.</p>
-<p>Simple implementation is that it implements an interface and is designed for inheritance but not abstract.</p>
-<p>Abstract class is far easier to evolve than interface is. Once interface is released and widely implemented, it is almost impossible to change. Really need to get it right in the first time.</p>
-<hr>
-
-<h3 id="Item-19-Use-interfaces-only-to-define-type"><a href="#Item-19-Use-interfaces-only-to-define-type" class="headerlink" title="Item 19. Use interfaces only to define type"></a>Item 19. Use interfaces only to define type</h3><p>The constant interface pattern is a poor use of interfaces.</p>
-<hr>
-
-<h3 id="Item-20-Prefer-class-hierarchies-to-tagged-classes"><a href="#Item-20-Prefer-class-hierarchies-to-tagged-classes" class="headerlink" title="Item 20. Prefer class hierarchies to tagged classes"></a>Item 20. Prefer class hierarchies to tagged classes</h3><p>Tag class is the class whose instances come in two or more flavors and contain a tag field indicating the flavor of the instance.</p>
-<p>So all in all: Interface &gt; abstract class &gt; tagged class. ( &gt; means preference)</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-24T01:08:51.000Z"><a href="/2017/09/23/Java-9-New-Features/">2017-09-23</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/23/Java-9-New-Features/">Java 9 New Features</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Java 9 is released on Sep 21, 2017. Many new features are added and here is the complete list of new feature from <a href="http://openjdk.java.net/projects/jdk9/" target="_blank" rel="external">OpenJDK official page</a>.</p>
-<p>Here is a good summary. See this <a href="http://www.baeldung.com/new-java-9" target="_blank" rel="external">link</a>.</p>
-<h3 id="Java-9-REPL-JShell"><a href="#Java-9-REPL-JShell" class="headerlink" title="Java 9 REPL(JShell)"></a>Java 9 REPL(JShell)</h3><p>In Java 9, we can use a command line tool called <code>JShell</code> to execute Java statement, which is similar to python shell. The command to start JSell is:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; jshell</span><br><span class="line"></span><br><span class="line">(output is similar as follow)</span><br><span class="line">|  Welcome to JShell -- Version 9</span><br><span class="line">|  For an introduction type: /help intro</span><br></pre></td></tr></table></figure>
-<p>And we can write and execute Java code as following simple example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">jshell&gt; int a = 10, b = 20;</span><br><span class="line">a ==&gt; 10</span><br><span class="line">b ==&gt; 20</span><br><span class="line"></span><br><span class="line">jshell&gt; int c = a + b;</span><br><span class="line">c ==&gt; 30</span><br><span class="line"></span><br><span class="line">jshell&gt; int sum = a + b + c;</span><br><span class="line">sum ==&gt; 60</span><br><span class="line"></span><br><span class="line">jshell&gt; System.out.println(&quot;Sum of a, b and c is : &quot; + sum);</span><br><span class="line">Sum of a, b and c is : 60</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Factory Methods for Immutable Data Structures</span><br><span class="line"></span><br><span class="line">In Java 9, factory methods for immutable List, Set, Map and Map.Entry are available to create empty or non-empty Collection object. They are `of()` methods. </span><br><span class="line"></span><br><span class="line">Here are some simple examples:</span><br><span class="line"></span><br><span class="line">** Immutable List  **</span><br></pre></td></tr></table></figure>
-<p>jshell&gt; List immutableEmptyList = List.of();<br>immutableEmptyList ==&gt; []</p>
-<p>jshell&gt; List immutableList = List.of(“one”,”two”,”three”);<br>immutableList ==&gt; [one, two, three]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">** Immutable Map **</span><br></pre></td></tr></table></figure></p>
-<p>jshell&gt; Map immutableEmptyMap = Map.of()<br>immutableEmptyMap ==&gt; {}</p>
-<p>jshell&gt; Map immutableMap = Map.of(“one”, 1, “two”, 2, “three”, 3)<br>immutableMap ==&gt; {three=3, two=2, one=1}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### Private Methods in Interface</span><br><span class="line"></span><br><span class="line">In Java 9, users can define private static or non-static methods inside interface.</span><br><span class="line"></span><br><span class="line">See this sample code:</span><br></pre></td></tr></table></figure></p>
-<p>import java.time.Clock;<br>import java.time.Duration;<br>import java.time.Instant;</p>
-<p>public interface isDatabaseItem {</p>
-<pre><code>Long defaultTimeToLive = generateDefaultTimeToLive();
-
-private static Long generateDefaultTimeToLive() {
-    Instant currentTime = Instant.now( Clock.systemDefaultZone() );
-    return currentTime.plus( Duration.ofSeconds(1L) ).getEpochSecond();
-}
-</code></pre><p>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Modue Definition</span><br><span class="line"></span><br><span class="line">A modular system provides capabilities similar to OSGi framework’s system. Modules have a concept of dependencies, can export a public API and keep implementation details hidden/private. One of the main motivations here is to provide modular JVM, which can run on devices with a lot less available memory. The JVM could run with only those modules and APIs which are required by the application. </span><br><span class="line"></span><br><span class="line">Simply put, the modules are going to be described in a file called module-info.java located in the top of java code hierarchy. Here is a sample code from [OpenJDK](http://openjdk.java.net/projects/jigsaw/quick-start).</span><br></pre></td></tr></table></figure></p>
-<p>src/org.astro/module-info.java<br>src/org.astro/org/astro/World.java<br>src/com.greetings/com/greetings/Main.java<br>src/com.greetings/module-info.java</p>
-<p>$ cat src/org.astro/module-info.java<br>module org.astro {<br>    exports org.astro;<br>}</p>
-<p>$ cat src/org.astro/org/astro/World.java<br>package org.astro;<br>public class World {<br>   public static String name() {<br>        return “world”;<br>   }<br>}</p>
-<p>$ cat src/com.greetings/module-info.java<br>module com.greetings {<br>    requires org.astro;<br>}</p>
-<p>$ cat src/com.greetings/com/greetings/Main.java<br>package com.greetings;<br>import org.astro.World;<br>public class Main {<br>    public static void main(String[] args) {<br>        System.out.format(“Greetings %s!%n”, World.name());<br>    }<br>}<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Http2 Client</span><br><span class="line">The new API is located under the `java.net.http package`. It should support both HTTP/2 protocol and WebSocket handshake, with performance that should be comparable with the Apache HttpClient, Netty and Jetty. And HTTP Client JEP is moved to Incubator module, which is `jdk.incubator.http`.</span><br><span class="line"></span><br><span class="line">Here is the sample code about GET request:</span><br></pre></td></tr></table></figure></p>
-<p>URI httpURI = new URI(“<a href="http://localhost:9001" target="_blank" rel="external">http://localhost:9001</a>“);<br>HttpRequest request = HttpRequest.create(httpURI).GET();<br>HttpResponse response = request.response();<br>String responseBody = response.body(HttpResponse.asString());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Stream API</span><br><span class="line">Four new methods are added to `java.util.Stream` interface. Two of them are very important: dropWhile and takeWhile methods. </span><br><span class="line"></span><br><span class="line">The `takeWhile()` takes a predicate as an argument and returns a Stream of subset of the given Stream values until that Predicate returns false for first time. If first value does NOT satisfy that Predicate, it just returns an empty Stream.</span><br><span class="line"></span><br><span class="line">Here is the sample code about `takeWhile()` method:</span><br></pre></td></tr></table></figure></p>
-<p>Stream.of(1,2,3,4,5,6,7,8,9,10).takeWhile(i -&gt; i &lt; 5 ).forEach(System.out::println);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Diamond Operator for Anonymous Inner Class</span><br><span class="line">Now diamond operator in conjunction with anonymous inner classes is supported in Java 9.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
-<p>FooClass<integer> fc = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};</integer></p>
-<p>FooClass&lt;? extends Integer&gt; fc0 = new FooClass&lt;&gt;(1) {<br>    // anonymous inner class<br>};</p>
-<p>FooClass&lt;?&gt; fc1 = new FooClass&lt;&gt;(1) { // anonymous inner class<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Process API</span><br><span class="line">Some new classes and methods are added for controlling and managing OS processes. Two main ones are `java.lang.ProcessHandle` and `java.lang.ProcessHandle.Info`. </span><br><span class="line"></span><br><span class="line">Here is the sample code of `java.lang.ProcessHandle` usage:</span><br></pre></td></tr></table></figure></p>
-<p>ProcessHandle self = ProcessHandle.current();<br>long PID = self.getPid();<br>ProcessHandle.Info procInfo = self.info();</p>
-<p>Optional<string[]> args = procInfo.arguments();<br>Optional<string> cmd =  procInfo.commandLine();<br>Optional<instant> startTime = procInfo.startInstant();<br>Optional<duration> cpuUsage = procInfo.totalCpuDuration();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">And here is the sample code of stopping all the running child processes using destroy():</span><br></pre></td></tr></table></figure></duration></instant></string></string[]></p>
-<p>childProc = ProcessHandle.current().children();<br>childProc.forEach(procHandle -&gt; {<br>    assertTrue(“Could not kill process “ + procHandle.getPid(), procHandle.destroy());<br>});<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Optional Class to Stream</span><br><span class="line">Use `java.util.Optional.stream()` to use the Stream API on Optional elements. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
-<p>List<string> filteredList = listOfOptionals.stream()<br>  .flatMap(Optional::stream)<br>  .collect(Collectors.toList());<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Reactive Streams</span><br><span class="line">The Reactive Streams publish-subscribe framework is supported in Java 9 to to implement Asynchronous, Scalable and Parallel applications very easily. </span><br><span class="line"></span><br><span class="line">Here are following API to develop Reactive Streams in Java-based applications.</span><br><span class="line">* java.util.concurrent.Flow</span><br><span class="line">* java.util.concurrent.Flow.Publisher</span><br><span class="line">* java.util.concurrent.Flow.Subscriber</span><br><span class="line">* java.util.concurrent.Flow.Processor</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in Try-With-Resources</span><br><span class="line">Now if the resource is referenced by a final or effectively final variable, a try-with-resources statement can manage a resource without a new variable being declared. </span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></string></p>
-<p>MyAutoCloseable mac = new MyAutoCloseable();<br>try (mac) {<br>    // do some stuff with mac<br>}</p>
-<p>try (new MyAutoCloseable() { }.finalWrapper.finalCloseable) {<br>   // do some stuff with finalCloseable<br>} catch (Exception ex) { }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Improvements in CompletableFuture API</span><br><span class="line">Now `CompletableFuture` API supports some delays, timeouts and better sub-classing, and has some utility methods.</span><br><span class="line"></span><br><span class="line">Here is the sample code of `delayedExecutor()`, which is static utility method used to return a new Executor that submits a task to the default executor after the given delay.</span><br></pre></td></tr></table></figure></p>
-<p>Executor exe = CompletableFuture.delayedExecutor(50L, TimeUnit.SECONDS);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### Мulti-Resolution Image API</span><br><span class="line">The interface `java.awt.image.MultiResolutionImage` encapsulates a set of images with different resolutions into a single object. We can retrieve a resolution-specific image variant based on a given DPI metric and set of image transformations or retrieve all of the variants in the image.</span><br><span class="line"></span><br><span class="line">The `java.awt.Graphics` class gets variant from a multi-resolution image based on the current display DPI metric and any applied transformations.</span><br><span class="line"></span><br><span class="line">The class `java.awt.image.BaseMultiResolutionImage` provides basic implementation.</span><br><span class="line"></span><br><span class="line">Here is the sample code:</span><br></pre></td></tr></table></figure></p>
-<p>BufferedImage[] resolutionVariants = ….<br>MultiResolutionImage bmrImage<br>  = new BaseMultiResolutionImage(baseIndex, resolutionVariants);<br>Image testRVImage = bmrImage.getResolutionVariant(16, 16);<br>assertSame(“Images should be the same”, testRVImage, resolutionVariants[3]);<br>```</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-15T05:26:09.000Z"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">2017-09-14</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/14/Thinking-in-Test-Driven-Development/">Thinking in Test Driven Development</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>The book: Test Driven Development By Example, which is written by Kent Beck, is really a good book. I do not think currently I have already fully mastered the TDD skill and be able to apply this skill in my SDE job in the 100% right way. But I still would like to share my thoughts on this book.</p>
-<p>In my software development model, here are the steps to apply TDD in practice:</p>
-<ul>
-<li>Fully understand the user requirement.</li>
-<li>Do a good design for the project, which includes the system design and object-oriented design.</li>
-<li>Based on the design, list all the features need to accomplish.</li>
-<li>Start with one of these features, write a test for it, then try to pass the test (fake it or provide the correct code), and refactor the test code and production code.</li>
-<li>While implement more and more features, refactor the production code (remove duplication, use inheritance, use interface and so on …). If any tests fail after refactor, figure out what is going wrong and fix the bug. Also remember to refactor the test code.</li>
-<li>While refactor the code, keep the code clean so that it is simple, easy to read and maintain.</li>
-</ul>
-<hr>
-
-<p>Here are some useful tips borrowed from the book.</p>
-<ul>
-<li>Create a test list including all the required tests at the beginning.</li>
-<li>The goal of each test is to leave the world in exactly the same state before it ran.</li>
-<li>Each test should represent one step towards overall goal.</li>
-<li>What should be tested:<ul>
-<li>Conditions</li>
-<li>Loops</li>
-<li>Operations</li>
-<li>Polymorphism</li>
-</ul>
-</li>
-<li>What factors should be included in the test:<ul>
-<li>What does the operation belong to.</li>
-<li>What are the correct inputs.</li>
-<li>What is the correct output given those input.</li>
-</ul>
-</li>
-<li>Some attributes of tests suggesting a design in trouble:<ul>
-<li>Long setup code.</li>
-<li>Setup duplication.</li>
-<li>Long running tests.</li>
-<li>Fragile tests.</li>
-</ul>
-</li>
-<li>Write assert first in the test.</li>
-<li>To improve test coverage, take a fixed set of tests and simplify the logic of the program.</li>
-<li>Avoid test coupling. All the tests should be run independently.</li>
-<li>Isolating tests also helps to decouple objects (Improve the design).</li>
-<li>Tests should be in a small scale instead of whole application.</li>
-<li>For common objects needed by several tests, convert local variables into instance variables.</li>
-<li>Use data that makes the test easy to read and follow.</li>
-<li>Evident data seems to be an exception to the rule that you do not want magic numbers in your code.</li>
-<li>When a defect is reported, write the smallest possible test that fails, and that once it runs, the defect will be repaired.</li>
-<li>To implement an operation that works with collections of objects, implement it without the collection first, then make it work with collections.</li>
-<li>To design objects that will be widely shared but for whom identify is unimportant, set their state when they are created and never change it, and operations on the object always return a new object.</li>
-<li>Always make sure all the tests are running before check in your own code.</li>
-<li>Unless have reason to distrust it, do not test code from others. </li>
-<li>toString method is an exception that does not require test.</li>
-<li>Physical setup (for working environment): cheap disk, nice chair.</li>
-<li>Get cheap/slow/old machines for individual email and surfing.</li>
-<li>Leave a programming session when programming alone, leave the last test broken.</li>
-<li>Leave a programming session when programming in a team, leave all the test running.</li>
-<li>Feel lost, throw away the code and start over.</li>
-<li>Feel tired or stuck, take a break.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -1171,7 +1193,7 @@ private static Long generateDefaultTimeToLive() {
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -1179,7 +1201,7 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -1199,6 +1221,8 @@ private static Long generateDefaultTimeToLive() {
     <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Cplusplus/">Cplusplus</a><small>3</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
@@ -1262,9 +1286,9 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -1285,23 +1309,23 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/">Reading Note of Effective Cplusplus II</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
         <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
       <li>
         <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/">Reading Note of Patterns of Enterprise Application Architecture I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
   </ul>

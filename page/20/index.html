@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 20 | YBC HomePage</title>
+  <title>Página 20 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,6 +88,244 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-03T03:28:44.000Z"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">2015-09-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 2.x Single-Node Cluster Set Up Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Here is a good and more detailed <a href="http://bigdatahandler.com/hadoop-hdfs/installing-single-node-hadoop-2-2-0-on-ubuntu/" target="_blank" rel="external">tutorial</a> from Horton. But they missed an important step which may bring some trouble for beginners.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 2.7.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.pub &gt;&gt; <span class="variable">$GINE</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-2.7.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-2.7.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_PREFIX=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> YARN_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=<span class="variable">$&#123;HADOOP_HOME&#125;</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$&#123;HADOOP_PREFIX&#125;</span>/lib/native</span><br><span class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_PREFIX</span>/lib"</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit etc/hadoop/hadoop-env.sh file, by setting the JAVA_HOME and HADOOP_CONF_DIR variables:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=.... (your jdk path)</span><br><span class="line">$ <span class="built_in">export</span> HADOOP_CONF_DIR=/usr/<span class="built_in">local</span>/hadoop/etc/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to change the HADOOP_CONF_DIR variable, when we start HADOOP YARN system, an “Error: Can not find configuration directory: etc/hadoop” exception will appear. </p>
+<p>Then create the two directories for Namenode and Datanode respectively and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.<br>      If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.</p>
+<p>At last, edit the following files in Hadoop project directory:<br>For etc/hadoop/yarn-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/core-site.xml, adding following context between “<configuration> </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/mapred-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/hdfs-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/namenode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/datanode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output is very long and the end of it looks like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br></pre></td></tr></table></figure></p>
+<p>Now nodemanager and resourcemanager starts.</p>
+<p>Then run these commands to start the rest of nodes:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2085 ResourceManager</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NodeManager</span><br><span class="line">1553 NameNode</span><br><span class="line">1788 DataNode</span><br><span class="line">1437 JobHistoryServer</span><br></pre></td></tr></table></figure></p>
+<p>Go to this link:<br><a href="http://localhost:8088/" target="_blank" rel="external">http://localhost:8088/</a> ResourceManager</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure></p>
+<p>Here is two scripts that can make things easier:<br>The script to start Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
+<p>The script to stop Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh stop historyserver</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-02T03:37:47.000Z"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">2015-09-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 1.x Single-Node Cluster Set Up</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of a perfect tutorial for Hadoop Single-Node Cluster set up: <a href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/" target="_blank" rel="external">Hadoop Setup Guide</a>.</p>
+<p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 1.2.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.puh &gt;&gt; <span class="variable">$NEWUSER_HOME</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-1.2.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-1.2.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit conf/hadoop-env.sh file, which is under conf/ directory, by setting the JAVA_HOME variable:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=... (your jdk path)</span><br></pre></td></tr></table></figure></p>
+<p>Then create the /app/hadoop/tmp directory and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p /app/hadoop/tmp</span><br><span class="line">$ sudo chown newuser:hadoop /app/hadoop/tmp</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 /app/hadoop/tmp</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.<br>      If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.</p>
+<p>At last, edit the following files:<br>For conf/core-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;/app/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;hdfs://localhost:54310&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/mapred-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;localhost:54311&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/hdfs-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;Default block replication.</span><br><span class="line">  The actual number of replications can be specified when the file is created.</span><br><span class="line">  The default is used <span class="keyword">if</span> replication is not specified <span class="keyword">in</span> create time.</span><br><span class="line">  &lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.NameNode: STARTUP_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">STARTUP_MSG: Starting NameNode</span><br><span class="line">STARTUP_MSG:   host = ubuntu/127.0.1.1</span><br><span class="line">STARTUP_MSG:   args = [-format]</span><br><span class="line">STARTUP_MSG:   version = 0.20.2</span><br><span class="line">STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.20 -r 911707; compiled by <span class="string">'chrisdo'</span> on Fri Feb 19 08:07:34 UTC 2010</span><br><span class="line">************************************************************/</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/start-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting namenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-namenode-ubuntu.out</span><br><span class="line">localhost: starting datanode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-datanode-ubuntu.out</span><br><span class="line">localhost: starting secondarynamenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-secondarynamenode-ubuntu.out</span><br><span class="line">starting jobtracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-jobtracker-ubuntu.out</span><br><span class="line">localhost: starting tasktracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-tasktracker-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2287 TaskTracker</span><br><span class="line">2149 JobTracker</span><br><span class="line">1938 DataNode</span><br><span class="line">2085 SecondaryNameNode</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NameNode</span><br></pre></td></tr></table></figure></p>
+<p>Go to following links:<br><a href="http://localhost:50070/" target="_blank" rel="external">http://localhost:50070/</a> – web UI of the NameNode daemon<br><a href="http://localhost:50030/" target="_blank" rel="external">http://localhost:50030/</a> – web UI of the JobTracker daemon<br><a href="http://localhost:50060/" target="_blank" rel="external">http://localhost:50060/</a> – web UI of the TaskTracker daemon</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/stop-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-19T04:35:01.000Z"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">2015-08-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">My Reading Book List of 2015</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
   <article class="post">
   
   <div class="post-content">
@@ -477,240 +715,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-28T16:46:53.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">2015-07-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">Hackerrank / InterviewStreet Algorithm Problem Solution List Warm Up Section</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Solve-Me-First"><a href="#Solve-Me-First" class="headerlink" title="Solve Me First"></a>Solve Me First</h3><p><a href="https://www.hackerrank.com/challenges/solve-me-first" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/solve-me-first.cpp" target="_blank" rel="external">Code Link</a>.<br>A classic “A+B” programming problem.</p>
-<hr>
-
-<h3 id="Simple-Array-Sum"><a href="#Simple-Array-Sum" class="headerlink" title="Simple Array Sum"></a>Simple Array Sum</h3><p><a href="https://www.hackerrank.com/challenges/simple-array-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/simple-array-sum.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem: Caculate the sum of all elements of given array.</p>
-<hr>
-
-<h3 id="A-Very-Big-Sume"><a href="#A-Very-Big-Sume" class="headerlink" title="A Very Big Sume"></a>A Very Big Sume</h3><p><a href="https://www.hackerrank.com/challenges/a-very-big-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/a-very-big-sum.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem: Caculate the sum of all elements of given array but data type must be INT 64 bits or larger.</p>
-<hr>
-
-<h3 id="Diagonal-Difference"><a href="#Diagonal-Difference" class="headerlink" title="Diagonal Difference"></a>Diagonal Difference</h3><p><a href="https://www.hackerrank.com/challenges/diagonal-difference" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/diagonal-difference.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Caculate the sums of all elements placed in two diagonal respectively and then calculate the difference between them.</p>
-<hr>
-
-<h3 id="Plus-Minus"><a href="#Plus-Minus" class="headerlink" title="Plus Minus"></a>Plus Minus</h3><p><a href="https://www.hackerrank.com/challenges/plus-minus" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/plus-minus.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the process.</p>
-<hr>
-
-<h3 id="Staircase"><a href="#Staircase" class="headerlink" title="Staircase"></a>Staircase</h3><p><a href="https://www.hackerrank.com/challenges/staircase" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/staircase.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just try to print out the stairs …</p>
-<hr>
-
-<h3 id="Time-Conversion"><a href="#Time-Conversion" class="headerlink" title="Time Conversion"></a>Time Conversion</h3><p><a href="https://www.hackerrank.com/challenges/time-conversion" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/time-conversion.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just be careful and cover as many cases as possible.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-24T17:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/24/Linux-Important-System-Directories/">Linux Important System Directories</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the list of important system directories in the Linux operating system. All the information is from Advanced Bash-Scripting Guide.</p>
-<ul>
-<li><p>/bin<br>Binaries (executables). Basic system programs and utilities (such as bash).</p>
-</li>
-<li><p>/usr/bin<br>More system binaries.</p>
-</li>
-<li><p>/usr/local/bin<br>Miscellaneous binaries local to the particular machine.</p>
-</li>
-<li><p>/sbin<br>System binaries. Basic system administrative programs and utilities (such as fsck).</p>
-</li>
-<li><p>/usr/sbin<br>More system administrative programs and utilities.</p>
-</li>
-<li><p>/etc<br>Et cetera. Systemwide configuration scripts.<br>Of particular interest are the /etc/fstab (filesystem table), /etc/mtab (mounted filesystem table), and the /etc/inittab files.</p>
-</li>
-<li><p>/etc/rc.d<br>Boot scripts, on Red Hat and derivative distributions of Linux.</p>
-</li>
-<li><p>/usr/share/doc<br>Documentation for installed packages.</p>
-</li>
-<li><p>/usr/man<br>The systemwide manpages.</p>
-</li>
-<li><p>/dev<br>Device directory. Entries (but not mount points) for physical and virtual devices.</p>
-</li>
-<li><p>/proc<br>Process directory. Contains information and statistics about running processes and kernel parameters.</p>
-</li>
-<li><p>/sys<br>Systemwide device directory. Contains information and statistics about device and device names.</p>
-</li>
-<li><p>/mnt<br>Mount. Directory for mounting hard drive partitions, such as /mnt/dos, and physical devices. In newer Linux distros, the /media directory has taken over as the preferred mount point for I/O devices.</p>
-</li>
-<li><p>/media<br>In newer Linux distros, the preferred mount point for I/O devices, such as CD/DVD drives or USB flash drives.</p>
-</li>
-<li><p>/var<br>Variable (changeable) system files.</p>
-</li>
-<li><p>/var/log<br>Systemwide log files.</p>
-</li>
-<li><p>/var/spool/mail<br>User mail spool.</p>
-</li>
-<li><p>/lib<br>Systemwide library files.</p>
-</li>
-<li><p>/usr/lib<br>More systemwide library files.</p>
-</li>
-<li><p>/tmp<br>System temporary files.</p>
-</li>
-<li><p>/boot<br>System boot directory. The kernel, module links, system map, and boot manager reside here.</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-23T05:21:44.000Z"><a href="/2015/07/22/HTTP-Status-Code/">2015-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/22/HTTP-Status-Code/">HTTP Status Code</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the list of common used HTTP status code. This link is <a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">Wikipedia on HTTP status code</a> in Chinese. The followings is the HTTP status code seen most often.</p>
-<p>###1xx Informational<br>Request received, continuing process.</p>
-<p>This class of status code indicates a provisional response, consisting only of the Status-Line and optional headers, and is terminated by an empty line.</p>
-<p>#####100 Continue<br>The server has received the request headers, and that the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request).</p>
-<p>#####101 Switching Protocols<br>The requester has asked the server to switch protocols and the server is acknowledging that it will do so.</p>
-<p>###2xx Success<br>The action requested by the client was received, understood, accepted and processed successfully.</p>
-<p>#####200 OK<br>Standard response for successful HTTP requests. The actual response will depend on the request method used.</p>
-<p>#####201 Created<br>The request has been fulfilled and resulted in a new resource being created.</p>
-<p>#####202 Accepted<br>The request has been accepted for processing, but the processing has not been completed. </p>
-<p>#####203 Non-Authoritative Information<br>The server successfully processed the request, but is returning information that may be from another source.</p>
-<p>#####204 No Content<br>The server successfully processed the request, but is not returning any content. Usually used as a response to a successful delete request.</p>
-<p>#####205 Reset Content<br>The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.</p>
-<p>###3xx Redirection<br>The client must take additional action to complete the request. Many of these status codes are used in URL redirection.</p>
-<p>#####Multiple Choices<br>Indicates multiple options for the resource that the client may follow. </p>
-<p>#####Moved Permanently<br>This and all future requests should be directed to the given URI.</p>
-<p>#####306 Switch Proxy<br>No longer used. Originally meant “Subsequent requests should use the specified proxy.”</p>
-<p>###4xx Client Error<br>The client seems to have erred. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition.</p>
-<p>#####400 Bad Request<br>The server cannot or will not process the request due to something that is perceived to be a client error </p>
-<p>#####401 Unauthorized<br>Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. </p>
-<p>#####403 Forbidden<br>The request was a valid request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference.</p>
-<p>#####404 Not Found<br>The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.</p>
-<p>######405 Method Not Allowed<br>A request was made of a resource using a request method not supported by that resource.</p>
-<p>######408 Request Timeout<br>The server timed out waiting for the request.</p>
-<p>######409 Conflict<br>The request could not be processed because of conflict in the request, such as an edit conflict in the case of multiple updates.</p>
-<p>###5xx Server Error<br>The server failed to fulfil an apparently valid request.</p>
-<p>#####500 Internal Server Error<br>A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.</p>
-<p>#####501 Not Implemented<br>The server either does not recognize the request method, or it lacks the ability to fulfill the request. </p>
-<p>#####502 Bad Gateway<br>The server was acting as a gateway or proxy and received an invalid response from the upstream server.</p>
-<p>#####503 Service Unavailable<br>The server is currently unavailable (because it is overloaded or down for maintenance). Generally, this is a temporary state.</p>
-<p>#####504 Gateway Timeout<br>The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.</p>
-<p>#####505 HTTP Version Not Supported<br>The server does not support the HTTP protocol version used in the request.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Web/">Web</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/19/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/21/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/19/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="page-number" href="/page/19/">19</a><span class="page-number current">20</span><a class="page-number" href="/page/21/">21</a><a class="page-number" href="/page/22/">22</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/21/">Siguiente &raquo;</a>
   </nav>
 
 </nav>
@@ -736,7 +745,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -744,7 +753,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Tags</h3>
+  <h3 class="title">Etiquetas</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -764,6 +773,8 @@
     <li><a href="/tags/Cloud-Computing/">Cloud Computing</a><small>29</small></li>
   
     <li><a href="/tags/Combinatorics/">Combinatorics</a><small>1</small></li>
+  
+    <li><a href="/tags/Cplusplus/">Cplusplus</a><small>3</small></li>
   
     <li><a href="/tags/Data-Analysis/">Data Analysis</a><small>1</small></li>
   
@@ -827,9 +838,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Nube de Etiquetas</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 
@@ -850,23 +861,23 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/">Reading Note of Effective Cplusplus II</a>
+      </li>
+    
+      <li>
+        <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
         <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
       <li>
         <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/">Reading Note of Patterns of Enterprise Application Architecture I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/12/BitCoin-Information-Summary/">BitCoin Information Summary</a>
-      </li>
-    
-      <li>
-        <a href="/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/">Reading Note of Working Effectively with Legacy Code IV</a>
       </li>
     
   </ul>
