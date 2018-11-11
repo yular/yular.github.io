@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-07-17T19:54:06.000Z</updated>
+  <updated>2018-11-11T16:00:22.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -16,10 +16,42 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Docker File QuickStart</title>
+    <link href="http://yular.github.io/2018/11/12/Docker-File-QuickStart/"/>
+    <id>http://yular.github.io/2018/11/12/Docker-File-QuickStart/</id>
+    <published>2018-11-11T16:00:22.000Z</published>
+    <updated>2018-11-11T16:00:22.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Docker Image QuickStart</title>
+    <link href="http://yular.github.io/2018/11/12/Docker-Image-QuickStart/"/>
+    <id>http://yular.github.io/2018/11/12/Docker-Image-QuickStart/</id>
+    <published>2018-11-11T16:00:07.000Z</published>
+    <updated>2018-11-11T16:00:07.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Reading Note of Effective Cplusplus III</title>
     <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/"/>
     <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/</id>
-    <published>2018-07-17T19:50:42.000Z</published>
+    <published>2018-07-17T04:50:42.000Z</published>
     <updated>2018-07-17T19:54:06.000Z</updated>
     
     <content type="html"></content>
@@ -37,7 +69,7 @@
     <title>Reading Note of Effective Cplusplus II</title>
     <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/"/>
     <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/</id>
-    <published>2018-07-17T19:50:38.000Z</published>
+    <published>2018-07-17T04:50:38.000Z</published>
     <updated>2018-07-17T19:53:55.000Z</updated>
     
     <content type="html"></content>
@@ -55,8 +87,8 @@
     <title>Reading Note of Effective Cplusplus I</title>
     <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/"/>
     <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/</id>
-    <published>2018-07-17T19:50:33.000Z</published>
-    <updated>2018-07-17T19:53:46.000Z</updated>
+    <published>2018-07-17T04:50:33.000Z</published>
+    <updated>2018-07-22T23:41:32.000Z</updated>
     
     <content type="html"></content>
     
@@ -73,7 +105,7 @@
     <title>Thinking in Ops Readiness</title>
     <link href="http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/"/>
     <id>http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/</id>
-    <published>2018-05-10T07:37:47.000Z</published>
+    <published>2018-05-09T16:37:47.000Z</published>
     <updated>2018-05-15T08:34:10.000Z</updated>
     
     <content type="html">&lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a healthy software and detect errors and bugs in software can graduately and finally greatly improve customer experience of the software, and meanwhile reduce the effort and cost of it. Different kinds of software have different strategies for maintainance and monitoring. &lt;/p&gt;
@@ -122,7 +154,7 @@
     <title>Reading Note of Patterns of Enterprise Application Architecture II</title>
     <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/"/>
     <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/</id>
-    <published>2018-03-27T06:16:50.000Z</published>
+    <published>2018-03-26T15:16:50.000Z</published>
     <updated>2018-03-27T06:19:03.000Z</updated>
     
     <content type="html"></content>
@@ -140,7 +172,7 @@
     <title>Reading Note of Patterns of Enterprise Application Architecture I</title>
     <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/"/>
     <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/</id>
-    <published>2018-03-27T06:16:46.000Z</published>
+    <published>2018-03-26T15:16:46.000Z</published>
     <updated>2018-03-27T06:18:57.000Z</updated>
     
     <content type="html"></content>
@@ -158,7 +190,7 @@
     <title>BitCoin Information Summary</title>
     <link href="http://yular.github.io/2018/03/12/BitCoin-Information-Summary/"/>
     <id>http://yular.github.io/2018/03/12/BitCoin-Information-Summary/</id>
-    <published>2018-03-13T06:24:52.000Z</published>
+    <published>2018-03-12T15:24:52.000Z</published>
     <updated>2018-03-14T08:29:08.000Z</updated>
     
     <content type="html">&lt;p&gt;Here are the list of helpful links about BitCoin introduction.&lt;/p&gt;
@@ -185,7 +217,7 @@
     <title>Reading Note of Working Effectively with Legacy Code IV</title>
     <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
     <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
-    <published>2018-02-26T05:19:13.000Z</published>
+    <published>2018-02-25T13:19:13.000Z</published>
     <updated>2018-02-28T09:45:20.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
@@ -396,7 +428,7 @@
     <title>Reading Note of Working Effectively with Legacy Code III</title>
     <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
     <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
-    <published>2018-02-18T19:28:56.000Z</published>
+    <published>2018-02-18T03:28:56.000Z</published>
     <updated>2018-02-26T01:45:14.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
@@ -504,7 +536,7 @@
     <title>Reading Note of Working Effectively with Legacy Code II</title>
     <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
     <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
-    <published>2018-02-17T06:06:01.000Z</published>
+    <published>2018-02-16T14:06:01.000Z</published>
     <updated>2018-02-18T19:24:36.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
@@ -633,7 +665,7 @@
     <title>Reading Note of Working Effectively with Legacy Code I</title>
     <link href="http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/"/>
     <id>http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/</id>
-    <published>2018-02-09T09:10:21.000Z</published>
+    <published>2018-02-08T17:10:21.000Z</published>
     <updated>2018-02-18T08:11:03.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
@@ -710,7 +742,7 @@
     <title>Reading Note of Programming in Lua 4th Edition II</title>
     <link href="http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/"/>
     <id>http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/</id>
-    <published>2018-01-29T00:39:37.000Z</published>
+    <published>2018-01-28T08:39:37.000Z</published>
     <updated>2018-01-30T06:23:24.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Meta-Data&quot;&gt;&lt;a href=&quot;#Meta-Data&quot; class=&quot;headerlink&quot; title=&quot;Meta Data&quot;&gt;&lt;/a&gt;Meta Data&lt;/h3&gt;</content>
@@ -730,7 +762,7 @@
     <title>LintCode Problem Solution List</title>
     <link href="http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/"/>
     <id>http://yular.github.io/2018/01/22/LintCode-Problem-Solution-List/</id>
-    <published>2018-01-23T07:26:02.000Z</published>
+    <published>2018-01-22T15:26:02.000Z</published>
     <updated>2018-03-05T02:02:03.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://www.lintcode.com/problem/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LintCode Online Judge&lt;/a&gt;. &lt;/p&gt;
@@ -754,7 +786,7 @@
     <title>LeetCode Problem Solution List</title>
     <link href="http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/"/>
     <id>http://yular.github.io/2018/01/22/LeetCode-Problem-Solution-List/</id>
-    <published>2018-01-23T07:24:37.000Z</published>
+    <published>2018-01-22T15:24:37.000Z</published>
     <updated>2018-03-05T02:01:08.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;https://leetcode.com/problemset/algorithms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;LeetCode Online Judge&lt;/a&gt;. &lt;/p&gt;
@@ -777,7 +809,7 @@
     <title>Timus Online Judge Problem Solution List</title>
     <link href="http://yular.github.io/2018/01/22/Timus-Online-Judge-Problem-Solution-List/"/>
     <id>http://yular.github.io/2018/01/22/Timus-Online-Judge-Problem-Solution-List/</id>
-    <published>2018-01-23T04:42:20.000Z</published>
+    <published>2018-01-22T12:42:20.000Z</published>
     <updated>2018-01-23T04:50:02.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the solution list of some of the algorithm problems in &lt;a href=&quot;http://acm.timus.ru/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Timus Online Judge&lt;/a&gt;. Here is the link of &lt;a href=&quot;https://github.com/yular/CCplusplus-Project/blob/master/Timus/README.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solution List&lt;/a&gt;.&lt;/p&gt;
@@ -800,7 +832,7 @@
     <title>Java Summary IV</title>
     <link href="http://yular.github.io/2018/01/22/Java-Summary-IV/"/>
     <id>http://yular.github.io/2018/01/22/Java-Summary-IV/</id>
-    <published>2018-01-22T09:38:19.000Z</published>
+    <published>2018-01-21T17:38:19.000Z</published>
     <updated>2018-01-22T09:38:33.000Z</updated>
     
     <content type="html"></content>
@@ -818,7 +850,7 @@
     <title>Reading Note of Programming in Lua 4th Edition I</title>
     <link href="http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/"/>
     <id>http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/</id>
-    <published>2018-01-21T01:32:04.000Z</published>
+    <published>2018-01-20T09:32:04.000Z</published>
     <updated>2018-01-29T02:11:08.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;h4 id=&quot;Stand-Alone-Interpreter&quot;&gt;&lt;a href=&quot;#Stand-Alone-Interpreter&quot; class=&quot;headerlink&quot; title=&quot;Stand-Alone Interpreter&quot;&gt;&lt;/a&gt;Stand-Alone Interpreter&lt;/h4&gt;&lt;ul&gt;
@@ -899,7 +931,7 @@
     <title>Java Summary III</title>
     <link href="http://yular.github.io/2018/01/16/Java-Summary-III/"/>
     <id>http://yular.github.io/2018/01/16/Java-Summary-III/</id>
-    <published>2018-01-17T06:01:59.000Z</published>
+    <published>2018-01-16T14:01:59.000Z</published>
     <updated>2018-01-17T06:02:09.000Z</updated>
     
     <content type="html"></content>
@@ -910,43 +942,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Summary II</title>
-    <link href="http://yular.github.io/2018/01/16/Java-Summary-II-1/"/>
-    <id>http://yular.github.io/2018/01/16/Java-Summary-II-1/</id>
-    <published>2018-01-17T06:01:19.000Z</published>
-    <updated>2018-01-17T06:01:19.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Advanced Encryption Standard (AES) Summary</title>
-    <link href="http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/"/>
-    <id>http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/</id>
-    <published>2018-01-09T08:28:35.000Z</published>
-    <updated>2018-01-09T08:41:38.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Encryption_Standard&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia link of AES&lt;/a&gt;.&lt;/p&gt;
-&lt;h3 id=&quot;Different-Modes-of-AES&quot;&gt;&lt;a href=&quot;#Different-Modes-of-AES&quot; class=&quot;headerlink&quot; title=&quot;Different Modes of AES&quot;&gt;&lt;/a&gt;Different Modes of AES&lt;/h3&gt;&lt;h4 id=&quot;ECB&quot;&gt;&lt;a href=&quot;#ECB&quot; class=&quot;headerlink&quot; title=&quot;ECB&quot;&gt;&lt;/a&gt;ECB&lt;/h4&gt;&lt;h4 id=&quot;PCBC&quot;&gt;&lt;a href=&quot;#PCBC&quot; class=&quot;headerlink&quot; title=&quot;PCBC&quot;&gt;&lt;/a&gt;PCBC&lt;/h4&gt;&lt;h4 id=&quot;CFB&quot;&gt;&lt;a href=&quot;#CFB&quot; class=&quot;headerlink&quot; title=&quot;CFB&quot;&gt;&lt;/a&gt;CFB&lt;/h4&gt;&lt;h4 id=&quot;OFB&quot;&gt;&lt;a href=&quot;#OFB&quot; class=&quot;headerlink&quot; title=&quot;OFB&quot;&gt;&lt;/a&gt;OFB&lt;/h4&gt;&lt;h4 id=&quot;CTR&quot;&gt;&lt;a href=&quot;#CTR&quot; class=&quot;headerlink&quot; title=&quot;CTR&quot;&gt;&lt;/a&gt;CTR&lt;/h4&gt;&lt;h4 id=&quot;CBC&quot;&gt;&lt;a href=&quot;#CBC&quot; class=&quot;headerlink&quot; title=&quot;CBC&quot;&gt;&lt;/a&gt;CBC&lt;/h4&gt;&lt;h4 id=&quot;GCM&quot;&gt;&lt;a href=&quot;#GCM&quot; class=&quot;headerlink&quot; title=&quot;GCM&quot;&gt;&lt;/a&gt;GCM&lt;/h4&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki
-    
-    </summary>
-    
-    
-      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
     
   </entry>
   

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Página 21 | YBC HomePage</title>
+  <title>Seite 21 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -94,7 +94,108 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-28T16:46:53.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">2015-07-28</a></time>
+        <time datetime="2015-07-30T03:22:38.000Z"><a href="/2015/07/30/C-Makefile-for-Linux/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/C-Makefile-for-Linux/">C++ Makefile for Linux</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>To execute a C++ program under Linux operating system, we had better write a makefile to compile and execute it. Here are some examples to write and run makefiles under Linux system.</p>
+<h3 id="Basic-Makefile"><a href="#Basic-Makefile" class="headerlink" title="Basic Makefile"></a>Basic Makefile</h3><p>Here is the c++ program named basic.cpp:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" + "</span>&lt;&lt;b&lt;&lt;<span class="string">" = "</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World~"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is its makefile:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">compile:basic.o</span><br><span class="line">	g++ -o basic basic.o -lm -Wall</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	rm <span class="_">-f</span> main basic.o</span><br><span class="line"></span><br><span class="line">run:</span><br><span class="line">	./basic</span><br></pre></td></tr></table></figure>
+<p>To run the makefile, use the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make clean compile run</span><br></pre></td></tr></table></figure></p>
+<p>If the makefile is unexecutable, use <em>chmod</em> command to make a change.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C++</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-28T01:48:05.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">2015-07-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">Hackerrank / InterviewStreet Algorithm Problem Solution List Game Theory Section</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Game-of-Stones"><a href="#Game-of-Stones" class="headerlink" title="Game of Stones"></a>Game of Stones</h3><p><a href="https://www.hackerrank.com/challenges/game-of-stones-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/game-of-stones-1.cpp" target="_blank" rel="external">Code</a><br>A kind of game theory problem. The basic rule is that for any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[i] = ((1&amp;sg[i-2]&amp;sg[i-3]&amp;sg[i-5])^1).  </p>
+<h3 id="Tower-Breakers"><a href="#Tower-Breakers" class="headerlink" title="Tower Breakers"></a>Tower Breakers</h3><p><a href="https://www.hackerrank.com/challenges/tower-breakers-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/tower-breakers-1.cpp" target="_blank" rel="external">Code</a><br>A sort of game theory problem. If the height of tower is 1 or the number of towers is even, second player wins; otherwise, first player wins.</p>
+<h3 id="A-Chessboard-Game"><a href="#A-Chessboard-Game" class="headerlink" title="A Chessboard Game"></a>A Chessboard Game</h3><p><a href="https://www.hackerrank.com/challenges/a-chessboard-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/a-chessboard-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. Use dfs. For any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[x][y] = ((1&amp;sg[x-2][y+1]&amp;sg[x-2][y-1]&amp;sg[x+1][y-2]&amp;sg[x-1][y-2])^1).</p>
+<h3 id="Introduction-to-Nim-Game"><a href="#Introduction-to-Nim-Game" class="headerlink" title="Introduction to Nim Game"></a>Introduction to Nim Game</h3><p><a href="https://www.hackerrank.com/challenges/nim-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/nim-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. for every test case, xor all the given integers together, if the result is non-zero, then first player win; otherwise, second player wins.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-28T01:46:53.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">2015-07-28</a></time>
       
       
   
@@ -159,7 +260,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-24T17:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
+        <time datetime="2015-07-24T02:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
       
       
   
@@ -248,7 +349,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-23T05:21:44.000Z"><a href="/2015/07/22/HTTP-Status-Code/">2015-07-22</a></time>
+        <time datetime="2015-07-22T14:21:44.000Z"><a href="/2015/07/22/HTTP-Status-Code/">2015-07-22</a></time>
       
       
   
@@ -323,7 +424,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-22T17:05:40.000Z"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">2015-07-22</a></time>
+        <time datetime="2015-07-22T02:05:40.000Z"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">2015-07-22</a></time>
       
       
   
@@ -387,7 +488,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-21T17:03:43.000Z"><a href="/2015/07/21/Interview-Skill-Summary/">2015-07-21</a></time>
+        <time datetime="2015-07-21T02:03:43.000Z"><a href="/2015/07/21/Interview-Skill-Summary/">2015-07-21</a></time>
       
       
   
@@ -490,7 +591,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-18T18:34:35.000Z"><a href="/2015/07/18/Software-Architecture-Summary-IV/">2015-07-18</a></time>
+        <time datetime="2015-07-18T03:34:35.000Z"><a href="/2015/07/18/Software-Architecture-Summary-IV/">2015-07-18</a></time>
       
       
   
@@ -875,7 +976,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-18T18:30:54.000Z"><a href="/2015/07/18/Software-Architecture-Summary-III/">2015-07-18</a></time>
+        <time datetime="2015-07-18T03:30:54.000Z"><a href="/2015/07/18/Software-Architecture-Summary-III/">2015-07-18</a></time>
       
       
   
@@ -1270,7 +1371,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-17T16:19:36.000Z"><a href="/2015/07/17/Software-Architecture-Summary-V/">2015-07-17</a></time>
+        <time datetime="2015-07-17T01:19:36.000Z"><a href="/2015/07/17/Software-Architecture-Summary-V/">2015-07-17</a></time>
       
       
   
@@ -1419,942 +1520,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T16:19:25.000Z"><a href="/2015/07/17/Software-Architecture-Summary-II/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Software-Architecture-Summary-II/">Software Architecture Summary II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Basic Knowledge</em></p>
-<p><hr></p>
-<p>###Architecture Design<br>[1]Objectives</p>
-<ul>
-<li>Creativity:<br>Enhance your skill-set; Provide new tools.</li>
-<li>Method:<br>Focus on highly effective techniques</li>
-</ul>
-<p>[2]Engineering Design Process<br>(1)Feasibility stage: identifying a set of feasible concepts for the design as a whole<br>(2)Preliminary design stage: selection and development of the best concept.<br>(3)Detailed design stage: development of engineering descriptions of the concept.<br>(4)Planning stage: evaluating and altering the concept to suit the requirements of production, distribution, consumption and product retirement.<br>(5)Alternative Design Strategies:</p>
-<ul>
-<li>Standard: Linear model described above.</li>
-<li>Cyclic: Process can revert to an earlier stage. </li>
-<li>Parallel: Independent alternatives are explored in parallel.</li>
-<li>Adaptive: The next design strategy of the design activity is decided at the end of a given stage.</li>
-<li>Incremental: Each stage of development is treated as a task of incrementally improving the existing design.<br>(6)How to identify a viable strategy:</li>
-<li>Use fundamental design tools: abstraction and modularity.</li>
-<li>Inspiration, where inspiration is needed. Predictable techniques elsewhere. </li>
-<li>Applying own experience or experience of others.</li>
-</ul>
-<p>[3]Abstraction</p>
-<ul>
-<li>Abstraction(1):  look at details, and abstract “up” to concepts.</li>
-<li>Abstraction(2):  choose concepts, then add detailed substructure, and move “down”.</li>
-</ul>
-<p>[4]Separation of concerns<br>Key example from software architecture: separation of components (computation) from connectors (interaction).</p>
-<p>#<em>Architectural Styles</em></p>
-<p><hr></p>
-<p>###Object-Oriented Style<br>[1]Components are objects: Data and associated operations</p>
-<p>[2]Connectors are messages and method invocations</p>
-<p>[3]Style invariants: Objects are responsible for their internal representation integrity; Internal representation is hidden from other objects.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>“Infinite malleability” of object internals;</li>
-<li>System decomposition into sets of interacting agents.</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Objects must know identities of servers;</li>
-<li>Side effects in object method invocations.</li>
-</ul>
-<p>[5]Pictures<br><img src="https://c1.staticflickr.com/1/561/19802893555_cdf6ec7a57_n.jpg" alt="Object-Oriented Style" title="Object-Oriented LL"></p>
-<p>###Layered Style<br>[1]Hierarchical system organization: “Multi-level client-server”; Each layer exposes an interface (API) to be used by above layers.</p>
-<p>[2]Each layer acts as a Server(service provider to layers “above”) and Client: service consumer of layer(s) (“below”). </p>
-<p>[3]Connectors are protocols of layer interaction.</p>
-<p>[4]Example: operating systems.</p>
-<p>[5]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Increasing abstraction levels</li>
-<li>Evolvability</li>
-<li>Changes in a layer affect at most the adjacent two layers: Reuse</li>
-<li>Different implementations of layer are allowed as long as interface is preserved</li>
-<li>Standardized layer interfaces for libraries and frameworks</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Not universally applicable</li>
-<li>Performance</li>
-</ul>
-<p>[6]Layers may have to be skipped: Determining the correct abstraction level.</p>
-<p>[7]Pictures<br><img src="https://c1.staticflickr.com/1/440/19777155166_3dd53b1f19_n.jpg" alt="Layered Style Style" title="Layered Style"></p>
-<p>###Client-Server Style<br>[1]Components are clients and servers. Servers do not know number or identities of clients, but Clients know server’s identity.</p>
-<p>[2]Connectors are RPC-based network interaction protocols.</p>
-<p>[3]Picture<br><img src="https://c1.staticflickr.com/1/273/19616814189_2d6fb99089.jpg" alt="Client-Server Style" title="Client-Server Style"></p>
-<p>###Data-Flow Style<br>[1]Batch Sequential: Separate programs are executed in order; data is passed as an aggregate from one program to the next..</p>
-<p>[2]Data Elements: Explicit, aggregate elements passed from one component to the next upon completion of the producing program’s execution.</p>
-<p>[3]Connectors: “The human hand” carrying tapes between the programs, a.k.a. “sneaker-net ”.</p>
-<p>[4]Example: Typical uses: Transaction processing in financial systems. “The Granddaddy of Styles”.</p>
-<p>[5]Picture<br><img src="https://c1.staticflickr.com/1/424/19182730293_1b83cce928_h.jpg" alt="Batch-Sequentail Style" title="Data-Flow Style"></p>
-<p>###Pipe and Filter Style<br>[1]Components are filters: Transform input data streams into output data streams; Possibly incremental production of output.</p>
-<p>[2]Connectors are pipes.</p>
-<p>[3]Style invariants: Filters are independent (no shared state); Filter has no knowledge of up- or down-stream filters.</p>
-<p>[4]Examples: UNIX shell; signal processing; Distributed systems; parallel computing.</p>
-<p>[5]Variations:</p>
-<ul>
-<li>Pipelines — linear sequences of filters</li>
-<li>Bounded pipes — limited amount of data on a pipe</li>
-<li>Typed pipes — data strongly typed</li>
-</ul>
-<p>[6]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>System behavior is a succession of component behaviors.</li>
-<li>Filter addition, replacement, and reuse: Possible to hook any two filters together. </li>
-<li>Certain analyses: Throughput, latency, deadlock.</li>
-<li>Concurrent execution.</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Batch organization of processing.</li>
-<li>Interactive applications.</li>
-<li>Lowest common denominator on data transmission.</li>
-</ul>
-<p>[7]Picture<br><img src="https://c1.staticflickr.com/1/499/19617174259_fce96c0165_n.jpg" alt="Pipe and Filter Style" title="Pipe and Fileter Style"></p>
-<p>###Blackboard Style<br>[1]Two kinds of components:</p>
-<ul>
-<li>Central data structure — blackboard</li>
-<li>Components operating on the blackboard<br>System control is entirely driven by the blackboard state</li>
-</ul>
-<p>[2]Examples: Typically used for AI systems; Integrated software environments; Compiler architecture.</p>
-<p>[3]Picture<br><img src="https://c1.staticflickr.com/1/339/19615890890_164572526d_n.jpg" alt="Blackboard Style" title="Blackboard Style"></p>
-<p>###Implicit Invocation Style<br>[1]Component interfaces are methods and events. Event announcement instead of method invocation: “Listeners” register interest in and associate methods with events; System invokes all registered methods implicitly.</p>
-<p>[2]Two types of connectors: implicit and explicit.</p>
-<p>[3]Style invariants: “Announcers” are unaware of their events’ effects; No assumption about processing in response to events.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Component reuse.</li>
-<li>System evolution: Both at system construction-time &amp; run-time. </li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Counter-intuitive system structure</li>
-<li>Components relinquish computation control to the system</li>
-<li>No knowledge of what components will respond to event</li>
-<li>No knowledge of order of responses</li>
-</ul>
-<p>###Publish-Subscribe<br>[1]Description<br>Subscribers register/deregister to receive specific messages or specific content. Publishers broadcast messages to subscribers either synchronously or asynchronously.</p>
-<p>[2]Components: Publishers, subscribers, proxies for managing distribution.</p>
-<p>[3]Connectors: Typically a network protocol is required.  Content-based subscription requires sophisticated connectors.</p>
-<p>[4]Data Elements: Subscriptions, notifications, published information.</p>
-<p>[5]Topology: Subscribers connect to publishers either directly or may receive notifications via a network protocol from intermediaries.</p>
-<p>[6]Qualities yielded: Highly efficient one-way dissemination of information with very low-coupling of components.</p>
-<p>[7]Picture<br><img src="https://c2.staticflickr.com/4/3665/19181519784_4c07532e07_n.jpg" alt="Publish-Subscribe Style" title="Publish-Subscribe Style"></p>
-<p>###Event-Based Style<br>[1]Independent components asynchronously emit and receive events communicated over event buses </p>
-<p>[2]Components: Independent, concurrent event generators and/or consumers</p>
-<p>[3]Connectors: Event buses (at least one)</p>
-<p>[4]Data Elements: Events – data sent as a first-class entity over the event bus</p>
-<p>[5]Topology: Components communicate with the event buses, not directly to each other.  </p>
-<p>[6]Variants: Component communication with the event bus may either be push or pull based.</p>
-<p>[7]Advantages:<br>Highly scalable, easy to evolve, effective for highly distributed applications.</p>
-<p>[8]Picture<br><img src="https://c1.staticflickr.com/1/257/19778012886_f72d2cb483_n.jpg" alt="Event-Basd Style" title="Event-Based Style"></p>
-<p>###Peer-to-Peer Style<br>[1]State and behavior are distributed among peers which can act as either clients or servers. </p>
-<p>[2]Peers: independent components, having their own state and control thread.</p>
-<p>[3]Connectors: Network protocols, often custom.</p>
-<p>[4]Data Elements: Network messages</p>
-<p>[5]Topology: Network (may have redundant connections between peers); can vary arbitrarily and dynamically</p>
-<p>[6]Advantages:</p>
-<ul>
-<li>Supports decentralized computing with flow of control and resources distributed among peers. </li>
-<li>Highly robust in the face of failure of any given node. </li>
-<li>Scalable in terms of access to resources and computing power.  </li>
-</ul>
-<p>[7]Picture:<br><img src="https://c2.staticflickr.com/4/3752/19778098456_22f26945e8_n.jpg" alt="Peer-to-Peer Style" title="Peer-to-Peer Style"></p>
-<p>###Heterogeneous Styles<br>[1]More complex styles created through composition of simpler styles.</p>
-<p>[2]Examples:</p>
-<ul>
-<li>REST</li>
-<li>C2: Implicit invocation + Layering + other constraints</li>
-<li>Distributed objects: OO + client-server network style; CORBA.</li>
-</ul>
-<p>####C2 Style<br>[1]Description<br>An indirect invocation style in which independent components communicate exclusively through message routing connectors.  Strict rules on connections between components and connectors induce layering.</p>
-<p>[2]Components: Independent, potentially concurrent message generators and/or consumers.</p>
-<p>[3]Connectors: Message routers that may filter, translate, and broadcast messages of two kinds:  notifications and requests.</p>
-<p>[4]Data Elements: Messages – data sent as first-class entities over the connectors. Notification messages announce changes of state. Request messages request performance of an action.</p>
-<p>[5]Topology: Layers of components and connectors, with a defined “top” and “bottom”, wherein notifications flow downwards and requests upwards.</p>
-<p>[6]Picture<br><img src="https://c1.staticflickr.com/1/519/19182108964_0aa3f68c42_n.jpg" alt="C2 Style" title="C2 Style"></p>
-<p>####CORBA<br>[1]“Objects” (coarse- or fine-grained) run on heterogeneous hosts, written in heterogeneous languages. Objects provide services through well-defined interfaces. Objects invoke methods across host, process, and language boundaries via remote procedure calls (RPCs).</p>
-<p>[2]Components:  Objects (software components exposing services through well-defined provided interfaces)</p>
-<p>[3]Connector:  (Remote) Method invocation</p>
-<p>[4]Data Elements: Arguments to methods, return values, and exceptions</p>
-<p>[5]Topology: General graph of objects from callers to callees.</p>
-<p>[6]Additional constraints imposed: Data passed in remote procedure calls must be serializable. Callers must deal with exceptions that can arise due to network or process faults. And Location, platform, and language “transparency”.</p>
-<p>[7]Picture<br><img src="https://c1.staticflickr.com/1/467/19809509291_0d2502272c_n.jpg" alt="CORBA" title="CORBA Concpets and Implementation"><br><img src="https://c1.staticflickr.com/1/424/19616671150_99df857327_n.jpg" alt="CORBA Style" title="CORBA LL"></p>
-<p>#<em>Architecture Model</em><br>[1]Definition<br>An architectural model is an artifact that captures some or all of the design decisions that comprise a system’s architecture.<br>Architectural modeling is the reification and documentation of those design decisions.</p>
-<p>[2]How we model is strongly influenced by the notations we choose and an architectural modeling notation is a language or means of capturing design decisions. </p>
-<p>[3]Stakeholder-Driven Modeling</p>
-<ul>
-<li>Stakeholders identify aspects of the system they are concerned about</li>
-<li>Stakeholders decide the relative importance of these concerns</li>
-<li>Modeling depth should roughly mirror the relative importance of concerns</li>
-</ul>
-<p>[4]What to Model<br>(1)Basic architectural elements</p>
-<ul>
-<li>Components</li>
-<li>Connectors</li>
-<li>Interfaces</li>
-<li>Configurations</li>
-<li>Rationale – reasoning behind decisions<br>(2)Elements of the architectural style</li>
-<li>Inclusion of specific basic elements</li>
-<li>Component, connector, and interface types</li>
-<li>Constraints on interactions</li>
-<li>Behavioral constraints</li>
-<li>Concurrency constraints<br>(3)Static and Dynamic Aspects</li>
-<li>Static aspects of a system do not change as a system runs.</li>
-<li>Dynamic aspects do change as a system runs</li>
-<li>Unclear aspects<br>(4)Functional and non-functional aspects of a system</li>
-</ul>
-<p>[5]Important Characteristics of Models<br>(1)Ambiguity<br>A model is ambiguous if it is open to more than one interpretation.</p>
-<p>(2)Accuracy and Precision<br>Different, but often conflated concepts.</p>
-<ul>
-<li>A model is accurate if it is correct, conforms to fact, or deviates from correctness within acceptable limits.</li>
-<li>A model is precise if it is sharply exact or delimited.</li>
-</ul>
-<p>[6]Views and Viewpoints<br>(1)Views<br>The several coordinated models, capturing a subset of the design decisions.</p>
-<p>(2)Viewpoints<br>The concern of subset-models.</p>
-<p>(3)Commonly-used viewpoints</p>
-<ul>
-<li>Logical Viewpoints<br>Capture the logical (often software) entities in a system and how they are interconnected.</li>
-<li>Physical Viewpoints<br>Capture the physical (often hardware) entities in a system and how they are interconnected.</li>
-<li>Deployment Viewpoints<br>Capture how logical entities are mapped onto physical entities.</li>
-<li>Concurrency Viewpoints<br>Capture how concurrency and threading will be managed in a system.</li>
-<li>Behavioral Viewpoints<br>Capture the expected behavior of (parts of) a system.</li>
-</ul>
-<p>(4)Consistency Among Views</p>
-<ul>
-<li>Views can contain overlapping and related design decisions.</li>
-<li>Views are consistent if the design decisions they contain are compatible;<br>Views are inconsistent if two views assert design decisions that cannot simultaneously be true</li>
-<li>Inconsistency is usually but not always indicative of problems</li>
-</ul>
-<p>(5)Common Types of Inconsistencies</p>
-<ul>
-<li>Direct inconsistencies</li>
-<li>Refinement inconsistencies</li>
-<li>Static vs. dynamic aspect inconsistencies</li>
-<li>Dynamic vs. dynamic aspect inconsistencies</li>
-<li>Functional vs. non-functional inconsistencies</li>
-</ul>
-<p>[7]Evaluating Modeling Approaches<br>(1)Scope and purpose<br>What does the technique help you model? What does it not help you model?</p>
-<p>(2)Basic elements<br>What are the basic elements (the ‘atoms’) that are modeled? How are they modeled?</p>
-<p>(3)Style<br>To what extent does the approach help you model elements of the underlying architectural style? Is the technique bound to one particular style or family of styles?</p>
-<p>(4)Static and dynamic aspects<br>What static and dynamic aspects of an architecture does the approach help you model?</p>
-<p>(5)Dynamic modeling<br>To what extent does the approach support models that change as the system executes?</p>
-<p>(6)Non-functional aspects<br>To what extent does the approach support (explicit) modeling of non-functional aspects of architecture?</p>
-<p>(7)Ambiguity<br>How does the approach help you to avoid (or embrace) ambiguity?</p>
-<p>(8)Accuracy<br>How does the approach help you to assess the correctness of models?</p>
-<p>(9)Precision<br>At what level of detail can various aspects of the architecture be modeled?</p>
-<p>(10)Viewpoints<br>Which viewpoints are supported by the approach?</p>
-<p>(11)Viewpoint Consistency<br>How does the approach help you assess or maintain consistency among different views?</p>
-<p>(12)Surveying Modeling Approaches</p>
-<ul>
-<li>Generic approaches:<br>Natural language; PowerPoint-style modeling; UML, the Unified Modeling Language</li>
-<li>Early architecture description languages<br>Darwin; Rapide; Wright</li>
-<li>Domain- and style-specific languages<br>Koala; Weaves; AADL</li>
-<li>Extensible architecture description languages<br>Acme; ADML; xADL</li>
-</ul>
-<p>###Natural Language<br>[1]Spoken/written languages such as English</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Highly expressive</li>
-<li>Accessible to all stakeholders</li>
-<li>Good for capturing non-rigorous or informal architectural elements like rationale and non-functional requirements</li>
-<li>Plentiful tools available (word processors and other text editors)<br>Disadvantages:</li>
-<li>Ambiguous, non-rigorous, non-formal</li>
-<li>Often verbose</li>
-<li>Cannot be effectively processed or analyzed by machines/software</li>
-</ul>
-<p>[3]Related Alternatives<br>Ambiguity can be reduced and rigor can be increased through the use of techniques like ‘statement templates’.</p>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Capture design decisions in prose form</li>
-<li>Basic elements<br>Any concepts required</li>
-<li>Style<br>Can be described by using more general language</li>
-<li>Static &amp; Dynamic Aspects<br>Any aspect can be modeled </li>
-<li>Dynamic Models<br>No direct tie to implemented/ running system</li>
-<li>Non-Functional Aspects<br>Expressive vocabulary available (but no way to verify)</li>
-<li>Ambiguity<br>Plain natural language tends to be ambiguous; statement templates and dictionaries help</li>
-<li>Accuracy<br>Manual reviews and inspection</li>
-<li>Precision<br>Can add text to describe any level of detail</li>
-<li>Viewpoints<br>Any viewpoint (but no specific support for any particular viewpoint)</li>
-<li>View consistency<br>Manual reviews and inspection</li>
-</ul>
-<p>###Informal Graphical Modeling<br>[1]General diagrams produced in tools like PowerPoint and OmniGraffle.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Can be aesthetically pleasing.</li>
-<li>Size limitations (e.g., one slide, one page) generally constrain complexity of diagrams.</li>
-<li>Extremely flexible due to large symbolic vocabulary.<br>Disadvantages:</li>
-<li>Ambiguous, non-rigorous, non-formal.</li>
-<li>Cannot be effectively processed or analyzed by machines/software.</li>
-</ul>
-<p>[3]Related Alternatives</p>
-<ul>
-<li>Some diagram editors (e.g., Microsoft Visio) can be extended with semantics through scripts and other additional programming.</li>
-<li>PowerPoint Design Editor (Goldman, Balzer) was an interesting project that attempted to integrate semantics into PowerPoint.</li>
-</ul>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Arbitrary diagrams consisting of symbols and text</li>
-<li>Basic elements<br>Geometric shapes, splines, clip-art, text segments</li>
-<li>Style<br>In general, no support</li>
-<li>Static &amp; Dynamic Aspects<br>Any aspect can be modeled, but no semantics behind models </li>
-<li>Dynamic Models<br>Rare, although APIs to manipulate graphics exist</li>
-<li>Non-Functional Aspects<br>With natural language annotations</li>
-<li>Ambiguity<br>Can be reduced through use of rigorous symbolic vocabulary/dictionaries</li>
-<li>Accuracy<br>Manual reviews and inspection</li>
-<li>Precision<br>Up to modeler; generally canvas is limited in size (e.g., one ‘slide’)</li>
-<li>Viewpoints<br>Any viewpoint (but no specific support for any particular viewpoint)</li>
-<li>View consistency<br>Manual reviews and inspection</li>
-</ul>
-<p>###UML – the Unified Modeling Language<br>[1]13 loosely-interconnected notations called diagrams that capture static and dynamic aspects of software-intensive systems.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Support for a diverse array of viewpoints focused on many common software engineering concerns</li>
-<li>Ubiquity improves comprehensibility</li>
-<li>Extensive documentation and tool support from many vendors<br>Disadvantages</li>
-<li>Needs customization through profiles to reduce ambiguity</li>
-<li>Difficult to assess consistency among views</li>
-<li>Difficult to capture foreign concepts or views</li>
-</ul>
-<p>[3]UML Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Diverse array of design decisions in 13 viewpoints</li>
-<li>Basic elements<br>Multitude – states, classes, objects, composite nodes…</li>
-<li>Style<br>Through (OCL) constraints</li>
-<li>Static &amp; Dynamic Aspects<br>Some static diagrams (class, package), some dynamic (state, activity) </li>
-<li>Dynamic Models<br>Rare; depends on the environment</li>
-<li>Non-Functional Aspects<br>No direct support; natural-language annotations</li>
-<li>Ambiguity<br>Many symbols are interpreted differently depending on context; profiles reduce ambiguity</li>
-<li>Accuracy<br>Well-formedness checks, automatic constraint checking, ersatz tool methods, manual</li>
-<li>Precision<br>Up to modeler; wide flexibility</li>
-<li>Viewpoints<br>Each diagram type represents a viewpoint; more can be added through overloading/profiles</li>
-<li>View consistency<br>Constraint checking, ersatz tool methods, manual</li>
-</ul>
-<p>###Darwin<br>[1]General purpose language with graphical and textual visualizations focused on structural modeling of systems.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Simple, straightforward mechanism for modeling structural dependencies</li>
-<li>Interesting way to specify repeated elements through programmatic constructs</li>
-<li>Can be modeled in pi-calculus for formal analysis</li>
-<li>Can specify hierarchical (i.e., composite) structures<br>Disadvantages:</li>
-<li>Limited usefulness beyond simple structural modeling</li>
-<li>No notion of explicit connectors</li>
-</ul>
-<p>[3]Darwin Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Modeling software structure</li>
-<li>Basic elements<br>Components, interfaces, configurations, hierarchy</li>
-<li>Style<br>Limited support through programmatic constructs</li>
-<li>Static &amp; Dynamic Aspects<br>Mostly static structure; some additional support for dynamic aspects through lazy and dynamic instantiation/binding </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Rigorous, but structural elements can be interpreted in many ways</li>
-<li>Accuracy<br>Pi-calculus analysis</li>
-<li>Precision<br>Modelers choose appropriate level of detail through hierarchy</li>
-<li>Viewpoints<br>Structural viewpoints</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Rapide<br>[1]Language and tool-set for exploring dynamic properties of systems of components that communicate through events.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Unique and expressive language for describing asynchronously communicating components</li>
-<li>Tool-set supports simulation of models and graphical visualization of event traces<br>Disadvantages:</li>
-<li>No natural or explicit mapping to implemented systems</li>
-<li>High learning curve</li>
-<li>Important tool support is difficult to run on modern machines</li>
-</ul>
-<p>[3]Rapide Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Interactions between components communicating with events</li>
-<li>Basic elements<br>Structures, components/ interfaces, behaviors</li>
-<li>Style<br>N/A</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure and dynamic behavior co-modeled </li>
-<li>Dynamic Models<br>Some tools provide limited animation capabilities</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Well-defined semantics limit ambiguity</li>
-<li>Accuracy<br>Compilers check syntax, simulators can be used to check semantics although simulation results are non-deterministic and non-exhaustive</li>
-<li>Precision<br>Detailed behavioral modeling possible</li>
-<li>Viewpoints<br>Single structural/behavioral viewpoint</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Wright<br>[1]An ADL that specifies structure and formal behavioral specifications for interfaces between components and connectors.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Structural specification similar to Darwin or Rapide</li>
-<li>Formal interface specifications can be translated automatically into CSP and analyzed with tool<br>Disadvantages:</li>
-<li>High learning curve</li>
-<li>No direct mapping to implemented systems</li>
-<li>Addresses a small number of system properties relative to cost of use</li>
-</ul>
-<p>[3]Wright Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures, behaviors, and styles of systems composed of components &amp; connectors</li>
-<li>Basic elements<br>Components, connectors, interfaces, attachments, styles</li>
-<li>Style<br>Supported through predicates over instance models</li>
-<li>Static &amp; Dynamic Aspects<br>Static structural models annotated with behavioral specifications </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Well-defined semantics limit ambiguity</li>
-<li>Accuracy<br>Wright models can be translated into CSP for automated analysis</li>
-<li>Precision<br>Detailed behavioral modeling possible</li>
-<li>Viewpoints<br>Single structural/behavioral viewpoint plus styles</li>
-<li>View consistency<br>Style checking can be done automatically</li>
-</ul>
-<p>###Koala<br>[1]Darwin-inspired notation for specifying product lines of embedded consumer-electronics devices.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Advanced product-line features let you specify many systems in a single model</li>
-<li>Direct mapping to implemented systems promotes design and code reuse<br>Disadvantages:</li>
-<li>Limited to structural specification with additional focus on interfaces</li>
-</ul>
-<p>[3]Koala Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures and interfaces of product lines of component-based systems</li>
-<li>Basic elements<br>Components, interfaces, elements for variation points: switches, diversity interfaces, etc.</li>
-<li>Style<br>Product lines might be seen as very narrow styles</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure only </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Close mappings to implementation limit ambiguity</li>
-<li>Accuracy<br>Close mappings to implementations should reveal problems</li>
-<li>Precision<br>Structural decisions are fully enumerated but other aspects left out</li>
-<li>Viewpoints<br>Structural viewpoint with explicit points of variation</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Weaves<br>[1]An architectural style and notation for modeling systems of small-grain tool fragments that communicate through data flows of objects.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Extremely optimized notation</li>
-<li>Close mapping to implemented systems<br>Disadvantages:</li>
-<li>Addresses structure and data flows only</li>
-</ul>
-<p>[3]Weaves Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures of components and connectors in the Weaves style</li>
-<li>Basic elements<br>Components, queues, directed interconnections</li>
-<li>Style<br>Weaves style implicit</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure only</li>
-<li>Dynamic Models<br>N/A, although there is a 1-1 correspondence between model and implementation elements</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Meanings of Weaves elements are well-defined although important elements (e.g., protocols) are subject to interpretation</li>
-<li>Accuracy<br>Syntactic (e.g., structural) errors easy to identify</li>
-<li>Precision<br>Structural decisions are fully enumerated but other aspects left out</li>
-<li>Viewpoints<br>Structural viewpoint</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###AADL: The Architecture Analysis &amp; Design Language<br>[1]Notation and tool-set for modeling hardware/software systems, particularly embedded and real-time systems</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Allows detailed specification of both hardware and software aspects of a system</li>
-<li>Automated analysis tools check interesting end-to-end properties of system<br>Disadvantages:</li>
-<li>Verbose; large amount of detail required to capture even simple systems</li>
-<li>Emerging tool support and UML profile support</li>
-</ul>
-<p>[3]AADL Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Interconnected multi-level systems architectures</li>
-<li>Basic elements<br>Multitude – components, threads, hardware elements, configurations, mappings…</li>
-<li>Style<br>N/A</li>
-<li>Static &amp; Dynamic Aspects<br>Primarily static structure but additional properties specify dynamic aspects</li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Most elements have concrete counterparts with well-known semantics</li>
-<li>Accuracy<br>Structural as well as other interesting properties can be automatically analyzed</li>
-<li>Precision<br>Many complex interconnected levels of abstraction and concerns</li>
-<li>Viewpoints<br>Many viewpoints addressing different aspects of the system</li>
-<li>View consistency<br>Mappings and refinement can generally be automatically checked or do not overlap</li>
-</ul>
-<p>###Acme<br>[1]Early general purpose ADL with support for extensibility through properties</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Structural specification capabilities similar to Darwin</li>
-<li>Simple property structure allows for arbitrary decoration of existing elements</li>
-<li>Tool support with AcmeStudio<br>Disadvantages:</li>
-<li>No way to add new views</li>
-<li>Property specifications can become extremely complex and have entirely separate syntax/semantics of their own</li>
-</ul>
-<p>[3]Acme Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures of components and connectors with extensible properties</li>
-<li>Basic elements<br>Components, connectors, interfaces, hierarchy, properties</li>
-<li>Style<br>Through type system</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure is modeled natively, dynamic aspects in properties</li>
-<li>Dynamic Models<br>AcmeLib allows programmatic model manipulation</li>
-<li>Non-Functional Aspects<br>Through properties</li>
-<li>Ambiguity<br>Meanings of elements subject to some interpretation, properties may have arbitrary level of rigor/formality</li>
-<li>Accuracy<br>Checkable syntactically, via type system, and properties by external tools</li>
-<li>Precision<br>Properties can increase precision but cannot add new elements</li>
-<li>Viewpoints<br>Structural viewpoint is native, properties might provide additional viewpoints</li>
-<li>View consistency<br>Via external tools that must be developed</li>
-</ul>
-<p>###ADML<br>[1]Effort to standardize the concepts in Acme and leverage XML as a syntactic base.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>XML parsers and tools readily available.</li>
-<li>Added some ability to reason about types of properties with meta-properties.<br>Disadvantages:</li>
-<li>Properties are still name-value pairs</li>
-<li>Did not take advantage of XML extension mechanisms</li>
-</ul>
-<p>###xADL<br>Modular XML-based ADL intended to maximize extensibility both in notation and tools</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Growing set of generically useful modules available already</li>
-<li>Tool support in ArchStudio environment</li>
-<li>Users can add their own modules via well-defined extensibility mechanisms<br>Disadvantages:</li>
-<li>Extensibility mechanisms can be complex and increase learning curve</li>
-<li>Heavy reliance on tools</li>
-</ul>
-<p>[3]xADL Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Modeling various architectural concerns with explicit focus on extensibility</li>
-<li>Basic elements<br>Components, connectors, interfaces, links, options, variants, versions, …, plus extensions</li>
-<li>Style<br>Limited, through type system</li>
-<li>Static &amp; Dynamic Aspects<br>Mostly static views with behavior and dynamic aspects provided through extensions</li>
-<li>Dynamic Models<br>Models can be manipulated programmatically</li>
-<li>Non-Functional Aspects<br>Through extensions</li>
-<li>Ambiguity<br>Base schemas are permissive; extensions add rigor or formality if needed</li>
-<li>Accuracy<br>Correctness checkers included in ArchStudio and users can add additional tools through well-defined mechanisms</li>
-<li>Precision<br>Base schemas are abstract, precision added in extensions</li>
-<li>Viewpoints<br>Several viewpoints provided natively, new viewpoints through extensions</li>
-<li>View consistency<br>Checkable through external tools and additional consistency rules</li>
-</ul>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T15:25:13.000Z"><a href="/2015/07/17/Software-Architecture-Short-Summary/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Software-Architecture-Short-Summary/">Software Architecture Summary I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Basic Concepts</em></p>
-<p><hr></p>
-<p>###What is Software Architecture?<br>[1]Definition<br>A software system’s architecture is the set of principal design decisions about the system and the blueprint for a software system’s construction and evolution.</p>
-<p>[2]Design decisions encompass every facet of the system under development:</p>
-<ul>
-<li>Structure</li>
-<li>Behavior</li>
-<li>Interaction</li>
-<li>Non-functional properties</li>
-</ul>
-<p>[3]“Principal” implies a degree of importance that grants a design decision “architectural status”, which means that not all design decisions are architectural.</p>
-<p>[4]Other Definitions of Software Architecture</p>
-<ul>
-<li>Perry and Wolf<br>Software Architecture = { Elements, Form, Rationale } (What, How, Why)</li>
-<li>Shaw and Garlan<br>Software architecture [is a level of design that] involves the description of elements from which systems are built, interactions among those elements, patterns that guide their composition, and constraints on these patterns.</li>
-<li>Kruchten<br>Software architecture deals with the design and implementation of the high-level structure of software, dealing with abstraction, decomposition, composition, style, and aesthetics.</li>
-</ul>
-<p>[5]Temporal Aspect</p>
-<ul>
-<li>Design decisions are and unmade over a system’s lifetime, meaning that architecture has a temporal aspect.</li>
-<li>At any given point in time the system has only one architecture.</li>
-<li>A system’s architecture will change over time.</li>
-</ul>
-<p>###Prescriptive Architecture<br>A system’s prescriptive architecture captures the design decisions made prior to the system’s construction, which is the as-conceived or as-intended architecture.</p>
-<p>###Descriptive Architecture<br>A system’s descriptive architecture describes how the system has been built, which is the as-implemented or as-realized architecture.</p>
-<p>###Architectural Evolution<br>[1]When a system evolves, ideally its prescriptive architecture is modified first; but in practice, the system – and thus its descriptive architecture – is often directly modified.<br>[2]This happens because of</p>
-<ul>
-<li>Developer sloppiness</li>
-<li>Perception of short deadlines which prevent thinking through and documenting</li>
-<li>Lack of documented prescriptive architecture</li>
-<li>Need or desire for code optimizations</li>
-<li>Inadequate techniques or tool support</li>
-</ul>
-<p>###Architectural Degradation<br>[1]Architectural drift<br>Introduction of principal design decisions into a system’s descriptive architecture that are not included in, encompassed by, or implied by the prescriptive architecture but which do not violate any of the prescriptive architecture’s design decisions.</p>
-<p>[2]Architectural erosion<br>Introduction of architectural design decisions into a system’s descriptive architecture that violate its prescriptive architecture.</p>
-<p>###Architecture Recovery<br>The process of determining a software system’s architecture from its implementation-level artifacts.</p>
-<p>###Deployment<br>[1]Definition<br>Executable modules are physically placed on the hardware devices on which they are supposed to run.</p>
-<p>[2]The deployment view of an architecture can be critical in assessing whether the system will be able to satisfy its requirements. And possible assessment dimensions include:</p>
-<ul>
-<li>Available memory</li>
-<li>Power consumption</li>
-<li>Required network bandwidth</li>
-</ul>
-<p>###Software Architecture’s Elements<br>[1]A software system’s architecture should be a composition and interplay of different elements, which may include:</p>
-<ul>
-<li>Processing</li>
-<li>Data, also referred as information or state</li>
-<li>Interaction</li>
-</ul>
-<p>####Components<br>[1]Definition<br>A software component is an architectural entity that:</p>
-<ul>
-<li>encapsulates a subset of the system’s functionality and/or data;</li>
-<li>restricts access to that subset via an explicitly defined interface;</li>
-<li>has explicitly defined dependencies on its required execution context.</li>
-</ul>
-<p>[2]Components typically provide application-specific services</p>
-<p>####Connectors<br>[1]Definition<br>A software connector is an architectural building block tasked with effecting and regulating interactions among components.</p>
-<p>[2]Connectors typically provide application-independent interaction facilities</p>
-<p>[3]Examples of Connectors</p>
-<ul>
-<li>Procedure call connectors</li>
-<li>Shared memory connectors</li>
-<li>Message passing connectors</li>
-<li>Streaming connectors</li>
-<li>Distribution connectors</li>
-<li>Wrapper/adaptor connectors</li>
-</ul>
-<p>[4]Implemented vs. Conceptual Connectors<br>(1)Connectors in software system implementations</p>
-<ul>
-<li>Frequently no dedicated code</li>
-<li>Frequently no identity</li>
-<li>Typically do not correspond to compilation units</li>
-<li>Distributed implementation<br>(2)Connectors in software architectures</li>
-<li>First-class entities</li>
-<li>Have identity</li>
-<li>Describe all system interaction</li>
-<li>Entitled to their own specifications &amp; abstractions</li>
-</ul>
-<p>[5]Roles<br>(1)Locus of interaction among set of components</p>
-<p>(2)Protocol specification (sometimes implicit) that defines its properties</p>
-<p>(3)Roles</p>
-<ul>
-<li>Communication</li>
-<li>Coordination</li>
-<li>Conversion</li>
-<li>Facilitation</li>
-</ul>
-<p>[6]Connectors as Communicators<br>(1)Main role associated with connectors</p>
-<p>(2)Supports</p>
-<ul>
-<li>Different communication mechanisms</li>
-<li>Constraints on communication structure/direction</li>
-<li>Constraints on quality of service</li>
-</ul>
-<p>(3)Separates communication from computation</p>
-<p>(4)May influence non-functional system characteristics</p>
-<p>[7]Connectors as Coordinators<br>(1)Determine computation control</p>
-<p>(2)Control delivery of data</p>
-<p>(3)Separates control from computation</p>
-<p>(4)Orthogonal to communication, conversion, and facilitation</p>
-<p>[8]Connectors as Converters<br>(1)Enable interaction of independently developed, mismatched components</p>
-<p>(2)Mismatches based on interaction</p>
-<p>(3)Examples: Adaptors and Wrappers</p>
-<p>[9]Connectors as Facilitators<br>(1)Enable interaction of components intended to interoperate</p>
-<p>(2)Govern access to shared information</p>
-<p>(3)Ensure proper performance profiles</p>
-<p>(4)Provide synchronization mechanisms</p>
-<p>[10]Connector Types</p>
-<ul>
-<li>Procedure call (multi connectors added together)</li>
-<li>Data access</li>
-<li>Event</li>
-<li>Stream</li>
-<li>Linkage</li>
-<li>Distributor</li>
-<li>Arbitrator</li>
-<li>Adaptor</li>
-</ul>
-<p>[11]How to select a connector</p>
-<ul>
-<li>Determine a system’s interconnection and interaction needs<br>Software interconnection models can help</li>
-<li>Determine roles to be fulfilled by the system’s connectors<br>Communication, coordination, conversion, facilitation</li>
-<li>For each connector<br>Determine its appropriate type(s)<br>Determine its dimensions of interest<br>Select appropriate values for each dimension</li>
-<li>For multi-type, i.e., composite connectors<br>Determine the atomic connector compatibilities</li>
-</ul>
-<p>[12]Software Interconnection Models</p>
-<ul>
-<li>Unit interconnection</li>
-<li>Syntactic interconnection</li>
-<li>Semantic interconnection</li>
-</ul>
-<p>[13]Unit Interconnection<br>(1)Defines relations between system’s units</p>
-<ul>
-<li>Units are components (modules or files)</li>
-<li>Basic unit relationship is dependency</li>
-</ul>
-<p>(2)Characteristic</p>
-<ul>
-<li>Coarse-grain interconnections</li>
-<li>Interconnections are static</li>
-<li>Does not describe component interactions</li>
-</ul>
-<p>[14]Syntactic Interconnection<br>(1)Describes relations among syntactic elements of programming languages</p>
-<ul>
-<li>Variable definition/use</li>
-<li>Method definition/invocation</li>
-</ul>
-<p>(2)Characteristic</p>
-<ul>
-<li>Finer-grain interconnections</li>
-<li>Interconnections are static &amp; dynamic</li>
-<li>Incomplete interconnection specification</li>
-</ul>
-<p>[14]Semantic Interconnection<br>(1)Expresses how system components are meant to be used; Captures how system components are actually used; Interconnection semantics can be formally specified.</p>
-<p>(2)Characteristics</p>
-<ul>
-<li>Builds on syntactic interconnections</li>
-<li>Interconnections are static &amp; dynamic</li>
-<li>Complete interconnection specification</li>
-<li>Necessary at level of architectures</li>
-<li>Ensuring other properties of interaction</li>
-</ul>
-<p>[15]Composite Connectors<br>(1)The composition can be considered at the level of connector type dimensions and subdimensions.</p>
-<p>(2)Examples:</p>
-<ul>
-<li>Grid connectors</li>
-<li>Peer-to-peer connectors</li>
-<li>Client-server connectors</li>
-<li>Event-based connectors</li>
-</ul>
-<p>###Adaptor<br>[1]Adaptation<br>Modification of a software system to satisfy new requirements and changing circumstances.</p>
-<p>[2]Motivation</p>
-<ul>
-<li>Corrective Changes</li>
-<li>Modification to the functional requirements </li>
-<li>New or changed non-functional system properties</li>
-<li>Changed operating environment</li>
-<li>Observation and analysis </li>
-</ul>
-<p>[3]Architecture-Centric Adaptation<br>(1)In the absence of explicit architecture the engineer is left to reason about adaptation from memory or source code.</p>
-<p>(2)Architecture can serve as the primary focus of reasoning about potential adaptations</p>
-<p>[3]Activities, Agents, and Entities<br>(1)Adaptation management and evolution management can be separated into three types of activities.</p>
-<ul>
-<li>Strategic refers to determining what to do</li>
-<li>Tactical refers to developing detailed plans for achieving the strategic goals</li>
-<li>Operations refers to the nuts-and-bolts of carrying out the detailed plans </li>
-</ul>
-<p>[4]Categories of Techniques</p>
-<ul>
-<li>Observing and collecting state</li>
-<li>Analyzing data and planning change</li>
-<li>Describing change descriptions </li>
-<li>Deploying change descriptions</li>
-<li>Effecting the change</li>
-</ul>
-<p>[5]Architectures/Styles Supporting Adaptation</p>
-<ul>
-<li>Application programming interfaces (API)</li>
-<li>Scripting languages </li>
-<li>Plug-ins </li>
-<li>Component/object architectures </li>
-<li>Event interfaces  </li>
-</ul>
-<p>[6]The Special Problems of On-the-fly Change<br>(1)The principle of quiescence </p>
-<ul>
-<li>A node in the active state can initiate and respond to transactions.</li>
-<li>The state identified as necessary for reconfiguration is the passive state: node must respond to transaction; not currently engaged in a transaction that it initiated; it will not initiate new transactions.</li>
-</ul>
-<p>####Configurations<br>[1]Definition<br>An architectural configuration, or topology, is a set of specific associations between the components and connectors of a software system’s architecture.</p>
-<p>###Architectural Styles<br>[1]Definition<br>An architectural style is a named collection of architectural design decisions that:</p>
-<ul>
-<li>are applicable in a given development context;</li>
-<li>constrain architectural design decisions that are specific to a particular system within that context;</li>
-<li>elicit beneficial qualities in each resulting system.</li>
-</ul>
-<p>[2]Benefits of using styles</p>
-<ul>
-<li>Design reuse: Well-understood solutions applied to new problems.</li>
-<li>Code reuse: Shared implementations of invariant aspects of a style.</li>
-<li>Understandability of system organization: A phrase such as “client-server” conveys a lot of information.</li>
-<li>Interoperability: Supported by style standardization.</li>
-<li>Style-specific analyses: Enabled by the constrained design space.</li>
-<li>Visualizations: Style-specific depictions matching engineers’ mental models.</li>
-</ul>
-<p>###Architectural Patterns<br>[1]Definition<br>An architectural pattern is a set of architectural design decisions that are applicable to a recurring design problem and parameterized to account for different software development contexts in which that problem appears.</p>
-<p>[2]Style vs. Pattern</p>
-<ul>
-<li>A style prescribes the types of system elements and constraints on their composition.</li>
-<li>A pattern prescribes a specific set of system elements and their specific organization in (part) of a system.</li>
-</ul>
-<p>###Architectural Models, Views, and Visualizations</p>
-<p>####Architecture Model<br>[1]Definition<br>An artifact documenting some or all of the architectural design decisions about a system.</p>
-<p>####Architecture Visualization<br>[1]Definition<br>A way of depicting some or all of the architectural design decisions about a system to a stakeholder.</p>
-<p>####Architecture View<br>[1]Definition<br>A subset of related architectural design decisions.</p>
-<p>###Stakeholders in a System’s Architecture</p>
-<ul>
-<li>Architects</li>
-<li>Developers</li>
-<li>Testers</li>
-<li>Managers</li>
-<li>Customers</li>
-<li>Users</li>
-<li>Vendors</li>
-</ul>
-<p>###Architecture Design<br>[1]Abstraction<br>The act or process of separating in thought, of considering a thing independently of its associations; or a substance independently of its attributes; or an attribute or quality independently of the substance to which it belongs.</p>
-<p>[2]Reification<br>The mental conversion of … [an] abstract concept into a thing.</p>
-<p>[3]Deduction<br>The process of drawing a conclusion from a principle already known or assumed; spec. in Logic, inference by reasoning from generals to particulars; opposed to INDUCTION.</p>
-<p>[4]Induction<br>The process of inferring a general law or principle from the observation of particular instances (opposed to DEDUCTION, q.v.).</p>
-<p>[5]Simple Machines<br>Simple machines serve as an abstraction of a potential system that will perform the required task and provide a plausible first conception of how an application might be built.<br>Every application domain has its common simple machines. </p>
-<p>[6]Separation of Concerns<br>Separation of concerns is the subdivision of a problem into (hopefully) independent parts. </p>
-<p>###Architecture Visualization<br>An architectural visualization defines how architectural models are depicted, and how stakeholders interact with those depictions, whereas depition is a picture or other visual representation of design decisions and interaction is mechanism allows stakeholders to interact with design decisions in terms of the depiction.</p>
-<p>###Architecture Implementation Frameworks<br>An architecture implementation framework is a piece of software that acts as a bridge between a particular architectural style and a set of implementation technologies. It provides key elements of the architectural style in code, in a way that assists developers in implementing systems that conform to the prescriptions and constraints of the style.</p>
-<p>###Domain-Specific Software Architectures<br>[1]Definition<br>A DSSA is an assemblage of software components that:</p>
-<ul>
-<li>specialized for a particular type of task (domain),</li>
-<li>generalized for effective use across that domain, and</li>
-<li>composed in a standardized structure (topology) effective for building successful applications.</li>
-</ul>
-<p>[2]Since DSSAs are specialized for a particular domain they are only of value if one exists for the domain wherein the engineer is tasked with building a new application and the pre-eminent means for maximal reuse of knowledge and prior development and hence for developing a new architectural design.</p>
-<p>[3]Three Key Factors<br>(1)Domain<br>Must have a domain to constrain the problem space and focus development.</p>
-<p>(2)Technology<br>Must have a variety of technological solutions—tools, patterns, architectures &amp; styles, legacy systems—to bring to bear on a domain</p>
-<p>(3)Business<br>Business goals motivate the use of DSSE</p>
-<ul>
-<li>Minimizing costs: reuse assets when possible</li>
-<li>Maximize market: develop many related applications for different kinds of end users</li>
-</ul>
-<p>(4)Domain + Business<br>Corporate Core Competencies: Domain expertise augmented by business acumen and knowledge of the market.</p>
-<p>(5)Domain + Technology<br>Application Family Architectures:</p>
-<ul>
-<li>All possible technological solutions to problems in a domain.</li>
-<li>Uninformed and unconstrained by business goals and knowledge.</li>
-</ul>
-<p>(6)Business + Technology<br>Domain independent infrastructure: Tools and techniques for constructing systems independent of any particular domain.</p>
-<p>(7)Domain + Business + Technology<br>Domain-specific software engineering: Applies technology to domain-specific goals, tempered by business and market knowledge.</p>
-<p>###Domain Model<br>A domain model is a set of artifacts that capture information about a domain.</p>
-<ul>
-<li>Functions performed</li>
-<li>Objects (also known as entities) that perform the functions, and on which the functions are performed</li>
-<li>Data and information that flows through the system</li>
-</ul>
-<p>###Info Model<br>[1]Context Info Diagram</p>
-<ul>
-<li>Defines high-level entities</li>
-<li>Defines what is considered inside and outside the domain (or subdomains)</li>
-<li>Defines relationships and high-level flows</li>
-</ul>
-<p>[2]Entity-Relationship Diagram<br>Defines entities and cardinal relationships between them</p>
-<p>[3]Object Diagram</p>
-<ul>
-<li>Defines attributes and operations on entities</li>
-<li>Closely resembles class diagram in UML but may be more abstract</li>
-</ul>
-<p>###Feature Model<br>[1]Feature Relationship Diagram</p>
-<ul>
-<li>Describes overall mission operations of a system</li>
-<li>Describes major features and decomposition</li>
-</ul>
-<p>[2]Use Case Diagram</p>
-<ul>
-<li>Defines use cases within the domain</li>
-<li>Similar to use case models in UML</li>
-</ul>
-<p>[3]Representation Diagram<br>Defines how information is presented to human users</p>
-<p>###Feature Model<br>[1]Representation Diagram<br>Defines how information is presented to human users</p>
-<p>###Operational Model<br>[1]Data Flow Diagram<br>Focuses on data flow between entities with no notion of control</p>
-<p>[2]Control Flow Diagram<br>Focuses on control flow between entities separate from data flow</p>
-<p>[3]State Transition Diagram</p>
-<ul>
-<li>Focuses on states of systems and transitions between them</li>
-<li>Resembles UML state diagrams</li>
-</ul>
-<p>###Reference Architecture<br>[1]Definition<br>Reference architecture is the set of principal design decisions that are simultaneously applicable to multiple related systems, typically within an application domain, with explicitly defined points of variation.</p>
-<p>[2]Examples:</p>
-<ul>
-<li>Structural view of Lunar Lander DSSA.</li>
-<li>Invariant with explicit points of variation.</li>
-</ul>
-<p>###Product Lines<br>[1]A set of related products that have substantial commonality. One potential ‘silver bullet’ of software engineering,</p>
-<p>###Product Line Architecture<br>[1]Definition:<br>A product-line architecture captures the architectures of many related products simultaneously</p>
-<p>[2]Product Component Table<br>Helps us decide whether creating a product line is viable or feasible</p>
-<p>[3]Group Components into Features</p>
-<ul>
-<li>Not a mechanical process</li>
-<li>Attempt to identify (mostly) orthogonal features, or features that would be beneficial in different products</li>
-<li>Not a mechanical process</li>
-<li>Attempt to identify (mostly) orthogonal features, or features that would be beneficial in different products</li>
-</ul>
-<p>[4]Reconstitute Products from Features<br>Use technical and business knowledge to identify which combinations form feasible or marketable products that will be constructed</p>
-<p>###Non-Functional Property<br>[1]Definition<br>A software system’s non-functional property (NFP) is a constraint on the manner in which the system implements and delivers its functionality.</p>
-<p>[2]Examples</p>
-<ul>
-<li>Efficiency</li>
-<li>Complexity</li>
-<li>Scalability</li>
-<li>Heterogeneity</li>
-<li>Adaptability</li>
-<li>Dependability</li>
-</ul>
-<p>###Deployment<br>[1]Definition<br>Deployment is the process of placement of a system’s software components on its hardware hosts.</p>
-<p>###Mobility<br>[1]Definition<br>Changing the deployment of a component during runtime is called migration or redeployment;<br>Migration or redeployment is a type of software system mobility.</p>
-<p>[2]Categories<br>(1)Movement of software across hardware hosts during the system’s execution, that action is referred to as code mobility or logical mobility<br>(2)If a software module that needs to be migrated contains runtime state, then the module’s migration is known as stateful mobility<br>(3)If only the code needs to be migrated, that is known as stateless mobility</p>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/20/">&laquo; Anterior</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/22/">Siguiente &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/20/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="page-number" href="/page/20/">20</a><span class="page-number current">21</span><a class="page-number" href="/page/22/">22</a><a class="page-number" href="/page/23/">23</a><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/22/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -2380,7 +1550,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -2388,7 +1558,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -2473,7 +1643,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Nube de Etiquetas</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -2496,6 +1666,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/11/12/Docker-File-QuickStart/">Docker File QuickStart</a>
+      </li>
+    
+      <li>
+        <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
       </li>
     
@@ -2505,14 +1683,6 @@
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
       </li>
     
   </ul>

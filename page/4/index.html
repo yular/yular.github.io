@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Página 4 | YBC HomePage</title>
+  <title>Seite 4 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -94,7 +94,206 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-11-06T07:25:12.000Z"><a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">2017-11-05</a></time>
+        <time datetime="2017-12-03T05:22:17.000Z"><a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">2017-12-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/12/03/Reading-Note-of-Code-Complete-I/">Reading Note of Code Complete I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of the book <code>Code Complete</code>.</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><ul>
+<li>Problem Definition: A problem definition defines what the problem is without any reference to possible solutions. The problem definition should be in user language, and described from a useras point of view. </li>
+<li>Requirement: Requirements describe in detail what a software system is supposed to do, and they are the first step toward a solution.</li>
+<li>Data Design: Data should be normally accessed directly by only one subsystem or class, except through access classes or routines allowing access to the data in controlled and abstract ways.</li>
+</ul>
+<h3 id="Basic"><a href="#Basic" class="headerlink" title="Basic"></a>Basic</h3><ul>
+<li>Marjor classes: 20% of the classes make up 80% of the system behaviour.</li>
+<li>Things to do to make the best of changing requirements during construction:<ul>
+<li>Use the requirements checklist to access the quality of requirement.</li>
+<li>Make sure everyone knows the cost of requirement changes.</li>
+<li>Setup a change-control procedure.</li>
+<li>Use developement approaches that accommondate changes.</li>
+<li>Dump the project.</li>
+<li>Keep your eye on the business case for the project.</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Software-Development/">Software Development</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-12T16:59:24.000Z"><a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">2017-11-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/">Reading Note of Java Concurrency in Practice IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="活跃度，性能和测试"><a href="#活跃度，性能和测试" class="headerlink" title="活跃度，性能和测试"></a>活跃度，性能和测试</h2><h3 id="避免活跃度危险"><a href="#避免活跃度危险" class="headerlink" title="避免活跃度危险"></a>避免活跃度危险</h3><ul>
+<li>开放调用：调用的方法不需要持有锁。</li>
+<li>分拆数据模型，其包含表现域和应用域。表现模型限制在事件线程中和应用线程中，共享模型线程安全，允许事件线程和应用程序线程访问。表现模型注册共享模型的监听器，这样在更新时可以得到通知。</li>
+<li>线程的优先级往往与平台相关。</li>
+<li>若所有线程以通用的固定秩序获得锁，程序就不会出现死锁问题。</li>
+<li>在持有锁的时候调用外部方法是在挑战活跃问题。外部方法可能获得其他锁（从而导致死锁），或者遭遇严重的超时堵塞。当持有这类锁的时候会延迟其他试图获得该锁的线程。</li>
+<li>检测代码中死锁自由度的策略分为两部分：<ul>
+<li>首先识别什么地方会获得多个锁（使此集合尽量小），对这些实例进行全局分析，确保锁的顺序在程序中一致；</li>
+<li>尽可能使用开放调用。</li>
+</ul>
+</li>
+<li>JVM 使用线程转储来帮助识别死锁的发生。</li>
+<li>活锁发生时，尽管没有阻塞，线程却不能继续，因为它不断重试相同的操作，却总是失败。解决方法是对重试机制引入一些随机性。</li>
+</ul>
+<h3 id="性能和可伸缩性"><a href="#性能和可伸缩性" class="headerlink" title="性能和可伸缩性"></a>性能和可伸缩性</h3><ul>
+<li>性能可伸缩性：当增加计算资源时（比如增加额外CPU数量，内存，存储器，IO带宽），吞吐量和生产量能够相应地得以提高。</li>
+<li>Amdahl定律：在一个系统中，基于可并行化和串行化的组件各自所占的比重，程序通过获得额外的计算资源，理论上能加速多少。</li>
+<li>减少锁的竞争能够改进性能和可伸缩性。并发程序中，对可伸缩性首要威胁是独占的资源锁。</li>
+<li>减少锁的竞争方式：<ul>
+<li>减少持有锁的时间；</li>
+<li>减少请求锁的频率；</li>
+<li>用协调机制取代独占锁。</li>
+</ul>
+</li>
+<li>减小持有锁的时间比例的方法:<ul>
+<li>尽可能缩短持有锁的时间；</li>
+<li>尽可能减少线程调用锁的频率，这可以通过分拆锁和分离锁来实现，即采用相互独立的锁守卫多个独立的状态变量，在改变之前它们都由一个锁守护。</li>
+</ul>
+</li>
+<li>CPU没被完全利用的原因：<ul>
+<li>不充足的负载；</li>
+<li>IO 限制;</li>
+<li>外部限制；</li>
+<li>锁竞争。</li>
+</ul>
+</li>
+<li>谨慎使用对象池。上线问切换发生在一个线程在运行和阻塞这两个状态之间的转换。</li>
+<li>除非线程总是由于密集的同步条件而持续地被阻塞，非公平的信号量通常能够提供更好的吞吐量，公平的信号提供更低的差异性。</li>
+</ul>
+<h3 id="测试并发程序"><a href="#测试并发程序" class="headerlink" title="测试并发程序"></a>测试并发程序</h3><ul>
+<li>测试线程代码：编写有潜力暴露问题的测试，在不同的编程配置，系统配置和负载条件下频繁运行。如果失败，跟踪错误。</li>
+<li>建议:<ul>
+<li>将伪失败看作可能的线程问题，别归咎于偶发事件。</li>
+<li>先使非线程代码工作。</li>
+<li>编写可调整的线程代码（比如线程数目）。</li>
+<li>运行多于处理器数量的线程。</li>
+<li>在不同平台上运行代码。</li>
+<li>编写可插拔（能动态变化）的线程代码。</li>
+<li>装置试错代码，比如用sleep，yield，priority等能改变执行顺序的方法。</li>
+<li>两种装置代码的方法：硬编码，自动化（用AOP工具，使用异动策略搜出错误）。</li>
+</ul>
+</li>
+<li>并发测试主要有两类：安全性测试和活跃度测试。</li>
+<li>活跃度相关的测试是性能测试：吞吐量，响应性，可伸缩性。</li>
+<li>并发类单元测试：和顺序类相同的分析，即识别出不变约束和后验条件。</li>
+<li>避免性能测试的陷阱：<ul>
+<li>垃圾回收；</li>
+<li>动态编译；</li>
+<li>代码路径的非真实取样；</li>
+<li>“不切实际的竞争程度，死代码的消除。”</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<h2 id="高级主题"><a href="#高级主题" class="headerlink" title="高级主题"></a>高级主题</h2><h3 id="显式锁"><a href="#显式锁" class="headerlink" title="显式锁"></a>显式锁</h3><ul>
+<li>可轮询和可定时的锁获取方式，是由tryLock实现，让线程释放已经获得的锁，然后重新尝试获取其他锁的控制权，若在一定时间内所有尝试都失败，则该线程会结束。</li>
+<li>可中断的锁获取操作允许在可取消的活动中使用。当线程响应中断时，lockInterruptibly可以使该线程获得锁。定时的tryLock响应中断。</li>
+<li>ReentrantLock 构造函数提供公平锁和非公平锁，后者允许线程闯入不按线程的请求顺序获得执行权。在以下情况才用ReentrantLock：<ul>
+<li>可轮询和可定时的锁；</li>
+<li>可中断的锁获取操作；</li>
+<li>公平队列或者非块结构的锁。<br>否则使用synchronizedLock。synchronized内置于JVM，可以进行优化。</li>
+</ul>
+</li>
+<li>ReentrantLock 可以实现读写锁，该锁是部分互斥的。读者锁可共享，读写锁或写写锁互斥；允许写锁降级成读锁，而读锁不能升级成写锁。</li>
+</ul>
+<h3 id="构建自主定义的同步工具"><a href="#构建自主定义的同步工具" class="headerlink" title="构建自主定义的同步工具"></a>构建自主定义的同步工具</h3><ul>
+<li>条件队列可以让一组线程（等待集），以等待某种相关条件变成真以后，才可能有机会得以执行。</li>
+<li>丢失的信号：一个线程等待的条件已经为真，但进入等待前检查条件谓词却返回了假，此为真的信号是丢失的信号。无论何时，当你在等待一个条件，一定要确保有人会在条件谓词变为真时通知到目标线程。</li>
+<li>一个依赖于状态的类，要么完全将它的等待和通知协议暴露（并文档化）给子类，要么完全阻止子类参与其中。封装条件队列，这样在使用它的类层次结构之外，无法访问它。</li>
+<li>入口协议就是操作的条件谓词。出口协议涉及到要检查任何被操作改变的状态变量，确认它们是否引起其他一些条件谓词为真，若是，通知相关的条件队列。</li>
+<li>一个Condition和一个单独的Lock相关联，就像条件队列和单独的内部锁相关联一样。不同的是，每个Lock都有任意数量的Condition对象，其继承了与之相关的锁的公平性。</li>
+<li>类似ReentrantLock，需要使用一些高级特性时，Condition要好于内部条件队列。</li>
+</ul>
+<h3 id="原子变量与非阻塞同步机制"><a href="#原子变量与非阻塞同步机制" class="headerlink" title="原子变量与非阻塞同步机制"></a>原子变量与非阻塞同步机制</h3><ul>
+<li>非阻塞算法：一个线程失败或挂起不影响其他线程的失败或挂起。</li>
+<li>锁自由算法：算法的每一步中都有一些线程能够继续执行。 </li>
+<li>避免ABA问题：更新一对值，包括引用和版本号。</li>
+</ul>
+<h3 id="Java存储模型-JMM"><a href="#Java存储模型-JMM" class="headerlink" title="Java存储模型 (JMM)"></a>Java存储模型 (JMM)</h3><ul>
+<li>JMM为所有程序内部的动作定义了一个偏序关系（happens-before），该法则包括：程序次序法则，监视器法则，volatile变量法则，线程启动法则，线程终结法则，中断法则，终结法则，传递性。</li>
+<li>初始化安全性保证只有以通过final域触及的值，在构造函数完成时才是可见的。对于通过非final域触及的值，或者创建完成后可能改变的值，必须通过使用同步来确保可见性。</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-11-05T15:25:12.000Z"><a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/">2017-11-05</a></time>
       
       
   
@@ -199,7 +398,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-11-03T06:28:16.000Z"><a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">2017-11-02</a></time>
+        <time datetime="2017-11-02T15:28:16.000Z"><a href="/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/">2017-11-02</a></time>
       
       
   
@@ -309,7 +508,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-30T07:39:52.000Z"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">2017-10-30</a></time>
+        <time datetime="2017-10-29T16:39:52.000Z"><a href="/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/">2017-10-30</a></time>
       
       
   
@@ -423,7 +622,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-05T01:45:50.000Z"><a href="/2017/10/04/ReactJS-QuickStart/">2017-10-04</a></time>
+        <time datetime="2017-10-04T10:45:50.000Z"><a href="/2017/10/04/ReactJS-QuickStart/">2017-10-04</a></time>
       
       
   
@@ -503,7 +702,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-02T07:42:40.000Z"><a href="/2017/10/02/小结：巴菲特之路和投资组合/">2017-10-02</a></time>
+        <time datetime="2017-10-01T16:42:40.000Z"><a href="/2017/10/02/小结：巴菲特之路和投资组合/">2017-10-02</a></time>
       
       
   
@@ -670,7 +869,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-02T06:18:39.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">2017-10-01</a></time>
+        <time datetime="2017-10-01T15:18:39.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VII/">2017-10-01</a></time>
       
       
   
@@ -798,7 +997,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-02T05:20:52.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">2017-10-01</a></time>
+        <time datetime="2017-10-01T14:20:52.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-VI/">2017-10-01</a></time>
       
       
   
@@ -889,7 +1088,7 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-10-02T05:02:21.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">2017-10-01</a></time>
+        <time datetime="2017-10-01T14:02:21.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-V/">2017-10-01</a></time>
       
       
   
@@ -974,200 +1173,11 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-10-02T04:34:37.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">2017-10-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-31-Use-instance-fields-instead-of-ordinals"><a href="#Item-31-Use-instance-fields-instead-of-ordinals" class="headerlink" title="Item 31. Use instance fields instead of ordinals"></a>Item 31. Use instance fields instead of ordinals</h3><p>All enums have an ordinal method returning the numerical position of each enum constant in its type.</p>
-<p>Never derive a value associated with an enum from its ordinal; store it in an instance field instead.</p>
-<hr>
-
-<h3 id="Item-32-Use-EnumSet-instead-of-bit-fields"><a href="#Item-32-Use-EnumSet-instead-of-bit-fields" class="headerlink" title="Item 32. Use EnumSet instead of bit fields"></a>Item 32. Use EnumSet instead of bit fields</h3><p>Especially an enum type will be used in sets</p>
-<hr>
-
-<h3 id="Item-33-Use-EnumMap-instead-of-ordinal-indexing"><a href="#Item-33-Use-EnumMap-instead-of-ordinal-indexing" class="headerlink" title="Item 33. Use EnumMap instead of ordinal indexing"></a>Item 33. Use EnumMap instead of ordinal indexing</h3><hr>
-
-<h3 id="Item-34-Emulate-extensible-enums-with-interface"><a href="#Item-34-Emulate-extensible-enums-with-interface" class="headerlink" title="Item 34. Emulate extensible enums with interface"></a>Item 34. Emulate extensible enums with interface</h3><p>One compelling use case for extensible enumerated types is operation codes.</p>
-<hr>
-
-<h3 id="Item-35-Prefer-annotations-to-naming-patterns"><a href="#Item-35-Prefer-annotations-to-naming-patterns" class="headerlink" title="Item 35. Prefer annotations to naming patterns"></a>Item 35. Prefer annotations to naming patterns</h3><p>All programmers should use predefined annotation types provided by the Java platform.</p>
-<hr>
-
-<h3 id="Item-36-Consistently-use-the-Override-annotation"><a href="#Item-36-Consistently-use-the-Override-annotation" class="headerlink" title="Item 36. Consistently use the Override annotation"></a>Item 36. Consistently use the Override annotation</h3><p>Should use the Override annotation on every method declaration that you believe to override a superclass declaration.</p>
-<p>One exception is that in concrete classes, need not annotate methods that you believe to override abstract methods declaration.</p>
-<hr>
-
-<h3 id="Item-37-Use-marker-interfaces-to-define-types"><a href="#Item-37-Use-marker-interfaces-to-define-types" class="headerlink" title="Item 37. Use marker interfaces to define types"></a>Item 37. Use marker interfaces to define types</h3><p>Advantages of marker interface:</p>
-<ul>
-<li>Define a type implemented by instances of the marked class but marker annotations do not;</li>
-<li>Maker interface can be targeted more precisely and if an annotation type is declared with target ElementType.TYPE, it can be applied to any class or interface.</li>
-<li>Must use marker interface if marker only applies to classes and interfaces, or want to write one or more methods accepting only objects having this marking.</li>
-<li>If want to limit the use of marker to elements of a particular interface, define the marker as a subinterface of that interface.</li>
-</ul>
-<p>Advantages of marker annotations over marker interfaces:</p>
-<ul>
-<li>It is possible to add more information to an annotation type after it is already in use by adding one or more annotation elements with defaults.</li>
-<li>Must use an annotation if the marker applies to any program element other than a class or interface.</li>
-</ul>
-<hr>
-
-<h3 id="Item-38-Check-parameters-for-validity"><a href="#Item-38-Check-parameters-for-validity" class="headerlink" title="Item 38. Check parameters for validity"></a>Item 38. Check parameters for validity</h3><p>For public methods, use Javadoc <code>@throws</code> tag to document the exception that will be thrown if a restriction on parameter values is violated. For nonpublic methods, use assertion to check parameters.</p>
-<p>Constructor should check the validity of parameters stored away for later use.</p>
-<p>Exception is the case in which the validity check would be expensive or impractical and it is performed implicitly.</p>
-<p>Should design methods to be as general as it is practical to make them. The fewer restriction on parameters, the better; Document all the restrictions and enforce them with explicit checks at the beginning of the method body.</p>
-<hr>
-
-<h3 id="Item-39-Make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39. Make defensive copies when needed"></a>Item 39. Make defensive copies when needed</h3><p>Must program defensively with assumption that clients of class will do their best to destroy its invariants.</p>
-<hr>
-
-<h3 id="Item-40-Design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40. Design method signatures carefully"></a>Item 40. Design method signatures carefully</h3><p>Here are the rules:</p>
-<ul>
-<li>Choose method names carefully.</li>
-<li>Do not go overboard in providing convenience methods.</li>
-<li>Avoid long parameter lists.</li>
-<li>For parameter types, favor interfaces over classes.</li>
-<li>Prefer two-element enum type to boolean parameters.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-10-02T00:52:05.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">2017-10-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-III/">Reading Note of Effective Java III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-21-Use-function-objects-to-represent-strategies"><a href="#Item-21-Use-function-objects-to-represent-strategies" class="headerlink" title="Item 21. Use function objects to represent strategies"></a>Item 21. Use function objects to represent strategies</h3><p>Strategy pattern is to allow the caller of a function to specialize its behavior by passing in a second function. Function objects are instances of classes implementing interfaces whose methods perform operations on other objects, passed explicitly to that methods. A typical concrete strategy class is stateless, has no fields, and thus all instances are functionally equivalent.</p>
-<p>In Java, to implement Strategy pattern, declare an interface to represent the strategy, and a class that implements this interface for each concrete strategy.</p>
-<hr>
-
-<h3 id="Item-22-Favor-static-member-classes-over-nonstatic"><a href="#Item-22-Favor-static-member-classes-over-nonstatic" class="headerlink" title="Item 22. Favor static member classes over nonstatic."></a>Item 22. Favor static member classes over nonstatic.</h3><p>Static member clases are kinds of nested class. One common use of a static member class is as a public helper class, useful only in conjunction with its outer class. The association between a nonstatic member class instance and its enclosing instance is established when the former is created, and it cannot be modified thereafter. The association takes up time and space for nonstatic member class construction.</p>
-<p>One common use of a nonstatic member class is to define an Adapter allowing an instance of the outer clas to be viewed as an instance of some unrelated class. Each instance of a nonstatic member class is implicitly associated with an enclosing instance of its enclosing class. Within instance methods of a nonstatic member class, can invoke methods on the enclosing instance or obtain a reference to the enclosing instance using the <em> qualified this</em> construct.</p>
-<p>If declare a member class does not require access to an enclosing instance, always use static modifier in declaration.</p>
-<p>Common use of private static member classe is to reperesent components of the object represented by their enclosing class.</p>
-<p>Common use of anonymous classes is to create function objects on the fly, to create process objects, such as Runnable, Thread, or TimerTask instances, and within static factory methods.</p>
-<hr>
-
-<h3 id="Item-23-Do-not-use-raw-types-in-new-code"><a href="#Item-23-Do-not-use-raw-types-in-new-code" class="headerlink" title="Item 23. Do not use raw types in new code"></a>Item 23. Do not use raw types in new code</h3><p>A class or interface whose declaration has one or more type parameters is a generic class or interface, and they are called generic types. For example, List<e> is generic type. </e></p>
-<p>Each generic type defines a set of parameterized types, which consists of actual type parameters corresponding to the generic type as formal type parameters. For example, List<string>.</string></p>
-<p>Each generic type defines a raw type, which is the name of the generic type used without any accompanying actual tpye parameters. For example, List.</p>
-<p>It is fine to use types parameterized to allow insertion of arbitrary objects. For example, List<object>.</object></p>
-<p>If the element type is unknown and does not matter, use unbounded wildcard types. When use unbouned wilcard types, not only cannot put any element except null into a Collection&lt;?&gt;, but also cannot assume anything about the type of the objects that user get out. For example,Set&lt;?&gt;. To use unbounded wildcard type, do this: <code>Set&lt;?&gt; st = new Set&lt;String&gt;()</code> by specifying a type; otherwise, no element can be inserted to the data collection. If these restrictions are unacceptable, use generic methods or bounded wildcard types.</p>
-<p>Two exceptions to the rule of disallowing raw types, both stem from the fact that generic type information is erased at runtime.</p>
-<ul>
-<li>Must use raw type in class literals. For example, List.class.</li>
-<li>The preferred way to use the instanceof operator with generic types is o instanceof Set.</li>
-</ul>
-<p>Bounded type: exp. <e extends="" number="">.</e></p>
-<p>Bounded wildcard type: exp. &lt;? extends Number&gt;</p>
-<hr>
-
-<h3 id="Item-24-Eliminate-unchecked-warnings-Ensure-typesafe"><a href="#Item-24-Eliminate-unchecked-warnings-Ensure-typesafe" class="headerlink" title="Item 24. Eliminate unchecked warnings. (Ensure typesafe)"></a>Item 24. Eliminate unchecked warnings. (Ensure typesafe)</h3><p>If cannot eliminate a warning, prove that the code provoking the warning is typesafe, and only then suppress the warning with an <code>@SuppressWarnings(&quot;unchecked&quot;)</code> annotation. And add a comment saying why it is safe to do so.</p>
-<p>Always use the Suppress-Warnings annotation on the smallest scope possible.</p>
-<hr>
-
-<h3 id="Item-25-Prefer-lists-to-arrays"><a href="#Item-25-Prefer-lists-to-arrays" class="headerlink" title="Item 25. Prefer lists to arrays"></a>Item 25. Prefer lists to arrays</h3><p>Arrays are covariant (if Sub is a subtype of Super, Sub[] is also a subtype of Super[]), and reified (know and enforce element types at runtime). </p>
-<p>Generics are invariant and erasure (enforce type constraints only at compile time and discard them at runtime).</p>
-<p>Do not mix use generics and arrays. For example, List<string>[].</string></p>
-<hr>
-
-<h3 id="Item-26-Favor-generic-types"><a href="#Item-26-Favor-generic-types" class="headerlink" title="Item 26. Favor generic types"></a>Item 26. Favor generic types</h3><hr>
-
-<h3 id="Item-27-Favor-generic-methods"><a href="#Item-27-Favor-generic-methods" class="headerlink" title="Item 27. Favor generic methods"></a>Item 27. Favor generic methods</h3><p>The type parameter list, which declares the type parameter, goes between the method’s modifiers and it’s return type.</p>
-<p>Recursive type bound is that a type parameter is bounded by some expression involving that type parameter itself. For example, interface Comparable<t> .</t></p>
-<hr>
-
-<h3 id="Item-28-Use-bounded-wildcards-to-increase-API-flexibility"><a href="#Item-28-Use-bounded-wildcards-to-increase-API-flexibility" class="headerlink" title="Item 28. Use bounded wildcards to increase API flexibility"></a>Item 28. Use bounded wildcards to increase API flexibility</h3><p>For maximum flexibility, use wildcard types on input parameters representing producers (extends E) or consumers (super E), which is PECS rule. But do not use wildcard types are return types.</p>
-<p>PECS rules: producers-extends, consumers-super. Both Comparable and Comparator are consumer pattern.</p>
-<p>Properly used, wildcard types are nearly invisible to users of a class. If the user of a class has to think about wildcard types, there is probably something wrong with the class’s API.</p>
-<p>If a type parameter appears once in a method declaration, replace it with a wildcard. Replace unbounded type parameter with unbounded wildcard, and replace bounded type parameter with bounded wildcard.</p>
-<hr>
-
-<h3 id="Item-29-Consider-typesafe-heterogeneous-containers"><a href="#Item-29-Consider-typesafe-heterogeneous-containers" class="headerlink" title="Item 29. Consider typesafe heterogeneous containers"></a>Item 29. Consider typesafe heterogeneous containers</h3><p>For example, Map<class<?>, Object&gt; typesafe and all keys are of different types.</class<?></p>
-<hr>
-
-<h3 id="Item-30-Use-enums-instead-of-int-constants"><a href="#Item-30-Use-enums-instead-of-int-constants" class="headerlink" title="Item 30. Use enums instead of int constants"></a>Item 30. Use enums instead of int constants</h3><p>To associate data with enum constants, declare instance fields and write a constructor that takes the data and stores it in the fields. If enum is generally useful, it should be a top level class; if its use is tied to a specific top-level class, it should be a member class of the top level class.</p>
-<p>Use constants specific method implementation pattern. Can combine with constant-specific data. The disadvantages is to make it harder to share code among enum constants.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Anterior</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Siguiente &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/5/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -1193,7 +1203,7 @@
   <div class="widget tag">
     <h3 class="title">Archive</h3>
     <div class="entry">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">September 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">July 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a></li></ul>
     </div>
   </div>
 
@@ -1201,7 +1211,7 @@
 
   
 <div class="widget tag">
-  <h3 class="title">Etiquetas</h3>
+  <h3 class="title">Tags</h3>
   <ul class="entry">
   
     <li><a href="/tags/Algorithm/">Algorithm</a><small>31</small></li>
@@ -1286,7 +1296,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Nube de Etiquetas</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -1309,6 +1319,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/11/12/Docker-File-QuickStart/">Docker File QuickStart</a>
+      </li>
+    
+      <li>
+        <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
+      </li>
+    
+      <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/">Reading Note of Effective Cplusplus III</a>
       </li>
     
@@ -1318,14 +1336,6 @@
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
-      </li>
-    
-      <li>
-        <a href="/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/">Reading Note of Patterns of Enterprise Application Architecture II</a>
       </li>
     
   </ul>
