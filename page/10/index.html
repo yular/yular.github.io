@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 10 | YBC HomePage</title>
+  <title>Page 10 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,81 +88,6 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-29T05:02:49.000Z"><a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">2017-01-29</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">Elasticsearch QuickStart: Introduction and Installation</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Elasticsearch is a highly scalable (distributed) open-source full-text search and analytics engine. It allows users to store, search, and analyze big volumes of data quickly and in near real time. It is generally used as the underlying engine/technology that powers applications that have complex search features and requirements. Here is the <a href="https://www.elastic.co/" target="_blank" rel="external">official website of Elastic Search</a>. And here is its <a href="https://github.com/elastic/elasticsearch" target="_blank" rel="external">Github Repository</a>.</p>
-<p>Below is the introduction of Elasticsearch and its installation guide.</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Here is the explanation of terminologies defined in Elastic Search. And here is the link of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html" target="_blank" rel="external">official webiste</a>.</p>
-<h3 id="Near-Real-Time-NRT"><a href="#Near-Real-Time-NRT" class="headerlink" title="Near Real Time (NRT)"></a>Near Real Time (NRT)</h3><p>Elasticsearch is a near real time engine, which means that it has a slight latency (normally 1s) from the time users index a document until the time it becomes searchable.</p>
-<h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p>A cluster is a collection of one or more nodes (servers) that together holds entire data and provides federated indexing and search capabilities across all nodes. A cluster is identified by a unique name which by default is “elasticsearch”. This name is important because a node can only be part of a cluster if the node is set up to join the cluster by its name.</p>
-<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><p>A node is a single server that is part of cluster, stores data, and participates in the cluster’s indexing and search capabilities. Just like a cluster, a node is identified by a name which by default is a random Universally Unique IDentifier (UUID) that is assigned to the node at startup. You can define any node name we want if we do not want the default. This name is important for administration purposes where we want to identify which servers in network correspond to which nodes in wer Elasticsearch cluster.</p>
-<h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>An index is a collection of documents that have somewhat similar characteristics. An index is identified by a name (that must be all lowercase) and this name is used to refer to the index when performing indexing, search, update, and delete operations against the documents in it.<br>In a single cluster, we can define as many indexes as we want.</p>
-<p>Index is similar to database defined in SQL.</p>
-<h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Within an index, we can define one or more types. A type is a logical category/partition of index whose semantics is completely up to us. In general, a type is defined for documents that have a set of common fields.</p>
-<p>Type is similar to table defined in SQL.</p>
-<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>A document is a basic unit of information that can be indexed. This document is expressed in JSON (JavaScript Object Notation) which is an ubiquitous internet data interchange format.</p>
-<p>Within an index/type, we can store as many documents as we want. </p>
-<h3 id="Shards"><a href="#Shards" class="headerlink" title="Shards"></a>Shards</h3><p>An index can potentially store a large amount of data that can exceed the hardware limits of a single node. To solve this problem, Elasticsearch provides the ability to subdivide our index into multiple pieces called shards. When we create an index, we can simply define the number of shards that we want. Each shard is in itself a fully-functional and independent “index” that can be hosted on any node in the cluster.</p>
-<p>Sharding is important for two primary reasons:</p>
-<ul>
-<li>It allows us to horizontally split/scale our content volume</li>
-<li>It allows us to distribute and parallelize operations across shards (potentially on multiple nodes) thus increasing performance/throughput</li>
-</ul>
-<p>Each Elasticsearch shard is a Lucene index. There is a maximum number of documents you can have in a single Lucene index. As of LUCENE-5843, the limit is 2,147,483,519 (= Integer.MAX_VALUE - 128) documents.</p>
-<h3 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h3><p>Replication is important for two primary reasons:</p>
-<ul>
-<li>It provides high availability in case a shard/node fails. For this reason, it is important to note that a replica shard is never allocated on the same node as the original/primary shard that it was copied from.</li>
-<li>It allows we to scale out our search volume/throughput since searches can be executed on all replicas in parallel.<br>To summarize, each index can be split into multiple shards. An index can also be replicated zero (meaning no replicas) or more times. Once replicated, each index will have primary shards (the original shards that were replicated from) and replica shards (the copies of the primary shards). The number of shards and replicas can be defined per index at the time the index is created. After the index is created, we may change the number of replicas dynamically anytime but we cannot change the number of shards after-the-fact.</li>
-</ul>
-<p>By default, each index in Elasticsearch is allocated 5 primary shards and 1 replica which means that if we have at least two nodes in our cluster, our index will have 5 primary shards and another 5 replica shards (1 complete replica) for a total of 10 shards per index.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="external">official tutorial</a>.</p>
-<p>Download Elasticsearch from this <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="external">link</a>.</p>
-<p>Here we use CentOS 7. So use this command to start Elasticsearch webservice:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch</span><br></pre></td></tr></table></figure></p>
-<p>Here is the output of above command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[2017-01-29T23:20:19,600][INFO ][o.e.n.Node               ] [] initializing ...</span><br><span class="line">[2017-01-29T23:20:19,854][INFO ][o.e.e.NodeEnvironment    ] [JXmT8Hz] using [1] data paths, mounts [[/ (rootfs)]], net usable_space [33.3gb], net total_space [45.5gb], spins? [unknown], types [rootfs]</span><br><span class="line">[2017-01-29T23:20:19,855][INFO ][o.e.e.NodeEnvironment    ] [JXmT8Hz] heap size [1.9gb], compressed ordinary object pointers [<span class="literal">true</span>]</span><br><span class="line">[2017-01-29T23:20:19,857][INFO ][o.e.n.Node               ] node name [JXmT8Hz] derived from node ID [JXmT8Hz_SA6brqro8ay6NQ]; <span class="built_in">set</span> [node.name] to override</span><br><span class="line">[2017-01-29T23:20:19,862][INFO ][o.e.n.Node               ] version[5.1.2], pid[20877], build[c8c4c16/2017-01-11T20:18:39.146Z], OS[Linux/3.10.0-327.el7.x86_64/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/1.8.0_91/25.91-b14]</span><br><span class="line">[2017-01-29T23:20:21,245][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [aggs-matrix-stats]</span><br><span class="line">[2017-01-29T23:20:21,245][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [ingest-common]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-expression]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-groovy]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-mustache]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-painless]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [percolator]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [reindex]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [transport-netty3]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [transport-netty4]</span><br><span class="line">[2017-01-29T23:20:21,248][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] no plugins loaded</span><br><span class="line">[2017-01-29T23:20:25,232][INFO ][o.e.n.Node               ] initialized</span><br><span class="line">[2017-01-29T23:20:25,233][INFO ][o.e.n.Node               ] [JXmT8Hz] starting ...</span><br><span class="line">[2017-01-29T23:20:25,612][INFO ][o.e.t.TransportService   ] [JXmT8Hz] publish_address &#123;127.0.0.1:9300&#125;, bound_addresses &#123;[::1]:9300&#125;, &#123;127.0.0.1:9300&#125;</span><br><span class="line">[2017-01-29T23:20:25,626][WARN ][o.e.b.BootstrapCheck     ] [JXmT8Hz] max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2017-01-29T23:20:25,626][WARN ][o.e.b.BootstrapCheck     ] [JXmT8Hz] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[2017-01-29T23:20:28,875][INFO ][o.e.c.s.ClusterService   ] [JXmT8Hz] new_master &#123;JXmT8Hz&#125;&#123;JXmT8Hz_SA6brqro8ay6NQ&#125;&#123;DStICV93SS-A2aPzZlpKxA&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;, reason: zen-disco-elected-as-master ([0] nodes joined)</span><br><span class="line">[2017-01-29T23:20:28,925][INFO ][o.e.h.HttpServer         ] [JXmT8Hz] publish_address &#123;127.0.0.1:9200&#125;, bound_addresses &#123;[::1]:9200&#125;, &#123;127.0.0.1:9200&#125;</span><br><span class="line">[2017-01-29T23:20:28,926][INFO ][o.e.n.Node               ] [JXmT8Hz] started</span><br><span class="line">[2017-01-29T23:20:28,955][INFO ][o.e.g.GatewayService     ] [JXmT8Hz] recovered [0] indices into cluster_state</span><br></pre></td></tr></table></figure></p>
-<p>Now visit the following url in browser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:9200/</span><br></pre></td></tr></table></figure></p>
-<p>The web page will show:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"JXmT8Hz"</span>,</span><br><span class="line">  <span class="string">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="string">"cluster_uuid"</span> : <span class="string">"2n2W_a6iSx-OmPgLNcqt0A"</span>,</span><br><span class="line">  <span class="string">"version"</span> : &#123;</span><br><span class="line">    <span class="string">"number"</span> : <span class="string">"5.1.2"</span>,</span><br><span class="line">    <span class="string">"build_hash"</span> : <span class="string">"c8c4c16"</span>,</span><br><span class="line">    <span class="string">"build_date"</span> : <span class="string">"2017-01-11T20:18:39.146Z"</span>,</span><br><span class="line">    <span class="string">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"lucene_version"</span> : <span class="string">"6.3.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>, <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
   <article class="post">
   
   <div class="post-content">
@@ -725,11 +650,62 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-29T17:19:53.000Z"><a href="/2016/12/30/Apache-Jena-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Apache-Jena-QuickStart/">Apache Jena QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to install Apache Jena on CentOS. This is the official website of <a href="https://jena.apache.org/index.html" target="_blank" rel="external">Apache Jena</a>, <a href="https://jena.apache.org/tutorials/" target="_blank" rel="external">official tutorial</a> and <a href="https://jena.apache.org/getting_started/" target="_blank" rel="external">get started document</a>.</p>
+<h2 id="Download-Apache-Jena"><a href="#Download-Apache-Jena" class="headerlink" title="Download Apache Jena"></a>Download Apache Jena</h2><p>Download Apache Jena from this <a href="https://jena.apache.org/download/index.cgi" target="_blank" rel="external">link</a>. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.</p>
+<p>Extract the software from tar ball and move them to /usr/local:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf apache-jena-3.1.1.tar.gz</span><br><span class="line">mv apache-jena-3.1.1 /usr/<span class="built_in">local</span>/</span><br></pre></td></tr></table></figure></p>
+<h2 id="Set-Environment-PATH"><a href="#Set-Environment-PATH" class="headerlink" title="Set Environment PATH"></a>Set Environment PATH</h2><p>Edit ~/.bashrc file and put following content in that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JENAROOT=/usr/<span class="built_in">local</span>/apache-jena-3.1.1</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JENAROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Now try this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparql --version</span><br></pre></td></tr></table></figure></p>
+<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jena:       VERSION: 3.1.1</span><br><span class="line">Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">ARQ:        VERSION: 3.1.1</span><br><span class="line">ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">RIOT:       VERSION: 3.1.1</span><br><span class="line">RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/SparkSQL/">SparkSQL</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -850,7 +826,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -873,10 +849,6 @@
   <ul class="entry">
     
       <li>
-        <a href="/2018/11/12/Docker-File-QuickStart/">Docker File QuickStart</a>
-      </li>
-    
-      <li>
         <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
       </li>
     
@@ -890,6 +862,10 @@
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
   </ul>

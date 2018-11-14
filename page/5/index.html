@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Seite 5 | YBC HomePage</title>
+  <title>Page 5 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,100 +88,6 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-10-01T13:34:37.000Z"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">2017-10-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/10/01/Reading-Note-of-Effective-Java-IV/">Reading Note of Effective Java IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-31-Use-instance-fields-instead-of-ordinals"><a href="#Item-31-Use-instance-fields-instead-of-ordinals" class="headerlink" title="Item 31. Use instance fields instead of ordinals"></a>Item 31. Use instance fields instead of ordinals</h3><p>All enums have an ordinal method returning the numerical position of each enum constant in its type.</p>
-<p>Never derive a value associated with an enum from its ordinal; store it in an instance field instead.</p>
-<hr>
-
-<h3 id="Item-32-Use-EnumSet-instead-of-bit-fields"><a href="#Item-32-Use-EnumSet-instead-of-bit-fields" class="headerlink" title="Item 32. Use EnumSet instead of bit fields"></a>Item 32. Use EnumSet instead of bit fields</h3><p>Especially an enum type will be used in sets</p>
-<hr>
-
-<h3 id="Item-33-Use-EnumMap-instead-of-ordinal-indexing"><a href="#Item-33-Use-EnumMap-instead-of-ordinal-indexing" class="headerlink" title="Item 33. Use EnumMap instead of ordinal indexing"></a>Item 33. Use EnumMap instead of ordinal indexing</h3><hr>
-
-<h3 id="Item-34-Emulate-extensible-enums-with-interface"><a href="#Item-34-Emulate-extensible-enums-with-interface" class="headerlink" title="Item 34. Emulate extensible enums with interface"></a>Item 34. Emulate extensible enums with interface</h3><p>One compelling use case for extensible enumerated types is operation codes.</p>
-<hr>
-
-<h3 id="Item-35-Prefer-annotations-to-naming-patterns"><a href="#Item-35-Prefer-annotations-to-naming-patterns" class="headerlink" title="Item 35. Prefer annotations to naming patterns"></a>Item 35. Prefer annotations to naming patterns</h3><p>All programmers should use predefined annotation types provided by the Java platform.</p>
-<hr>
-
-<h3 id="Item-36-Consistently-use-the-Override-annotation"><a href="#Item-36-Consistently-use-the-Override-annotation" class="headerlink" title="Item 36. Consistently use the Override annotation"></a>Item 36. Consistently use the Override annotation</h3><p>Should use the Override annotation on every method declaration that you believe to override a superclass declaration.</p>
-<p>One exception is that in concrete classes, need not annotate methods that you believe to override abstract methods declaration.</p>
-<hr>
-
-<h3 id="Item-37-Use-marker-interfaces-to-define-types"><a href="#Item-37-Use-marker-interfaces-to-define-types" class="headerlink" title="Item 37. Use marker interfaces to define types"></a>Item 37. Use marker interfaces to define types</h3><p>Advantages of marker interface:</p>
-<ul>
-<li>Define a type implemented by instances of the marked class but marker annotations do not;</li>
-<li>Maker interface can be targeted more precisely and if an annotation type is declared with target ElementType.TYPE, it can be applied to any class or interface.</li>
-<li>Must use marker interface if marker only applies to classes and interfaces, or want to write one or more methods accepting only objects having this marking.</li>
-<li>If want to limit the use of marker to elements of a particular interface, define the marker as a subinterface of that interface.</li>
-</ul>
-<p>Advantages of marker annotations over marker interfaces:</p>
-<ul>
-<li>It is possible to add more information to an annotation type after it is already in use by adding one or more annotation elements with defaults.</li>
-<li>Must use an annotation if the marker applies to any program element other than a class or interface.</li>
-</ul>
-<hr>
-
-<h3 id="Item-38-Check-parameters-for-validity"><a href="#Item-38-Check-parameters-for-validity" class="headerlink" title="Item 38. Check parameters for validity"></a>Item 38. Check parameters for validity</h3><p>For public methods, use Javadoc <code>@throws</code> tag to document the exception that will be thrown if a restriction on parameter values is violated. For nonpublic methods, use assertion to check parameters.</p>
-<p>Constructor should check the validity of parameters stored away for later use.</p>
-<p>Exception is the case in which the validity check would be expensive or impractical and it is performed implicitly.</p>
-<p>Should design methods to be as general as it is practical to make them. The fewer restriction on parameters, the better; Document all the restrictions and enforce them with explicit checks at the beginning of the method body.</p>
-<hr>
-
-<h3 id="Item-39-Make-defensive-copies-when-needed"><a href="#Item-39-Make-defensive-copies-when-needed" class="headerlink" title="Item 39. Make defensive copies when needed"></a>Item 39. Make defensive copies when needed</h3><p>Must program defensively with assumption that clients of class will do their best to destroy its invariants.</p>
-<hr>
-
-<h3 id="Item-40-Design-method-signatures-carefully"><a href="#Item-40-Design-method-signatures-carefully" class="headerlink" title="Item 40. Design method signatures carefully"></a>Item 40. Design method signatures carefully</h3><p>Here are the rules:</p>
-<ul>
-<li>Choose method names carefully.</li>
-<li>Do not go overboard in providing convenience methods.</li>
-<li>Avoid long parameter lists.</li>
-<li>For parameter types, favor interfaces over classes.</li>
-<li>Prefer two-element enum type to boolean parameters.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
   <article class="post">
   
   <div class="post-content">
@@ -1170,11 +1076,120 @@ private static Long generateDefaultTimeToLive() {
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-09-04T14:11:11.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">2017-09-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">Linux System and Adminstrative Commands V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="System-Resources"><a href="#System-Resources" class="headerlink" title="System Resources"></a>System Resources</h2><h3 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h3><ul>
+<li>Set an upper limit on use of system resources.</li>
+</ul>
+<hr>
+
+<h3 id="quota"><a href="#quota" class="headerlink" title="quota"></a>quota</h3><ul>
+<li>Display user or group disk quota.</li>
+</ul>
+<hr>
+
+<h3 id="setquota"><a href="#setquota" class="headerlink" title="setquota"></a>setquota</h3><ul>
+<li>Set user or group disk quotas from command-line.</li>
+</ul>
+<hr>
+
+<h3 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h3><ul>
+<li>User file creation permission mask.</li>
+</ul>
+<hr>
+
+<h3 id="rdev"><a href="#rdev" class="headerlink" title="rdev"></a>rdev</h3><h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><h3 id="lsmod"><a href="#lsmod" class="headerlink" title="lsmod"></a>lsmod</h3><ul>
+<li>List installed kernel modules.</li>
+</ul>
+<hr>
+
+<h3 id="insmod"><a href="#insmod" class="headerlink" title="insmod"></a>insmod</h3><ul>
+<li>Force installation of a kernel module.</li>
+</ul>
+<hr>
+
+<h3 id="rmmod"><a href="#rmmod" class="headerlink" title="rmmod"></a>rmmod</h3><hr>
+
+<h3 id="modprobe"><a href="#modprobe" class="headerlink" title="modprobe"></a>modprobe</h3><ul>
+<li>Module loader that is normally invoked automatically in a startup script.</li>
+</ul>
+<hr>
+
+<h3 id="depmod"><a href="#depmod" class="headerlink" title="depmod"></a>depmod</h3><ul>
+<li>Creates module dependency file.</li>
+</ul>
+<hr>
+
+<h3 id="modinfo"><a href="#modinfo" class="headerlink" title="modinfo"></a>modinfo</h3><ul>
+<li>Output information about a loadable module.</li>
+</ul>
+<hr>
+
+<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><ul>
+<li>Runs a program or script with certain environmental variables set or changed without changing the overall system environment.</li>
+</ul>
+<hr>
+
+<h3 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h3><hr>
+
+<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
+<li>Run a command repeatedly at specified time intervals.</li>
+</ul>
+<hr>
+
+<h3 id="strip"><a href="#strip" class="headerlink" title="strip"></a>strip</h3><hr>
+
+<h3 id="nm"><a href="#nm" class="headerlink" title="nm"></a>nm</h3><hr>
+
+<h3 id="xrandr"><a href="#xrandr" class="headerlink" title="xrandr"></a>xrandr</h3><hr>
+
+<h3 id="rdist"><a href="#rdist" class="headerlink" title="rdist"></a>rdist</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -1295,7 +1310,7 @@ private static Long generateDefaultTimeToLive() {
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -1318,10 +1333,6 @@ private static Long generateDefaultTimeToLive() {
   <ul class="entry">
     
       <li>
-        <a href="/2018/11/12/Docker-File-QuickStart/">Docker File QuickStart</a>
-      </li>
-    
-      <li>
         <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
       </li>
     
@@ -1335,6 +1346,10 @@ private static Long generateDefaultTimeToLive() {
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
   </ul>

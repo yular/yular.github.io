@@ -104,7 +104,27 @@
     <div class="entry">
       
       
-        
+        <p>Here is the <a href="http://yular.github.io/2015/09/08/Docker-Install-Guide/">link of Docker installation on Ubuntu</a>.</p>
+<p>Instead of running official docker image in docker container, we can also build our own docker image and run it in the container.</p>
+<p>Below is a tutorial to build a quick docker image and deploy it in a container.</p>
+<h3 id="Preparing-Docker-File"><a href="#Preparing-Docker-File" class="headerlink" title="Preparing Docker File"></a>Preparing Docker File</h3><p>This is the first step. A docker file is just a text file defining the operating system environment, the commands to execute, the files to add from local and other actions. Here is the official document of <a href="https://docs.docker.com/engine/reference/builder/#usage" target="_blank" rel="external">docker file</a>.</p>
+<p>Below is the content of sample docker file <code>sampledockerimage</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line"></span><br><span class="line">ADD hello.sh /playground/</span><br><span class="line"></span><br><span class="line">RUN apt-get update &amp; apt-get install -y file apt-utils curl vim</span><br><span class="line">RUN ldconfig</span><br><span class="line"></span><br><span class="line">ENTRYPOINT /bin/bash ./playground/hello.sh</span><br></pre></td></tr></table></figure></p>
+<p>And here is the content of <code>hello.sh</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo &quot;Hello World&quot; &gt; output.txt</span><br></pre></td></tr></table></figure></p>
+<p>The docker file means that create a docker image by doing following things:</p>
+<ul>
+<li>Initializes a new build stage and sets the Base Image as Ubuntu:18.04.</li>
+<li>Add <code>hello.sh</code> from local to the new docker image and put it under folder <code>/playground</code>.</li>
+<li>Inside docker image, execute shell commands: <code>apt-get update &amp; apt-get install -y file apt-utils curl vim</code> and <code>ldconfig</code>.</li>
+<li>While deploy the docker image to a container, use bash to run the <code>hello.sh</code></li>
+</ul>
+<p>If every thing works, an <code>output.txt</code> file will be found under folder <code>/playground</code>.</p>
+<h3 id="Writing-Shell-Script"><a href="#Writing-Shell-Script" class="headerlink" title="Writing Shell Script"></a>Writing Shell Script</h3><p>Create a shell script or just execute command to push, pull and build docker image and then run it in a container.</p>
+<p>Usually we will build the docker image and push it to a remote storage. There are roughly two commands in the script:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># build the docker image based on docker file</span><br><span class="line">docker build -t example.com/hellodockerimage:latest -f sampledockerimage</span><br><span class="line"></span><br><span class="line"># push the docker image to remote</span><br><span class="line">docker push example.com/hellodockerimage:latest</span><br></pre></td></tr></table></figure></p>
+<p>Note that <code>-t</code> in build command is setting the docker image tag. And it could be possible that the storage of docker image requires login information like username and password.</p>
+<p>To download the docker image and deploy it in a container, there are roughly two commands to execute in the script:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line"># download docker image</span><br><span class="line">docker pull example.com/hellodockerimage:latest</span><br><span class="line"></span><br><span class="line"># deploy docker image in a container, name the container hellodocker and run it as a daemon (-d) </span><br><span class="line">docker run --net=host --name hellodocker -d --rm -it example.com/hellodockerimage:latest</span><br></pre></td></tr></table></figure></p>
+<p>Note that the <code>--net=host</code> config will help docker container to reuse its host network setting so that they can access to the same other web services.</p>
+<h3 id="Docker-Commands"><a href="#Docker-Commands" class="headerlink" title="Docker Commands"></a>Docker Commands</h3><p>Here is the link of list of <a href="https://docs.docker.com/engine/reference/commandline/docker/#child-commands" target="_blank" rel="external">docker commands official document</a></p>
+
       
     </div>
     
@@ -115,6 +135,11 @@
         </div>
         
         
+  
+  <div class="tags">
+    <a href="/tags/Container/">Container</a>
+  </div>
+
         <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>
@@ -124,7 +149,7 @@
 
 
 <section id="comment">
-  <h1 class="title">Kommentare</h1>
+  <h1 class="title">Comments</h1>
 
   
   <div id="disqus_thread">
@@ -251,7 +276,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
@@ -274,10 +299,6 @@
   <ul class="entry">
     
       <li>
-        <a href="/2018/11/12/Docker-File-QuickStart/">Docker File QuickStart</a>
-      </li>
-    
-      <li>
         <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
       </li>
     
@@ -291,6 +312,10 @@
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
+      </li>
+    
+      <li>
+        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
   </ul>
