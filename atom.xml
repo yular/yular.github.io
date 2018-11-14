@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-11-12T18:03:25.000Z</updated>
+  <updated>2018-11-14T01:15:25.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,11 +20,13 @@
     <link href="http://yular.github.io/2018/11/12/Docker-File-QuickStart/"/>
     <id>http://yular.github.io/2018/11/12/Docker-File-QuickStart/</id>
     <published>2018-11-11T16:00:22.000Z</published>
-    <updated>2018-11-12T18:03:25.000Z</updated>
+    <updated>2018-11-14T01:15:25.000Z</updated>
     
     <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;http://yular.github.io/2015/09/08/Docker-Install-Guide/&quot;&gt;link of Docker installation on Ubuntu&lt;/a&gt;. &lt;/p&gt;
 &lt;p&gt;Instead of running official docker image in docker container, we can also build our own docker image and run it in the container.&lt;/p&gt;
 &lt;p&gt;Below is a tutorial to build a quick docker image and deploy it in a container.&lt;/p&gt;
+&lt;h3 id=&quot;Preparing-Docker-File&quot;&gt;&lt;a href=&quot;#Preparing-Docker-File&quot; class=&quot;headerlink&quot; title=&quot;Preparing Docker File&quot;&gt;&lt;/a&gt;Preparing Docker File&lt;/h3&gt;&lt;p&gt;This is the first step.&lt;/p&gt;
+&lt;h3 id=&quot;Writing-Shell-Script&quot;&gt;&lt;a href=&quot;#Writing-Shell-Script&quot; class=&quot;headerlink&quot; title=&quot;Writing Shell Script&quot;&gt;&lt;/a&gt;Writing Shell Script&lt;/h3&gt;&lt;p&gt;Create a shell script or just execute command to build docker image and then run it in a container.&lt;/p&gt;
 </content>
     
     <summary type="html">
