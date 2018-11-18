@@ -94,6 +94,50 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2018-11-18T17:20:22.000Z"><a href="/2018/11/19/Linux-Server-Trouble-Shooting-Commands/">2018-11-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2018/11/19/Linux-Server-Trouble-Shooting-Commands/">Linux Server Trouble Shooting Commands and Tools</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <h2 id="Observation-Tool"><a href="#Observation-Tool" class="headerlink" title="Observation Tool"></a>Observation Tool</h2><h2 id="Benchmark-Tool"><a href="#Benchmark-Tool" class="headerlink" title="Benchmark Tool"></a>Benchmark Tool</h2><h2 id="Tunning-Tool"><a href="#Tunning-Tool" class="headerlink" title="Tunning Tool"></a>Tunning Tool</h2><h2 id="Tracing-Tool"><a href="#Tracing-Tool" class="headerlink" title="Tracing Tool"></a>Tracing Tool</h2><h2 id="Monitoring-Statistics"><a href="#Monitoring-Statistics" class="headerlink" title="Monitoring Statistics"></a>Monitoring Statistics</h2>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2018-11-11T16:00:07.000Z"><a href="/2018/11/12/Docker-Image-QuickStart/">2018-11-12</a></time>
       
       
@@ -730,138 +774,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2018-02-18T03:28:56.000Z"><a href="/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/">2018-02-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/">Reading Note of Working Effectively with Legacy Code III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Fail-to-Test-A-Class"><a href="#Fail-to-Test-A-Class" class="headerlink" title="Fail to Test A Class"></a>Fail to Test A Class</h3><h4 id="Params-in-Constructor"><a href="#Params-in-Constructor" class="headerlink" title="Params in Constructor"></a>Params in Constructor</h4><ul>
-<li>构造函数会引入依赖。解除依赖的方法可以有：<ul>
-<li>传Null</li>
-<li>接口提取: Subclass and Override Method. See <a href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/#Refactor-in-Long-Run">here</a>.</li>
-</ul>
-</li>
-</ul>
-<h4 id="Hidden-Dependencies"><a href="#Hidden-Dependencies" class="headerlink" title="Hidden Dependencies"></a>Hidden Dependencies</h4><ul>
-<li>构造函数里面隐藏了一些依赖，这些依赖在测试中可能没有正确地实例化，从而导致编译没法通过。</li>
-</ul>
-<p>解决方法：</p>
-<ul>
-<li>定义一个新的构造函数，其输入参数为测试中将被模拟的依赖对象。同时，重构原有的构造函数，确保产品代码不受新的构造函数影响。</li>
-<li>提供setter方法，将测试用的对象依赖覆盖构造函数中创建的产品对象。</li>
-</ul>
-<h4 id="Global-Dependency"><a href="#Global-Dependency" class="headerlink" title="Global Dependency"></a>Global Dependency</h4><ul>
-<li>构造函数中使用了单例对象。这类对象是全局依赖。</li>
-</ul>
-<p>解决方法：</p>
-<ul>
-<li>在提供单例对象的类内部，添加一个setter，用来接收测试用的对象。</li>
-</ul>
-<h4 id="Onion-Dependency"><a href="#Onion-Dependency" class="headerlink" title="Onion Dependency"></a>Onion Dependency</h4><ul>
-<li>构造函数的参数的构造函数包含别的对象，导致创建测试对象很困难。</li>
-</ul>
-<p>解决方法：</p>
-<ul>
-<li>直接传入Null。</li>
-<li>被测类的构造函数的参数实现一个接口（interface），从而更容易地实例化以及模拟该参数的行为。</li>
-</ul>
-<hr>
-
-<h3 id="Fail-to-Test-A-Method"><a href="#Fail-to-Test-A-Method" class="headerlink" title="Fail to Test A Method"></a>Fail to Test A Method</h3><h4 id="Hidden-Methods"><a href="#Hidden-Methods" class="headerlink" title="Hidden Methods"></a>Hidden Methods</h4><ul>
-<li>有时需要测试private methods。</li>
-</ul>
-<p>解决方法：</p>
-<ul>
-<li>修改private methods的访问权限，同时可能也需要修改被这些方法调用的方法的访问权限。</li>
-<li>重构这些private methods，每个新方法的职责更加集中且精确，从而更加容易测试。</li>
-<li>添加public methods，这些方法可以访问被测试的private methods。</li>
-</ul>
-<h4 id="Final-Class"><a href="#Final-Class" class="headerlink" title="Final Class"></a>Final Class</h4><ul>
-<li>这种类的对象作为被测试方法的输入参数时，没办法继承和重写该类，因此Mock方法不再起作用。</li>
-</ul>
-<p>解决方法：</p>
-<ul>
-<li>若该类的父类不是final，则通过Mock父类对象，作为被测函数的输入参数。</li>
-<li>为作为参数的对象的类实现一个接口（interface），然后测试用的类也实现这个接口，从而可以模拟参数对象的行为。</li>
-</ul>
-<hr>
-
-<h3 id="What-Methods-to-Test-during-Refactor"><a href="#What-Methods-to-Test-during-Refactor" class="headerlink" title="What Methods to Test during Refactor"></a>What Methods to Test during Refactor</h3><h4 id="Infer-the-Effect-Introduced-by-Modification-of-Code"><a href="#Infer-the-Effect-Introduced-by-Modification-of-Code" class="headerlink" title="Infer the Effect Introduced by Modification of Code"></a>Infer the Effect Introduced by Modification of Code</h4><ul>
-<li>若代码结构良好，则其中的大多数方法的影响结构也会比较简单。任何改动，只要能够使代码的影响结构图简单化，就能保证代码更易理解和维护。</li>
-<li>在编写“特征测试”时，要搞清楚被测试对象停止工作时，其调用的对象会受到什么影响。</li>
-</ul>
-<h4 id="How-to-Find-the-Effect-Introduced-by-Modification-of-Code"><a href="#How-to-Find-the-Effect-Introduced-by-Modification-of-Code" class="headerlink" title="How to Find the Effect Introduced by Modification of Code"></a>How to Find the Effect Introduced by Modification of Code</h4><ol>
-<li>确定一个将要修改的方法。</li>
-<li>如果该方法有返回值，查看它的调用方。</li>
-<li>看看该方法是否修改了什么值。是则查看其他使用了这些值的方法，以及使用了这些方法的方法。</li>
-<li>别忘了查看父类和子类，它们可能使用了这些实例变量和方法。</li>
-<li>查看这些方法的参数，看看修改的代码是否使用了某参数对象或它的方法所返回的对象。</li>
-<li>找出到目前为止被你所找出的任何方法修改的全局变量和静态数据。</li>
-</ol>
-<h4 id="拦截点"><a href="#拦截点" class="headerlink" title="拦截点"></a>拦截点</h4><ul>
-<li>指的是，给定一处修改，在程序中的某些点能够探测到该修改的影响。</li>
-</ul>
-<h4 id="汇点"><a href="#汇点" class="headerlink" title="汇点"></a>汇点</h4><ul>
-<li>指的是影响结构图的隘口，在汇点处编写测试的好处是，只需针对少数几个方法编写测试，就能够探测到大量其他方法的改动目的。</li>
-</ul>
-<hr>
-
-<h3 id="How-to-Write-Test-during-Refactor"><a href="#How-to-Write-Test-during-Refactor" class="headerlink" title="How to Write Test during Refactor"></a>How to Write Test during Refactor</h3><h4 id="Characterization-Test"><a href="#Characterization-Test" class="headerlink" title="Characterization Test"></a>Characterization Test</h4><p>Characterization test should verify what system can do in current stage.</p>
-<p>Steps of Writing Characterization Test:</p>
-<ul>
-<li>在测试中调用目标代码。</li>
-<li>编写一个会失败的断言（assert）。</li>
-<li>从断言的失败中得知代码的行为。</li>
-<li>修改测试，让它预测目标代码的行为。</li>
-<li>重复上述步骤。</li>
-</ul>
-<p>Characterization test is not a black box test.</p>
-<h4 id="Target-Test"><a href="#Target-Test" class="headerlink" title="Target Test"></a>Target Test</h4><p>Target test is a kind of characterization test to verify whether the behaviors of system remain unchanged after refactor is done.</p>
-<hr>
-
-<h3 id="Test-Code-Difficult-to-Deal-With"><a href="#Test-Code-Difficult-to-Deal-With" class="headerlink" title="Test Code Difficult to Deal With"></a>Test Code Difficult to Deal With</h3><h4 id="Class-Naming"><a href="#Class-Naming" class="headerlink" title="Class Naming"></a>Class Naming</h4><ul>
-<li>被测试类需要与之交互的类，可以命名“Fake”类，它们是交互类的子类。</li>
-<li>被测试类的可以被重写成一个专门用于测试的子类，方便解依赖，可以命名为“Testing”类。</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Software-Development/">Software Development</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -949,7 +861,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>12</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>13</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>8</small></li>
   
@@ -989,7 +901,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.77px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.92px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.43px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.43px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
 </div>
 
@@ -1010,6 +922,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2018/11/19/Linux-Server-Trouble-Shooting-Commands/">Linux Server Trouble Shooting Commands and Tools</a>
+      </li>
+    
+      <li>
         <a href="/2018/11/12/Docker-Image-QuickStart/">Docker Image QuickStart</a>
       </li>
     
@@ -1023,10 +939,6 @@
     
       <li>
         <a href="/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/">Reading Note of Effective Cplusplus I</a>
-      </li>
-    
-      <li>
-        <a href="/2018/05/10/Thinking-in-Ops-Readiness/">Thinking in Ops Readiness</a>
       </li>
     
   </ul>

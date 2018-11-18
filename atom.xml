@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-11-14T17:31:42.000Z</updated>
+  <updated>2018-11-18T17:35:39.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux Server Trouble Shooting Commands and Tools</title>
+    <link href="http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/"/>
+    <id>http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/</id>
+    <published>2018-11-18T17:20:22.000Z</published>
+    <updated>2018-11-18T17:35:39.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;h2 id=&quot;Benchmark-Tool&quot;&gt;&lt;a href=&quot;#Benchmark-Tool&quot; class=&quot;headerlink&quot; title=&quot;Benchmark Tool&quot;&gt;&lt;/a&gt;Benchmark Tool&lt;/h2&gt;&lt;h2 id=&quot;Tunning-Tool&quot;&gt;&lt;a href=&quot;#Tunning-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tunning Tool&quot;&gt;&lt;/a&gt;Tunning Tool&lt;/h2&gt;&lt;h2 id=&quot;Tracing-Tool&quot;&gt;&lt;a href=&quot;#Tracing-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tracing Tool&quot;&gt;&lt;/a&gt;Tracing Tool&lt;/h2&gt;&lt;h2 id=&quot;Monitoring-Statistics&quot;&gt;&lt;a href=&quot;#Monitoring-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Monitoring Statistics&quot;&gt;&lt;/a&gt;Monitoring Statistics&lt;/h2&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;h2 id=&quot;Benchmark
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yular.github.io/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker Image QuickStart</title>
@@ -952,22 +972,6 @@
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Summary II</title>
-    <link href="http://yular.github.io/2018/01/16/Java-Summary-II-1/"/>
-    <id>http://yular.github.io/2018/01/16/Java-Summary-II-1/</id>
-    <published>2018-01-16T14:01:19.000Z</published>
-    <updated>2018-01-17T06:01:19.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
