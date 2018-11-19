@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-11-18T17:35:39.000Z</updated>
+  <updated>2018-11-19T17:08:54.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,13 +20,134 @@
     <link href="http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/"/>
     <id>http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/</id>
     <published>2018-11-18T17:20:22.000Z</published>
-    <updated>2018-11-18T17:35:39.000Z</updated>
+    <updated>2018-11-19T17:08:54.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;h2 id=&quot;Benchmark-Tool&quot;&gt;&lt;a href=&quot;#Benchmark-Tool&quot; class=&quot;headerlink&quot; title=&quot;Benchmark Tool&quot;&gt;&lt;/a&gt;Benchmark Tool&lt;/h2&gt;&lt;h2 id=&quot;Tunning-Tool&quot;&gt;&lt;a href=&quot;#Tunning-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tunning Tool&quot;&gt;&lt;/a&gt;Tunning Tool&lt;/h2&gt;&lt;h2 id=&quot;Tracing-Tool&quot;&gt;&lt;a href=&quot;#Tracing-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tracing Tool&quot;&gt;&lt;/a&gt;Tracing Tool&lt;/h2&gt;&lt;h2 id=&quot;Monitoring-Statistics&quot;&gt;&lt;a href=&quot;#Monitoring-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Monitoring Statistics&quot;&gt;&lt;/a&gt;Monitoring Statistics&lt;/h2&gt;</content>
+    <content type="html">&lt;p&gt;Firs of all, here are some useful links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/usemethod.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.brendangregg.com/usemethod.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/USEmethod/use-linux.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.brendangregg.com/USEmethod/use-linux.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/tools/chrome-devtools/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developers.google.com/web/tools/chrome-devtools/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And below there are some useful commands and tools for server trouble shooting:&lt;/p&gt;
+&lt;h2 id=&quot;Basic-Commands&quot;&gt;&lt;a href=&quot;#Basic-Commands&quot; class=&quot;headerlink&quot; title=&quot;Basic Commands&quot;&gt;&lt;/a&gt;Basic Commands&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;fg &amp;amp; bg &amp;amp; jobs&lt;br&gt;Start to run processes in foreground and background&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ulimit&lt;br&gt;Set the amount of available resources that can be used by system, including shell and processes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;rsync&lt;br&gt;Fast, versatile, remote or local filecopying tool.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Text-Processing-Commands&quot;&gt;&lt;a href=&quot;#Text-Processing-Commands&quot; class=&quot;headerlink&quot; title=&quot;Text Processing Commands&quot;&gt;&lt;/a&gt;Text Processing Commands&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sed, awk, grep, egrep, fgrep&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;zgrep&lt;br&gt;Search possibly compressed files for a regular expression.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sort, uniq&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ps&lt;br&gt;Report a snapshot of current processes.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;pstree&lt;br&gt;Display processes hierarchy as a tree shape.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;top&lt;br&gt;Display live view of system statistics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;htop&lt;br&gt;A improved version of top command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;history&lt;br&gt;Show executed command history.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;w&lt;br&gt;Display users logged in status.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;df (-i -h)&lt;br&gt;Report file system disk space usage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;du (-i -h)&lt;br&gt;Estimate file system disk space usage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;free&lt;br&gt;Display system memory usage.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;iftop&lt;br&gt;Display network bandwith usage of an interface by host.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;iotop&lt;br&gt;I/O top command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;iostat&lt;br&gt;Report CPU and I/O statistics of devices, partitions and network filesystems(NFS). &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;vmstat&lt;br&gt;Report virtual memory statistics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;mpstat&lt;br&gt;Report processors related statistics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dstat&lt;br&gt;Versatile tool for generating system resource statistics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dmesg&lt;br&gt;Print or control the kernel ring buffer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;syslog&lt;br&gt;Print system log.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;uptime&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;strace&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;pidstat / swapon / collect / stat&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ltrace / ss / iptraf / snmapget / lldptool / blktrace / slabtop / proc fs&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Benchmark-Tool&quot;&gt;&lt;a href=&quot;#Benchmark-Tool&quot; class=&quot;headerlink&quot; title=&quot;Benchmark Tool&quot;&gt;&lt;/a&gt;Benchmark Tool&lt;/h2&gt;&lt;h2 id=&quot;Tunning-Tool&quot;&gt;&lt;a href=&quot;#Tunning-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tunning Tool&quot;&gt;&lt;/a&gt;Tunning Tool&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sysctl / sys fs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;nice / renice / taskset / chcpu&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;tune2fs / ionice / hdparm / blockdev&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ethtool / tc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;stap&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Tracing-Network-Tool&quot;&gt;&lt;a href=&quot;#Tracing-Network-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tracing/Network Tool&quot;&gt;&lt;/a&gt;Tracing/Network Tool&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ping&lt;br&gt;Send ICMP echo_request to network hosts.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;dig&lt;br&gt;DNS lookup command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;traceroute&lt;br&gt;Print route packets trace to target network host.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ifconfig&lt;br&gt;Get or set configuration of a network interface.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;netstat (-lntp, -natp, -r)&lt;br&gt;Print network connections, routing tables, interface statistics.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ncat&lt;br&gt;Display TCP and UDP connections and listeners.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;tcpdump&lt;br&gt;Dump traffic on a network.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;telnet&lt;br&gt;User interface of TELNET protocol.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ftrace&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;perf_events&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;systemtap&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sysdig&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Monitoring-Statistics&quot;&gt;&lt;a href=&quot;#Monitoring-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Monitoring Statistics&quot;&gt;&lt;/a&gt;Monitoring Statistics&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sar&lt;br&gt;System Activity Reporter: &lt;a href=&quot;https://linux.die.net/man/1/sar&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://linux.die.net/man/1/sar&lt;/a&gt;&lt;br&gt;Report&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;grafana&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;nagios&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;zabbix&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;smokeping&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;Dangerous-Commands&quot;&gt;&lt;a href=&quot;#Dangerous-Commands&quot; class=&quot;headerlink&quot; title=&quot;Dangerous Commands&quot;&gt;&lt;/a&gt;Dangerous Commands&lt;/h2&gt;&lt;p&gt;There are some but no limited to :&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;:()&amp;#123;:|:&amp;amp;&amp;#125;;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;or&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    :|:&amp;amp; # recursively call the function itself&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;:&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;h2 id=&quot;Benchmark
+      &lt;p&gt;Firs of all, here are some useful links:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/usemethod.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;
     
     </summary>
     

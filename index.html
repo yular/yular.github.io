@@ -105,7 +105,126 @@
     <div class="entry">
       
       
-        <h2 id="Observation-Tool"><a href="#Observation-Tool" class="headerlink" title="Observation Tool"></a>Observation Tool</h2><h2 id="Benchmark-Tool"><a href="#Benchmark-Tool" class="headerlink" title="Benchmark Tool"></a>Benchmark Tool</h2><h2 id="Tunning-Tool"><a href="#Tunning-Tool" class="headerlink" title="Tunning Tool"></a>Tunning Tool</h2><h2 id="Tracing-Tool"><a href="#Tracing-Tool" class="headerlink" title="Tracing Tool"></a>Tracing Tool</h2><h2 id="Monitoring-Statistics"><a href="#Monitoring-Statistics" class="headerlink" title="Monitoring Statistics"></a>Monitoring Statistics</h2>
+        <p>Firs of all, here are some useful links:</p>
+<ul>
+<li><a href="http://www.brendangregg.com/usemethod.html" target="_blank" rel="external">http://www.brendangregg.com/usemethod.html</a></li>
+<li><a href="http://www.brendangregg.com/USEmethod/use-linux.html" target="_blank" rel="external">http://www.brendangregg.com/USEmethod/use-linux.html</a></li>
+<li><a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank" rel="external">https://developers.google.com/web/tools/chrome-devtools/</a></li>
+<li><a href="http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html" target="_blank" rel="external">http://www.brendangregg.com/blog/2016-08-09/gdb-example-ncurses.html</a></li>
+</ul>
+<p>And below there are some useful commands and tools for server trouble shooting:</p>
+<h2 id="Basic-Commands"><a href="#Basic-Commands" class="headerlink" title="Basic Commands"></a>Basic Commands</h2><ul>
+<li><p>fg &amp; bg &amp; jobs<br>Start to run processes in foreground and background</p>
+</li>
+<li><p>ulimit<br>Set the amount of available resources that can be used by system, including shell and processes.</p>
+</li>
+<li><p>rsync<br>Fast, versatile, remote or local filecopying tool.</p>
+</li>
+</ul>
+<h2 id="Text-Processing-Commands"><a href="#Text-Processing-Commands" class="headerlink" title="Text Processing Commands"></a>Text Processing Commands</h2><ul>
+<li><p>sed, awk, grep, egrep, fgrep</p>
+</li>
+<li><p>zgrep<br>Search possibly compressed files for a regular expression.</p>
+</li>
+<li><p>sort, uniq</p>
+</li>
+</ul>
+<h2 id="Observation-Tool"><a href="#Observation-Tool" class="headerlink" title="Observation Tool"></a>Observation Tool</h2><ul>
+<li><p>ps<br>Report a snapshot of current processes.</p>
+</li>
+<li><p>pstree<br>Display processes hierarchy as a tree shape.</p>
+</li>
+<li><p>top<br>Display live view of system statistics.</p>
+</li>
+<li><p>htop<br>A improved version of top command.</p>
+</li>
+<li><p>history<br>Show executed command history.</p>
+</li>
+<li><p>w<br>Display users logged in status.</p>
+</li>
+<li><p>df (-i -h)<br>Report file system disk space usage.</p>
+</li>
+<li><p>du (-i -h)<br>Estimate file system disk space usage.</p>
+</li>
+<li><p>free<br>Display system memory usage.</p>
+</li>
+<li><p>iftop<br>Display network bandwith usage of an interface by host.</p>
+</li>
+<li><p>iotop<br>I/O top command.</p>
+</li>
+<li><p>iostat<br>Report CPU and I/O statistics of devices, partitions and network filesystems(NFS). </p>
+</li>
+<li><p>vmstat<br>Report virtual memory statistics.</p>
+</li>
+<li><p>mpstat<br>Report processors related statistics.</p>
+</li>
+<li><p>dstat<br>Versatile tool for generating system resource statistics.</p>
+</li>
+<li><p>dmesg<br>Print or control the kernel ring buffer.</p>
+</li>
+<li><p>syslog<br>Print system log.</p>
+</li>
+<li><p>uptime</p>
+</li>
+<li><p>strace</p>
+</li>
+<li><p>pidstat / swapon / collect / stat</p>
+</li>
+<li><p>ltrace / ss / iptraf / snmapget / lldptool / blktrace / slabtop / proc fs</p>
+</li>
+</ul>
+<h2 id="Benchmark-Tool"><a href="#Benchmark-Tool" class="headerlink" title="Benchmark Tool"></a>Benchmark Tool</h2><h2 id="Tunning-Tool"><a href="#Tunning-Tool" class="headerlink" title="Tunning Tool"></a>Tunning Tool</h2><ul>
+<li><p>sysctl / sys fs</p>
+</li>
+<li><p>nice / renice / taskset / chcpu</p>
+</li>
+<li><p>tune2fs / ionice / hdparm / blockdev</p>
+</li>
+<li><p>ethtool / tc</p>
+</li>
+<li><p>stap</p>
+</li>
+</ul>
+<h2 id="Tracing-Network-Tool"><a href="#Tracing-Network-Tool" class="headerlink" title="Tracing/Network Tool"></a>Tracing/Network Tool</h2><ul>
+<li><p>ping<br>Send ICMP echo_request to network hosts.</p>
+</li>
+<li><p>dig<br>DNS lookup command.</p>
+</li>
+<li><p>traceroute<br>Print route packets trace to target network host.</p>
+</li>
+<li><p>ifconfig<br>Get or set configuration of a network interface.</p>
+</li>
+<li><p>netstat (-lntp, -natp, -r)<br>Print network connections, routing tables, interface statistics.</p>
+</li>
+<li><p>ncat<br>Display TCP and UDP connections and listeners.</p>
+</li>
+<li><p>tcpdump<br>Dump traffic on a network.</p>
+</li>
+<li><p>telnet<br>User interface of TELNET protocol.</p>
+</li>
+<li><p>ftrace</p>
+</li>
+<li><p>perf_events</p>
+</li>
+<li><p>systemtap</p>
+</li>
+<li><p>sysdig</p>
+</li>
+</ul>
+<h2 id="Monitoring-Statistics"><a href="#Monitoring-Statistics" class="headerlink" title="Monitoring Statistics"></a>Monitoring Statistics</h2><ul>
+<li><p>sar<br>System Activity Reporter: <a href="https://linux.die.net/man/1/sar" target="_blank" rel="external">https://linux.die.net/man/1/sar</a><br>Report</p>
+</li>
+<li><p>grafana</p>
+</li>
+<li><p>nagios</p>
+</li>
+<li><p>zabbix</p>
+</li>
+<li><p>smokeping</p>
+</li>
+</ul>
+<h2 id="Dangerous-Commands"><a href="#Dangerous-Commands" class="headerlink" title="Dangerous Commands"></a>Dangerous Commands</h2><p>There are some but no limited to :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:()&#123;:|:&amp;&#125;;:</span><br><span class="line"></span><br><span class="line">or</span><br><span class="line"></span><br><span class="line">:()&#123;</span><br><span class="line">    :|:&amp; # recursively call the function itself</span><br><span class="line">&#125;;</span><br><span class="line">:</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -778,7 +897,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -899,7 +1018,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.43px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.43px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
   </div>
