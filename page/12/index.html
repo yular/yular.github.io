@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>Page 12 | YBC HomePage</title>
+  <title>Seite 12 | YBC HomePage</title>
   <meta name="author" content="BaiChuan Yang" />
 
   
@@ -88,109 +88,6 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T02:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
-<hr>
-
-<h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
-<p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-01T12:31:21.000Z"><a href="/2016/07/01/Apache-Livy-QuickStart/">2016-07-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
   <article class="post">
   
   <div class="post-content">
@@ -648,11 +545,112 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-31T01:08:08.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">2016-05-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">Hackerrank InterviewStreet Algorithm Problem Solution List String</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Bear-and-Steady-Gene"><a href="#Bear-and-Steady-Gene" class="headerlink" title="Bear and Steady Gene"></a>Bear and Steady Gene</h3><p><a href="https://www.hackerrank.com/challenges/bear-and-steady-gene" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp" target="_blank" rel="external">Code</a><br>A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.</p>
+<hr>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/String/">String</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-26T17:59:16.000Z"><a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">2016-05-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">Chrome Install in Centos QuickStart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a good <a href="http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/" target="_blank" rel="external">tutorial</a>.</p>
+<p>The main steps are as follows:</p>
+<h3 id="Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux"><a href="#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux" class="headerlink" title="Download Google Chrome 45 of RHEL/CentOS/Fedora Linux"></a>Download Google Chrome 45 of RHEL/CentOS/Fedora Linux</h3><p>Download 32 bit version:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm</span><br></pre></td></tr></table></figure></p>
+<p>or 64 bit version:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure>
+<h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><p>Here is the command to install Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install ./google-chrome-stable_current_*.rpm</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions show up, Chrome will be installed successfully.</p>
+<h3 id="Start-Google-Chrome-from-CLI"><a href="#Start-Google-Chrome-from-CLI" class="headerlink" title="Start Google Chrome from CLI"></a>Start Google Chrome from CLI</h3><p>Use following command to start Google Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome &amp;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>
@@ -735,7 +733,7 @@
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
-    <li><a href="/tags/Linux/">Linux</a><small>13</small></li>
+    <li><a href="/tags/Linux/">Linux</a><small>11</small></li>
   
     <li><a href="/tags/Lua/">Lua</a><small>8</small></li>
   
@@ -773,9 +771,9 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag Cloud</h3>
+  <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.43px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 17.14px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 15.71px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.43px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.23px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.31px;">C</a> <a href="/tags/C/" style="font-size: 10.77px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.46px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.77px;">Container</a> <a href="/tags/Cplusplus/" style="font-size: 11.54px;">Cplusplus</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.38px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.54px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.77px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.85px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.15px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.62px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.15px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.31px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.77px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 16.92px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15.38px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.08px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.31px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.69px;">Web</a>
   </div>
 </div>
 

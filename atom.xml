@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2018-11-19T17:08:54.000Z</updated>
+  <updated>2018-11-22T16:37:57.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/"/>
     <id>http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/</id>
     <published>2018-11-18T17:20:22.000Z</published>
-    <updated>2018-11-19T17:08:54.000Z</updated>
+    <updated>2018-11-22T16:37:57.000Z</updated>
     
     <content type="html">&lt;p&gt;Firs of all, here are some useful links:&lt;/p&gt;
 &lt;ul&gt;
@@ -43,7 +43,7 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;zgrep&lt;br&gt;Search possibly compressed files for a regular expression.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;sort, uniq&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;sort, uniq&lt;br&gt;Sort given arrays and keeps each element unique.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&quot;Observation-Tool&quot;&gt;&lt;a href=&quot;#Observation-Tool&quot; class=&quot;headerlink&quot; title=&quot;Observation Tool&quot;&gt;&lt;/a&gt;Observation Tool&lt;/h2&gt;&lt;ul&gt;
@@ -81,27 +81,47 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;syslog&lt;br&gt;Print system log.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;uptime&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;uptime&lt;br&gt;Shows how long the system has been running.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;strace&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;strace&lt;br&gt;Displays the name of each system call together with its arguments enclosed in a parenthesis and its return value to standard error.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;pidstat / swapon / collect / stat&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;ltrace / ss / iptraf / snmapget / lldptool / blktrace / slabtop / proc fs&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;Benchmark-Tool&quot;&gt;&lt;a href=&quot;#Benchmark-Tool&quot; class=&quot;headerlink&quot; title=&quot;Benchmark Tool&quot;&gt;&lt;/a&gt;Benchmark Tool&lt;/h2&gt;&lt;h2 id=&quot;Tunning-Tool&quot;&gt;&lt;a href=&quot;#Tunning-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tunning Tool&quot;&gt;&lt;/a&gt;Tunning Tool&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;sysctl / sys fs&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Benchmark-Tool&quot;&gt;&lt;a href=&quot;#Benchmark-Tool&quot; class=&quot;headerlink&quot; title=&quot;Benchmark Tool&quot;&gt;&lt;/a&gt;Benchmark Tool&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;dd / hdparm / fio&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;unixbench&lt;br&gt;See &lt;a href=&quot;https://www.supportsages.com/unixbench-find-your-system-performance/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;this link&lt;/a&gt;.&lt;br&gt;Test basic graphics including 2D and 3D performance and Multi-CPU systems are also handled.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;lmbench / sysbench / perf bench&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ab / wrk / jmeter / openssl&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;ping / hping3 / iperf / ttcp / traceroute / mtr /&lt;br&gt;pchar&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;Tunning-Tool&quot;&gt;&lt;a href=&quot;#Tunning-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tunning Tool&quot;&gt;&lt;/a&gt;Tunning Tool&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;sysctl&lt;br&gt;Configures kernel parameters at runtime.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;sysfs&lt;br&gt;A pseudo file system provided by the Linux kernel that exports information about various kernel subsystems, hardware devices, and associated device drivers from the kernel’s device model to user space through virtual files.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;nice / renice / taskset / chcpu&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;tune2fs / ionice / hdparm / blockdev&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ethtool / tc&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;ethtool&lt;br&gt;Prints current settings of the specified device. The device name is usually rendered as ethX, with X referencing the number of the device. The default Ethernet device is usually rendered as eth0.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;stap&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;tc&lt;br&gt;Show / manipulate traffic control settings.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h2 id=&quot;Tracing-Network-Tool&quot;&gt;&lt;a href=&quot;#Tracing-Network-Tool&quot; class=&quot;headerlink&quot; title=&quot;Tracing/Network Tool&quot;&gt;&lt;/a&gt;Tracing/Network Tool&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;ping&lt;br&gt;Send ICMP echo_request to network hosts.&lt;/p&gt;
 &lt;/li&gt;
@@ -119,17 +139,19 @@
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;telnet&lt;br&gt;User interface of TELNET protocol.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ftrace&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;ftrace&lt;br&gt;Trace context switches, measure the time it takes for a high-priority task to wake up, the length of time interrupts are disabled, or list all the kernel functions executed during a given period.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;perf_events&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;perf_events&lt;br&gt;See this &lt;a href=&quot;https://perf.wiki.kernel.org/index.php/Tutorial&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wiki link&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;systemtap&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;systemtap&lt;br&gt;Instrument running production Linux kernel-based operating systems dynamically to extract, filter and summarize data in order to enable diagnosis of complex performance or functional problems.&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;sysdig&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;sysdig&lt;br&gt;See this &lt;a href=&quot;https://github.com/draios/sysdig/wiki/sysdig-examples&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github link&lt;/a&gt;.Sysdig is a simple tool for deep system visibility, with native support for containers.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+
 &lt;h2 id=&quot;Monitoring-Statistics&quot;&gt;&lt;a href=&quot;#Monitoring-Statistics&quot; class=&quot;headerlink&quot; title=&quot;Monitoring Statistics&quot;&gt;&lt;/a&gt;Monitoring Statistics&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;sar&lt;br&gt;System Activity Reporter: &lt;a href=&quot;https://linux.die.net/man/1/sar&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://linux.die.net/man/1/sar&lt;/a&gt;&lt;br&gt;Report&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;sar&lt;br&gt;System Activity Reporter. See this &lt;a href=&quot;https://linux.die.net/man/1/sar&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;link&lt;/a&gt;.&lt;br&gt;Collect, report, or save system activity information.t&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;grafana&lt;/p&gt;
 &lt;/li&gt;
