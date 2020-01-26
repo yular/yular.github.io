@@ -97,2014 +97,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-07-18T03:30:54.000Z"><a href="/2015/07/18/Software-Architecture-Summary-III/">2015-07-18</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/18/Software-Architecture-Summary-III/">Software Architecture Summary III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Architecture Visualization</em></p>
-<p>###Evaluating Visualization</p>
-<ul>
-<li>Scope and Purpose<br>What is the visualization for? What can it visualize?</li>
-<li>Basic Type<br>Textual? Graphical? Hybrid? Effect?</li>
-<li>Depiction<br>What depiction mechanisms and metaphors are primarily employed by the visualization?</li>
-<li>Interaction<br>What interaction mechanisms and metaphors are primarily employed by the visualization?</li>
-<li>Fidelity<br>How well/completely does the visualization reflect the information in the underlying model?<br>Consistency should be a minimum requirement, but details are often left out</li>
-<li>Consistency<br>How well does the visualization use similar representations for similar concepts?</li>
-<li>Comprehensibility<br>How easy is it for stakeholders to understand and use a visualization</li>
-<li>Dynamism<br>How well does the visualization support models that change over time (dynamic models)?</li>
-<li>View Coordination<br>How well the visualization is connected to and kept consistent with other visualizations</li>
-<li>Aesthetics<br>How pleasing is the visualization (look and feel) to its users?</li>
-<li>Extensibility<br>How easy is it to add new capabilities to a visualization?</li>
-</ul>
-<p>###Canonical Visualizations<br>[1]Each modeling notation is associated with one or more canonical visualizations.</p>
-<p>###Textual Visualizations<br>[1]Depict architectures through ordinary text files</p>
-<ul>
-<li>Generally conform to some syntactic format, like programs conform to a language</li>
-<li>May be natural language, in which case the format is defined by the spelling and grammar rules of the language</li>
-<li>Decorative options: Fonts, colors, bold/italics; Tables, bulleted lists/outlines.</li>
-</ul>
-<p>[2]Interaction<br>(1)Generally through an ordinary text editor or word processor</p>
-<p>(2)Some advanced mechanisms available</p>
-<ul>
-<li>Syntax highlighting</li>
-<li>Static checking</li>
-<li>Autocomplete</li>
-<li>Structural folding</li>
-</ul>
-<p>[3]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Depict entire architecture in a single file</li>
-<li>Good for linear or hierarchical structures</li>
-<li>Hundreds of available editors</li>
-<li>Substantial tool support if syntax is rigorous<br>Disadvantages:</li>
-<li>Can be overwhelming</li>
-<li>Bad for graphlike organizations of information</li>
-<li>Difficult to reorganize information meaningfully</li>
-<li>Learning curve for syntax/semantics </li>
-</ul>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualizing design decisions or effects as (structured) text</li>
-<li>Basic Type<br>Textual</li>
-<li>Depiction<br>Ordered lines of characters possibly grouped into tokens</li>
-<li>Interaction<br>Basic: insert, delete, copy, paste<br>Advanced: coloring, code folding, etc.</li>
-<li>Fidelity<br>Generally canonical</li>
-<li>Consistency<br>Generally good; depends on underlying notation</li>
-<li>Comprehensibility<br>Drops with increasing complexity</li>
-<li>Dynamism<br>Rare, but depends on editor</li>
-<li>View coordination<br>Depends on editor</li>
-<li>Aesthetics<br>Varies; can be overwhelming or elegant and structured</li>
-<li>Extensibility<br>Many extensible editors </li>
-</ul>
-<p>###Graphical Visualizations<br>[1]Depict architectures (primarily) as graphical symbols.</p>
-<p>[2]Generally conform to a symbolic syntax, but may also be ‘free-form’ and stylistic.</p>
-<p>[3]Interaction<br>(1)Generally graphical editors with point-and-click interfaces.</p>
-<p>(2)Editors have varying levels of awareness for different target notations.</p>
-<p>(3)More exotic editors and interaction mechanisms exist in research.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Symbols, colors, and visual decorations more easily parsed by humans than structured text</li>
-<li>Handle non-hierarchical relationships well</li>
-<li>Diverse spatial interaction metaphors (scrolling, zooming) allow intuitive navigation<br>Disadvantages:</li>
-<li>Cost of building and maintaining tool support</li>
-<li>Do not scale as well as text to very large models</li>
-</ul>
-<p>[5]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualizing design decisions as symbolic pictures</li>
-<li>Basic Type<br>Graphical</li>
-<li>Depiction<br>(Possibly) interconnected symbols on a finite canvas</li>
-<li>Interaction<br>Point and click, drag-and-drop direct interactions with symbols, augmented by menus and dialogs</li>
-<li>Fidelity<br>Generally canonical</li>
-<li>Consistency<br>Manual</li>
-<li>Comprehensibility<br>Depends on skill of the modeler and use of consistent symbols/patterns</li>
-<li>Dynamism<br>Some animation capabilities</li>
-<li>View coordination<br>Difficult at best</li>
-<li>Aesthetics<br>Modeler’s responsibility</li>
-<li>Extensibility<br>Adding new symbols is easy, adding semantics is harder </li>
-</ul>
-<p>###Hybrid Visualizations<br>[1]Some notations incorporate substantial parts that are mostly graphical alongside substantial parts that are mostly or wholly textual.</p>
-<p>###UML Visualizations<br>[1]Canonical graphical depictions + tool-specific interactions<br>   XMI: Textual depiction in XML + text-editor interactions</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Canonical graphical depiction common across tools</li>
-<li>Graphical visualizations have similar UI metaphors to PowerPoint-style editors, but with UML semantics</li>
-<li>XMI projection provides textual alternative<br>Disadvantages:</li>
-<li>No standard for interaction as there is for depiction</li>
-<li>In some tools hard to tell where UML model ends and auxiliary models begin</li>
-<li>Most UML visualizations are restricted to (slight variants) of the canonical UML depiction</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Visualization of UML models</li>
-<li>Basic Type<br>Graphical (diagrams), textual (XMI)</li>
-<li>Depiction<br>Diagrams in UML symbolic vocabulary/XML-formatted text</li>
-<li>Interaction<br>Depends on the editor; generally point-and-click for diagrams; text editor for XMI</li>
-<li>Fidelity<br>Diagrams are canonical, XMI elides layout info</li>
-<li>Consistency<br>Generally good across diagrams; small exceptions</li>
-<li>Comprehensibility<br>Ubiquity assists interpretations</li>
-<li>Dynamism<br>Rare</li>
-<li>View coordination<br>Some editors better than others</li>
-<li>Aesthetics<br>Simple symbols reduce complexity; uniform diagrams</li>
-<li>Extensibility<br>Profile support OK; major language extensions hard </li>
-</ul>
-<p>###Rapide<br>[1]Rapidé models are generally written with a canonical textual visualization, focusing effect visualization of simulation results.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides an intuitive way to visualize the causal relationships between events</li>
-<li>Automatically generated from Rapide specifications<br>Disadvantages:</li>
-<li>Complex applications generate complex graphs</li>
-<li>Difficult to identify why particular causal relationships exist</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Graphical event traces</li>
-<li>Basic Type<br>Graphical</li>
-<li>Depiction<br>Directed acyclic graph of events</li>
-<li>Interaction<br>No substantial interaction with generated event traces</li>
-<li>Fidelity<br>Each trace is an instance; different simulation runs may produce different traces in a non-deterministic system</li>
-<li>Consistency<br>Tiny symbol vocabulary ensures consistency </li>
-<li>Comprehensibility<br>Easy to see causal relationships but difficult to understand why they’re there</li>
-<li>Dynamism<br>No support</li>
-<li>View coordination<br>Event traces are generated automatically from architectural models</li>
-<li>Aesthetics<br>Simple unadorned directed acyclic graph of nodes and edges</li>
-<li>Extensibility<br>Tool set is effectively a ‘black box” </li>
-</ul>
-<p>###Labeled Transition State Analyzer (LTSA)<br>[1]A tool for analyzing and simultaneously visualizing concurrent systems’ behavior using a modeling language called FSP.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides multiple concurrent visualizations of concurrent behavior</li>
-<li>Integrates both model and effect visualizations, textual and graphical depictions</li>
-<li>Can develop domain-specific visualizations to understand abstract models<br>Disadvantages:</li>
-<li>Behavior specification language has somewhat steep learning curve</li>
-<li>Developing domain-specific graphical visualizations can be expensive</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Multiple coordinated visualizations of concurrent systems’ behavior</li>
-<li>Basic Type<br>Textual, Graphical, Effect</li>
-<li>Depiction<br>Text &amp; state machines for models, various effect viz.</li>
-<li>Interaction<br>FSP can be edited textually or graphically</li>
-<li>Fidelity<br>Graphical visualizations may elide some information</li>
-<li>Consistency<br>Limited vocabulary helps ensure consistency </li>
-<li>Comprehensibility<br>FSP has some learning curve; domain-specific effect visualizations are innovative</li>
-<li>Dynamism<br>Animation on state-transition diagrams and domain-specific visualizations</li>
-<li>View coordination<br>Views are coordinated automatically</li>
-<li>Aesthetics<br>State transition diagrams are traditional; domain-specific visualizations can enhance aesthetics</li>
-<li>Extensibility<br>New domain-specific effect visualizations as plug-ins</li>
-</ul>
-<p>###xADL Visualizations<br>[1]Coordinated set of textual, graphical, and effect visualizations for an extensible ADL.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Provides an example of how to construct a wide variety of (often) coordinated or interrelated visualizations</li>
-<li>Lets users move fluidly from one visualization to another</li>
-<li>Guidance available for extending visualizations or adding new ones<br>Disadvantages:</li>
-<li>Some learning curve to extend graphical editors</li>
-<li>Adding or extending visualizations has to be done carefully so they play well with existing ones</li>
-</ul>
-<p>[3]Evaluation</p>
-<ul>
-<li>Scope/Purpose<br>Multiple coordinated visualizations of xADL models</li>
-<li>Basic Type<br>Textual, Graphical, Effect</li>
-<li>Depiction<br>XML, abbreviated XML, symbol graphs, hybrid effect (MTAT)</li>
-<li>Interaction<br>Visualizations emulate various editing paradigms</li>
-<li>Fidelity<br>Textual &amp; ArchEdit complete; graphical leave detail out</li>
-<li>Consistency<br>Effort to follow conventions</li>
-<li>Comprehensibility<br>Varies; some easier than others</li>
-<li>Dynamism<br>Animation on state-transition diagrams and domain-specific visualizations</li>
-<li>View coordination<br>Many views coordinated ‘live,’ MTAT leverages some animation</li>
-<li>Aesthetics<br>Varies; Archipelago promotes aesthetic improvements by allowing fine customization</li>
-<li>Extensibility<br>Many extensibility mechanisms at different levels</li>
-</ul>
-<p>###Constructing New Visualizations<br>[1]Developing a new visualization can be expensive both in initial development and maintenance</p>
-<p>[2]Must answer many questions in advance</p>
-<ul>
-<li>Can I achieve my goals by extending an existing visualization?</li>
-<li>Can I translate into another notation and use a visualization already available there?</li>
-<li>How will my visualization augment the existing set of visualizations for this notation?</li>
-<li>How will my visualization coordinate with other visualizations?</li>
-<li>(Plus all the evaluation categories we’ve been exploring)</li>
-</ul>
-<p>###New Visualizations: Guidelines</p>
-<ul>
-<li>Borrow elements from similar visualizations<br>Leverages existing stakeholder knowledge<br>Improves comprehensibility</li>
-<li>Be consistent among visualizations<br>Don’t conflict with existing visualizations without a good reason (e.g., developing a domain-specific visualization where the concepts and metaphors are completely different)</li>
-<li>Give meaning to each visual aspect of elements<br>Parsimony is more important than aesthetics<br>Corollary: avoid having non-explicit meaning encoded in visualizations</li>
-<li>Document the meaning of visualizations<br>Visualizations are rarely self-explanatory<br>Focus on mapping between model and visualization</li>
-<li>Balance traditional and innovative interfaces<br>Stakeholders bring a lot of interaction experience to the table<br>But just because a mechanism is popular doesn’t mean it’s ideal</li>
-</ul>
-<p>###New Visualizations: Anti-Guidelines<br>(1)Same Symbol, Different Meaning </p>
-<p>(2)Differences without meaning</p>
-<p>(3)Decorations without meaning</p>
-<p>(4)Borrowed symbol, different meaning</p>
-<p>###Coordinating Multiple Visualizations<br>[1]Peer-to-Peer Coordination<br>Each visualization communicates with each other visualization for updates</p>
-<ul>
-<li>Has scaling problems</li>
-<li>Works best for visualizations known a priori</li>
-</ul>
-<p>[2]Master-Slave</p>
-<ul>
-<li>One visualization is the master and others coordinate through it</li>
-<li>Works best when visualizations are subordinate</li>
-</ul>
-<p>[3]Pull-based</p>
-<ul>
-<li>Visualizations repeatedly poll a model repository for changes</li>
-<li>Potential consistency/staleness problems</li>
-<li>May be necessary if model repository is entirely passive</li>
-<li>May save computing power</li>
-</ul>
-<p>[4]Push-based</p>
-<ul>
-<li>Visualizations actively notified and update themselves whenever model changes for any reason</li>
-<li>Best for multiple simultaneous visualizations</li>
-<li>Hard to debug, must avoid infinite loops and subtle concurrency conditions</li>
-</ul>
-<p>#<em>Implementing Architecture</em><br>[1]Mapping Problem<br>Implementation is the one phase of software engineering that is not optional.<br>Maintaining mapping means ensuring that our architectural intent is reflected in our constructed systems.</p>
-<p>[2]Common Element Mapping<br>(1)Components and Connectors</p>
-<ul>
-<li>Partitions of application computation and communication functionality</li>
-<li>Modules, packages, libraries, classes, explicit components/connectors in middleware</li>
-</ul>
-<p>(2)Interfaces</p>
-<ul>
-<li>Programming-language level interfaces (e.g., APIs/function or method signatures) are common</li>
-<li>State machines or protocols are harder to map</li>
-</ul>
-<p>(3)Configurations</p>
-<ul>
-<li>Interconnections, references, or dependencies between functional partitions</li>
-<li>May be implicit in the implementation</li>
-<li>May be externally specified through a MIL and enabled through middleware</li>
-<li>May involve use of reflection</li>
-</ul>
-<p>(4)Design rationale</p>
-<ul>
-<li>Often does not appear directly in implementation</li>
-<li>Retained in comments and other documentation</li>
-</ul>
-<p>(5)Dynamic Properties (e.g., behavior):</p>
-<ul>
-<li>Usually translate to algorithms of some sort</li>
-<li>Mapping strategy depends on how the behaviors are specified and what translations are available</li>
-<li>Some behavioral specifications are more useful for generating analyses or testing plans</li>
-</ul>
-<p>(6)Non-Functional Properties</p>
-<ul>
-<li>Extremely difficult to do since non-functional properties are abstract and implementations are concrete</li>
-<li>Achieved through a combination of human-centric strategies like inspections, reviews, focus groups, user studies, beta testing, and so on</li>
-</ul>
-<p>[3]One-Way vs. Round Trip Mapping<br>(1)One-way mappings are easier<br>Must be able to understand impact on implementation for an architectural design decision or change</p>
-<p>(2)Two way mappings require more insight<br>Must understand how a change in the implementation impacts architecture-level design decisions</p>
-<p>[4]Architecture Implementation Frameworks<br>(1)Ideal approach: develop architecture based on a known style, select technologies that provide implementation support for each architectural element.</p>
-<p>(2)More on Framework</p>
-<ul>
-<li>Frameworks are meant to assist developers in following a style, but generally do not constrain developers from violating a style if they really want to.</li>
-<li>Developing applications in a target style does not require a framework, but if you follow good software engineering practices, you’ll probably end up developing one anyway.</li>
-<li>Frameworks are generally considered as underlying infrastructure or substrates from an architectural perspective</li>
-</ul>
-<p>(3)Same Style, Different Frameworks</p>
-<ul>
-<li>For a given style, there is no one perfect architecture framework.</li>
-<li>Even in the same (style/target technology) groupings, different frameworks exist due to different qualitative properties of frameworks.</li>
-</ul>
-<p>(4)Evaluating Framework</p>
-<ul>
-<li>Can draw out some of the qualitative properties just mentioned</li>
-<li>Platform support: Target language, operating system, other technologies</li>
-<li>Fidelity</li>
-<li>Matching Assumptions</li>
-<li>Efficiency</li>
-<li>Other quality considerations: Size; Cost; Ease of use; Reliability; Robustness; Availability of source code; Portability and Long-term maintainability and support.</li>
-</ul>
-<p>[5]Middleware and Component Models<br>(1)They are closely related</p>
-<ul>
-<li>Both provide developers with services not available in the underlying OS/language</li>
-<li>CORBA provides well-defined interfaces, portability, remote procedure call…</li>
-<li>JavaBeans provides a standardized packaging framework (the bean) with new kinds of introspection and binding</li>
-</ul>
-<p>(2)Indeed, architecture implementation frameworks are forms of middleware.</p>
-<p>(3)By focusing on services, middleware developers often make other decisions that substantially impact architecture.</p>
-<p>(4)In a very real way, middleware induces an architectural style.</p>
-<p>[6]Resolving Mismatches<br>(1)A style is chosen first, but the middleware selected for implementation does not support (or contradicts) that style<br>   A middleware is chosen first (or independently) and has undue influence on the architectural style used</p>
-<p>(2)Strategies</p>
-<ul>
-<li>Change or adapt the style</li>
-<li>Change the middleware selected</li>
-<li>Develop glue code</li>
-<li>Leverage parts of the middleware and ignore others</li>
-<li>Hide the middleware in components/connectors</li>
-</ul>
-<p>[7]Hiding Middleware in Connectors</p>
-<p>[8]Building a New Framework<br>(1)Occasionally, you need a new framework</p>
-<p>(2)Good framework development is extremely difficult</p>
-<p>[9]New Framework Guidelines<br>(1)Understand the target style first</p>
-<ul>
-<li>Enumerate all the rules and constraints in concrete terms</li>
-<li>Provide example design patterns and corner cases</li>
-</ul>
-<p>(2)Limit the framework to the rules and constraints of the style</p>
-<ul>
-<li>Do not let a particular target application’s needs creep into the framework</li>
-<li>“Rule of three” for applications</li>
-</ul>
-<p>(3)Choose the framework scope</p>
-<ul>
-<li>A framework does not necessarily have to implement all possible stylistic advantages (e.g., dynamism or distribution)</li>
-</ul>
-<p>(4)Avoid over-engineering</p>
-<ul>
-<li>Don’t add capabilities simply because they are clever or “cool”, especially if known target applications won’t use them</li>
-<li>These often add complexity and reduce performance</li>
-</ul>
-<p>(5)Limit overhead for application developers</p>
-<ul>
-<li>Every framework induces some overhead (classes must inherit from framework base classes, communication mechanisms limited)</li>
-<li>Try to put as little overhead as possible on framework users</li>
-</ul>
-<p>(6)Develop strategies and patterns for legacy systems and components</p>
-<ul>
-<li>Almost every large application will need to include elements that were not built to work with a target framework</li>
-<li>Develop strategies for incorporating and wrapping these</li>
-</ul>
-<p>[10]Concurrency<br>(1)Concurrency is one of the most difficult concerns to address in implementation, and often an architecture-level concern.</p>
-<p>[11]Generative Technologies<br>(1)With a sufficiently detailed architectural model, various implementation artifacts can be generated:</p>
-<ul>
-<li>Entire system implementations</li>
-<li>Skeletons or interfaces</li>
-<li>Compositions </li>
-</ul>
-<p>[12]Maintaining Consistency<br>(1)Strategies for maintaining one-way or round-trip mappings</p>
-<ul>
-<li>Create and maintain traceability links from architectural implementation elements</li>
-<li>Make the architectural model part of the implementation</li>
-<li>Generate some or all of the implementation from the architecture</li>
-</ul>
-<p>[13]Framework Objectives</p>
-<ul>
-<li>Traceability</li>
-<li>Platform independence</li>
-<li>Distribution</li>
-<li>Dynamism</li>
-<li>Efficiency</li>
-<li>Observability</li>
-<li>Extensibility</li>
-</ul>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T01:19:36.000Z"><a href="/2015/07/17/Software-Architecture-Summary-V/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Software-Architecture-Summary-V/">Software Architecture Summary V</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Deployment and Mobility</em></p>
-<p>###Deployment<br>[1]Deployment Activities</p>
-<ul>
-<li>Planning</li>
-<li>Modeling</li>
-<li>Analysis</li>
-<li>Implementation</li>
-</ul>
-<p>[2]Deployment Analysis Strategies<br>(1)Different strategies with different strengths<br>(2)Most of them offer approximate solutions</p>
-<ul>
-<li>Mixed Integer Non-linear Programming (MINLP)</li>
-<li>Mixed Integer Linear Programming (MIP)</li>
-<li>Heuristic-based strategies: Greedy, Genetic, and Decentralized</li>
-</ul>
-<p>[3]Implementation</p>
-<ul>
-<li>Release</li>
-<li>Install</li>
-<li>Activate</li>
-<li>Deactivate</li>
-<li>Update</li>
-<li>Adapt</li>
-<li>Reconfigure</li>
-<li>De-install or remove</li>
-<li>De-release or retire</li>
-</ul>
-<p>###Mobility<br>[1]Paradigms</p>
-<ul>
-<li>Remote evaluation</li>
-<li>Code-on-demand</li>
-<li>Mobile agent</li>
-</ul>
-<p>#<em>Applied Software Architecture and Some Examples</em></p>
-<p>###Distributed and networked architectures</p>
-<p>####Limitations of the Distributed Systems Viewpoint<br>[1]Examples: Architecture of WWW<br>(1)The application is distributed (actually, decentralized) hypermedia.<br>(2)Architecture of the Web is wholly separate from the code.<br>(3)There is no single piece of code that implements the architecture.<br>(4)There are multiple pieces of code that implement the various components of the architecture.<br>(5)Stylistic constraints of the Web’s architectural style are not apparent in the code.<br>(6)One of the world’s most successful applications is only understood adequately from an architectural vantage point.</p>
-<p>####REST (REpresentational State Transfer)<br>[1]Principles<br>(1) The key abstraction of information is a resource, named by an URL. Any information that can be named can be a resource.<br>(2) The representation of a resource is a sequence of bytes, plus representation metadata to describe those bytes. The particular form of the representation can be negotiated between REST components.<br>(3) All interactions are context-free: each interaction contains all of the information necessary to understand the request, independent of any requests that may have preceded it.<br>(4) Components perform only a small set of well-defined methods on a resource producing a representation to capture the current or intended state of that resource and transfer that representation between components. These methods are global to the specific architectural instantiation of REST; for instance, all resources exposed via HTTP are expected to support each operation identically.<br>(5) Idempotent operations and representation metadata are encouraged in support of caching and representation reuse.<br>(6) The presence of intermediaries is promoted. Filtering or redirection intermediaries may also use both the metadata and the representations within requests or responses to augment, restrict, or modify requests and responses in a manner that is transparent to both the user agent and the origin server.</p>
-<p>[2]Data Elements</p>
-<ul>
-<li>Resource</li>
-<li>Resource ID </li>
-<li>Representation </li>
-<li>Representation metadata</li>
-<li>Resource metadata</li>
-<li>Control data</li>
-</ul>
-<p>[3]Connectors<br>Client; Server; Cache; Resolver; Tunnel</p>
-<p>[4]Components</p>
-<ul>
-<li>User agent</li>
-<li>Origin server</li>
-<li>Proxy</li>
-<li>Gateway</li>
-</ul>
-<p>[5]Derivation</p>
-<ul>
-<li>Layered Separation (a theme in the middle portion of diagram) is used to increase efficiencies, enable independent evolution of elements of the system, and provide robustness;</li>
-<li>Replication (left side of the diagram) is used to address latency and contention by allowing the reuse of information;</li>
-<li>Limited commonality (right side) addresses the competing needs for universally understood operations with extensibility.</li>
-</ul>
-<p>####Commercial Internet-Scale Applications<br>[1]Akamai<br>Caching to the max</p>
-<p>[2]Google</p>
-<ul>
-<li>Google distributed file system (GFS)</li>
-<li>MapReduce</li>
-</ul>
-<p>###Decentralized applications<br>[1]Definition<br>Networked applications where there are multiple authorities.</p>
-<p>####Grid Protocol Architecture<br>[1]Definition<br>Coordinated resource sharing in a distributed environment.</p>
-<p>[2]GLOBUS<br>A commonly used infrastructure<br><img src="https://c1.staticflickr.com/1/403/19826066782_5f0068bdec_n.jpg" alt="Grid Protocol Architecture" title="Grid Protocol Architecture"></p>
-<p>####Peer-to-Peer Architectures<br>[1]Decentralized resource sharing and discovery</p>
-<p>[2]Examples:<br>Napster, Gnutella, Skype and BitTorrent</p>
-<p>[3]Skype</p>
-<ul>
-<li>A mixed client-server and peer-to-peer architecture addresses the discovery problem. </li>
-<li>Replication and distribution of the directories, in the form of supernodes, addresses the scalability problem and robustness problem encountered in Napster.</li>
-<li>Promotion of ordinary peers to supernodes based upon network and processing capabilities addresses another aspect of system performance:  “not just any peer” is relied upon for important services. </li>
-<li>A proprietary protocol employing encryption provides privacy for calls that are relayed through supernode intermediaries.</li>
-<li>Restriction of participants to clients issued by Skype, and making those clients highly resistant to inspection or modification, prevents malicious clients from entering the network.</li>
-</ul>
-<p>####Web Services<br><img src="https://c2.staticflickr.com/4/3686/19646946479_533ef664a0_n.jpg" alt="Web Services" title="Web Services"></p>
-<p>###Some interesting domains</p>
-<p>####Mobile Robotics<br>[1]Manned or partially manned vehicles</p>
-<p>[2]Architecture:<br>(1)Sense-Plan-Act<br>(2)Three-Layer</p>
-<p>####Flight Simulators<br>[1]<a href="http://www.gillesvidal.com/blogpano/cockpit1.htm" target="_blank" rel="external">click here</a></p>
-<p>[2]Complexity Management<br>(1)New Style</p>
-<ul>
-<li>“Structural Modeling”</li>
-<li>Based on Object–oriented design to model and real-time scheduling to control execution order.</li>
-</ul>
-<p>(2)Style Principles</p>
-<ul>
-<li>Pre-defined partitioning of functionality among SW elements</li>
-<li>Restricted data- &amp; control-flow</li>
-<li>Objects fully encapsulate their own internal state</li>
-<li>No side-effects of computations</li>
-<li>Narrow set of system-wide coordination strategies</li>
-</ul>
-<p>###The Lunar Lander<br>[1]Description<br>A simple computer game that first appeared in the 1960’s</p>
-<p>[2]Architecture<br>Model-View-Controller Model, using Sense-Compute-Control.</p>
-<p>###A Financial Application<br>[1]Architecture<br>Batch-Sequential Style (Data-Flow Style).</p>
-<p>[2]Picture<br><img src="https://c1.staticflickr.com/1/400/19803557185_8fb868ea3f_n.jpg" alt="Financial Application" title="Financial Application"></p>
-<p>###KLAX<br>[1]Architecture<br>C2 - A kind of Heterogeneous Style.</p>
-<p>[2]Picture<br><img src="https://c2.staticflickr.com/4/3773/19616690398_74498b3851_n.jpg" alt="KLAX" title="KLAX C2 Style"></p>
-<p>###Summary</p>
-<ul>
-<li>A great architecture is the ticket to runaway success</li>
-<li>A great architecture reflects deep understanding of the problem domain</li>
-<li>A great architecture probably combines aspects of several simpler architectures</li>
-<li>Develop a new architectural style with great care and caution.  </li>
-</ul>
-<p>END</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T01:19:25.000Z"><a href="/2015/07/17/Software-Architecture-Summary-II/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Software-Architecture-Summary-II/">Software Architecture Summary II</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Basic Knowledge</em></p>
-<p><hr></p>
-<p>###Architecture Design<br>[1]Objectives</p>
-<ul>
-<li>Creativity:<br>Enhance your skill-set; Provide new tools.</li>
-<li>Method:<br>Focus on highly effective techniques</li>
-</ul>
-<p>[2]Engineering Design Process<br>(1)Feasibility stage: identifying a set of feasible concepts for the design as a whole<br>(2)Preliminary design stage: selection and development of the best concept.<br>(3)Detailed design stage: development of engineering descriptions of the concept.<br>(4)Planning stage: evaluating and altering the concept to suit the requirements of production, distribution, consumption and product retirement.<br>(5)Alternative Design Strategies:</p>
-<ul>
-<li>Standard: Linear model described above.</li>
-<li>Cyclic: Process can revert to an earlier stage. </li>
-<li>Parallel: Independent alternatives are explored in parallel.</li>
-<li>Adaptive: The next design strategy of the design activity is decided at the end of a given stage.</li>
-<li>Incremental: Each stage of development is treated as a task of incrementally improving the existing design.<br>(6)How to identify a viable strategy:</li>
-<li>Use fundamental design tools: abstraction and modularity.</li>
-<li>Inspiration, where inspiration is needed. Predictable techniques elsewhere. </li>
-<li>Applying own experience or experience of others.</li>
-</ul>
-<p>[3]Abstraction</p>
-<ul>
-<li>Abstraction(1):  look at details, and abstract “up” to concepts.</li>
-<li>Abstraction(2):  choose concepts, then add detailed substructure, and move “down”.</li>
-</ul>
-<p>[4]Separation of concerns<br>Key example from software architecture: separation of components (computation) from connectors (interaction).</p>
-<p>#<em>Architectural Styles</em></p>
-<p><hr></p>
-<p>###Object-Oriented Style<br>[1]Components are objects: Data and associated operations</p>
-<p>[2]Connectors are messages and method invocations</p>
-<p>[3]Style invariants: Objects are responsible for their internal representation integrity; Internal representation is hidden from other objects.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>“Infinite malleability” of object internals;</li>
-<li>System decomposition into sets of interacting agents.</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Objects must know identities of servers;</li>
-<li>Side effects in object method invocations.</li>
-</ul>
-<p>[5]Pictures<br><img src="https://c1.staticflickr.com/1/561/19802893555_cdf6ec7a57_n.jpg" alt="Object-Oriented Style" title="Object-Oriented LL"></p>
-<p>###Layered Style<br>[1]Hierarchical system organization: “Multi-level client-server”; Each layer exposes an interface (API) to be used by above layers.</p>
-<p>[2]Each layer acts as a Server(service provider to layers “above”) and Client: service consumer of layer(s) (“below”). </p>
-<p>[3]Connectors are protocols of layer interaction.</p>
-<p>[4]Example: operating systems.</p>
-<p>[5]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Increasing abstraction levels</li>
-<li>Evolvability</li>
-<li>Changes in a layer affect at most the adjacent two layers: Reuse</li>
-<li>Different implementations of layer are allowed as long as interface is preserved</li>
-<li>Standardized layer interfaces for libraries and frameworks</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Not universally applicable</li>
-<li>Performance</li>
-</ul>
-<p>[6]Layers may have to be skipped: Determining the correct abstraction level.</p>
-<p>[7]Pictures<br><img src="https://c1.staticflickr.com/1/440/19777155166_3dd53b1f19_n.jpg" alt="Layered Style Style" title="Layered Style"></p>
-<p>###Client-Server Style<br>[1]Components are clients and servers. Servers do not know number or identities of clients, but Clients know server’s identity.</p>
-<p>[2]Connectors are RPC-based network interaction protocols.</p>
-<p>[3]Picture<br><img src="https://c1.staticflickr.com/1/273/19616814189_2d6fb99089.jpg" alt="Client-Server Style" title="Client-Server Style"></p>
-<p>###Data-Flow Style<br>[1]Batch Sequential: Separate programs are executed in order; data is passed as an aggregate from one program to the next..</p>
-<p>[2]Data Elements: Explicit, aggregate elements passed from one component to the next upon completion of the producing program’s execution.</p>
-<p>[3]Connectors: “The human hand” carrying tapes between the programs, a.k.a. “sneaker-net ”.</p>
-<p>[4]Example: Typical uses: Transaction processing in financial systems. “The Granddaddy of Styles”.</p>
-<p>[5]Picture<br><img src="https://c1.staticflickr.com/1/424/19182730293_1b83cce928_h.jpg" alt="Batch-Sequentail Style" title="Data-Flow Style"></p>
-<p>###Pipe and Filter Style<br>[1]Components are filters: Transform input data streams into output data streams; Possibly incremental production of output.</p>
-<p>[2]Connectors are pipes.</p>
-<p>[3]Style invariants: Filters are independent (no shared state); Filter has no knowledge of up- or down-stream filters.</p>
-<p>[4]Examples: UNIX shell; signal processing; Distributed systems; parallel computing.</p>
-<p>[5]Variations:</p>
-<ul>
-<li>Pipelines — linear sequences of filters</li>
-<li>Bounded pipes — limited amount of data on a pipe</li>
-<li>Typed pipes — data strongly typed</li>
-</ul>
-<p>[6]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>System behavior is a succession of component behaviors.</li>
-<li>Filter addition, replacement, and reuse: Possible to hook any two filters together. </li>
-<li>Certain analyses: Throughput, latency, deadlock.</li>
-<li>Concurrent execution.</li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Batch organization of processing.</li>
-<li>Interactive applications.</li>
-<li>Lowest common denominator on data transmission.</li>
-</ul>
-<p>[7]Picture<br><img src="https://c1.staticflickr.com/1/499/19617174259_fce96c0165_n.jpg" alt="Pipe and Filter Style" title="Pipe and Fileter Style"></p>
-<p>###Blackboard Style<br>[1]Two kinds of components:</p>
-<ul>
-<li>Central data structure — blackboard</li>
-<li>Components operating on the blackboard<br>System control is entirely driven by the blackboard state</li>
-</ul>
-<p>[2]Examples: Typically used for AI systems; Integrated software environments; Compiler architecture.</p>
-<p>[3]Picture<br><img src="https://c1.staticflickr.com/1/339/19615890890_164572526d_n.jpg" alt="Blackboard Style" title="Blackboard Style"></p>
-<p>###Implicit Invocation Style<br>[1]Component interfaces are methods and events. Event announcement instead of method invocation: “Listeners” register interest in and associate methods with events; System invokes all registered methods implicitly.</p>
-<p>[2]Two types of connectors: implicit and explicit.</p>
-<p>[3]Style invariants: “Announcers” are unaware of their events’ effects; No assumption about processing in response to events.</p>
-<p>[4]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Component reuse.</li>
-<li>System evolution: Both at system construction-time &amp; run-time. </li>
-</ul>
-<p>Disadvantages:</p>
-<ul>
-<li>Counter-intuitive system structure</li>
-<li>Components relinquish computation control to the system</li>
-<li>No knowledge of what components will respond to event</li>
-<li>No knowledge of order of responses</li>
-</ul>
-<p>###Publish-Subscribe<br>[1]Description<br>Subscribers register/deregister to receive specific messages or specific content. Publishers broadcast messages to subscribers either synchronously or asynchronously.</p>
-<p>[2]Components: Publishers, subscribers, proxies for managing distribution.</p>
-<p>[3]Connectors: Typically a network protocol is required.  Content-based subscription requires sophisticated connectors.</p>
-<p>[4]Data Elements: Subscriptions, notifications, published information.</p>
-<p>[5]Topology: Subscribers connect to publishers either directly or may receive notifications via a network protocol from intermediaries.</p>
-<p>[6]Qualities yielded: Highly efficient one-way dissemination of information with very low-coupling of components.</p>
-<p>[7]Picture<br><img src="https://c2.staticflickr.com/4/3665/19181519784_4c07532e07_n.jpg" alt="Publish-Subscribe Style" title="Publish-Subscribe Style"></p>
-<p>###Event-Based Style<br>[1]Independent components asynchronously emit and receive events communicated over event buses </p>
-<p>[2]Components: Independent, concurrent event generators and/or consumers</p>
-<p>[3]Connectors: Event buses (at least one)</p>
-<p>[4]Data Elements: Events – data sent as a first-class entity over the event bus</p>
-<p>[5]Topology: Components communicate with the event buses, not directly to each other.  </p>
-<p>[6]Variants: Component communication with the event bus may either be push or pull based.</p>
-<p>[7]Advantages:<br>Highly scalable, easy to evolve, effective for highly distributed applications.</p>
-<p>[8]Picture<br><img src="https://c1.staticflickr.com/1/257/19778012886_f72d2cb483_n.jpg" alt="Event-Basd Style" title="Event-Based Style"></p>
-<p>###Peer-to-Peer Style<br>[1]State and behavior are distributed among peers which can act as either clients or servers. </p>
-<p>[2]Peers: independent components, having their own state and control thread.</p>
-<p>[3]Connectors: Network protocols, often custom.</p>
-<p>[4]Data Elements: Network messages</p>
-<p>[5]Topology: Network (may have redundant connections between peers); can vary arbitrarily and dynamically</p>
-<p>[6]Advantages:</p>
-<ul>
-<li>Supports decentralized computing with flow of control and resources distributed among peers. </li>
-<li>Highly robust in the face of failure of any given node. </li>
-<li>Scalable in terms of access to resources and computing power.  </li>
-</ul>
-<p>[7]Picture:<br><img src="https://c2.staticflickr.com/4/3752/19778098456_22f26945e8_n.jpg" alt="Peer-to-Peer Style" title="Peer-to-Peer Style"></p>
-<p>###Heterogeneous Styles<br>[1]More complex styles created through composition of simpler styles.</p>
-<p>[2]Examples:</p>
-<ul>
-<li>REST</li>
-<li>C2: Implicit invocation + Layering + other constraints</li>
-<li>Distributed objects: OO + client-server network style; CORBA.</li>
-</ul>
-<p>####C2 Style<br>[1]Description<br>An indirect invocation style in which independent components communicate exclusively through message routing connectors.  Strict rules on connections between components and connectors induce layering.</p>
-<p>[2]Components: Independent, potentially concurrent message generators and/or consumers.</p>
-<p>[3]Connectors: Message routers that may filter, translate, and broadcast messages of two kinds:  notifications and requests.</p>
-<p>[4]Data Elements: Messages – data sent as first-class entities over the connectors. Notification messages announce changes of state. Request messages request performance of an action.</p>
-<p>[5]Topology: Layers of components and connectors, with a defined “top” and “bottom”, wherein notifications flow downwards and requests upwards.</p>
-<p>[6]Picture<br><img src="https://c1.staticflickr.com/1/519/19182108964_0aa3f68c42_n.jpg" alt="C2 Style" title="C2 Style"></p>
-<p>####CORBA<br>[1]“Objects” (coarse- or fine-grained) run on heterogeneous hosts, written in heterogeneous languages. Objects provide services through well-defined interfaces. Objects invoke methods across host, process, and language boundaries via remote procedure calls (RPCs).</p>
-<p>[2]Components:  Objects (software components exposing services through well-defined provided interfaces)</p>
-<p>[3]Connector:  (Remote) Method invocation</p>
-<p>[4]Data Elements: Arguments to methods, return values, and exceptions</p>
-<p>[5]Topology: General graph of objects from callers to callees.</p>
-<p>[6]Additional constraints imposed: Data passed in remote procedure calls must be serializable. Callers must deal with exceptions that can arise due to network or process faults. And Location, platform, and language “transparency”.</p>
-<p>[7]Picture<br><img src="https://c1.staticflickr.com/1/467/19809509291_0d2502272c_n.jpg" alt="CORBA" title="CORBA Concpets and Implementation"><br><img src="https://c1.staticflickr.com/1/424/19616671150_99df857327_n.jpg" alt="CORBA Style" title="CORBA LL"></p>
-<p>#<em>Architecture Model</em><br>[1]Definition<br>An architectural model is an artifact that captures some or all of the design decisions that comprise a system’s architecture.<br>Architectural modeling is the reification and documentation of those design decisions.</p>
-<p>[2]How we model is strongly influenced by the notations we choose and an architectural modeling notation is a language or means of capturing design decisions. </p>
-<p>[3]Stakeholder-Driven Modeling</p>
-<ul>
-<li>Stakeholders identify aspects of the system they are concerned about</li>
-<li>Stakeholders decide the relative importance of these concerns</li>
-<li>Modeling depth should roughly mirror the relative importance of concerns</li>
-</ul>
-<p>[4]What to Model<br>(1)Basic architectural elements</p>
-<ul>
-<li>Components</li>
-<li>Connectors</li>
-<li>Interfaces</li>
-<li>Configurations</li>
-<li>Rationale – reasoning behind decisions<br>(2)Elements of the architectural style</li>
-<li>Inclusion of specific basic elements</li>
-<li>Component, connector, and interface types</li>
-<li>Constraints on interactions</li>
-<li>Behavioral constraints</li>
-<li>Concurrency constraints<br>(3)Static and Dynamic Aspects</li>
-<li>Static aspects of a system do not change as a system runs.</li>
-<li>Dynamic aspects do change as a system runs</li>
-<li>Unclear aspects<br>(4)Functional and non-functional aspects of a system</li>
-</ul>
-<p>[5]Important Characteristics of Models<br>(1)Ambiguity<br>A model is ambiguous if it is open to more than one interpretation.</p>
-<p>(2)Accuracy and Precision<br>Different, but often conflated concepts.</p>
-<ul>
-<li>A model is accurate if it is correct, conforms to fact, or deviates from correctness within acceptable limits.</li>
-<li>A model is precise if it is sharply exact or delimited.</li>
-</ul>
-<p>[6]Views and Viewpoints<br>(1)Views<br>The several coordinated models, capturing a subset of the design decisions.</p>
-<p>(2)Viewpoints<br>The concern of subset-models.</p>
-<p>(3)Commonly-used viewpoints</p>
-<ul>
-<li>Logical Viewpoints<br>Capture the logical (often software) entities in a system and how they are interconnected.</li>
-<li>Physical Viewpoints<br>Capture the physical (often hardware) entities in a system and how they are interconnected.</li>
-<li>Deployment Viewpoints<br>Capture how logical entities are mapped onto physical entities.</li>
-<li>Concurrency Viewpoints<br>Capture how concurrency and threading will be managed in a system.</li>
-<li>Behavioral Viewpoints<br>Capture the expected behavior of (parts of) a system.</li>
-</ul>
-<p>(4)Consistency Among Views</p>
-<ul>
-<li>Views can contain overlapping and related design decisions.</li>
-<li>Views are consistent if the design decisions they contain are compatible;<br>Views are inconsistent if two views assert design decisions that cannot simultaneously be true</li>
-<li>Inconsistency is usually but not always indicative of problems</li>
-</ul>
-<p>(5)Common Types of Inconsistencies</p>
-<ul>
-<li>Direct inconsistencies</li>
-<li>Refinement inconsistencies</li>
-<li>Static vs. dynamic aspect inconsistencies</li>
-<li>Dynamic vs. dynamic aspect inconsistencies</li>
-<li>Functional vs. non-functional inconsistencies</li>
-</ul>
-<p>[7]Evaluating Modeling Approaches<br>(1)Scope and purpose<br>What does the technique help you model? What does it not help you model?</p>
-<p>(2)Basic elements<br>What are the basic elements (the ‘atoms’) that are modeled? How are they modeled?</p>
-<p>(3)Style<br>To what extent does the approach help you model elements of the underlying architectural style? Is the technique bound to one particular style or family of styles?</p>
-<p>(4)Static and dynamic aspects<br>What static and dynamic aspects of an architecture does the approach help you model?</p>
-<p>(5)Dynamic modeling<br>To what extent does the approach support models that change as the system executes?</p>
-<p>(6)Non-functional aspects<br>To what extent does the approach support (explicit) modeling of non-functional aspects of architecture?</p>
-<p>(7)Ambiguity<br>How does the approach help you to avoid (or embrace) ambiguity?</p>
-<p>(8)Accuracy<br>How does the approach help you to assess the correctness of models?</p>
-<p>(9)Precision<br>At what level of detail can various aspects of the architecture be modeled?</p>
-<p>(10)Viewpoints<br>Which viewpoints are supported by the approach?</p>
-<p>(11)Viewpoint Consistency<br>How does the approach help you assess or maintain consistency among different views?</p>
-<p>(12)Surveying Modeling Approaches</p>
-<ul>
-<li>Generic approaches:<br>Natural language; PowerPoint-style modeling; UML, the Unified Modeling Language</li>
-<li>Early architecture description languages<br>Darwin; Rapide; Wright</li>
-<li>Domain- and style-specific languages<br>Koala; Weaves; AADL</li>
-<li>Extensible architecture description languages<br>Acme; ADML; xADL</li>
-</ul>
-<p>###Natural Language<br>[1]Spoken/written languages such as English</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Highly expressive</li>
-<li>Accessible to all stakeholders</li>
-<li>Good for capturing non-rigorous or informal architectural elements like rationale and non-functional requirements</li>
-<li>Plentiful tools available (word processors and other text editors)<br>Disadvantages:</li>
-<li>Ambiguous, non-rigorous, non-formal</li>
-<li>Often verbose</li>
-<li>Cannot be effectively processed or analyzed by machines/software</li>
-</ul>
-<p>[3]Related Alternatives<br>Ambiguity can be reduced and rigor can be increased through the use of techniques like ‘statement templates’.</p>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Capture design decisions in prose form</li>
-<li>Basic elements<br>Any concepts required</li>
-<li>Style<br>Can be described by using more general language</li>
-<li>Static &amp; Dynamic Aspects<br>Any aspect can be modeled </li>
-<li>Dynamic Models<br>No direct tie to implemented/ running system</li>
-<li>Non-Functional Aspects<br>Expressive vocabulary available (but no way to verify)</li>
-<li>Ambiguity<br>Plain natural language tends to be ambiguous; statement templates and dictionaries help</li>
-<li>Accuracy<br>Manual reviews and inspection</li>
-<li>Precision<br>Can add text to describe any level of detail</li>
-<li>Viewpoints<br>Any viewpoint (but no specific support for any particular viewpoint)</li>
-<li>View consistency<br>Manual reviews and inspection</li>
-</ul>
-<p>###Informal Graphical Modeling<br>[1]General diagrams produced in tools like PowerPoint and OmniGraffle.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Can be aesthetically pleasing.</li>
-<li>Size limitations (e.g., one slide, one page) generally constrain complexity of diagrams.</li>
-<li>Extremely flexible due to large symbolic vocabulary.<br>Disadvantages:</li>
-<li>Ambiguous, non-rigorous, non-formal.</li>
-<li>Cannot be effectively processed or analyzed by machines/software.</li>
-</ul>
-<p>[3]Related Alternatives</p>
-<ul>
-<li>Some diagram editors (e.g., Microsoft Visio) can be extended with semantics through scripts and other additional programming.</li>
-<li>PowerPoint Design Editor (Goldman, Balzer) was an interesting project that attempted to integrate semantics into PowerPoint.</li>
-</ul>
-<p>[4]Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Arbitrary diagrams consisting of symbols and text</li>
-<li>Basic elements<br>Geometric shapes, splines, clip-art, text segments</li>
-<li>Style<br>In general, no support</li>
-<li>Static &amp; Dynamic Aspects<br>Any aspect can be modeled, but no semantics behind models </li>
-<li>Dynamic Models<br>Rare, although APIs to manipulate graphics exist</li>
-<li>Non-Functional Aspects<br>With natural language annotations</li>
-<li>Ambiguity<br>Can be reduced through use of rigorous symbolic vocabulary/dictionaries</li>
-<li>Accuracy<br>Manual reviews and inspection</li>
-<li>Precision<br>Up to modeler; generally canvas is limited in size (e.g., one ‘slide’)</li>
-<li>Viewpoints<br>Any viewpoint (but no specific support for any particular viewpoint)</li>
-<li>View consistency<br>Manual reviews and inspection</li>
-</ul>
-<p>###UML – the Unified Modeling Language<br>[1]13 loosely-interconnected notations called diagrams that capture static and dynamic aspects of software-intensive systems.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Support for a diverse array of viewpoints focused on many common software engineering concerns</li>
-<li>Ubiquity improves comprehensibility</li>
-<li>Extensive documentation and tool support from many vendors<br>Disadvantages</li>
-<li>Needs customization through profiles to reduce ambiguity</li>
-<li>Difficult to assess consistency among views</li>
-<li>Difficult to capture foreign concepts or views</li>
-</ul>
-<p>[3]UML Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Diverse array of design decisions in 13 viewpoints</li>
-<li>Basic elements<br>Multitude – states, classes, objects, composite nodes…</li>
-<li>Style<br>Through (OCL) constraints</li>
-<li>Static &amp; Dynamic Aspects<br>Some static diagrams (class, package), some dynamic (state, activity) </li>
-<li>Dynamic Models<br>Rare; depends on the environment</li>
-<li>Non-Functional Aspects<br>No direct support; natural-language annotations</li>
-<li>Ambiguity<br>Many symbols are interpreted differently depending on context; profiles reduce ambiguity</li>
-<li>Accuracy<br>Well-formedness checks, automatic constraint checking, ersatz tool methods, manual</li>
-<li>Precision<br>Up to modeler; wide flexibility</li>
-<li>Viewpoints<br>Each diagram type represents a viewpoint; more can be added through overloading/profiles</li>
-<li>View consistency<br>Constraint checking, ersatz tool methods, manual</li>
-</ul>
-<p>###Darwin<br>[1]General purpose language with graphical and textual visualizations focused on structural modeling of systems.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Simple, straightforward mechanism for modeling structural dependencies</li>
-<li>Interesting way to specify repeated elements through programmatic constructs</li>
-<li>Can be modeled in pi-calculus for formal analysis</li>
-<li>Can specify hierarchical (i.e., composite) structures<br>Disadvantages:</li>
-<li>Limited usefulness beyond simple structural modeling</li>
-<li>No notion of explicit connectors</li>
-</ul>
-<p>[3]Darwin Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Modeling software structure</li>
-<li>Basic elements<br>Components, interfaces, configurations, hierarchy</li>
-<li>Style<br>Limited support through programmatic constructs</li>
-<li>Static &amp; Dynamic Aspects<br>Mostly static structure; some additional support for dynamic aspects through lazy and dynamic instantiation/binding </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Rigorous, but structural elements can be interpreted in many ways</li>
-<li>Accuracy<br>Pi-calculus analysis</li>
-<li>Precision<br>Modelers choose appropriate level of detail through hierarchy</li>
-<li>Viewpoints<br>Structural viewpoints</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Rapide<br>[1]Language and tool-set for exploring dynamic properties of systems of components that communicate through events.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Unique and expressive language for describing asynchronously communicating components</li>
-<li>Tool-set supports simulation of models and graphical visualization of event traces<br>Disadvantages:</li>
-<li>No natural or explicit mapping to implemented systems</li>
-<li>High learning curve</li>
-<li>Important tool support is difficult to run on modern machines</li>
-</ul>
-<p>[3]Rapide Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Interactions between components communicating with events</li>
-<li>Basic elements<br>Structures, components/ interfaces, behaviors</li>
-<li>Style<br>N/A</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure and dynamic behavior co-modeled </li>
-<li>Dynamic Models<br>Some tools provide limited animation capabilities</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Well-defined semantics limit ambiguity</li>
-<li>Accuracy<br>Compilers check syntax, simulators can be used to check semantics although simulation results are non-deterministic and non-exhaustive</li>
-<li>Precision<br>Detailed behavioral modeling possible</li>
-<li>Viewpoints<br>Single structural/behavioral viewpoint</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Wright<br>[1]An ADL that specifies structure and formal behavioral specifications for interfaces between components and connectors.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Structural specification similar to Darwin or Rapide</li>
-<li>Formal interface specifications can be translated automatically into CSP and analyzed with tool<br>Disadvantages:</li>
-<li>High learning curve</li>
-<li>No direct mapping to implemented systems</li>
-<li>Addresses a small number of system properties relative to cost of use</li>
-</ul>
-<p>[3]Wright Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures, behaviors, and styles of systems composed of components &amp; connectors</li>
-<li>Basic elements<br>Components, connectors, interfaces, attachments, styles</li>
-<li>Style<br>Supported through predicates over instance models</li>
-<li>Static &amp; Dynamic Aspects<br>Static structural models annotated with behavioral specifications </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Well-defined semantics limit ambiguity</li>
-<li>Accuracy<br>Wright models can be translated into CSP for automated analysis</li>
-<li>Precision<br>Detailed behavioral modeling possible</li>
-<li>Viewpoints<br>Single structural/behavioral viewpoint plus styles</li>
-<li>View consistency<br>Style checking can be done automatically</li>
-</ul>
-<p>###Koala<br>[1]Darwin-inspired notation for specifying product lines of embedded consumer-electronics devices.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Advanced product-line features let you specify many systems in a single model</li>
-<li>Direct mapping to implemented systems promotes design and code reuse<br>Disadvantages:</li>
-<li>Limited to structural specification with additional focus on interfaces</li>
-</ul>
-<p>[3]Koala Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures and interfaces of product lines of component-based systems</li>
-<li>Basic elements<br>Components, interfaces, elements for variation points: switches, diversity interfaces, etc.</li>
-<li>Style<br>Product lines might be seen as very narrow styles</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure only </li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Close mappings to implementation limit ambiguity</li>
-<li>Accuracy<br>Close mappings to implementations should reveal problems</li>
-<li>Precision<br>Structural decisions are fully enumerated but other aspects left out</li>
-<li>Viewpoints<br>Structural viewpoint with explicit points of variation</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###Weaves<br>[1]An architectural style and notation for modeling systems of small-grain tool fragments that communicate through data flows of objects.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Extremely optimized notation</li>
-<li>Close mapping to implemented systems<br>Disadvantages:</li>
-<li>Addresses structure and data flows only</li>
-</ul>
-<p>[3]Weaves Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures of components and connectors in the Weaves style</li>
-<li>Basic elements<br>Components, queues, directed interconnections</li>
-<li>Style<br>Weaves style implicit</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure only</li>
-<li>Dynamic Models<br>N/A, although there is a 1-1 correspondence between model and implementation elements</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Meanings of Weaves elements are well-defined although important elements (e.g., protocols) are subject to interpretation</li>
-<li>Accuracy<br>Syntactic (e.g., structural) errors easy to identify</li>
-<li>Precision<br>Structural decisions are fully enumerated but other aspects left out</li>
-<li>Viewpoints<br>Structural viewpoint</li>
-<li>View consistency<br>N/A</li>
-</ul>
-<p>###AADL: The Architecture Analysis &amp; Design Language<br>[1]Notation and tool-set for modeling hardware/software systems, particularly embedded and real-time systems</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Allows detailed specification of both hardware and software aspects of a system</li>
-<li>Automated analysis tools check interesting end-to-end properties of system<br>Disadvantages:</li>
-<li>Verbose; large amount of detail required to capture even simple systems</li>
-<li>Emerging tool support and UML profile support</li>
-</ul>
-<p>[3]AADL Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Interconnected multi-level systems architectures</li>
-<li>Basic elements<br>Multitude – components, threads, hardware elements, configurations, mappings…</li>
-<li>Style<br>N/A</li>
-<li>Static &amp; Dynamic Aspects<br>Primarily static structure but additional properties specify dynamic aspects</li>
-<li>Dynamic Models<br>N/A</li>
-<li>Non-Functional Aspects<br>N/A</li>
-<li>Ambiguity<br>Most elements have concrete counterparts with well-known semantics</li>
-<li>Accuracy<br>Structural as well as other interesting properties can be automatically analyzed</li>
-<li>Precision<br>Many complex interconnected levels of abstraction and concerns</li>
-<li>Viewpoints<br>Many viewpoints addressing different aspects of the system</li>
-<li>View consistency<br>Mappings and refinement can generally be automatically checked or do not overlap</li>
-</ul>
-<p>###Acme<br>[1]Early general purpose ADL with support for extensibility through properties</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Structural specification capabilities similar to Darwin</li>
-<li>Simple property structure allows for arbitrary decoration of existing elements</li>
-<li>Tool support with AcmeStudio<br>Disadvantages:</li>
-<li>No way to add new views</li>
-<li>Property specifications can become extremely complex and have entirely separate syntax/semantics of their own</li>
-</ul>
-<p>[3]Acme Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Structures of components and connectors with extensible properties</li>
-<li>Basic elements<br>Components, connectors, interfaces, hierarchy, properties</li>
-<li>Style<br>Through type system</li>
-<li>Static &amp; Dynamic Aspects<br>Static structure is modeled natively, dynamic aspects in properties</li>
-<li>Dynamic Models<br>AcmeLib allows programmatic model manipulation</li>
-<li>Non-Functional Aspects<br>Through properties</li>
-<li>Ambiguity<br>Meanings of elements subject to some interpretation, properties may have arbitrary level of rigor/formality</li>
-<li>Accuracy<br>Checkable syntactically, via type system, and properties by external tools</li>
-<li>Precision<br>Properties can increase precision but cannot add new elements</li>
-<li>Viewpoints<br>Structural viewpoint is native, properties might provide additional viewpoints</li>
-<li>View consistency<br>Via external tools that must be developed</li>
-</ul>
-<p>###ADML<br>[1]Effort to standardize the concepts in Acme and leverage XML as a syntactic base.</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>XML parsers and tools readily available.</li>
-<li>Added some ability to reason about types of properties with meta-properties.<br>Disadvantages:</li>
-<li>Properties are still name-value pairs</li>
-<li>Did not take advantage of XML extension mechanisms</li>
-</ul>
-<p>###xADL<br>Modular XML-based ADL intended to maximize extensibility both in notation and tools</p>
-<p>[2]Con vs. Pro<br>Advantages:</p>
-<ul>
-<li>Growing set of generically useful modules available already</li>
-<li>Tool support in ArchStudio environment</li>
-<li>Users can add their own modules via well-defined extensibility mechanisms<br>Disadvantages:</li>
-<li>Extensibility mechanisms can be complex and increase learning curve</li>
-<li>Heavy reliance on tools</li>
-</ul>
-<p>[3]xADL Evaluation</p>
-<ul>
-<li>Scope and purpose<br>Modeling various architectural concerns with explicit focus on extensibility</li>
-<li>Basic elements<br>Components, connectors, interfaces, links, options, variants, versions, …, plus extensions</li>
-<li>Style<br>Limited, through type system</li>
-<li>Static &amp; Dynamic Aspects<br>Mostly static views with behavior and dynamic aspects provided through extensions</li>
-<li>Dynamic Models<br>Models can be manipulated programmatically</li>
-<li>Non-Functional Aspects<br>Through extensions</li>
-<li>Ambiguity<br>Base schemas are permissive; extensions add rigor or formality if needed</li>
-<li>Accuracy<br>Correctness checkers included in ArchStudio and users can add additional tools through well-defined mechanisms</li>
-<li>Precision<br>Base schemas are abstract, precision added in extensions</li>
-<li>Viewpoints<br>Several viewpoints provided natively, new viewpoints through extensions</li>
-<li>View consistency<br>Checkable through external tools and additional consistency rules</li>
-</ul>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-17T00:25:13.000Z"><a href="/2015/07/17/Software-Architecture-Short-Summary/">2015-07-17</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/17/Software-Architecture-Short-Summary/">Software Architecture Summary I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
-<p>#<em>Basic Concepts</em></p>
-<p><hr></p>
-<p>###What is Software Architecture?<br>[1]Definition<br>A software system’s architecture is the set of principal design decisions about the system and the blueprint for a software system’s construction and evolution.</p>
-<p>[2]Design decisions encompass every facet of the system under development:</p>
-<ul>
-<li>Structure</li>
-<li>Behavior</li>
-<li>Interaction</li>
-<li>Non-functional properties</li>
-</ul>
-<p>[3]“Principal” implies a degree of importance that grants a design decision “architectural status”, which means that not all design decisions are architectural.</p>
-<p>[4]Other Definitions of Software Architecture</p>
-<ul>
-<li>Perry and Wolf<br>Software Architecture = { Elements, Form, Rationale } (What, How, Why)</li>
-<li>Shaw and Garlan<br>Software architecture [is a level of design that] involves the description of elements from which systems are built, interactions among those elements, patterns that guide their composition, and constraints on these patterns.</li>
-<li>Kruchten<br>Software architecture deals with the design and implementation of the high-level structure of software, dealing with abstraction, decomposition, composition, style, and aesthetics.</li>
-</ul>
-<p>[5]Temporal Aspect</p>
-<ul>
-<li>Design decisions are and unmade over a system’s lifetime, meaning that architecture has a temporal aspect.</li>
-<li>At any given point in time the system has only one architecture.</li>
-<li>A system’s architecture will change over time.</li>
-</ul>
-<p>###Prescriptive Architecture<br>A system’s prescriptive architecture captures the design decisions made prior to the system’s construction, which is the as-conceived or as-intended architecture.</p>
-<p>###Descriptive Architecture<br>A system’s descriptive architecture describes how the system has been built, which is the as-implemented or as-realized architecture.</p>
-<p>###Architectural Evolution<br>[1]When a system evolves, ideally its prescriptive architecture is modified first; but in practice, the system – and thus its descriptive architecture – is often directly modified.<br>[2]This happens because of</p>
-<ul>
-<li>Developer sloppiness</li>
-<li>Perception of short deadlines which prevent thinking through and documenting</li>
-<li>Lack of documented prescriptive architecture</li>
-<li>Need or desire for code optimizations</li>
-<li>Inadequate techniques or tool support</li>
-</ul>
-<p>###Architectural Degradation<br>[1]Architectural drift<br>Introduction of principal design decisions into a system’s descriptive architecture that are not included in, encompassed by, or implied by the prescriptive architecture but which do not violate any of the prescriptive architecture’s design decisions.</p>
-<p>[2]Architectural erosion<br>Introduction of architectural design decisions into a system’s descriptive architecture that violate its prescriptive architecture.</p>
-<p>###Architecture Recovery<br>The process of determining a software system’s architecture from its implementation-level artifacts.</p>
-<p>###Deployment<br>[1]Definition<br>Executable modules are physically placed on the hardware devices on which they are supposed to run.</p>
-<p>[2]The deployment view of an architecture can be critical in assessing whether the system will be able to satisfy its requirements. And possible assessment dimensions include:</p>
-<ul>
-<li>Available memory</li>
-<li>Power consumption</li>
-<li>Required network bandwidth</li>
-</ul>
-<p>###Software Architecture’s Elements<br>[1]A software system’s architecture should be a composition and interplay of different elements, which may include:</p>
-<ul>
-<li>Processing</li>
-<li>Data, also referred as information or state</li>
-<li>Interaction</li>
-</ul>
-<p>####Components<br>[1]Definition<br>A software component is an architectural entity that:</p>
-<ul>
-<li>encapsulates a subset of the system’s functionality and/or data;</li>
-<li>restricts access to that subset via an explicitly defined interface;</li>
-<li>has explicitly defined dependencies on its required execution context.</li>
-</ul>
-<p>[2]Components typically provide application-specific services</p>
-<p>####Connectors<br>[1]Definition<br>A software connector is an architectural building block tasked with effecting and regulating interactions among components.</p>
-<p>[2]Connectors typically provide application-independent interaction facilities</p>
-<p>[3]Examples of Connectors</p>
-<ul>
-<li>Procedure call connectors</li>
-<li>Shared memory connectors</li>
-<li>Message passing connectors</li>
-<li>Streaming connectors</li>
-<li>Distribution connectors</li>
-<li>Wrapper/adaptor connectors</li>
-</ul>
-<p>[4]Implemented vs. Conceptual Connectors<br>(1)Connectors in software system implementations</p>
-<ul>
-<li>Frequently no dedicated code</li>
-<li>Frequently no identity</li>
-<li>Typically do not correspond to compilation units</li>
-<li>Distributed implementation<br>(2)Connectors in software architectures</li>
-<li>First-class entities</li>
-<li>Have identity</li>
-<li>Describe all system interaction</li>
-<li>Entitled to their own specifications &amp; abstractions</li>
-</ul>
-<p>[5]Roles<br>(1)Locus of interaction among set of components</p>
-<p>(2)Protocol specification (sometimes implicit) that defines its properties</p>
-<p>(3)Roles</p>
-<ul>
-<li>Communication</li>
-<li>Coordination</li>
-<li>Conversion</li>
-<li>Facilitation</li>
-</ul>
-<p>[6]Connectors as Communicators<br>(1)Main role associated with connectors</p>
-<p>(2)Supports</p>
-<ul>
-<li>Different communication mechanisms</li>
-<li>Constraints on communication structure/direction</li>
-<li>Constraints on quality of service</li>
-</ul>
-<p>(3)Separates communication from computation</p>
-<p>(4)May influence non-functional system characteristics</p>
-<p>[7]Connectors as Coordinators<br>(1)Determine computation control</p>
-<p>(2)Control delivery of data</p>
-<p>(3)Separates control from computation</p>
-<p>(4)Orthogonal to communication, conversion, and facilitation</p>
-<p>[8]Connectors as Converters<br>(1)Enable interaction of independently developed, mismatched components</p>
-<p>(2)Mismatches based on interaction</p>
-<p>(3)Examples: Adaptors and Wrappers</p>
-<p>[9]Connectors as Facilitators<br>(1)Enable interaction of components intended to interoperate</p>
-<p>(2)Govern access to shared information</p>
-<p>(3)Ensure proper performance profiles</p>
-<p>(4)Provide synchronization mechanisms</p>
-<p>[10]Connector Types</p>
-<ul>
-<li>Procedure call (multi connectors added together)</li>
-<li>Data access</li>
-<li>Event</li>
-<li>Stream</li>
-<li>Linkage</li>
-<li>Distributor</li>
-<li>Arbitrator</li>
-<li>Adaptor</li>
-</ul>
-<p>[11]How to select a connector</p>
-<ul>
-<li>Determine a system’s interconnection and interaction needs<br>Software interconnection models can help</li>
-<li>Determine roles to be fulfilled by the system’s connectors<br>Communication, coordination, conversion, facilitation</li>
-<li>For each connector<br>Determine its appropriate type(s)<br>Determine its dimensions of interest<br>Select appropriate values for each dimension</li>
-<li>For multi-type, i.e., composite connectors<br>Determine the atomic connector compatibilities</li>
-</ul>
-<p>[12]Software Interconnection Models</p>
-<ul>
-<li>Unit interconnection</li>
-<li>Syntactic interconnection</li>
-<li>Semantic interconnection</li>
-</ul>
-<p>[13]Unit Interconnection<br>(1)Defines relations between system’s units</p>
-<ul>
-<li>Units are components (modules or files)</li>
-<li>Basic unit relationship is dependency</li>
-</ul>
-<p>(2)Characteristic</p>
-<ul>
-<li>Coarse-grain interconnections</li>
-<li>Interconnections are static</li>
-<li>Does not describe component interactions</li>
-</ul>
-<p>[14]Syntactic Interconnection<br>(1)Describes relations among syntactic elements of programming languages</p>
-<ul>
-<li>Variable definition/use</li>
-<li>Method definition/invocation</li>
-</ul>
-<p>(2)Characteristic</p>
-<ul>
-<li>Finer-grain interconnections</li>
-<li>Interconnections are static &amp; dynamic</li>
-<li>Incomplete interconnection specification</li>
-</ul>
-<p>[14]Semantic Interconnection<br>(1)Expresses how system components are meant to be used; Captures how system components are actually used; Interconnection semantics can be formally specified.</p>
-<p>(2)Characteristics</p>
-<ul>
-<li>Builds on syntactic interconnections</li>
-<li>Interconnections are static &amp; dynamic</li>
-<li>Complete interconnection specification</li>
-<li>Necessary at level of architectures</li>
-<li>Ensuring other properties of interaction</li>
-</ul>
-<p>[15]Composite Connectors<br>(1)The composition can be considered at the level of connector type dimensions and subdimensions.</p>
-<p>(2)Examples:</p>
-<ul>
-<li>Grid connectors</li>
-<li>Peer-to-peer connectors</li>
-<li>Client-server connectors</li>
-<li>Event-based connectors</li>
-</ul>
-<p>###Adaptor<br>[1]Adaptation<br>Modification of a software system to satisfy new requirements and changing circumstances.</p>
-<p>[2]Motivation</p>
-<ul>
-<li>Corrective Changes</li>
-<li>Modification to the functional requirements </li>
-<li>New or changed non-functional system properties</li>
-<li>Changed operating environment</li>
-<li>Observation and analysis </li>
-</ul>
-<p>[3]Architecture-Centric Adaptation<br>(1)In the absence of explicit architecture the engineer is left to reason about adaptation from memory or source code.</p>
-<p>(2)Architecture can serve as the primary focus of reasoning about potential adaptations</p>
-<p>[3]Activities, Agents, and Entities<br>(1)Adaptation management and evolution management can be separated into three types of activities.</p>
-<ul>
-<li>Strategic refers to determining what to do</li>
-<li>Tactical refers to developing detailed plans for achieving the strategic goals</li>
-<li>Operations refers to the nuts-and-bolts of carrying out the detailed plans </li>
-</ul>
-<p>[4]Categories of Techniques</p>
-<ul>
-<li>Observing and collecting state</li>
-<li>Analyzing data and planning change</li>
-<li>Describing change descriptions </li>
-<li>Deploying change descriptions</li>
-<li>Effecting the change</li>
-</ul>
-<p>[5]Architectures/Styles Supporting Adaptation</p>
-<ul>
-<li>Application programming interfaces (API)</li>
-<li>Scripting languages </li>
-<li>Plug-ins </li>
-<li>Component/object architectures </li>
-<li>Event interfaces  </li>
-</ul>
-<p>[6]The Special Problems of On-the-fly Change<br>(1)The principle of quiescence </p>
-<ul>
-<li>A node in the active state can initiate and respond to transactions.</li>
-<li>The state identified as necessary for reconfiguration is the passive state: node must respond to transaction; not currently engaged in a transaction that it initiated; it will not initiate new transactions.</li>
-</ul>
-<p>####Configurations<br>[1]Definition<br>An architectural configuration, or topology, is a set of specific associations between the components and connectors of a software system’s architecture.</p>
-<p>###Architectural Styles<br>[1]Definition<br>An architectural style is a named collection of architectural design decisions that:</p>
-<ul>
-<li>are applicable in a given development context;</li>
-<li>constrain architectural design decisions that are specific to a particular system within that context;</li>
-<li>elicit beneficial qualities in each resulting system.</li>
-</ul>
-<p>[2]Benefits of using styles</p>
-<ul>
-<li>Design reuse: Well-understood solutions applied to new problems.</li>
-<li>Code reuse: Shared implementations of invariant aspects of a style.</li>
-<li>Understandability of system organization: A phrase such as “client-server” conveys a lot of information.</li>
-<li>Interoperability: Supported by style standardization.</li>
-<li>Style-specific analyses: Enabled by the constrained design space.</li>
-<li>Visualizations: Style-specific depictions matching engineers’ mental models.</li>
-</ul>
-<p>###Architectural Patterns<br>[1]Definition<br>An architectural pattern is a set of architectural design decisions that are applicable to a recurring design problem and parameterized to account for different software development contexts in which that problem appears.</p>
-<p>[2]Style vs. Pattern</p>
-<ul>
-<li>A style prescribes the types of system elements and constraints on their composition.</li>
-<li>A pattern prescribes a specific set of system elements and their specific organization in (part) of a system.</li>
-</ul>
-<p>###Architectural Models, Views, and Visualizations</p>
-<p>####Architecture Model<br>[1]Definition<br>An artifact documenting some or all of the architectural design decisions about a system.</p>
-<p>####Architecture Visualization<br>[1]Definition<br>A way of depicting some or all of the architectural design decisions about a system to a stakeholder.</p>
-<p>####Architecture View<br>[1]Definition<br>A subset of related architectural design decisions.</p>
-<p>###Stakeholders in a System’s Architecture</p>
-<ul>
-<li>Architects</li>
-<li>Developers</li>
-<li>Testers</li>
-<li>Managers</li>
-<li>Customers</li>
-<li>Users</li>
-<li>Vendors</li>
-</ul>
-<p>###Architecture Design<br>[1]Abstraction<br>The act or process of separating in thought, of considering a thing independently of its associations; or a substance independently of its attributes; or an attribute or quality independently of the substance to which it belongs.</p>
-<p>[2]Reification<br>The mental conversion of … [an] abstract concept into a thing.</p>
-<p>[3]Deduction<br>The process of drawing a conclusion from a principle already known or assumed; spec. in Logic, inference by reasoning from generals to particulars; opposed to INDUCTION.</p>
-<p>[4]Induction<br>The process of inferring a general law or principle from the observation of particular instances (opposed to DEDUCTION, q.v.).</p>
-<p>[5]Simple Machines<br>Simple machines serve as an abstraction of a potential system that will perform the required task and provide a plausible first conception of how an application might be built.<br>Every application domain has its common simple machines. </p>
-<p>[6]Separation of Concerns<br>Separation of concerns is the subdivision of a problem into (hopefully) independent parts. </p>
-<p>###Architecture Visualization<br>An architectural visualization defines how architectural models are depicted, and how stakeholders interact with those depictions, whereas depition is a picture or other visual representation of design decisions and interaction is mechanism allows stakeholders to interact with design decisions in terms of the depiction.</p>
-<p>###Architecture Implementation Frameworks<br>An architecture implementation framework is a piece of software that acts as a bridge between a particular architectural style and a set of implementation technologies. It provides key elements of the architectural style in code, in a way that assists developers in implementing systems that conform to the prescriptions and constraints of the style.</p>
-<p>###Domain-Specific Software Architectures<br>[1]Definition<br>A DSSA is an assemblage of software components that:</p>
-<ul>
-<li>specialized for a particular type of task (domain),</li>
-<li>generalized for effective use across that domain, and</li>
-<li>composed in a standardized structure (topology) effective for building successful applications.</li>
-</ul>
-<p>[2]Since DSSAs are specialized for a particular domain they are only of value if one exists for the domain wherein the engineer is tasked with building a new application and the pre-eminent means for maximal reuse of knowledge and prior development and hence for developing a new architectural design.</p>
-<p>[3]Three Key Factors<br>(1)Domain<br>Must have a domain to constrain the problem space and focus development.</p>
-<p>(2)Technology<br>Must have a variety of technological solutions—tools, patterns, architectures &amp; styles, legacy systems—to bring to bear on a domain</p>
-<p>(3)Business<br>Business goals motivate the use of DSSE</p>
-<ul>
-<li>Minimizing costs: reuse assets when possible</li>
-<li>Maximize market: develop many related applications for different kinds of end users</li>
-</ul>
-<p>(4)Domain + Business<br>Corporate Core Competencies: Domain expertise augmented by business acumen and knowledge of the market.</p>
-<p>(5)Domain + Technology<br>Application Family Architectures:</p>
-<ul>
-<li>All possible technological solutions to problems in a domain.</li>
-<li>Uninformed and unconstrained by business goals and knowledge.</li>
-</ul>
-<p>(6)Business + Technology<br>Domain independent infrastructure: Tools and techniques for constructing systems independent of any particular domain.</p>
-<p>(7)Domain + Business + Technology<br>Domain-specific software engineering: Applies technology to domain-specific goals, tempered by business and market knowledge.</p>
-<p>###Domain Model<br>A domain model is a set of artifacts that capture information about a domain.</p>
-<ul>
-<li>Functions performed</li>
-<li>Objects (also known as entities) that perform the functions, and on which the functions are performed</li>
-<li>Data and information that flows through the system</li>
-</ul>
-<p>###Info Model<br>[1]Context Info Diagram</p>
-<ul>
-<li>Defines high-level entities</li>
-<li>Defines what is considered inside and outside the domain (or subdomains)</li>
-<li>Defines relationships and high-level flows</li>
-</ul>
-<p>[2]Entity-Relationship Diagram<br>Defines entities and cardinal relationships between them</p>
-<p>[3]Object Diagram</p>
-<ul>
-<li>Defines attributes and operations on entities</li>
-<li>Closely resembles class diagram in UML but may be more abstract</li>
-</ul>
-<p>###Feature Model<br>[1]Feature Relationship Diagram</p>
-<ul>
-<li>Describes overall mission operations of a system</li>
-<li>Describes major features and decomposition</li>
-</ul>
-<p>[2]Use Case Diagram</p>
-<ul>
-<li>Defines use cases within the domain</li>
-<li>Similar to use case models in UML</li>
-</ul>
-<p>[3]Representation Diagram<br>Defines how information is presented to human users</p>
-<p>###Feature Model<br>[1]Representation Diagram<br>Defines how information is presented to human users</p>
-<p>###Operational Model<br>[1]Data Flow Diagram<br>Focuses on data flow between entities with no notion of control</p>
-<p>[2]Control Flow Diagram<br>Focuses on control flow between entities separate from data flow</p>
-<p>[3]State Transition Diagram</p>
-<ul>
-<li>Focuses on states of systems and transitions between them</li>
-<li>Resembles UML state diagrams</li>
-</ul>
-<p>###Reference Architecture<br>[1]Definition<br>Reference architecture is the set of principal design decisions that are simultaneously applicable to multiple related systems, typically within an application domain, with explicitly defined points of variation.</p>
-<p>[2]Examples:</p>
-<ul>
-<li>Structural view of Lunar Lander DSSA.</li>
-<li>Invariant with explicit points of variation.</li>
-</ul>
-<p>###Product Lines<br>[1]A set of related products that have substantial commonality. One potential ‘silver bullet’ of software engineering,</p>
-<p>###Product Line Architecture<br>[1]Definition:<br>A product-line architecture captures the architectures of many related products simultaneously</p>
-<p>[2]Product Component Table<br>Helps us decide whether creating a product line is viable or feasible</p>
-<p>[3]Group Components into Features</p>
-<ul>
-<li>Not a mechanical process</li>
-<li>Attempt to identify (mostly) orthogonal features, or features that would be beneficial in different products</li>
-<li>Not a mechanical process</li>
-<li>Attempt to identify (mostly) orthogonal features, or features that would be beneficial in different products</li>
-</ul>
-<p>[4]Reconstitute Products from Features<br>Use technical and business knowledge to identify which combinations form feasible or marketable products that will be constructed</p>
-<p>###Non-Functional Property<br>[1]Definition<br>A software system’s non-functional property (NFP) is a constraint on the manner in which the system implements and delivers its functionality.</p>
-<p>[2]Examples</p>
-<ul>
-<li>Efficiency</li>
-<li>Complexity</li>
-<li>Scalability</li>
-<li>Heterogeneity</li>
-<li>Adaptability</li>
-<li>Dependability</li>
-</ul>
-<p>###Deployment<br>[1]Definition<br>Deployment is the process of placement of a system’s software components on its hardware hosts.</p>
-<p>###Mobility<br>[1]Definition<br>Changing the deployment of a component during runtime is called migration or redeployment;<br>Migration or redeployment is a type of software system mobility.</p>
-<p>[2]Categories<br>(1)Movement of software across hardware hosts during the system’s execution, that action is referred to as code mobility or logical mobility<br>(2)If a software module that needs to be migrated contains runtime state, then the module’s migration is known as stateful mobility<br>(3)If only the code needs to be migrated, that is known as stateless mobility</p>
-<p>To Be Continue</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T12:55:47.000Z"><a href="/2015/07/16/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Sorting/">2015-07-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/16/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Sorting/">Hackerrank / InterviewStreet Algorithm Problem Solution List III</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Insertion-Sort-Part-1"><a href="#Insertion-Sort-Part-1" class="headerlink" title="Insertion Sort - Part 1"></a>Insertion Sort - Part 1</h3><p><a href="https://www.hackerrank.com/challenges/insertionsort1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insertionsort1.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use insertion sort.</p>
-<hr>
-
-<h3 id="Insertion-Sort-Part-2"><a href="#Insertion-Sort-Part-2" class="headerlink" title="Insertion Sort - Part 2"></a>Insertion Sort - Part 2</h3><p><a href="https://www.hackerrank.com/challenges/insertionsort2" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insertionsort2.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use insertion sort.</p>
-<hr>
-
-<h3 id="Correctness-and-the-Loop-Invariant"><a href="#Correctness-and-the-Loop-Invariant" class="headerlink" title="Correctness and the Loop Invariant"></a>Correctness and the Loop Invariant</h3><p><a href="https://www.hackerrank.com/challenges/correctness-invariant" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/correctness-invariant.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use insertion sort.</p>
-<hr>
-
-<h3 id="Running-Time-of-Algorithms"><a href="#Running-Time-of-Algorithms" class="headerlink" title="Running Time of Algorithms"></a>Running Time of Algorithms</h3><p><a href="https://www.hackerrank.com/challenges/runningtime" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/runningtime.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the process.</p>
-<hr>
-
-<h3 id="Quicksort-1-Partition"><a href="#Quicksort-1-Partition" class="headerlink" title="Quicksort 1 - Partition"></a>Quicksort 1 - Partition</h3><p><a href="https://www.hackerrank.com/challenges/quicksort1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/quicksort1.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the partition process.</p>
-<hr>
-
-<h3 id="Quicksort-2-Sorting"><a href="#Quicksort-2-Sorting" class="headerlink" title="Quicksort 2 - Sorting"></a>Quicksort 2 - Sorting</h3><p><a href="https://www.hackerrank.com/challenges/quicksort2" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/quicksort2.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Write quicksort using recursion.</p>
-<hr>
-
-<h3 id="Quicksort-In-Place"><a href="#Quicksort-In-Place" class="headerlink" title="Quicksort In-Place"></a>Quicksort In-Place</h3><p><a href="https://www.hackerrank.com/challenges/quicksort3" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/quicksort3.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Write quick using stack.</p>
-<hr>
-
-<h3 id="Bigger-is-Greater"><a href="#Bigger-is-Greater" class="headerlink" title="Bigger is Greater"></a>Bigger is Greater</h3><p><a href="https://www.hackerrank.com/challenges/bigger-is-greater" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bigger-is-greater.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. Use next permutation algorithm used in C++.</p>
-<hr>
-
-<h3 id="Running-Time-of-Quicksort"><a href="#Running-Time-of-Quicksort" class="headerlink" title="Running Time of Quicksort"></a>Running Time of Quicksort</h3><p><a href="https://www.hackerrank.com/challenges/quicksort4" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/quicksort4.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Write quick sort as well as insertion sort.</p>
-<hr>
-
-<h3 id="Counting-Sort-1"><a href="#Counting-Sort-1" class="headerlink" title="Counting Sort 1"></a>Counting Sort 1</h3><p><a href="https://www.hackerrank.com/challenges/countingsort1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/countingsort1.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use hash algorithm.</p>
-<hr>
-
-<h3 id="Counting-Sort-2"><a href="#Counting-Sort-2" class="headerlink" title="Counting Sort 2"></a>Counting Sort 2</h3><p><a href="https://www.hackerrank.com/challenges/countingsort2" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/countingsort2.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use hash algorithm.</p>
-<hr>
-
-<h3 id="Counting-Sort-3"><a href="#Counting-Sort-3" class="headerlink" title="Counting Sort 3"></a>Counting Sort 3</h3><p><a href="https://www.hackerrank.com/challenges/countingsort3" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/countingsort3.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use hash algorithm.</p>
-<hr>
-
-<h3 id="The-Full-Counting-Sort"><a href="#The-Full-Counting-Sort" class="headerlink" title="The Full Counting Sort"></a>The Full Counting Sort</h3><p><a href="https://www.hackerrank.com/challenges/countingsort4" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/countingsort4.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use quick sort and mark those elements whose original index is less than half of total number of elements.</p>
-<hr>
-
-<h3 id="Closest-Numbers"><a href="#Closest-Numbers" class="headerlink" title="Closest Numbers"></a>Closest Numbers</h3><p><a href="https://www.hackerrank.com/challenges/closest-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/closest-numbers.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use quick sort and find the minimum difference between any adjacent elements in sorted array.</p>
-<hr>
-
-<h3 id="Find-the-Median"><a href="#Find-the-Median" class="headerlink" title="Find the Median"></a>Find the Median</h3><p><a href="https://www.hackerrank.com/challenges/find-median" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/find-median.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Use partition algorithm of quick sort to find the median.</p>
-<hr>
-
-<h3 id="Sherlock-and-Watson"><a href="#Sherlock-and-Watson" class="headerlink" title="Sherlock and Watson"></a>Sherlock and Watson</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-watson" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-watson.cpp" target="_blank" rel="external">Code Link</a><br>Implementation problem.</p>
-<hr>
-
-<h3 id="Almost-Sorted"><a href="#Almost-Sorted" class="headerlink" title="Almost Sorted"></a>Almost Sorted</h3><p><a href="https://www.hackerrank.com/challenges/almost-sorted" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/almost-sorted.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Sort the array and find the positions that needed to be swaped.</p>
-<hr>
-
-<h3 id="Sherlock-and-Pairs"><a href="#Sherlock-and-Pairs" class="headerlink" title="Sherlock and Pairs"></a>Sherlock and Pairs</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-pairs" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-pairs.cpp" target="_blank" rel="external">Code Link</a><br>Hash problem. Count how many times each elements appear in the given array as cnt[i] and calculate the sum of each cnt[i]*(cnt[i] - 1).</p>
-<hr>
-
-<h3 id="Insertion-Sort-Advanced-Analysis"><a href="#Insertion-Sort-Advanced-Analysis" class="headerlink" title="Insertion Sort Advanced Analysis"></a>Insertion Sort Advanced Analysis</h3><p><a href="https://www.hackerrank.com/challenges/insertion-sort" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/insertion-sort.cpp" target="_blank" rel="external">Code Link</a><br>Sort problem. Write merge sort.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T12:55:42.000Z"><a href="/2015/07/16/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Implementation/">2015-07-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/16/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Implementation/">Hackerrank / InterviewStreet Algorithm Problem Solution List Implementation</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Angry-Professor"><a href="#Angry-Professor" class="headerlink" title="Angry Professor"></a>Angry Professor</h3><p><a href="https://www.hackerrank.com/challenges/angry-professor" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/angry-professor.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just count the number of negative values. If that number is no larger than k, print out “YES”, otherwise print out “NO”.</p>
-<h3 id="Sherlock-and-The-Beast"><a href="#Sherlock-and-The-Beast" class="headerlink" title="Sherlock and The Beast"></a>Sherlock and The Beast</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-the-beast" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-the-beast.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. At first count the number of numbers consisting of only 3 and 5 but these numbers should be no larger than 10010. And then combine them to form the required numbers in increasing order and at the same time mark the index of them. So if the number of that index does not exist, print -1; otherwise print out the corresponding number.</p>
-<h3 id="Utopian-Tree"><a href="#Utopian-Tree" class="headerlink" title="Utopian Tree"></a>Utopian Tree</h3><p><a href="https://www.hackerrank.com/challenges/utopian-tree" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/utopian-tree.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the process. In the for loop, starting from zero, if it is even-th iteration, multiply the ans variable by two, otherwise, increase the variable by one.</p>
-<h3 id="Find-Digits"><a href="#Find-Digits" class="headerlink" title="Find Digits"></a>Find Digits</h3><p><a href="https://www.hackerrank.com/challenges/find-digits" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/find-digits.cpp" target="_blank" rel="external">Code Link</a><br>Baisc problem. Just find all the digits consisting of the given number and then figure out which of them can evenly divide the number.</p>
-<h3 id="Sherlock-and-Squares"><a href="#Sherlock-and-Squares" class="headerlink" title="Sherlock and Squares"></a>Sherlock and Squares</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-squares" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-squares.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. For any given number N, the number of squre numbers that are no larger than N is equal to sqrt(N). </p>
-<h3 id="Service-Lane"><a href="#Service-Lane" class="headerlink" title="Service Lane"></a>Service Lane</h3><p><a href="https://www.hackerrank.com/challenges/service-lane" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/service-lane.cpp" target="_blank" rel="external">Code Link</a><br>Greedy problem. For each query, find the lane costing least time within given range.</p>
-<h3 id="Cut-the-sticks"><a href="#Cut-the-sticks" class="headerlink" title="Cut the sticks"></a>Cut the sticks</h3><p><a href="https://www.hackerrank.com/challenges/cut-the-sticks" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cut-the-sticks.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Sort the sticks in the increasing order of length, count the number of sticks for each length and then remove them one by one.</p>
-<h3 id="Chocolate-Feast"><a href="#Chocolate-Feast" class="headerlink" title="Chocolate Feast"></a>Chocolate Feast</h3><p><a href="https://www.hackerrank.com/challenges/chocolate-feast" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/chocolate-feast.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Cavity-Map"><a href="#Cavity-Map" class="headerlink" title="Cavity Map"></a>Cavity Map</h3><p><a href="https://www.hackerrank.com/challenges/cavity-map" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cavity-map.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Caesar-Cipher"><a href="#Caesar-Cipher" class="headerlink" title="Caesar Cipher"></a>Caesar Cipher</h3><p><a href="https://www.hackerrank.com/challenges/caesar-cipher-1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/caesar-cipher-1.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Library-Fine"><a href="#Library-Fine" class="headerlink" title="Library Fine"></a>Library Fine</h3><p><a href="https://www.hackerrank.com/challenges/library-fine" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/library-fine.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Manasa-and-Stones"><a href="#Manasa-and-Stones" class="headerlink" title="Manasa and Stones"></a>Manasa and Stones</h3><p><a href="https://www.hackerrank.com/challenges/manasa-and-stones" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/manasa-and-stones.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="ACM-ICPC-Team"><a href="#ACM-ICPC-Team" class="headerlink" title="ACM ICPC Team"></a>ACM ICPC Team</h3><p><a href="https://www.hackerrank.com/challenges/acm-icpc-team" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/acm-icpc-team.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Extra-Long-Factorials"><a href="#Extra-Long-Factorials" class="headerlink" title="Extra Long Factorials"></a>Extra Long Factorials</h3><p><a href="https://www.hackerrank.com/challenges/extra-long-factorials" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/extra-long-factorials.java" target="_blank" rel="external">Code Link</a><br>Basic problem. Use Java Big Integer class.</p>
-<h3 id="Taum-and-B’day"><a href="#Taum-and-B’day" class="headerlink" title="Taum and B’day"></a>Taum and B’day</h3><p><a href="https://www.hackerrank.com/challenges/taum-and-bday" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/taum-and-bday.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="The-Time-in-Words"><a href="#The-Time-in-Words" class="headerlink" title="The Time in Words"></a>The Time in Words</h3><p><a href="https://www.hackerrank.com/challenges/the-time-in-words" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/the-time-in-words.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Modified-Kaprekar-Numbers"><a href="#Modified-Kaprekar-Numbers" class="headerlink" title="Modified Kaprekar Numbers"></a>Modified Kaprekar Numbers</h3><p><a href="https://www.hackerrank.com/challenges/kaprekar-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/kaprekar-numbers.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Encryption"><a href="#Encryption" class="headerlink" title="Encryption"></a>Encryption</h3><p><a href="https://www.hackerrank.com/challenges/encryption" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/encryption.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem.</p>
-<h3 id="Matrix-Rotation"><a href="#Matrix-Rotation" class="headerlink" title="Matrix Rotation"></a>Matrix Rotation</h3><p><a href="https://www.hackerrank.com/challenges/matrix-rotation-algo" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/matrix-rotation-algo.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Be careful.</p>
-<h3 id="Lisa’s-Workbook"><a href="#Lisa’s-Workbook" class="headerlink" title="Lisa’s Workbook"></a>Lisa’s Workbook</h3><p><a href="https://www.hackerrank.com/challenges/bear-and-workbook" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-workbook.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the process. Remember that each page can have at most k problems and all of them should come from the same chapter.</p>
-<h3 id="Larry’s-Array"><a href="#Larry’s-Array" class="headerlink" title="Larry’s Array"></a>Larry’s Array</h3><p><a href="https://www.hackerrank.com/challenges/larrys-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/larrys-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Count the number of inversion of given arrays without those elements placed in the correct position. If the count is even, then print “YES”, otherwise print “NO”.</p>
-<h3 id="Playing-with-numbers"><a href="#Playing-with-numbers" class="headerlink" title="Playing with numbers"></a>Playing with numbers</h3><p>Sort the given numbers in non-descending order; then for every query number, adding the current number to sum of all previous query number; after that, if the sum is negative, using binary search to find the lower bound of the absolute value of the sum only in the positive part of the array; if the sum is positiive, using binary search to find the upper bound of the negative value of the sum only in the negative part of the arrary. At last, calculate the absolute value of the sum of the lower/upper bound part adding the sum of query number and the sum of other parts adding the sum of query number and finally, calculate the absolute value of the sum of all these two parts. </p>
-<p>先对给定数组进行排序。然后将所有已知的查询数进行求和。接下来用二分搜索，如果和是负数，在数组的正数部分找出和的绝对值的下界；若是正数，在数组的负数部分找出和的取反的上界。最后，将不需要进行二分搜索，和需要进行二分搜索这两部分进行求和。不需要二分搜索和在二分搜索结果以外的部分是直接加上查询和然后求绝对值即可；二分搜索结果范围内的也是这样，但三部分是需要分别求出各自的绝对值之后再相加，此时的和就是最终答案。</p>
-<p><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/playing_with_number.cpp" target="_blank" rel="external">code in Github</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-16T02:16:25.000Z"><a href="/2015/07/16/System-Design-Interview-Summary/">2015-07-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/16/System-Design-Interview-Summary/">System Design Interview Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the note of this tutorial: <a href="http://www.hiredintech.com/system-design/" target="_blank" rel="external">HiredinTech-System Design</a>. It includes the guidlines about how to think in system design interview problem, real world system design examples, system deisgn special concepts and additional notes.</p>
-<p>At first, here is the video of system design course from Harvard University, which teaches some basic and interesting ideaof how to do the system design.</p>
-<iframe width="854" height="510" src="https://www.youtube.com/embed/-W9F__D3oY4" frameborder="0" allowfullscreen></iframe>
-
-<p>Then, comes the note.</p>
-<p>###Introduction<br>[1]Two major challenges most candidates face:</p>
-<ul>
-<li>Approach questions in a chaotic way and get ratholed.</li>
-<li>Lack solid understanding of how to properly design architectures that scale.</li>
-</ul>
-<p>[2]Scalability Fundamentals (Concepts)</p>
-<ul>
-<li>Vertical scaling</li>
-<li>Horizontal scaling</li>
-<li>Caching</li>
-<li>Load balancing</li>
-<li>Database replication</li>
-<li>Database partitioning</li>
-<li>Database sharding</li>
-</ul>
-<p>[3]Two Major Bottlenecks of System</p>
-<ul>
-<li>Handling a lot of users</li>
-<li>Handling a lot of data</li>
-</ul>
-<p>[4]Concepts should be mastered</p>
-<ul>
-<li>HAProxy (software load balancing)</li>
-<li>nginx (web server, different from tomcat)</li>
-<li>memcached (a tool for handling high write data like view counters)</li>
-<li>Redis (NO SQL Server)</li>
-<li>Lucene</li>
-<li>RabbitMQ (a tool for job system)</li>
-<li>Munin</li>
-<li>NodeJS</li>
-</ul>
-<p>###System Design Process<br>[1]Clarify the constraints and use cases<br>The very first thing is to clarify the system constraints and to identify what use cases the system needs to satisfy. Spend a few minutes questioning your interviewer and agreeing on the scope of the system.<br>You will also have to think about the use cases that are expected to occur.<br>Use cases -&gt; 需求<br>Constraints -&gt; 系统要达到的上限（功能要求达到的上限）<br>For constraints, you should do some quick math, or some statistics,  in the brain to scope the system. </p>
-<p>[2]Do abstract design<br>Outlining a high-level abstract design. The goal of this step is to outline all the important components that the architecture will need.</p>
-<p>You can tell the interviewer that you would like to do that and draw a simple diagram of your ideas. Sketch your main components and the connections between them. Don’t get lured to dive deep into some particular aspect of the abstract design. Rather, make sure you sketch the important components and the connections between them.</p>
-<p>Usually, this sort of high-level design is a combination of well-known techniques, which people have developed. You have to make sure you are familiar with what is out there and feel comfortable using this knowledge.</p>
-<p>[3]Understand bottlenecks<br>Start thinking about what bottlenecks the high-level design has. Perhaps your system needs a load balancer and many machines behind it to handle the user requests. Or maybe the data is so huge that you need to distribute your database on multiple machines.</p>
-<p>These are just examples of questions that you may have to answer in order to make your solution complete. It may be the case that the interviewer wants to direct the discussion in one particular direction. Then, maybe you won’t need to address all the bottlenecks but rather talk in more depth about one particular area. In any case, you need to be able to identify the weak spots in a system and be able to resolve them.</p>
-<p>Remember, usually each solution is a trade-off of some kind. However, the important thing is to be able to talk about these trade-offs, and to measure their impact on the system given the constraints and use cases defined.</p>
-<p>Once you have outlined the core bottlenecks you see, you can start addressing them in the next step.</p>
-<p>[4]Scaling your abstract design (让你的设计更加具体化)<br>Once you are ready with your high-level design and have made sure that the interviewer is ok with it, you can dive into making it more detailed. </p>
-<p>Usually, this means making your system scale.</p>
-<p>[5]Summary<br>To approach any system design question.<br>First build a high-level architecture by identifying the constraints and use cases, sketching up the major components and the relationships between them, and thinking about the system bottlenecks.<br>Then apply the right scalability patterns that will take care of these bottlenecks in the context of the system constraints.<br>Having learned a repeatable approach for system design, as well as seen lots of real-life examples of scalable architectures, your chances of acing the tech interview are very solid.</p>
-<p>###Practice System Design Problems<br>[1]Come up with problems and discuss their solutions with friends<br>Look at the massive systems you use every day developed by the companies you are interviewing for. What systems did these companies have to design? Create a list of the fundamental system design questions that bubble up in your brain.<br>Start by compiling a list of 10 to 20 of these questions. Then, pick one and try to come up with an efficient design.<br>Once you’re ready, find a knowledgeable friend or coworker, go to a meeting room and start discussing ideas. It’d be tons of fun and you’ll learn a lot from the process.<br>Don’t spend hours: initially, limit your time per question to one hour and ultimately try to fit every question in 20 to 30 minutes.</p>
-<p>[2]Do Mock Interview<br>Mock interviews are a fantastic way to practice system design questions. System design questions are all about organic discussions around trade-offs. Try to find an unbiased and knowledgeable person, and do several interviews with them. It can be a friend, a colleague, or you could use a paid service.</p>
-<p>Recommendation is to start by working on system design questions yourself, then move on to discussing designs with friends, to finally doing mock interviews.</p>
-<p>###Real World Examples<br>*<a href="http://instagram-engineering.tumblr.com/post/13649370142/what-powers-instagram-hundreds-of-instances" target="_blank" rel="external">Instagram</a><br>Note:<br>Keep it very simple.<br>Do not re-invent the wheel.<br>Go with proven and solid technologies when you can.</p>
-<p>*<a href="http://highscalability.com/blog/2012/7/16/cinchcast-architecture-producing-1500-hours-of-audio-every-d.html" target="_blank" rel="external">cinchcash</a><br>Note:<br>“Be brief, be bright, be gone” : Respect another person’s time.<br>Don’t come with problems, come with solutions.<br>Don’t go chasing hot technologies of the day. Instead ‘mitigate your top problems’. We adopt new technologies but do so, when the business case requires it. Appetite for Production outages decreases significantly when you have millions of users.<br>Achieve “essential”, then worry about “excellent”.<br>Be a “how team” instead of a “no team”.<br>Build security into the software development lifecycle. </p>
-<p>*<a href="http://highscalability.com/blog/2010/3/16/justintvs-live-video-broadcasting-architecture.html" target="_blank" rel="external">Justin.Tv</a></p>
-<p>*<a href="http://highscalability.com/blog/2010/9/21/playfishs-social-gaming-architecture-50-million-monthly-user.html" target="_blank" rel="external">Playfish</a><br>Note:<br>Using SOA (Service Oriented Architecture).<br>Using sharded architecture for the write heavy service.<br>Using BLOB (Binary Large Object) in MySQL to store the user data.<br>Asynchronicity. Writing on the server is asynchronous from game play.<br>Agility. A common thread through all of Playfish thinking is the relentless need for agility, to be able to respond quickly, easily, and efficiently to every situation.<br>Applying the principle of loose coupling as much as possible.<br>Agility + Data + Design = allows new inspired features to be tried out quickly to see if they work or not.<br>Build an architecture that takes advantage of the special nature of your application.</p>
-<p>*<a href="http://highscalability.com/blog/2011/6/27/tripadvisor-architecture-40m-visitors-200m-dynamic-page-view.htm" target="_blank" rel="external">TripAdvisor</a><br>Note:<br>Bank of very simple, stateless web servers, running simple Java and Velocity templates.<br>Bank of “services” - each service is high level, business oriented API optimized for over the wire performance.<br>Web servers are arranged in “pools” to allow for A/B testing, and control over deployment.<br>Numerous test frameworks available: Unit, Functional, Load, Smoke, Selenium, Load, and a test lab.<br>Keep designs simple and focused on the near term business needs - do not design too far ahead.<br>You can go very far in scaling a database vertically, especially if you minimize use of joins, and especially if you can fit everything into RAM.<br>Avoid joins when possible.<br>Hardware - keep it really really simple. No fancy hardware.<br>Software - keep it really, really, really simple.<br>Process. Less is better. You need to use source code control.<br>Design Reviews. All engineers are invited to a weekly design review. </p>
-<p>*<a href="http://highscalability.com/plentyoffish-architecture" target="_blank" rel="external">PlentyOfFish</a><br>Note:<br>Keep database access fast and you have no issues.<br>When starting out keep everything as simple as possible.</p>
-<p>*<a href="http://highscalability.com/blog/2013/9/23/salesforce-architecture-how-they-handle-13-billion-transacti.html" target="_blank" rel="external">SaleForce</a><br>Note:<br>Database: To reduce load on the database tier, we developed ACS – API Cursor Server.</p>
-<p>*<a href="http://highscalability.com/blog/2013/11/4/espns-architecture-at-scale-operating-at-100000-duh-nuh-nuhs.html" target="_blank" rel="external">ESPN</a><br>Note:<br>Make different things look the same: So the opposite force is to make a common architecture, a common data model, and then fall back to type specific models when necessary.<br>Consistency helps all developers: Having documentation and consistent APIs helps outside the firewall with developer APIs, but it also helps internally because it will be easier to build applications.</p>
-<p>*<a href="http://highscalability.com/blog/2011/12/19/how-twitter-stores-250-million-tweets-a-day-using-mysql.html" target="_blank" rel="external">Twitter: Store Data</a><br> <a href="http://highscalability.com/blog/2013/7/8/the-architecture-twitter-uses-to-deal-with-150m-active-users.html" target="_blank" rel="external">Twitter: Timeline</a><br>Note:<br>MySQL is used for smaller datasets of &lt; 1.5TB, which is the size of their RAID array, and as a backing store for larger datasets.<br>MySQL is not Used For Everything: Cassandra is used for high velocity writes, and lower velocity reads. Hadoop is used to process unstructured and large datasets, hundreds of billions of rows.Vertica is being used for analytics and large aggregations and joins so they do not have to write MapReduce jobs.<br>Loose coupling; Soft launches; Open source.</p>
-<p>*<a href="http://highscalability.com/google-architecture" target="_blank" rel="external">Google</a><br>Note:<br>Reliable Storage Mechanism With GFS (Google File System).<br>Do Something With The Data Using MapReduce.<br>Storing Structured Data In BigTable.</p>
-<p>*<a href="http://highscalability.com/youtube-architecture" target="_blank" rel="external">Youtube</a><br>Note:<br>Data Center Strategy: Used manage hosting providers at first. Living off credit cards so it was the only way. Use 5 or 6 data centers plus the CDN.<br>Pick your battles: You may have similar opportunities in your system. Take a look at Software as a Service for more ideas.</p>
-<p>*<a href="http://highscalability.com/blog/2012/2/13/tumblr-architecture-15-billion-page-views-a-month-and-harder.html" target="_blank" rel="external">Tumblr</a><br>Note:<br>Cell Design For Dashboard Inbox: A cell is a self-contained installation that has all the data for a range of users. All the data necessary to render a user’s Dashboard is in the cell. Users are mapped into cells. Many cells exist per data center. Each cell has an HBase cluster, service cluster, and Redis caching cluster. Users are homed to a cell and all cells consume all posts via firehose updates. Each cell is Finagle based and populates HBase via the firehose and service requests over Thrift.<br>The key idea: all posts are replicated to all cells.</p>
-<p>*<a href="http://highscalability.com/blog/2009/8/5/stack-overflow-architecture.html" target="_blank" rel="external">Stack Overflow</a><br>Note:<br>Separate application and database duties so each can scale independently of the other. Databases scale up and the applications scale out.<br>Applications should keep state in the database so they scale horizontally by adding more servers.<br>The Multitenancy Problem: Adding columns locks tables which causes problems in high traffic situations. Adding new indexes can also take a very long time and degrade performance. An innovative approach where tables are not created for each customer.</p>
-<p>*<a href="http://highscalability.com/blog/2011/11/29/datasift-architecture-realtime-datamining-at-120000-tweets-p.html" target="_blank" rel="external">DataSift</a><br>Note:<br>The power of platform and ecosystems: When a platform strategy is executed well it serves as a huge barrier to entry. It also serves as the highest observation post to see what next wave trends are developing.<br>Statelessness is a big win architecturally.<br>Follow the Salesforce and Amazon model: They are an on-demand cloud platform and they will build layers on top of what they started with.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/System-Design/">System Design</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-15T09:31:29.000Z"><a href="/2015/07/15/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Search/">2015-07-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/15/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Search/">Hackerrank / InterviewStreet Algorithm Problem Solution List IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>. </p>
-<h3 id="Sherlock-and-Array"><a href="#Sherlock-and-Array" class="headerlink" title="Sherlock and Array"></a>Sherlock and Array</h3><p><a href="https://www.hackerrank.com/challenges/sherlock-and-array" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/sherlock-and-array.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Set sum[i] as the sum of all elements from 0 index to i index. Then for every index i, check whether sum[i - 1] and  sum[i + 1] - sum[i] are equal or not.</p>
-<hr>
-
-<h3 id="Ice-Cream-Parlor"><a href="#Ice-Cream-Parlor" class="headerlink" title="Ice Cream Parlor"></a>Ice Cream Parlor</h3><p><a href="https://www.hackerrank.com/challenges/icecream-parlor" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/icecream-parlor.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use binary search.</p>
-<hr>
-
-<h3 id="Maximise-Sum"><a href="#Maximise-Sum" class="headerlink" title="Maximise Sum"></a>Maximise Sum</h3><p><a href="https://www.hackerrank.com/challenges/maximise-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/maximise-sum.cpp" target="_blank" rel="external">Code Link</a><br>Greedy problem.</p>
-<hr>
-
-<h3 id="Missing-Numbers"><a href="#Missing-Numbers" class="headerlink" title="Missing Numbers"></a>Missing Numbers</h3><p><a href="https://www.hackerrank.com/challenges/missing-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/missing-numbers.cpp" target="_blank" rel="external">Code Link</a><br>Hash problem. First map the given numbers to continuous numbers. And then check the missing numbers.</p>
-<hr>
-
-<h3 id="Connected-Cell-in-a-Grid"><a href="#Connected-Cell-in-a-Grid" class="headerlink" title="Connected Cell in a Grid"></a>Connected Cell in a Grid</h3><p><a href="https://www.hackerrank.com/challenges/connected-cell-in-a-grid" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/connected-cell-in-a-grid.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. DFS the connected components and count the number of grids of those components to find the largest regions.</p>
-<hr>
-
-<h3 id="Count-Luck"><a href="#Count-Luck" class="headerlink" title="Count Luck"></a>Count Luck</h3><p><a href="https://www.hackerrank.com/challenges/count-luck" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/count-luck.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Check whether there is a path with k length.</p>
-<hr>
-
-<h3 id="Cut-the-tree"><a href="#Cut-the-tree" class="headerlink" title="Cut the tree"></a>Cut the tree</h3><p><a href="https://www.hackerrank.com/challenges/cut-the-tree" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cut-the-tree.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. Calculate the sum of value of edges of every subtrees and subtract them by the sum of the values of all edges.</p>
-<hr>
-
-<h3 id="Pairs"><a href="#Pairs" class="headerlink" title="Pairs"></a>Pairs</h3><p><a href="https://www.hackerrank.com/challenges/pairs" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/pairs.cpp" target="_blank" rel="external">Code Link</a><br>Sort and Hash problem.</p>
-<hr>
-
-<h3 id="Similar-Pair"><a href="#Similar-Pair" class="headerlink" title="Similar Pair"></a>Similar Pair</h3><p><a href="https://www.hackerrank.com/challenges/similarpair" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/similarpair.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem.</p>
-<hr>
-
-<h3 id="Similar-Pair-1"><a href="#Similar-Pair-1" class="headerlink" title="Similar Pair"></a>Similar Pair</h3><p><a href="https://www.hackerrank.com/challenges/similarpair" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/similarpair.cpp" target="_blank" rel="external">Code Link</a><br>DFS problem. </p>
-<hr>
-
-<h3 id="Bike-Racers"><a href="#Bike-Racers" class="headerlink" title="Bike Racers"></a>Bike Racers</h3><p><a href="https://www.hackerrank.com/challenges/bike-racers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bike-racers.cpp" target="_blank" rel="external">Code Link</a><br>Binary Search + Max Match problem. Use binary search to filter out the wrong the paths and then use Hungary algorithm to find the max match.</p>
-<hr>
-
-<h3 id="Task-Scheduling"><a href="#Task-Scheduling" class="headerlink" title="Task Scheduling"></a>Task Scheduling</h3><p><a href="https://www.hackerrank.com/challenges/task-scheduling" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/task-scheduling.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use segment tree.</p>
-<hr>
-
-<h3 id="Playing-with-numbers"><a href="#Playing-with-numbers" class="headerlink" title="Playing with numbers"></a>Playing with numbers</h3><p><a href="https://www.hackerrank.com/challenges/playing-with-numbers" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/playing_with_number.cpp" target="_blank" rel="external">Code Link</a><br>Sort the given numbers in non-descending order; then for every query number, adding the current number to sum of all previous query number; after that, if the sum is negative, using binary search to find the lower bound of the absolute value of the sum only in the positive part of the array; if the sum is positiive, using binary search to find the upper bound of the negative value of the sum only in the negative part of the arrary. At last, calculate the absolute value of the sum of the lower/upper bound part adding the sum of query number and the sum of other parts adding the sum of query number and finally, calculate the absolute value of the sum of all these two parts.<br>先对给定数组进行排序。然后将所有已知的查询数进行求和。接下来用二分搜索，如果和是负数，在数组的正数部分找出和的绝对值的下界；若是正数，在数组的负数部分找出和的取反的上界。最后，将&gt;不需要进行二分搜索，和需要进行二分搜索这两部分进行求和。不需要二分搜索和在二分搜索结果以外的部分是直接加上查询和然后求绝对值即可；二分搜索结果范围内的也是这样，但三部分是需要分别&gt;求出各自的绝对值之后再相加，此时的和就是最终答案。</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-12T02:21:27.000Z"><a href="/2015/07/12/MarkDown-Language/">2015-07-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/12/MarkDown-Language/">MarkDown Language</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the links of Markdown language document with detailed instruction. Both of them are in Chinese. Very helpful~</p>
-<ul>
-<li><p><a href="http://wowubuntu.com/markdown/basic.html" target="_blank" rel="external">Basic Version</a></p>
-</li>
-<li><p><a href="http://wowubuntu.com/markdown/index.html" target="_blank" rel="external">Full Version</a></p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-12T01:09:27.000Z"><a href="/2015/07/12/MySQL-Command-in-Linux/">2015-07-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/12/MySQL-Command-in-Linux/">MySQL Command &amp;&amp; Usage in Linux</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>MySQL is one of the most widely used database software in the world. It is free, fast and very reliable. The following are the ubuntu linux commands of MySQL. </p>
-<h3 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
-<p>To check whether MyAQL service is running or not<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Restart-MySQL"><a href="#Restart-MySQL" class="headerlink" title="Restart MySQL"></a>Restart MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mysql restart</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="Change-MySQL-password"><a href="#Change-MySQL-password" class="headerlink" title="Change MySQL password"></a>Change MySQL password</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure mysql-server-5.5</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="Stop-MySQL"><a href="#Stop-MySQL" class="headerlink" title="Stop MySQL"></a>Stop MySQL</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mysql stop</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="MySQL-Tuner"><a href="#MySQL-Tuner" class="headerlink" title="MySQL Tuner"></a>MySQL Tuner</h3><ul>
-<li><p>Install MySQL Tuner</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install mysqltuner</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Run MySQL Tuner</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysqltuner</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2015-07-10T14:28:28.000Z"><a href="/2015/07/10/hello-world/">2015-07-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2015/07/10/hello-world/">Hello World</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">trobuleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2015-07-06T04:39:49.000Z"><a href="/2015/07/06/Vim-Commands-and-Practice-Guide/">2015-07-06</a></time>
       
       
@@ -2753,6 +745,608 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-28T02:27:33.000Z"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">2015-02-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">General Approach to Solve Algrithm Problems</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This blog is the general approach to solve algorithm problems based on my own experience. Hope it will be helpful for those who participate algorithm contest like TopCoder, CodeForce, OI, ACM-ICPC and so on or have to take technical interviews involving algorithms.</p>
+<ol>
+<li><p>Read the Problem Statement<br>Read the problem statement very very very carefully. Do remember that. Understand the following information:<br>(1) What is the meaning of the problem statement.<br>(2) What does the problem ask we to do. To count the cases? To find the maximum/minimum value?<br>(3) What are the constraints of the problem? What is the range of the input? 1&lt;= N &lt;= 100 or 1 &lt;= N &lt;= 1000?<br>(4) What is the input format and output format of the problem?<br>(5) Are both the sample input and output correct?<br>If the problem statement is difficult to understand, ask the problem writter or those who can offer a hand.</p>
+</li>
+<li><p>Build the Mathmatical Model and Design one or more Algorithms<br>After fully understand the problem, we should know how to calculate the sample output given sample input. This step is to find the correct mathematical models to solve the problem. When we find the correct mathmetical models, then we can start to design algorithms that can solve the models correctly (Note: not necessarily efficiently). </p>
+</li>
+<li><p>Validate the Algorithm<br>After the algorithm is proposed, we should then validate it. The tricks are to tet the algorithm with large test case, corner test case, tricky test case and general test case. Make sure that the algorithm are correct and efficient in all these kinds of cases so that we can avoid Wrong Answer, Time Limit Excceed, Memory Limit Excceed or other incorrect message returned by online judege. </p>
+</li>
+<li><p>Optimize the Algorithm<br>If our algorithm can pass all the above cases, congratulations! Our algorithm can receive Accept from online judege. But in some cases, it may not be efficient enough and online judege will return TLE for us. In that case, we should optimize the algorithm. There are mainly two cases:<br>(1) We may have to rebuild the mathematical model so that more efficient algorithms can be used.<br>(2) We only have to use other algorithms for the current model but more efficient techniques should be applied.<br>Sometimes, we can optimize our algorithm even though it is correct and can pass any test cases. This is a good habit and helpful to improve our algorithm design and analysis skills.</p>
+</li>
+</ol>
+<p>5.Double Check Again<br>After optimize the algorithm, we should double check it again to ensure that it can pass all the possible test cases under the constraints of the problem. It is a good custom to be cautious all the time.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-28T01:41:12.000Z"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">2015-02-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">General Approach for Technical Problem Shooting</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In our work (I mean computer science or relatives), we usually meet a lot of technical problems and some of them are difficult to deal with without any others’ help. In these cases, we have to do problem shooting all by ourselves. Here is the general approach that I used in my work or even daily life to solve technical problems. I think my approach can be also applicable in other area outside computer science.</p>
+<ol>
+<li><p>Master Basic Knowledge of the Area<br>We should know the most common and basic knowledge of the area where the problems are encountered by us, otherwise we may even do not realize some issues have appeared. That may be dangerous in many areas, especially chemistry and nuclear. In computer science, the basic knowledge that we should master should include computer operating system, computer system architecture, computer programming, database, computer network, and programming language. This list may not be complete, but I think those aspects are essential in computer science. If we do not understand the solution provided by others, we should have to go back to pick up or start to learn the basic knowledge.</p>
+</li>
+<li><p>Read or Watch the Tutorial (Document)<br>When we use a new system or product in the first time, it is pretty easy for us to stuck in some problems. When it does happens, remember to read or watch the official instruction at first. Official instructions are the best tutorial in most of the time. Try to finger out the correct parts of the tutorial and use the solutions provided by it.</p>
+</li>
+<li><p>Read or Watch Alternative Tutorial<br>Sometimes we may find that official tutorial is not complete or even out of date! That is really bad for novices. In this case, we should find alternative tutorial through Internet. We can use Google search engine (www.google.com) or other powerful search engines to find the tutorial on the Internet. In most of the cases, we are not the first patch of users who use this product or system. Some one who has tried it before are probabily meet the same problems and find the solutions and post the solution on the Internet. So we can try to find these tutorials through Internet.</p>
+</li>
+<li><p>Read or Watch Problem Shooting Approach<br>In some cases, we may not find the tutorial on the Internet, but we can just find the solution dealing with problems. This is the first step when we meet a technical problem and this approach can save us lots of time because we can skip the lengthy and boring tutorials provided by others. But I do think reading or watching the tutorial or document should be first step. The reason is that tutorial can help us to know the every aspect of the product and thus, when next time we meet a different problem, we may be able to solve it without any help. But if we only know how to solve some specific problems, we may still stuck in other problems in the future. On average, reading or watching tutorials or document first do not cost more time and even save our time. In computer science, currently, stackoverflow and some forums are helpful for those to find approaches to solve their problems.</p>
+</li>
+<li><p>Seek Help<br>Unluckly, we may encouter some rare problems that no one meets before. In this case, we can post our problems on the Internet, send them in emails to experts or seek help from others through other approaches. In computer science, there are multiple forums and websites where people can seek help. They include stackoverflow, Quora and so on. Or we can suscribe our email address in the email list of the community manufactering the product, like Appache Hadoop, Hive, Mahout and so on. People in the community usually are willing to give us a hand and in most of the time reply the email in a short time. We can also seek help through social media like facebook and twitter or just make a phone call to those who may be able to solve the problems.</p>
+</li>
+<li><p>Seek Help from People nearby<br>If some one happens to be nearby, seek help from him/her, especially s/he is our colleague or classmate or friend or family member.</p>
+</li>
+<li><p>Stop<br>If we do fail to find a solution, we may have to give up and leave it alone if it does not harm.</p>
+</li>
+</ol>
+<p>Hope this blog will help :-)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life-Thoughts/">Life Thoughts</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-22T13:31:30.000Z"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">2015-02-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">Collections of Web Technology Concept</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>When developing Web application, it is very often to meet many new words when we read the document. Here is the collection of some most frequent concepts that Web developer will see in their work.</p>
+<p>Cross-Domain Solution:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Cross-domain_solution" target="_blank" rel="external">http://en.wikipedia.org/wiki/Cross-domain_solution</a><br>A cross-domain solution (CDS) is a means of information assurance that provides the ability to manually or automatically access or transfer information between two or more differing security domains. They are integrated systems of hardware and software that enable transfer of information among incompatible security domains or levels of classification.<br>The three primary elements demanded from cross domain solutions are data confidentiality, data integrity and data availability.</p>
+<p>Common Gateway Interface:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface" target="_blank" rel="external">http://en.wikipedia.org/wiki/Common_Gateway_Interface</a><br>A Common Gateway Interface(CGI) is a standard method used to generate dynamic content on Web pages and Web applications. It provides an interface between the Web server and programs that generate the Web content when implemented on a Web server. These programs are known as CGI scripts; they are usually written in a scripting language, or any programming language.</p>
+<p>MIME:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/MIME" target="_blank" rel="external">http://en.wikipedia.org/wiki/MIME</a><br>MIME (Multi-Purpose Internet Mail Extensions) is an extension of the original Internet e-mail protocol that lets people use the protocol to exchange different kinds of data files on the Internet: audio, video, images, application programs, and other kinds, as well as the ASCII text handled in the original protocol, the Simple Mail Transfer Protocol (SMTP).<br>MIME as an Internet standard that extends the format of email to support: Text in character sets other than ASCII, Non-text attachments, Message bodies with multiple parts, and Header information in non-ASCII character sets.<br>Although MIME was designed mainly for SMTP, its use today has grown beyond describing the content of email and now often includes descriptions of content type in general, including for the web (see Internet media type) and as a storage for rich content in some commercial products (e.g., IBM Lotus Domino and IBM Lotus Quickr).</p>
+<p>OAuth:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/OAuth" target="_blank" rel="external">http://en.wikipedia.org/wiki/OAuth</a><br>OAuth is an open standard for authorization. OAuth provides client applications a ‘secure delegated access’ to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials.<br>This kind of authorization is often found in social media APIs.</p>
+<p>REST:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">http://en.wikipedia.org/wiki/Representational_state_transfer</a><br>Representational State Transfer (REST) is a software architecture style consisting of guidelines and best practices for creating scalable web services. REST is a coordinated set of constraints applied to the design of components in a distributed hypermedia system that can lead to a more performant and maintainable architecture.<br>REST has gained widespread acceptance across the Web[citation needed] as a simpler alternative to SOAP and WSDL-based Web services. RESTful systems typically, but not always, communicate over the Hypertext Transfer Protocol with the same HTTP verbs (GET, POST, PUT, DELETE, etc.) used by web browsers to retrieve web pages and send data to remote servers.<br>REST is a kind of architecture style instead of web standard.</p>
+<p>SOAP:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/SOAP" target="_blank" rel="external">http://en.wikipedia.org/wiki/SOAP</a><br>SOAP, originally an acronym for Simple Object Access protocol, is a protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on other application layer protocols, most notably Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.<br>SOAP has three major characteristics: extensibility, neutrality and independence.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-22T09:36:56.000Z"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">2015-02-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">Install Android Studio 1.0 on Linux and Windows Tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Android Studio is the IDE for Android Development without the help of Eclipse IDE. Here is the Homepage of Android Studio:<br><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a></p>
+<p>Here is the link of installing Android Studio tutorial:<br><a href="http://developer.android.com/sdk/installing/index.html?pkg=studio" target="_blank" rel="external">http://developer.android.com/sdk/installing/index.html?pkg=studio</a></p>
+<p>But the tutorial from official document may not be complete in some cases. So here I will provide a new tutorial.</p>
+<p>For ubuntu 14.04 LTS, 64 bits<br>(1) Install JDK 6 or higher<br>Here is a good tutorial from stackoverflow about installing Open JDK from ubuntu:<br><a href="http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux" target="_blank" rel="external">http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux</a></p>
+<p>(2)Install ia32-libs<br>Here is a good tutorial from stackoverflow:<br><a href="http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr" target="_blank" rel="external">http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr</a></p>
+<p>The commands that should be used are here:<br>sudo -i<br>cd /etc/apt/sources.list.d<br>echo “deb <a href="http://old-releases.ubuntu.com/ubuntu/" target="_blank" rel="external">http://old-releases.ubuntu.com/ubuntu/</a> raring main restricted universe multiverse” &gt;ia32-libs-raring.list<br>apt-get update<br>apt-get install ia32-libs<br>rm -r ia32-libs-raring.list<br>apt-get update</p>
+<p>(3)Install lib32ncurses5-dev<br>Just use the following command:<br>sudo apt-get install lib32ncurses5-dev</p>
+<p>(4)Install lib32stc++6<br>Go to this website to download the package:<br><a href="http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download" target="_blank" rel="external">http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download</a><br>and then run the commands:<br>sudo dpkg -i DEB_PACKAGE_NAME</p>
+<p>(5)Install libz.so.1<br>Run the commands:<br>sudo apt-get install lib32z1</p>
+<p>(6)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
+<p>(7)Download the Android Studio Zip file from the official homepage and unpack the file into an appropriate location.</p>
+<p>(8)Navigate to the android-studio/bin/ directory in a terminal and execute studio.sh.</p>
+<p>(9)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
+<p>(10)Build the project and run it. Make sure that the studio works.</p>
+<p>For Windows 8.1, 64 bits<br>(1)Install JDK 6 or higher.<br>Here is a good tutorial:<br><a href="http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html" target="_blank" rel="external">http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html</a><br>Remember to set JAVA_HOME variable in the system PATH environment variable. </p>
+<p>(2)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
+<p>(3)Download the Android Studio install exe file and execute it.</p>
+<p>(4)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
+<p>(5)Build the project and run it. Make sure that the studio works.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Android/">Android</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-22T05:32:40.000Z"><a href="/2015/02/22/Git-Command-Summary/">2015-02-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/22/Git-Command-Summary/">Git Command Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Nowadays Github has become a widely used source version control and project management tool in software engineering. Thus, it is important to know the command lines of Github and use them in practice. Here is the summary of the most frequent used command lines of Github. If you find something inaccurate or missing, please contact me. :-)</p>
+<p>Here is the link of Setting Up Git:<br><a href="http://help.github.com/articles/set-up-git/" target="_blank" rel="external">http://help.github.com/articles/set-up-git/</a></p>
+<p>Here is the link of basic funcitons of Github, which include creating a repository, opening an issue, creating a branch, making a commit, opening a pull request and merge pull request:<br><a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">https://guides.github.com/activities/hello-world/</a></p>
+<p>Here are the frequent used Github commands and their explanation, referred from these links:<br><a href="http://git-scm.com/docs" target="_blank" rel="external">http://git-scm.com/docs</a><br><a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1" target="_blank" rel="external">http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1</a></p>
+<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>Initialize a new Git repository.</p>
+<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><p>Clone a repository into a new directory, which is usually in local; and creates remote-tracking branches for each branch in the cloned repository, and creates and checks out an initial branch forked from the cloned repository’s current active branch.</p>
+<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>List, create, or delete branches.</p>
+<h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><p>Get and set repository and global options. Users can query/set/replace/unset options with this command.</p>
+<h3 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h3><p>Display help information about Git. On default, a list of the most commonly used Git commands are printed out.</p>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>Show the working tree status. Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git.<br>The first one should be done by “git commit”; and last two ones should be done by “git add” and then “git commit”.</p>
+<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>Add files contents to the index found in the working tree, to prepare the content staged for the next commit.</p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>Record changes to the repository. Stores the current contents of the index in a new commit along with a log message from the user describing the changes.<br>There are several ways to specify the content added:<br>(1) git add command<br>(2) git rm command<br>(3) listing files as arguments to the commit command so that their changes staged in the index will be ignored<br>(4) using -a switch with commit command to add changes from all known files and to remove files in the index removed from working tree<br>(5) using –iteractive or –patch switches to decide one by one which files or hunks should be part of commit.</p>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>Update the remote refs along with associated objects, using local refs.</p>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><p>Fetch from and integrate with another repository or a local branch. Incorporates changes from a remote repository into the current branch.</p>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>Remove files from the working tree and from the index, but not from just working directory.</p>
+<h3 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h3><p>Move or rename a file, a directory, or a symlink.</p>
+<h3 id="git-checkout-checkout是应用之意"><a href="#git-checkout-checkout是应用之意" class="headerlink" title="git checkout //checkout是应用之意"></a>git checkout //checkout是应用之意</h3><p>Checkout a branch or paths to the working tree. Updates files in the working tree to match the version in the index or the specified tree.</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><p>Download objects and refs from another repository. Fetch branches and/or tags from one or more other repositories, along with the objects necessary to complete their histories.</p>
+<h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>Join two or more development histories together. Incoporates changes from the named commits into the current branch.</p>
+<h3 id="git-reset-–hard"><a href="#git-reset-–hard" class="headerlink" title="git reset (–hard )"></a>git reset (–hard <old-commit-id>)</old-commit-id></h3><p>Rollback the respository to the given early commit.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Tools/">Tools</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:54:05.000Z"><a href="/2015/02/15/Iterative-Qsort/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Iterative-Qsort/">Iterative Qsort</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Qsort is one of most widely used sorting algorithm today.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C++</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:51:34.000Z"><a href="/2015/02/15/Turan-s-Theorem/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Turan-s-Theorem/">Turan&#39;s Theorem</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Turan’s Theorem is one of the important theorems of Graph Theory. </p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Graph-Theory/">Graph Theory</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:49:35.000Z"><a href="/2015/02/15/Lucas-Theorem/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Lucas-Theorem/">Lucas Theorem</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lucas Theorem is one of the important theorems in Combinatorics.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Combinatorics/">Combinatorics</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:16:25.000Z"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">Useful Java Command in Shell Script</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This post can be updated in the future.<br>Some times we will use command line to compile or run Java program in Linux Console. As far as I know, three kinds of command are used very often and they include: java, maven and Apache ant. Here are the list of the usage of these three commands.</p>
+<ol>
+<li>Java<br>java - Launches a Java application<br>java [options] class [arguments]<br>java [options] -jar file.jar [arguments]<br>javaw [options] class [arguments]<br>javaw [options] -jar file.jar [arguments]</li>
+</ol>
+<p>javac - Java Language Programming Compiler<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac [options] [sourcefiles] [classes] [@argfiles]</span><br></pre></td></tr></table></figure></p>
+<p>jar - The Java Archive Tool<br>      combines multiple files into a single JAR archive file<br>Create jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar c[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Update jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar u[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Extract jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar x[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>List table of contents of jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar t[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Add index to jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar i jarfile [-Joption]</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Maven<br>Compile Application Sources (Change to the directory containing pom.xml)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn compile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Compile Test Sources and Run Unit Tests<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>Create a JAR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
+<p>Install JAR File in Local Repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install</span><br></pre></td></tr></table></figure></p>
+<p>Remove the Target Directory with All the Build Data Before Starting so that it is fresh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Ant<br>Build the Ant Project<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ant runtime</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T13:34:02.000Z"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">Machine Learning Top Researcher List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In Machine Learning Area, there are many great scientists who have made great contribution to the development of Machine Learning. Some of them currently are professors in universities, and others are working for companies in industry. The following is the list of these reserchers that I have ever known. The order of this list is random. If you think it is more appropriate to add or remove some researchers in this list or to modify the statement, please feel free to contact me.</p>
+<p>1.Geoffrey Hinton<br>Professor of University of Toronto and Researcher of Google Toronto. Famous for his work on artificial neural networks, especially Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" rel="external">http://en.wikipedia.org/wiki/Geoffrey_Hinton</a><br>Homepage:<br><a href="http://www.cs.toronto.edu/~hinton/" target="_blank" rel="external">http://www.cs.toronto.edu/~hinton/</a></p>
+<p>2.Yann LeCun<br>Professor of New York University and Researcher of Facebook Artificial Intelligence Research. Famous for his work on convolutional neural networks (CNN).<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Yann_LeCun" target="_blank" rel="external">http://en.wikipedia.org/wiki/Yann_LeCun</a><br>Homepage:<br><a href="http://yann.lecun.com/" target="_blank" rel="external">http://yann.lecun.com/</a></p>
+<p>3.Michael I. Jordan<br>Professor of University of California, Berkeley. Leading Researcher in Machine Learning and Artificial Intelligence.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Michael_I._Jordan" target="_blank" rel="external">http://en.wikipedia.org/wiki/Michael_I._Jordan</a><br>Homepage:<br><a href="http://www.cs.berkeley.edu/~jordan/" target="_blank" rel="external">http://www.cs.berkeley.edu/~jordan/</a></p>
+<p>4.Yoshua Bengio<br>Professor of Department of Computer Science and Operations Research and Head of Machine Learning Laboratory. Famous for his work on Deep Learning.<br>Homepage:<br><a href="http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html" target="_blank" rel="external">http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html</a></p>
+<p>5.Andrew Y.Ng<br>Professor of Stanford University, Chairman of Coursera, Researcher of Google (previous) and Baidu (Current). Famous for his work on Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Andrew_Ng" target="_blank" rel="external">http://en.wikipedia.org/wiki/Andrew_Ng</a><br>Homepage:<br><a href="http://cs.stanford.edu/people/ang/" target="_blank" rel="external">http://cs.stanford.edu/people/ang/</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-01T12:13:48.000Z"><a href="/2015/02/01/BackPropagation-in-Practice/">2015-02-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/01/BackPropagation-in-Practice/">BackPropagation in Practice</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In Machine Learning Techniques, back propagation is usually used in gradient descent algorithm. Thus, an efficient back propagation algoritm is essential for gradient descent algorithm. Here are some methods to improve the efficiency of back propagation in practice. Note that this article will be updated when new methods appear.</p>
+<p>1.Use ReLU non-linearities (ReLU means rectifier neural network) (tanh and logistic out of favor).</p>
+<p>2.Use cross-entropy for classification.</p>
+<p>3.Use Stochastic Gradient Descent on minibatches.</p>
+<p>4.Shuffle the training examples.</p>
+<p>5.Normalize the input variables (zero means, unit variance).</p>
+<p>6.Schedule to decrease the learning rate.</p>
+<p>7.Use a bit of L1 or L2 regularization on the weights (or a combination)</p>
+<p>8.Use “dropout” for regularization.</p>
+<p>9.Lots more in …</p>
+<p>10.Lots more in …</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
@@ -2828,13 +1422,13 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>37</small></li>
+    <li><a href="/tags/Java/">Java</a><small>33</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>6</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -2856,7 +1450,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>12</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -2878,7 +1472,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.43px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.17px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.33px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.83px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.17px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 

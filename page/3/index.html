@@ -97,1197 +97,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-10T09:02:49.000Z"><a href="/2017/09/10/Proxy-Pattern-In-Java/">2017-09-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern (In Java)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>See the meaning of <a href="https://en.wikipedia.org/wiki/Proxy" target="_blank" rel="external">Proxy in Wikipedia</a>.</p>
-<p>As we know, when we visit a web service, we may not directly get the access of the hosts where the service is deployed but the hosts which sends the same or reasonable response as the service does. And those hosts are proxies.</p>
-<p>So in the design pattern, proxy pattern uses the similar mechanism. A class (proxy class) represents the functionality of the other class. Proxy class implements or extends the same interface or abstract class as the class proxied does, and proxy instance contains the instance proxied.</p>
-<p>See the <a href="https://en.wikipedia.org/wiki/Proxy_pattern" target="_blank" rel="external">Proxy Pattern in Wikipedia</a>. The diagram there can help to understand the structure of this design pattern.</p>
-<p>Here is some sample code about Proxy Pattern.</p>
-<h3 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h3><p>Here is the link of below <a href="https://github.com/yular/Java-CodeLibrary/tree/master/DesignPattern/ProxyPattern/src/com/yulartech/designpattern/proxypattern" target="_blank" rel="external">sample code</a>.</p>
-<p>Firt of all, here is the service interface:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public interface ImageService &#123;</span><br><span class="line">    void showImage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Then the real image service and proxy image service must implement this interface.</p>
-<p>Real image service source code is below:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class RealImageService implements ImageService &#123;</span><br><span class="line">    private String imageFileName;</span><br><span class="line"></span><br><span class="line">    RealImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        upLoadImage();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void upLoadImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Successfully upload image %s to the service.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Show the image %s.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Proxy image service source code is below:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class ProxyImageService implements ImageService&#123;</span><br><span class="line">    private RealImageService realImageService;</span><br><span class="line">    private String imageFileName;</span><br><span class="line">    private boolean isImageCached;</span><br><span class="line"></span><br><span class="line">    public ProxyImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        this.isImageCached = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        if (realImageService == null) &#123;</span><br><span class="line">            realImageService = new RealImageService(imageFileName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (isImageCached) &#123;</span><br><span class="line">            final String msg = String.format(&quot;Get image %s from cache in proxy. &quot;, imageFileName);</span><br><span class="line">            System.out.print(msg);</span><br><span class="line">        &#125;</span><br><span class="line">        realImageService.showImage();</span><br><span class="line">        cacheImageInProxy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void cacheImageInProxy() &#123;</span><br><span class="line">        isImageCached = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>At last, implement a Main class to run the demo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        String imageFileName = &quot;test-image.png&quot;;</span><br><span class="line">        ProxyImageService proxyImageService = new ProxyImageService(imageFileName);</span><br><span class="line"></span><br><span class="line">        //Show image from actual service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        //Show image from proxy service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And if everything goes well, output should be:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Successfully upload image test-image.png to the service.</span><br><span class="line">Show the image test-image.png.</span><br><span class="line"></span><br><span class="line">Get image test-image.png from cache in proxy. Show the image test-image.png.</span><br></pre></td></tr></table></figure>
-<p>That means we can retrieve images from proxy in cache instead of actual image service: Proxy class just represents the functionality of the other class.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>, <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-06T17:00:28.000Z"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">Reading Note of Effective Java I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
-<p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
-<hr>
-
-<h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2. Consider a builder when faced with many constructor parameters."></a>Item 2. Consider a builder when faced with many constructor parameters.</h3><p>Builder is a static class.</p>
-<p>The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.</p>
-<h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3. Enforce the singleton property with a private constructor or an enum type."></a>Item 3. Enforce the singleton property with a private constructor or an enum type.</h3><p>Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.</p>
-<hr>
-
-<h3 id="Item-4-Enforce-noninstantiability-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantiability-with-a-private-constructor" class="headerlink" title="Item 4. Enforce noninstantiability with a private constructor."></a>Item 4. Enforce noninstantiability with a private constructor.</h3><p>This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.</p>
-<hr>
-
-<h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5. Avoid creating unnecessary objects."></a>Item 5. Avoid creating unnecessary objects.</h3><p>Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.</p>
-<p>So do not use following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
-<p>but use:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abc&quot;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><hr>
-
-<h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
-<ul>
-<li>Exception rather than norm: Null out references once they become obsolete.</li>
-<li>Best way: Let the variable containing the reference fall out of scope.</li>
-</ul>
-<p>Source of memory leak:</p>
-<ul>
-<li>A class manages its own memory.</li>
-<li>Cache. Solution: use weak hashmap.</li>
-<li>Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.</li>
-</ul>
-<hr>
-
-<h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7. Avoid finalizers"></a>Item 7. Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: </p>
-<ul>
-<li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
-<li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
-</ul>
-<p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
-<p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
-<p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
-<p>Use finalizer to terminate noncritical native resources.</p>
-<p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
-<hr>
-
-<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
-<li>Each instance of the class is inherently unique.</li>
-<li>Do not care whether the class provides a logical equality test.</li>
-<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
-<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
-</ul>
-<p>equals method general contract:</p>
-<ul>
-<li>Reflexive: x.equals(x) must be true.</li>
-<li>Symmetric: x.equals(y) is true then y.equals(x) must be true.</li>
-<li>Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.</li>
-<li>Consitent: x.equals(y) is the same result always unless object is modified.</li>
-</ul>
-<p>Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.</p>
-<p>Important notes to write equals method:</p>
-<ul>
-<li>Can add a value component to a subclass of an abstract class without violating the equals contract.</li>
-<li>Do not write an equals method depending on unreliable resources.</li>
-<li>Non-nullity: all objects must be unequal to null.</li>
-<li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
-<li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
-</ul>
-<hr>
-
-<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9. Always override hashCode when you override equals"></a>Item 9. Always override hashCode when you override equals</h3><ul>
-<li>Do not try to be too clever.</li>
-<li>Do not substitute another type for Object in the equals declaration.</li>
-<li>Equal objects must have equal hashcodes.</li>
-<li>Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.</li>
-</ul>
-<hr>
-
-<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10. Always override toString"></a>Item 10. Always override toString</h3><ul>
-<li>It is recommended to override toString and even in subclasses.</li>
-<li>In practice, toString method should return all of the interesting information contained in the object.</li>
-<li>Whether or not decide to specify the format of toString return value, clearly document intentions, provide programmatic access to all of the information contained in the value returned by toString.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-06T16:48:01.000Z"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">2017-09-07</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">Reading Note of Java in a Nutshell (Java 7 and 8)</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of the book <code>Java in a Nutshell</code> (JDK 7 and 8 version).</p>
-<h3 id="JVM-and-Java-Platform"><a href="#JVM-and-Java-Platform" class="headerlink" title="JVM and Java Platform"></a>JVM and Java Platform</h3><p>JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.</p>
-<p>Java platform uses just-in-time compilation to take the advantage of the fact that parts of Java program are called more frequently.</p>
-<p>Two ways to run other languages on JVM:</p>
-<ul>
-<li>Have a source code compiler producing class files.</li>
-<li>Implement an interpreter and runtime in Java, and then interpret the source form of the language.</li>
-</ul>
-<hr>
-
-<h3 id="Software-Construction"><a href="#Software-Construction" class="headerlink" title="Software Construction"></a>Software Construction</h3><p>There are mainly elevent steps as below:</p>
-<ul>
-<li>Problem Definition</li>
-<li>Requirement Development</li>
-<li>Construction Planning</li>
-<li>Software Architecture or High Level Design</li>
-<li>Detailed Design</li>
-<li>Coding and Debugging</li>
-<li>Unit Testing</li>
-<li>Integration Testing</li>
-<li>Integration</li>
-<li>System Testing</li>
-<li>Corrective Maintenance</li>
-</ul>
-<hr>
-
-<h3 id="Coding-and-Style"><a href="#Coding-and-Style" class="headerlink" title="Coding and Style"></a>Coding and Style</h3><p>Singleton</p>
-<ul>
-<li>Use a framework (usually dependency injection) to provide singleton automatically.</li>
-</ul>
-<p>Lambda expressions:</p>
-<ul>
-<li>A lambda expression is an anonymous collection of executable Java code, essentially a method body.</li>
-<li>Syntax of lambda expressions is like: ( paramlist ) -&gt; { statements }.</li>
-<li>When a lambda expression is used as a value, it is automatically converted to a new object of the correct type for the variable being placed into. This autoconversion and type inference is essential to Java’s approach to lambda expression.</li>
-</ul>
-<p>Naming Convention:</p>
-<ul>
-<li>Class: Class names are nouns to represent objects.</li>
-<li>Interface: Interface names are adjective if to provide additional information about the class, otherwise are nouns to work like abstract superclasses.</li>
-</ul>
-<p>Label statements:<br>A label statement is simply a statement that has been given a name by prepending an identifer and a colon to it.</p>
-<p>Generic type:<br>For wildcard, it is legal to write in following style: List&lt;?&gt; objects = new ArrayList<string>(). List<string> is subtype of List&lt;?&gt;. But List&lt;?&gt; is not a subtype of any List<t>.</t></string></string></p>
-<p>Reflection (Convert specific to general):</p>
-<ul>
-<li>Only deal with cases immediately applicable to problem domain.</li>
-<li>To use reflection: Class&lt;?&gt; clz = getSomeClassObject(); Object rcvz = clz.newInstance();</li>
-</ul>
-<p>Datatype Overflow:<br>Integer arithmetic never overflow or underflow because numbers just wrap around.</p>
-<hr>
-
-<h3 id="Handling-Exception"><a href="#Handling-Exception" class="headerlink" title="Handling Exception"></a>Handling Exception</h3><p>Exceptions are Throwable objects and that exceptions fall into two main categories, specified by the Error and Exception subclass. Any exception object that is an Error is unchecked.</p>
-<hr>
-
-<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>A safe program includes:</p>
-<ul>
-<li>All objects start off in a legal state after creation.</li>
-<li>Externally accessible methods transition objects between legal state.</li>
-<li>External accessible methods must not return with object in an inconsistent state.</li>
-<li>External accessible methods must reset object to a legal state before throwing (exceptions).</li>
-</ul>
-<p>Use <code>java.util.Arrays.equals</code> to compare the content of two arrays.</p>
-<hr>
-
-<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><p>Two collectors:</p>
-<ul>
-<li>Parallel collectors, using multiple threads to perform collections.</li>
-<li>Concurrent collectors, running at the same time as application threads are still running.</li>
-</ul>
-<hr>
-
-<h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><ul>
-<li>Use Readers and Writers to do IO operation.</li>
-<li>Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called <code>AutoCloseable</code>.<br>TWR style is like: try(InputStream is = new FileInputStream(“”)) {  …  }</li>
-<li>Use <code>File</code> class for file operation and <code>Path</code> class for file system path operation.</li>
-<li>For high-performance IO, use <code>ByteBuffer</code>. </li>
-<li>For Async IO, use <code>AsynchronousFileChannel</code> for file IO, <code>AsynchronousSocketChannel</code> for client socket IO, and <code>AsynchronousServerSocketChannel</code> for asynchronous sockets  accepting incoming connection.</li>
-<li>For network, use <code>java.net</code> or <code>javax.net</code> packages.</li>
-<li>For Async style, use Future-Based style, Callback-Based style and watchservice on a directory.</li>
-<li>Use <code>MappedByteBuffer</code> to store a memory-mapped file into memory.</li>
-</ul>
-<p><strong> Note </strong>:</p>
-<ul>
-<li><code>ByteBuffer</code> and <code>MappedByteBuffer</code> are <strong>NIO</strong> buffers which are low-level abstraction for high-performance IO.</li>
-</ul>
-<hr>
-
-<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p>Use Java 8 Date and Time API: java.time .</p>
-<hr>
-
-<h3 id="Garbage-Collection"><a href="#Garbage-Collection" class="headerlink" title="Garbage Collection"></a>Garbage Collection</h3><p>Concurrent Mark and Sweep (CMS):<br>Only used to collect the old generation-conjunction with a parallel collector that is to clean young generation.</p>
-<p>G1:<br>Used in high throughput environment and allows users to specify pause goals, which is low-pause collector.</p>
-<hr>
-
-<h3 id="Command-Line-Interface"><a href="#Command-Line-Interface" class="headerlink" title="Command Line Interface"></a>Command Line Interface</h3><p>Here are the most frequently used Java commands:</p>
-<ul>
-<li>javac</li>
-<li>java</li>
-<li>jar</li>
-<li>javadoc</li>
-<li>jdeps</li>
-<li>jps</li>
-<li>jstat</li>
-<li>jstatd</li>
-<li>jinfo</li>
-<li>jstack</li>
-<li>jmap</li>
-<li>javap</li>
-</ul>
-<hr>
-
-<h3 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h3><ul>
-<li>Nashorn</li>
-<li>JVisualVM</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T14:21:45.000Z"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">Linux Text Processing Command I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
-<li>File sort utility, often used as a filter in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="tsort"><a href="#tsort" class="headerlink" title="tsort"></a>tsort</h3><ul>
-<li>Topological sort.</li>
-</ul>
-<hr>
-
-<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><ul>
-<li>Remove duplicate lines from a sorted file.</li>
-</ul>
-<hr>
-
-<h3 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand, unexpand"></a>expand, unexpand</h3><ul>
-<li>expand: a filter converting tabs to spaces. Ofen used in a pipe.</li>
-<li>unexpand: reverse effect of expand.</li>
-</ul>
-<hr>
-
-<h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a><strong>cut</strong></h3><ul>
-<li>Widely used for text processing.</li>
-<li>A tool for extracting fields from files. Can be used in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a><strong>paste</strong></h3><ul>
-<li>Tool for merging together different files into a single, multi-column file.</li>
-<li>When combining with <code>cut</code>, useful for creating system log files.</li>
-</ul>
-<hr>
-
-<h3 id="join"><a href="#join" class="headerlink" title="join"></a><strong>join</strong></h3><ul>
-<li>Tool for merging two files in a meaningful fashion, creating a simple version of relational database.</li>
-</ul>
-<hr>
-
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a><strong>head</strong></h3><ul>
-<li>Lists the begining of a file to <code>stdout</code>.</li>
-</ul>
-<hr>
-
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a><strong>tail</strong></h3><ul>
-<li>List the end of a file to <code>stdout</code>.</li>
-<li>With <code>-f</code> option, useful for monitoring system.</li>
-</ul>
-<hr>
-
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h3><ul>
-<li>A multi-purpose file search tool that uses Regular Expressions.</li>
-<li>Command pattern: grep pattern [files …]</li>
-<li>Very useful in pipe.</li>
-<li>-i: a case sensitive search.</li>
-<li>-w: matches only whole words.</li>
-<li>-r: searches files recursively.</li>
-<li>-n: lists the matching lines.</li>
-<li>-v: filters out matches.</li>
-<li>-c: gives a numerical count of matches.</li>
-<li>–color: marks the matching string in color.</li>
-</ul>
-<hr>
-
-<h3 id="agrep"><a href="#agrep" class="headerlink" title="agrep"></a><strong>agrep</strong></h3><ul>
-<li>Approximate grep, extending the capabilities of <code>grep</code> to approximate matching.</li>
-</ul>
-<hr>
-
-<h3 id="look"><a href="#look" class="headerlink" title="look"></a>look</h3><ul>
-<li>Works like <code>grep</code>, but does a look up on a “dictionary”, a sorted word list in <code>/usr/dict/words</code> by default.</li>
-</ul>
-<hr>
-
-<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><strong>sed</strong></h3><ul>
-<li>Non-interactive stream editor, permitting using many ex commands in batch mode.</li>
-<li>Useful in shell scripts and pipe.</li>
-</ul>
-<hr>
-
-<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a><strong>awk</strong></h3><ul>
-<li>Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.</li>
-</ul>
-<hr>
-
-<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><ul>
-<li>Give a “word count” on a file or I/O stream.</li>
-</ul>
-<hr>
-
-<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a><strong>tr</strong></h3><ul>
-<li>Character translation filter.</li>
-<li>Must use quoting and/or brackets as appropriate.</li>
-</ul>
-<hr>
-
-<h3 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h3><ul>
-<li>A filter that wraps lines of input to a specified width.</li>
-</ul>
-<hr>
-
-<h3 id="fmt"><a href="#fmt" class="headerlink" title="fmt"></a>fmt</h3><ul>
-<li>Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.</li>
-</ul>
-<hr>
-
-<h3 id="col"><a href="#col" class="headerlink" title="col"></a>col</h3><hr>
-
-<h3 id="column"><a href="#column" class="headerlink" title="column"></a>column</h3><ul>
-<li>Column formatter.</li>
-</ul>
-<hr>
-
-<h3 id="colrm"><a href="#colrm" class="headerlink" title="colrm"></a>colrm</h3><ul>
-<li>Column removal filter.</li>
-</ul>
-<hr>
-
-<h3 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h3><ul>
-<li>Line numbering filter.</li>
-</ul>
-<hr>
-
-<h3 id="pr"><a href="#pr" class="headerlink" title="pr"></a>pr</h3><ul>
-<li>Print formatting filter.</li>
-</ul>
-<hr>
-
-<h3 id="gettext"><a href="#gettext" class="headerlink" title="gettext"></a>gettext</h3><ul>
-<li>A set of utilities for localizing and translating the text output of programs into foreign languages.</li>
-</ul>
-<hr>
-
-<h3 id="msgfmt"><a href="#msgfmt" class="headerlink" title="msgfmt"></a>msgfmt</h3><hr>
-
-<h3 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h3><hr>
-
-<h3 id="recode"><a href="#recode" class="headerlink" title="recode"></a>recode</h3><hr>
-
-<h3 id="TeX-gs"><a href="#TeX-gs" class="headerlink" title="TeX,gs"></a>TeX,gs</h3><hr>
-
-<h3 id="texexec"><a href="#texexec" class="headerlink" title="texexec"></a>texexec</h3><hr>
-
-<h3 id="enscript"><a href="#enscript" class="headerlink" title="enscript"></a>enscript</h3><hr>
-
-<h3 id="groff-tbl-eqn"><a href="#groff-tbl-eqn" class="headerlink" title="groff, tbl, eqn"></a>groff, tbl, eqn</h3><hr>
-
-<h3 id="lex-yacc"><a href="#lex-yacc" class="headerlink" title="lex, yacc"></a>lex, yacc</h3><ul>
-<li>Lexical analyzer commands.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T14:11:11.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">Linux System and Adminstrative Commands V</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="System-Resources"><a href="#System-Resources" class="headerlink" title="System Resources"></a>System Resources</h2><h3 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h3><ul>
-<li>Set an upper limit on use of system resources.</li>
-</ul>
-<hr>
-
-<h3 id="quota"><a href="#quota" class="headerlink" title="quota"></a>quota</h3><ul>
-<li>Display user or group disk quota.</li>
-</ul>
-<hr>
-
-<h3 id="setquota"><a href="#setquota" class="headerlink" title="setquota"></a>setquota</h3><ul>
-<li>Set user or group disk quotas from command-line.</li>
-</ul>
-<hr>
-
-<h3 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h3><ul>
-<li>User file creation permission mask.</li>
-</ul>
-<hr>
-
-<h3 id="rdev"><a href="#rdev" class="headerlink" title="rdev"></a>rdev</h3><h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><h3 id="lsmod"><a href="#lsmod" class="headerlink" title="lsmod"></a>lsmod</h3><ul>
-<li>List installed kernel modules.</li>
-</ul>
-<hr>
-
-<h3 id="insmod"><a href="#insmod" class="headerlink" title="insmod"></a>insmod</h3><ul>
-<li>Force installation of a kernel module.</li>
-</ul>
-<hr>
-
-<h3 id="rmmod"><a href="#rmmod" class="headerlink" title="rmmod"></a>rmmod</h3><hr>
-
-<h3 id="modprobe"><a href="#modprobe" class="headerlink" title="modprobe"></a>modprobe</h3><ul>
-<li>Module loader that is normally invoked automatically in a startup script.</li>
-</ul>
-<hr>
-
-<h3 id="depmod"><a href="#depmod" class="headerlink" title="depmod"></a>depmod</h3><ul>
-<li>Creates module dependency file.</li>
-</ul>
-<hr>
-
-<h3 id="modinfo"><a href="#modinfo" class="headerlink" title="modinfo"></a>modinfo</h3><ul>
-<li>Output information about a loadable module.</li>
-</ul>
-<hr>
-
-<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><ul>
-<li>Runs a program or script with certain environmental variables set or changed without changing the overall system environment.</li>
-</ul>
-<hr>
-
-<h3 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h3><hr>
-
-<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
-<li>Run a command repeatedly at specified time intervals.</li>
-</ul>
-<hr>
-
-<h3 id="strip"><a href="#strip" class="headerlink" title="strip"></a>strip</h3><hr>
-
-<h3 id="nm"><a href="#nm" class="headerlink" title="nm"></a>nm</h3><hr>
-
-<h3 id="xrandr"><a href="#xrandr" class="headerlink" title="xrandr"></a>xrandr</h3><hr>
-
-<h3 id="rdist"><a href="#rdist" class="headerlink" title="rdist"></a>rdist</h3>
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T11:40:54.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/">Linux System and Adminstrative Commands IV</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><h3 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h3><ul>
-<li>Network mapper and port scanner.</li>
-</ul>
-<hr>
-
-<h3 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h3><ul>
-<li>Network interface configuration and tuning utility.</li>
-</ul>
-<hr>
-
-<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><ul>
-<li>Show current network statistics and information, such as routing tables and active connection.</li>
-</ul>
-<hr>
-
-<h3 id="iwconfig"><a href="#iwconfig" class="headerlink" title="iwconfig"></a>iwconfig</h3><ul>
-<li>Command set of wireless network configuration.</li>
-</ul>
-<hr>
-
-<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><ul>
-<li>Utility for setting up, changing, and analyzing IP networks and attached devices.</li>
-</ul>
-<hr>
-
-<h3 id="route"><a href="#route" class="headerlink" title="route"></a>route</h3><ul>
-<li>Show info about or making changes to the kernel routing table.</li>
-</ul>
-<hr>
-
-<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><hr>
-
-<h3 id="chkconfig"><a href="#chkconfig" class="headerlink" title="chkconfig"></a>chkconfig</h3><ul>
-<li>Check network and system configuration.</li>
-</ul>
-<hr>
-
-<h3 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h3><ul>
-<li>A tool for analyzing and troubleshooting traffic on a network by dumping packet headers matching specified criteria.</li>
-</ul>
-<hr>
-
-<h2 id="Filesystem"><a href="#Filesystem" class="headerlink" title="Filesystem"></a>Filesystem</h2><h3 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h3><ul>
-<li>Mount a filesystem, usually on an external device.</li>
-</ul>
-<hr>
-
-<h3 id="unmount"><a href="#unmount" class="headerlink" title="unmount"></a>unmount</h3><hr>
-
-<h3 id="gnome-mount"><a href="#gnome-mount" class="headerlink" title="gnome-mount"></a>gnome-mount</h3><hr>
-
-<h3 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h3><ul>
-<li>Force an immediate write of all updated data from buffers to hard drive.</li>
-</ul>
-<hr>
-
-<h3 id="losetup"><a href="#losetup" class="headerlink" title="losetup"></a>losetup</h3><ul>
-<li>Set up and configure loopback devices.</li>
-</ul>
-<hr>
-
-<h3 id="mkswap"><a href="#mkswap" class="headerlink" title="mkswap"></a>mkswap</h3><hr>
-
-<h3 id="swapon-swapoff"><a href="#swapon-swapoff" class="headerlink" title="swapon, swapoff"></a>swapon, swapoff</h3><ul>
-<li>Enable/disable swap partition or file.</li>
-</ul>
-<hr>
-
-<h3 id="mke2fs"><a href="#mke2fs" class="headerlink" title="mke2fs"></a>mke2fs</h3><ul>
-<li>Create a Linux ext2 filesystem.</li>
-</ul>
-<hr>
-
-<h3 id="mkdosfs"><a href="#mkdosfs" class="headerlink" title="mkdosfs"></a>mkdosfs</h3><hr>
-
-<h3 id="tune2fs"><a href="#tune2fs" class="headerlink" title="tune2fs"></a>tune2fs</h3><hr>
-
-<h3 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h3><hr>
-
-<h3 id="hdparm"><a href="#hdparm" class="headerlink" title="hdparm"></a>hdparm</h3><hr>
-
-<h3 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h3><hr>
-
-<h3 id="fsck-e2fsck-debugfs"><a href="#fsck-e2fsck-debugfs" class="headerlink" title="fsck, e2fsck, debugfs"></a>fsck, e2fsck, debugfs</h3><hr>
-
-<h3 id="badlocks"><a href="#badlocks" class="headerlink" title="badlocks"></a>badlocks</h3><hr>
-
-<h3 id="lsusb-usbmodules"><a href="#lsusb-usbmodules" class="headerlink" title="lsusb, usbmodules"></a>lsusb, usbmodules</h3><hr>
-
-<h3 id="lspci"><a href="#lspci" class="headerlink" title="lspci"></a>lspci</h3><hr>
-
-<h3 id="mkbootdisk"><a href="#mkbootdisk" class="headerlink" title="mkbootdisk"></a>mkbootdisk</h3><hr>
-
-<h3 id="mkisofs"><a href="#mkisofs" class="headerlink" title="mkisofs"></a>mkisofs</h3><hr>
-
-<h3 id="chroot"><a href="#chroot" class="headerlink" title="chroot"></a>chroot</h3><hr>
-
-<h3 id="lockfile"><a href="#lockfile" class="headerlink" title="lockfile"></a>lockfile</h3><hr>
-
-<h3 id="flock"><a href="#flock" class="headerlink" title="flock"></a>flock</h3><hr>
-
-<h3 id="mknod"><a href="#mknod" class="headerlink" title="mknod"></a>mknod</h3><hr>
-
-<h3 id="MAKEDEV"><a href="#MAKEDEV" class="headerlink" title="MAKEDEV"></a>MAKEDEV</h3><hr>
-
-<h3 id="tmpwatch"><a href="#tmpwatch" class="headerlink" title="tmpwatch"></a>tmpwatch</h3><hr>
-
-<h3 id="dump-restore"><a href="#dump-restore" class="headerlink" title="dump, restore"></a>dump, restore</h3><hr>
-
-<h3 id="fdformat"><a href="#fdformat" class="headerlink" title="fdformat"></a>fdformat</h3>
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T10:44:41.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <h2 id="Users-and-Groups"><a href="#Users-and-Groups" class="headerlink" title="Users and Groups"></a>Users and Groups</h2><h3 id="users"><a href="#users" class="headerlink" title="users"></a>users</h3><ul>
-<li>Show all logged on users.</li>
-</ul>
-<hr>
-
-<h3 id="groups"><a href="#groups" class="headerlink" title="groups"></a>groups</h3><ul>
-<li>List the current user and the gourps s/he belongs to.</li>
-</ul>
-<hr>
-
-<h3 id="chown-chgrp"><a href="#chown-chgrp" class="headerlink" title="chown, chgrp"></a>chown, chgrp</h3><hr>
-
-<h3 id="useradd-userdel"><a href="#useradd-userdel" class="headerlink" title="useradd, userdel"></a>useradd, userdel</h3><hr>
-
-<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><ul>
-<li>Modify a useraccount’s password, group membership, expiration date and etc.</li>
-</ul>
-<hr>
-
-<h3 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h3><hr>
-
-<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
-<li>Lists the real and effective user IDs and the group IDs of the user associated with the current process.</li>
-</ul>
-<hr>
-
-<h3 id="lid"><a href="#lid" class="headerlink" title="lid"></a>lid</h3><ul>
-<li>Shows the group(s) a given user belongs to, or the users belonging to a given group.</li>
-</ul>
-<hr>
-
-<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><hr>
-
-<h3 id="w"><a href="#w" class="headerlink" title="w"></a>w</h3><hr>
-
-<h3 id="logname"><a href="#logname" class="headerlink" title="logname"></a>logname</h3><ul>
-<li>Show current user’s login name.</li>
-</ul>
-<hr>
-
-<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><hr>
-
-<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><hr>
-
-<h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><ul>
-<li>Sets, changes, or manages a user’s password.</li>
-</ul>
-<hr>
-
-<h3 id="ac"><a href="#ac" class="headerlink" title="ac"></a>ac</h3><ul>
-<li>Show users’ logged in time.</li>
-</ul>
-<hr>
-
-<h3 id="last"><a href="#last" class="headerlink" title="last"></a>last</h3><ul>
-<li>List last logged in users.</li>
-</ul>
-<hr>
-
-<h3 id="mewgrp"><a href="#mewgrp" class="headerlink" title="mewgrp"></a>mewgrp</h3><hr>
-
-<h2 id="Terminals"><a href="#Terminals" class="headerlink" title="Terminals"></a>Terminals</h2><hr>
-
-<h3 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h3><ul>
-<li>Echoes the terminal filename of current users’ terminal.</li>
-</ul>
-<hr>
-
-<h3 id="stty"><a href="#stty" class="headerlink" title="stty"></a>stty</h3><ul>
-<li>Shows and/or changes terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="stterm"><a href="#stterm" class="headerlink" title="stterm"></a>stterm</h3><ul>
-<li>Set certain terminal attributes.</li>
-</ul>
-<hr>
-
-<h3 id="tset"><a href="#tset" class="headerlink" title="tset"></a>tset</h3><ul>
-<li>Show or initialize terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="setserial"><a href="#setserial" class="headerlink" title="setserial"></a>setserial</h3><hr>
-
-<h3 id="getty-agetty"><a href="#getty-agetty" class="headerlink" title="getty, agetty"></a>getty, agetty</h3><hr>
-
-<h3 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h3><hr>
-
-<h3 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h3><ul>
-<li>Sending a message to all users at every terminal logged into the network.</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-09-04T07:13:27.000Z"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">2017-09-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here are the references: <a href="https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf" target="_blank" rel="external">JSL8</a> and <a href="https://www.tutorialspoint.com/java/java_nonaccess_modifiers.htm" target="_blank" rel="external">Java Non Access Modifiers from TutorialsPoint</a>. </p>
-<h3 id="Static-Modifier"><a href="#Static-Modifier" class="headerlink" title="Static Modifier"></a>Static Modifier</h3><p>Static modifier can be used as variable and method modifier.</p>
-<h4 id="Static-Variable"><a href="#Static-Variable" class="headerlink" title="Static Variable"></a>Static Variable</h4><p>Static variables will exist independently for all the instances of the class. There is only one copy of every static variable in the memory. It is a kind of class variable and local variables cannot be declared static.</p>
-<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>Static methods will exist independently for all the instances of the class. Static methods can be used directly without any instance variables of any object of the class they are defined in.</p>
-<hr>
-
-<h3 id="Final-Modifier"><a href="#Final-Modifier" class="headerlink" title="Final Modifier"></a>Final Modifier</h3><p>Final modifier is used to finalize the implementation/creation of variales, methods, and classes.</p>
-<h4 id="Final-Variable"><a href="#Final-Variable" class="headerlink" title="Final Variable"></a>Final Variable</h4><p>Every final variable can be explicitly initialized only once and then they cannot be reassigned to refer to a different object. But even though final variables use the same reference all the time, the value of their members can be changed.</p>
-<p>Usually, final and static modifiers are used together to define constants.</p>
-<h4 id="Final-Method"><a href="#Final-Method" class="headerlink" title="Final Method"></a>Final Method</h4><p>Final methods cannot be overriddedn by any subclasses. It indicates that the content of these methods should not be changed by any clients.</p>
-<h4 id="Final-Class"><a href="#Final-Class" class="headerlink" title="Final Class"></a>Final Class</h4><p>Final classes cannot be extended by other classes. It indicates that these classes should not be inherited.</p>
-<hr>
-
-<h3 id="Abstract-Modifier"><a href="#Abstract-Modifier" class="headerlink" title="Abstract Modifier"></a>Abstract Modifier</h3><p>Abstract modifier can be used for methods and classes, indicating <code>&quot;change&quot;</code> the content of these methods or classes in subclasses.</p>
-<h4 id="Abstract-Method"><a href="#Abstract-Method" class="headerlink" title="Abstract Method"></a>Abstract Method</h4><p>Abstract methods do not have method body and their implementation should be provided by subclasses. Abstract methods can never be final or strict.<br>If a class has one or more abstract methods, it must be declared as abstract.</p>
-<h4 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h4><p>Abstract classes cannot be instantiated and they are designed for inheritance. Abstract classes can never be final and they can contain both abstract methods and normal methods.</p>
-<hr>
-
-<h3 id="Synchronized-Modifier"><a href="#Synchronized-Modifier" class="headerlink" title="Synchronized Modifier"></a>Synchronized Modifier</h3><p>Synchronized modifier can be used for methods and applied on variables (lock a specific variable). It indicates that these methods can be accessed by only one thread at a time. Synchronized modifier is widely used in concurrent situation.</p>
-<hr>
-
-<h3 id="Transient-Modifier"><a href="#Transient-Modifier" class="headerlink" title="Transient Modifier"></a>Transient Modifier</h3><p>Transient modifier can be used for variables. It indicates that JVM will skip these variables when it is serializing the objects containing them.</p>
-<hr>
-
-<h3 id="Volatile-Modifier"><a href="#Volatile-Modifier" class="headerlink" title="Volatile Modifier"></a>Volatile Modifier</h3><p>Volatile modifier can be used for variables. It indicates that a thread accessing these variables must always merge its own copy of them with the master copy in the memory.<br>Volatile modifier can only be used for variables in instances, which are of type object or private. A volatile object reference can be null.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-08-06T15:30:50.000Z"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">2017-08-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the summary of <code>Test Driven Development</code> book.</p>
-<h2 id="Overall-Rules"><a href="#Overall-Rules" class="headerlink" title="Overall Rules"></a>Overall Rules</h2><ul>
-<li><p>In Test-Driven Development, there are two basic rules:</p>
-<ul>
-<li>Write new code only if there is a failing automated test.</li>
-<li>Eliminate duplication.</li>
-</ul>
-</li>
-<li><p>The two rules above imply the order of tasks of programming:</p>
-<ul>
-<li>Red: Write a little test that does not work, even does not compile at first</li>
-<li>Green: Make the test work quickly, committing whatever sins necessary in the process</li>
-<li>Refactor: Eliminate all the duplication created in just getting the test to work</li>
-</ul>
-</li>
-<li><p>The three basic steps of Test Driven Development are:</p>
-<ul>
-<li>Start simply</li>
-<li>Write automated tests</li>
-<li>Refactor to add design decisions one at a time</li>
-</ul>
-</li>
-<li><p>Two topics where TDD is not good at:</p>
-<ul>
-<li>Security software</li>
-<li>Concurrency</li>
-</ul>
-</li>
-<li><p>Rhythm of TDD:</p>
-<ul>
-<li>Quickly add a test</li>
-<li>Run all tests and see the new one fails</li>
-<li>Make a little change</li>
-<li>Run all tests and see them all succeed</li>
-<li>Refactor to remove duplication</li>
-</ul>
-</li>
-<li><p>Three ways to pass tests:</p>
-<ul>
-<li>Fake it.</li>
-<li>Obvious implementation.</li>
-<li>Translate a design object (side effects) into a test case that fails because of the objection, get the code to compile quickly with a stub implementation, made the test work by typing in what seemed like the right code. </li>
-</ul>
-</li>
-<li><p>Given a problem, first divide it to small independent problems, create tests for each of them, then do refactor on the code.</p>
-</li>
-</ul>
-<h3 id="Detailed-Rules"><a href="#Detailed-Rules" class="headerlink" title="Detailed Rules"></a>Detailed Rules</h3><ul>
-<li><p>Write new code only if you first have a failing automated test. Then eliminate the duplication.</p>
-</li>
-<li><p>Could not tackle a big test, so invent a small test representing progress, write the test by shameless duplicating and editing, make the test work by copying and editing model code wholescale, promised ourselves to remove duplication.</p>
-</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-08-04T16:00:29.000Z"><a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">2017-08-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-08-04T15:59:20.000Z"><a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">2017-08-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/08/04/Reading-Note-of-Working-Effectively-with-Legacy-Code/">Reading Note of Working Effectively with Legacy Code</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Software-Development/">Software Development</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2017-08-04T15:53:29.000Z"><a href="/2017/08/04/Reading-Note-of-Effective-Java/">2017-08-04</a></time>
       
       
@@ -1895,6 +704,510 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-29T14:18:26.000Z"><a href="/2017/06/29/Ruby-YAML-Summary/">2017-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/29/Ruby-YAML-Summary/">Ruby YAML Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>YAML is data serialisation language designed to be directly writable and readable by humans. YAML is not a Markup language but a data serialization standard for all programming languages.</p>
+<p>Here is the link of <a href="http://www.yaml.org/" target="_blank" rel="external">YAML Org</a>.<br>Here is the link of <a href="http://yaml.org/YAML_for_ruby.html" target="_blank" rel="external">YAML Cookbook for Ruby</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Ruby/">Ruby</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-06-29T14:00:40.000Z"><a href="/2017/06/29/AWS-SAM-QuickStart/">2017-06-29</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/29/AWS-SAM-QuickStart/">AWS SAM QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-31T17:13:28.000Z"><a href="/2017/06/01/Lua-User-Defined-Types-in-C/">2017-06-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/06/01/Lua-User-Defined-Types-in-C/">Lua User-Defined Types in C</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-30T14:26:10.000Z"><a href="/2017/05/30/Amazon-AWS-Training-Resource-List/">2017-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/30/Amazon-AWS-Training-Resource-List/">Amazon AWS Training Resource List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a list of training resources of Amazon AWS.</p>
+<h3 id="QwikLab"><a href="#QwikLab" class="headerlink" title="QwikLab"></a>QwikLab</h3><p><a href="https://qwiklabs.com/?locale=zh" target="_blank" rel="external">This site</a> offers a lot of AWS labs which can help AWS users to learn how to use various kinds of AWS services.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-30T14:25:42.000Z"><a href="/2017/05/30/Retrofit-Quickstart-Guide/">2017-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/30/Retrofit-Quickstart-Guide/">Retrofit Quickstart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-30T14:25:29.000Z"><a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">2017-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/30/Stub-Test-vs-Mock-Test-vs-Spy-Test/">Stub Test vs Mock Test vs Spy Test</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the Wikipedia link about <a href="https://en.wikipedia.org/wiki/Test_double" target="_blank" rel="external">Test Double</a>. There are five kinds of <code>Test Doubles</code>: <code>Dummy Test</code>, <code>Fake Test</code>, <code>Stub Test</code>, <code>Mock Test</code> and <code>Spy Test</code>. Here we focus on the last three kinds of test.</p>
+<h3 id="Stub-Test"><a href="#Stub-Test" class="headerlink" title="Stub Test"></a>Stub Test</h3><h3 id="Mock-Test"><a href="#Mock-Test" class="headerlink" title="Mock Test"></a>Mock Test</h3><h3 id="Spy-Test"><a href="#Spy-Test" class="headerlink" title="Spy Test"></a>Spy Test</h3>
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Test/">Test</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-05-07T07:04:19.000Z"><a href="/2017/05/07/Thinking-in-Number-Theory/">2017-05-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/05/07/Thinking-in-Number-Theory/">Thinking in Number Theory</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Number theory problems are very popular in algorithm programming contest. Most of time it is not easy to figure out the solution. Now here we will propose some generic ideas to think through this kind of problems.</p>
+<p>This artical will be updated continously.</p>
+<hr>
+
+<h3 id="1-Prime-Check"><a href="#1-Prime-Check" class="headerlink" title="1. Prime Check"></a>1. Prime Check</h3><p>Given an integer, check whether it is a prime or not is a high frequent problem. There are a lot of algorithms to do this check. Some of them are as follows:</p>
+<ul>
+<li><p>The naive O(n^1.5) algorithm:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n) &#123;</span><br><span class="line">	for (int i = 2; i &lt;= sqrt(n); ++ i)&#123;</span><br><span class="line">		if(n%i == 0)</span><br><span class="line">			return false;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://zh.wikipedia.org/wiki/%E5%9F%83%E6%8B%89%E6%89%98%E6%96%AF%E7%89%B9%E5%B0%BC%E7%AD%9B%E6%B3%95" target="_blank" rel="external">Sieve of Eratosthenes</a>.</p>
+</li>
+<li><a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test" target="_blank" rel="external">Rabin-Miller primality test algorithm</a>.</li>
+</ul>
+<p>Sometimes, we need to figure out all the primes within a specific range. In that case, the second algorithm usually is the best choice, expecially for the problems described in the next sections.</p>
+<hr>
+
+<h3 id="2-Prime-Factors"><a href="#2-Prime-Factors" class="headerlink" title="2. Prime Factors"></a>2. Prime Factors</h3><p>In Number Theory problems, we are ussually asked to figure out the factors of a given integer. In this case, a good idea (not always) is to figure out all its prime factors and their powers. To do that, we need to use (not always) <code>Sieve of Eratosthenes</code> to generate all the primes no larger than given integer. But this solution is not a silver bullet because sometimes the given integer is so large that we do not have enough memory to store all the primes or calculate them within the timebound.</p>
+<hr>
+
+<h3 id="3-Integer-Generation"><a href="#3-Integer-Generation" class="headerlink" title="3. Integer Generation"></a>3. Integer Generation</h3><p>Maybe we find that it is inpractical to divide the given integer into mulplication of primes. Thus, we can try to multiply the primes we have to generate another integer. In this scenario, we do not have to worry about the limited memory to save large number of primes or find all the required primes in a short time. The reason is that even we multiply the same prime for several times (maybe around 30 or even less), we can get a very large integer. Remember, <code>2^64 = 18446744073709551616</code> .</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-04-30T08:43:55.000Z"><a href="/2017/04/30/Flowers-Symbolism/">2017-04-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/30/Flowers-Symbolism/">Flowers Symbolism</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Every kind of flower has its own meaning/symbolism. Here is the list of <a href="http://baike.baidu.com/item/%E8%8A%B1%E8%AF%AD%E5%BD%95" target="_blank" rel="external">flowers symbolism - Chinese version</a> and <a href="https://en.wikipedia.org/wiki/Plant_symbolism" target="_blank" rel="external">Plant symbolism - English version</a>, or <a href="http://www.buzzle.com/articles/list-of-flower-names-with-meanings-and-pictures.html" target="_blank" rel="external">this link</a> or <a href="http://www.buzzle.com/articles/flowers-meanings-list-of-flowers-and-their-meanings.html" target="_blank" rel="external">this link</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-04-29T19:02:10.000Z"><a href="/2017/04/30/Java-Guice-Library/">2017-04-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/30/Java-Guice-Library/">Java Guice Library</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://github.com/google/guice/wiki/Motivation" target="_blank" rel="external">official wiki of Guice</a>. Google Guice is a dependency injection framework. Unlike Java Spring which is a comprehensive framework, Guice only focuses on dependency injection feature and now can support AOP.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-04-29T18:48:14.000Z"><a href="/2017/04/30/Java-Spring-vs-Google-Guice/">2017-04-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/30/Java-Spring-vs-Google-Guice/">Java Spring vs Google Guice</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Both Java Spring and Google Guice are powerful dependency injection frameworks. Java Spring is a comprehensive stack but Guice only focuses on dependency injection.</p>
+<p>Here is a good <a href="https://github.com/google/guice/wiki/SpringComparison" target="_blank" rel="external">explanation of comparision between Spring and Guice</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-04-22T03:06:57.000Z"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">2017-04-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is a good code style guide for Ruby. Click <a href="https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals" target="_blank" rel="external">here</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Ruby/">Ruby</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
@@ -1970,13 +1283,13 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>37</small></li>
+    <li><a href="/tags/Java/">Java</a><small>33</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>6</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -1998,7 +1311,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>12</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -2020,7 +1333,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.43px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.17px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.33px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.83px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.17px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 

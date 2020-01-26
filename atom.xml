@@ -896,24 +896,6 @@
   </entry>
   
   <entry>
-    <title>Java Summary IV</title>
-    <link href="http://yular.github.io/2018/01/22/Java-Summary-IV/"/>
-    <id>http://yular.github.io/2018/01/22/Java-Summary-IV/</id>
-    <published>2018-01-21T17:38:19.000Z</published>
-    <updated>2018-01-22T09:38:33.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Reading Note of Programming in Lua 4th Edition I</title>
     <link href="http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/"/>
     <id>http://yular.github.io/2018/01/20/Reading-Note-of-Programming-in-Lua-4th-Edition/</id>
@@ -995,40 +977,6 @@
   </entry>
   
   <entry>
-    <title>Java Summary III</title>
-    <link href="http://yular.github.io/2018/01/16/Java-Summary-III/"/>
-    <id>http://yular.github.io/2018/01/16/Java-Summary-III/</id>
-    <published>2018-01-16T14:01:59.000Z</published>
-    <updated>2018-01-17T06:02:09.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java Summary II</title>
-    <link href="http://yular.github.io/2018/01/16/Java-Summary-II-1/"/>
-    <id>http://yular.github.io/2018/01/16/Java-Summary-II-1/</id>
-    <published>2018-01-16T14:01:19.000Z</published>
-    <updated>2018-01-17T06:01:19.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Advanced Encryption Standard (AES) Summary</title>
     <link href="http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/"/>
     <id>http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/</id>
@@ -1050,33 +998,36 @@
   </entry>
   
   <entry>
-    <title>Reading Note of How To Win Friends and Influence People</title>
-    <link href="http://yular.github.io/2018/01/06/Reading-Note-of-How-To-Win-Friends-and-Influence-People/"/>
-    <id>http://yular.github.io/2018/01/06/Reading-Note-of-How-To-Win-Friends-and-Influence-People/</id>
-    <published>2018-01-06T06:48:54.000Z</published>
-    <updated>2018-01-06T22:49:17.000Z</updated>
+    <title>Reading Note of Code Complete I</title>
+    <link href="http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/"/>
+    <id>http://yular.github.io/2017/12/03/Reading-Note-of-Code-Complete-I/</id>
+    <published>2017-12-03T05:22:17.000Z</published>
+    <updated>2018-02-25T09:08:06.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Problem Definition: A problem definition defines what the problem is without any reference to possible solutions. The problem definition should be in user language, and described from a useras point of view. &lt;/li&gt;
+&lt;li&gt;Requirement: Requirements describe in detail what a software system is supposed to do, and they are the first step toward a solution.&lt;/li&gt;
+&lt;li&gt;Data Design: Data should be normally accessed directly by only one subsystem or class, except through access classes or routines allowing access to the data in controlled and abstract ways.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Marjor classes: 20% of the classes make up 80% of the system behaviour.&lt;/li&gt;
+&lt;li&gt;Things to do to make the best of changing requirements during construction:&lt;ul&gt;
+&lt;li&gt;Use the requirements checklist to access the quality of requirement.&lt;/li&gt;
+&lt;li&gt;Make sure everyone knows the cost of requirement changes.&lt;/li&gt;
+&lt;li&gt;Setup a change-control procedure.&lt;/li&gt;
+&lt;li&gt;Use developement approaches that accommondate changes.&lt;/li&gt;
+&lt;li&gt;Dump the project.&lt;/li&gt;
+&lt;li&gt;Keep your eye on the business case for the project.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
-    </summary>
-    
-    
-      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Code Complete V</title>
-    <link href="http://yular.github.io/2017/12/26/Reading-Note-of-Code-Complete-V/"/>
-    <id>http://yular.github.io/2017/12/26/Reading-Note-of-Code-Complete-V/</id>
-    <published>2017-12-25T17:21:51.000Z</published>
-    <updated>2017-12-26T09:22:17.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
+      &lt;p&gt;Here is the summary of the book &lt;code&gt;Code Complete&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;I
     
     </summary>
     
@@ -1086,15 +1037,110 @@
   </entry>
   
   <entry>
-    <title>Java Summary II</title>
-    <link href="http://yular.github.io/2017/12/23/Java-Summary-II/"/>
-    <id>http://yular.github.io/2017/12/23/Java-Summary-II/</id>
-    <published>2017-12-23T14:22:42.000Z</published>
-    <updated>2018-01-17T06:01:41.000Z</updated>
+    <title>Reading Note of Java Concurrency in Practice IV</title>
+    <link href="http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/"/>
+    <id>http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/</id>
+    <published>2017-11-12T16:59:24.000Z</published>
+    <updated>2018-06-24T22:07:41.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h2 id=&quot;活跃度，性能和测试&quot;&gt;&lt;a href=&quot;#活跃度，性能和测试&quot; class=&quot;headerlink&quot; title=&quot;活跃度，性能和测试&quot;&gt;&lt;/a&gt;活跃度，性能和测试&lt;/h2&gt;&lt;h3 id=&quot;避免活跃度危险&quot;&gt;&lt;a href=&quot;#避免活跃度危险&quot; class=&quot;headerlink&quot; title=&quot;避免活跃度危险&quot;&gt;&lt;/a&gt;避免活跃度危险&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;开放调用：调用的方法不需要持有锁。&lt;/li&gt;
+&lt;li&gt;分拆数据模型，其包含表现域和应用域。表现模型限制在事件线程中和应用线程中，共享模型线程安全，允许事件线程和应用程序线程访问。表现模型注册共享模型的监听器，这样在更新时可以得到通知。&lt;/li&gt;
+&lt;li&gt;线程的优先级往往与平台相关。&lt;/li&gt;
+&lt;li&gt;若所有线程以通用的固定秩序获得锁，程序就不会出现死锁问题。&lt;/li&gt;
+&lt;li&gt;在持有锁的时候调用外部方法是在挑战活跃问题。外部方法可能获得其他锁（从而导致死锁），或者遭遇严重的超时堵塞。当持有这类锁的时候会延迟其他试图获得该锁的线程。&lt;/li&gt;
+&lt;li&gt;检测代码中死锁自由度的策略分为两部分：&lt;ul&gt;
+&lt;li&gt;首先识别什么地方会获得多个锁（使此集合尽量小），对这些实例进行全局分析，确保锁的顺序在程序中一致；&lt;/li&gt;
+&lt;li&gt;尽可能使用开放调用。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;JVM 使用线程转储来帮助识别死锁的发生。&lt;/li&gt;
+&lt;li&gt;活锁发生时，尽管没有阻塞，线程却不能继续，因为它不断重试相同的操作，却总是失败。解决方法是对重试机制引入一些随机性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;性能和可伸缩性&quot;&gt;&lt;a href=&quot;#性能和可伸缩性&quot; class=&quot;headerlink&quot; title=&quot;性能和可伸缩性&quot;&gt;&lt;/a&gt;性能和可伸缩性&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;性能可伸缩性：当增加计算资源时（比如增加额外CPU数量，内存，存储器，IO带宽），吞吐量和生产量能够相应地得以提高。&lt;/li&gt;
+&lt;li&gt;Amdahl定律：在一个系统中，基于可并行化和串行化的组件各自所占的比重，程序通过获得额外的计算资源，理论上能加速多少。&lt;/li&gt;
+&lt;li&gt;减少锁的竞争能够改进性能和可伸缩性。并发程序中，对可伸缩性首要威胁是独占的资源锁。&lt;/li&gt;
+&lt;li&gt;减少锁的竞争方式：&lt;ul&gt;
+&lt;li&gt;减少持有锁的时间；&lt;/li&gt;
+&lt;li&gt;减少请求锁的频率；&lt;/li&gt;
+&lt;li&gt;用协调机制取代独占锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;减小持有锁的时间比例的方法:&lt;ul&gt;
+&lt;li&gt;尽可能缩短持有锁的时间；&lt;/li&gt;
+&lt;li&gt;尽可能减少线程调用锁的频率，这可以通过分拆锁和分离锁来实现，即采用相互独立的锁守卫多个独立的状态变量，在改变之前它们都由一个锁守护。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;CPU没被完全利用的原因：&lt;ul&gt;
+&lt;li&gt;不充足的负载；&lt;/li&gt;
+&lt;li&gt;IO 限制;&lt;/li&gt;
+&lt;li&gt;外部限制；&lt;/li&gt;
+&lt;li&gt;锁竞争。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;谨慎使用对象池。上线问切换发生在一个线程在运行和阻塞这两个状态之间的转换。&lt;/li&gt;
+&lt;li&gt;除非线程总是由于密集的同步条件而持续地被阻塞，非公平的信号量通常能够提供更好的吞吐量，公平的信号提供更低的差异性。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;测试并发程序&quot;&gt;&lt;a href=&quot;#测试并发程序&quot; class=&quot;headerlink&quot; title=&quot;测试并发程序&quot;&gt;&lt;/a&gt;测试并发程序&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;测试线程代码：编写有潜力暴露问题的测试，在不同的编程配置，系统配置和负载条件下频繁运行。如果失败，跟踪错误。&lt;/li&gt;
+&lt;li&gt;建议:&lt;ul&gt;
+&lt;li&gt;将伪失败看作可能的线程问题，别归咎于偶发事件。&lt;/li&gt;
+&lt;li&gt;先使非线程代码工作。&lt;/li&gt;
+&lt;li&gt;编写可调整的线程代码（比如线程数目）。&lt;/li&gt;
+&lt;li&gt;运行多于处理器数量的线程。&lt;/li&gt;
+&lt;li&gt;在不同平台上运行代码。&lt;/li&gt;
+&lt;li&gt;编写可插拔（能动态变化）的线程代码。&lt;/li&gt;
+&lt;li&gt;装置试错代码，比如用sleep，yield，priority等能改变执行顺序的方法。&lt;/li&gt;
+&lt;li&gt;两种装置代码的方法：硬编码，自动化（用AOP工具，使用异动策略搜出错误）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;并发测试主要有两类：安全性测试和活跃度测试。&lt;/li&gt;
+&lt;li&gt;活跃度相关的测试是性能测试：吞吐量，响应性，可伸缩性。&lt;/li&gt;
+&lt;li&gt;并发类单元测试：和顺序类相同的分析，即识别出不变约束和后验条件。&lt;/li&gt;
+&lt;li&gt;避免性能测试的陷阱：&lt;ul&gt;
+&lt;li&gt;垃圾回收；&lt;/li&gt;
+&lt;li&gt;动态编译；&lt;/li&gt;
+&lt;li&gt;代码路径的非真实取样；&lt;/li&gt;
+&lt;li&gt;“不切实际的竞争程度，死代码的消除。”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;高级主题&quot;&gt;&lt;a href=&quot;#高级主题&quot; class=&quot;headerlink&quot; title=&quot;高级主题&quot;&gt;&lt;/a&gt;高级主题&lt;/h2&gt;&lt;h3 id=&quot;显式锁&quot;&gt;&lt;a href=&quot;#显式锁&quot; class=&quot;headerlink&quot; title=&quot;显式锁&quot;&gt;&lt;/a&gt;显式锁&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;可轮询和可定时的锁获取方式，是由tryLock实现，让线程释放已经获得的锁，然后重新尝试获取其他锁的控制权，若在一定时间内所有尝试都失败，则该线程会结束。&lt;/li&gt;
+&lt;li&gt;可中断的锁获取操作允许在可取消的活动中使用。当线程响应中断时，lockInterruptibly可以使该线程获得锁。定时的tryLock响应中断。&lt;/li&gt;
+&lt;li&gt;ReentrantLock 构造函数提供公平锁和非公平锁，后者允许线程闯入不按线程的请求顺序获得执行权。在以下情况才用ReentrantLock：&lt;ul&gt;
+&lt;li&gt;可轮询和可定时的锁；&lt;/li&gt;
+&lt;li&gt;可中断的锁获取操作；&lt;/li&gt;
+&lt;li&gt;公平队列或者非块结构的锁。&lt;br&gt;否则使用synchronizedLock。synchronized内置于JVM，可以进行优化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ReentrantLock 可以实现读写锁，该锁是部分互斥的。读者锁可共享，读写锁或写写锁互斥；允许写锁降级成读锁，而读锁不能升级成写锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;构建自主定义的同步工具&quot;&gt;&lt;a href=&quot;#构建自主定义的同步工具&quot; class=&quot;headerlink&quot; title=&quot;构建自主定义的同步工具&quot;&gt;&lt;/a&gt;构建自主定义的同步工具&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;条件队列可以让一组线程（等待集），以等待某种相关条件变成真以后，才可能有机会得以执行。&lt;/li&gt;
+&lt;li&gt;丢失的信号：一个线程等待的条件已经为真，但进入等待前检查条件谓词却返回了假，此为真的信号是丢失的信号。无论何时，当你在等待一个条件，一定要确保有人会在条件谓词变为真时通知到目标线程。&lt;/li&gt;
+&lt;li&gt;一个依赖于状态的类，要么完全将它的等待和通知协议暴露（并文档化）给子类，要么完全阻止子类参与其中。封装条件队列，这样在使用它的类层次结构之外，无法访问它。&lt;/li&gt;
+&lt;li&gt;入口协议就是操作的条件谓词。出口协议涉及到要检查任何被操作改变的状态变量，确认它们是否引起其他一些条件谓词为真，若是，通知相关的条件队列。&lt;/li&gt;
+&lt;li&gt;一个Condition和一个单独的Lock相关联，就像条件队列和单独的内部锁相关联一样。不同的是，每个Lock都有任意数量的Condition对象，其继承了与之相关的锁的公平性。&lt;/li&gt;
+&lt;li&gt;类似ReentrantLock，需要使用一些高级特性时，Condition要好于内部条件队列。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;原子变量与非阻塞同步机制&quot;&gt;&lt;a href=&quot;#原子变量与非阻塞同步机制&quot; class=&quot;headerlink&quot; title=&quot;原子变量与非阻塞同步机制&quot;&gt;&lt;/a&gt;原子变量与非阻塞同步机制&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;非阻塞算法：一个线程失败或挂起不影响其他线程的失败或挂起。&lt;/li&gt;
+&lt;li&gt;锁自由算法：算法的每一步中都有一些线程能够继续执行。 &lt;/li&gt;
+&lt;li&gt;避免ABA问题：更新一对值，包括引用和版本号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Java存储模型-JMM&quot;&gt;&lt;a href=&quot;#Java存储模型-JMM&quot; class=&quot;headerlink&quot; title=&quot;Java存储模型 (JMM)&quot;&gt;&lt;/a&gt;Java存储模型 (JMM)&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;JMM为所有程序内部的动作定义了一个偏序关系（happens-before），该法则包括：程序次序法则，监视器法则，volatile变量法则，线程启动法则，线程终结法则，中断法则，终结法则，传递性。&lt;/li&gt;
+&lt;li&gt;初始化安全性保证只有以通过final域触及的值，在构造函数完成时才是可见的。对于通过非final域触及的值，或者创建完成后可能改变的值，必须通过使用同步来确保可见性。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;活跃度，性能和测试&quot;&gt;&lt;a href=&quot;#活跃度，性能和测试&quot; class=&quot;headerlink&quot; title=&quot;活跃度，性能和测试&quot;&gt;&lt;/a&gt;活跃度，性能和测试&lt;/h2&gt;&lt;h3 id=&quot;避免活跃度危险&quot;&gt;&lt;a href=&quot;#避免活跃度危险&quot; class=&quot;he
     
     </summary>
     
@@ -1104,20 +1150,460 @@
   </entry>
   
   <entry>
-    <title>Java Summary I</title>
-    <link href="http://yular.github.io/2017/12/22/Java-Summary-I/"/>
-    <id>http://yular.github.io/2017/12/22/Java-Summary-I/</id>
-    <published>2017-12-22T06:46:37.000Z</published>
-    <updated>2017-12-22T22:46:45.000Z</updated>
+    <title>Reading Note of Java Concurrency in Practice III</title>
+    <link href="http://yular.github.io/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/"/>
+    <id>http://yular.github.io/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/</id>
+    <published>2017-11-05T15:25:12.000Z</published>
+    <updated>2018-06-24T09:31:15.000Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h2 id=&quot;构建块&quot;&gt;&lt;a href=&quot;#构建块&quot; class=&quot;headerlink&quot; title=&quot;构建块&quot;&gt;&lt;/a&gt;构建块&lt;/h2&gt;&lt;h3 id=&quot;同步容器和并发容器&quot;&gt;&lt;a href=&quot;#同步容器和并发容器&quot; class=&quot;headerlink&quot; title=&quot;同步容器和并发容器&quot;&gt;&lt;/a&gt;同步容器和并发容器&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;用并发容器替换同步容器，风险小且拓展性好。&lt;/li&gt;
+&lt;li&gt;ConcurrentHashMap返回的迭代器是弱一致性，允许并发修改，可以但不保证感应到在迭代器被创建后，对容器的修改。也不能再独占访问中加锁，即不能使用客户端加锁来创建新的原子操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;阻塞队列和生产者－消费者模式&quot;&gt;&lt;a href=&quot;#阻塞队列和生产者－消费者模式&quot; class=&quot;headerlink&quot; title=&quot;阻塞队列和生产者－消费者模式&quot;&gt;&lt;/a&gt;阻塞队列和生产者－消费者模式&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在设计初期就使用阻塞队列建立对资源的管理，提早做这件事会比日后再修复容易得多。&lt;/li&gt;
+&lt;li&gt;SynchronousQueue 这类队列只有在消费者充足时比较合适，总能为下一个任务做好准备。&lt;/li&gt;
+&lt;li&gt;连续的线程限制：对于可变对象，生产者－消费者设计和阻塞队列一起，为生产者和消费者之间移交对象所有权提供了连续的线程限制。一个线程约束的对象完全由单一线程所有，但是所有权可以通过安全的发布被转移，这样其他线程只有唯一一个能够得到访问这个对象的权限，并且保证移交之后原线程不能再访问它。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;阻塞和可中断的方法&quot;&gt;&lt;a href=&quot;#阻塞和可中断的方法&quot; class=&quot;headerlink&quot; title=&quot;阻塞和可中断的方法&quot;&gt;&lt;/a&gt;阻塞和可中断的方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;中断是一种协调机制。一个线程不能够迫使其他线程停止正在做的事，或者去做别的事。当线程A中断B时，A仅仅是要求B在达成某个方便停止的关键点时，停止正在做的事，如果这样做是正确的。&lt;/li&gt;
+&lt;li&gt;处理InterruptedException的两种方法：&lt;ul&gt;
+&lt;li&gt;传递InterruptedException，将其传递给调用者，可以不捕获，也可以捕获后做一些清理工作，最后再抛出；&lt;/li&gt;
+&lt;li&gt;恢复中断，即捕获后在当前线程中通过调用interrupt从中断恢复。只有一种情况允许掩盖中断：拓展了Thread，并因此控制了所有处于调用栈上层的代码。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;Synchronizer&quot;&gt;&lt;a href=&quot;#Synchronizer&quot; class=&quot;headerlink&quot; title=&quot;Synchronizer&quot;&gt;&lt;/a&gt;Synchronizer&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Synchronizer是一个对象，根据本身的状态调节线程的控制流。&lt;/li&gt;
+&lt;li&gt;闭锁（latch）是一种Synchronizer，可以延迟线程的进度直到线程到达终止状态。&lt;/li&gt;
+&lt;li&gt;关卡类似于闭锁，它们能够阻塞一组线程，直到某些事发生，但要求所有线程同时到达关卡点，才能继续处理，否则关卡是失败的，所有未完成的调用都通过BrokenBarrierException终止。&lt;/li&gt;
+&lt;li&gt;Exchanger 是关卡的另一种形式，是一种两部关卡，在关卡点会交换数据，比如数据缓冲。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;为计算结果建立高效，可伸缩的告诉缓存&quot;&gt;&lt;a href=&quot;#为计算结果建立高效，可伸缩的告诉缓存&quot; class=&quot;headerlink&quot; title=&quot;为计算结果建立高效，可伸缩的告诉缓存&quot;&gt;&lt;/a&gt;为计算结果建立高效，可伸缩的告诉缓存&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;计数信号量（count semaphore）用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数量。其中二元信号量可以用作互斥锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;构建并发应用程序&quot;&gt;&lt;a href=&quot;#构建并发应用程序&quot; class=&quot;headerlink&quot; title=&quot;构建并发应用程序&quot;&gt;&lt;/a&gt;构建并发应用程序&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;精灵线程daemon thread是JVM启动时创建的，除了主线程以外，其余所有线程。JVM 退出时，所有存在的精灵线程都会被抛弃，不会执行finally块，也不会释放栈。因此这类线程最好用于家务管理任务，不能替代对服务的生命周期恰当，良好的管理。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;任务执行&quot;&gt;&lt;a href=&quot;#任务执行&quot; class=&quot;headerlink&quot; title=&quot;任务执行&quot;&gt;&lt;/a&gt;任务执行&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;在中等强度的负载水平下，每任务每线程方法是对顺序化执行的良好改进。在实际应用中，web server在高负载下可以平缓地劣化，从而实现高可用性。&lt;/li&gt;
+&lt;li&gt;任务不会在自己拥有的线程中执行，而是借用属于服务的线程，比如线程池。&lt;/li&gt;
+&lt;li&gt;代码若不是线程的所有者（对于线程池而言，是指任何线程池实现以外的代码），就应该小心地保存中断状态，这样才能让所有者代码最终起作用。&lt;/li&gt;
+&lt;li&gt;用ExecutorService管理生产者－消费者服务。将ExecutorService封装到一个更高层的service class中，在其中提供自己的生命周期方法。对于线程持有的服务，只要服务的存在时间大于创建线程的方法存在的时间，那么就应该提供生命周期方法。&lt;/li&gt;
+&lt;li&gt;TrackingExecutor存在不可避免的竞争条件导致false positive现象发生：识别出的被取消的任务事实上已经结束。出现的原因是在任务执行最后一条指令，以及线程及线程池记录任务结束之间，线程池可能发生关闭。若任务是幂等的，即两次执行结果和一次的一样，则没问题。&lt;/li&gt;
+&lt;li&gt;大量相互独立且同类的任务进行并发处理，会将程序的任务量分配到不同的任务中，这样才能真正获得性能的提升。&lt;/li&gt;
+&lt;li&gt;围绕任务的执行来构造应用程序，可以简化开发，便于同步。使用Executor框架来解耦任务的提交与执行策略。同时要为每一个任务分配清晰的边界，比如timeout和任务类别。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;任务取消和关闭&quot;&gt;&lt;a href=&quot;#任务取消和关闭&quot; class=&quot;headerlink&quot; title=&quot;任务取消和关闭&quot;&gt;&lt;/a&gt;任务取消和关闭&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;可取消的活动：外部代码可以在活动自然完成之前，把它更改为完成状态。&lt;/li&gt;
+&lt;li&gt;中断通常是实现取消最明智的选择。实际上，使用中断来处理取消之外的任何事情都是不明智的，并且很难支撑起更大的应用。调用interrupt并不会真正中断一个正在运行的线程，仅仅是发出了中断请求。因为每个线程都有自己的中断策略，所以不应该中断线程，除非知道中断对于这个线程意味着什么。&lt;/li&gt;
+&lt;li&gt;线程应该只能够被线程的所有者中断：所有者可以把线程的中断策略信息封装到一个合适的取消机制中，比如关闭方法。只有实现了线程中断策略的代码才可以接收中断请求。通用目的的任务和库的代码绝不能接收中断请求。&lt;/li&gt;
+&lt;li&gt;用致命药丸管理生产者－消费者线程服务，即将一个可识别对象置于队列之中，意味着得到它时，停止一切工作。此方法只在生产者和消费者数量已知的情况下使用。&lt;/li&gt;
+&lt;li&gt;关闭钩子 shutdown hook是使用Runtime.addShutdownHook注册的尚未开始的线程。其应该是线程安全的，全部都是并发执行的，实现方式是对所有服务使用唯一关闭钩子，确保关闭行为在单线程顺序发生，避免竞争条件的出现。&lt;/li&gt;
+&lt;li&gt;处理不可中断阻塞：java.io中的同步Socket I/O，关闭底层的Socket; java.nio中的同步I/O，中断后会导致多个在链路操作上的线程抛出 AsynchronousCloseException; Selector 异步I/O，close阻塞于此方法的线程会导致它抛出ClosedSelectorException；获得锁，不能停止阻塞于此的线程，但显示lock提供了lockInterruptibly方法，允许等待一个锁的同时响应中断。&lt;/li&gt;
+&lt;li&gt;防止线程泄漏的方法（处理线程反常终止）：用try-catch块中调用任务来捕获未检查异常，或try-finally块确保框架能知晓线程非正常退出，并作出正确反应。实现UncaughtExceptionHandler并设置到线程池中，所有的线程都要给未捕获异常设置一个处理器（handler），这个处理器至少要将异常信息记入日志当中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;应用线程池&quot;&gt;&lt;a href=&quot;#应用线程池&quot; class=&quot;headerlink&quot; title=&quot;应用线程池&quot;&gt;&lt;/a&gt;应用线程池&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;当任务都是同类的，独立的时候，线程池才会有最佳的工作表现。&lt;/li&gt;
+&lt;li&gt;线程池的饱和策略通过调用setRejectedExecutionHandler来修改，有中止abort策略，遗弃discard策略，遗弃最旧的discard-oldest策略。&lt;/li&gt;
+&lt;li&gt;调用者运行策略则是让主线程来执行线程池达到饱和后提交上来的任务。&lt;/li&gt;
+&lt;li&gt;平缓地劣化：当服务器过载时，它的负荷会逐渐地外移，从线程池到工作队列到应用程序再到TCP层，最终转嫁到用户。&lt;/li&gt;
+&lt;li&gt;newCachedThreadPool工厂提供了比定长的线程池更好的队列等候性能。定长线程池是限制当前任务数量的很好选择，可以有效防止导致过载的攻击。&lt;/li&gt;
+&lt;li&gt;用beforeExecute, afterExecute, 以及terminate来拓展ThreadPoolExecutor的行为。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;GUI-应用程序&quot;&gt;&lt;a href=&quot;#GUI-应用程序&quot; class=&quot;headerlink&quot; title=&quot;GUI 应用程序&quot;&gt;&lt;/a&gt;GUI 应用程序&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;GUI 是单线程化的。现代GUI框架的模型：模型创建了一个专门的线程，事件派发线程来处理GUI事件。&lt;/li&gt;
+&lt;li&gt;GUI需要处理耗时任务时，可以将任务提交给一个独立的Executor来处理，然后该任务结束后，再由Executor发送一个事件给GUI事件线程来更新界面。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;构建块&quot;&gt;&lt;a href=&quot;#构建块&quot; class=&quot;headerlink&quot; title=&quot;构建块&quot;&gt;&lt;/a&gt;构建块&lt;/h2&gt;&lt;h3 id=&quot;同步容器和并发容器&quot;&gt;&lt;a href=&quot;#同步容器和并发容器&quot; class=&quot;headerlink&quot; title=&quot;同步容
     
     </summary>
     
     
       <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Java Concurrency in Practice II</title>
+    <link href="http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/"/>
+    <id>http://yular.github.io/2017/11/02/Reading-Note-of-Java-Concurrency-in-Practice-II/</id>
+    <published>2017-11-02T15:28:16.000Z</published>
+    <updated>2018-06-19T08:25:48.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;解耦的目的与时机&quot;&gt;&lt;a href=&quot;#解耦的目的与时机&quot; class=&quot;headerlink&quot; title=&quot;解耦的目的与时机&quot;&gt;&lt;/a&gt;解耦的目的与时机&lt;/h2&gt;&lt;h3 id=&quot;并发防御原则&quot;&gt;&lt;a href=&quot;#并发防御原则&quot; class=&quot;headerlink&quot; title=&quot;并发防御原则&quot;&gt;&lt;/a&gt;并发防御原则&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;单一权责原则，分离并发相关代码和其他代码；&lt;/li&gt;
+&lt;li&gt;限制数据作用域，用synchronized是一个保护共享数据域的方法，总之严格限制对可能被共享的数据的访问；&lt;/li&gt;
+&lt;li&gt;使用数据副本，也就是用单线程收集多线程的数据副本然后合并；&lt;/li&gt;
+&lt;li&gt;线程应尽可能独立，尝试将数据分解到可被独立线程（可能在不同处理器上）操作的独立子集。&lt;/li&gt;
+&lt;li&gt;避免使用一个共享对象的多个方法，也就是一个类中别synchronized多个方法。&lt;/li&gt;
+&lt;li&gt;尽可能减小同步区域。&lt;/li&gt;
+&lt;li&gt;尽早考虑（系统）关闭问题，尽早令其工作正常。防止因为死锁等并发问题导致系统无法真正关闭。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;并发执行模型&quot;&gt;&lt;a href=&quot;#并发执行模型&quot; class=&quot;headerlink&quot; title=&quot;并发执行模型&quot;&gt;&lt;/a&gt;并发执行模型&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;生产者－消费者模型，一种队列模型。 &lt;/li&gt;
+&lt;li&gt;读者－作者模型，主要为读者提供信息，偶尔被作者修改的数据，吞吐量是个问题。&lt;/li&gt;
+&lt;li&gt;哲学家吃饭问题。&lt;/li&gt;
+&lt;li&gt;在程序中实现一个生产者－消费者的设计，使用Executor通常是最简单的方式。它可以很好地实现任务的提交与执行的解耦。///&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;共享对象&quot;&gt;&lt;a href=&quot;#共享对象&quot; class=&quot;headerlink&quot; title=&quot;共享对象&quot;&gt;&lt;/a&gt;共享对象&lt;/h2&gt;&lt;p&gt;线程本地（Thread Local）将每个线程与其持有的数据对象关联起来，提供get和set访问器，为每个使用它的线程维护一份单独的拷贝，所以get总是返回由当前执行线程通过set设置的最新值。这类变量通常用于防止在基于可变的单体或全局变量的设计中，出现不正确的共享。&lt;/p&gt;
+&lt;h3 id=&quot;volatile-对象&quot;&gt;&lt;a href=&quot;#volatile-对象&quot; class=&quot;headerlink&quot; title=&quot;volatile 对象&quot;&gt;&lt;/a&gt;volatile 对象&lt;/h3&gt;&lt;p&gt;只有当volatile变量能够简化实现和同步策略的验证时，才使用它们。当验证正确性必须推断可见性问题时，应该避免使用此类变量。正确使用volatile变量的方式包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;用于确保它们所引用的对象状态可见性。&lt;/li&gt;
+&lt;li&gt;用于标识重要的生命周期事件（比如初始化或关闭）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;满足以下条件采用volatile变量：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;写入变量时并不依赖其当前值，或者能够确保只有单一线程修改变量的值。&lt;/li&gt;
+&lt;li&gt;变量不需要与其他的状态变量共同参与不变约束。&lt;/li&gt;
+&lt;li&gt;访问变量时，没有其他原因需要加锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;发布和逸出&quot;&gt;&lt;a href=&quot;#发布和逸出&quot; class=&quot;headerlink&quot; title=&quot;发布和逸出&quot;&gt;&lt;/a&gt;发布和逸出&lt;/h3&gt;&lt;p&gt;不正确和不安全的发布会导致其他线程观察到“局部创建对象”。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;逸出: 在一个对象尚未准备好的时候将其发布，比如变量发布了内部状态或者对象本身没有完成构造。这样会危及线程安全。&lt;/li&gt;
+&lt;li&gt;this引用在构造期间的逸出：对象只有通过构造函数返回后，才处于可预言的，稳定的状态，所以从构造函数内部发布的对象，只是一个未完成构造的对象，甚至即使是在构造函数的最后一行发布引用也是如此。这种情况应及时制止。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;线程封闭&quot;&gt;&lt;a href=&quot;#线程封闭&quot; class=&quot;headerlink&quot; title=&quot;线程封闭&quot;&gt;&lt;/a&gt;线程封闭&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;线程封闭是实现线程安全的最简单的方法之一。&lt;/li&gt;
+&lt;li&gt;Ad-hoc 线程限制是指维护线程限制性的任务全部落实在实现上的情况。&lt;/li&gt;
+&lt;li&gt;栈限制中，只能通过本地变量才可以触及对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;不可变性&quot;&gt;&lt;a href=&quot;#不可变性&quot; class=&quot;headerlink&quot; title=&quot;不可变性&quot;&gt;&lt;/a&gt;不可变性&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;将所有域声明成final型，除非它们是可变的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;安全发布&quot;&gt;&lt;a href=&quot;#安全发布&quot; class=&quot;headerlink&quot; title=&quot;安全发布&quot;&gt;&lt;/a&gt;安全发布&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;为了获得初始化安全性的保证，应满足所有不可变性的条件：不可修改的状态，所有域都是final类型，以及正确地构造。&lt;/li&gt;
+&lt;li&gt;为了安全发布对象，对象的引用以及状态必须同时对其他线程可见。正确地做法是：通过静态初始化器初始化对象的引用（public static Holder holder = new Holder(42); ），将它的引用存储到volatile域或AtomicReference；将它的引用存储到正确创建的对象的final域中，或者将它的引用存储到由锁正确保护的域中（将对象放入到线程安全的容器中）。&lt;/li&gt;
+&lt;li&gt;任何线程都可以在没有额外的同步下安全地使用一个安全发布的高效不可变对象。&lt;/li&gt;
+&lt;li&gt;可变对象必须安全发布，同时必须要线程安全或者锁保护。 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h2 id=&quot;组合对象&quot;&gt;&lt;a href=&quot;#组合对象&quot; class=&quot;headerlink&quot; title=&quot;组合对象&quot;&gt;&lt;/a&gt;组合对象&lt;/h2&gt;&lt;p&gt;组合是个好策略，即定义一个类，其包含线程安全类作为其域，然后另外定义自身的同步策略。&lt;/p&gt;
+&lt;h3 id=&quot;线程安全的类&quot;&gt;&lt;a href=&quot;#线程安全的类&quot; class=&quot;headerlink&quot; title=&quot;线程安全的类&quot;&gt;&lt;/a&gt;线程安全的类&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;遵循Java监视器模式的对象封装了所有的可变状态，并由对象自己的内部锁保护。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;委托线程安全&quot;&gt;&lt;a href=&quot;#委托线程安全&quot; class=&quot;headerlink&quot; title=&quot;委托线程安全&quot;&gt;&lt;/a&gt;委托线程安全&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;如果一个状态变量是线程安全的，没有任何不变约束限制它的值，并且没有任何状态转换限制它的操作，那么它可以安全发布。&lt;/li&gt;
+&lt;li&gt;使用私有锁对象，而不是对象的内部锁（或其他可公共访问的锁），好处是：私有的锁对象可以封装锁，这样客户代码无法得到它，而可公共访问的锁允许用户代码正确或不正确地涉及它的同步策略。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;向已有线程安全类添加功能&quot;&gt;&lt;a href=&quot;#向已有线程安全类添加功能&quot; class=&quot;headerlink&quot; title=&quot;向已有线程安全类添加功能&quot;&gt;&lt;/a&gt;向已有线程安全类添加功能&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;向已有的线程安全类添加线程安全功能时，以下三个方法的安全系数是递减的，更容易破坏类原有的同步策略：&lt;ul&gt;
+&lt;li&gt;可以直接修改该类。&lt;/li&gt;
+&lt;li&gt;可以拓展该类。&lt;/li&gt;
+&lt;li&gt;客户端加上与对象自身保护自己状态所用的相同的锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;解耦的目的与时机&quot;&gt;&lt;a href=&quot;#解耦的目的与时机&quot; class=&quot;headerlink&quot; title=&quot;解耦的目的与时机&quot;&gt;&lt;/a&gt;解耦的目的与时机&lt;/h2&gt;&lt;h3 id=&quot;并发防御原则&quot;&gt;&lt;a href=&quot;#并发防御原则&quot; class=&quot;headerli
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Java Concurrency in Practice I</title>
+    <link href="http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/"/>
+    <id>http://yular.github.io/2017/10/30/Reading-Note-of-Java-Concurrency-in-Practice-I/</id>
+    <published>2017-10-29T16:39:52.000Z</published>
+    <updated>2018-03-07T09:17:57.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;大多数现代操作系统把线程作为时序调度的基本单元，而不是进程。&lt;/li&gt;
+&lt;li&gt;多线程的开销：上下文切换。&lt;/li&gt;
+&lt;li&gt;线程共享：线程共享：线程共享其所属进程的内存地址空间。因此所有同一进程中的线程访问相同变量，并且从同一个堆中分配对象。因此一个线程可能修改其他线程正在使用的数据，产生意外的效果。&lt;/li&gt;
+&lt;li&gt;活跃度失败：在顺序程序中，进入了死循环，导致循环之后的代码没法执行。其包括死锁，饥饿，活锁。&lt;/li&gt;
+&lt;li&gt;用annotation (@ThreadSafe for example)来标记线程安全程度。&lt;/li&gt;
+&lt;li&gt;以下场景都会引发非应用程序管理线程调用应用程序代码的情况，从而导致线程不安全的情况：定时器Timer，Servlets and JavaServer Pages，远程方法调用，Swing and AWT。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Thread-Safety&quot;&gt;&lt;a href=&quot;#Thread-Safety&quot; class=&quot;headerlink&quot; title=&quot;Thread Safety&quot;&gt;&lt;/a&gt;Thread Safety&lt;/h3&gt;&lt;h4 id=&quot;Definition&quot;&gt;&lt;a href=&quot;#Definition&quot; class=&quot;headerlink&quot; title=&quot;Definition&quot;&gt;&lt;/a&gt;Definition&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;共享：是指一个变量可以被多个线程访问。&lt;/li&gt;
+&lt;li&gt;可变：是指变量的值在其生命周期内可变。&lt;/li&gt;
+&lt;li&gt;对象的状态：即对象的数据，存储与状态变量之中，以及其他附属对象的域。&lt;/li&gt;
+&lt;li&gt;线程安全：编写线程安全的代码，本质上是管理对状态的访问，而且通常都是共享的，可变的状态。一个对象是否应该是线程安全取决于它是否被多个线程访问。线程安全的性质，取决于程序中如何使用&amp;gt;对象，而不是对象完成了什么。&lt;/li&gt;
+&lt;li&gt;线程安全的定义：当多个线程访问一个类时，如果不考虑这些线程在运行环境下的调度和交替执行，并且不需要额外的同步以及调用方代码作额外的其他协调，这个类的行为依然正确，则此类是线程安全的。这种类封装了必要的同步，客户不需要额外提供。同时，对线程安全类的实例进行顺序或并发的一系列操作，都不会导致实例处于无效状态。&lt;/li&gt;
+&lt;li&gt;原子操作：指的是一个操作，对于所有操作（包括自己），满足这种状态：假设有操作A和B，如果从执行操作A的线程角度看，当其他线程执行B时，要么B没执行，要么B全部执行完成，这样A和B互为原子操作。&lt;/li&gt;
+&lt;li&gt;弱并发：请求排队等候并依次处理。&lt;/li&gt;
+&lt;li&gt;volatile变量：该变量是弱并发的实现，它是共享的，读它时，总会返回由某一个线程所写入的最新值。这种变量的操作不加锁，不引起线程阻塞。volatile 是一种Ad-hoc 限制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Basic&quot;&gt;&lt;a href=&quot;#Basic&quot; class=&quot;headerlink&quot; title=&quot;Basic&quot;&gt;&lt;/a&gt;Basic&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;方法中的本地变量是存储在线程的栈中，只有该执行线程才能访问。因此两个线程不会共享本地变量的数据。&lt;/li&gt;
+&lt;li&gt;无状态对象永远是线程安全的。&lt;/li&gt;
+&lt;li&gt;java.util.concurrent.atomic 包含了原子变量类。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;Principles&quot;&gt;&lt;a href=&quot;#Principles&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;线程安全代码规范：无论何时，只要有多于一个线程访问给定的状态变量，而且其中某个线程会写入变量，就必须使用同步来协调线程对该变量的访问。&lt;/li&gt;
+&lt;li&gt;修复潜在线程安全问题的方法：&lt;ul&gt;
+&lt;li&gt;不要跨线程共享变量。&lt;/li&gt;
+&lt;li&gt;状态变量不可变。&lt;/li&gt;
+&lt;li&gt;在任何访问状态变量的时候使用同步。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;一开始就将一个类设计成线程安全的，比在后期重新修复它更容易。&lt;/li&gt;
+&lt;li&gt;设计线程安全类过程的三要素：确定对象状态是由哪些变量构成；确定限制状态变量的不变约束；制定一个管理并发访问对象状态的策略。&lt;/li&gt;
+&lt;li&gt;要约束状态变量的有效值或者状态转换，需要原子性和封装性。&lt;/li&gt;
+&lt;li&gt;创建一个状态依赖的类，要使用平台与类库提供的底层机制。&lt;/li&gt;
+&lt;li&gt;为了保证状态的一致性，需要在单一的原子操作中更新所有相互关联的状态变量。&lt;/li&gt;
+&lt;li&gt;不可变性:&lt;ul&gt;
+&lt;li&gt;不可变对象永远是线程安全的。&lt;/li&gt;
+&lt;li&gt;不可变对象的状态：&lt;ul&gt;
+&lt;li&gt;它的状态不能在创建后再被修改。&lt;/li&gt;
+&lt;li&gt;所有域都是final类型。&lt;/li&gt;
+&lt;li&gt;被正确地创建（期间没发生this引用的逸出）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Lock&quot;&gt;&lt;a href=&quot;#Lock&quot; class=&quot;headerlink&quot; title=&quot;Lock&quot;&gt;&lt;/a&gt;Lock&lt;/h3&gt;&lt;h4 id=&quot;Principles-1&quot;&gt;&lt;a href=&quot;#Principles-1&quot; class=&quot;headerlink&quot; title=&quot;Principles&quot;&gt;&lt;/a&gt;Principles&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;锁不仅仅是保证同步和互斥，也是保证内存可见。&lt;/li&gt;
+&lt;li&gt;内部锁是可以重进入的。因此线程试图获得自己占有的锁时，请求会成功。因此锁的请求是基于每线程，而不是基于每调用。&lt;/li&gt;
+&lt;li&gt;将数据封装在对象内部，把对数据的访问限制在对象的方法上，更易确保线程在访问数据时总能获得正确的锁。&lt;/li&gt;
+&lt;li&gt;每个共享的可变变量都需要维护由唯一一个确定的锁保护，而维护者应该清楚这个锁；对于每个涉及多个变量的不变约束，需要同一个锁保护其所有变量。&lt;/li&gt;
+&lt;li&gt;对于有些耗时的计算或操作，比如网络或者控制台I／O，它们难以快速完成，因此执行这些操作期间不要占用锁。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;ThreadPool&quot;&gt;&lt;a href=&quot;#ThreadPool&quot; class=&quot;headerlink&quot; title=&quot;ThreadPool&quot;&gt;&lt;/a&gt;ThreadPool&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;定制线程池的大小。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Debug&quot;&gt;&lt;a href=&quot;#Debug&quot; class=&quot;headerlink&quot; title=&quot;Debug&quot;&gt;&lt;/a&gt;Debug&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;多线程读double和long时，有可能读到低32位或高32位的数据，因此连过期数据都不是。&lt;/li&gt;
+&lt;li&gt;Debug 多线程代码，要考虑多个线程同时和先后执行的每一行代码的情况。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the summary of the book &lt;code&gt;Java Concurrency in Practice&lt;/code&gt;. &lt;/p&gt;
+&lt;h3 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;head
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ReactJS QuickStart</title>
+    <link href="http://yular.github.io/2017/10/04/ReactJS-QuickStart/"/>
+    <id>http://yular.github.io/2017/10/04/ReactJS-QuickStart/</id>
+    <published>2017-10-04T10:45:50.000Z</published>
+    <updated>2017-10-08T08:13:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Here is the official page of &lt;a href=&quot;https://reactjs.org/docs/installation.html#trying-out-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;React&lt;/a&gt; which describes how to try out ReactJS.&lt;/p&gt;
+&lt;p&gt;Below is the Quickstart guide to install, configure and run the firt React app on the local. &lt;/p&gt;
+&lt;h3 id=&quot;Install-NodeJS&quot;&gt;&lt;a href=&quot;#Install-NodeJS&quot; class=&quot;headerlink&quot; title=&quot;Install NodeJS&quot;&gt;&lt;/a&gt;Install NodeJS&lt;/h3&gt;&lt;p&gt;Here we use npm to manage project dependencies. Here is &lt;a href=&quot;https://nodejs.org/en/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;NodeJS official website&lt;/a&gt;, where we can download and install &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Install-Gloabl-ReactJS-App-Creation-Package&quot;&gt;&lt;a href=&quot;#Install-Gloabl-ReactJS-App-Creation-Package&quot; class=&quot;headerlink&quot; title=&quot;Install Gloabl ReactJS App Creation Package&quot;&gt;&lt;/a&gt;Install Gloabl ReactJS App Creation Package&lt;/h3&gt;&lt;p&gt;Install &lt;code&gt;Create React App&lt;/code&gt; package globally in npm. &lt;code&gt;Create React App&lt;/code&gt; is the best way to start building a new React single page application. It helps to set up development environment to use the latest JavaScript features, provides a nice developer experience, and optimizes app for production.&lt;/p&gt;
+&lt;p&gt;Here are the commands to install the package:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g create-react-app&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Init-ReactJS-App&quot;&gt;&lt;a href=&quot;#Init-ReactJS-App&quot; class=&quot;headerlink&quot; title=&quot;Init ReactJS App&quot;&gt;&lt;/a&gt;Init ReactJS App&lt;/h3&gt;&lt;p&gt;Here are the commands to init ReactJS application and start it:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;create-react-app first-react-app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd first-react-app&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm start&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Install-ReactJS-as-dependencies-in-Application&quot;&gt;&lt;a href=&quot;#Install-ReactJS-as-dependencies-in-Application&quot; class=&quot;headerlink&quot; title=&quot;Install ReactJS as dependencies in Application&quot;&gt;&lt;/a&gt;Install ReactJS as dependencies in Application&lt;/h3&gt;&lt;p&gt;Here are the commands to install ReactJS as dependencies using &lt;code&gt;npm&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save react react-dom&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;After execute &lt;code&gt;npm init&lt;/code&gt; command, we will be asked to provide some basic profile information of the app like app name, author name, license and etc. All these information will appear in &lt;code&gt;package.json&lt;/code&gt;.&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Enabling-ES6-and-JSX&quot;&gt;&lt;a href=&quot;#Enabling-ES6-and-JSX&quot; class=&quot;headerlink&quot; title=&quot;Enabling ES6 and JSX&quot;&gt;&lt;/a&gt;Enabling ES6 and JSX&lt;/h3&gt;&lt;p&gt;We recommand to use &lt;code&gt;ES6&lt;/code&gt; and &lt;code&gt;JSX&lt;/code&gt; through &lt;code&gt;Babel&lt;/code&gt;. ES6 is a set of modern JavaScript features that make development easier, and JSX is an extension to the JavaScript language that works nicely with React.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;http://babeljs.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel official website&lt;/a&gt; and &lt;a href=&quot;https://babeljs.io/docs/setup/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Babel setup instructions&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Here we use &lt;code&gt;CLI&lt;/code&gt; way to install &lt;code&gt;babel-preset-react&lt;/code&gt; and &lt;code&gt;babel-preset-es2015&lt;/code&gt;. And enable them in &lt;code&gt;.babelrc&lt;/code&gt; configuration file.&lt;/p&gt;
+&lt;p&gt;Here are the commands:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-cli&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-preset-react&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev babel-preset-es2015&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;touch .babelrc&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;apos;&amp;#123; &amp;quot;presets&amp;quot;: [&amp;quot;es2015&amp;quot;] &amp;#125;&amp;apos; &amp;gt; .babelrc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;As Babel is a JavaScript compiler, we can test it in following steps.&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;echo &amp;apos;console.log([1, 2, 3].map(n =&amp;gt; n + 1))&amp;apos; &amp;gt; index.js&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;./node_modules/.bin/babel index.js&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;The output is similar as follows:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;quot;use strict&amp;quot;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;console.log([1, 2, 3].map(function (n) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  return n + 1;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;Install-webpack-as-dependencies-in-Application&quot;&gt;&lt;a href=&quot;#Install-webpack-as-dependencies-in-Application&quot; class=&quot;headerlink&quot; title=&quot;Install webpack as dependencies in Application&quot;&gt;&lt;/a&gt;Install webpack as dependencies in Application&lt;/h3&gt;&lt;p&gt;A bundler like &lt;code&gt;webpack&lt;/code&gt; or &lt;code&gt;Browserify&lt;/code&gt; can help to write modular code and bundle it together into small packages to optimize load time.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;https://webpack.js.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webpack offical website&lt;/a&gt;. And here is the command to install webpack:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install --save-dev webpack&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;So here is the final complete version of package.json file:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;name&amp;quot;: &amp;quot;first-react-app&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;version&amp;quot;: &amp;quot;0.1.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;private&amp;quot;: true,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;dependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react&amp;quot;: &amp;quot;^16.0.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-dom&amp;quot;: &amp;quot;^16.0.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;react-scripts&amp;quot;: &amp;quot;1.0.14&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;scripts&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;start&amp;quot;: &amp;quot;react-scripts start&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;build&amp;quot;: &amp;quot;react-scripts build&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;test&amp;quot;: &amp;quot;react-scripts test --env=jsdom&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;eject&amp;quot;: &amp;quot;react-scripts eject&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;description&amp;quot;: &amp;quot;This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;main&amp;quot;: &amp;quot;index.js&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;devDependencies&amp;quot;: &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-cli&amp;quot;: &amp;quot;^6.26.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-env&amp;quot;: &amp;quot;^1.6.0&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-es2015&amp;quot;: &amp;quot;^6.24.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;babel-preset-react&amp;quot;: &amp;quot;^6.24.1&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;quot;webpack&amp;quot;: &amp;quot;^3.6.0&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;#125;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;author&amp;quot;: &amp;quot;yular&amp;quot;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &amp;quot;license&amp;quot;: &amp;quot;ISC&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;Now if we run the command &lt;code&gt;npm start&lt;/code&gt;, we can still see the same page as before.&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Here is the official page of &lt;a href=&quot;https://reactjs.org/docs/installation.html#trying-out-react&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;React&lt;/
+    
+    </summary>
+    
+    
+      <category term="Javascript" scheme="http://yular.github.io/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小结：巴菲特之路和投资组合</title>
+    <link href="http://yular.github.io/2017/10/02/%E5%B0%8F%E7%BB%93%EF%BC%9A%E5%B7%B4%E8%8F%B2%E7%89%B9%E4%B9%8B%E8%B7%AF%E5%92%8C%E6%8A%95%E8%B5%84%E7%BB%84%E5%90%88/"/>
+    <id>http://yular.github.io/2017/10/02/小结：巴菲特之路和投资组合/</id>
+    <published>2017-10-01T16:42:40.000Z</published>
+    <updated>2017-10-08T00:54:27.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;相关名词定义&quot;&gt;&lt;a href=&quot;#相关名词定义&quot; class=&quot;headerlink&quot; title=&quot;相关名词定义&quot;&gt;&lt;/a&gt;相关名词定义&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安全空间&lt;br&gt;有关债券投资收益的安全空间，是指股票价格低于其内在价值（即公司内在价值），则投资股票就存在安全收益的安全空间。同时，也指公司的收入和固定费用之间的差距足够大（收入 &amp;gt; 固定费用），投资者在公司收入意外下降时就可以得到保护。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;留存收益 (&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%95%99%E5%AD%98%E6%94%B6%E7%9B%8A&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia&lt;/a&gt;)&lt;br&gt;也称留用利润、留存收益、留存盈余、资本公积。 留存收益是指企业从历年实现的利润中担取事形成的留存于企业的内部积累，主要包括计提的盈余公积和未分配利润。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;内在价值&lt;br&gt;估计内在价值 = 公司的利润 × 适当的资本化率因子。该因子受公司利润的稳定性、资产、红利政策和财务状况等因素制约。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;股息 (&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%82%A1%E6%81%AF&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia&lt;/a&gt;)&lt;br&gt;股利（Dividend），又译股息或红利，是指股份公司从留存收益中派发给股东的那一部分。股利是股东投资于股份公司的收益的一部分（另一部分是资本利得），是付给资本的报酬。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就上市公司的情况中，股利只会派发给在除息日之前一日持有股票至除息日当日的人士，在除息日当日或以后才买入股票的人则不能获派股利。与此同时，证券交易所会在除息日开市前自动把股票的上一交易日收盘价扣减股利的价值，定为该股票的前一交易日的收盘价，因此股价会在开盘时自动下跌。&lt;/p&gt;
+&lt;p&gt;股利一般有两种支付方式：现金股利（Cash Dividends）和紅股（Stock Dividends）。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;资本成本：&lt;br&gt;资本成本 = 资本构成中相对权益比例 × 其成本 + 债务比例 × 其成本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;经济附加值：&lt;br&gt;经济附加值 = 资本成本 － 净收益&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;市盈率 (&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%B8%82%E7%9B%88%E7%8E%87&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia&lt;/a&gt;)&lt;br&gt;股票的市盈率（Price-to-Earning Ratio，P/E或PER），又称为本益比，指每股市价除以每股盈利（Earnings Per Share，EPS），通常作为股票是便宜抑或昂贵的指标（通货膨胀会使每股收益虚增，从而扭曲市盈率的比较价值）。市盈率把企业的股价与其制造财富的能力联系起来。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;每股盈利的计算方法，一般是以该企业在过去一年的净利润除以总发行已售出股数。市盈率越低，代表投资者能够以相对较低价格购入股票。假设某股票的市价为24元，而过去一年的每股盈利为3元，则市盈率为24/3=8。该股票被视为有8倍的市盈率，即在假设该企业以后每年净利润和去年相同的基础上，如果不考虑通货膨胀因素，回本期为8年，折合平均年回报率为12.5%，投资者每付出8元可分享1元的企业盈利。但上市公司通常只会把部分盈利用来派发股息，其余用来作进一步发展，所以市盈率的倒数不等于股息率。&lt;/p&gt;
+&lt;p&gt;投资者计算市盈率，主要用来比较不同股票的价值。理论上，股票的市盈率愈低，表示该股票的投资风险越小，愈值得投资。比较不同行业、不同国家、不同时段的市盈率是不大可靠的。比较同类股票的市盈率较有实用价值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;金融学&lt;br&gt;金融学 = 经济学 + 心理学&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;赔率/投资回报率 (&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8A%95%E8%B3%87%E5%A0%B1%E9%85%AC%E7%8E%87&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia&lt;/a&gt;)&lt;br&gt;博彩术语赔率，并不是发生比，而是投资报酬率的一种概念。 是管理机构或者博彩公司会从总赌资中收取手续费后剩下的部分才当作奖金。 通常是固定的比率，也有依中奖人数平均的。 例如：你花1元钱买了一张彩票，1:6的赔率指的是：如果你输了，你损失1元；如果你赢了，你赢5元、并且将你原先的1元钱拿回，总共拿回6元。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;投资回报率，经济学名词，指投资后所得的收益与成本间的百分比率。&lt;br&gt;投资回报率一般可分为总回报率和年回报率。总回报率是不论资金投入时间，直接计算总共的回报率，亦即：总回报率=利润/投入成本。&lt;br&gt;年回报率则是计算平均资金投入一年所得到的回报率，又可以分为两类：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;平均回报率，其算法直接将总回报率除以资金投入的年数。&lt;/li&gt;
+&lt;li&gt;内部回报率，或称为复利回报率，将每年获利的再投资也考虑进去，可以更精确地反映回报的多寡。其算法为：(总回报率+1)开年数的方，再减1。例如，投入两年，赚44%，年内部回报率就是1.44开平方减1，亦即20%。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;集中投资者的原则&quot;&gt;&lt;a href=&quot;#集中投资者的原则&quot; class=&quot;headerlink&quot; title=&quot;集中投资者的原则&quot;&gt;&lt;/a&gt;集中投资者的原则&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;愿意将股票看作企业所有权一部分。&lt;/li&gt;
+&lt;li&gt;做好刻苦研究所拥有的企业以及其竞争对手的准备。&lt;/li&gt;
+&lt;li&gt;愿意进行5年以上的投资。&lt;/li&gt;
+&lt;li&gt;永远不要举债进行集中投资。&lt;/li&gt;
+&lt;li&gt;需要正确的心态和性格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;方法论&quot;&gt;&lt;a href=&quot;#方法论&quot; class=&quot;headerlink&quot; title=&quot;方法论&quot;&gt;&lt;/a&gt;方法论&lt;/h3&gt;&lt;h4 id=&quot;衡量管理水平的方法&quot;&gt;&lt;a href=&quot;#衡量管理水平的方法&quot; class=&quot;headerlink&quot; title=&quot;衡量管理水平的方法&quot;&gt;&lt;/a&gt;衡量管理水平的方法&lt;/h4&gt;&lt;p&gt;审查前几年的年度报告，特别注意当时管理层对未来战略的说法；将当时的规划和今天的结果比较，看看他们在多大程度上实现了规划；将几年前的战略与今年的战略以及观点相比较，看看哪些观念发生了改变；将感兴趣的公司的年度报告与同行业内的其他类似公司的报告相比较，哪怕只是比较一下相关业绩也会产生真知灼见。&lt;/p&gt;
+&lt;h4 id=&quot;购买潜在价值大打折扣的股票&quot;&gt;&lt;a href=&quot;#购买潜在价值大打折扣的股票&quot; class=&quot;headerlink&quot; title=&quot;购买潜在价值大打折扣的股票&quot;&gt;&lt;/a&gt;购买潜在价值大打折扣的股票&lt;/h4&gt;&lt;p&gt;潜在价值大打折扣的股票是市盈率较低以及股息收益较高的股票。&lt;/p&gt;
+&lt;h4 id=&quot;衡量收益与亏损&quot;&gt;&lt;a href=&quot;#衡量收益与亏损&quot; class=&quot;headerlink&quot; title=&quot;衡量收益与亏损&quot;&gt;&lt;/a&gt;衡量收益与亏损&lt;/h4&gt;&lt;p&gt;用概率权重衡量收益，用比较权重衡量亏损。&lt;/p&gt;
+&lt;h4 id=&quot;决定投资数额&quot;&gt;&lt;a href=&quot;#决定投资数额&quot; class=&quot;headerlink&quot; title=&quot;决定投资数额&quot;&gt;&lt;/a&gt;决定投资数额&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;步骤一：概率的计算：事件结论情况有限，则简单的概率计算（如掷色子概率1／6）；若事件数量无限，如果有充足重复数据，则建立频数分布，反之，主观概率分析，尽可能多收集信息。&lt;/li&gt;
+&lt;li&gt;步骤二：有新的信息出现时，调整计算以包含新信息（即贝叶斯分析法）。&lt;/li&gt;
+&lt;li&gt;步骤三：决定投资数额：x = 2×p－1。p为上述步骤得出的概率。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;凯利优化模式&quot;&gt;&lt;a href=&quot;#凯利优化模式&quot; class=&quot;headerlink&quot; title=&quot;凯利优化模式&quot;&gt;&lt;/a&gt;凯利优化模式&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;从概率角度考虑股票的买入。&lt;/li&gt;
+&lt;li&gt;愿意进行长期投资来获取回报。&lt;/li&gt;
+&lt;li&gt;避免借贷投资。&lt;/li&gt;
+&lt;li&gt;每一次下赌注要保留一定的安全边际。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;认识市场&quot;&gt;&lt;a href=&quot;#认识市场&quot; class=&quot;headerlink&quot; title=&quot;认识市场&quot;&gt;&lt;/a&gt;认识市场&lt;/h4&gt;&lt;p&gt;市场是一个复杂多变的适应性系统。因此不要尝试去精确预测市场。&lt;/p&gt;
+&lt;h4 id=&quot;“成为好的击球手的”证券券商&quot;&gt;&lt;a href=&quot;#“成为好的击球手的”证券券商&quot; class=&quot;headerlink&quot; title=&quot;“成为好的击球手的”证券券商&quot;&gt;&lt;/a&gt;“成为好的击球手的”证券券商&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;将股票视为企业。&lt;/li&gt;
+&lt;li&gt;增加投资规模。&lt;/li&gt;
+&lt;li&gt;降低证券换手率。&lt;/li&gt;
+&lt;li&gt;开发其他业绩衡量尺度。&lt;/li&gt;
+&lt;li&gt;学会用概率方法思考。&lt;/li&gt;
+&lt;li&gt;学会认识判断失误心理：心理学基本原理 － 局势不利比局势有利具有更大影响力。&lt;/li&gt;
+&lt;li&gt;忽视市场预测。&lt;/li&gt;
+&lt;li&gt;等待最佳击球机会： 找到合适的安全边际，尤其是公司以低于内在价值售出时。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;有效市场理论&quot;&gt;&lt;a href=&quot;#有效市场理论&quot; class=&quot;headerlink&quot; title=&quot;有效市场理论&quot;&gt;&lt;/a&gt;有效市场理论&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;夏普的波动理论。&lt;/li&gt;
+&lt;li&gt;贝塔要素。&lt;/li&gt;
+&lt;li&gt;固定资产价格模式CAPM。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;协方差&quot;&gt;&lt;a href=&quot;#协方差&quot; class=&quot;headerlink&quot; title=&quot;协方差&quot;&gt;&lt;/a&gt;协方差&lt;/h4&gt;&lt;p&gt;即计算总体个股平均方差的权重，用于衡量一组股票的走势。协方差高，两只股票沿着同一方向走动，反之则是反方向走动。后者是保守选股方式。&lt;/p&gt;
+&lt;p&gt;协方差计算公式为：&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%8D%8F%E6%96%B9%E5%B7%AE&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;wikipedia&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;巴菲特投资方法&quot;&gt;&lt;a href=&quot;#巴菲特投资方法&quot; class=&quot;headerlink&quot; title=&quot;巴菲特投资方法&quot;&gt;&lt;/a&gt;巴菲特投资方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;步骤一：离开股票市场。&lt;/li&gt;
+&lt;li&gt;步骤二：不为经济情况烦恼。&lt;/li&gt;
+&lt;li&gt;步骤三：买入公司而非股票。&lt;/li&gt;
+&lt;li&gt;步骤四：管理投资组合。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;巴菲特投资准则&quot;&gt;&lt;a href=&quot;#巴菲特投资准则&quot; class=&quot;headerlink&quot; title=&quot;巴菲特投资准则&quot;&gt;&lt;/a&gt;巴菲特投资准则&lt;/h3&gt;&lt;h4 id=&quot;商业准则&quot;&gt;&lt;a href=&quot;#商业准则&quot; class=&quot;headerlink&quot; title=&quot;商业准则&quot;&gt;&lt;/a&gt;商业准则&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;公司业务简单易懂且有连贯的经营历史。&lt;/li&gt;
+&lt;li&gt;公司有良好的长期发展前景，即公司的长期经济结构特征值得肯定。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;管理准则&quot;&gt;&lt;a href=&quot;#管理准则&quot; class=&quot;headerlink&quot; title=&quot;管理准则&quot;&gt;&lt;/a&gt;管理准则&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;管理人员行为理智。&lt;/li&gt;
+&lt;li&gt;管理人员坦诚对待股东，能保持渠道畅通，使得企业收益能转入到投资者手中而不是被据为己有。&lt;/li&gt;
+&lt;li&gt;管理人员抵制“行业潮流驱使”。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;财务准则&quot;&gt;&lt;a href=&quot;#财务准则&quot; class=&quot;headerlink&quot; title=&quot;财务准则&quot;&gt;&lt;/a&gt;财务准则&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;关注权益资本回报率。&lt;/li&gt;
+&lt;li&gt;计算股东收益。&lt;/li&gt;
+&lt;li&gt;寻找利润高的公司。&lt;/li&gt;
+&lt;li&gt;对一美元的留存收益确实至少创造了一美元的市场价值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;市场准则&quot;&gt;&lt;a href=&quot;#市场准则&quot; class=&quot;headerlink&quot; title=&quot;市场准则&quot;&gt;&lt;/a&gt;市场准则&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;公司价值。&lt;/li&gt;
+&lt;li&gt;目标公司的股票能以明显的内在价值的折扣购入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;巴菲特管理公司原则&quot;&gt;&lt;a href=&quot;#巴菲特管理公司原则&quot; class=&quot;headerlink&quot; title=&quot;巴菲特管理公司原则&quot;&gt;&lt;/a&gt;巴菲特管理公司原则&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;理智原则&lt;/li&gt;
+&lt;li&gt;坦白原则&lt;/li&gt;
+&lt;li&gt;抵制机构的强迫命令原则 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;红杉投资方法&quot;&gt;&lt;a href=&quot;#红杉投资方法&quot; class=&quot;headerlink&quot; title=&quot;红杉投资方法&quot;&gt;&lt;/a&gt;红杉投资方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;选择最佳的好股，然后让投资组合围绕着这些选择进行。&lt;/li&gt;
+&lt;li&gt;选择低换手率的股票，长期持有效益好的公司的股票，利用复利获取更多税后利润。 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+
+&lt;h3 id=&quot;推荐读物&quot;&gt;&lt;a href=&quot;#推荐读物&quot; class=&quot;headerlink&quot; title=&quot;推荐读物&quot;&gt;&lt;/a&gt;推荐读物&lt;/h3&gt;&lt;p&gt;本杰明.格雷厄姆：《证券分析》《聪明的投资者》&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;相关名词定义&quot;&gt;&lt;a href=&quot;#相关名词定义&quot; class=&quot;headerlink&quot; title=&quot;相关名词定义&quot;&gt;&lt;/a&gt;相关名词定义&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安全空间&lt;br&gt;有关债券投资收益的安全空间，是指股票价格低于其内在价值（即公司内在价值），
+    
+    </summary>
+    
+    
+      <category term="Finance" scheme="http://yular.github.io/tags/Finance/"/>
     
   </entry>
   

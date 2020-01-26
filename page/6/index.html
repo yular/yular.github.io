@@ -97,661 +97,6 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-07-02T04:10:03.000Z"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Install-Multiple-Python-on-CentOS/">Install Multiple Python on CentOS</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is another good <a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-python-2-7-6-and-3-3-3-on-centos-6-4" target="_blank" rel="external">tutorial</a>.</p>
-<p>Sometimes we have to install the other versions of python on the OS because the original python may not meet requirement. It will be better that keep the stability of system as philosophy behind “if it ain’t broke, don’t fix it”. So we will not use system management tool YUM to install python but update OS and install required dependencies.</p>
-<hr>
-
-<h3 id="Preparing-System-Environment"><a href="#Preparing-System-Environment" class="headerlink" title="Preparing System Environment"></a>Preparing System Environment</h3><h4 id="Update-CentOS"><a href="#Update-CentOS" class="headerlink" title="Update CentOS"></a>Update CentOS</h4><p>Execute this command to do the update:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br></pre></td></tr></table></figure></p>
-<h4 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h4><p>Here we use YUM to install development tools. We use groupinstall to do it. YUM Software Groups consist of bunch of commonly used tools (applications) bundled together, ready for download all at the same time via execution of a single command and stating a group name.</p>
-<p>Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y development</span><br></pre></td></tr></table></figure></p>
-<p>Or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall -y <span class="string">'development tools'</span></span><br></pre></td></tr></table></figure>
-<p>Or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y zlib-dev openssl-devel sqlite-devel bzip2-devel</span><br></pre></td></tr></table></figure>
-<p>If applications like wget and xz-libs are not installed, please install them through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install wget</span><br><span class="line">sudo yum install xz-libs</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Install-Python-3-or-Python-2-7"><a href="#Install-Python-3-or-Python-2-7" class="headerlink" title="Install Python 3 or Python 2.7"></a>Install Python 3 or Python 2.7</h3><p>At first, we can go to Python official website to <a href="https://www.python.org/downloads/" target="_blank" rel="external">download Python</a>. Or execute following commands to download Python:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">wget http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">wget http://www.python.org/ftp/python/3.3.3/Python-3.3.3.tar.xz</span><br></pre></td></tr></table></figure></p>
-<p>Then extract the compressed source archive through following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line">xz <span class="_">-d</span> Python-2.7.6.tar.xz</span><br><span class="line">tar -xvf Python-2.7.6.tar</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line">xz <span class="_">-d</span> Python-3.3.3.tar.xz</span><br><span class="line">tar -xvf Python-3.3.3.tar</span><br></pre></td></tr></table></figure></p>
-<p>Then before we build the source, we should make sure that all the dependencies and environment are ready. It can be done through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7.6</span></span><br><span class="line"><span class="built_in">cd</span> Python-2.7.6</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3.3</span></span><br><span class="line"><span class="built_in">cd</span> Python-3.3.3</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure></p>
-<p>Note that prefix option means the location where we will put the new python binary. There are many other options and use any of them if needed.</p>
-<p>At last, to avoid new python overwritting original python in the system, we should execute this command to build and install python.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make altinstall</span><br></pre></td></tr></table></figure></p>
-<p>After the installation is done,  if we check /usr/local/bin (or the location specified in –prefix option), we will find a new executable files called python3.5 or python2.7.</p>
-<p>Just add the /usr/local/bin into $PATH variable in ~/.bashrc file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"/usr/local/bin:<span class="variable">$PATH</span>"</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Install-pip"><a href="#Install-pip" class="headerlink" title="Install pip"></a>Install pip</h3><p>First, we may have to install the dependency of pip - setuptools:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Download the installation tarball</span></span><br><span class="line">wget --no-check-certificate https://pypi.python.org/packages/<span class="built_in">source</span>/s/setuptools/setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Extract the files:</span></span><br><span class="line">tar -xvf setuptools-1.4.2.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment">#Install setuptools using python (Here we use Python2.7)</span></span><br><span class="line"><span class="built_in">cd</span> setuptools-1.4.2</span><br><span class="line">python2.7 setup.py install</span><br></pre></td></tr></table></figure></p>
-<p>Then execute following command to install pip:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3</span></span><br><span class="line">curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python3.3 -</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Python/">Python</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T03:23:21.000Z"><a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Install-MySQL-on-CentOS-Guide/">(Re)Install MySQL on CentOS Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="http://dev.mysql.com/doc/mysql-yum-repo-quick-guide/en/" target="_blank" rel="external">official tutorial of MySQL installation</a> for MySQL installation on CentOS. Below is our tutorial.</p>
-<hr>
-
-<h3 id="Remove-MySQL-from-CentOS-Optional"><a href="#Remove-MySQL-from-CentOS-Optional" class="headerlink" title="Remove MySQL from CentOS (Optional)"></a>Remove MySQL from CentOS (Optional)</h3><p>If we have already installed MySQL on CentOS, we should remove it first. Here is the <a href="http://yular.github.io/2016/07/02/Remove-MySQL-from-CentOS-Guide/">tutorial to remove MySQL on CentOS</a>.</p>
-<hr>
-
-<h3 id="Download-MySQL-rpm"><a href="#Download-MySQL-rpm" class="headerlink" title="Download MySQL rpm"></a>Download MySQL rpm</h3><p>Go to this page to download MySQL rpm: <a href="http://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="external">Download MySQL rpm</a>. Here we choose mysql57-community-release-el7-8.noarch.rpm, which is Red Hat Enterprise Linux 5 / Oracle Linux 5 (Architecture Independent), RPM Package.</p>
-<h3 id="Replace-original-rpm-package-with-downloaded-package"><a href="#Replace-original-rpm-package-with-downloaded-package" class="headerlink" title="Replace original rpm package with downloaded package"></a>Replace original rpm package with downloaded package</h3><p>Execute this command to refresh the rpm package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -Uvh /path/to/mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure></p>
-<p>Now the system-wide update by the yum update command will automatically upgrade MySQL packages on CentOS.</p>
-<hr>
-
-<h3 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h3><p>Run the following command to install MySQL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install mysql-community-server</span><br></pre></td></tr></table></figure></p>
-<p>It will install MySQL and all its dependency.</p>
-<hr>
-
-<h3 id="MySQL-Operation-Commands"><a href="#MySQL-Operation-Commands" class="headerlink" title="MySQL Operation Commands"></a>MySQL Operation Commands</h3><p>Start MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld start</span><br></pre></td></tr></table></figure></p>
-<p>Check MySQL status command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysqld status</span><br></pre></td></tr></table></figure></p>
-<p>MySQL will automatically generate a default password for root user. To get that password, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure></p>
-<p>Now we should run MySQL using root user at first. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure></p>
-<p>After that, we should change password of root user, otherwise we cannot do any operations on MySQL. Here is the requirement of valid root password: <a href="http://dev.mysql.com/doc/refman/5.7/en/validate-password-plugin.html" target="_blank" rel="external">check here</a>. To change root password, execute this command in MySQL console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED BY <span class="string">'MyNewPass4!'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>Upgrade MySQL server command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update mysql-server</span><br></pre></td></tr></table></figure></p>
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure>
-<p>Restart MySQL server command. Since MySQL server always restars after an update by Yum, we can use following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo yum list installed | grep <span class="string">"^mysql"</span></span><br><span class="line">sudo yum update package-name</span><br></pre></td></tr></table></figure></p>
-<p>After update process is done, execute mysql_upgrade to resolve any incompatibilities between the old data and the upgraded software..</p>
-<hr>
-
-<h3 id="Securing-MySQL-Installation-for-MySQL-5-6-Only"><a href="#Securing-MySQL-Installation-for-MySQL-5-6-Only" class="headerlink" title="Securing MySQL Installation (for MySQL 5.6 Only)"></a>Securing MySQL Installation (for MySQL 5.6 Only)</h3><p>Execute this command to change root password, remove anonymous users and test databases, disable remote login using root user and reload privilege table.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Install-MySQL-Dev"><a href="#Install-MySQL-Dev" class="headerlink" title="Install MySQL Dev"></a>Install MySQL Dev</h3><p>For MySQL developers, especially for those who will write programs to communicate with MySQL, mysql-devel is very important. Execute this command to install it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install mysql-devel</span><br></pre></td></tr></table></figure></p>
-<p>Or we can download connector packages here: <a href="http://dev.mysql.com/doc/index-connectors.html" target="_blank" rel="external">Download MySQL Connector Package</a>.</p>
-<p>I will provide connector installation and test tutorial later.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-02T02:28:48.000Z"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">2016-07-02</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/02/Remove-MySQL-from-CentOS-Guide/">Remove MySQL from CentOS Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the guide to completely remove MySQL from CentOS/RedHat OS.</p>
-<hr>
-
-<h3 id="Check-the-List-of-MySQL-rpm-installed"><a href="#Check-the-List-of-MySQL-rpm-installed" class="headerlink" title="Check the List of MySQL rpm installed"></a>Check the List of MySQL rpm installed</h3><p>Execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$rpm</span> -qa | grep mysql</span><br><span class="line">or</span><br><span class="line"><span class="variable">$yum</span> list installed | grep mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then we can see a list of rpm like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-libs-5.7.13-1.el7.x86_64</span><br><span class="line">mysql57-community-release-el7-8.noarch</span><br><span class="line">mysql-community-devel-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-server-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-common-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-libs-compat-5.7.13-1.el7.x86_64</span><br><span class="line">mysql-community-client-5.7.13-1.el7.x86_64</span><br></pre></td></tr></table></figure></p>
-<p>or</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql-community-client.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-common.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-devel.x86_64           5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs.x86_64            5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-libs-compat.x86_64     5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql-community-server.x86_64          5.7.13-1.el7                    @mysql57-community</span><br><span class="line">mysql57-community-release.noarch       el7-8                           installed</span><br></pre></td></tr></table></figure>
-<hr>
-
-<h3 id="Remove-MySQL-related-packages"><a href="#Remove-MySQL-related-packages" class="headerlink" title="Remove MySQL-related packages"></a>Remove MySQL-related packages</h3><p>Execute this command to uninstall the above packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql-community-client.x86_64 mysql-community-common.x86_64 mysql-community-devel.x86_64 mysql-community-libs.x86_64 mysql-community-libs-compat.x86_64 mysql-community-server.x86_64 mysql57-community-release.noarch</span><br></pre></td></tr></table></figure></p>
-<p>Sometimes it may not completely remove mysql. So we may have to execute the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove mysql mysql-server</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Cleanup-MySQL-Directories"><a href="#Cleanup-MySQL-Directories" class="headerlink" title="Cleanup MySQL Directories"></a>Cleanup MySQL Directories</h3><p>Remove data directory of MySQL (Do the backup if needed):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Backup</span></span><br><span class="line">mv /var/lib/mysql /var/lib/mysql_bp</span><br><span class="line"><span class="comment">#Remove</span></span><br><span class="line">rm -rf /var/lib/mysql</span><br></pre></td></tr></table></figure></p>
-<p>Then remove cnf file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/my.cnf</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-01T12:31:21.000Z"><a href="/2016/07/01/Apache-Livy-QuickStart/">2016-07-01</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/01/Apache-Livy-QuickStart/">Apache Livy QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-30T14:42:01.000Z"><a href="/2016/06/30/JupyterHub-Install-Guide/">2016-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/30/JupyterHub-Install-Guide/">JupyterHub Install Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://github.com/jupyterhub/jupyterhub" target="_blank" rel="external">official tutorial</a> to install JupyterHub. It can help to spawn, manage, and proxy multiple instances of the single-user Jupyter notebook (IPython notebook) server.</p>
-<p>Here is our tutorial:</p>
-<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>JupyterHub requires followings application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python 3.3+</span><br><span class="line">NodeJS (Only <span class="keyword">for</span> configurable-http-proxy installation)</span><br><span class="line">TLS certificate and key <span class="keyword">for</span> HTTPS communication</span><br><span class="line">Domain name</span><br></pre></td></tr></table></figure></p>
-<h3 id="Install-JupyterHub"><a href="#Install-JupyterHub" class="headerlink" title="Install JupyterHub"></a>Install JupyterHub</h3><p>At first, we should install Python 3.3+ and pip3 in our OS. Here is the <a href="http://yular.github.io/2016/07/02/Install-Multiple-Python-on-CentOS/">tutorial</a>.</p>
-<p>Then install JupytherHub through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g configurable-http-proxy</span><br><span class="line">pip3 install jupyterhub</span><br></pre></td></tr></table></figure></p>
-<p>Note that -g option means that we will install configurable-http-proxy globally in our OS. If we plan to move Python 3, JupyterHub and configurable-http-proxy to other location, we should remove that option but have to add the file path of it and nodejs/bin in $PATH system variable.</p>
-<h3 id="Run-JupyterHub"><a href="#Run-JupyterHub" class="headerlink" title="Run JupyterHub"></a>Run JupyterHub</h3><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub</span><br></pre></td></tr></table></figure></p>
-<p>By default, it is running on port 8000 and we can visit the website from <a href="http://localhost:8000" target="_blank" rel="external">http://localhost:8000</a>. Or we can change the port and ip by this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --ip 0.0.0.0 --port 9090</span><br></pre></td></tr></table></figure></p>
-<h3 id="Configure-JupyterHub"><a href="#Configure-JupyterHub" class="headerlink" title="Configure JupyterHub"></a>Configure JupyterHub</h3><p>Here is the command to generate config file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyterhub --generate-config</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Python/">Python</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-30T14:41:55.000Z"><a href="/2016/06/30/Jupyter-Install-Guide/">2016-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/30/Jupyter-Install-Guide/">Jupyter Notebook Install Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the official <a href="http://jupyter.readthedocs.io/en/latest/install.html" target="_blank" rel="external">tutorial</a> to install Jupyter Notebook on Redhat. Below is the our tutorial.</p>
-<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>Jupyter Notebook requires Python 2.7+ or 3.3+.</p>
-<p>Besides, Anaconda script is recommended but not required. Download Anaconda <a href="https://www.continuum.io/downloads#_unix" target="_blank" rel="external">here</a>. Remember to pick the right version of Anaconda.</p>
-<hr>
-
-<h3 id="Install-Jupyter"><a href="#Install-Jupyter" class="headerlink" title="Install Jupyter"></a>Install Jupyter</h3><p>After we get Anaconda script, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">sh Anaconda2-4.1.0-Linux-x86_64.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">sh Anaconda3-4.1.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure></p>
-<p>Or we can use pip to install Jupyter:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">pip install jupyter</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">pip3 install jupyter</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Run-Jupyter"><a href="#Run-Jupyter" class="headerlink" title="Run Jupyter"></a>Run Jupyter</h3><p>To start Jupyter server, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Jupyter-Configuration"><a href="#Jupyter-Configuration" class="headerlink" title="Jupyter Configuration"></a>Jupyter Configuration</h3><p>There are mainly two kinds of Jupyter configuration system. One is common Jupyter configuration system, which is shared by all Jupyter applications. The other is kernel configuration system, which is identified by different kernels.<br>For common Jupyter configuration system, the conf files are saved under ~/.jupyter by default.<br>For kernel configuration system, the conf files are saved in different places. For example, the IPython kernel conf files are saved under ~/.ipython and we can find a folder named kernel there.</p>
-<p>To generate jupyter conf file, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter &#123;application&#125; --generate-config</span><br></pre></td></tr></table></figure></p>
-<p>Here we use:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure></p>
-<p>To configure ipython, at first, we should install ipython using:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Python 2.7+</span></span><br><span class="line">pip install ipython</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python 3.3+</span></span><br><span class="line">pip3 install ipython</span><br></pre></td></tr></table></figure></p>
-<p>Note that here is the official tutorial of <a href="http://ipython.readthedocs.io/en/stable/install/install.html#installation-using-pip" target="_blank" rel="external">ipython</a>.</p>
-<p>Then generate conf files through:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipython profile create [profilename]</span><br></pre></td></tr></table></figure></p>
-<p>Note that if profilename is blank, the files will be created for the default profile which are saved under ~/.ipython. Here are the folders under  ~/.ipython.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extensions  nbextensions  profile_default</span><br></pre></td></tr></table></figure></p>
-<p>And we can find ipython_config.py as well as ipython_kernel_config.py under profile_default folder.</p>
-<p>Next we should install IPython kernel for further configuration. Here are the commands and official <a href="http://ipython.readthedocs.io/en/stable/install/kernel_install.html" target="_blank" rel="external">tutorial</a>:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install ipykernel</span><br><span class="line">sudo ipykernel install --user</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<p>A list of <a href="http://jupyter-client.readthedocs.io/en/latest/kernels.html#kernelspecs" target="_blank" rel="external">kernel specific files</a> will be generated. Now we can find a new folder called kernels under ~/.ipython (or other location set up users). Under that folder there is a kernel.json file which is the most important thing to edit.<br>Here is an kernel json file sample:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">"display_name"</span>: <span class="string">"pySpark (Spark 1.5.3)"</span>,</span><br><span class="line"> <span class="string">"language"</span>: <span class="string">"python"</span>,</span><br><span class="line"> <span class="string">"argv"</span>: [</span><br><span class="line">  <span class="string">"anaconda2/bin/python"</span>,</span><br><span class="line">  <span class="string">"-m"</span>,</span><br><span class="line">  <span class="string">"IPython.kernel"</span>,</span><br><span class="line">  <span class="string">"-f"</span>,</span><br><span class="line">  <span class="string">"&#123;connection_file&#125;"</span></span><br><span class="line"> ],</span><br><span class="line"> <span class="string">"env"</span>: &#123;</span><br><span class="line">  <span class="string">"SPARK_HOME"</span>: <span class="string">"/usr/local/spark/"</span>,</span><br><span class="line">  <span class="string">"PYTHONPATH"</span>: <span class="string">"/usr/local/spark/python/:/usr/local/python/lib/py4j-0.8.2.1-src.zip"</span>,</span><br><span class="line">  <span class="string">"PYTHONSTARTUP"</span>: <span class="string">"/usr/local/spark/python/pyspark/shell.py"</span>,</span><br><span class="line">  <span class="string">"PYSPARK_SUBMIT_ARGS"</span>: <span class="string">"--master local --jars /home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar pyspark-shell"</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Here is explanation of arguments used in kernel.json:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">argv: A list of <span class="built_in">command</span> line arguments used to start the kernel. </span><br><span class="line">display_name: The kernel’s name as it should be displayed <span class="keyword">in</span> the UI. </span><br><span class="line">language: The name of the language of the kernel. When loading notebooks, <span class="keyword">if</span> no matching kernelspec key (may differ across machines) is found, a kernel with a matching language will be used. </span><br><span class="line">env (optional): A dictionary of environment variables to <span class="built_in">set</span> <span class="keyword">for</span> the kernel. But it will be important <span class="keyword">if</span> we want to change the default settings of spark without overwritting the existing one <span class="keyword">in</span> the system.</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Python/">Python</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-30T14:41:01.000Z"><a href="/2016/06/30/Maven-CDH-QuickStart/">2016-06-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/30/Maven-CDH-QuickStart/">Maven CDH QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Sometimes when we develop a project using Maven, we may find that some dependencies are out of Maven repository. In that case, we have to include those repositories containing the missing dependencies into the project by specifying them in pom.xml file. Here we use CDH repository as an example in this tutorial. </p>
-<p>Note that due to some unknown issue, the code cannot run in my environment but can be built. The official tutorials are from <a href="https://github.com/cloudera/livy" target="_blank" rel="external">Apache Livy</a> and <a href="http://blog.cloudera.com/blog/2012/08/developing-cdh-applications-with-maven-and-eclipse/" target="_blank" rel="external">Cloudera</a>.</p>
-<h3 id="Create-Maven-Project"><a href="#Create-Maven-Project" class="headerlink" title="Create Maven Project"></a>Create Maven Project</h3><p>Run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=com.yulartech.app -DartifactId=livytest -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Edit-pom-xml"><a href="#Edit-pom-xml" class="headerlink" title="Edit pom.xml"></a>Edit pom.xml</h3><p>Here is the correct content of pom.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.yulartech.app&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;livytest&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;jar&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">  &lt;name&gt;livytest&lt;/name&gt;</span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;jdk.version&gt;1.8&lt;/jdk.version&gt;</span><br><span class="line">    &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;junit.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.spark&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spark-core_2.10&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;1.5.0-cdh5.5.0&lt;/version&gt;</span><br><span class="line">          &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">          &lt;groupId&gt;org.eclipse.jetty.orbit&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;javax.servlet&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">      &lt;/exclusions&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;com.cloudera.livy&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;livy-client-http&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;0.2.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;com.cloudera.livy&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;livy-client-common&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;0.2.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;com.cloudera.livy&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;livy-api&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;0.2.0&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;2.9&lt;/version&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;downloadSources&gt;<span class="literal">true</span>&lt;/downloadSources&gt;</span><br><span class="line">           &lt;downloadJavadocs&gt;<span class="literal">false</span>&lt;/downloadJavadocs&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;2.3.2&lt;/version&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">           &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line">       &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">            &lt;archive&gt;</span><br><span class="line">              &lt;manifest&gt;</span><br><span class="line">                &lt;mainClass&gt;com.yulartech.app.App&lt;/mainClass&gt;</span><br><span class="line">              &lt;/manifest&gt;</span><br><span class="line">            &lt;/archive&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line">       &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.dstovall&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;onejar-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;1.4.4&lt;/version&gt;</span><br><span class="line">          &lt;executions&gt;</span><br><span class="line">            &lt;execution&gt;</span><br><span class="line">                &lt;goals&gt;</span><br><span class="line">                  &lt;goal&gt;one-jar&lt;/goal&gt;</span><br><span class="line">                &lt;/goals&gt;</span><br><span class="line">            &lt;/execution&gt;</span><br><span class="line">           &lt;/executions&gt;</span><br><span class="line">       &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">  &lt;pluginRepositories&gt;</span><br><span class="line">    &lt;pluginRepository&gt;</span><br><span class="line">        &lt;id&gt;onejar-maven-plugin.googlecode.com&lt;/id&gt;</span><br><span class="line">        &lt;url&gt;http://onejar-maven-plugin.googlecode.com/svn/mavenrepo&lt;/url&gt;</span><br><span class="line">    &lt;/pluginRepository&gt;</span><br><span class="line">  &lt;/pluginRepositories&gt;</span><br><span class="line"></span><br><span class="line">  &lt;repositories&gt;</span><br><span class="line">    &lt;repository&gt;</span><br><span class="line">      &lt;id&gt;cloudera&lt;/id&gt;</span><br><span class="line">      &lt;url&gt;https://repository.cloudera.com/artifactory/cloudera-repos&lt;/url&gt;</span><br><span class="line">      &lt;releases&gt;</span><br><span class="line">        &lt;enabled&gt;<span class="literal">true</span>&lt;/enabled&gt;</span><br><span class="line">      &lt;/releases&gt;</span><br><span class="line">      &lt;snapshots&gt;</span><br><span class="line">        &lt;enabled&gt;<span class="literal">false</span>&lt;/enabled&gt;</span><br><span class="line">      &lt;/snapshots&gt;</span><br><span class="line">    &lt;/repository&gt;</span><br><span class="line">  &lt;/repositories&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
-<p>For this part:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"> &lt;build&gt;</span><br><span class="line">   &lt;plugins&gt;</span><br><span class="line">     &lt;plugin&gt;</span><br><span class="line">       &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.9&lt;/version&gt;</span><br><span class="line">        &lt;configuration&gt;</span><br><span class="line">          &lt;downloadSources&gt;<span class="literal">true</span>&lt;/downloadSources&gt;</span><br><span class="line">          &lt;downloadJavadocs&gt;<span class="literal">false</span>&lt;/downloadJavadocs&gt;</span><br><span class="line">        &lt;/configuration&gt;</span><br><span class="line">     &lt;/plugin&gt;</span><br><span class="line">     &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3.2&lt;/version&gt;</span><br><span class="line">        &lt;configuration&gt;</span><br><span class="line">          &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">          &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">        &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;configuration&gt;</span><br><span class="line">           &lt;archive&gt;</span><br><span class="line">             &lt;manifest&gt;</span><br><span class="line">               &lt;mainClass&gt;com.yulartech.app.App&lt;/mainClass&gt;</span><br><span class="line">             &lt;/manifest&gt;</span><br><span class="line">           &lt;/archive&gt;</span><br><span class="line">         &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">         &lt;groupId&gt;org.dstovall&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;onejar-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">         &lt;version&gt;1.4.4&lt;/version&gt;</span><br><span class="line">         &lt;executions&gt;</span><br><span class="line">           &lt;execution&gt;</span><br><span class="line">               &lt;goals&gt;</span><br><span class="line">                 &lt;goal&gt;one-jar&lt;/goal&gt;</span><br><span class="line">               &lt;/goals&gt;</span><br><span class="line">           &lt;/execution&gt;</span><br><span class="line">          &lt;/executions&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line">   &lt;/plugins&gt;</span><br><span class="line"> &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;pluginRepositories&gt;</span><br><span class="line">   &lt;pluginRepository&gt;</span><br><span class="line">       &lt;id&gt;onejar-maven-plugin.googlecode.com&lt;/id&gt;</span><br><span class="line">       &lt;url&gt;http://onejar-maven-plugin.googlecode.com/svn/mavenrepo&lt;/url&gt;</span><br><span class="line">   &lt;/pluginRepository&gt;</span><br><span class="line">&lt;/pluginRepositories&gt;</span><br></pre></td></tr></table></figure></p>
-<p>It means that we use a maven plugin from googlecode that helps to build the jar file including all external dependencies inside so that when we run that jar file in a different environment, it will not fail with dependencies not found exception.</p>
-<p>For this part:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;repositories&gt;</span><br><span class="line">   &lt;repository&gt;</span><br><span class="line">     &lt;id&gt;cloudera&lt;/id&gt;</span><br><span class="line">     &lt;url&gt;https://repository.cloudera.com/artifactory/cloudera-repos&lt;/url&gt;</span><br><span class="line">     &lt;releases&gt;</span><br><span class="line">       &lt;enabled&gt;<span class="literal">true</span>&lt;/enabled&gt;</span><br><span class="line">     &lt;/releases&gt;</span><br><span class="line">     &lt;snapshots&gt;</span><br><span class="line">       &lt;enabled&gt;<span class="literal">false</span>&lt;/enabled&gt;</span><br><span class="line">     &lt;/snapshots&gt;</span><br><span class="line">   &lt;/repository&gt;</span><br><span class="line"> &lt;/repositories&gt;</span><br></pre></td></tr></table></figure></p>
-<p>It means that we add CDH repository into our dependency management system so that we can access the following dependencies only available in Cloudera:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;com.cloudera.livy&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;livy-client-http&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;0.2.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Edit-Java-Source-Code"><a href="#Edit-Java-Source-Code" class="headerlink" title="Edit Java Source Code"></a>Edit Java Source Code</h3><p>At first, let us edit livytest/src/main/java/com/yulartech/app/PiJob.java.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> livytest</span><br><span class="line">touch src/main/java/com/yulartech/app/PiJob.java</span><br></pre></td></tr></table></figure></p>
-<p>Here is the content of PiJob.java:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.app;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import org.apache.spark.api.java.*;</span><br><span class="line">import org.apache.spark.api.java.function.Function;</span><br><span class="line">import org.apache.spark.api.java.function.Function2;</span><br><span class="line"></span><br><span class="line">import com.cloudera.livy.client.common.*;</span><br><span class="line">import com.cloudera.livy.client.*;</span><br><span class="line">import com.cloudera.livy.client.http.*;</span><br><span class="line">import com.cloudera.livy.*;</span><br><span class="line"></span><br><span class="line">public class PiJob implements Job&lt;Double&gt;, Function&lt;Integer, Integer&gt;,</span><br><span class="line">Function2&lt;Integer, Integer, Integer&gt;&#123;</span><br><span class="line"></span><br><span class="line">        private final int samples;</span><br><span class="line"></span><br><span class="line">          public PiJob(int samples) &#123;</span><br><span class="line">            this.samples = samples;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public Double call(JobContext ctx) throws Exception &#123;</span><br><span class="line">            List&lt;Integer&gt; sampleList = new ArrayList&lt;Integer&gt;();</span><br><span class="line">            <span class="keyword">for</span> (int i = 0; i &lt; samples; i++) &#123;</span><br><span class="line">              sampleList.add(i + 1);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">return</span> 4.0d * ctx.sc().parallelize(sampleList).map(this).reduce(this) / samples;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public Integer call(Integer v1) &#123;</span><br><span class="line">            double x = Math.random();</span><br><span class="line">            double y = Math.random();</span><br><span class="line">            <span class="built_in">return</span> (x*x + y*y &lt; 1) ? 1 : 0;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">          @Override</span><br><span class="line">          public Integer call(Integer v1, Integer v2) &#123;</span><br><span class="line">            <span class="built_in">return</span> v1 + v2;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>And here is the content of livytest/src/main/java/com/yulartech/app/App.java<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.app;</span><br><span class="line"></span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.net.URI;</span><br><span class="line">import java.net.URISyntaxException;</span><br><span class="line">import java.util.concurrent.ExecutionException;</span><br><span class="line"></span><br><span class="line">import com.cloudera.livy.*;</span><br><span class="line"></span><br><span class="line">public class App</span><br><span class="line">&#123;</span><br><span class="line">    public static void main( String[] args ) throws IOException, URISyntaxException, InterruptedException, ExecutionException</span><br><span class="line">    &#123;</span><br><span class="line">        LivyClient client = new LivyClientBuilder()</span><br><span class="line">                          .setURI(new URI(<span class="string">""</span>))</span><br><span class="line">                          .build();</span><br><span class="line">        int samples = 20;</span><br><span class="line">        String piJar = <span class="string">""</span>;</span><br><span class="line">        try &#123;</span><br><span class="line"></span><br><span class="line">                  System.err.printf(<span class="string">"Running PiJob with %d samples...\n"</span>, samples);</span><br><span class="line">                  double pi = client.submit(new PiJob(samples)).get();</span><br><span class="line"></span><br><span class="line">                  System.out.println(<span class="string">"Pi is roughly: "</span> + pi);</span><br><span class="line">                &#125; finally &#123;</span><br><span class="line">                  client.stop(<span class="literal">true</span>);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Build-the-source-code"><a href="#Build-the-source-code" class="headerlink" title="Build the source code"></a>Build the source code</h3><p>Execute this command under project folder:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br><span class="line">mvn package -DskipTests</span><br></pre></td></tr></table></figure></p>
-<p>Here we may get some class not found exceptions and the classes are relative to Apache Livy. One solution is to check our .m2 directory which by default is under our home directory. Then we can navigate to the folders saving the missing dependencies. For example, here is the path to jsr jars.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls ~/.m2/repository/com/google/code/findbugs/jsr30ls</span><br><span class="line"></span><br><span class="line"><span class="comment"># Output</span></span><br><span class="line">_remote.repositories   jsr305-2.0.1.jar       jsr305-2.0.1.jar.sha1  jsr305-2.0.1.pom       jsr305-2.0.1.pom.sha1</span><br></pre></td></tr></table></figure></p>
-<p>For that Livy dependencies, we may find that all the jars and poms downloaded have names with .lastUpdated suffix. Even though we remove that suffix, it will not work because those files are completely wrong! In that case, just go to cloudera repository website to download and save them into the correct location.</p>
-<p>To run the jar built by us, we need a Apache Livy environment. As I have mentioned above, even with Livy running, the jar file still fail with exceptions. So I will update this tutorial after I figure out what is going wrong and fix them. </p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-10T16:15:50.000Z"><a href="/2016/06/11/Gradle-Java-QuickStart/">2016-06-11</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/11/Gradle-Java-QuickStart/">Gradle Java QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a quickstart tutorial for gradle java project.</p>
-<h3 id="Install-Gradle"><a href="#Install-Gradle" class="headerlink" title="Install Gradle"></a>Install Gradle</h3><p>Here is the official tutorial for <a href="https://docs.gradle.org/current/userguide/installation.html" target="_blank" rel="external">Gradle Installation</a>.</p>
-<p>For Mac users, just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gradle-Project"><a href="#Gradle-Project" class="headerlink" title="Gradle Project"></a>Gradle Project</h3><p>Create project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir java-quickstart</span><br><span class="line"><span class="built_in">cd</span> java-quickstart</span><br></pre></td></tr></table></figure></p>
-<p>Init a Gradle Java project using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle init --type java-library</span><br><span class="line"></span><br><span class="line"><span class="comment"># Files and folders generated:</span></span><br><span class="line">build.gradle	gradle		gradlew		gradlew.bat	settings.gradle	src</span><br></pre></td></tr></table></figure></p>
-<p>The src/main/java/Library.java and src/test/java/LibraryTest.java files are generated by gradle and we can remove them.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf src/main/java/Library.java</span><br><span class="line">rm -rf src/<span class="built_in">test</span>/java/LibraryTest.java </span><br><span class="line">mkdir -p src/main/java/com/yulartech/template</span><br><span class="line">vi src/main/com/yulartech/template/Main.java</span><br></pre></td></tr></table></figure>
-<p>And here is the source code of Main class:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">        public static void main(String[] args)&#123;</span><br><span class="line">                System.out.println(<span class="string">" Hello World! "</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Edit build.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// Apply the java plugin to add support <span class="keyword">for</span> Java</span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> <span class="built_in">where</span> to find the dependencies of your project</span><br><span class="line">repositories &#123;</span><br><span class="line">    // Use <span class="string">'jcenter'</span> <span class="keyword">for</span> resolving your dependencies.</span><br><span class="line">    // You can <span class="built_in">declare</span> any Maven/Ivy/file repository here.</span><br><span class="line">//    jcenter()</span><br><span class="line">    mavenCentral()</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> the dependencies <span class="keyword">for</span> your production and <span class="built_in">test</span> code</span><br><span class="line">dependencies &#123;</span><br><span class="line">    // The production code uses the SLF4J logging API at compile time</span><br><span class="line">    compile <span class="string">'org.slf4j:slf4j-api:1.7.18'</span></span><br><span class="line"></span><br><span class="line">    // Declare the dependency <span class="keyword">for</span> your favourite <span class="built_in">test</span> framework you want to use <span class="keyword">in</span> your tests.</span><br><span class="line">    // TestNG is also supported by the Gradle Test task. Just change the</span><br><span class="line">    // <span class="built_in">test</span>Compile dependency to <span class="built_in">test</span>Compile <span class="string">'org.testng:testng:6.8.1'</span> and add</span><br><span class="line">    // <span class="string">'test.useTestNG()'</span> to your build script.</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jar &#123;</span><br><span class="line">        manifest &#123;</span><br><span class="line"></span><br><span class="line">                attributes(<span class="string">"Main-Class"</span>: <span class="string">"com.yulartech.template.Main"</span>)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Edit settings.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// To <span class="built_in">declare</span> projects as part of a multi-project build use the <span class="string">'include'</span> method</span><br><span class="line">include <span class="string">'shared'</span></span><br><span class="line">include <span class="string">'api'</span></span><br><span class="line">include <span class="string">'services:webservice'</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">rootProject.name = <span class="string">'java-quickstart'</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Build-and-Run-Gradle-Java-Project"><a href="#Build-and-Run-Gradle-Java-Project" class="headerlink" title="Build and Run Gradle Java Project"></a>Build and Run Gradle Java Project</h3><p>Here is the command to build and run the project.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gradle clean build</span><br><span class="line">java -jar build/libs/java-quickstart.jar</span><br></pre></td></tr></table></figure></p>
-<p>And we can see the output like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">:clean</span><br><span class="line">:compileJava</span><br><span class="line">:processResources UP-TO-DATE</span><br><span class="line">:classes</span><br><span class="line">:jar</span><br><span class="line">:assemble</span><br><span class="line">:compileTestJava UP-TO-DATE</span><br><span class="line">:processTestResources UP-TO-DATE</span><br><span class="line">:<span class="built_in">test</span>Classes UP-TO-DATE</span><br><span class="line">:<span class="built_in">test</span> UP-TO-DATE</span><br><span class="line">:check UP-TO-DATE</span><br><span class="line">:build</span><br><span class="line"></span><br><span class="line">BUILD SUCCESSFUL</span><br><span class="line"></span><br><span class="line">Total time: 4.032 secs</span><br><span class="line"></span><br><span class="line"> Hello World!</span><br></pre></td></tr></table></figure></p>
-<p>Here is the link of source code.<br><a href="https://github.com/yular/Java-CodeLibrary/tree/master/gradle-quickstart" target="_blank" rel="external">Github Source Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-10T15:21:41.000Z"><a href="/2016/06/10/Gradle-QuickStart/">2016-06-10</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/10/Gradle-QuickStart/">Gradle QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Gradle is an open source build automation system that builds upon the concepts of Apache Ant and Apache Maven and introduces a Groovy-based domain-specific language (DSL) instead of the XML form used by Apache Maven of declaring the project configuration. Here is its <a href="https://en.wikipedia.org/wiki/Gradle" target="_blank" rel="external">Wiki</a>. And here is <a href="http://gradle.org/getting-started-gradle-java/" target="_blank" rel="external">official website</a>.</p>
-<p>Below is a quickstart guide for Gradle.</p>
-<h3 id="Gradle-Installation"><a href="#Gradle-Installation" class="headerlink" title="Gradle Installation"></a>Gradle Installation</h3><p>Here is the link of <a href="https://docs.gradle.org/current/userguide/installation.html" target="_blank" rel="external">official document</a> about Gradle install.</p>
-<p>For Mac user, it is much easiser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gradle</span><br></pre></td></tr></table></figure></p>
-<p>To test whether gradle is installed successfully, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gradle -v</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle 2.12</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   2016-03-14 08:32:03 UTC</span><br><span class="line">Build number: none</span><br><span class="line">Revision:     b29fbb64ad6b068cb3f05f7e40dc670472129bc0</span><br><span class="line"></span><br><span class="line">Groovy:       2.4.4</span><br><span class="line">Ant:          Apache Ant(TM) version 1.9.3 compiled on December 23 2013</span><br><span class="line">JVM:          1.8.0_51 (Oracle Corporation 25.51-b03)</span><br><span class="line">OS:           Mac OS X 10.11.5 x86_64</span><br></pre></td></tr></table></figure></p>
-<h3 id="Gradle-Project-QuickStart"><a href="#Gradle-Project-QuickStart" class="headerlink" title="Gradle Project QuickStart"></a>Gradle Project QuickStart</h3><p>Here is a quickstart guide to setup a Hello World project.</p>
-<p>Create a new folder for project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir gradle-quickstart</span><br><span class="line"><span class="built_in">cd</span> gradle-quickstart</span><br></pre></td></tr></table></figure></p>
-<p>Then execute this command to check all the available tasks:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">gradle tasks</span><br><span class="line"></span><br><span class="line"><span class="comment">#Here is the sample output:</span></span><br><span class="line">:tasks</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">All tasks runnable from root project</span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build Setup tasks</span><br><span class="line">-----------------</span><br><span class="line">init - Initializes a new Gradle build. [incubating]</span><br><span class="line">wrapper - Generates Gradle wrapper files. [incubating]</span><br><span class="line"></span><br><span class="line">Help tasks</span><br><span class="line">----------</span><br><span class="line">buildEnvironment - Displays all buildscript dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">components - Displays the components produced by root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">dependencies - Displays all dependencies declared <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">dependencyInsight - Displays the insight into a specific dependency <span class="keyword">in</span> root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"><span class="built_in">help</span> - Displays a <span class="built_in">help</span> message.</span><br><span class="line">model - Displays the configuration model of root project <span class="string">'Java-CodeLibrary'</span>. [incubating]</span><br><span class="line">projects - Displays the sub-projects of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">properties - Displays the properties of root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line">tasks - Displays the tasks runnable from root project <span class="string">'Java-CodeLibrary'</span>.</span><br><span class="line"></span><br><span class="line">To see all tasks and more detail, run gradle tasks --all</span><br><span class="line"></span><br><span class="line">To see more detail about a task, run gradle <span class="built_in">help</span> --task &lt;task&gt;</span><br><span class="line"></span><br><span class="line">BUILD SUCCESSFUL</span><br><span class="line"></span><br><span class="line">Total time: 1.977 secs</span><br><span class="line"></span><br><span class="line">This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.12/userguide/gradle_daemon.html</span><br></pre></td></tr></table></figure></p>
-<p>Init a Gradle project:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Here are the files generated:</span></span><br><span class="line">build.gradle	gradle		gradlew		gradlew.bat	settings.gradle</span><br></pre></td></tr></table></figure></p>
-<p>Edit build.gradle file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line">// Apply the java plugin to add support <span class="keyword">for</span> Java</span><br><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> <span class="built_in">where</span> to find the dependencies of your project</span><br><span class="line">repositories &#123;</span><br><span class="line">    // Use <span class="string">'jcenter'</span> <span class="keyword">for</span> resolving your dependencies.</span><br><span class="line">    // You can <span class="built_in">declare</span> any Maven/Ivy/file repository here.</span><br><span class="line">    jcenter()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// In this section you <span class="built_in">declare</span> the dependencies <span class="keyword">for</span> your production and <span class="built_in">test</span> code</span><br><span class="line">dependencies &#123;</span><br><span class="line">    // The production code uses the SLF4J logging API at compile time</span><br><span class="line">    compile <span class="string">'org.slf4j:slf4j-api:1.7.21'</span></span><br><span class="line"></span><br><span class="line">    // Declare the dependency <span class="keyword">for</span> your favourite <span class="built_in">test</span> framework you want to use <span class="keyword">in</span> your tests.</span><br><span class="line">    // TestNG is also supported by the Gradle Test task. Just change the</span><br><span class="line">    // <span class="built_in">test</span>Compile dependency to <span class="built_in">test</span>Compile <span class="string">'org.testng:testng:6.8.1'</span> and add</span><br><span class="line">    // <span class="string">'test.useTestNG()'</span> to your build script.</span><br><span class="line">    <span class="built_in">test</span>Compile <span class="string">'junit:junit:4.12'</span></span><br><span class="line">&#125;</span><br><span class="line">*/</span><br><span class="line">task hello &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span>Last &#123;</span><br><span class="line">                println <span class="string">'Hello World!'</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Now a simple gradle script is done. We can execute the “hello” task through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gradle -q hello</span><br><span class="line"></span><br><span class="line"><span class="comment"># output</span></span><br><span class="line">Hello World!</span><br></pre></td></tr></table></figure></p>
-<p>The -q option will remove the debug message output.</p>
-<p>Below is the source code of this project.<br><a href="https://github.com/yular/Java-CodeLibrary/tree/master/gradle-quickstart" target="_blank" rel="external">Github Source Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Java/">Java</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-03T11:31:07.000Z"><a href="/2016/06/03/MongoDB-Install-on-Centos/">2016-06-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/03/MongoDB-Install-on-Centos/">MongoDB Install on Centos</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://docs.mongodb.com/manual/tutorial/install-mongodb-on-red-hat/" target="_blank" rel="external">official document</a> to install MongoDB on CentOS / RedHat OS.</p>
-<p>Below is a simple version of install guide.</p>
-<h2 id="Configure-the-yum"><a href="#Configure-the-yum" class="headerlink" title="Configure the yum"></a>Configure the yum</h2><p>Create a /etc/yum.repos.d/mongodb-org-3.2.repo file so that we can install MongoDB directly, using yum.</p>
-<p>Copy following content into the repository file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[mongodb-org-3.2]</span><br><span class="line">name=MongoDB Repository</span><br><span class="line">baseurl=https://repo.mongodb.org/yum/redhat/<span class="variable">$releasever</span>/mongodb-org/3.2/x86_64/</span><br><span class="line">gpgcheck=1</span><br><span class="line">enabled=1</span><br><span class="line">gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc</span><br></pre></td></tr></table></figure></p>
-<h2 id="Install-MongoDB-and-associated-tools"><a href="#Install-MongoDB-and-associated-tools" class="headerlink" title="Install MongoDB and associated tools"></a>Install MongoDB and associated tools</h2><p>Execute following command to install MongoDB:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install -y mongodb-org</span><br></pre></td></tr></table></figure></p>
-<h2 id="Run-MongoDB-Service"><a href="#Run-MongoDB-Service" class="headerlink" title="Run MongoDB Service"></a>Run MongoDB Service</h2><p>Before we start MongoDB Service, we may have to configure SELinux first.</p>
-<p>Check /etc/selinux/config. The value of variable SELINUX has these three options:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enforcing (by default)</span><br><span class="line">disabled</span><br><span class="line">permissive</span><br><span class="line">`</span><br></pre></td></tr></table></figure></p>
-<p>If it is in enforcing mode, we may have to execute this command to ensure that MongoDB can use the port:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port <span class="_">-a</span> -t mongod_port_t -p tcp 27017</span><br></pre></td></tr></table></figure></p>
-<p>Or we can change the SELINUX into different mode and reboot the system so that change can take effect.</p>
-<p>By default, MongoDB save data files in /var/lib/mongo and save log files in /var/log/mongodb. All these settigs can be changed in /etc/mongod.conf.</p>
-<p>To start MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod start</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">To restart MongoDB, execute this <span class="built_in">command</span>:</span><br><span class="line">``` bash</span><br><span class="line">sudo service mongod restart</span><br></pre></td></tr></table></figure></p>
-<p>To stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mongod stop</span><br></pre></td></tr></table></figure></p>
-<h2 id="Verify-MongoDB-Boosting"><a href="#Verify-MongoDB-Boosting" class="headerlink" title="Verify MongoDB Boosting"></a>Verify MongoDB Boosting</h2><p>Check /var/log/mongodb/mongod.log to find the following lines:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[initandlisten] waiting <span class="keyword">for</span> connections on port &lt;port&gt;</span><br></pre></td></tr></table></figure></p>
-<p>where <port> is the port configured in /etc/mongod.conf and 27017 is by default.</port></p>
-<p>Or ensure that MongoDB will start following a system reboot by issuing the following command::<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chkconfig mongod on</span><br></pre></td></tr></table></figure></p>
-<h2 id="Remove-MongoDB"><a href="#Remove-MongoDB" class="headerlink" title="Remove MongoDB"></a>Remove MongoDB</h2><p>After stop MongoDB, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum erase $(rpm -qa | grep mongodb-org)</span><br></pre></td></tr></table></figure></p>
-<p>And then remove data files as well as log files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -r /var/<span class="built_in">log</span>/mongodb</span><br><span class="line">sudo rm -r /var/lib/mongo</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Database/">Database</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-06-03T10:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
-<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
-<p>Here is a simple guide to download, build and install Lua on Centos.</p>
-<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
-<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
-<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
-<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
-<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
-<p>If Lua is installed successfully, this command will be executed successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lua</span><br><span class="line"><span class="comment"># Command output : </span></span><br><span class="line">Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
         <time datetime="2016-05-31T01:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
       
       
@@ -1182,6 +527,542 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-30T12:02:52.000Z"><a href="/2016/03/30/Redis-QuickStart/">2016-03-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/30/Redis-QuickStart/">Redis QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Redis is an open source, in-memory data structure store fro database, cache and message broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries and bitmaps, hyperloglogs and geospatial indexes with radius queries.<br>Here is the <a href="http://redis.io/">official website of redis</a>.</p>
+<p>Below is a simple quick start tutorial of redis. And here is the <a href="http://redis.io/topics/quickstart">official tutorial</a>.</p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/30/Redis-QuickStart/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-27T07:36:14.000Z"><a href="/2016/03/27/CSS-Pattern-List/">2016-03-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/27/CSS-Pattern-List/">CSS Pattern List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Below is the list of links about CSS pattern which offer source code and demo to learn and reuse. But not all of them are free.</p>
+<p><a href="http://lea.verou.me/css3patterns/" target="_blank" rel="external">CSS3 Patterns Gallery</a><br><a href="http://subtlepatterns.com/" target="_blank" rel="external">Subtle Patterns</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-24T16:58:10.000Z"><a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">2016-03-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/">MongoDB Quick Start on Mac</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial about how to install and run MonogoDB on mac. Below is the link of official document:<br><a href="https://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/">official document</a></p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/25/MongoDB-Quick-Start-on-Mac/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Database/">Database</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-20T08:00:39.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-III/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-III/">Hexo Blog 简明教程 III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-20T08:00:33.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-II/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-II/">Hexo Blog 简明教程 II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>这篇教程主要是博客主要元素的配置，比如博客的主题，博客评论，博客访问量等。</p>
+<h3 id="博客主题"><a href="#博客主题" class="headerlink" title="博客主题"></a>博客主题</h3><p>首先是挑选自己喜欢的主题。这里有个Hexo 主题的列表，里面的主题都很不错，但很可能墙内的朋友访问不到；如果真是这样一个比较好的方法就是搜知乎，里面也有一个Hexo主题的列表，质量虽然可能有些参差不齐，但还是可以用的。<br>附链接:<br><a href="https://hexo.io/themes/" target="_blank" rel="external">Hexo Theme</a><br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">Hexo Theme List in Zhihu</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-20T08:00:30.000Z"><a href="/2016/03/20/Hexo-Blog-简明教程-I/">2016-03-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/20/Hexo-Blog-简明教程-I/">Hexo Blog 简明教程 I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Hexo 是一个由台湾学生开发的，基于node.js的静态博客。这个博客拥有很好的模块设计，用户可以很方便地在博客上添加自己需要的或者是喜欢的元素，比如评论排行，日期等等；同时也可以很方便地做一些个性化的设置，比如更换博客主题等等。总之，Hexo有很多优点，是一个非常适合技术人员的博客。因此，接下来的几个教程都是有关于如何使用Hexo搭建自己的个性化博客。</p>
+<p>这些教程有中文和英文版本。这里先提供中文版。下面这个链接是我的博客的github代码库，供大家参考：<br><a href="https://github.com/yular/yular.github.io">Github Yular</a><br>注：这份教程可能更适合mac和linux/unix用户，windows用户可能在最初的环境配置上需要另外找别的教程。</p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/20/Hexo-Blog-简明教程-I/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-17T14:45:45.000Z"><a href="/2016/03/17/Maven-Junit-Test-QuickStart/">2016-03-17</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/17/Maven-Junit-Test-QuickStart/">Maven Junit Test QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Unit test is very important in software engineering development. It can help developers to figure out which functions have bugs by test them independently. Currently there are many frameworks for this kind of test. Here we introduce one of the most popular frameworks called JUnit Test. For more information about JUnit, check this <a href="http://junit.org/">link</a>.</p>
+<p>Below is a quickstart tutorial for Java junit test using Maven. All the steps are done by command lines. </p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/17/Maven-Junit-Test-QuickStart/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-15T13:41:27.000Z"><a href="/2016/03/15/bower-command-summary/">2016-03-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/15/bower-command-summary/">bower command summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Bower is a very useful and easy to use Web libraries management tool, which can manage components containing HTML, CSS, JavaScript, fonts or even image files. Bower uses a kind of manifest file called bower.json to keeps track of packages used in project. Below is the link of official website:<br><a href="http://bower.io/">bower.io</a></p>
+<p>Here is the method to install bower<br>Bower requires node, npm and git. After we have installed all these staffs, we can install bower through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g bower</span><br></pre></td></tr></table></figure></p>
+<p>Note: please do not ignore -g parameter.</p>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/03/15/bower-command-summary/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-12T14:08:02.000Z"><a href="/2016/03/12/Web-Finance-APIs-for-Developers/">2016-03-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/12/Web-Finance-APIs-for-Developers/">Web Finance APIs for Developers</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This article will be updated later. Currently I only paste these links about where to find free/limited/paid web finance APIs (most of them are RESTFUL) for developers.</p>
+<p><a href="http://stackoverflow.com/questions/3139879/how-do-i-get-currency-exchange-rates-via-an-api-such-as-google-finance" target="_blank" rel="external">stackoverflow answer1</a><br><a href="http://stackoverflow.com/questions/10040954/alternative-to-google-finance-api" target="_blank" rel="external">stackoverflow answer2</a><br><a href="http://www.programmableweb.com/news/25-finance-apis/2008/04/24" target="_blank" rel="external">programmable web</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-11T16:23:42.000Z"><a href="/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/">2016-03-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/12/Web-Dev-Experience-Using-Angular-Material-and-Bootstrap-Together/">Web Dev Experience: Using Angular Material and Bootstrap Together</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="http://stackoverflow.com/questions/29313990/angularjs-bootstrap-for-angular-material-design-for-angular-together" target="_blank" rel="external">link</a> about this question.</p>
+<p>When we do web front-end development, we may find that some elements can be implemented more easily in Angular Material but others can be implemented in Angular Bootstrap more easily. However, it is a bad idea to use them together in the same Web application front-end.</p>
+<p>The main reasons are as follows:</p>
+<ol>
+<li>Both their css target front end elements but they have different designs. For example, even though dialog of both libraries are rectangle, the dialog of bootstrap is round rectangle. So if use them together, the look and feel of elements may be inconsistent.</li>
+</ol>
+<p>2.Angular material handles front end elements using directive. When they release a new version (29 releases so far), developers have to spent some time testing earlier code. </p>
+<p>3.Increase the dependencies size of project.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-28T11:34:34.000Z"><a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">2016-02-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/">Bootstrap CSS Grid System Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the definition of Bootstrap grid system from its official document:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. </span><br><span class="line">It includes predefined classes for easy layout options, as well as powerful mixins for generating more semantic layouts.</span><br></pre></td></tr></table></figure></p>
+<p>Bootstrap grid system has a three levels structure for creating page layout and these levels are (from highest to lowest): container, row and column. We can put the content like form, button, panel and table into the columns so that all the page elements are put into the places as we want. Besides, column level can be nested through adding rows and then columns into it but we do not put container into rows or columns.</p>
+<p>Here is the instruction about how to use Bootstrap grid system:<br>
+      
+    </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2016/02/28/Bootstrap-CSS-Grid-System-Summary/#more" class="more-link">More</a>
+      </div>
+    </footer>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
@@ -1257,13 +1138,13 @@
   
     <li><a href="/tags/Interview-Summary/">Interview Summary</a><small>2</small></li>
   
-    <li><a href="/tags/Java/">Java</a><small>37</small></li>
+    <li><a href="/tags/Java/">Java</a><small>33</small></li>
   
     <li><a href="/tags/Javascript/">Javascript</a><small>1</small></li>
   
     <li><a href="/tags/Kotlin/">Kotlin</a><small>1</small></li>
   
-    <li><a href="/tags/Life/">Life</a><small>6</small></li>
+    <li><a href="/tags/Life/">Life</a><small>5</small></li>
   
     <li><a href="/tags/Life-Thoughts/">Life Thoughts</a><small>1</small></li>
   
@@ -1285,7 +1166,7 @@
   
     <li><a href="/tags/Ruby/">Ruby</a><small>2</small></li>
   
-    <li><a href="/tags/Software-Development/">Software Development</a><small>12</small></li>
+    <li><a href="/tags/Software-Development/">Software Development</a><small>7</small></li>
   
     <li><a href="/tags/SparkSQL/">SparkSQL</a><small>1</small></li>
   
@@ -1307,7 +1188,7 @@
 <div class="widget tagcloud">
   <h3 class="title">Tag-Cloud</h3>
   <div class="entry">
-    <a href="/tags/Algorithm/" style="font-size: 19.29px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.14px;">C</a> <a href="/tags/C/" style="font-size: 10.71px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.57px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.71px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.71px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.43px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.71px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.57px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.43px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.29px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.43px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.14px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.71px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 17.14px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 12.86px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.14px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.86px;">Web</a>
+    <a href="/tags/Algorithm/" style="font-size: 19.17px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.33px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.83px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.17px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
 </div>
 
