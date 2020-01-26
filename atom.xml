@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yular.github.io/"/>
-  <updated>2019-11-17T09:45:38.000Z</updated>
+  <updated>2020-01-26T10:56:20.000Z</updated>
   <id>http://yular.github.io/</id>
   
   <author>
@@ -20,9 +20,11 @@
     <link href="http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/"/>
     <id>http://yular.github.io/2018/11/19/Linux-Server-Trouble-Shooting-Commands/</id>
     <published>2018-11-18T17:20:22.000Z</published>
-    <updated>2019-11-17T09:45:38.000Z</updated>
+    <updated>2020-01-26T10:56:20.000Z</updated>
     
-    <content type="html">&lt;p&gt;First of all, here are some useful links:&lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is the list of common used commands and tools for Linux server trouble shooting.&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;First of all, here are some useful links:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/usemethod.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.brendangregg.com/usemethod.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/USEmethod/use-linux.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.brendangregg.com/USEmethod/use-linux.html&lt;/a&gt;&lt;/li&gt;
@@ -167,9 +169,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;First of all, here are some useful links:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.brendangregg.com/usemethod.html&quot; target=&quot;_blank&quot; rel=&quot;external
+      &lt;p&gt;Here is the list of common used commands and tools for Linux server trouble shooting.&lt;/p&gt;
     
     </summary>
     
@@ -183,9 +183,10 @@
     <link href="http://yular.github.io/2018/11/12/Docker-Image-QuickStart/"/>
     <id>http://yular.github.io/2018/11/12/Docker-Image-QuickStart/</id>
     <published>2018-11-11T16:00:07.000Z</published>
-    <updated>2018-11-14T17:31:42.000Z</updated>
+    <updated>2020-01-26T11:04:00.000Z</updated>
     
-    <content type="html">&lt;p&gt;Here is the &lt;a href=&quot;http://yular.github.io/2015/09/08/Docker-Install-Guide/&quot;&gt;link of Docker installation on Ubuntu&lt;/a&gt;.&lt;/p&gt;
+    <content type="html">&lt;p&gt;Here is a quick tutorial about setting up a docker image running on local machine.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&quot;http://yular.github.io/2015/09/08/Docker-Install-Guide/&quot;&gt;link of Docker installation on Ubuntu&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Instead of running official docker image in docker container, we can also build our own docker image and run it in the container.&lt;/p&gt;
 &lt;p&gt;Below is a tutorial to build a quick docker image and deploy it in a container.&lt;/p&gt;
 &lt;h3 id=&quot;Preparing-Docker-File&quot;&gt;&lt;a href=&quot;#Preparing-Docker-File&quot; class=&quot;headerlink&quot; title=&quot;Preparing Docker File&quot;&gt;&lt;/a&gt;Preparing Docker File&lt;/h3&gt;&lt;p&gt;This is the first step. A docker file is just a text file defining the operating system environment, the commands to execute, the files to add from local and other actions. Here is the official document of &lt;a href=&quot;https://docs.docker.com/engine/reference/builder/#usage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;docker file&lt;/a&gt;. And here is its &lt;a href=&quot;https://docs.docker.com/develop/develop-images/dockerfile_best-practices/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;best practice link&lt;/a&gt;.&lt;/p&gt;
@@ -210,8 +211,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Here is the &lt;a href=&quot;http://yular.github.io/2015/09/08/Docker-Install-Guide/&quot;&gt;link of Docker installation on Ubuntu&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Instead o
+      &lt;p&gt;Here is a quick tutorial about setting up a docker image running on local machine.&lt;br&gt;
     
     </summary>
     
@@ -221,67 +221,14 @@
   </entry>
   
   <entry>
-    <title>Reading Note of Effective Cplusplus III</title>
-    <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/"/>
-    <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-III/</id>
-    <published>2018-07-17T04:50:42.000Z</published>
-    <updated>2018-07-17T19:54:06.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Cplusplus" scheme="http://yular.github.io/tags/Cplusplus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Cplusplus II</title>
-    <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/"/>
-    <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-II/</id>
-    <published>2018-07-17T04:50:38.000Z</published>
-    <updated>2018-07-17T19:53:55.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Cplusplus" scheme="http://yular.github.io/tags/Cplusplus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Effective Cplusplus I</title>
-    <link href="http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/"/>
-    <id>http://yular.github.io/2018/07/17/Reading-Note-of-Effective-Cplusplus-I/</id>
-    <published>2018-07-17T04:50:33.000Z</published>
-    <updated>2018-07-22T23:41:32.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="Cplusplus" scheme="http://yular.github.io/tags/Cplusplus/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Thinking in Ops Readiness</title>
     <link href="http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/"/>
     <id>http://yular.github.io/2018/05/10/Thinking-in-Ops-Readiness/</id>
     <published>2018-05-09T16:37:47.000Z</published>
-    <updated>2018-05-15T08:34:10.000Z</updated>
+    <updated>2020-01-26T11:07:37.000Z</updated>
     
-    <content type="html">&lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a healthy software and detect errors and bugs in software can graduately and finally greatly improve customer experience of the software, and meanwhile reduce the effort and cost of it. Different kinds of software have different strategies for maintainance and monitoring. &lt;/p&gt;
+    <content type="html">&lt;p&gt;This article is about my web service Ops readiness experience. It includes web service test strategy, deployment strategy, CICD pipeline setup, performance metrics, performance monitors and dashboard setup.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a healthy software and detect errors and bugs in software can graduately and finally greatly improve customer experience of the software, and meanwhile reduce the effort and cost of it. Different kinds of software have different strategies for maintainance and monitoring. &lt;/p&gt;
 &lt;p&gt;Here is my experience to do generic Ops Readiness for Web Service. Assume the programing language is Java.&lt;/p&gt;
 &lt;h3 id=&quot;Test&quot;&gt;&lt;a href=&quot;#Test&quot; class=&quot;headerlink&quot; title=&quot;Test&quot;&gt;&lt;/a&gt;Test&lt;/h3&gt;&lt;p&gt;Before deploy the code on the production machine, do enough testing on local environment. Thus, at first it is important to setup a local development environment that can simulate the production environment, which incluldes the compilers, programing language, database and etc.&lt;/p&gt;
 &lt;p&gt;Then, there are many kinds of tests to be done.&lt;/p&gt;
@@ -314,43 +261,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;Software maintainance and monitoring are as important as its features provided to customers directly. Good strategies to help to build a 
-    
-    </summary>
-    
-    
-      <category term="System Design" scheme="http://yular.github.io/tags/System-Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Patterns of Enterprise Application Architecture II</title>
-    <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/"/>
-    <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-II/</id>
-    <published>2018-03-26T15:16:50.000Z</published>
-    <updated>2018-03-27T06:19:03.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="System Design" scheme="http://yular.github.io/tags/System-Design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Patterns of Enterprise Application Architecture I</title>
-    <link href="http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/"/>
-    <id>http://yular.github.io/2018/03/26/Reading-Note-of-Patterns-of-Enterprise-Application-Architecture-I/</id>
-    <published>2018-03-26T15:16:46.000Z</published>
-    <updated>2018-03-27T06:18:57.000Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
+      &lt;p&gt;This article is about my web service Ops readiness experience. It includes web service test strategy, deployment strategy, CICD pipeline setup, performance metrics, performance monitors and dashboard setup.&lt;br&gt;
     
     </summary>
     
@@ -391,9 +302,10 @@
     <link href="http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/"/>
     <id>http://yular.github.io/2018/02/25/Reading-Note-of-Working-Effectively-with-Legacy-Code-IV/</id>
     <published>2018-02-25T13:19:13.000Z</published>
-    <updated>2018-02-28T09:45:20.000Z</updated>
+    <updated>2020-01-26T11:10:00.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about how to effectively refactor legacy code.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;h4 id=&quot;Identification-of-Responsibility-of-Class&quot;&gt;&lt;a href=&quot;#Identification-of-Responsibility-of-Class&quot; class=&quot;headerlink&quot; title=&quot;Identification of Responsibility of Class&quot;&gt;&lt;/a&gt;Identification of Responsibility of Class&lt;/h4&gt;&lt;p&gt;Approaches of identification&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;方法分组&lt;br&gt;寻找相似的方法名。将一个类上的所有方法列出来（含访问权限），找出哪些是一伙的。&lt;/li&gt;
 &lt;li&gt;观察隐藏方法&lt;br&gt;大量的私有方法或受保护方法意味着一个类内部有另一个类要抽象出来。&lt;/li&gt;
@@ -588,7 +500,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Refactor-Large-Class&quot;&gt;&lt;a href=&quot;#Refactor-Large-Class&quot; class=&quot;headerlink&quot; title=&quot;Refactor Large Class&quot;&gt;&lt;/a&gt;Refactor Large Class&lt;/h3&gt;&lt;
+      &lt;p&gt;This is article is in Chinese and it is mainly about how to effectively refactor legacy code.&lt;br&gt;
     
     </summary>
     
@@ -602,9 +514,10 @@
     <link href="http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/"/>
     <id>http://yular.github.io/2018/02/18/Reading-Note-of-Working-Effectively-with-Legacy-Code-III/</id>
     <published>2018-02-18T03:28:56.000Z</published>
-    <updated>2018-02-26T01:45:14.000Z</updated>
+    <updated>2020-01-26T11:12:04.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about how to test legacy code effectively while refactoring the code.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;h4 id=&quot;Params-in-Constructor&quot;&gt;&lt;a href=&quot;#Params-in-Constructor&quot; class=&quot;headerlink&quot; title=&quot;Params in Constructor&quot;&gt;&lt;/a&gt;Params in Constructor&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;构造函数会引入依赖。解除依赖的方法可以有：&lt;ul&gt;
 &lt;li&gt;传Null&lt;/li&gt;
 &lt;li&gt;接口提取: Subclass and Override Method. See &lt;a href=&quot;http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/#Refactor-in-Long-Run&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
@@ -696,7 +609,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Fail-to-Test-A-Class&quot;&gt;&lt;a href=&quot;#Fail-to-Test-A-Class&quot; class=&quot;headerlink&quot; title=&quot;Fail to Test A Class&quot;&gt;&lt;/a&gt;Fail to Test A Class&lt;/h3&gt;&lt;
+      &lt;p&gt;This is article is in Chinese and it is mainly about how to test legacy code effectively while refactoring the code.&lt;br&gt;
     
     </summary>
     
@@ -710,9 +623,10 @@
     <link href="http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/"/>
     <id>http://yular.github.io/2018/02/16/Reading-Note-of-Working-Effectively-with-Legacy-Code-II/</id>
     <published>2018-02-16T14:06:01.000Z</published>
-    <updated>2018-02-18T19:24:36.000Z</updated>
+    <updated>2020-01-26T11:13:18.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about the priciples and guidelines to follow while refactoring the code.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refactor Technique for Limited Time&quot;&gt;&lt;/a&gt;Code Refactor Technique for Limited Time&lt;/h3&gt;&lt;h4 id=&quot;New-Methods-Approach&quot;&gt;&lt;a href=&quot;#New-Methods-Approach&quot; class=&quot;headerlink&quot; title=&quot;New Methods Approach&quot;&gt;&lt;/a&gt;New Methods Approach&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;当需要往一个系统中添加特性且这个特性可以用全新的代码来编写时，将这些代码放到一个新的方法中，并且在需要用到这个新功能的地方调用该方法。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;该方法的步骤：&lt;/p&gt;
@@ -825,7 +739,7 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Code-Refactor-Technique-for-Limited-Time&quot;&gt;&lt;a href=&quot;#Code-Refactor-Technique-for-Limited-Time&quot; class=&quot;headerlink&quot; title=&quot;Code Refacto
+      &lt;p&gt;This is article is in Chinese and it is mainly about the priciples and guidelines to follow while refactoring the code.&lt;br&gt;
     
     </summary>
     
@@ -839,9 +753,10 @@
     <link href="http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/"/>
     <id>http://yular.github.io/2018/02/09/Reading-Note-of-Working-Effectively-with-Legacy-Code-I/</id>
     <published>2018-02-08T17:10:21.000Z</published>
-    <updated>2018-02-18T08:11:03.000Z</updated>
+    <updated>2020-01-26T11:15:32.000Z</updated>
     
-    <content type="html">&lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about the introduction of the book. The main idea is to test the legacy code and resolve dependencies of legacy project.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;修改软件的四个起因：添加新特性，修正bug，改善设计，优化资源使用。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -901,33 +816,12 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;Introductin&quot;&gt;&lt;a href=&quot;#Introductin&quot; class=&quot;headerlink&quot; title=&quot;Introductin&quot;&gt;&lt;/a&gt;Introductin&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;修改软件的四个起因：添加新特性，修正bug，改善设计，优
+      &lt;p&gt;This is article is in Chinese and it is mainly about the introduction of the book. The main idea is to test the legacy code and resolve dependencies of legacy project.&lt;br&gt;
     
     </summary>
     
     
       <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Reading Note of Programming in Lua 4th Edition II</title>
-    <link href="http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/"/>
-    <id>http://yular.github.io/2018/01/28/Reading-Note-of-Programming-in-Lua-4th-Edition-II/</id>
-    <published>2018-01-28T08:39:37.000Z</published>
-    <updated>2018-01-30T06:23:24.000Z</updated>
-    
-    <content type="html">&lt;h3 id=&quot;Meta-Data&quot;&gt;&lt;a href=&quot;#Meta-Data&quot; class=&quot;headerlink&quot; title=&quot;Meta Data&quot;&gt;&lt;/a&gt;Meta Data&lt;/h3&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;Meta-Data&quot;&gt;&lt;a href=&quot;#Meta-Data&quot; class=&quot;headerlink&quot; title=&quot;Meta Data&quot;&gt;&lt;/a&gt;Meta Data&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="Lua" scheme="http://yular.github.io/tags/Lua/"/>
     
   </entry>
   
@@ -1106,6 +1000,115 @@
     <id>http://yular.github.io/2018/01/16/Java-Summary-III/</id>
     <published>2018-01-16T14:01:59.000Z</published>
     <updated>2018-01-17T06:02:09.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Summary II</title>
+    <link href="http://yular.github.io/2018/01/16/Java-Summary-II-1/"/>
+    <id>http://yular.github.io/2018/01/16/Java-Summary-II-1/</id>
+    <published>2018-01-16T14:01:19.000Z</published>
+    <updated>2018-01-17T06:01:19.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Advanced Encryption Standard (AES) Summary</title>
+    <link href="http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/"/>
+    <id>http://yular.github.io/2018/01/09/Advanced-Encryption-Standard-AES-Summary/</id>
+    <published>2018-01-08T16:28:35.000Z</published>
+    <updated>2018-01-09T08:41:38.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki/Advanced_Encryption_Standard&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Wikipedia link of AES&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;Different-Modes-of-AES&quot;&gt;&lt;a href=&quot;#Different-Modes-of-AES&quot; class=&quot;headerlink&quot; title=&quot;Different Modes of AES&quot;&gt;&lt;/a&gt;Different Modes of AES&lt;/h3&gt;&lt;h4 id=&quot;ECB&quot;&gt;&lt;a href=&quot;#ECB&quot; class=&quot;headerlink&quot; title=&quot;ECB&quot;&gt;&lt;/a&gt;ECB&lt;/h4&gt;&lt;h4 id=&quot;PCBC&quot;&gt;&lt;a href=&quot;#PCBC&quot; class=&quot;headerlink&quot; title=&quot;PCBC&quot;&gt;&lt;/a&gt;PCBC&lt;/h4&gt;&lt;h4 id=&quot;CFB&quot;&gt;&lt;a href=&quot;#CFB&quot; class=&quot;headerlink&quot; title=&quot;CFB&quot;&gt;&lt;/a&gt;CFB&lt;/h4&gt;&lt;h4 id=&quot;OFB&quot;&gt;&lt;a href=&quot;#OFB&quot; class=&quot;headerlink&quot; title=&quot;OFB&quot;&gt;&lt;/a&gt;OFB&lt;/h4&gt;&lt;h4 id=&quot;CTR&quot;&gt;&lt;a href=&quot;#CTR&quot; class=&quot;headerlink&quot; title=&quot;CTR&quot;&gt;&lt;/a&gt;CTR&lt;/h4&gt;&lt;h4 id=&quot;CBC&quot;&gt;&lt;a href=&quot;#CBC&quot; class=&quot;headerlink&quot; title=&quot;CBC&quot;&gt;&lt;/a&gt;CBC&lt;/h4&gt;&lt;h4 id=&quot;GCM&quot;&gt;&lt;a href=&quot;#GCM&quot; class=&quot;headerlink&quot; title=&quot;GCM&quot;&gt;&lt;/a&gt;GCM&lt;/h4&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Overiew&quot;&gt;&lt;a href=&quot;#Overiew&quot; class=&quot;headerlink&quot; title=&quot;Overiew&quot;&gt;&lt;/a&gt;Overiew&lt;/h3&gt;&lt;p&gt;Here is the &lt;a href=&quot;https://en.wikipedia.org/wiki
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="http://yular.github.io/tags/Algorithm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of How To Win Friends and Influence People</title>
+    <link href="http://yular.github.io/2018/01/06/Reading-Note-of-How-To-Win-Friends-and-Influence-People/"/>
+    <id>http://yular.github.io/2018/01/06/Reading-Note-of-How-To-Win-Friends-and-Influence-People/</id>
+    <published>2018-01-06T06:48:54.000Z</published>
+    <updated>2018-01-06T22:49:17.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Life" scheme="http://yular.github.io/tags/Life/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Reading Note of Code Complete V</title>
+    <link href="http://yular.github.io/2017/12/26/Reading-Note-of-Code-Complete-V/"/>
+    <id>http://yular.github.io/2017/12/26/Reading-Note-of-Code-Complete-V/</id>
+    <published>2017-12-25T17:21:51.000Z</published>
+    <updated>2017-12-26T09:22:17.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Software Development" scheme="http://yular.github.io/tags/Software-Development/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Summary II</title>
+    <link href="http://yular.github.io/2017/12/23/Java-Summary-II/"/>
+    <id>http://yular.github.io/2017/12/23/Java-Summary-II/</id>
+    <published>2017-12-23T14:22:42.000Z</published>
+    <updated>2018-01-17T06:01:41.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="http://yular.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java Summary I</title>
+    <link href="http://yular.github.io/2017/12/22/Java-Summary-I/"/>
+    <id>http://yular.github.io/2017/12/22/Java-Summary-I/</id>
+    <published>2017-12-22T06:46:37.000Z</published>
+    <updated>2017-12-22T22:46:45.000Z</updated>
     
     <content type="html"></content>
     
