@@ -97,336 +97,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-04-22T03:06:57.000Z"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">2017-04-22</a></time>
+        <time datetime="2016-01-10T04:16:45.000Z"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">2016-01-10</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/04/22/Ruby-CodeStyle-Guide/">Ruby CodeStyle Guide</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is a good code style guide for Ruby. Click <a href="https://github.com/bbatsov/ruby-style-guide#no-nested-conditionals" target="_blank" rel="external">here</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Ruby/">Ruby</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-04-15T18:02:28.000Z"><a href="/2017/04/16/Thinking-in-Test/">2017-04-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/04/16/Thinking-in-Test/">Thinking in Test</a></h1>
+    <h1 class="title"><a href="/2016/01/10/Maven-Including-All-Dependencies-into-One-Jar-Tutorial/">Maven Including All Dependencies into One Jar Tutorial</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>This summary may be updated in the future.</p>
-<p>We need to follow some steps to test service starting from development to deployment. It is very important because it can help us to find issues and fix them as soon as possible before customer experience become worse.</p>
-<p>Roughly, there are maily <code>Four</code> steps in the through test on service. They are tests/verification in (local) development, tests while building service in remote machines, tests in different stages of deployment on remote machines, and manual verification of services on remote machines.</p>
-<p>Here are some details of these steps.</p>
-<h2 id="Local-Tests"><a href="#Local-Tests" class="headerlink" title="Local Tests"></a>Local Tests</h2><hr>
-
-<p>When develop service on the local, we need to test it before build and deploy it on remote machines. In local development, at least we need these tests:</p>
-<ul>
-<li>Unit Tests</li>
-<li>Integration Tests (Test integration between service and data storage or among different components of the service)</li>
-<li>Manual Verification</li>
-</ul>
-<p>In this step, we need to check test coverage including class coverage, method coverage and line coverage.</p>
-<h2 id="Tests-While-Building-Software-on-Remote-Machines"><a href="#Tests-While-Building-Software-on-Remote-Machines" class="headerlink" title="Tests While Building Software on Remote Machines"></a>Tests While Building Software on Remote Machines</h2><hr>
-
-<p>Before we actually deploy service on remote machines, we need to build it. While building service, we need to run the tests which are written in development. These tests are unit tests and integration tests in the last stage.</p>
-<p>In this stage, the building process stops if any tests fail.</p>
-<h2 id="Tests-After-Deploying-Software-on-Remote-Machines"><a href="#Tests-After-Deploying-Software-on-Remote-Machines" class="headerlink" title="Tests After Deploying Software on Remote Machines"></a>Tests After Deploying Software on Remote Machines</h2><hr>
-
-<p>After deploy service on the remote machines successfully, we need to test the public APIs or performance of the service in all the stages of deployment. Different stages may include Beta stage, Gamma stage, PreProd stage and Prod stage or even more stages.</p>
-<p>In these stages, we need to run following tests: Load Tests, Fuzz Tests, Code Review Verification and tests gathering performance statistics. </p>
-<hr>
-
-<h2 id="Manual-Verification-After-Deployment-of-Remote-Machines"><a href="#Manual-Verification-After-Deployment-of-Remote-Machines" class="headerlink" title="Manual Verification After Deployment of Remote Machines"></a>Manual Verification After Deployment of Remote Machines</h2><p>Even though we deploy service on remote machines successfully, we still need to manually test the service. One way is to test APIs through Web GUI or Command Line Interface. Besides, we can manually change the data storage or the behaviors of system to simulate real world situation.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Test/">Test</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-03-29T17:23:34.000Z"><a href="/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/">2017-03-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/03/30/Software-Development-Engineer-Office-Desk-Tools-List/">Software Development Engineer Office Desk Tools List</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the list of desk tools for Software Development Engineer.</p>
-<ul>
-<li>Laptop</li>
-<li>Laptop Charger</li>
-<li>Laptop Holder</li>
-<li>Monitors (One or Two more)</li>
-<li>Monitor Stand</li>
-<li>Earphone</li>
-<li>Adaptor connecting Laptop, Monitors and Ethernet ( and more …)</li>
-<li>Mobile Charger</li>
-<li>Ethernet Cables</li>
-</ul>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Life/">Life</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-03-12T12:21:18.000Z"><a href="/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/">2017-03-12</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/03/12/Deploy-Cron-Job-on-Mac-Tutorial/">Deploy Cron Job on Mac Tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>There are mainly two ways to schedule timed jobs on Mac. One is using <code>cron</code> command. The other is using Mac <code>launchd</code> command.</p>
-<p>Here is the Apple developer guide of <a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/ScheduledJobs.html" target="_blank" rel="external">Timed Jobs Using Cron and Launchd</a> and <a href="https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html#//apple_ref/doc/uid/TP40001762-104142" target="_blank" rel="external">Creating Launch Daemons and Agents</a>.</p>
-<p>And here is a good tutorial about <a href="http://alvinalexander.com/mac-os-x/mac-osx-startup-crontab-launchd-jobs" target="_blank" rel="external">Startingup Jobs with Crontab and Launchd</a>.</p>
-<p>This tutorial is about scheduling timed jobs using <code>Launchd</code> and the reason is as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The cron utility is launched by launchd(8) when it sees the existence of /etc/crontab or files in /usr/lib/cron/tabs. There should be no need to start it manually.</span><br></pre></td></tr></table></figure>
-<p>But if we do want to use <code>cron</code> command to startup timed jobs, this <a href="http://www.computerhope.com/unix/ucrontab.htm" target="_blank" rel="external">link</a> may be helpful.</p>
-<p>The basic process is that we need to create a <code>.plist</code> (plist scripts)  text file, add timed jobs setting inside the file, put that file under certain directory, and then use <code>launchctl</code> command to start timed jobs.</p>
-<h3 id="Choose-Timed-Jobs-Directory"><a href="#Choose-Timed-Jobs-Directory" class="headerlink" title="Choose Timed Jobs Directory"></a>Choose Timed Jobs Directory</h3><p>Mac will startup timed jobs that defined in <code>.plist</code> files under certain directories only. Here is the list of those directories:</p>
-<ul>
-<li>/Library/LaunchDaemons - Put our plist scripts in this folder if our job needs to run even when no users are logged in.</li>
-<li>/Library/LaunchAgents - Put our plist scripts in this folder if the job is only useful when users are logged in.</li>
-<li>$HOME/Library/LaunchAgents - Put our plist files in this folder if the job is only useful when users are logged in. </li>
-</ul>
-<p>Note that we need to use <code>sudo</code> command if we want to put plist scripts under first two directories.</p>
-<p>Here we plan to create a plist script under /Library/LaunchDaemons. So run this command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /Library/LaunchDaemons</span><br></pre></td></tr></table></figure>
-<h3 id="Create-a-plist-Script"><a href="#Create-a-plist-Script" class="headerlink" title="Create a plist Script"></a>Create a plist Script</h3><p>We had better follow Apple’s documentation to name the plist script as it can help to avoid namespace collisions. Run following command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
-<p>Here is content of the plist script above:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</span><br><span class="line">&lt;plist version=&quot;1.0&quot;&gt;</span><br><span class="line">&lt;dict&gt;</span><br><span class="line">  &lt;key&gt;Label&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;com.yulartech.crontest&lt;/string&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;ProgramArguments&lt;/key&gt;</span><br><span class="line">  &lt;array&gt;</span><br><span class="line">    &lt;string&gt;/Absolute/Path/To/helloworld.sh&lt;/string&gt;</span><br><span class="line">  &lt;/array&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;Nice&lt;/key&gt;</span><br><span class="line">  &lt;integer&gt;1&lt;/integer&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StartInterval&lt;/key&gt;</span><br><span class="line">  &lt;integer&gt;60&lt;/integer&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;RunAtLoad&lt;/key&gt;</span><br><span class="line">  &lt;true/&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StandardErrorPath&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/tmp/AlTest1.err&lt;/string&gt;</span><br><span class="line"></span><br><span class="line">  &lt;key&gt;StandardOutPath&lt;/key&gt;</span><br><span class="line">  &lt;string&gt;/tmp/AlTest1.out&lt;/string&gt;</span><br><span class="line">&lt;/dict&gt;</span><br><span class="line">&lt;/plist&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Here is the content of <code>helloworld.sh</code> .</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo &quot;Hello World !&quot;</span><br></pre></td></tr></table></figure>
-<p>The plist means running a timed jobs <code>Run the script /Absolute/Path/To/helloworld.sh</code> every 60 seconds and redirect the standard output and standard error as shown.</p>
-<h3 id="Deploy-Timed-Jobs"><a href="#Deploy-Timed-Jobs" class="headerlink" title="Deploy Timed Jobs"></a>Deploy Timed Jobs</h3><p>Use following command to deploy timed job:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl load /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
-<p>After one or more minutes, we execute this command to check job status:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl list | grep crontest</span><br></pre></td></tr></table></figure>
-<p>If we want to cancel the timed job, just run this command:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo launchctl unload /Library/LaunchDaemons/com.yulartech.crontest.plist</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Mac/">Mac</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-03-05T16:43:43.000Z"><a href="/2017/03/06/Bash-vs-Zsh/">2017-03-06</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/03/06/Bash-vs-Zsh/">Bash vs Zsh</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the links about comparison of Bash and Zsh. We think they should be useful.<br><a href="https://www.quora.com/What-is-the-difference-between-bash-and-zsh" target="_blank" rel="external">Quora</a>.<br><a href="http://stackabuse.com/zsh-vs-bash/" target="_blank" rel="external">Stack Abuse</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-02-26T17:30:27.000Z"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">2017-02-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/02/27/Java-Immutable-Mutable-Class-Library/">Java Immutable Class QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://immutables.github.io/immutable.html" target="_blank" rel="external">official website of Java Immutable Class</a>, <a href="https://www.linkedin.com/pulse/20140528113353-16837833-6-benefits-of-programming-with-immutable-objects-in-java" target="_blank" rel="external">benefits of Immutable Class</a> and <a href="https://immutables.github.io/getstarted.html" target="_blank" rel="external">Getstarted Tutorial</a>.</p>
-<p>Generally, the benefits of Immutable class is:</p>
-<ul>
-<li>Create thread-safe objects.</li>
-<li>Easy to make program parallel.</li>
-<li>Keep the internal program state consistent.</li>
-<li>Cache the references to immutable objects.</li>
-</ul>
-<p>Now below it is our quickstart tutorial.</p>
-<h3 id="Setup-Environment"><a href="#Setup-Environment" class="headerlink" title="Setup Environment"></a>Setup Environment</h3><p>Here we suggest to use <code>IntelliJ</code> IDE because this IDE is easy to generate <code>immutable class</code>.</p>
-<p>Here is the <a href="https://immutables.github.io/apt.html" target="_blank" rel="external">official tutorial</a> to enable annotations for <code>immutable class</code> feature.</p>
-<h3 id="Create-Java-Project"><a href="#Create-Java-Project" class="headerlink" title="Create Java Project"></a>Create Java Project</h3><p>In IntelliJ, create a <code>Java Maven Project</code>. This part will be provided later as it should be very easy.</p>
-<p>Below is the project basic settings:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">groupId: com.yulartech.app</span><br><span class="line">artifactId: blog-runner</span><br><span class="line">version: 1.0-SNAPSHOT</span><br></pre></td></tr></table></figure>
-<h3 id="Enable-Annotations"><a href="#Enable-Annotations" class="headerlink" title="Enable Annotations"></a>Enable Annotations</h3><p>Open IntelliJ system preferences panel and edit the settings as follows:</p>
-<ul>
-<li>Check <code>Enable annotation processing</code></li>
-<li>Check <code>Module content root</code></li>
-<li>Edit <code>Production sources directory</code> as <code>generated</code></li>
-<li>Edit <code>Test sources directory</code> as <code>generated_test</code></li>
-</ul>
-<h3 id="Write-Java-Code"><a href="#Write-Java-Code" class="headerlink" title="Write Java Code"></a>Write Java Code</h3><p>Here is the <a href="https://github.com/yular/Java-CodeLibrary/tree/master/blogrunner" target="_blank" rel="external">link of Github Repository of this tutorial project</a>.</p>
-<p>Here is the content of <code>pom.xml</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.yulartech.app&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;blog-runner&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;jdk.version&gt;1.8&lt;/jdk.version&gt;</span><br><span class="line">        &lt;immutable.version&gt;2.4.3&lt;/immutable.version&gt;</span><br><span class="line">        &lt;javamail.version&gt;1.4.7&lt;/javamail.version&gt;</span><br><span class="line">        &lt;mockito.version&gt;2.7.13&lt;/mockito.version&gt;</span><br><span class="line">        &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">        &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;</span><br><span class="line">        &lt;jsoup.version&gt;1.10.1&lt;/jsoup.version&gt;</span><br><span class="line">        &lt;maven-compiler.version&gt;3.2&lt;/maven-compiler.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;junit.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.immutables&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;value&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;immutable.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;javax.mail&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mail&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;javamail.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mockito&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mockito-core&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;mockito.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- https://jsoup.org/ --&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.jsoup&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;jsoup&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;$&#123;jsoup.version&#125;&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;maven-compiler.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;source&gt;$&#123;jdk.version&#125;&lt;/source&gt;</span><br><span class="line">                    &lt;target&gt;$&#123;jdk.version&#125;&lt;/target&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-assembly-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.4.1&lt;/version&gt;</span><br><span class="line">                &lt;executions&gt;</span><br><span class="line">                    &lt;execution&gt;</span><br><span class="line">                        &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">                        &lt;goals&gt;</span><br><span class="line">                            &lt;goal&gt;single&lt;/goal&gt;</span><br><span class="line">                        &lt;/goals&gt;</span><br><span class="line">                    &lt;/execution&gt;</span><br><span class="line">                &lt;/executions&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;descriptorRefs&gt;</span><br><span class="line">                        &lt;descriptorRef&gt;jar-with-dependencies&lt;/descriptorRef&gt;</span><br><span class="line">                    &lt;/descriptorRefs&gt;</span><br><span class="line">                    &lt;archive&gt;</span><br><span class="line">                        &lt;manifest&gt;</span><br><span class="line">                            &lt;mainClass&gt;com.yulartech.app.App&lt;/mainClass&gt;</span><br><span class="line">                        &lt;/manifest&gt;</span><br><span class="line">                    &lt;/archive&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
-<p>Then create a package with this path: <code>blogrunner/src/main/java/com/yulartech/domain</code> and class called <code>Blog.java</code>.</p>
-<p>Here is the code.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.domain;</span><br><span class="line"></span><br><span class="line">import org.immutables.value.Value;</span><br><span class="line"></span><br><span class="line">@Value.Immutable</span><br><span class="line">public abstract  class Blog &#123;</span><br><span class="line">    public abstract String blogAuthor();</span><br><span class="line">    public abstract  String blogTitle();</span><br><span class="line">    public abstract  String blogLink();</span><br><span class="line">    public abstract String blogDate();</span><br><span class="line">    public abstract String blogSummary();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Now we build the project inside IntelliJ, and then we can find the generated immutable class under this path <code>target/generated-sources/annotations/com/yulartech/domain/ImmutableBlog.java</code>.</p>
-<p>Now here is the class containing <code>main function</code>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.app;</span><br><span class="line"></span><br><span class="line">import com.yulartech.domain.ImmutableBlog;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Created by ybc on 3/20/17.</span><br><span class="line"> */</span><br><span class="line">public class App &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String args[])&#123;</span><br><span class="line">        ImmutableBlog blog = ImmutableBlog.builder()</span><br><span class="line">                .blogAuthor(&quot; Yular &quot;)</span><br><span class="line">                .blogTitle(&quot; Java Immutable Objects QuickStart &quot;)</span><br><span class="line">                .blogDate(&quot; 2017-03-20 &quot;)</span><br><span class="line">                .blogLink(&quot; http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ &quot;)</span><br><span class="line">                .blogSummary(&quot; A quickstart tutorial about Java immutable objects &quot;)</span><br><span class="line">                .build();</span><br><span class="line"></span><br><span class="line">        System.out.println(blog);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Build-and-Run-the-Project"><a href="#Build-and-Run-the-Project" class="headerlink" title="Build and Run the Project"></a>Build and Run the Project</h3><p>Now again we build the project. This step is optional.</p>
-<p>Then right click the <code>main function</code> and choose the <code>Run App.main()</code> option. We will see the output as follows:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog&#123;blogAuthor= Yular , blogTitle= Java Immutable Objects QuickStart , blogLink= http://yular.github.io/2017/03/20/Java-Immutable-Objects-QuickStart/ , blogDate= 2017-03-20 , blogSummary= A quickstart tutorial about Java immutable objects &#125;</span><br></pre></td></tr></table></figure>
+        <p>When we compile Java Maven project into a jar file, we should include third party jars that are used in the program; otherwise, our programs will fail because of No Class Found Error while running. Here are some ways to include all third party indenpencies into only one jar.</p>
+<p>1.Just download the third party jars, save them into project directories and then compile and create our program jar file using command line.</p>
+<p>2.Use <a href="http://maven.apache.org/plugins/maven-assembly-plugin/" target="_blank" rel="external">Maven Assemble Plugin</a> in our project. In this case, we will get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
+<p>3.Use <a href="https://code.google.com/p/onejar-maven-plugin/" target="_blank" rel="external">Maven One Jar Plugin</a> in our project. In this case, we also get only one jar for our project and all dependencies are included into that jar file. Here is the detailed <a href="">tutorial</a>.</p>
 
       
     </div>
@@ -460,26 +145,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-02-15T13:00:50.000Z"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">2017-02-15</a></time>
+        <time datetime="2016-01-06T14:14:03.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2016-01-06</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/02/15/Assert-Expected-Exception-in-JUnit-Test/">Assert Expected Exception in JUnit Test</a></h1>
+    <h1 class="title"><a href="/2016/01/06/2014-ACM-ICPC-Greater-New-York-Solution-List/">2014 ACM-ICPC Greater New York Solution List</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Below is a good way to assert certain exception thrown from class in JUnit Test. Here we use JUnit 4.7.</p>
-<p>The original link is from <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests" target="_blank" rel="external">Stack Overflow</a>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ExceptionTest &#123;</span><br><span class="line">  @Rule</span><br><span class="line">  public final ExpectedException exception = ExpectedException.none();</span><br><span class="line"></span><br><span class="line">  @Test</span><br><span class="line">  public void <span class="function"><span class="title">testIndexOutOfBoundsException</span></span>() &#123;</span><br><span class="line">    Foo foo = new Foo();</span><br><span class="line"></span><br><span class="line">    exception.expect(IndexOutOfBoundsException.class);</span><br><span class="line">    foo.doStuff();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here is the link of <a href="https://www.infoq.com/news/2009/07/junit-4.7-rules" target="_blank" rel="external">JUnit 4.7 Per-Test Rules</a>.</p>
-<p>And below is a good way to write the JUnit Test with the same functionality using Java 8. We use <code>Lambda Expressions</code> code style.</p>
-<p>Original link is <a href="http://stackoverflow.com/questions/156503/how-do-you-assert-that-a-certain-exception-is-thrown-in-junit-4-tests/24621006#24621006" target="_blank" rel="external">here</a>, from Stack Overflow again.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void <span class="function"><span class="title">verifiesTypeAndMessage</span></span>() &#123;</span><br><span class="line">    assertThrown(new FooService()::fooMethod)</span><br><span class="line">            .isInstanceOf(IndexOutOfBoundsException.class)</span><br><span class="line">            .hasMessage(<span class="string">"Index Out Of Bound exception occurred"</span>)</span><br><span class="line">            .hasMessageStartingWith(<span class="string">"Runtime"</span>)</span><br><span class="line">            .hasMessageEndingWith(<span class="string">"occurred"</span>)</span><br><span class="line">            .hasMessageContaining(<span class="string">"exception"</span>)</span><br><span class="line">            .hasNoCause();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Here are some useful links for the JUnit test in Java 8:<br>1.<a href="http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html" target="_blank" rel="external">http://blog.codeleak.pl/2014/07/junit-testing-exception-with-java-8-and-lambda-expressions.html</a><br>2.<a href="https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8" target="_blank" rel="external">https://github.com/kolorobot/unit-testing-demo/tree/master/src/test/java/com/github/kolorobot/exceptions/java8</a> </p>
-
+        
       
     </div>
     
@@ -492,7 +169,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Test/">Test</a>
+    <a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -512,18 +189,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-02-12T15:20:04.000Z"><a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">2017-02-12</a></time>
+        <time datetime="2016-01-06T14:13:50.000Z"><a href="/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/">2016-01-06</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/02/12/SPOJ-Basic-and-Tutorial-Solution-Summary-List/">SPOJ Basic and Tutorial Solution Summary List</a></h1>
+    <h1 class="title"><a href="/2016/01/06/2014-ACM-ICPC-Rocky-Mountain-Solution-List/">2014 ACM-ICPC Rocky Mountain Solution List</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is <a href="https://github.com/yular/CCplusplus-Project/blob/master/SPOJ/README.md" target="_blank" rel="external">the link of SPOJ Basic and Tutorial problems solution list</a>.</p>
+        <h3 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h3><p><a href="https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&amp;Itemid=8&amp;category=666&amp;page=show_problem&amp;problem=4877" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CCplusplus-Project/blob/master/ICPC/2014/2014-NorthAmerica-RockyMountain-server.cpp" target="_blank" rel="external">Code Link</a>.<br>A very easy implementation problem. Just count the first “ans” number of given values whose sum is no larger than the given threshold and then output the value of “ans” variable.<br>简单的模拟题。直接在线读入数组求和，在和小于阀值时计数数组的数字的个数即可。</p>
 
       
     </div>
@@ -557,150 +234,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-02-12T10:04:12.000Z"><a href="/2017/02/12/AWS-Terminology-List/">2017-02-12</a></time>
+        <time datetime="2016-01-05T14:00:14.000Z"><a href="/2016/01/05/Maven-Multiple-Modules-Project-QuickStart/">2016-01-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/02/12/AWS-Terminology-List/">AWS Terminology List</a></h1>
+    <h1 class="title"><a href="/2016/01/05/Maven-Multiple-Modules-Project-QuickStart/">Maven Multiple Modules Project QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is <a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html" target="_blank" rel="external">the link of complete list of AWS terminology</a>.</p>
-<p>Below is the list of most common used AWS terminoloies.</p>
-<ul>
-<li><p><a href="http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#ACL" target="_blank" rel="external">ACL (access control list)</a><br>A document that defines who can access a particular bucket or object. Each bucket and object in Amazon S3 has an ACL. The document defines what each type of user can do, such as write and read permissions.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/api-gateway" target="_blank" rel="external">Amazon API Gateway</a><br>A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/rds/aurora/" target="_blank" rel="external">Amazon Aurora</a><br>A fully managed MySQL-compatible relational database engine that combines the speed and availability of commercial databases with the simplicity and cost-effectiveness of open source databases.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudfront" target="_blank" rel="external">Amazon CloudFront</a><br>An AWS content delivery service that helps you improve the performance, reliability, and availability of your websites and applications.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudsearch/" target="_blank" rel="external">Amazon CloudSearch</a><br>A fully managed service in the AWS cloud that makes it easy to set up, manage, and scale a search solution for your website or application.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudwatch/" target="_blank" rel="external">Amazon CloudWatch</a><br>A web service that enables you to monitor and manage various metrics, and configure alarm actions based on data from those metrics.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cognito/" target="_blank" rel="external">Amazon Cognito</a><br>A web service that makes it easy to save mobile user data, such as app preferences or game state, in the AWS cloud without writing any back-end code or managing any infrastructure. Amazon Cognito offers mobile identity management and data synchronization across devices.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/devpa" target="_blank" rel="external">Amazon DevPay</a><br>An easy-to-use online billing and account management service that makes it easy for you to sell an Amazon EC2 AMI or an application built on Amazon S3.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="external">Amazon DynamoDB</a><br>A fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="external">Amazon DynamoDB Storage Backend for Titan</a><br>A storage backend for the Titan graph database implemented on top of Amazon DynamoDB. Titan is a scalable graph database optimized for storing and querying graphs.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/dynamodb/" target="_blank" rel="external">Amazon DynamoDB Streams</a><br>An AWS service that captures a time-ordered sequence of item-level modifications in any Amazon DynamoDB table, and stores this information in a log for up to 24 hours. Applications can access this log and view the data items as they appeared before and after they were modified, in near real time.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/ebs" target="_blank" rel="external">Amazon EBS (Amazon Elastic Block Store)</a><br>A service that provides block level storage volumes for use with EC2 instances.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/ecr" target="_blank" rel="external">Amazon ECR (Amazon EC2 Container Registry)</a><br>A fully managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. Amazon ECR is integrated with Amazon EC2 Container Service (Amazon ECS) and AWS Identity and Access Management (IAM).</p>
-</li>
-<li><p><a href="https://aws.amazon.com/ecs" target="_blank" rel="external">Amazon EC2 Container Service</a><br>A highly scalable, fast, container management service that makes it easy to run, stop, and manage Docker containers on a cluster of EC2 instances.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/ec2" target="_blank" rel="external">Amazon EC2 (Amazon Elastic Compute)</a><br>A web service that enables you to launch and manage Linux/UNIX and Windows server instances in Amazon’s data centers.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/efs/" target="_blank" rel="external">Amazon EFS (Amazon Elastic File System)</a><br>A file storage service for EC2 instances. Amazon EFS is easy to use and provides a simple interface with which you can create and configure file systems. Amazon EFS storage capacity grows and shrinks automatically as you add and remove files.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/elasticmapreduce" target="_blank" rel="external">Amazon EMR</a><br>A web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do such tasks as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/elasticache/" target="_blank" rel="external">Amazon ElastiCache</a><br>A web service that simplifies deploying, operating, and scaling an in-memory cache in the cloud. The service improves the performance of web applications by providing information retrieval from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/elasticsearch-service" target="_blank" rel="external">Amazon ES (Amazon Elasticsearch Service)</a><br>An AWS-managed service for deploying, operating, and scaling Elasticsearch, an open-source search and analytics engine, in the AWS Cloud. Amazon Elasticsearch Service (Amazon ES) also offers security options, high availability, data durability, and direct access to the Elasticsearch APIs.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/gamelift/" target="_blank" rel="external">Amazon GameLift</a><br>A managed service for deploying, operating, and scaling session-based multiplayer games.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/glacier/" target="_blank" rel="external">Amazon Glacier</a><br>A secure, durable, and low-cost storage service for data archiving and long-term backup. You can reliably store large or small amounts of data for significantly less than on-premises solutions. Amazon Glacier is optimized for infrequently accessed data, where a retrieval time of several hours is suitable.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/inspector" target="_blank" rel="external">Amazon Inspector</a><br>An automated security assessment service that helps improve the security and compliance of applications deployed on AWS. Amazon Inspector automatically assesses applications for vulnerabilities or deviations from best practices. After performing an assessment, Amazon Inspector produces a detailed report with prioritized steps for remediation.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/kinesis/" target="_blank" rel="external">Amazon Kinesis</a><br>A platform for streaming data on AWS. Amazon Kinesis offers services that simplify the loading and analysis of streaming data.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/kinesis/firehose/" target="_blank" rel="external">Amazon Kinesis Firehose</a><br>A fully managed service for loading streaming data into AWS. Firehose can capture and automatically load streaming data into Amazon S3 and Amazon Redshift , enabling near real-time analytics with existing business intelligence tools and dashboards. Firehose automatically scales to match the throughput of your data and requires no ongoing administration. It can also batch, compress, and encrypt the data before loading it.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/kinesis/streams/" target="_blank" rel="external">Amazon Kinesis Streams</a><br>A web service for building custom applications that process or analyze streaming data for specialized needs. Amazon Kinesis Streams can continuously capture and store terabytes of data per hour from hundreds of thousands of sources.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/lumberyard/" target="_blank" rel="external">Amazon Lumberyard</a><br>A cross-platform, 3D game engine for creating high-quality games. You can connect games to the compute and storage of the AWS cloud and engage fans on Twitch.</p>
-</li>
-<li><p>Amazon Machine Image (AMI)<br>An encrypted machine image stored in Amazon Elastic Block Store (Amazon EBS) or Amazon Simple Storage Service. AMIs are like a template of a computer’s root drive. They contain the operating system and can also include software and layers of your application, such as database servers, middleware, web servers, and so on.</p>
-</li>
-<li><p><a href="http://aws.amazon.com/machine-learning/" target="_blank" rel="external">Amazon Machine Learning (Amazon ML)</a><br>A cloud-based service that creates machine learning (ML) models by finding patterns in your data, and uses these models to process new data and generate predictions.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/mobileanalytics" target="_blank" rel="external">Amazon Mobile Analytics</a><br>A service for collecting, visualizing, understanding, and extracting mobile app usage data at scale.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/redshift/" target="_blank" rel="external">Amazon Redshift</a><br>A fully managed, petabyte-scale data warehouse service in the cloud. With Amazon Redshift you can analyze your data using your existing business intelligence tools.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/rds" target="_blank" rel="external">Amazon RDS (Amazon Relational Database Service)</a><br>A web service that makes it easier to set up, operate, and scale a relational database in the cloud. It provides cost-efficient, resizable capacity for an industry-standard relational database and manages common database administration tasks.</p>
-</li>
-<li><p>ARN (Amazon Resource Name)<br>A standardized way to refer to an AWS resource. For example: arn:aws:iam::123456789012:user/division_abc/subdivision_xyz/Bob.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/route53" target="_blank" rel="external">Amazon Route 53</a><br>A web service you can use to create a new DNS service or to migrate your existing DNS service to the cloud.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/s3" target="_blank" rel="external">Amazon S3 (Amazon Simple Storage Service)</a><br>Storage for the Internet. You can use it to store and retrieve any amount of data at any time, from anywhere on the web.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/ses" target="_blank" rel="external">Amazon SES (Amazon Simple Email Service)</a><br>An easy-to-use, cost-effective email solution for applications.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/sns" target="_blank" rel="external">Amazon SNS (Amazon Simple Notification Service)</a><br>A web service that enables applications, end-users, and devices to instantly send and receive notifications from the cloud.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/sqs" target="_blank" rel="external">Amazon SQS (Amazon Simple Queue Service)</a><br>Reliable and scalable hosted queues for storing messages as they travel between computers.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/swf/" target="_blank" rel="external">Amazon SWF (Amazon Simple Workflow Service)</a><br>A fully managed service that helps developers build, run, and scale background jobs that have parallel or sequential steps. Amazon SWF is like a state tracker and task coordinator in the cloud.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/vpc" target="_blank" rel="external">Amazon VPC (Amazon Virtual Private Cloud)</a><br>A web service for provisioning a logically isolated section of the AWS cloud where you can launch AWS resources in a virtual network that you define. You control your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/what-is-cloud-computing/" target="_blank" rel="external">AWS (Amazon Web Services)</a><br>An infrastructure web services platform in the cloud for companies of all sizes.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/workspaces/" target="_blank" rel="external">Amazon WorkSpaces</a><br>A managed, secure desktop computing service for provisioning cloud-based desktops and providing users access to documents, applications, and resources from supported devices.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/workspaces/applicationmanager" target="_blank" rel="external">Amazon WAM (Amazon WorkSpaces Application Manager)</a><br>A web service for deploying and managing applications for Amazon WorkSpaces. Amazon WAM accelerates software deployment, upgrades, patching, and retirement by packaging Windows desktop applications into virtualized application containers.</p>
-</li>
-<li><p>AUC<br>Area Under a Curve. An industry-standard metric to evaluate the quality of a binary classification machine learning model. AUC measures the ability of the model to predict a higher score for positive examples, those that are “correct,” than for negative examples, those that are “incorrect.” The AUC metric returns a decimal value from 0 to 1. AUC values near 1 indicate an ML model that is highly accurate.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudformation" target="_blank" rel="external">AWS CloudFormation</a><br>A service for writing or changing templates that create and delete related AWS resources together as a unit.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudhsm/" target="_blank" rel="external">AWS CloudHSM</a><br>A web service that helps you meet corporate, contractual, and regulatory compliance requirements for data security by using dedicated hardware security module (HSM) appliances within the AWS cloud.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/cloudtrail/" target="_blank" rel="external">AWS CloudTrail</a><br>A web service that records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/codecommit" target="_blank" rel="external">AWS CodeCommit</a><br>A fully managed source control service that makes it easy for companies to host secure and highly scalable private Git repositories.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/codedeploy" target="_blank" rel="external">AWS CodeDeploy</a><br>A service that automates code deployments to any instance, including EC2 instances and instances running on-premises.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/codepipeline" target="_blank" rel="external">AWS CodePipeline</a><br>A continuous delivery service for fast and reliable application updates.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/config/" target="_blank" rel="external">AWS Config</a><br>A fully managed service that provides an AWS resource inventory, configuration history, and configuration change notifications for better security and governance. You can create rules that automatically check the configuration of AWS resources that AWS Config records.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/dms" target="_blank" rel="external">AWS Database Migration Service</a><br>A web service that can help you migrate data to and from many widely used commercial and open-source databases.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/datapipeline" target="_blank" rel="external">AWS Data Pipeline</a><br>A web service for processing and moving data between different AWS compute and storage services, as well as on-premises data sources, at specified intervals.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/directconnect" target="_blank" rel="external">AWS Direct Connect</a><br>A web service that simplifies establishing a dedicated network connection from your premises to AWS. Using AWS Direct Connect, you can establish private connectivity between AWS and your data center, office, or colocation environment.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/elasticbeanstalk" target="_blank" rel="external">AWS Elastic Beanstalk</a><br>A web service for deploying and managing applications in the AWS cloud without worrying about the infrastructure that runs those applications.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/iam" target="_blank" rel="external">IAM (AWS Identity and Access Management)</a><br>A web service that enables Amazon Web Services (AWS) customers to manage users and user permissions within AWS.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/importexport" target="_blank" rel="external">AWS Import/Export</a><br>A service for transferring large amounts of data between AWS and portable storage devices.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/iot" target="_blank" rel="external">AWS IoT</a><br>A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/kms" target="_blank" rel="external">AWS KMS (AWS Key Management Service)</a><br>A managed service that simplifies the creation and control of encryption keys that are used to encrypt data.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/lambda/" target="_blank" rel="external">AWS Lambda</a><br>A web service that lets you run code without provisioning or managing servers. You can run code for virtually any type of application or back-end service with zero administration. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/partners/aws-marketplace/" target="_blank" rel="external">AWS Marketplace</a><br>A web portal where qualified partners to market and sell their software to AWS customers. AWS Marketplace is an online software store that helps customers find, buy, and immediately start using the software and services that run on AWS.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/mobile" target="_blank" rel="external">AWS Mobile Hub</a><br>An integrated console that for building, testing, and monitoring mobile apps.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/iam/" target="_blank" rel="external">AWS STS (AWS Security Token Service)</a><br>A web service for requesting temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).</p>
-</li>
-<li><p>AWS VPN CloudHub<br>Enables secure communication between branch offices using a simple hub-and-spoke model, with or without a VPC.</p>
-</li>
-<li><p><a href="https://aws.amazon.com/waf/" target="_blank" rel="external">AWS WAF</a><br>A web application firewall service that controls access to content by allowing or blocking web requests based on criteria that you specify, such as header values or the IP addresses that the requests originate from. AWS WAF helps protect web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.</p>
-</li>
-</ul>
-
+        
       
     </div>
     
@@ -711,11 +256,6 @@
         </div>
         
         
-  
-  <div class="tags">
-    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
-  </div>
-
         <!-- partial('post/share') -->
       <div class="clearfix"></div>
     </footer>
@@ -733,18 +273,48 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-02-05T04:15:53.000Z"><a href="/2017/02/05/Pattern-Expression-in-Java/">2017-02-05</a></time>
+        <time datetime="2016-01-05T13:59:51.000Z"><a href="/2016/01/05/Maven-WebApp-Project-QuickStart/">2016-01-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/02/05/Pattern-Expression-in-Java/">Pattern Expression in Java</a></h1>
+    <h1 class="title"><a href="/2016/01/05/Maven-WebApp-Project-QuickStart/">Maven WebApp Project QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the link of <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html" target="_blank" rel="external">Pattern Expression List in Java</a>. This class is published by Oracle in Java 7. We will create a frequent used Pattern Expression list later.</p>
+        <p>Here is the tutorial to develop a Web application using Java and Maven. And here is the link of a good <a href="http://www.mkyong.com/maven/how-to-create-a-web-application-project-with-maven/" target="_blank" rel="external">tutorial</a>.</p>
+<h3 id="Initialize-Project-Directory"><a href="#Initialize-Project-Directory" class="headerlink" title="Initialize Project Directory"></a>Initialize Project Directory</h3><p>Using the following command to create and initialize a Web App project directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.template -DartifactId=WelcomeWebApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure></p>
+<p>Now a new web project called “WelcomeWebApp” is created.</p>
+<hr>
+
+<h3 id="Edit-pom-xml"><a href="#Edit-pom-xml" class="headerlink" title="Edit pom.xml"></a>Edit pom.xml</h3><p>Like other kinds of Maven project, we have to edit the pom.xml file to add the dependencies needed for this project.<br>Here we need the Java Spring MVC framework dependencies, java servlet dependencies for RESTFUL services and other kinds of dpendencies. Below is the final version of our pom.xml:<br>Besides, we also have to include some plugins so that the war files can be compiled successfully, and then can be run in a specific kind of web server like tomcat.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">&lt;project xmlns=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">  xsi:schemaLocation=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span><br><span class="line">  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">  &lt;groupId&gt;com.yulartech.template&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;WelcomeWebApp&lt;/artifactId&gt;</span><br><span class="line">  &lt;packaging&gt;war&lt;/packaging&gt;</span><br><span class="line">  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">  &lt;name&gt;WelcomeWebApp Maven Webapp&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;url&gt;http://maven.apache.org&lt;/url&gt;</span><br><span class="line"></span><br><span class="line">  &lt;properties&gt;</span><br><span class="line">    &lt;spring.version&gt;4.1.1.RELEASE&lt;/spring.version&gt;</span><br><span class="line">    &lt;jstl.version&gt;1.2&lt;/jstl.version&gt;</span><br><span class="line">    &lt;jcl-over-slf4j.version&gt;1.7.5&lt;/jcl-over-slf4j.version&gt;</span><br><span class="line">    &lt;jdk.version&gt;1.7&lt;/jdk.version&gt;</span><br><span class="line">    &lt;junit.version&gt;4.11&lt;/junit.version&gt;</span><br><span class="line">    &lt;logback.version&gt;1.0.13&lt;/logback.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;junit.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;<span class="built_in">test</span>&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Spring Core --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-core&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">      &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">          &lt;groupId&gt;commons-logging&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">      &lt;/exclusions&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-web&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;spring.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jcl-over-slf4j&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;jcl-over-slf4j.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;ch.qos.logback&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;logback-classic&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;logback.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- jstl --&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;jstl&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;jstl&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;<span class="variable">$&#123;jstl.version&#125;</span>&lt;/version&gt;</span><br><span class="line">     &lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &lt;/dependencies&gt;</span><br><span class="line"></span><br><span class="line">  &lt;build&gt;</span><br><span class="line">    &lt;finalName&gt;WelcomeWebApp&lt;/finalName&gt;</span><br><span class="line"></span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-eclipse-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.9&lt;/version&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">             &lt;!-- Always download and attach dependencies <span class="built_in">source</span> code --&gt;</span><br><span class="line">             &lt;downloadSources&gt;<span class="literal">true</span>&lt;/downloadSources&gt;</span><br><span class="line">             &lt;downloadJavadocs&gt;<span class="literal">false</span>&lt;/downloadJavadocs&gt;</span><br><span class="line">             &lt;!-- Avoid <span class="built_in">type</span> mvn eclipse:eclipse -Dwtpversion=2.0 --&gt;</span><br><span class="line">             &lt;wtpversion&gt;2.0&lt;/wtpversion&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">      &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">      &lt;plugin&gt;</span><br><span class="line">        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;2.3.2&lt;/version&gt;</span><br><span class="line">        &lt;configuration&gt;</span><br><span class="line">          &lt;<span class="built_in">source</span>&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/<span class="built_in">source</span>&gt;</span><br><span class="line">          &lt;target&gt;<span class="variable">$&#123;jdk.version&#125;</span>&lt;/target&gt;</span><br><span class="line">          &lt;createDependencyReducedPom&gt;<span class="literal">true</span>&lt;/createDependencyReducedPom&gt;</span><br><span class="line">          &lt;filters&gt;</span><br><span class="line">            &lt;filter&gt;</span><br><span class="line">              &lt;artifact&gt;*:*&lt;/artifact&gt;</span><br><span class="line">              &lt;excludes&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.SF&lt;/exclude&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.DSA&lt;/exclude&gt;</span><br><span class="line">                &lt;exclude&gt;META-INF/*.RSA&lt;/exclude&gt;</span><br><span class="line">              &lt;/excludes&gt;</span><br><span class="line">            &lt;/filter&gt;</span><br><span class="line">          &lt;/filters&gt;</span><br><span class="line">        &lt;/configuration&gt;</span><br><span class="line">     &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- For Maven Tomcat Plugin --&gt;</span><br><span class="line">     &lt;plugin&gt;</span><br><span class="line">       &lt;groupId&gt;org.apache.tomcat.maven&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;tomcat7-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;2.2&lt;/version&gt;</span><br><span class="line">       &lt;configuration&gt;</span><br><span class="line">         &lt;path&gt;/WelcomeWebApp&lt;/path&gt;</span><br><span class="line">       &lt;/configuration&gt;</span><br><span class="line">     &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/build&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Create-and-Edit-mvc-dispatcher-servlet-xml"><a href="#Create-and-Edit-mvc-dispatcher-servlet-xml" class="headerlink" title="Create and Edit mvc-dispatcher-servlet.xml"></a>Create and Edit mvc-dispatcher-servlet.xml</h3><p>mvc-dispatcher-servlet.xml is created automatically by Maven, so we have to create it by ourselves and save it under this file path: ./src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml. We can make it through these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml</span><br></pre></td></tr></table></figure></p>
+<p>This xml file is used for Java Spring Framework. We can define the components of web project and the kind of web pages visit there. The kinds of web pages can include jsp or html.<br>So here is the final version of mvc-dispatcher-servlet.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans xmlns=<span class="string">"http://www.springframework.org/schema/beans"</span></span><br><span class="line">        xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></span><br><span class="line">        xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">        xsi:schemaLocation=<span class="string">"</span><br><span class="line">        http://www.springframework.org/schema/beans     </span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">        http://www.springframework.org/schema/context </span><br><span class="line">        http://www.springframework.org/schema/context/spring-context.xsd"</span>&gt;</span><br><span class="line"></span><br><span class="line">        &lt;context:component-scan base-package=<span class="string">"com.yulartech.template.controller"</span> /&gt;</span><br><span class="line"></span><br><span class="line">        &lt;bean class=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span><br><span class="line">            &lt;property name=<span class="string">"prefix"</span>&gt;</span><br><span class="line">                &lt;value&gt;/WEB-INF/&lt;/value&gt;</span><br><span class="line">            &lt;/property&gt;</span><br><span class="line">            &lt;property name=<span class="string">"suffix"</span>&gt;</span><br><span class="line">                &lt;value&gt;.jsp&lt;/value&gt;</span><br><span class="line">             &lt;/property&gt;</span><br><span class="line">        &lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure></p>
+<p>After we complete this step, we should move the index.jsp file to the WEB-INF directory:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mv src/main/webapp/index.jsp src/main/webapp/WEB-INF/</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-web-xml"><a href="#Edit-web-xml" class="headerlink" title="Edit web.xml"></a>Edit web.xml</h3><p>There is a web.xml file under this file path: ./src/main/webapp/WEB-INF/web.xml.<br>We should update this xml file to support Java servlet 2.5 or higher and integrate Java Spring Framework through Spring Listener.<br>Below is the final version of web.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app xmlns=<span class="string">"http://java.sun.com/xml/ns/javaee"</span> </span><br><span class="line">         xmlns:xsi=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="line">              xsi:schemaLocation=<span class="string">"http://java.sun.com/xml/ns/javaee </span><br><span class="line">              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"</span></span><br><span class="line">         version=<span class="string">"2.5"</span>&gt;</span><br><span class="line">  &lt;display-name&gt;Template Web Application&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;mvc-dispatcher&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">  &lt;context-param&gt;</span><br><span class="line">    &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">    &lt;param-value&gt;/WEB-INF/mvc-dispatcher-servlet.xml&lt;/param-value&gt;</span><br><span class="line">  &lt;/context-param&gt;</span><br><span class="line"></span><br><span class="line">  &lt;listener&gt;</span><br><span class="line">    &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">  &lt;/listener&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-Java-Code"><a href="#Edit-Java-Code" class="headerlink" title="Edit Java Code"></a>Edit Java Code</h3><p>At first, we should create a series new directories called “java/com/yulartech/template/controller” under this file path: ./webapp/src/main/.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p src/main/java/com/yulartech/template/controller/</span><br></pre></td></tr></table></figure></p>
+<p>And then create a java file called “BaseController.java”.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vi src/main/java/com/yulartech/template/controller/BaseController.java</span><br></pre></td></tr></table></figure></p>
+<p>Here is the final version of source code of this file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.template.controller;</span><br><span class="line"></span><br><span class="line">import org.slf4j.LoggerFactory;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.ui.ModelMap;</span><br><span class="line">import org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestMethod;</span><br><span class="line"></span><br><span class="line">@Controller</span><br><span class="line">public class BaseController &#123;</span><br><span class="line"></span><br><span class="line">    private static int counter = 0;</span><br><span class="line">    private static final String VIEW_INDEX = <span class="string">"index"</span>;</span><br><span class="line">    private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value = <span class="string">"/"</span>, method = RequestMethod.GET)</span><br><span class="line">    public String welcome(ModelMap model) &#123;</span><br><span class="line"></span><br><span class="line">        model.addAttribute(<span class="string">"message"</span>, <span class="string">"Welcome"</span>);</span><br><span class="line">        ++ counter;</span><br><span class="line">        logger.debug(<span class="string">"[welcome] counter : &#123;&#125;"</span>, counter);</span><br><span class="line"></span><br><span class="line">        // Spring uses InternalResourceViewResolver and <span class="built_in">return</span> back index.jsp</span><br><span class="line">        <span class="built_in">return</span> VIEW_INDEX;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(value = <span class="string">"/&#123;name&#125;"</span>, method = RequestMethod.GET)</span><br><span class="line">    public String welcomeName(@PathVariable String name, ModelMap model)&#123;</span><br><span class="line"></span><br><span class="line">        model.addAttribute(<span class="string">"message"</span>, <span class="string">"Welcome : "</span> + name);</span><br><span class="line">        ++ counter;</span><br><span class="line">        logger.debug(<span class="string">"[welcomeName]  : &#123;&#125;"</span>, name);</span><br><span class="line">        logger.debug(<span class="string">"[welcome] counter : &#123;&#125;"</span>, counter);</span><br><span class="line">        <span class="built_in">return</span> VIEW_INDEX;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Edit-index-jsp"><a href="#Edit-index-jsp" class="headerlink" title="Edit index.jsp"></a>Edit index.jsp</h3><p>Index.jsp is our front end page file. Actually we can also use a html file instead of jsp.<br>Here is the final version of our index.jsp file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;h1&gt;Welcome Web Project Example&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt; Welcome : <span class="variable">$&#123;message&#125;</span>&lt;/h2&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Optional-Edit-logback-xml"><a href="#Optional-Edit-logback-xml" class="headerlink" title="(Optional) Edit logback.xml"></a>(Optional) Edit logback.xml</h3><p>Since we used logback in our project, we have to include its properties information in our project and save it into logback.xml file under ./webapp/src/main/resources/ directory.<br>Here is the final version of logback.xml:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span>?&gt;</span><br><span class="line">&lt;configuration&gt;</span><br><span class="line"></span><br><span class="line">    &lt;appender name=<span class="string">"STDOUT"</span> class=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span><br><span class="line">      &lt;layout class=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span><br><span class="line"></span><br><span class="line">         &lt;Pattern&gt;%d&#123;yyyy-MM-dd HH:mm:ss&#125; [%thread] %-5level %logger&#123;36&#125; - %msg%n&lt;/Pattern&gt;</span><br><span class="line"></span><br><span class="line">       &lt;/layout&gt;</span><br><span class="line">    &lt;/appender&gt;</span><br><span class="line"></span><br><span class="line">    &lt;logger name=<span class="string">"com.yulartech.template.controller"</span> level=<span class="string">"debug"</span> additivity=<span class="string">"false"</span>&gt;</span><br><span class="line">      &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">    &lt;/logger&gt;</span><br><span class="line"></span><br><span class="line">    &lt;root level=<span class="string">"error"</span>&gt;</span><br><span class="line">      &lt;appender-ref ref=<span class="string">"STDOUT"</span> /&gt;</span><br><span class="line">    &lt;/root&gt;</span><br><span class="line"></span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Test-and-Run-War-file"><a href="#Test-and-Run-War-file" class="headerlink" title="Test and Run War file"></a>Test and Run War file</h3><p>Execute the following command to clean and build the war file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean package -DskipTests</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, a war file called “WelcomeWebApp.war” is generated under “./target/“ directory.<br>Then run the war file through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn tomcat:run</span><br></pre></td></tr></table></figure></p>
+<p>If no errors are thrown out, go to <a href="http://localhost:8080/WelcomeWebApp/" target="_blank" rel="external">http://localhost:8080/WelcomeWebApp/</a> or <a href="http://localhost:8080/WelcomeWebApp/yular" target="_blank" rel="external">http://localhost:8080/WelcomeWebApp/yular</a>.<br>Here is the view:<br><img src="https://c2.staticflickr.com/2/1515/24180036130_d1cd154a4b_b.jpg"><br><img src="https://c2.staticflickr.com/2/1605/23847366494_453aac21b5_b.jpg"></p>
+<p>Hope this tutorial helps.</p>
 
       
     </div>
@@ -772,11 +342,807 @@
 
 
 
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-04T12:20:23.000Z"><a href="/2016/01/04/2016-Reading-List/">2016-01-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/04/2016-Reading-List/">2016 Reading List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of books that should be read in 2016:</p>
+<p>1.Data Smart</p>
+<p>2.From Zero to One</p>
+<p>3.Pattern Recogintion and Machine Learning</p>
+<p>4.The Java Virtual Machine Specification</p>
+<p>5.Out of Control</p>
+<p>6.庄子今注今译</p>
+<p>7.沃伦.巴菲特的投资组合</p>
+<p>8.Advanced Programming in the UNIX Environment</p>
+<p>9.世界大学生程序设计竞赛（第一册）</p>
+<p>10.杰克·韦尔奇自传</p>
+<p>11.Thinkging in Java</p>
+<p>12.Java 语言程序设计 （进阶篇）</p>
+<p>13.证券投资分析</p>
+<p>14.计算机程序设计艺术 （卷一） 基本算法</p>
+<p>15.C 语言程序设计</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-13T09:50:21.000Z"><a href="/2015/12/13/Python-pip-Install/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/Python-pip-Install/">Python pip Install</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the official guide about how to install Python pip. Here is about how to install pip on Mac and RedHat.</p>
+<h3 id="Install-Python-pip-on-Mac"><a href="#Install-Python-pip-on-Mac" class="headerlink" title="Install Python pip on Mac"></a>Install Python pip on Mac</h3><p>Usually we only need this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo easy_install pip</span><br></pre></td></tr></table></figure></p>
+<p>Then we are all set.</p>
+<h3 id="Install-Python-pip-on-Redhat"><a href="#Install-Python-pip-on-Redhat" class="headerlink" title="Install Python pip on Redhat"></a>Install Python pip on Redhat</h3><p>At first, download <a href="https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py" target="_blank" rel="external">get-pip.py</a>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python get-pip.py</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Python/">Python</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-13T09:49:18.000Z"><a href="/2015/12/13/npm-commands-summary/">2015-12-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/13/npm-commands-summary/">npm commands summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is short summary of some basic npm commands:</p>
+<hr>
+
+<h4 id="npm-init"><a href="#npm-init" class="headerlink" title="npm init"></a>npm init</h4><p>Create a Node JS project directory with some basic files and directories such as node_modules and package.json.</p>
+<hr>
+
+<h4 id="npm-ls"><a href="#npm-ls" class="headerlink" title="npm ls"></a>npm ls</h4><p>List local or global (with -g option) package installed.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g</span><br><span class="line">npm ls -gl</span><br><span class="line">npm ls</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-start"><a href="#npm-start" class="headerlink" title="npm start"></a>npm start</h4><p>Start a Node JS server of the specific project. This runs an arbitrary command specified in the package “start” property of its “scripts” object. If no “start” property is specified on the “scripts” object, it will run node server.js.</p>
+<hr>
+
+<h4 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h4><p>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package name&gt; -g <span class="comment">#g option means whether this package should be installed for the whole machine environment.</span></span><br></pre></td></tr></table></figure></p>
+<p>If the package name is not mentioned, the command reads the dependences property specified in the package, download and then install them.</p>
+<hr>
+
+<h4 id="npm-uninstall"><a href="#npm-uninstall" class="headerlink" title="npm uninstall"></a>npm uninstall</h4><p>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall &lt;package name&gt; -g <span class="comment">#g option means whether this package should be installed for the whole machine environment.</span></span><br></pre></td></tr></table></figure></p>
+<p>This command will uninstall the packages.</p>
+<hr>
+
+<h4 id="npm-update"><a href="#npm-update" class="headerlink" title="npm update"></a>npm update</h4><p>The command will update all the packages listed to the latest version (specified by the tag config) or install missing packages.<br>The command format is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update [-g] [&lt;pkg&gt;...]</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-cache"><a href="#npm-cache" class="headerlink" title="npm cache"></a>npm cache</h4><p>This command is used to add, list or clean the npm cache folder.<br>The command format is like:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm cache add &lt;tarball file&gt;</span><br><span class="line">npm cache add &lt;folder&gt;</span><br><span class="line">npm cache add &lt;tarball url&gt;</span><br><span class="line">npm cache add &lt;name&gt;@&lt;version&gt;</span><br><span class="line"></span><br><span class="line">npm cache ls [&lt;path&gt;]</span><br><span class="line"></span><br><span class="line">npm cache clean [&lt;path&gt;]</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h4 id="npm-test"><a href="#npm-test" class="headerlink" title="npm test"></a>npm test</h4><p>This runs a package “test” script, if one is provided.<br>The command format is as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="built_in">test</span> [-- &lt;args&gt;]</span><br><span class="line">npm tst [-- &lt;args&gt;]</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-11T16:53:19.000Z"><a href="/2015/12/12/Excel-Frequently-Used-Excel-Function-Summary/">2015-12-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/12/Excel-Frequently-Used-Excel-Function-Summary/">Excel: Frequently Used Excel Function Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of Excel functions that may be used frequently in data analysis.</p>
+<h4 id="SUM"><a href="#SUM" class="headerlink" title="SUM"></a>SUM</h4><p>Caculate the sum of data in a specific area.<br>Ex: =SUM(A1:A5)</p>
+<hr>
+
+<h4 id="AVERAGE"><a href="#AVERAGE" class="headerlink" title="AVERAGE"></a>AVERAGE</h4><p>Caculate the average of data in a specific area.<br>Ex: =AVERAGE(A1:A5)</p>
+<hr>
+
+<h4 id="MAX"><a href="#MAX" class="headerlink" title="MAX"></a>MAX</h4><p>Find the maximum value of data in a specific area.<br>Ex: =MAX(A1:A5)</p>
+<hr>
+
+<h4 id="MIN"><a href="#MIN" class="headerlink" title="MIN"></a>MIN</h4><p>Find the minimum value of data in a specific area.<br>Ex: =MIN(A1:A5)</p>
+<hr>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Data-Analysis/">Data Analysis</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-08T16:08:33.000Z"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">2015-12-09</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/09/R-Language-Install-and-Basic-Commands/">R Language Install and Basic Commands</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>To install R language on operating system, here is an <a href="https://cran.rstudio.com/" target="_blank" rel="external">official tutorial</a>. But it is not easy to install R on Redhat OS. So here is the tutorial about R installation on Redhat.</p>
+<p>First of all, here is the <a href="https://fedoraproject.org/wiki/EPEL/FAQ#How_can_I_install_the_packages_from_the_EPEL_software_repository.3F" target="_blank" rel="external">official tutorial</a> to install R on Redhat. </p>
+<h2 id="Download-Extra-Packages-for-Enterprise-Linux-EPEL"><a href="#Download-Extra-Packages-for-Enterprise-Linux-EPEL" class="headerlink" title="Download Extra Packages for Enterprise Linux (EPEL)"></a>Download Extra Packages for Enterprise Linux (EPEL)</h2><p>We cannot install R through yum. So at first, we should download EPEL through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su -c <span class="string">'rpm -Uvh http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm'</span></span><br></pre></td></tr></table></figure></p>
+<p>But if we do not know the password of root, then we can use the following commands instead:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm</span><br><span class="line">sudo rpm -Uvh epel-release-5-4.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>Note that we should use different rpm if the version of Redhat system is later than 5. Please check the official tutorial to figure out the correct rpm file.</p>
+<h2 id="Install-R"><a href="#Install-R" class="headerlink" title="Install R"></a>Install R</h2><p>Since we have the rpm file, the we can install R language through executing this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install R</span><br></pre></td></tr></table></figure></p>
+<p>The tail of output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Installed:</span><br><span class="line"></span><br><span class="line">  R.x86_64 0:3.2.2-2.el5                                                                                                                                                                                 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Dependency Installed:</span><br><span class="line"></span><br><span class="line">  R-core.x86_64 0:3.2.2-2.el5                    R-core-devel.x86_64 0:3.2.2-2.el5            R-devel.x86_64 0:3.2.2-2.el5                           avahi-compat-libdns_sd.x86_64 0:0.6.16-10.el5_6    </span><br><span class="line"></span><br><span class="line">  blas-devel.x86_64 0:3.0-38.el5                 bzip2-devel.x86_64 0:1.0.3-6.el5_5           cups.x86_64 1:1.3.7-30.el5_9.3                         desktop-file-utils.x86_64 0:0.10-7                 </span><br><span class="line"></span><br><span class="line">  ghostscript.x86_64 0:8.70-14.el5_8.1           ghostscript-fonts.noarch 0:5.50-13.1.1       lapack-devel.x86_64 0:3.0-38.el5                       libRmath.x86_64 0:3.2.2-2.el5                      </span><br><span class="line"></span><br><span class="line">  libRmath-devel.x86_64 0:3.2.2-2.el5            libX11-devel.x86_64 0:1.0.3-11.el5_7.1       libXau-devel.x86_64 0:1.0.1-3.1                        libXdmcp-devel.x86_64 0:1.0.1-2.1                  </span><br><span class="line"></span><br><span class="line">  mesa-libGL-devel.x86_64 0:6.5.1-7.11.el5_9     netpbm.x86_64 0:10.35.58-10.el5              netpbm-progs.x86_64 0:10.35.58-10.el5                  paps.x86_64 0:0.6.6-20.el5                         </span><br><span class="line"></span><br><span class="line">  pcre-devel.x86_64 0:6.6-6.el5_6.1              poppler.x86_64 0:0.5.4-19.el5                poppler-utils.x86_64 0:0.5.4-19.el5                    psutils.x86_64 0:1.17-26.1                         </span><br><span class="line"></span><br><span class="line">  tcl-devel.x86_64 0:8.4.13-6.el5                tetex.x86_64 0:3.0-33.15.el5_8.1             tetex-dvips.x86_64 0:3.0-33.15.el5_8.1                 tetex-fonts.x86_64 0:3.0-33.15.el5_8.1             </span><br><span class="line"></span><br><span class="line">  tetex-latex.x86_64 0:3.0-33.15.el5_8.1         texinfo-tex.x86_64 0:4.8-14.el5              tk-devel.x86_64 0:8.4.13-5.el5_1.1                     urw-fonts.noarch 0:2.3-6.1.1                       </span><br><span class="line"></span><br><span class="line">  xdg-utils.noarch 0:1.0.2-4.el5                 xorg-x11-proto-devel.x86_64 0:7.1-13.el5     xz-devel.x86_64 0:4.999.9-0.3.beta.20091007git.el5     zlib-devel.x86_64 0:1.2.3-7.el5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Complete!</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/R/">R</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-07T15:37:29.000Z"><a href="/2015/12/07/Latex-Template-And-Learning-Material/">2015-12-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/07/Latex-Template-And-Learning-Material/">Latex Template And Learning Material</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Just two links:<br>A good website for <a href="http://www.latextemplates.com/" target="_blank" rel="external">Latex Templates</a>.</p>
+<p>A tool service website for <a href="https://www.overleaf.com" target="_blank" rel="external">Latex Generation and Test</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Tools/">Tools</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-06T04:00:54.000Z"><a href="/2015/12/06/Thinking-in-Github-Usage/">2015-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/06/Thinking-in-Github-Usage/">Thinking in Github Usage</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Github is very popular in software industry nowadays. The following is a short summary of how to effectively use Github for source code control.</p>
+<h2 id="Branch-Mangement-Strategy"><a href="#Branch-Mangement-Strategy" class="headerlink" title="Branch Mangement Strategy"></a>Branch Mangement Strategy</h2><p>When we create a repository in Github, we will have a master branch for it by default. Usually we should have these four kinds branches:</p>
+<ol>
+<li>Master branch: This branch should manage the stable version of the project.</li>
+<li>Development branch: This branch should manage the latest version but no necessary the stable version of the project. Every developers should commit their changes to this branch and then these changes will be merged to master branch after this latest version pass the test.</li>
+<li>Personal branch: It is good practice that every developer should have their own development branch. They develop new feature or fix bugs in this branch and then merge the changes to the development branch after their code pass test and code review.</li>
+<li>Bug branch: This branch is temporary. When developers are asked to fix an emergent bug(s) but at the same time they are developing other features, they can create a bug branch to fix this bug, commit and merge the changes, and at last, delete this branch.</li>
+<li>Feature branch: This branch is also tempory. Here is a similar story: Developers again are asked to add a new feature that should be released in a short time, but at the same time they are working on different features or even modules. This should be a daily event in IT company :-) So again, we can create a branch only for the purpose of developing this feature, commit and merge the changes and then delete this branch.<br>Actually, there should be more different kinds of branches and we should create, manage and delete the branches based on project management need.</li>
+</ol>
+<h2 id="Pull-and-Push-Changes"><a href="#Pull-and-Push-Changes" class="headerlink" title="Pull and Push Changes"></a>Pull and Push Changes</h2><p>After we have done the test for our code, we can commit and push the changes to remote repository. Here are the steps to do this:</p>
+<p>####1. Check the status of Git<br>Type this command to see what files are changed or newly added into local workspace:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure></p>
+<p>Then type this command to see what is changed in a specified file. The changes mean that what is added, modified or deleted in the source code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff /path/to/filename</span><br></pre></td></tr></table></figure></p>
+<p>####2. Edit the Ignore file<br>Some context should not be sent to remote repository, such as some configuration information or database username and password. The files contain these kinds of information should not be included in the Git commitment. To do this, we should create a new file called “.gitignore” in the project directory and list the name of files into it.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">touch .gitignore <span class="comment"># This is optional because this file may have existed under the project directory.</span></span><br><span class="line">vi .gitignore</span><br></pre></td></tr></table></figure></p>
+<p>####3. Downloaded the changes from teamates<br>If there are/is developer(s) edit the same part of same files and commit the changes, conflicts may happen when other developers try to push/pull the changes to/from repository. So before we add the changes into commitment, we should do the following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash <span class="comment"># Save our changes</span></span><br><span class="line">git pull</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure></p>
+<p>If conflicts appear, resolve them manually in the source code.</p>
+<p>####4. Commit the Changes<br>Now we can start to commit our changes. First of all, we should add all or only some of changes into commitment:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add -A <span class="comment">#Add all changes</span></span><br><span class="line">git add /path/to/filename1 /path/to/filename2 ... /path/to/filenameN</span><br></pre></td></tr></table></figure></p>
+<p>Then commit and push the changes to remote repository:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"Commitment message"</span></span><br><span class="line">git push remote-name branch-name</span><br></pre></td></tr></table></figure></p>
+<p>####5. Delete the Branches<br>If the branches are only for temporary use. We can delete it if we do not need it any longer.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="_">-d</span> branch-name</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Tools/">Tools</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-06T04:00:26.000Z"><a href="/2015/12/06/Thinking-in-Web-Developer/">2015-12-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/06/Thinking-in-Web-Developer/">Thinking in Web Developer</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of my own web development experience as a engineer. Currently I am working on a web service project using Java in the backend and Javascript in the frontend. In the future, I will try to use Python or C++ to in the backend development.</p>
+<h3 id="Learn-the-Terminology"><a href="#Learn-the-Terminology" class="headerlink" title="Learn the Terminology"></a>Learn the Terminology</h3><p>We should learn the terminology used in Web development at first so that we can understand the document and know how to find the solution from search engine such Bing and Google.</p>
+<p>Currently I think the terminology in the below list is basic but important. Please ignore the order.:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Frontend, Backend</span><br><span class="line">Java, CC++, Javascript, PHP, HTML, Python</span><br><span class="line">Session, Cookie, Header</span><br><span class="line">Browser</span><br><span class="line">Protocol, HTTP, HTTPS, FTP, UDP</span><br><span class="line">End-to-End</span><br><span class="line">Client, Server</span><br><span class="line">Model-View-Control (MVC)</span><br><span class="line">Router, Switcher</span><br><span class="line">Distributed System</span><br><span class="line">CDN</span><br><span class="line">Web Code Status</span><br><span class="line">Request, Response</span><br><span class="line">(RESTFUL )API</span><br><span class="line">Cross Domain</span><br><span class="line">JSON, XML</span><br></pre></td></tr></table></figure></p>
+<h3 id="Understand-the-WorkFlow"><a href="#Understand-the-WorkFlow" class="headerlink" title="Understand the WorkFlow"></a>Understand the WorkFlow</h3><p>Developers should understand the workflow of the web project that they are working on, the tool that they will use, and the protocol that they will use.<br>Here the tools include text editor such as sublime and vim, and IDE such as eclipse. Of course, other tools are also possible.<br>Here the protocol should include HTTPS and HTTP. Note that some companies or agencies may use self-designed protocols and developers should read the document about them. Protocols define the communication behavior between different agencies of this project and data format of it.</p>
+<h3 id="Learn-How-to-Use-Development-Tools"><a href="#Learn-How-to-Use-Development-Tools" class="headerlink" title="Learn How to Use Development Tools"></a>Learn How to Use Development Tools</h3><p>This is very important. Developers should know how to use the development tools to create, compile (if applicable), and run (a) project(s). For example, given an IDE, developers should know how to use it to develop a Java project through creating a Java project, compiling the Java after coding is done and then running it in the IDE.<br>They should also know how to use tools to debug. For example, developers should know how to use browser to figure out what is going wrong with their project: is it the bug coming from frontend, backend or even from third party?</p>
+<h3 id="Learn-the-Syntax-and-Coding-Standard-of-Programming-Language"><a href="#Learn-the-Syntax-and-Coding-Standard-of-Programming-Language" class="headerlink" title="Learn the Syntax and Coding Standard of Programming Language"></a>Learn the Syntax and Coding Standard of Programming Language</h3><p>Developers should learn the syntax of the programming language that they will use in the project. Most of the time, bugs are from syntax errors and we should avoid those unnecessary bugs.<br>To make our code more readable and easy to debug, we should follow the coding standard of that programming language. The standard include the variable naming standard and function naming standard.</p>
+<h3 id="Improve-Trouble-Shooting-Skills"><a href="#Improve-Trouble-Shooting-Skills" class="headerlink" title="Improve Trouble Shooting Skills"></a>Improve Trouble Shooting Skills</h3><p>Most of time, we will meet lots of “tiny” technical issues in web development, such as the disappearance of elements in web page. These bugs are easy to fix if we have known some tricky approaches to do that. So that is the reason why we should know how to effectively use search engine or just directly go to some specific websites to find the solution. Here are the link of my previous article about <a href="http://yular.github.io/tags/Life-Thoughts/">how to do technical trouble shooting</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-19T15:51:47.000Z"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">2015-11-19</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/19/ACM-ICPC-Asian-Regional-Contest-2015-ChangChun-Site/">ACM-ICPC Asian Regional Contest</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-08T09:02:32.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-V/">Hackerrank AI and Machine Learning Solution List V</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-08T09:02:29.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-IV/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-IV/">Hackerrank AI and Machine Learning Solution List IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-08T09:02:25.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-III/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-III/">Hackerrank AI and Machine Learning Solution List III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-08T09:02:22.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-II/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-II/">Hackerrank AI and Machine Learning Solution List II</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-08T09:02:19.000Z"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-I/">2015-11-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/08/Hackerrank-AI-and-Machine-Learning-Solution-List-I/">Hackerrank AI and Machine Learning Solution List I</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-04T11:54:05.000Z"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-III/">2015-11-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/04/Hackerrank-Data-Structure-Problem-Solution-List-III/">Hackerrank Data Structure Problem Solution List III</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the summary of Hackerrank data structure problem solution list.<br><a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">summary list</a></p>
+<p>Below is the detailed explanation of the idea behind solution.</p>
+<hr>
+
+<h3 id="Maximum-Element"><a href="#Maximum-Element" class="headerlink" title="Maximum Element"></a>Maximum Element</h3><p><a href="https://www.hackerrank.com/challenges/maximum-element" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/maximum-element.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use two stacks. One is to save all the given elements that are not poped out and the other is to save the maximum value starting from the element at the bottom of the first stack.</p>
+<hr>
+
+<h3 id="Largest-Rectangle"><a href="#Largest-Rectangle" class="headerlink" title="Largest Rectangle"></a>Largest Rectangle</h3><p><a href="https://www.hackerrank.com/challenges/largest-rectangle" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/largest-rectangle.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Add 0 to the end of given array. Starting from the head of array, push the index of every element into a stack. If the element value pointed by the index at the top of stack is lower than that of the current index, pop out that index and then calculate the area formed between this index and the new top index at the stack; and update the answer if it is smaller than the new area.</p>
+<hr>
+
+<h3 id="Simple-Text-Editor"><a href="#Simple-Text-Editor" class="headerlink" title="Simple Text Editor"></a>Simple Text Editor</h3><p><a href="https://www.hackerrank.com/challenges/simple-text-editor" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/simple-text-editor.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use an array to simulate a stack. </p>
+<hr>
+
+<h3 id="Poisonous-Plants"><a href="#Poisonous-Plants" class="headerlink" title="Poisonous Plants"></a>Poisonous Plants</h3><p><a href="https://www.hackerrank.com/challenges/poisonous-plants" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/poisonous-plants.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. Use two stacks to do the simulation for the problem.</p>
+<hr>
+
+<h3 id="Waiter"><a href="#Waiter" class="headerlink" title="Waiter"></a>Waiter</h3><p><a href="https://www.hackerrank.com/challenges/waiter" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/waiter.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. At first find all the prime needed. Then use stack to do the simulation for the problem.</p>
+<hr>
+
+<h3 id="Jesse-and-Cookies"><a href="#Jesse-and-Cookies" class="headerlink" title="Jesse and Cookies"></a>Jesse and Cookies</h3><p><a href="https://www.hackerrank.com/challenges/jesse-and-cookies" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/jesse-and-cookies.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use queue to simulate the problem.</p>
+<hr>
+
+<h3 id="Castle-on-the-Grid"><a href="#Castle-on-the-Grid" class="headerlink" title="Castle on the Grid"></a>Castle on the Grid</h3><p><a href="https://www.hackerrank.com/challenges/castle-on-the-grid" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/castle-on-the-grid.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Find the path from source to destination with least number of changing direction.</p>
+<hr>
+
+<h3 id="Down-To-Zero-II"><a href="#Down-To-Zero-II" class="headerlink" title="Down To Zero II"></a>Down To Zero II</h3><p><a href="https://www.hackerrank.com/challenges/down-to-zero-ii" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/down-to-zero-ii.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Use BFS to simulate the process.</p>
+<hr>
+
+<h3 id="Truck-Tour"><a href="#Truck-Tour" class="headerlink" title="Truck Tour"></a>Truck Tour</h3><p><a href="https://www.hackerrank.com/challenges/truck-tour" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/truck-tour.cpp" target="_blank" rel="external">Code Link</a><br>BFS problem. Use BFS to simulate the process.</p>
+<hr>
+
+<h3 id="Queries-with-Fixed-Length"><a href="#Queries-with-Fixed-Length" class="headerlink" title="Queries with Fixed Length"></a>Queries with Fixed Length</h3><p><a href="https://www.hackerrank.com/challenges/queries-with-fixed-length" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/queries-with-fixed-length.cpp" target="_blank" rel="external">Code Link</a><br>Monotone problem. Elements inside the queue is in non-increasing order. When insert element into the queue, starting from the tail of queue, pop back elements that has smaller value than the current one; and then starting from the head of queue, pop out the elements that are out of required boundary. Now in every query, the value of element at the head of queue is answer.</p>
+<hr>
+
+<h3 id="QHEAP1"><a href="#QHEAP1" class="headerlink" title="QHEAP1"></a>QHEAP1</h3><p><a href="https://www.hackerrank.com/challenges/qheap1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/qheap1.cpp" target="_blank" rel="external">Code Link</a><br>Priority queue problem. Use two min priority queues, one is to save all the values that have been removed and the other is to save all given values. Before output the minimum value, pop out the top value of the two priority queues until their top values are not equal.</p>
+<hr>
+
+<h3 id="Find-Median"><a href="#Find-Median" class="headerlink" title="Find Median"></a>Find Median</h3><p><a href="https://www.hackerrank.com/challenges/find-median-1" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/find-median-1.cpp" target="_blank" rel="external">Code Link</a><br>Priority queue problem. Use one max priority queue and one min priority queue. Both of them save half of the given elements. The rule is that given a new element, if its value is larger than the value of top element of max priority queue, push that element into min priority queue; otherwise, push it into max priority queue. Now if difference between the the total number of elements of these two queues are larger than one, rebalance the queues so that the difference is no larger than one. For each query, if the total number of elements of the two queues are odd, the answer is the value of top element of max priority queue; otherwise, it is the half of the sum of the top value of two priority queues.</p>
+<hr>
+
+<h3 id="Minimum-Average-Waiting-Time"><a href="#Minimum-Average-Waiting-Time" class="headerlink" title="Minimum Average Waiting Time"></a>Minimum Average Waiting Time</h3><p><a href="https://www.hackerrank.com/challenges/minimum-average-waiting-time" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/minimum-average-waiting-time.cpp" target="_blank" rel="external">Code Link</a><br>Greedy problem. Sort the order based on this rule: if two orders have the same start time, the one cost less time come first; otherwise, the order with less time come first. Then use priority queue to go through the sorted orders one by one and each time put the remaining order that cost most time to the top of priority queue.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
 
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/7/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/9/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>

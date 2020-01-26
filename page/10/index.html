@@ -97,244 +97,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-01-08T08:08:36.000Z"><a href="/2017/01/08/Lua-MySQL-QuickStart/">2017-01-08</a></time>
+        <time datetime="2015-09-03T12:29:42.000Z"><a href="/2015/09/03/Pig-Install-and-Basic-Commands/">2015-09-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/01/08/Lua-MySQL-QuickStart/">Lua MySQL QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the tutorial to write and build Lua application that can communicate with MySQL database.</p>
-<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
-<p>We need to install dependency to access MySQL database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install luasql-mysql MYSQL_INCDIR=/usr/include/mysql/</span><br></pre></td></tr></table></figure></p>
-<p>But default dependency miss some libraries or variables. In that case, we need to use different source:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks --from=http://rocks.luarocks.org/dev install luasql-mysql cvs-1 MYSQL_INCDIR=/usr/include/mysql</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MySQL query. The file name is mysql.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">luasql = require <span class="string">"luasql.mysql"</span></span><br><span class="line">env = assert (luasql.mysql())</span><br><span class="line">con = assert (env:connect(<span class="string">"database_name"</span>,<span class="string">"user_name"</span>,<span class="string">"password"</span>,<span class="string">"host_ip"</span>,port))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(env,con)</span><br><span class="line"></span><br><span class="line">cur,errorString = con:execute([[select * from <span class="built_in">test</span>;]])</span><br><span class="line"><span class="built_in">print</span>(cur,errorString )</span><br><span class="line"></span><br><span class="line">row = cur:fetch (&#123;&#125;, <span class="string">"a"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> row <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(string.format(<span class="string">"Id: %s "</span>, row.id))</span><br><span class="line">    row = cur:fetch (row, <span class="string">"a"</span>)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">cur:close()</span><br><span class="line">con:close()</span><br><span class="line">env:close()</span><br></pre></td></tr></table></figure></p>
-<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mysql.lua</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2017-01-08T08:08:02.000Z"><a href="/2017/01/08/LuaRocks-QuickStart/">2017-01-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2017/01/08/LuaRocks-QuickStart/">LuaRocks QuickStart</a></h1>
+    <h1 class="title"><a href="/2015/09/03/Pig-Install-and-Basic-Commands/">Pig Install and Basic Commands</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the <a href="https://luarocks.org/" target="_blank" rel="external">official website of LuaRocks</a>. LuaRocks is the package manager for Lua moduels, which means that we can use it to install or uninstall some specific Lua libraries like LuaMySQL and LuaMongoDB.</p>
-<p>Below is the tutorial to install LuaRocks.</p>
-<h2 id="Install-LuaRocks"><a href="#Install-LuaRocks" class="headerlink" title="Install LuaRocks"></a>Install LuaRocks</h2><p>Here we use Centos 7. We will install LuaRocks through command lines as follows (Here is <a href="https://luarocks.org/#quick-start" target="_blank" rel="external">official tutorial</a>):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://luarocks.org/releases/luarocks-2.4.1.tar.gz</span><br><span class="line">tar zxpf luarocks-2.4.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> luarocks-2.4.1</span><br><span class="line">./configure</span><br><span class="line">sudo make bootstrap</span><br></pre></td></tr></table></figure></p>
-<p>Now execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks</span><br></pre></td></tr></table></figure></p>
-<p>If everythings goes well, we can similar output as below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">LuaRocks 2.4.1, a module deployment system <span class="keyword">for</span> Lua</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line">        /usr/<span class="built_in">local</span>/bin/luarocks - LuaRocks main <span class="built_in">command</span>-line interface</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">        /usr/<span class="built_in">local</span>/bin/luarocks [--from=&lt;server&gt; | --only-from=&lt;server&gt;] [--to=&lt;tree&gt;] [VAR=VALUE]... &lt;<span class="built_in">command</span>&gt; [&lt;argument&gt;] </span><br><span class="line"></span><br><span class="line">GENERAL OPTIONS</span><br><span class="line">        These apply to all commands, as appropriate:</span><br><span class="line"></span><br><span class="line">        --server=&lt;server&gt;      Fetch rocks/rockspecs from this server</span><br><span class="line">                               (takes priority over config file)</span><br><span class="line">        --only-server=&lt;server&gt; Fetch rocks/rockspecs from this server only</span><br><span class="line">                               (overrides any entries <span class="keyword">in</span> the config file)</span><br><span class="line">        --only-sources=&lt;url&gt;   Restrict downloads to paths matching the</span><br><span class="line">                               given URL.</span><br><span class="line">        --tree=&lt;tree&gt;          Which tree to operate on.</span><br><span class="line">        --local                Use the tree <span class="keyword">in</span> the user<span class="string">'s home directory.</span><br><span class="line">                               To enable it, see '</span>/usr/<span class="built_in">local</span>/bin/luarocks <span class="built_in">help</span> path<span class="string">'.                     </span><br><span class="line">        --verbose              Display verbose output of commands executed.                               </span><br><span class="line">        --timeout=&lt;seconds&gt;    Timeout on network operations, in seconds.                                 </span><br><span class="line">                               0 means no timeout (wait forever).                                         </span><br><span class="line">                               Default is 30.                                                             </span><br><span class="line">                                                                                                          </span><br><span class="line">VARIABLES                                                                                                 </span><br><span class="line">        Variables from the "variables" table of the configuration file                                    </span><br><span class="line">        can be overriden with VAR=VALUE assignments. </span><br><span class="line"></span><br><span class="line">...</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Install-LuaSocket"><a href="#Install-LuaSocket" class="headerlink" title="Install LuaSocket"></a>Install LuaSocket</h2><p>Now we will try to install LuaSocket through LuaRocks. Note that we may need to use sudo command but luarocks may not be identified by sudo. In that case, we can use root user to execute luarocks command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line">luarocks install luasocket</span><br></pre></td></tr></table></figure></p>
-<p>To check that luasocket whether is installed successfully or not, we can enter lua shell and type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require <span class="string">"socket"</span></span><br></pre></td></tr></table></figure></p>
-<p>The output returned by command should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; require <span class="string">"socket"</span></span><br><span class="line">table: 0x1<span class="built_in">cd</span>8060</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-29T17:19:53.000Z"><a href="/2016/12/30/Apache-Jena-QuickStart/">2016-12-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/30/Apache-Jena-QuickStart/">Apache Jena QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the tutorial to install Apache Jena on CentOS. This is the official website of <a href="https://jena.apache.org/index.html" target="_blank" rel="external">Apache Jena</a>, <a href="https://jena.apache.org/tutorials/" target="_blank" rel="external">official tutorial</a> and <a href="https://jena.apache.org/getting_started/" target="_blank" rel="external">get started document</a>.</p>
-<h2 id="Download-Apache-Jena"><a href="#Download-Apache-Jena" class="headerlink" title="Download Apache Jena"></a>Download Apache Jena</h2><p>Download Apache Jena from this <a href="https://jena.apache.org/download/index.cgi" target="_blank" rel="external">link</a>. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.</p>
-<p>Extract the software from tar ball and move them to /usr/local:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf apache-jena-3.1.1.tar.gz</span><br><span class="line">mv apache-jena-3.1.1 /usr/<span class="built_in">local</span>/</span><br></pre></td></tr></table></figure></p>
-<h2 id="Set-Environment-PATH"><a href="#Set-Environment-PATH" class="headerlink" title="Set Environment PATH"></a>Set Environment PATH</h2><p>Edit ~/.bashrc file and put following content in that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JENAROOT=/usr/<span class="built_in">local</span>/apache-jena-3.1.1</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JENAROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
-<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Now try this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparql --version</span><br></pre></td></tr></table></figure></p>
-<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jena:       VERSION: 3.1.1</span><br><span class="line">Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">ARQ:        VERSION: 3.1.1</span><br><span class="line">ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">RIOT:       VERSION: 3.1.1</span><br><span class="line">RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/SparkSQL/">SparkSQL</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-12-29T17:19:20.000Z"><a href="/2016/12/30/Kotlin-QuickStart/">2016-12-30</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/12/30/Kotlin-QuickStart/">Kotlin QuickStart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official <a href="https://Kotlinlang.org" target="_blank" rel="external">website</a>.</p>
-<p>It has a lot of advantages and we can find them on the official website above. We can write a Kotlin script and then compile and build it as a java jar or java script file to execute. See the <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language" target="_blank" rel="external">wikipedia</a>).</p>
-<p>Below is a quickstart guide to build a Kotlin script as a java jar, which is similar to the official <a href="https://Kotlinlang.org/docs/tutorials/" target="_blank" rel="external">tutorial</a>.</p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a> to install Kotlin compiler in the OS. We use Centos 7 in this tutorial.</p>
-<p>To manual install the compiler, just download it from <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2" target="_blank" rel="external">Github Release</a>. Then unzip it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip kotlin-compiler-1.0.5-2.zip</span><br></pre></td></tr></table></figure></p>
-<p>Note that current latest version is 1.0.5. The approach for all the other versions.</p>
-<p>Then move the folder to the location we would like to store this compiler and add the bin to PATH variable.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv kotlinc /usr/<span class="built_in">local</span>/kotlinc</span><br></pre></td></tr></table></figure></p>
-<p>Edit ~/.bashrc adding/modifying following lines<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KOTLINC=/usr/<span class="built_in">local</span>/kotlinc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$KOTLINC</span>/bin</span><br></pre></td></tr></table></figure></p>
-<p>Remember to execute after modification is done.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>Now let us type following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlin -help</span><br></pre></td></tr></table></figure></p>
-<p>The output should similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kotlin: run Kotlin programs, scripts or REPL.</span><br><span class="line"></span><br><span class="line">Usage: kotlin &lt;options&gt; &lt;<span class="built_in">command</span>&gt; &lt;arguments&gt;</span><br><span class="line"><span class="built_in">where</span> <span class="built_in">command</span> may be one of:</span><br><span class="line">  foo.Bar                    Runs the <span class="string">'main'</span> <span class="keyword">function</span> from the class with the given qualified name</span><br><span class="line">  app.jar                    Runs the given JAR file as <span class="string">'java -jar'</span> would <span class="keyword">do</span></span><br><span class="line">                             (-classpath argument is ignored and no Kotlin runtime is added to the classpath)</span><br><span class="line">and possible options include:</span><br><span class="line">  -classpath (-cp) &lt;path&gt;    Paths <span class="built_in">where</span> to find user class files</span><br><span class="line">  -Dname=value               Set a system JVM property</span><br><span class="line">  -J&lt;option&gt;                 Pass an option directly to JVM</span><br><span class="line">  -no-reflect                Don<span class="string">'t include Kotlin reflection implementation into classpath</span><br><span class="line">  -version                   Display Kotlin version</span><br><span class="line">  -help (-h)                 Print a synopsis of options</span></span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Hello-World-Application"><a href="#Hello-World-Application" class="headerlink" title="Hello, World Application"></a>Hello, World Application</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a>.</p>
-<p>Add a new file called hello.kt and below is the content:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    println(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Compile above application using Kotlinc compiler to a java jar:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlinc hello.kt -include-runtime <span class="_">-d</span> hello.jar</span><br></pre></td></tr></table></figure></p>
-<p>Note that -include-runtime option makes the resulting .jar file self-contained and runnable by including the Kotlin runtime library in it. -d option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a .jar file name.</p>
-<p>Now run the application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar hello.jar</span><br></pre></td></tr></table></figure></p>
-<p>The output should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h2 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h2><p>Here is the <a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="external">offical tutorial</a> about the basic/common used syntax in Kotlin.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Kotlin/">Kotlin</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-22T15:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
-<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
-<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command to use HBase split policy:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>Here is the official website of <a href="https://pig.apache.org/" target="_blank" rel="external">Apache Pig</a>. The following is the tutorial of pig installation and summary of basic commands.</p>
+<h3 id="Pig-Intallation"><a href="#Pig-Intallation" class="headerlink" title="Pig Intallation"></a>Pig Intallation</h3><p>Download the pig from this <a href="https://pig.apache.org/releases.html#Download" target="_blank" rel="external">link</a>. Just choose any one release. In this tutorial, we use Pig-0.14.0.</p>
+<p>Then unpacked the distribution using these commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf pig-0.14.0.tar.gz</span><br><span class="line">mv pig-0.14.0 <span class="string">"the directory you would like to install pig"</span></span><br></pre></td></tr></table></figure></p>
+<p>Add pig-0.14.0/bin to environment path.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bashrc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="string">"path to pig project directory"</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Quit vim editor and “source” your .bashrc file.</p>
+<p>Run this command to test whether pig works or not:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig -help</span><br></pre></td></tr></table></figure></p>
+<h3 id="Running-Pig"><a href="#Running-Pig" class="headerlink" title="Running Pig"></a>Running Pig</h3><p>Pig can be run in two modes, namely Local Mode and Mapreduce Mode.<br>In local mode, we can access to a single machine and all files are installed and run using your local host and file system.<br>In mapreduce mode, we can access to a Hadoop cluster and HDFS installation and this mode is the default mode. In this mode, it is required that Hadoop and HDFS should be running.</p>
+<p>To run pig in local, using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pig -x <span class="built_in">local</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main -x <span class="built_in">local</span> <span class="comment">#java command</span></span><br></pre></td></tr></table></figure></p>
+<p>To run pig in mapreduce mode, using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pig</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">pig -x mapreduce</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main  <span class="comment">#java command</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">java -cp pig.jar org.apache.pig.Main -x mapreduce <span class="comment">#java command</span></span><br></pre></td></tr></table></figure></p>
+<p>Moreover, we can run pig in interactive mode using the Grunt shell through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pig</span><br></pre></td></tr></table></figure></p>
+<p>and then enter Pig Latin statements and Pig commands interactively at the command line.</p>
 
       
     </div>
@@ -368,96 +152,34 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-07-22T15:09:57.000Z"><a href="/2016/07/22/scala-sbt-tool-quickstart/">2016-07-22</a></time>
+        <time datetime="2015-09-03T11:54:03.000Z"><a href="/2015/09/03/Zookeeper-Install-and-Basic-Commands/">2015-09-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/07/22/scala-sbt-tool-quickstart/">scala sbt tool quickstart</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-22T15:09:34.000Z"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">2016-07-22</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">Compile scala to java jar tutorial</a></h1>
+    <h1 class="title"><a href="/2015/09/03/Zookeeper-Install-and-Basic-Commands/">Zookeeper Install and Basic Commands</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-07-16T09:07:22.000Z"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">2016-07-16</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Below is the list of frequent used HBase shell command and at first, here is another <a href="https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/" target="_blank" rel="external">HBase command list</a>.</p>
+        <p>Here is a simple tutorial of Zookeeper installation and a summary of its basic commands. Note that if we do not use root account, we may have to use “sudo” command to execute some commands or grant read, write or execution access to the account we use.</p>
+<h3 id="Zookeeper-Installation"><a href="#Zookeeper-Installation" class="headerlink" title="Zookeeper Installation"></a>Zookeeper Installation</h3><p>Here is the link of official <a href="https://zookeeper.apache.org/doc/r3.1.2/zookeeperStarted.html" target="_blank" rel="external">tutorial</a>. The following is my tutorial.</p>
+<p>Environment: Ubuntu 14.04<br>Zookeeper: zookeeper 3.4.6</p>
+<h5 id="Downlaod-and-Unpack-Zookeeper"><a href="#Downlaod-and-Unpack-Zookeeper" class="headerlink" title="Downlaod and Unpack Zookeeper"></a>Downlaod and Unpack Zookeeper</h5><p>Here is the link to download <a href="http://zookeeper.apache.org/releases.html" target="_blank" rel="external">stable release</a> of zookeeper.</p>
+<p>Then unpack the tar.gz file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf zookeeper-x.x.x.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>After that, move the project directory to location we want.</p>
+<h5 id="Edit-configuration-file"><a href="#Edit-configuration-file" class="headerlink" title="Edit configuration file"></a>Edit configuration file</h5><p>Go to zookeeper project directory and create a configure file using this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi conf/zoo.cfg</span><br></pre></td></tr></table></figure></p>
+<p>Note that we may find zoo_sample.cfg file instead. In this case, we should change the name of that file to zoo.cfg.</p>
+<p>And add following content into that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tickTime=2000 <span class="comment">#It is used to do heartbeats and the minimum session timeout will be twice the tickTime. The basic unit is milliseconds.</span></span><br><span class="line">dataDir=/var/zookeeper <span class="comment">#Here is the directory where zookeeper save its data.</span></span><br><span class="line">clientPort=2181 <span class="comment">#The port to listen for client connections.</span></span><br></pre></td></tr></table></figure></p>
+<p>Note that we can create /va/zookeeper directory and change the read, write and execution access before we start the server.</p>
+<p>Now we have successfully setted up a Zookeeper server in standalone mode.</p>
+<h5 id="Start-Restart-Stop-and-Connect-to-the-server"><a href="#Start-Restart-Stop-and-Connect-to-the-server" class="headerlink" title="Start, Restart, Stop and Connect to the server"></a>Start, Restart, Stop and Connect to the server</h5><p>The command to start the server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start</span><br></pre></td></tr></table></figure></p>
+<p>To test whether the server is working or not, use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure></p>
+<p>And we should see a similar output like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6834 JPS</span><br><span class="line">6997 QuorumPeerMain</span><br></pre></td></tr></table></figure></p>
+<p>The command to restart the server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh restart</span><br></pre></td></tr></table></figure></p>
+<p>The command to stop the server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh stop</span><br></pre></td></tr></table></figure></p>
+<p>The command to connect to the server:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Java</span></span><br><span class="line">bin/zkCli.sh 127.0.0.1:2181</span><br><span class="line"></span><br><span class="line"><span class="comment">#C/C++</span></span><br><span class="line">LD_LIBRARY_PATH=. cli_mt 127.0.0.1:2181</span><br><span class="line"><span class="comment">#or</span></span><br><span class="line">LD_LIBRARY_PATH=. cli_st 127.0.0.1:2181</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -491,26 +213,45 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-07-04T02:40:13.000Z"><a href="/2016/07/04/Apache-Livy-Install-Guide/">2016-07-04</a></time>
+        <time datetime="2015-09-03T11:53:52.000Z"><a href="/2015/09/03/Hbase-Installation-Guide/">2015-09-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a></h1>
+    <h1 class="title"><a href="/2015/09/03/Hbase-Installation-Guide/">HBase Installation Guide</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the github page of <a href="https://github.com/cloudera/livy" target="_blank" rel="external">Apache Livy</a>. It is not difficult to install Livy on the Redhat server. Below is the guide.</p>
-<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>To successfully build and run Livy on Redhat, we need:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spark (1.5.0 or later)</span><br><span class="line">mvn</span><br><span class="line">openjdk-7</span><br><span class="line">python 2.6+ or 3.3+</span><br><span class="line">R (optional)</span><br></pre></td></tr></table></figure></p>
-<p>Note that mvn is only used for building Livy.</p>
-<h3 id="Building-Livy"><a href="#Building-Livy" class="headerlink" title="Building Livy"></a>Building Livy</h3><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:cloudera/livy.git</span><br><span class="line"><span class="built_in">cd</span> livy</span><br><span class="line">mvn package -Dspark.version=1.6.1</span><br></pre></td></tr></table></figure></p>
-<p>Note that -Dspark.version option is not required and by default its value is 1.5.0. If we use a different version of Livy, we should change the value of that option.</p>
-<h3 id="Running-Livy"><a href="#Running-Livy" class="headerlink" title="Running Livy"></a>Running Livy</h3><p>Before running Livy, we should make sure that SPARK_HOME and HADOOP_CONF_DIR are set in OS environment.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/lib/spark</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/etc/hadoop/conf</span><br></pre></td></tr></table></figure></p>
-<p>Then just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/livy-server</span><br></pre></td></tr></table></figure></p>
-<p>By default, Livy is running on the port 8998. We can change it by modifying the livy.conf file.</p>
-<h3 id="Livy-Configuration"><a href="#Livy-Configuration" class="headerlink" title="Livy Configuration"></a>Livy Configuration</h3><p>Here are Livy’s configuration files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">livy.conf: contains the server configuration.</span><br><span class="line">spark-blacklist.conf: list Spark configuration options that users are not allowed to override.</span><br><span class="line"><span class="built_in">log</span>4j.properties: configuration <span class="keyword">for</span> Livy logging.</span><br></pre></td></tr></table></figure></p>
+        <p>Here is the official guide to <a href="https://hbase.apache.org/book.html#quickstart" target="_blank" rel="external">install HBase</a>. Below is the installation guide for HBase 0.94.</p>
+<hr>
+
+<h3 id="Environment-Setup"><a href="#Environment-Setup" class="headerlink" title="Environment Setup"></a>Environment Setup</h3><p>Prior to HBase 0.94.x, HBase expected the loopback IP address to be 127.0.0.1 but Ubuntu and some other distributions default to 127.0.1.1, which will cause problems. So we have to check /etc/hosts first and its content should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 localhost</span><br><span class="line">127.0.0.1 ubuntu.ubuntu-domain ubuntu</span><br></pre></td></tr></table></figure></p>
+<p>JDK is required by HBase. Install required JDK version on the OS. Please do remember to set JAVA_HOME variable in the system.</p>
+<hr>
+
+<h3 id="Install-HBase-in-Standalone-Mode"><a href="#Install-HBase-in-Standalone-Mode" class="headerlink" title="Install HBase in Standalone Mode"></a>Install HBase in Standalone Mode</h3><p>Download HBase binary packages from <a href="http://www.apache.org/dyn/closer.cgi/hbase/" target="_blank" rel="external">Apache Download Mirror</a> or we can download source code and build it.</p>
+<p>Here we choose to download binary package and extract it:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;-bin.tar.gz</span><br><span class="line"><span class="built_in">cd</span> hbase-&lt;?<span class="built_in">eval</span> <span class="variable">$&#123;project.version&#125;</span>?&gt;/</span><br></pre></td></tr></table></figure></p>
+<p>Edit hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:///home/yular/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that file:///home/yular/hbase is the local filesystem directory where HBase and ZooKeeper write data. By default, a new directory is created under /tmp but all the data will be removed when os is reboot.</p>
+<p>To start HBase, use this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase starts successfully, execute jps command and output should be similar like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3145 Jps</span><br><span class="line">6678 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note that a HMaster process is running.</p>
+<p>And then we can start HBase shell like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/hbase shell</span><br></pre></td></tr></table></figure></p>
+<p>The HBase terminal should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Install-HBase-in-Pseudo-Distributed-Local-Mode"><a href="#Install-HBase-in-Pseudo-Distributed-Local-Mode" class="headerlink" title="Install HBase in Pseudo-Distributed Local Mode"></a>Install HBase in Pseudo-Distributed Local Mode</h3><p>At first, stop HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/stop-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>Install and start Hadoop2 system. Here is the tutorial to <a href="http://yular.github.io/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">install and start Hadoop2</a>.</p>
+<p>Then hbase-site.xml file under conf folder, and put following content into that xml file beneath the <configuration> tags:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.rootdir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000/hbase&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.zookeeper.property.dataDir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;/home/yular/zookeeper&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">  &lt;property&gt;</span><br><span class="line">    &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;<span class="literal">true</span>&lt;/value&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure></configuration></p>
+<p>Note that the port number in hbase.rootdir should be the same as the one defined in hadoop2 etc/hadoop/ core-site.xml file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Note that we do not need to create hbase folder in HDFS system. When we start HBase, hbase folder will be generated initially.</p>
+<p>To start HBase, use this command (Hadoop2 should be running):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/start-hbase.sh</span><br></pre></td></tr></table></figure></p>
+<p>If HBase is running successfully, the output of jps command should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2055 ResourceManager</span><br><span class="line">1149 Jps</span><br><span class="line">3248 NodeManager</span><br><span class="line">5093 NameNode</span><br><span class="line">3799 DataNode</span><br><span class="line">1190 HRegionServer</span><br><span class="line">2467 JobHistoryServer</span><br><span class="line">3120 HMaster</span><br></pre></td></tr></table></figure></p>
+<p>Note there are two processes relative to HBase running: HRegionServer and HMaster.</p>
+<p>If we can visit <a href="http://localhost:60010" target="_blank" rel="external">http://localhost:60010</a>, we can visit HBase job summary page.</p>
+<p>And if we execute hadoop fs -ls /hbase command, we will some folders that have been created by HBase:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Found 7 items</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/.tmp</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/WALs</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:48 /hbase/corrupt</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 18:58 /hbase/data</span><br><span class="line">-rw-r--r--   3 hbase users         42 2014-06-25 18:41 /hbase/hbase.id</span><br><span class="line">-rw-r--r--   3 hbase users          7 2014-06-25 18:41 /hbase/hbase.version</span><br><span class="line">drwxr-xr-x   - hbase users          0 2014-06-25 21:49 /hbase/oldWALs</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -544,43 +285,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-07-03T07:18:56.000Z"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">2016-07-03</a></time>
+        <time datetime="2015-09-03T11:53:43.000Z"><a href="/2015/09/03/Hive-Install-and-Basic-Commands/">2015-09-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">Apache Livy Spark Coding in Python Console Quickstart</a></h1>
+    <h1 class="title"><a href="/2015/09/03/Hive-Install-and-Basic-Commands/">Hive Install and Basic Commands</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the <a href="https://github.com/cloudera/livy" target="_blank" rel="external">official tutorial of submiting pyspark jobs in Livy</a>. Below is the my PySpark quickstart guide.</p>
-<p>In Livy, the structure of REST API is /sessions/sessionid/statements/statementid. So to submit a new request to Livy, we should ask Livy to create a new independent session first, then inside that session, we will ask Livy to create one or multiple statements to process code.</p>
+        <p>Here is the official website of <a href="https://cwiki.apache.org/confluence/display/Hive/Home" target="_blank" rel="external">Hive</a>.</p>
+<p>###Hive Install<br>Here is the official document of <a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted" target="_blank" rel="external">Hive Installation</a>.</p>
+<p>Now the following is the guide of Hive installation.</p>
+<p>#####Uncompress hive package<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xzvf hive-x.y.z.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>#####Set Hive environment variable<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ vi ~/.bashrc</span><br><span class="line">$ <span class="built_in">export</span> HIVE_HOME=<span class="string">'The absolute path of hive home directory'</span></span><br><span class="line">$ <span class="built_in">export</span> PATH=<span class="variable">$HIVE_HOME</span>/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 
-<h3 id="Install-Required-Library"><a href="#Install-Required-Library" class="headerlink" title="Install Required Library"></a>Install Required Library</h3><p>At first, we need to install requests library of Python. We can use pip. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install requests</span><br></pre></td></tr></table></figure></p>
-<hr>
 
-<h3 id="PySpark-Code"><a href="#PySpark-Code" class="headerlink" title="PySpark Code"></a>PySpark Code</h3><p>Enter python console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></p>
-<p>Then in python console, type following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import json, pprint, requests, textwrap</span><br><span class="line">host = <span class="string">'http://localhost:8998'</span></span><br><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">hs_r = requests.post(host + <span class="string">'/sessions'</span>, data=json.dumps(data), headers=headers)</span><br><span class="line">hs_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>Note that change the port number if it is not the default one. The code above helps to create a new session in Spark.<br>And if we have to change the configuration of spark-submit, the data object should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>,<span class="string">'conf'</span>:&#123;<span class="string">'spark.executor.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>,<span class="string">'spark.driver.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Next, get the session URL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + hs_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">sn_r = requests.get(session_url, headers=headers)</span><br><span class="line">sn_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>Note that hs_r.headers[‘Location’] may not give us the correct value because it may be ‘null/sessions/sessionid’. In that case, we should use the following code instead,. In our case, since it is the first session, the id is 0.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + <span class="string">'/sessions/0'</span></span><br></pre></td></tr></table></figure></p>
-<p>Now we should generate the code and submit to the corresponding statement REST API.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">statements_url = session_url + <span class="string">'/statements'</span></span><br><span class="line">data = &#123; <span class="string">'code'</span>: textwrap(<span class="string">""</span><span class="string">"\</span><br><span class="line">import org.apache.spark.SparkContext;</span><br><span class="line">import org.apache.spark.sql.hive.HiveContext; </span><br><span class="line">val sqlContext=new HiveContext(sc);</span><br><span class="line">val df=sqlContext.sql("</span>use db1<span class="string">");</span><br><span class="line">val res=sqlContext.sql("</span>select * from tb1 <span class="built_in">limit</span> 10 <span class="string">").collect();</span><br><span class="line">res.map(t =&gt; t(0)).foreach(println);</span><br><span class="line">"</span><span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line">stm_r = requests.post(statements_url, data=json.dumps(data), headers=headers)</span><br><span class="line">stm_r.json()</span><br></pre></td></tr></table></figure></p>
-<p>After that, we can get the running result from the statement REST API using following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">statement_url = host + stm_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">res = requests.get(statement_url, headers=headers)</span><br><span class="line">pprint.pprint(res.json())</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions occur, we can find the result in the output field.</p>
-<p>At last, we can delete current session:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.delete(session_url, headers=headers)</span><br></pre></td></tr></table></figure></p>
-<hr>
-
-<h3 id="Submit-Python-File-to-REST-API"><a href="#Submit-Python-File-to-REST-API" class="headerlink" title="Submit Python File to REST API"></a>Submit Python File to REST API</h3><p>Here the Livy is in yarn-client mode. This guide can also be used in local mode. Below is the content of python file submitted (The file name is test.py.):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pyspark import SparkContext</span><br><span class="line">from pyspark.sql import HiveContext</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">'yarn-client'</span>,<span class="string">'pyspark'</span>)</span><br><span class="line">sqlContext = HiveContext(sc)</span><br><span class="line">sqlContext.sql(<span class="string">"use db1"</span>)</span><br><span class="line">sqlContext.sql(<span class="string">"select * from tb1 limit 10"</span>).show()</span><br></pre></td></tr></table></figure></p>
-<p>Here is the command to POST python file to Livy REST API for batch job. Livy will automatically create a new session identified by batchid for this job.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST --data <span class="string">'&#123;"file":"file:/home/yular/livy_code/test.py",</span><br><span class="line">"conf":&#123;"spark.executor.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar","spark.driver.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar"&#125;</span><br><span class="line">&#125;'</span> -H <span class="string">"Content-Type: application/json"</span> localhost:8998/batches</span><br></pre></td></tr></table></figure></p>
-<p>Note that in yarn-client and yarn-cluster mode, by default Livy use hdfs file protocol. So if we write /home/yular/livy_code/test.py, then in Livy, the file path becomes hdfs://home/yular/livy_code/test.py which may cause exception. So we have to specify file protocol.</p>
-<p>To check the status of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0 | python -m json.tool</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions are thrown out, we can see the result in the output field of json returned.</p>
-<p>To check the log of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0/<span class="built_in">log</span> | python -m json.tool</span><br></pre></td></tr></table></figure></p>
-<p>To remove the batch session, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE localhost:8998/batches/0</span><br></pre></td></tr></table></figure></p>
-<p>Note that 0 is the batch id. In our case, the id is 0 but it should be subject to change.</p>
 
       
     </div>
@@ -595,6 +318,1414 @@
   
   <div class="tags">
     <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-02T12:28:44.000Z"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">2015-09-02</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/02/Hadoop-2-x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 2.x Single-Node Cluster Set Up Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Here is a good and more detailed <a href="http://bigdatahandler.com/hadoop-hdfs/installing-single-node-hadoop-2-2-0-on-ubuntu/" target="_blank" rel="external">tutorial</a> from Horton. But they missed an important step which may bring some trouble for beginners.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 2.7.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.pub &gt;&gt; <span class="variable">$GINE</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-2.7.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-2.7.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_PREFIX=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_MAPRED_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_HDFS_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> YARN_HOME=<span class="variable">$&#123;HADOOP_HOME&#125;</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=<span class="variable">$&#123;HADOOP_HOME&#125;</span>/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> HADOOP_COMMON_LIB_NATIVE_DIR=<span class="variable">$&#123;HADOOP_PREFIX&#125;</span>/lib/native</span><br><span class="line"><span class="built_in">export</span> HADOOP_OPTS=<span class="string">"-Djava.library.path=<span class="variable">$HADOOP_PREFIX</span>/lib"</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit etc/hadoop/hadoop-env.sh file, by setting the JAVA_HOME and HADOOP_CONF_DIR variables:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=.... (your jdk path)</span><br><span class="line">$ <span class="built_in">export</span> HADOOP_CONF_DIR=/usr/<span class="built_in">local</span>/hadoop/etc/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to change the HADOOP_CONF_DIR variable, when we start HADOOP YARN system, an “Error: Can not find configuration directory: etc/hadoop” exception will appear. </p>
+<p>Then create the two directories for Namenode and Datanode respectively and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo mkdir -p <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line">$ sudo chown newuser:hadoop <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/namenode</span><br><span class="line">$ sudo chmod 750 <span class="variable">$HADOOP_HOME</span>/yarn_data/hdfs/datanode</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.<br>      If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.</p>
+<p>At last, edit the following files in Hadoop project directory:<br>For etc/hadoop/yarn-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/core-site.xml, adding following context between “<configuration> </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/mapred-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For etc/hadoop/hdfs-site.xml, adding following context between “<configuration>  </configuration>“ tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/namenode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;file:/usr/<span class="built_in">local</span>/hadoop/yarn_data/hdfs/datanode&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output is very long and the end of it looks like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br></pre></td></tr></table></figure></p>
+<p>Now nodemanager and resourcemanager starts.</p>
+<p>Then run these commands to start the rest of nodes:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2085 ResourceManager</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NodeManager</span><br><span class="line">1553 NameNode</span><br><span class="line">1788 DataNode</span><br><span class="line">1437 JobHistoryServer</span><br></pre></td></tr></table></figure></p>
+<p>Go to this link:<br><a href="http://localhost:8088/" target="_blank" rel="external">http://localhost:8088/</a> ResourceManager</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/sbin/stop-dfs.sh</span><br></pre></td></tr></table></figure></p>
+<p>Here is two scripts that can make things easier:<br>The script to start Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/start-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh start datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh start historyserver</span><br></pre></td></tr></table></figure></p>
+<p>The script to stop Hadoop-2 cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/stop-yarn.sh</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop namenode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/hadoop-daemon.sh stop datanode</span><br><span class="line">sh /usr/<span class="built_in">local</span>/hadoop/sbin/mr-jobhistory-daemon.sh stop historyserver</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-09-01T12:37:47.000Z"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">2015-09-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/09/01/Hadoop-1.x-Single-Node-Cluster-Step-Up-Guide/">Hadoop 1.x Single-Node Cluster Set Up</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of a perfect tutorial for Hadoop Single-Node Cluster set up: <a href="http://www.michael-noll.com/tutorials/running-hadoop-on-ubuntu-linux-single-node-cluster/" target="_blank" rel="external">Hadoop Setup Guide</a>.</p>
+<p>Now the following is a lazy set up guide for those who only would like to set up a single-node cluster for some easy tasks, like school homework. This guide should be much quicker than the one recommended above.</p>
+<p>Environment: Ubuntu 14.04 LTS<br>Hadoop: 1.2.1</p>
+<hr>
+
+<p>#####Java Installation<br>Hadoop requires Java 1.5+ installation. So just go to Oracle Java home page to download JDK 1.6 or higher. Here is the link to download Java: <a href="http://www.oracle.com/technetwork/articles/javase/index-jsp-138363.html" target="_blank" rel="external">Java Download</a>. Or we can just the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install openjdk-7-jdk</span><br></pre></td></tr></table></figure></p>
+<p>Here is a tutorial <a href="https://www.digitalocean.com/community/tutorials/how-to-install-java-on-ubuntu-with-apt-get" target="_blank" rel="external">Java Install</a>.</p>
+<hr>
+
+<p>#####(Optional)Adding a Hadoop system user<br>Use the following commands to add a new user and a new group for Hadoop system.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo addgroup hadoop</span><br><span class="line">$ sudo adduser --ingroup hadoop newuser</span><br></pre></td></tr></table></figure></p>
+<p>Actually, we can use the existing user and group. If so, just skip this step.</p>
+<hr>
+
+<p>#####SSH key<br>Here are the commands to install ssh if our machine does not have one.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install ssh</span><br><span class="line">$ sudo apt-get install rsync</span><br></pre></td></tr></table></figure></p>
+<p>After that, generate SSH key for the user:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ su - newuser</span><br><span class="line">$ ssh-keygen -t rsa -P <span class="string">""</span></span><br><span class="line">$ cat <span class="variable">$HOME</span>/.ssh/id_rsa.puh &gt;&gt; <span class="variable">$NEWUSER_HOME</span>/.ssh/authorized_keys</span><br></pre></td></tr></table></figure></p>
+<p>Then, do the ssh connection:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh localhost</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####(Optional)Disabling IPv6<br>Just go to the Hadoop setup tutorial provided in the begining.</p>
+<hr>
+
+<p>#####Hadoop Download and Installation<br>Go to <a href="http://hadoop.apache.org/releases.html" target="_blank" rel="external">Apache Hadoop Homepage</a> to download the Hadoop from one of the mirrors. Then we can put the Hadoop package to a location of our machine. The location can be /usr/local or even our home directory. Here I choose /usr/local.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ sudo tar xzvf hadoop-1.2.1.tar.gz</span><br><span class="line">$ sudo mv hadoop-1.2.1 hadoop</span><br><span class="line">$ sudo chown -R newuser:hadoop hadoop</span><br></pre></td></tr></table></figure>
+<p>Now a single-node hadoop is available and if we type command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hadoop/bin/hadoop</span><br></pre></td></tr></table></figure></p>
+<p>A list of information about “hadoop” command will appear.</p>
+<hr>
+
+<p>#####Update Environment Variable<br>Editing the .bashrc file under the home directory of Hadoop system user. Adding these two lines to that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HADOOP_HOME=/usr/<span class="built_in">local</span>/hadoop</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=<span class="string">"the path to your java jdk directory"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>In fact, in Hadoop-1.2.1, HADOOP_HOME variable is deprecated and we can skip this step to set it. If have difficulty to find where the jdk is, this link may be helpful: <a href="http://stackoverflow.com/questions/5251323/where-can-i-find-the-java-sdk-in-linux" target="_blank" rel="external">JDK path</a>.</p>
+<hr>
+
+<p>#####Hadoop Distributed File System (HDFS)<br>At first, edit conf/hadoop-env.sh file, which is under conf/ directory, by setting the JAVA_HOME variable:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> JAVA_HOME=... (your jdk path)</span><br></pre></td></tr></table></figure></p>
+<p>Then create the /app/hadoop/tmp directory and set the required ownerships as well as permissions:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /</span><br><span class="line">$ sudo mkdir -p /app/hadoop/tmp</span><br><span class="line">$ sudo chown newuser:hadoop /app/hadoop/tmp</span><br><span class="line"><span class="comment"># ...and if you want to tighten up security, chmod from 755 to 750...</span></span><br><span class="line">$ sudo chmod 750 /app/hadoop/tmp</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we forget to create this directory or grant the correct ownerships or permissions, a java.io.IOException will be thrown out.<br>      If we use existing users in the machine, then remember to replace the username and group name above. In fact, group name is not necessary.</p>
+<p>At last, edit the following files:<br>For conf/core-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;/app/hadoop/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;hdfs://localhost:54310&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/mapred-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;mapred.job.tracker&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;localhost:54311&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<p>For conf/hdfs-site.xml, adding following context between <configuration> … </configuration> tag:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">  &lt;name&gt;dfs.replication&lt;/name&gt;</span><br><span class="line">  &lt;value&gt;1&lt;/value&gt;</span><br><span class="line">  &lt;description&gt;Default block replication.</span><br><span class="line">  The actual number of replications can be specified when the file is created.</span><br><span class="line">  The default is used <span class="keyword">if</span> replication is not specified <span class="keyword">in</span> create time.</span><br><span class="line">  &lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<p>#####Formating HDFS via NameNode<br>Use the following commands to format the HDFS:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/hadoop namenode -format</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">09/01/15 16:59:56 INFO namenode.NameNode: STARTUP_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">STARTUP_MSG: Starting NameNode</span><br><span class="line">STARTUP_MSG:   host = ubuntu/127.0.1.1</span><br><span class="line">STARTUP_MSG:   args = [-format]</span><br><span class="line">STARTUP_MSG:   version = 0.20.2</span><br><span class="line">STARTUP_MSG:   build = https://svn.apache.org/repos/asf/hadoop/common/branches/branch-0.20 -r 911707; compiled by <span class="string">'chrisdo'</span> on Fri Feb 19 08:07:34 UTC 2010</span><br><span class="line">************************************************************/</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: fsOwner=hduser,hadoop</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: supergroup=supergroup</span><br><span class="line">09/01/15 16:59:56 INFO namenode.FSNamesystem: isPermissionEnabled=<span class="literal">true</span></span><br><span class="line">09/01/15 16:59:56 INFO common.Storage: Image file of size 96 saved <span class="keyword">in</span> 0 seconds.</span><br><span class="line">09/01/15 16:59:57 INFO common.Storage: Storage directory .../hadoop-hduser/dfs/name has been successfully formatted.</span><br><span class="line">09/01/15 16:59:57 INFO namenode.NameNode: SHUTDOWN_MSG:</span><br><span class="line">/************************************************************</span><br><span class="line">SHUTDOWN_MSG: Shutting down NameNode at ubuntu/127.0.1.1</span><br><span class="line">************************************************************/</span><br></pre></td></tr></table></figure></p>
+<p>Now, everything is ready~ We can start the Hadoop system now~</p>
+<hr>
+
+<p>#####Starting Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/start-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>The output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">starting namenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-namenode-ubuntu.out</span><br><span class="line">localhost: starting datanode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-datanode-ubuntu.out</span><br><span class="line">localhost: starting secondarynamenode, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-secondarynamenode-ubuntu.out</span><br><span class="line">starting jobtracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-jobtracker-ubuntu.out</span><br><span class="line">localhost: starting tasktracker, logging to /usr/<span class="built_in">local</span>/hadoop/bin/../logs/hadoop-newuser-tasktracker-ubuntu.out</span><br></pre></td></tr></table></figure></p>
+<p>Now use “jps” command, the output should look like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ jps</span><br><span class="line">2287 TaskTracker</span><br><span class="line">2149 JobTracker</span><br><span class="line">1938 DataNode</span><br><span class="line">2085 SecondaryNameNode</span><br><span class="line">2349 Jps</span><br><span class="line">1788 NameNode</span><br></pre></td></tr></table></figure></p>
+<p>Go to following links:<br><a href="http://localhost:50070/" target="_blank" rel="external">http://localhost:50070/</a> – web UI of the NameNode daemon<br><a href="http://localhost:50030/" target="_blank" rel="external">http://localhost:50030/</a> – web UI of the JobTracker daemon<br><a href="http://localhost:50060/" target="_blank" rel="external">http://localhost:50060/</a> – web UI of the TaskTracker daemon</p>
+<p>#####Stopping Single-Node Cluster<br>Use the following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/<span class="built_in">local</span>/hadoop/bin/stop-all.sh</span><br></pre></td></tr></table></figure></p>
+<p>This lazy guide is over. If you have any questions, just leave your comments on this blog. For more details, just go to the tutorial provided on the top of this blog.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-18T13:35:01.000Z"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">2015-08-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/18/My-Reading-Book-List-of-2015/">My Reading Book List of 2015</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Life/">Life</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-16T12:19:49.000Z"><a href="/2015/08/16/Maven-Project-QuickStart/">2015-08-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/16/Maven-Project-QuickStart/">Maven Project QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Java General Program:<br>Here is the original link of this quickstart guide: <a href="https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html" target="_blank" rel="external">QuickStart</a>.</p>
+<p>Mainly there are three steps:</p>
+<ol>
+<li>Create a maven project. Here is the command line example:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn archetype:generate -DgroupId=com.yulartech.app -DartifactId=calculator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Note: The groupId, artifactId and architypeArtifactId can be changed.</p>
+<p>2.Write Java program. Here is the sample code:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yulartech.app;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">        Scanner scanf = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">while</span>(scanf.hasNext())&#123;</span><br><span class="line">                a = scanf.nextInt();</span><br><span class="line">                b = scanf.nextInt();</span><br><span class="line">                ans = a + b;</span><br><span class="line">                System.out.println( <span class="string">"Ans is "</span> + ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note: If we want to write the code in eclipse, use this command before write the actual code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn eclipse:eclipse</span><br></pre></td></tr></table></figure></p>
+<p>3.Compile, Deploy and Run the Java Program<br>Compile the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mvn clean</span><br><span class="line">$ mvn install</span><br></pre></td></tr></table></figure></p>
+<p>Deploy (Package) the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mvn package</span><br></pre></td></tr></table></figure></p>
+<p>Run the Java program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ java -cp target/calculator-1.0-SNAPSHOT.jar com.yulartech.app.App</span><br></pre></td></tr></table></figure></p>
+<p>Then when you provide two integers for this program, it will return the sum of them. Press “Ctrl + C” then the program will be terminated.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-11T11:56:56.000Z"><a href="/2015/08/11/Linux-Terminal-Shortcut/">2015-08-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/11/Linux-Terminal-Shortcut/">Linux Terminal Shortcut</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the link of the list of Linux Shortcut keys: <a href="https://help.ubuntu.com/community/UsingTheTerminal#Change_the_text" target="_blank" rel="external">Shortcut</a></p>
+<p>The list is also here:</p>
+<ul>
+<li>Ctrl + A: Moves the cursor to the start of a line.</li>
+<li>Ctrl + E: Moves the cursor to the end of a line.</li>
+<li>Esc + B: Moves to the beginning of the previous or current word.</li>
+<li>Ctrl + K: Deletes from the current cursor position to the end of the line.</li>
+<li>Ctrl + U: Deletes from the start of the line to the current cursor position.</li>
+<li>Ctrl + W: Deletes the word before the cursor.</li>
+<li>Alt + B: Goes back one word at a time.</li>
+<li>Alt + F: Moves forward one word at a time.</li>
+<li>Alt + C: Capitalizes letter where cursor is and moves to end of word.</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-07T12:48:19.000Z"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Java-Spring-Framework-Maven-QuickStart-Guide/">Java Spring Framework Maven QuickStart Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-07T12:47:20.000Z"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">2015-08-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/07/Linux-Mail-Server-exim4-Setup-Guide-without-docker-and-JavaMail-QuickStart/">Linux Mail Server exim4 Setup Guide (without docker) and JavaMail QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Exim is a message transfer agent (MTA) for use on Unix sytems connected to the Internet. And Exim4 is the default MTA on Debian system. It is easy to install and configure exim4 under Debian system. Here we setup Exim4 as a mail server to transfer message. The MTA implements both the client and server portions of SMTP or uses Postfix protocol.</p>
+<p>Here is the official page of Exim: <a href="http://www.exim.org/" target="_blank" rel="external">Exim</a></p>
+<p>The following are the steps of setup a mail server using Exim4. Here is a good tutorial: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-the-send-only-mail-server-exim-on-ubuntu-12-04" target="_blank" rel="external">tutorial</a></p>
+<p>#####1.Installation<br>To install Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install exim4</span><br></pre></td></tr></table></figure></p>
+<p>#####2.Configuration<br>To configure Exim, execute command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo dpkg-reconfigure exim4-config</span><br></pre></td></tr></table></figure></p>
+<p>Then we will see a configuration interface.</p>
+<p>#######Mail Server Configuration<br>Choose the first one: internet site; mail is sent and received directly using SMTP.<br><img src="https://c1.staticflickr.com/1/481/20225786738_af70fdae0d_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Type FQDN<br>Type the hostname.domainname.tld format string as the FQDN for our mail address. Actually, any domain names can be used here even some existing mail domain name. </p>
+<p>Here is the standard input:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hostname.domainname.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here is my input:<br><img src="https://c1.staticflickr.com/1/441/20405421232_208355ffcf_n.jpg" alt=""> </p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######SMTP Listner<br>Usually, the default value is the best choice. See below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1;::1</span><br></pre></td></tr></table></figure></p>
+<p>This is a kind of IPv6 address.</p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Mail Destination<br>Add all the mail destinations that we want for which Exim should accept mail. We can list our:</p>
+<ul>
+<li>FQDN</li>
+<li>localhost</li>
+<li>local hostname</li>
+</ul>
+<p>Use ; to separate each address.<br><img src="https://c1.staticflickr.com/1/509/20405590912_2a0fbc0de5_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Relay Options<br>For me, I left all relay options blank.</p>
+<p>Keep pressing the “Tap” key to highlight “<ok>“ and pressing Enter.</ok></p>
+<p>#######DNS Queries<br>For me, select “<no>“ and press Enter.</no></p>
+<p>#######Delivery Method<br>For me, I choose the first option: mbox format in /var/mail.<br><img src="https://c1.staticflickr.com/1/547/19791748654_fa3d3355c3_n.jpg" alt=""></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Spliting File<br>For me, I choose “<no>“.</no></p>
+<p>Then press the “Tap” key to hightlight “<ok>“ and press Enter.</ok></p>
+<p>#######Postmaster address<br>Enter the below text, substituting “you” “yourdomain” &amp; “tld” with our own values:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root you@yourdomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>And everything is done.</p>
+<p>#####Test Mail<br>Use the following command to do the test:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"This is the first mail"</span> | mail <span class="_">-s</span> <span class="string">"Hello Subject"</span> someone@somedomain.tld</span><br></pre></td></tr></table></figure></p>
+<p>Here you can use your gmail or other public mail server to do the test. If everything goes well, you may find the email is in the spam :-)</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-08-03T15:39:01.000Z"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">2015-08-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/08/03/Linux-Commands-for-File-Operation/">Linux Commands for File Operation</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>###Tar Files or Directories<br>Compress or Decompress files or directories</p>
+<p>#####For tar<br>Unpackage:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvf Filename.tar</span><br></pre></td></tr></table></figure></p>
+<p>Package:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar cvf Filename.tar Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For gz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gunzip Filename.gz</span><br><span class="line">$ gzip <span class="_">-d</span> Filename.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gzip Filename</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.gz and .tgz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf Filename.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar zcvf Filename.tar.gz Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bzip2 <span class="_">-d</span> Filename.bz</span><br><span class="line">$ bunzip2 Filename.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .tar.bz<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar jxvf Filename.tar.bz</span><br></pre></td></tr></table></figure></p>
+<p>#####For .zip<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ unzip Filename.zip</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip Filename.zip Dirname</span><br></pre></td></tr></table></figure></p>
+<p>#####For .rar<br>Decompress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar x Filename.rar</span><br></pre></td></tr></table></figure></p>
+<p>Compress:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rar a Filename.rar Dirname</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-30T03:22:38.000Z"><a href="/2015/07/30/C-Makefile-for-Linux/">2015-07-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/30/C-Makefile-for-Linux/">C++ Makefile for Linux</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>To execute a C++ program under Linux operating system, we had better write a makefile to compile and execute it. Here are some examples to write and run makefiles under Linux system.</p>
+<h3 id="Basic-Makefile"><a href="#Basic-Makefile" class="headerlink" title="Basic Makefile"></a>Basic Makefile</h3><p>Here is the c++ program named basic.cpp:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a = <span class="number">1</span>, b = <span class="number">2</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" + "</span>&lt;&lt;b&lt;&lt;<span class="string">" = "</span>&lt;&lt;a+b&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"Hello World~"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Here is its makefile:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">compile:basic.o</span><br><span class="line">	g++ -o basic basic.o -lm -Wall</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	rm <span class="_">-f</span> main basic.o</span><br><span class="line"></span><br><span class="line">run:</span><br><span class="line">	./basic</span><br></pre></td></tr></table></figure>
+<p>To run the makefile, use the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make clean compile run</span><br></pre></td></tr></table></figure></p>
+<p>If the makefile is unexecutable, use <em>chmod</em> command to make a change.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/C/">C++</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-28T01:48:05.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">2015-07-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-GameTheory/">Hackerrank / InterviewStreet Algorithm Problem Solution List Game Theory Section</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Game-of-Stones"><a href="#Game-of-Stones" class="headerlink" title="Game of Stones"></a>Game of Stones</h3><p><a href="https://www.hackerrank.com/challenges/game-of-stones-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/game-of-stones-1.cpp" target="_blank" rel="external">Code</a><br>A kind of game theory problem. The basic rule is that for any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[i] = ((1&amp;sg[i-2]&amp;sg[i-3]&amp;sg[i-5])^1).  </p>
+<h3 id="Tower-Breakers"><a href="#Tower-Breakers" class="headerlink" title="Tower Breakers"></a>Tower Breakers</h3><p><a href="https://www.hackerrank.com/challenges/tower-breakers-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/tower-breakers-1.cpp" target="_blank" rel="external">Code</a><br>A sort of game theory problem. If the height of tower is 1 or the number of towers is even, second player wins; otherwise, first player wins.</p>
+<h3 id="A-Chessboard-Game"><a href="#A-Chessboard-Game" class="headerlink" title="A Chessboard Game"></a>A Chessboard Game</h3><p><a href="https://www.hackerrank.com/challenges/a-chessboard-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/a-chessboard-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. Use dfs. For any given state, if all its direct children states are first-win states, then it is first-lose state; if one of its direct children states is first-lose state, then it is first-win state. Based on this rule, we can design the SG function: sg[x][y] = ((1&amp;sg[x-2][y+1]&amp;sg[x-2][y-1]&amp;sg[x+1][y-2]&amp;sg[x-1][y-2])^1).</p>
+<h3 id="Introduction-to-Nim-Game"><a href="#Introduction-to-Nim-Game" class="headerlink" title="Introduction to Nim Game"></a>Introduction to Nim Game</h3><p><a href="https://www.hackerrank.com/challenges/nim-game-1" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/nim-game-1.cpp" target="_blank" rel="external">Code</a><br>A game theory problem. for every test case, xor all the given integers together, if the result is non-zero, then first player win; otherwise, second player wins.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-28T01:46:53.000Z"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">2015-07-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/28/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Warmup/">Hackerrank / InterviewStreet Algorithm Problem Solution List Warm Up Section</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
+<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
+<h3 id="Solve-Me-First"><a href="#Solve-Me-First" class="headerlink" title="Solve Me First"></a>Solve Me First</h3><p><a href="https://www.hackerrank.com/challenges/solve-me-first" target="_blank" rel="external">Problem Link</a>.<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/solve-me-first.cpp" target="_blank" rel="external">Code Link</a>.<br>A classic “A+B” programming problem.</p>
+<hr>
+
+<h3 id="Simple-Array-Sum"><a href="#Simple-Array-Sum" class="headerlink" title="Simple Array Sum"></a>Simple Array Sum</h3><p><a href="https://www.hackerrank.com/challenges/simple-array-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/simple-array-sum.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem: Caculate the sum of all elements of given array.</p>
+<hr>
+
+<h3 id="A-Very-Big-Sume"><a href="#A-Very-Big-Sume" class="headerlink" title="A Very Big Sume"></a>A Very Big Sume</h3><p><a href="https://www.hackerrank.com/challenges/a-very-big-sum" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/a-very-big-sum.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem: Caculate the sum of all elements of given array but data type must be INT 64 bits or larger.</p>
+<hr>
+
+<h3 id="Diagonal-Difference"><a href="#Diagonal-Difference" class="headerlink" title="Diagonal Difference"></a>Diagonal Difference</h3><p><a href="https://www.hackerrank.com/challenges/diagonal-difference" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/diagonal-difference.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Caculate the sums of all elements placed in two diagonal respectively and then calculate the difference between them.</p>
+<hr>
+
+<h3 id="Plus-Minus"><a href="#Plus-Minus" class="headerlink" title="Plus Minus"></a>Plus Minus</h3><p><a href="https://www.hackerrank.com/challenges/plus-minus" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/plus-minus.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just simulate the process.</p>
+<hr>
+
+<h3 id="Staircase"><a href="#Staircase" class="headerlink" title="Staircase"></a>Staircase</h3><p><a href="https://www.hackerrank.com/challenges/staircase" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/staircase.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just try to print out the stairs …</p>
+<hr>
+
+<h3 id="Time-Conversion"><a href="#Time-Conversion" class="headerlink" title="Time Conversion"></a>Time Conversion</h3><p><a href="https://www.hackerrank.com/challenges/time-conversion" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/time-conversion.cpp" target="_blank" rel="external">Code Link</a><br>Basic problem. Just be careful and cover as many cases as possible.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Algorithm/">Algorithm</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-24T02:53:06.000Z"><a href="/2015/07/24/Linux-Important-System-Directories/">2015-07-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/24/Linux-Important-System-Directories/">Linux Important System Directories</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of important system directories in the Linux operating system. All the information is from Advanced Bash-Scripting Guide.</p>
+<ul>
+<li><p>/bin<br>Binaries (executables). Basic system programs and utilities (such as bash).</p>
+</li>
+<li><p>/usr/bin<br>More system binaries.</p>
+</li>
+<li><p>/usr/local/bin<br>Miscellaneous binaries local to the particular machine.</p>
+</li>
+<li><p>/sbin<br>System binaries. Basic system administrative programs and utilities (such as fsck).</p>
+</li>
+<li><p>/usr/sbin<br>More system administrative programs and utilities.</p>
+</li>
+<li><p>/etc<br>Et cetera. Systemwide configuration scripts.<br>Of particular interest are the /etc/fstab (filesystem table), /etc/mtab (mounted filesystem table), and the /etc/inittab files.</p>
+</li>
+<li><p>/etc/rc.d<br>Boot scripts, on Red Hat and derivative distributions of Linux.</p>
+</li>
+<li><p>/usr/share/doc<br>Documentation for installed packages.</p>
+</li>
+<li><p>/usr/man<br>The systemwide manpages.</p>
+</li>
+<li><p>/dev<br>Device directory. Entries (but not mount points) for physical and virtual devices.</p>
+</li>
+<li><p>/proc<br>Process directory. Contains information and statistics about running processes and kernel parameters.</p>
+</li>
+<li><p>/sys<br>Systemwide device directory. Contains information and statistics about device and device names.</p>
+</li>
+<li><p>/mnt<br>Mount. Directory for mounting hard drive partitions, such as /mnt/dos, and physical devices. In newer Linux distros, the /media directory has taken over as the preferred mount point for I/O devices.</p>
+</li>
+<li><p>/media<br>In newer Linux distros, the preferred mount point for I/O devices, such as CD/DVD drives or USB flash drives.</p>
+</li>
+<li><p>/var<br>Variable (changeable) system files.</p>
+</li>
+<li><p>/var/log<br>Systemwide log files.</p>
+</li>
+<li><p>/var/spool/mail<br>User mail spool.</p>
+</li>
+<li><p>/lib<br>Systemwide library files.</p>
+</li>
+<li><p>/usr/lib<br>More systemwide library files.</p>
+</li>
+<li><p>/tmp<br>System temporary files.</p>
+</li>
+<li><p>/boot<br>System boot directory. The kernel, module links, system map, and boot manager reside here.</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-22T14:21:44.000Z"><a href="/2015/07/22/HTTP-Status-Code/">2015-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/22/HTTP-Status-Code/">HTTP Status Code</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the list of common used HTTP status code. This link is <a href="https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81" target="_blank" rel="external">Wikipedia on HTTP status code</a> in Chinese. The followings is the HTTP status code seen most often.</p>
+<p>###1xx Informational<br>Request received, continuing process.</p>
+<p>This class of status code indicates a provisional response, consisting only of the Status-Line and optional headers, and is terminated by an empty line.</p>
+<p>#####100 Continue<br>The server has received the request headers, and that the client should proceed to send the request body (in the case of a request for which a body needs to be sent; for example, a POST request).</p>
+<p>#####101 Switching Protocols<br>The requester has asked the server to switch protocols and the server is acknowledging that it will do so.</p>
+<p>###2xx Success<br>The action requested by the client was received, understood, accepted and processed successfully.</p>
+<p>#####200 OK<br>Standard response for successful HTTP requests. The actual response will depend on the request method used.</p>
+<p>#####201 Created<br>The request has been fulfilled and resulted in a new resource being created.</p>
+<p>#####202 Accepted<br>The request has been accepted for processing, but the processing has not been completed. </p>
+<p>#####203 Non-Authoritative Information<br>The server successfully processed the request, but is returning information that may be from another source.</p>
+<p>#####204 No Content<br>The server successfully processed the request, but is not returning any content. Usually used as a response to a successful delete request.</p>
+<p>#####205 Reset Content<br>The server successfully processed the request, but is not returning any content. Unlike a 204 response, this response requires that the requester reset the document view.</p>
+<p>###3xx Redirection<br>The client must take additional action to complete the request. Many of these status codes are used in URL redirection.</p>
+<p>#####Multiple Choices<br>Indicates multiple options for the resource that the client may follow. </p>
+<p>#####Moved Permanently<br>This and all future requests should be directed to the given URI.</p>
+<p>#####306 Switch Proxy<br>No longer used. Originally meant “Subsequent requests should use the specified proxy.”</p>
+<p>###4xx Client Error<br>The client seems to have erred. Except when responding to a HEAD request, the server should include an entity containing an explanation of the error situation, and whether it is a temporary or permanent condition.</p>
+<p>#####400 Bad Request<br>The server cannot or will not process the request due to something that is perceived to be a client error </p>
+<p>#####401 Unauthorized<br>Similar to 403 Forbidden, but specifically for use when authentication is required and has failed or has not yet been provided. </p>
+<p>#####403 Forbidden<br>The request was a valid request, but the server is refusing to respond to it. Unlike a 401 Unauthorized response, authenticating will make no difference.</p>
+<p>#####404 Not Found<br>The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.</p>
+<p>######405 Method Not Allowed<br>A request was made of a resource using a request method not supported by that resource.</p>
+<p>######408 Request Timeout<br>The server timed out waiting for the request.</p>
+<p>######409 Conflict<br>The request could not be processed because of conflict in the request, such as an edit conflict in the case of multiple updates.</p>
+<p>###5xx Server Error<br>The server failed to fulfil an apparently valid request.</p>
+<p>#####500 Internal Server Error<br>A generic error message, given when an unexpected condition was encountered and no more specific message is suitable.</p>
+<p>#####501 Not Implemented<br>The server either does not recognize the request method, or it lacks the ability to fulfill the request. </p>
+<p>#####502 Bad Gateway<br>The server was acting as a gateway or proxy and received an invalid response from the upstream server.</p>
+<p>#####503 Service Unavailable<br>The server is currently unavailable (because it is overloaded or down for maintenance). Generally, this is a temporary state.</p>
+<p>#####504 Gateway Timeout<br>The server was acting as a gateway or proxy and did not receive a timely response from the upstream server.</p>
+<p>#####505 HTTP Version Not Supported<br>The server does not support the HTTP protocol version used in the request.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Web/">Web</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-22T02:05:40.000Z"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">2015-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/22/Machine-Learning-Top-Conferences-List/">Machine Learning Top Conferences and Journals List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>#Conference List<br>Here is the list of top academic conferences on machine learning area based on my own experience. Since the quality of papers in these conferences may vary, it does not mean these conferences will remain the best forever. And it does not mean that the conferences that do not appear in this list are not high quality. The order is not relative to the quality of conference.</p>
+<p>The Following is the official list provided by P.R. China government,  called CCF list.<br><a href="http://www.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2567814757420" target="_blank" rel="external">CCF</a><br>Remember that this official list will also be updated in the future and thus the link may be expired.</p>
+<p>###ICML<br>International Conference on Machine Learning</p>
+<p>###NIPS<br>Neural Information Processing Systems</p>
+<p>###UAI<br>Uncertainty in Artificial Intelligence</p>
+<p>###IJCAI<br>International Joint Conference on Artificial Intelligence</p>
+<p>###AAAI<br>AAAI Conference on Artificial Intelligence</p>
+<p>###CVPR<br>IEEE Conference on Computer Vision and Pattern Recognition</p>
+<p>###ICCV<br>International Conference on Computer Vision</p>
+<p>###KDD<br>ACM SIGKDD Conference on Knowledge Discovery and Data Mining</p>
+<p>###ICDM<br>International Conference on Data Mining</p>
+<p>###WWW<br>The ACM International World Wide Web Conference</p>
+<p>###COLT<br>Annual Conference on Computational Learning Theory</p>
+<hr>
+
+<p>#Journal List<br>Here is the list of top academic journals on machine learning area based on my own experience. Since the quality of papers in these conferences may vary, it does not mean these journals will remain the best forever. And it does not mean that the journals that do not appear in this list are not high quality. The order is not relative to the quality of journal.</p>
+<p>The Following is the official list provided by P.R. China government,  called CCF list.<br><a href="http://www.ccf.org.cn/sites/ccf/biaodan.jsp?contentId=2567814757420" target="_blank" rel="external">CCF</a><br>Remember that this official list will also be updated in the future and thus the link may be expired.</p>
+<p>###AI<br>Artificial Intelligence</p>
+<p>###IJCV<br>International Journal of Computer Vision</p>
+<p>###JMLR<br>Journal of Machine Learning Research</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-21T02:03:43.000Z"><a href="/2015/07/21/Interview-Skill-Summary/">2015-07-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/21/Interview-Skill-Summary/">Interview Skill Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>After students graduate from school or when employees would like to find a new job, they have to take interviews from companies or agencies. Here is the interview summary based my own experience and it should be useful for those who want to seek a technical job at IT companies or technical departments of agencies. Therefore, this page may be updated in the future.</p>
+<p>To pass interviews, there are mainly three steps to go through. The following is the detailed description of each step.</p>
+<p>#<em>Preparation of Interviews</em></p>
+<p><hr></p>
+<p>###Resume<br>To apply a position, applicants should provide a resume for the HR. Currently, we can use electronic resume like pdf or word and upload it to the application website; or we can use the account of some popular resume websites like linkedin.</p>
+<p>In the resume, we should provide the following things:</p>
+<ul>
+<li>Basic personal information: name, phone number, mailing address and e-mail address.</li>
+<li>Experience: often referred to work experience. In this part, we should provide the companies/organizations/agencies and corresponding period when we work for them, the positions that we held in them, and the projects as well as our responsibility for those projects that we were working on in those companies. To describe the projects that we worked on, we only have to use two paragraphs: one is the function of the project and the other is our roles and contribution to the projects.</li>
+<li>Education: including the name, period and degree of the school. Even though we may not have a good GPA, still we had better write down on the resume.</li>
+<li>Projects: the projects we have done before. We can use the similar projects description as the description in Experience part. The projects here should be the side projects or course projects. A good strategy is to write some open source projects or join the existing open source project group or organization like ASF.</li>
+<li>Skill: the skill that we have mastered. This part includes the programming language, developing tools, developing operation system and so on.</li>
+<li>Awards: the awards we have earned before. Usually we only provide academic awards or technical competition awards like IOI, ACM-ICPC, or KDD Cup.</li>
+<li>Publication: the academic papers or books published before. Remember to provide publication date and authors.</li>
+<li>Organization: the technical organizations that provided the membership for us.</li>
+</ul>
+<p>In most cases, we only have to provide the first five parts in our resume. One of the most important thing is to be HONEST to YOURSELF. If<br>still find it hard to write a good resume, just go to linked or other similar websites to read the resume post by others and learn from them.</p>
+<p>###Application<br>There are mainly three ways to apply a job.</p>
+<ul>
+<li>Career Fair: Mainly for students. Just dress properly and bring our resume and other documents with us.</li>
+<li>Online Application: Apply the job on the website of the company. Usually we can find the application page on the job or career site. </li>
+<li>Reference: Find some one to refer us. The referer can be the employees of the companies or executive search.</li>
+</ul>
+<p>Actually, there are more ways to do the application. So do not stick to the above three.</p>
+<p>###Interview Questions<br>In the interview, interviewees may meet various questions. Behavior questions and technical questions are the most common ones.</p>
+<p>#####Behavior Questions<br>Here is the list of most widely seen behavior questions appearing in the interivew based on my observation.<br><a href="http://yular.github.io/2015/05/07/Interview-Summary-Behavior-Question/">Behavior Question</a></p>
+<p>Remember, answer the questions precisely and accurately. In the technical interview, we do not have to provide a story about ourself as it will waste too much time and then we will not have enough time to answer the technical questions.</p>
+<p>#####Technical Questions<br>There are mainly three kinds of technical questions (for software engineer position). The following is my experience that how to prepare each kind of technical questions and how to judge when we are ready for them.<br>[1]Algorithm: </p>
+<ul>
+<li>Understand the basic concepts of and basic topics of algorithms. These include brute force, search (dfs and bfs), math, dynamic programming, graph theory, algorithm complexity, NP problems and so on. For more details, view the TopCoder algorithm tutorial list.</li>
+<li>Do programming practice as much as possible until we can come up with the optimal solutions in a short time (in around five minutes or even less) and then write down precise code without any bugs. The code should not be too short but easy to read and understand, following good code style.</li>
+<li>Be able to analyze the complexity of the algorithm. The complexity means time complexity and space complexity.</li>
+<li>Be able to prove the correctness of solution</li>
+</ul>
+<p>[2]Object-Oriented Design (OOD)</p>
+<ul>
+<li>Know common used OOD design patterns and understand when, how and where (the best cases) to use them.</li>
+<li>Do much practice so that when given a case, be able to write down the OOD diagram meeting the requirement and explain it precisely.</li>
+<li>Be able to design, analyze and implement the algorithms of specific/key module(s) in our design.</li>
+</ul>
+<p>[3]System Design (SD)</p>
+<ul>
+<li>Know common used design patterns and basic concepts, and understand when, where and how to use these patterns.</li>
+<li>Be able to balance the trade off of our design and then explain the design precisely.</li>
+<li>Our system design can be scaled up. </li>
+</ul>
+<p>For more details, read the summary here: <a href="http://yular.github.io/2015/07/16/System-Design-Interview-Summary/">System Design Summary</a></p>
+<p>#<em>When in the Interview</em></p>
+<p><hr><br>A common technical interview largely has two arounds which includes a phone interview round and an onsite round. A phone interview round has two or even more sessions and so does an onsite round. In some cases, a extra round will be added if candidates do not perform so well in the previous two rounds.</p>
+<p>###Phone Interview<br>In this kind of interview, interviewers talk with interviewees through cell phone, skype or other communication tool and then interviewees can write down the code on some online document like Google Docs. Each session can last around 45 minutes. But it depends on the company. </p>
+<p>Usually, each session will be divided into two parts: in the first part, interviwers may give some self introduction and then ask some behaviorquestions; in the second part, interviewers will ask some technical questions, which may include explanation of some terminology/concepts and programming problems or other kinds of technical problems. In the last few minutes of each session, the interviewees could ask interviewers some nontechnical questions.</p>
+<p>In most cases, phone interviews should not be hard and just want to test whether the candidates have mastered the fundamental knowledge or not.</p>
+<p>###Onsite Interview<br>Onsite interview is usually the last round of the whole interview. A typical onsite interview can contain four or even more sessions in a day, and it should only last one or two day(s). Each session is about 45 minutes. In some sessions, there may be multiple interviewers because some or one of them are/is shadow. The interview questions are similar as those in the phone interviews but can be more challenging. It means that the problems in the onsite round are more difficult to solve or at least more difficult to come up with an optimal solution; and candidates should write down the code on the white board, and then analyze the solutions. In some situations, the interviewers may ask some follow up (more difficult or tricky) problems based on the last questions.</p>
+<p>Above all, it is not easy to answer all the questions “correctly” in the interview and actually it is not necessary to do so. When we are faced a problem, we can come up with a navie solution for it and discuss the solution with interviewer. If interviewer agree with us on it, we can start to do the coding/writing. Try to write the code in a good style and precisely. If interviewer thinks the solution is not optimal, we should go back to think of it but in some cases, we can ask some hints from interviewer and try to solve the problems based on hints. Interviewers understand that it is too strict for interviewees to answer a very difficult problem in an hour so they may just would like to know the way we come up with a solution when facing with a problem that is difficult and never seen before. Some times, interviewers may play jokes on us or even make some mistakes and they think our solution is not optimal or even wrong. In these cases, we should speak out and argue our solution with interviewers. Do remember that no matter how efficient our solution is, we should write down the complete code to show our programming skill level. Try to finish the code without bugs.</p>
+<p>The best way to be successful in the interiew is to do more practice. Do the mock interview before the actual interview comes. Discuss the solution of interview problems with others and try to find the optimal ones. Limit the time when practice. Try to improve the oral presentation, expecially for non-English speakers.</p>
+<p>#<em>After the Interview</em></p>
+<p><hr><br>The interview results will be processed in some weeks and they will be submitted to hiring community and discussed for a long time. In most cases, we have to wait four or more weeks. If we have pending offers or some other reasons and have to know the result as earlier as possible, we could email the HR and kindly remind that we would like to know the result sooner.</p>
+<p>After we get the offer, we can view the package and discuss it with HR. But remember, offer is just a start not the end. More challenges are waiting for us in the job.</p>
+<p>END</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Interview-Summary/">Interview Summary</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-07-18T03:34:35.000Z"><a href="/2015/07/18/Software-Architecture-Summary-IV/">2015-07-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/07/18/Software-Architecture-Summary-IV/">Software Architecture Summary IV</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the note of Software Architecture book written by Medvidovic, including some basic concepts, basic terminologies, common software architecture, good examples, software architecture analysis approach and so on.</p>
+<p>#<em>Software Architecture Analysis</em></p>
+<p><hr></p>
+<p>###What is Architectural Analysis<br>[1]Definition<br>Architectural analysis is the activity of discovering important system properties using the system’s architectural models.</p>
+<p>[2]Important to know</p>
+<ul>
+<li>which questions to ask</li>
+<li>why to ask them</li>
+<li>how to ask them</li>
+<li>how to ensure that they can be answered</li>
+</ul>
+<p>###Concerns Relevant to Architectural Analysis</p>
+<ul>
+<li>Goals of analysis</li>
+<li>Scope of analysis</li>
+<li>Primary architectural concern being analyzed</li>
+<li>Level of formality of architectural models</li>
+<li>Type of analysis</li>
+<li>Level of automation</li>
+<li>System stakeholders interested in analysis</li>
+</ul>
+<p>###Informal Architectural Models and Analysis</p>
+<ul>
+<li>Helps architects get clarification from system customers</li>
+<li>Helps managers ensure project scope</li>
+<li>Not as useful to developers</li>
+</ul>
+<p>###Formal Architectural Models and Analysis</p>
+<ul>
+<li>Helps architects determine component composability</li>
+<li>Helps developers with implementation-level decisions</li>
+<li>Helps with locating and selecting appropriate OTS components</li>
+<li>Helps with automated code generation</li>
+<li>Not as useful for discussions with non-technical stakeholders</li>
+</ul>
+<p>###Architectural Analysis Goals (The four “C”s)</p>
+<ul>
+<li>Completeness</li>
+<li>Consistency</li>
+<li>Compatibility</li>
+<li>Correctness</li>
+</ul>
+<p>####Completeness<br>[1]Completeness is both an external and an internal goal.</p>
+<p>[2]Completeness is external with respect to system requirements:</p>
+<ul>
+<li>Challenged by the complexity of large systems’ requirements and architectures</li>
+<li>Challenged by the many notations used to capture complex requirements as well as architectures<br>[3]Completeness is internal with respect to the architectural intent and modeling notation</li>
+</ul>
+<p>####Consistency<br>[1]Consistency is an internal property of an architectural model, ensuring that different model elements do not contradict one another.</p>
+<p>[2]Dimensions</p>
+<ul>
+<li>Name</li>
+<li>Interface</li>
+<li>Behavior</li>
+<li>Interaction</li>
+<li>Refinement</li>
+</ul>
+<p>[3]Name Consistency<br>(1)Component and connector names<br>(2)Component service names<br>(3)May be non-trivial to establish at the architectural level</p>
+<ul>
+<li>Multiple system elements/services with identical names</li>
+<li>Loose coupling via publish-subscribe or asynchronous event broadcast</li>
+<li>Dynamically adaptable architectures</li>
+</ul>
+<p>[4]Interface Consistency<br>(1)Encompasses name consistency<br>(2)Also involves parameter lists in component services<br>(3)A rich spectrum of choices at the architectural level</p>
+<p>[5]Behavioral Consistency<br>Names and interfaces of interacting components may match, but behaviors need not.</p>
+<p>[6]Interaction Consistency<br>Names, interfaces, and behaviors of interacting components may match, yet they may still be unable to interact properly.</p>
+<p>[7]Refinement Consistency<br>(1)Architectural models are refined during the design process<br>(2)A relationship must be maintained between higher and lower level models</p>
+<ul>
+<li>All elements are preserved in the lower level model</li>
+<li>All design decisions are preserved in the lower-level model</li>
+<li>No new design decisions violate existing design decisions</li>
+</ul>
+<p>####Compatibility<br>Compatibility is an external property of an architectural model, ensuring that the architectural model adheres to guidelines and constraints of a style, a reference architecture and an architectural standard.</p>
+<p>####Correctness</p>
+<p>rrectness is an external property of an architectural model, ensuring that the architectural model fully realizes a system specification and the system’s implementation fully realizes the architecture.</p>
+<p>[2]Inclusion of OTS elements impacts correctness.</p>
+<p>###Scope of Architectural Analysis</p>
+<ul>
+<li>Component- and connector-level</li>
+<li>Subsystem- and system-level</li>
+<li>Data exchanged in a system or subsystem (Data structure; Data flow; Properties of data exchange)</li>
+<li>Architectures at different abstraction levels</li>
+<li>Comparison of two or more architectures (Processing; Data; Integration; Configuration; Non-functional properties)</li>
+</ul>
+<p>###Architectural Concern Being Analyzed</p>
+<ul>
+<li>Structural characteristics</li>
+<li>Behavioral characteristics</li>
+<li>Interaction characteristics</li>
+<li>Non-functional characteristics</li>
+</ul>
+<p>###Level of Automation</p>
+<ul>
+<li>Manual</li>
+<li>Partially automated</li>
+<li>Fully automated</li>
+</ul>
+<p>###Type of Analysis</p>
+<ul>
+<li>Static analysis</li>
+<li>Dynamic analysis</li>
+<li>Scenario-driven analysis (Both static and dynamic)</li>
+</ul>
+<p>###Analysis Stakeholders</p>
+<ul>
+<li>Architects</li>
+<li>Developers</li>
+<li>Managers</li>
+<li>Customers</li>
+<li>Vendors</li>
+</ul>
+<p>###Architectural Style Analysis Dimensions</p>
+<ul>
+<li>What is the design vocabulary (Component and connector types)?</li>
+<li>What are the allowable structural patterns?</li>
+<li>What is the underlying computational model?</li>
+<li>What are the essential invariants of the style?</li>
+<li>What are common examples of its use?</li>
+<li>What are the (dis)advantages of using the style?</li>
+<li>What are the style’s specializations?</li>
+</ul>
+<p>###Architecture Analysis Techniques<br>[1]Categories</p>
+<ul>
+<li>Inspection- and review-based</li>
+<li>Model-based</li>
+<li>Simulation-based</li>
+</ul>
+<p>####Architectural Inspections and Reviews<br>[1]Architectural models studied by human stakeholders for specific properties</p>
+<p>[2]The stakeholders define analysis objective</p>
+<p>[3]Advantages:</p>
+<ul>
+<li>Useful in the case of informal architectural descriptions</li>
+<li>Useful in establishing “soft” system properties</li>
+<li>Able to consider multiple stakeholders’ objectives and multiple architectural properties</li>
+</ul>
+<p>[4]Manual Driven, very expensive</p>
+<p>[5]Nutshell</p>
+<ul>
+<li>Analysis Goals – any</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern – any, but particularly suited for non-functional properties</li>
+<li>Architectural Models – any, but must be geared to stakeholder needs and analysis objectives</li>
+<li>Analysis Types – mostly static and scenario-based</li>
+<li>Automation Level – manual, human intensive</li>
+<li>Stakeholders – any, except perhaps component vendor</li>
+</ul>
+<p>####Model-Based Architectural Analysis<br>[1]Analysis techniques that manipulate architectural description to discover architectural properties</p>
+<p>[2]Tool-driven, hence potentially less costly</p>
+<p>[3]Usually focus on a single architectural aspect</p>
+<p>[4]Techniques typically used in tandem to provide more complete answers</p>
+<p>[5]Disadvantages:</p>
+<ul>
+<li>Typically useful for establishing “hard” architectural properties only.</li>
+<li>Usually focus on a single architectural aspect.</li>
+<li>Scalability may be an issue</li>
+</ul>
+<p>[6]Nutshell</p>
+<ul>
+<li>Analysis Goals – consistency, compatibility, correctness</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern – structural, behavioral, interaction, and possibly non-functional properties</li>
+<li>Architectural Models – semi-formal and formal</li>
+<li>Analysis Types – static</li>
+<li>Automation Level – partially and fully automated</li>
+<li>Stakeholders – mostly architects and developers</li>
+</ul>
+<p>####Architectural Reliability Analysis<br>[1]Reliability is the probability that the system will perform its intended functionality under specified design limits, without failure </p>
+<p>[2]A failure is the occurrence of an incorrect output as a result of an input value that is received, with respect to the specification </p>
+<p>[3]An error is a mental mistake made by the designer or programmer</p>
+<p>[4]A fault or a defect is the manifestation of that error in the system</p>
+<p>[5]Reliability Metrics</p>
+<ul>
+<li>Time to failure</li>
+<li>Time to repair</li>
+<li>Time between failures</li>
+</ul>
+<p>[6]Assessing Reliability at Architectural Level</p>
+<ul>
+<li>Challenged by unknowns</li>
+<li>Challenged by uncertainties</li>
+<li>Architectural reliability values must be qualified by assumptions made to deal with the above uncertainties</li>
+<li>Reliability modeling techniques are needed that deal effectively with uncertainties</li>
+</ul>
+<p>[7]Sources of Available Information</p>
+<ul>
+<li>Domain knowledge: Information on component behavior and usage</li>
+<li>System requirements: Component use cases and required responses to failures</li>
+<li>System model simulation: Simulation traces</li>
+<li>Functionally similar system: Execution traces</li>
+</ul>
+<p>[8]Reliability Calculation: Solving the DTMC</p>
+<p>####Simulation-Based Analysis<br>[1]Requires producing an executable system model.</p>
+<p>[2]Simulation need not exhibit identical behavior to system implementation.</p>
+<p>[3]It needs to be precise and not necessarily accurate.</p>
+<p>[4]Some architectural models may not be amenable to simulation.</p>
+<p>[5]Nutshell</p>
+<ul>
+<li>Analysis Goals – any</li>
+<li>Analysis Scope – any </li>
+<li>Analysis Concern –behavioral, interaction, and non-functional properties</li>
+<li>Architectural Models – formal</li>
+<li>Analysis Types – dynamic and scenario-based</li>
+<li>Automation Level – fully automated; model mapping may be manual</li>
+<li>Stakeholders – any</li>
+</ul>
+<p>###Analysis Summary<br>[1]Architectural analysis is neither easy nor cheap</p>
+<p>[2]The benefits typically far outweigh the drawbacks</p>
+<p>[3]Early information about the system’s key characteristics is indispensable</p>
+<p>[4]Multiple analysis techniques often should be used in concert</p>
+<p>[5]“How much analysis?”</p>
+<ul>
+<li>This is the key facet of an architect’s job</li>
+<li>Too many will expend resources unnecessarily</li>
+<li>Too few will carry the risk of propagating defects into the final system</li>
+<li>Wrong analyses will have both drawbacks</li>
+</ul>
+<p>###Non-Functional Property<br>[1]Design Guidelines for Ensuring NFPs<br>(1)Overarching Objective<br>Ascertain the role of software architecture in ensuring various NFPs.</p>
+<p>(2)Efficiency<br>Efficiency is a quality that reflects a software system’s ability to meet its performance requirements while minimizing its usage of the resources in its computing environment.</p>
+<p>####Software Components and Efficiency</p>
+<ul>
+<li>Keep the components “small” whenever possible</li>
+<li>Keep component interfaces simple and compact</li>
+<li>Allow multiple interfaces to the same functionality</li>
+<li>Separate data components from processing components</li>
+<li>Separate data from meta-data</li>
+</ul>
+<p>####Software Connectors and Efficiency</p>
+<ul>
+<li>Carefully select connectors</li>
+<li>Use broadcast connectors with caution</li>
+<li>Make use of asynchronous interaction whenever possible</li>
+<li>Use location/distribution transparency judiciously</li>
+</ul>
+<p>####Architectural Configurations and Efficiency</p>
+<ul>
+<li>Keep frequently interacting components “close”</li>
+<li>Carefully select and place connectors in the architecture</li>
+<li>Consider the efficiency impact of selected architectural styles and patterns</li>
+</ul>
+<p>(3)Complexity<br>Complexity is a software system’s a property that is directly proportional to the size of the system, number of its constituent elements, their internal structure, and the number and nature of their interdependencies</p>
+<p>####Software Components and Complexity</p>
+<ul>
+<li>Separate concerns into different components</li>
+<li>Keep only the functionality inside components</li>
+<li>Keep components cohesive</li>
+<li>Be aware of the impact of off-the-shelf components on complexity</li>
+<li>Insulate processing components from changes in data format</li>
+</ul>
+<p>####Software Connectors and Complexity</p>
+<ul>
+<li>Treat connectors explicitly</li>
+<li>Keep only interaction facilities inside connectors</li>
+<li>Separate interaction concerns into different connectors</li>
+<li>Restrict interactions facilitated by each connector</li>
+<li>Be aware of the impact of off-the-shelf connectors on complexity</li>
+</ul>
+<p>####Architectural Configurations and Complexity</p>
+<ul>
+<li>Eliminate unnecessary dependencies</li>
+<li>Manage all dependencies explicitly</li>
+<li>Use hierarchical (de)composition</li>
+</ul>
+<p>(4)Scalability and Heterogeneity<br>Scalability is the capability of a software system to be adapted to meet new requirements of size and scope</p>
+<p>Heterogeneity is the quality of a software system consisting of multiple disparate constituents or functioning in multiple disparate computing environments.</p>
+<p>####Software Components and Scalability</p>
+<ul>
+<li>Give each component a single, clearly defined purpose </li>
+<li>Define each component to have a simple, understandable interface</li>
+<li>Do not burden components with interaction responsibilities</li>
+<li>Avoid unnecessary heterogeneity</li>
+<li>Distribute the data sources </li>
+<li>Replicate data when necessary</li>
+</ul>
+<p>####Software Connectors and Scalability</p>
+<ul>
+<li>Use explicit connectors</li>
+<li>Give each connector a clearly defined responsibility</li>
+<li>Choose the simplest connector suited for the task</li>
+<li>Be aware of differences between direct and indirect dependencies</li>
+<li>Avoid placing application functionality inside connectors</li>
+<li>Leverage explicit connectors to support data scalability</li>
+</ul>
+<p>####Architectural Configurations and Scalability</p>
+<ul>
+<li>Avoid system bottlenecks</li>
+<li>Make use of parallel processing capabilities </li>
+<li>Place the data sources close to the data consumers </li>
+<li>Try to make distribution transparent</li>
+<li>Use appropriate architectural styles</li>
+</ul>
+<p>(5)Adaptability<br>Adaptability is a software system’s ability to satisfy new requirements and adjust to new operating conditions during its lifetime.</p>
+<p>####Software Components and Adaptability</p>
+<ul>
+<li>Give each component a single, clearly defined purpose</li>
+<li>Minimize component interdependencies</li>
+<li>Avoid burdening components with interaction responsibilities</li>
+<li>Separate processing from data</li>
+<li>Separate data from metadata</li>
+</ul>
+<p>####Software Connectors and Adaptability</p>
+<ul>
+<li>Give each connector a clearly defined responsibility</li>
+<li>Make the connectors flexible</li>
+<li>Support connector composability</li>
+</ul>
+<p>####Architectural Configurations and Adaptability</p>
+<ul>
+<li>Leverage explicit connectors</li>
+<li>Try to make distribution transparent</li>
+<li>Use appropriate architectural styles</li>
+</ul>
+<p>(6)Dependability<br>Dependability is a collection of system properties that allows one to rely on a system functioning as required.</p>
+<ul>
+<li>Reliability is the probability that a system will perform its intended functionality under specified design limits, without failure, over a given time period</li>
+<li>Availability is the probability that a system is operational at a particular time</li>
+<li>Robustness is a system’s ability to respond adequately to unanticipated runtime conditions</li>
+<li>Fault-tolerant is a system’s ability to respond gracefully to failures at runtime</li>
+<li>Survivability is a system’s ability to resist, recognize, recover from, and adapt to mission-compromising threats</li>
+<li>Safety denotes the ability of a software system to avoid failures that will result in (1) loss of life, (2) injury, (3) significant damage to property, or (4) destruction of property</li>
+</ul>
+<p>####Software Components and Dependability</p>
+<ul>
+<li>Carefully control external component inter-dependencies</li>
+<li>Provide reflection capabilities in components</li>
+<li>Provide suitable exception handling mechanisms</li>
+<li>Specify the components’ key state invariants</li>
+</ul>
+<p>####Software Connectors and Dependability</p>
+<ul>
+<li>Employ connectors that strictly control component dependencies</li>
+<li>Provide appropriate component interaction guarantees</li>
+<li>Support dependability techniques via advanced connectors</li>
+</ul>
+<p>####Architectural Configurations and Dependability</p>
+<ul>
+<li>Avoid single points of failure</li>
+<li>Provide back-ups of critical functionality and data</li>
+<li>Support non-intrusive system health monitoring</li>
+<li>Support dynamic adaptation</li>
+</ul>
+<p>To Be Continue</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/System-Design/">System Design</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -612,7 +1743,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/9/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>

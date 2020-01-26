@@ -97,35 +97,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-10T09:02:49.000Z"><a href="/2017/09/10/Proxy-Pattern-In-Java/">2017-09-10</a></time>
+        <time datetime="2017-01-29T05:07:54.000Z"><a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">2017-01-29</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/10/Proxy-Pattern-In-Java/">Proxy Pattern (In Java)</a></h1>
+    <h1 class="title"><a href="/2017/01/29/Penn-Treebank-Part-Of-Speech-Tags-List/">Penn Treebank Part-Of-Speech Tags List</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>See the meaning of <a href="https://en.wikipedia.org/wiki/Proxy" target="_blank" rel="external">Proxy in Wikipedia</a>.</p>
-<p>As we know, when we visit a web service, we may not directly get the access of the hosts where the service is deployed but the hosts which sends the same or reasonable response as the service does. And those hosts are proxies.</p>
-<p>So in the design pattern, proxy pattern uses the similar mechanism. A class (proxy class) represents the functionality of the other class. Proxy class implements or extends the same interface or abstract class as the class proxied does, and proxy instance contains the instance proxied.</p>
-<p>See the <a href="https://en.wikipedia.org/wiki/Proxy_pattern" target="_blank" rel="external">Proxy Pattern in Wikipedia</a>. The diagram there can help to understand the structure of this design pattern.</p>
-<p>Here is some sample code about Proxy Pattern.</p>
-<h3 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h3><p>Here is the link of below <a href="https://github.com/yular/Java-CodeLibrary/tree/master/DesignPattern/ProxyPattern/src/com/yulartech/designpattern/proxypattern" target="_blank" rel="external">sample code</a>.</p>
-<p>Firt of all, here is the service interface:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public interface ImageService &#123;</span><br><span class="line">    void showImage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Then the real image service and proxy image service must implement this interface.</p>
-<p>Real image service source code is below:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class RealImageService implements ImageService &#123;</span><br><span class="line">    private String imageFileName;</span><br><span class="line"></span><br><span class="line">    RealImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        upLoadImage();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void upLoadImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Successfully upload image %s to the service.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        final String msg = String.format(&quot;Show the image %s.&quot;, imageFileName);</span><br><span class="line">        System.out.println(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Proxy image service source code is below:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class ProxyImageService implements ImageService&#123;</span><br><span class="line">    private RealImageService realImageService;</span><br><span class="line">    private String imageFileName;</span><br><span class="line">    private boolean isImageCached;</span><br><span class="line"></span><br><span class="line">    public ProxyImageService(String imageFileName)&#123;</span><br><span class="line">        this.imageFileName = imageFileName;</span><br><span class="line">        this.isImageCached = false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void showImage() &#123;</span><br><span class="line">        if (realImageService == null) &#123;</span><br><span class="line">            realImageService = new RealImageService(imageFileName);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (isImageCached) &#123;</span><br><span class="line">            final String msg = String.format(&quot;Get image %s from cache in proxy. &quot;, imageFileName);</span><br><span class="line">            System.out.print(msg);</span><br><span class="line">        &#125;</span><br><span class="line">        realImageService.showImage();</span><br><span class="line">        cacheImageInProxy();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void cacheImageInProxy() &#123;</span><br><span class="line">        isImageCached = true;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>At last, implement a Main class to run the demo:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.yulartech.designpattern.proxypattern;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        String imageFileName = &quot;test-image.png&quot;;</span><br><span class="line">        ProxyImageService proxyImageService = new ProxyImageService(imageFileName);</span><br><span class="line"></span><br><span class="line">        //Show image from actual service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line"></span><br><span class="line">        //Show image from proxy service</span><br><span class="line">        proxyImageService.showImage();</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And if everything goes well, output should be:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Successfully upload image test-image.png to the service.</span><br><span class="line">Show the image test-image.png.</span><br><span class="line"></span><br><span class="line">Get image test-image.png from cache in proxy. Show the image test-image.png.</span><br></pre></td></tr></table></figure>
-<p>That means we can retrieve images from proxy in cache instead of actual image service: Proxy class just represents the functionality of the other class.</p>
+        <p>Below is the list of tags defined in Penn Treebank project. Now they are well-known as POS (Part-Of-Speech) tags used in NLP. Here is <a href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html" target="_blank" rel="external">the link of original list</a>.</p>
+<p>1.CC - Coordinating conjunction<br>2.CD - Cardinal number<br>3.DT - Determiner<br>4.EX - Existential there<br>5.FW -Foreign word<br>6.IN - Preposition or subordinating conjunction<br>7.JJ - Adjective<br>8.JJR - Adjective, comparative<br>9.JJS - Adjective, superlative<br>10.LS - List item marker<br>11.MD - Modal<br>12.NN - Noun, singular or mass<br>13.NNS - Noun, plural<br>14.NNP - Proper noun, singular<br>15.NNPS - Proper noun, plural<br>16.PDT - Predeterminer<br>17.POS - Possessive ending<br>18.PRP - Personal pronoun<br>19.PRP$ - Possessive pronoun<br>20.RB - Adverb<br>21.RBR - Adverb, comparative<br>22.RBS - Adverb, superlative<br>23.RP - Particle<br>24.SYM - Symbol<br>25.TO - to<br>26.UH - Interjection<br>27.VB - Verb, base form<br>28.VBD - Verb, past tense<br>29.VBG - Verb, gerund or present participle<br>30.VBN - Verb, past participle<br>31.VBP - Verb, non-3rd person singular present<br>32.VBZ - Verb, 3rd person singular present<br>33.WDT - Wh-determiner<br>34.WP - Wh-pronoun<br>35.WP$ - Possessive wh-pronoun<br>36.WRB - Wh-adverb</p>
 
       
     </div>
@@ -139,7 +123,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>, <a href="/tags/Java/">Java</a>
+    <a href="/tags/Machine-Learning/">Machine Learning</a>, <a href="/tags/Natural-Language-Processing/">Natural Language Processing</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -159,98 +143,38 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-06T17:00:28.000Z"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">2017-09-07</a></time>
+        <time datetime="2017-01-29T05:03:06.000Z"><a href="/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/">2017-01-29</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Effective-Java-I/">Reading Note of Effective Java I</a></h1>
+    <h1 class="title"><a href="/2017/01/29/ElasticSearch-QuickStart-Basic-Commands-Usage/">ElasticSearch QuickStart: Basic Commands Usage</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <h3 id="Item-1-Consider-static-factory-methods-instead-of-constructors"><a href="#Item-1-Consider-static-factory-methods-instead-of-constructors" class="headerlink" title="Item 1. Consider static factory methods instead of constructors"></a>Item 1. Consider static factory methods instead of constructors</h3><p>Static factory method, which is different from regular factory pattern. With a well-chosen name is easier to use and the resulting client code easier to read. Not required to create a new object each time they are invoked, singleton factory for example. Can return an object of any subtype of their return type. Requires the client to refer to the returned object by its interface rather than its implementation class, which is generally good practice. Reduce the verbosity of creating parameterized type instances.</p>
-<p>But this pattern has some disadvantages. Main disadvantage is that classes without public or protected constructors cannot be subclassed. They are not readily distinguishable from other static methods.</p>
-<hr>
-
-<h3 id="Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters"><a href="#Item-2-Consider-a-builder-when-faced-with-many-constructor-parameters" class="headerlink" title="Item 2. Consider a builder when faced with many constructor parameters."></a>Item 2. Consider a builder when faced with many constructor parameters.</h3><p>Builder is a static class.</p>
-<p>The main disadvantage of a builder is that cost of creating builder is unlikely to be noticeable.</p>
-<h3 id="Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type"><a href="#Item-3-Enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type" class="headerlink" title="Item 3. Enforce the singleton property with a private constructor or an enum type."></a>Item 3. Enforce the singleton property with a private constructor or an enum type.</h3><p>Making a class a singleton can make it difficult to test its clients as it is impossible for mocking unless an interface is provided.</p>
-<hr>
-
-<h3 id="Item-4-Enforce-noninstantiability-with-a-private-constructor"><a href="#Item-4-Enforce-noninstantiability-with-a-private-constructor" class="headerlink" title="Item 4. Enforce noninstantiability with a private constructor."></a>Item 4. Enforce noninstantiability with a private constructor.</h3><p>This kind of classes are utility class, which group static methods and static fields. Need to add comments on these classes.</p>
-<hr>
-
-<h3 id="Item-5-Avoid-creating-unnecessary-objects"><a href="#Item-5-Avoid-creating-unnecessary-objects" class="headerlink" title="Item 5. Avoid creating unnecessary objects."></a>Item 5. Avoid creating unnecessary objects.</h3><p>Reuse a single object if possible. A reusable object should be immutable. And static factory methods are better choice to create reusable objects.</p>
-<p>So do not use following code:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = new String(&quot;abc&quot;);</span><br></pre></td></tr></table></figure>
-<p>but use:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String s = &quot;abc&quot;;</span><br></pre></td></tr></table></figure></p>
-<h4 id="Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing"><a href="#Item-5-1-Prefer-primitives-to-boxed-primitives-and-watch-out-for-unintentional-autoboxing" class="headerlink" title="Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing."></a>Item 5.1 Prefer primitives to boxed primitives and watch out for unintentional autoboxing.</h4><h4 id="Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes"><a href="#Item-5-2-Defensive-copying-on-reusable-objects-may-cause-insidious-bugs-and-security-holes" class="headerlink" title="Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes."></a>Item 5.2 Defensive copying on reusable objects may cause insidious bugs and security holes.</h4><hr>
-
-<h3 id="Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen"><a href="#Item-6-Eliminate-obsolete-object-references-Otherwise-memory-leak-may-happen" class="headerlink" title="Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)"></a>Item 6. Eliminate obsolete object references (Otherwise memory leak may happen)</h3><p>Two ways to do:</p>
-<ul>
-<li>Exception rather than norm: Null out references once they become obsolete.</li>
-<li>Best way: Let the variable containing the reference fall out of scope.</li>
-</ul>
-<p>Source of memory leak:</p>
-<ul>
-<li>A class manages its own memory.</li>
-<li>Cache. Solution: use weak hashmap.</li>
-<li>Listeners and other callbacks: store only weak references to them, like keys in weak hashmap.</li>
-</ul>
-<hr>
-
-<h3 id="Item-7-Avoid-finalizers"><a href="#Item-7-Avoid-finalizers" class="headerlink" title="Item 7. Avoid finalizers"></a>Item 7. Avoid finalizers</h3><p>Finalizers are unpredictable, often dangerous and generally unnecessary. Avoid using finalizer() method in Java: </p>
-<ul>
-<li>Finalizer may not be executed promptly and finalizer queue can be low priority in some JVM environment.</li>
-<li>Never depends on a finalizer to update critical persistent state because program can terminate without executing finalizers.</li>
-<li>There is a severe performance penalty for using finalizer. Never do time critical tasks in finalizer().</li>
-</ul>
-<p>Instead, provide an explicit termination method. Explicit termination methods are typically used in combination with the try-finally construt to ensure termination.</p>
-<p>Finalizer can be used to log a warning if it finds that the resource has not been terminated.</p>
-<p>Finalizer can be used as a safety net in case of explicit termination methods are not called.</p>
-<p>Use finalizer to terminate noncritical native resources.</p>
-<p>Remember to invoke <code>super.finalize</code> when have to use finalizer. </p>
-<hr>
-
-<h3 id="Item-8-Obey-the-general-contract-when-overriding-equals"><a href="#Item-8-Obey-the-general-contract-when-overriding-equals" class="headerlink" title="Item 8. Obey the general contract when overriding equals"></a>Item 8. Obey the general contract when overriding equals</h3><ul>
-<li>Each instance of the class is inherently unique.</li>
-<li>Do not care whether the class provides a logical equality test.</li>
-<li>A super class has already overriden equals and its behavior is appropriate for this class.</li>
-<li>The class is private or package-private, and you are certain that its equals methods will never be invoked.</li>
-</ul>
-<p>equals method general contract:</p>
-<ul>
-<li>Reflexive: x.equals(x) must be true.</li>
-<li>Symmetric: x.equals(y) is true then y.equals(x) must be true.</li>
-<li>Transitive: x.equals(y) and y.equals(z) are true then x.equals(z) is true.</li>
-<li>Consitent: x.equals(y) is the same result always unless object is modified.</li>
-</ul>
-<p>Liskov substitution principle says that any important property of a type should also hold for its subtypes so that any methods written for the type should work equally well on its subtypes.</p>
-<p>Important notes to write equals method:</p>
-<ul>
-<li>Can add a value component to a subclass of an abstract class without violating the equals contract.</li>
-<li>Do not write an equals method depending on unreliable resources.</li>
-<li>Non-nullity: all objects must be unequal to null.</li>
-<li>A high quality equals method: use == to check if the argument is a reference to this object. Use the instanceof operator to check if the argument has the correct type; Cast the argument to the correct type. For each significant field in the class, check if that field of the argument matches the corresponding field of this object.</li>
-<li>When finished writing equals method, check if it is symmetric, transitive and consistent.</li>
-</ul>
-<hr>
-
-<h3 id="Item-9-Always-override-hashCode-when-you-override-equals"><a href="#Item-9-Always-override-hashCode-when-you-override-equals" class="headerlink" title="Item 9. Always override hashCode when you override equals"></a>Item 9. Always override hashCode when you override equals</h3><ul>
-<li>Do not try to be too clever.</li>
-<li>Do not substitute another type for Object in the equals declaration.</li>
-<li>Equal objects must have equal hashcodes.</li>
-<li>Do not be tempted to exclude significant parts of an object from the hashcode computation to improve performance.</li>
-</ul>
-<hr>
-
-<h3 id="Item-10-Always-override-toString"><a href="#Item-10-Always-override-toString" class="headerlink" title="Item 10. Always override toString"></a>Item 10. Always override toString</h3><ul>
-<li>It is recommended to override toString and even in subclasses.</li>
-<li>In practice, toString method should return all of the interesting information contained in the object.</li>
-<li>Whether or not decide to specify the format of toString return value, clearly document intentions, provide programmatic access to all of the information contained in the value returned by toString.</li>
-</ul>
+        <p>Below is the frequent/basic commands of Elasticsearch.</p>
+<h2 id="Check-Cluster-Health"><a href="#Check-Cluster-Health" class="headerlink" title="Check Cluster Health"></a>Check Cluster Health</h2><p>Here is the command to get cluster health of Elasticsearch.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:9200/_cat/health?v</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">epoch      timestamp cluster       status node.total node.data shards pri relo init unassign pending_tasks max_task_<span class="built_in">wait</span>_time active_shards_percent</span><br><span class="line">1485763076 23:57:56  elasticsearch green           1         1      0   0    0    0        0             0                  -                100.0%</span><br></pre></td></tr></table></figure></p>
+<p>Here is the command to get nodes health of Elasticsearch.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:9200/_cat/nodes?v</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip        heap.percent ram.percent cpu load_1m load_5m load_15m node.role master name</span><br><span class="line">127.0.0.1            6          95   6    0.12    0.09     0.29 mdi       *      JXmT8Hz</span><br></pre></td></tr></table></figure></p>
+<h2 id="List-All-Indices"><a href="#List-All-Indices" class="headerlink" title="List All Indices"></a>List All Indices</h2><p>Here is the command to list all indices of cluster:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:9200/_cat/indices?v</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">health status index uuid pri rep docs.count docs.deleted store.size pri.store.size</span><br></pre></td></tr></table></figure></p>
+<p>Since we do not save any data in Elasticsearch, we could not see any records.</p>
+<h2 id="Indexing-Documents"><a href="#Indexing-Documents" class="headerlink" title="Indexing Documents"></a>Indexing Documents</h2><p>Here is a sample command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'Content-Type: application/json'</span> -X PUT <span class="_">-d</span> <span class="string">'&#123;"name":"John Doe"&#125;'</span> localhost:9200/customer/external/1?pretty</span><br></pre></td></tr></table></figure></p>
+<p>Note that customer is index, external is type and the Json object {name:John Doe} is the document while 1 is the document ID and it is optional.</p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_index"</span> : <span class="string">"customer"</span>,</span><br><span class="line">  <span class="string">"_type"</span> : <span class="string">"external"</span>,</span><br><span class="line">  <span class="string">"_id"</span> : <span class="string">"1"</span>,</span><br><span class="line">  <span class="string">"_version"</span> : 1,</span><br><span class="line">  <span class="string">"result"</span> : <span class="string">"created"</span>,</span><br><span class="line">  <span class="string">"_shards"</span> : &#123;</span><br><span class="line">    <span class="string">"total"</span> : 2,</span><br><span class="line">    <span class="string">"successful"</span> : 1,</span><br><span class="line">    <span class="string">"failed"</span> : 0</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"created"</span> : <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>If we execute the same command with different Json object, then this document will be replaced with new Json object.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'Content-Type: application/json'</span> -X PUT <span class="_">-d</span> <span class="string">'&#123;"name":"James Bryant"&#125;'</span> localhost:9200/customer/external/1?pretty</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_index"</span> : <span class="string">"customer"</span>,</span><br><span class="line">  <span class="string">"_type"</span> : <span class="string">"external"</span>,</span><br><span class="line">  <span class="string">"_id"</span> : <span class="string">"1"</span>,</span><br><span class="line">  <span class="string">"_version"</span> : 2,</span><br><span class="line">  <span class="string">"result"</span> : <span class="string">"updated"</span>,</span><br><span class="line">  <span class="string">"_shards"</span> : &#123;                                                                                                                                              </span><br><span class="line">    <span class="string">"total"</span> : 2,                                                                                                                                             </span><br><span class="line">    <span class="string">"successful"</span> : 1,                                                                                                                                        </span><br><span class="line">    <span class="string">"failed"</span> : 0                                                                                                                                             </span><br><span class="line">  &#125;,                                                                                                                                                         </span><br><span class="line">  <span class="string">"created"</span> : <span class="literal">false</span>                                                                                                                                          </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Note that version is different (1 becomes 2).</p>
+<p>Here is sample command without specifying document ID:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'Content-Type: application/json'</span> -X POST <span class="_">-d</span> <span class="string">'&#123;"name":"JJ Redic"&#125;'</span> localhost:9200/customer/external/?pretty</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_index"</span> : <span class="string">"customer"</span>,</span><br><span class="line">  <span class="string">"_type"</span> : <span class="string">"external"</span>,</span><br><span class="line">  <span class="string">"_id"</span> : <span class="string">"AVnueShHh1ol1utH2JD7"</span>,</span><br><span class="line">  <span class="string">"_version"</span> : 1,</span><br><span class="line">  <span class="string">"result"</span> : <span class="string">"created"</span>,</span><br><span class="line">  <span class="string">"_shards"</span> : &#123;</span><br><span class="line">    <span class="string">"total"</span> : 2,</span><br><span class="line">    <span class="string">"successful"</span> : 1,</span><br><span class="line">    <span class="string">"failed"</span> : 0</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"created"</span> : <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Updating-Document"><a href="#Updating-Document" class="headerlink" title="Updating Document"></a>Updating Document</h2><p>Here is the command to update document:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'Content-Type: application/json'</span> -X POST <span class="_">-d</span> <span class="string">'&#123;"doc":&#123;"name":"JJ Redic","age":20&#125;&#125;'</span> localhost:9200/customer/external/1/_update?pretty</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_index"</span> : <span class="string">"customer"</span>,</span><br><span class="line">  <span class="string">"_type"</span> : <span class="string">"external"</span>,</span><br><span class="line">  <span class="string">"_id"</span> : <span class="string">"1"</span>,</span><br><span class="line">  <span class="string">"_version"</span> : 3,</span><br><span class="line">  <span class="string">"result"</span> : <span class="string">"updated"</span>,</span><br><span class="line">  <span class="string">"_shards"</span> : &#123;</span><br><span class="line">    <span class="string">"total"</span> : 2,</span><br><span class="line">    <span class="string">"successful"</span> : 1,</span><br><span class="line">    <span class="string">"failed"</span> : 0</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Deleting-Document"><a href="#Deleting-Document" class="headerlink" title="Deleting Document"></a>Deleting Document</h3><p>Here is the command to delete document:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">'Content-Type: application/json'</span> -X DELETE localhost:9200/customer/external/2?pretty</span><br></pre></td></tr></table></figure></p>
+<p>Here is the sample output:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"found"</span> : <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"_index"</span> : <span class="string">"customer"</span>,</span><br><span class="line">  <span class="string">"_type"</span> : <span class="string">"external"</span>,</span><br><span class="line">  <span class="string">"_id"</span> : <span class="string">"2"</span>,</span><br><span class="line">  <span class="string">"_version"</span> : 2,</span><br><span class="line">  <span class="string">"result"</span> : <span class="string">"deleted"</span>,</span><br><span class="line">  <span class="string">"_shards"</span> : &#123;</span><br><span class="line">    <span class="string">"total"</span> : 2,</span><br><span class="line">    <span class="string">"successful"</span> : 1,</span><br><span class="line">    <span class="string">"failed"</span> : 0</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Bulk-Processing-Document"><a href="#Bulk-Processing-Document" class="headerlink" title="Bulk Processing Document"></a>Bulk Processing Document</h2><p>Check this <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_batch_processing.html" target="_blank" rel="external">link</a>.</p>
 
       
     </div>
@@ -264,7 +188,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>, <a href="/tags/Database/">Database</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -284,132 +208,48 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-06T16:48:01.000Z"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">2017-09-07</a></time>
+        <time datetime="2017-01-29T05:02:49.000Z"><a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">2017-01-29</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/07/Reading-Note-of-Java-in-a-Nutshell/">Reading Note of Java in a Nutshell (Java 7 and 8)</a></h1>
+    <h1 class="title"><a href="/2017/01/29/ElasticSearch-QuickStart-Introduction-and-Installation/">Elasticsearch QuickStart: Introduction and Installation</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the summary of the book <code>Java in a Nutshell</code> (JDK 7 and 8 version).</p>
-<h3 id="JVM-and-Java-Platform"><a href="#JVM-and-Java-Platform" class="headerlink" title="JVM and Java Platform"></a>JVM and Java Platform</h3><p>JVM executes Java program in Java bytecode format, which is called class files - the ones with .class extension. Java bytecode is an intermediate code which is between source code and machine code.</p>
-<p>Java platform uses just-in-time compilation to take the advantage of the fact that parts of Java program are called more frequently.</p>
-<p>Two ways to run other languages on JVM:</p>
+        <p>Elasticsearch is a highly scalable (distributed) open-source full-text search and analytics engine. It allows users to store, search, and analyze big volumes of data quickly and in near real time. It is generally used as the underlying engine/technology that powers applications that have complex search features and requirements. Here is the <a href="https://www.elastic.co/" target="_blank" rel="external">official website of Elastic Search</a>. And here is its <a href="https://github.com/elastic/elasticsearch" target="_blank" rel="external">Github Repository</a>.</p>
+<p>Below is the introduction of Elasticsearch and its installation guide.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Here is the explanation of terminologies defined in Elastic Search. And here is the link of <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/_basic_concepts.html" target="_blank" rel="external">official webiste</a>.</p>
+<h3 id="Near-Real-Time-NRT"><a href="#Near-Real-Time-NRT" class="headerlink" title="Near Real Time (NRT)"></a>Near Real Time (NRT)</h3><p>Elasticsearch is a near real time engine, which means that it has a slight latency (normally 1s) from the time users index a document until the time it becomes searchable.</p>
+<h3 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h3><p>A cluster is a collection of one or more nodes (servers) that together holds entire data and provides federated indexing and search capabilities across all nodes. A cluster is identified by a unique name which by default is “elasticsearch”. This name is important because a node can only be part of a cluster if the node is set up to join the cluster by its name.</p>
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><p>A node is a single server that is part of cluster, stores data, and participates in the cluster’s indexing and search capabilities. Just like a cluster, a node is identified by a name which by default is a random Universally Unique IDentifier (UUID) that is assigned to the node at startup. You can define any node name we want if we do not want the default. This name is important for administration purposes where we want to identify which servers in network correspond to which nodes in wer Elasticsearch cluster.</p>
+<h3 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h3><p>An index is a collection of documents that have somewhat similar characteristics. An index is identified by a name (that must be all lowercase) and this name is used to refer to the index when performing indexing, search, update, and delete operations against the documents in it.<br>In a single cluster, we can define as many indexes as we want.</p>
+<p>Index is similar to database defined in SQL.</p>
+<h3 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h3><p>Within an index, we can define one or more types. A type is a logical category/partition of index whose semantics is completely up to us. In general, a type is defined for documents that have a set of common fields.</p>
+<p>Type is similar to table defined in SQL.</p>
+<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><p>A document is a basic unit of information that can be indexed. This document is expressed in JSON (JavaScript Object Notation) which is an ubiquitous internet data interchange format.</p>
+<p>Within an index/type, we can store as many documents as we want. </p>
+<h3 id="Shards"><a href="#Shards" class="headerlink" title="Shards"></a>Shards</h3><p>An index can potentially store a large amount of data that can exceed the hardware limits of a single node. To solve this problem, Elasticsearch provides the ability to subdivide our index into multiple pieces called shards. When we create an index, we can simply define the number of shards that we want. Each shard is in itself a fully-functional and independent “index” that can be hosted on any node in the cluster.</p>
+<p>Sharding is important for two primary reasons:</p>
 <ul>
-<li>Have a source code compiler producing class files.</li>
-<li>Implement an interpreter and runtime in Java, and then interpret the source form of the language.</li>
+<li>It allows us to horizontally split/scale our content volume</li>
+<li>It allows us to distribute and parallelize operations across shards (potentially on multiple nodes) thus increasing performance/throughput</li>
 </ul>
-<hr>
-
-<h3 id="Software-Construction"><a href="#Software-Construction" class="headerlink" title="Software Construction"></a>Software Construction</h3><p>There are mainly elevent steps as below:</p>
+<p>Each Elasticsearch shard is a Lucene index. There is a maximum number of documents you can have in a single Lucene index. As of LUCENE-5843, the limit is 2,147,483,519 (= Integer.MAX_VALUE - 128) documents.</p>
+<h3 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h3><p>Replication is important for two primary reasons:</p>
 <ul>
-<li>Problem Definition</li>
-<li>Requirement Development</li>
-<li>Construction Planning</li>
-<li>Software Architecture or High Level Design</li>
-<li>Detailed Design</li>
-<li>Coding and Debugging</li>
-<li>Unit Testing</li>
-<li>Integration Testing</li>
-<li>Integration</li>
-<li>System Testing</li>
-<li>Corrective Maintenance</li>
+<li>It provides high availability in case a shard/node fails. For this reason, it is important to note that a replica shard is never allocated on the same node as the original/primary shard that it was copied from.</li>
+<li>It allows we to scale out our search volume/throughput since searches can be executed on all replicas in parallel.<br>To summarize, each index can be split into multiple shards. An index can also be replicated zero (meaning no replicas) or more times. Once replicated, each index will have primary shards (the original shards that were replicated from) and replica shards (the copies of the primary shards). The number of shards and replicas can be defined per index at the time the index is created. After the index is created, we may change the number of replicas dynamically anytime but we cannot change the number of shards after-the-fact.</li>
 </ul>
-<hr>
-
-<h3 id="Coding-and-Style"><a href="#Coding-and-Style" class="headerlink" title="Coding and Style"></a>Coding and Style</h3><p>Singleton</p>
-<ul>
-<li>Use a framework (usually dependency injection) to provide singleton automatically.</li>
-</ul>
-<p>Lambda expressions:</p>
-<ul>
-<li>A lambda expression is an anonymous collection of executable Java code, essentially a method body.</li>
-<li>Syntax of lambda expressions is like: ( paramlist ) -&gt; { statements }.</li>
-<li>When a lambda expression is used as a value, it is automatically converted to a new object of the correct type for the variable being placed into. This autoconversion and type inference is essential to Java’s approach to lambda expression.</li>
-</ul>
-<p>Naming Convention:</p>
-<ul>
-<li>Class: Class names are nouns to represent objects.</li>
-<li>Interface: Interface names are adjective if to provide additional information about the class, otherwise are nouns to work like abstract superclasses.</li>
-</ul>
-<p>Label statements:<br>A label statement is simply a statement that has been given a name by prepending an identifer and a colon to it.</p>
-<p>Generic type:<br>For wildcard, it is legal to write in following style: List&lt;?&gt; objects = new ArrayList<string>(). List<string> is subtype of List&lt;?&gt;. But List&lt;?&gt; is not a subtype of any List<t>.</t></string></string></p>
-<p>Reflection (Convert specific to general):</p>
-<ul>
-<li>Only deal with cases immediately applicable to problem domain.</li>
-<li>To use reflection: Class&lt;?&gt; clz = getSomeClassObject(); Object rcvz = clz.newInstance();</li>
-</ul>
-<p>Datatype Overflow:<br>Integer arithmetic never overflow or underflow because numbers just wrap around.</p>
-<hr>
-
-<h3 id="Handling-Exception"><a href="#Handling-Exception" class="headerlink" title="Handling Exception"></a>Handling Exception</h3><p>Exceptions are Throwable objects and that exceptions fall into two main categories, specified by the Error and Exception subclass. Any exception object that is an Error is unchecked.</p>
-<hr>
-
-<h3 id="Security"><a href="#Security" class="headerlink" title="Security"></a>Security</h3><p>A safe program includes:</p>
-<ul>
-<li>All objects start off in a legal state after creation.</li>
-<li>Externally accessible methods transition objects between legal state.</li>
-<li>External accessible methods must not return with object in an inconsistent state.</li>
-<li>External accessible methods must reset object to a legal state before throwing (exceptions).</li>
-</ul>
-<p>Use <code>java.util.Arrays.equals</code> to compare the content of two arrays.</p>
-<hr>
-
-<h3 id="Concurrency"><a href="#Concurrency" class="headerlink" title="Concurrency"></a>Concurrency</h3><p>Two collectors:</p>
-<ul>
-<li>Parallel collectors, using multiple threads to perform collections.</li>
-<li>Concurrent collectors, running at the same time as application threads are still running.</li>
-</ul>
-<hr>
-
-<h3 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h3><ul>
-<li>Use Readers and Writers to do IO operation.</li>
-<li>Use try-with-resources (TWR) in IO operation to take care of resources management. TWR uses a new interface called <code>AutoCloseable</code>.<br>TWR style is like: try(InputStream is = new FileInputStream(“”)) {  …  }</li>
-<li>Use <code>File</code> class for file operation and <code>Path</code> class for file system path operation.</li>
-<li>For high-performance IO, use <code>ByteBuffer</code>. </li>
-<li>For Async IO, use <code>AsynchronousFileChannel</code> for file IO, <code>AsynchronousSocketChannel</code> for client socket IO, and <code>AsynchronousServerSocketChannel</code> for asynchronous sockets  accepting incoming connection.</li>
-<li>For network, use <code>java.net</code> or <code>javax.net</code> packages.</li>
-<li>For Async style, use Future-Based style, Callback-Based style and watchservice on a directory.</li>
-<li>Use <code>MappedByteBuffer</code> to store a memory-mapped file into memory.</li>
-</ul>
-<p><strong> Note </strong>:</p>
-<ul>
-<li><code>ByteBuffer</code> and <code>MappedByteBuffer</code> are <strong>NIO</strong> buffers which are low-level abstraction for high-performance IO.</li>
-</ul>
-<hr>
-
-<h3 id="Time"><a href="#Time" class="headerlink" title="Time"></a>Time</h3><p>Use Java 8 Date and Time API: java.time .</p>
-<hr>
-
-<h3 id="Garbage-Collection"><a href="#Garbage-Collection" class="headerlink" title="Garbage Collection"></a>Garbage Collection</h3><p>Concurrent Mark and Sweep (CMS):<br>Only used to collect the old generation-conjunction with a parallel collector that is to clean young generation.</p>
-<p>G1:<br>Used in high throughput environment and allows users to specify pause goals, which is low-pause collector.</p>
-<hr>
-
-<h3 id="Command-Line-Interface"><a href="#Command-Line-Interface" class="headerlink" title="Command Line Interface"></a>Command Line Interface</h3><p>Here are the most frequently used Java commands:</p>
-<ul>
-<li>javac</li>
-<li>java</li>
-<li>jar</li>
-<li>javadoc</li>
-<li>jdeps</li>
-<li>jps</li>
-<li>jstat</li>
-<li>jstatd</li>
-<li>jinfo</li>
-<li>jstack</li>
-<li>jmap</li>
-<li>javap</li>
-</ul>
-<hr>
-
-<h3 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h3><ul>
-<li>Nashorn</li>
-<li>JVisualVM</li>
-</ul>
+<p>By default, each index in Elasticsearch is allocated 5 primary shards and 1 replica which means that if we have at least two nodes in our cluster, our index will have 5 primary shards and another 5 replica shards (1 complete replica) for a total of 10 shards per index.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="external">official tutorial</a>.</p>
+<p>Download Elasticsearch from this <a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="external">link</a>.</p>
+<p>Here we use CentOS 7. So use this command to start Elasticsearch webservice:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch</span><br></pre></td></tr></table></figure></p>
+<p>Here is the output of above command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[2017-01-29T23:20:19,600][INFO ][o.e.n.Node               ] [] initializing ...</span><br><span class="line">[2017-01-29T23:20:19,854][INFO ][o.e.e.NodeEnvironment    ] [JXmT8Hz] using [1] data paths, mounts [[/ (rootfs)]], net usable_space [33.3gb], net total_space [45.5gb], spins? [unknown], types [rootfs]</span><br><span class="line">[2017-01-29T23:20:19,855][INFO ][o.e.e.NodeEnvironment    ] [JXmT8Hz] heap size [1.9gb], compressed ordinary object pointers [<span class="literal">true</span>]</span><br><span class="line">[2017-01-29T23:20:19,857][INFO ][o.e.n.Node               ] node name [JXmT8Hz] derived from node ID [JXmT8Hz_SA6brqro8ay6NQ]; <span class="built_in">set</span> [node.name] to override</span><br><span class="line">[2017-01-29T23:20:19,862][INFO ][o.e.n.Node               ] version[5.1.2], pid[20877], build[c8c4c16/2017-01-11T20:18:39.146Z], OS[Linux/3.10.0-327.el7.x86_64/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/1.8.0_91/25.91-b14]</span><br><span class="line">[2017-01-29T23:20:21,245][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [aggs-matrix-stats]</span><br><span class="line">[2017-01-29T23:20:21,245][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [ingest-common]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-expression]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-groovy]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-mustache]</span><br><span class="line">[2017-01-29T23:20:21,246][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [lang-painless]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [percolator]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [reindex]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [transport-netty3]</span><br><span class="line">[2017-01-29T23:20:21,247][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] loaded module [transport-netty4]</span><br><span class="line">[2017-01-29T23:20:21,248][INFO ][o.e.p.PluginsService     ] [JXmT8Hz] no plugins loaded</span><br><span class="line">[2017-01-29T23:20:25,232][INFO ][o.e.n.Node               ] initialized</span><br><span class="line">[2017-01-29T23:20:25,233][INFO ][o.e.n.Node               ] [JXmT8Hz] starting ...</span><br><span class="line">[2017-01-29T23:20:25,612][INFO ][o.e.t.TransportService   ] [JXmT8Hz] publish_address &#123;127.0.0.1:9300&#125;, bound_addresses &#123;[::1]:9300&#125;, &#123;127.0.0.1:9300&#125;</span><br><span class="line">[2017-01-29T23:20:25,626][WARN ][o.e.b.BootstrapCheck     ] [JXmT8Hz] max file descriptors [4096] <span class="keyword">for</span> elasticsearch process is too low, increase to at least [65536]</span><br><span class="line">[2017-01-29T23:20:25,626][WARN ][o.e.b.BootstrapCheck     ] [JXmT8Hz] max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</span><br><span class="line">[2017-01-29T23:20:28,875][INFO ][o.e.c.s.ClusterService   ] [JXmT8Hz] new_master &#123;JXmT8Hz&#125;&#123;JXmT8Hz_SA6brqro8ay6NQ&#125;&#123;DStICV93SS-A2aPzZlpKxA&#125;&#123;127.0.0.1&#125;&#123;127.0.0.1:9300&#125;, reason: zen-disco-elected-as-master ([0] nodes joined)</span><br><span class="line">[2017-01-29T23:20:28,925][INFO ][o.e.h.HttpServer         ] [JXmT8Hz] publish_address &#123;127.0.0.1:9200&#125;, bound_addresses &#123;[::1]:9200&#125;, &#123;127.0.0.1:9200&#125;</span><br><span class="line">[2017-01-29T23:20:28,926][INFO ][o.e.n.Node               ] [JXmT8Hz] started</span><br><span class="line">[2017-01-29T23:20:28,955][INFO ][o.e.g.GatewayService     ] [JXmT8Hz] recovered [0] indices into cluster_state</span><br></pre></td></tr></table></figure></p>
+<p>Now visit the following url in browser:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:9200/</span><br></pre></td></tr></table></figure></p>
+<p>The web page will show:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span> : <span class="string">"JXmT8Hz"</span>,</span><br><span class="line">  <span class="string">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="string">"cluster_uuid"</span> : <span class="string">"2n2W_a6iSx-OmPgLNcqt0A"</span>,</span><br><span class="line">  <span class="string">"version"</span> : &#123;</span><br><span class="line">    <span class="string">"number"</span> : <span class="string">"5.1.2"</span>,</span><br><span class="line">    <span class="string">"build_hash"</span> : <span class="string">"c8c4c16"</span>,</span><br><span class="line">    <span class="string">"build_date"</span> : <span class="string">"2017-01-11T20:18:39.146Z"</span>,</span><br><span class="line">    <span class="string">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"lucene_version"</span> : <span class="string">"6.3.0"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -423,7 +263,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>, <a href="/tags/Database/">Database</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -443,166 +283,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-04T14:21:45.000Z"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">2017-09-04</a></time>
+        <time datetime="2017-01-28T13:43:13.000Z"><a href="/2017/01/28/C-Redis-QuickStart/">2017-01-28</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/04/Linux-Text-Processing-Command-I/">Linux Text Processing Command I</a></h1>
+    <h1 class="title"><a href="/2017/01/28/C-Redis-QuickStart/">C Redis QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><ul>
-<li>File sort utility, often used as a filter in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="tsort"><a href="#tsort" class="headerlink" title="tsort"></a>tsort</h3><ul>
-<li>Topological sort.</li>
-</ul>
-<hr>
-
-<h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><ul>
-<li>Remove duplicate lines from a sorted file.</li>
-</ul>
-<hr>
-
-<h3 id="expand-unexpand"><a href="#expand-unexpand" class="headerlink" title="expand, unexpand"></a>expand, unexpand</h3><ul>
-<li>expand: a filter converting tabs to spaces. Ofen used in a pipe.</li>
-<li>unexpand: reverse effect of expand.</li>
-</ul>
-<hr>
-
-<h3 id="cut"><a href="#cut" class="headerlink" title="cut"></a><strong>cut</strong></h3><ul>
-<li>Widely used for text processing.</li>
-<li>A tool for extracting fields from files. Can be used in a pipe.</li>
-</ul>
-<hr>
-
-<h3 id="paste"><a href="#paste" class="headerlink" title="paste"></a><strong>paste</strong></h3><ul>
-<li>Tool for merging together different files into a single, multi-column file.</li>
-<li>When combining with <code>cut</code>, useful for creating system log files.</li>
-</ul>
-<hr>
-
-<h3 id="join"><a href="#join" class="headerlink" title="join"></a><strong>join</strong></h3><ul>
-<li>Tool for merging two files in a meaningful fashion, creating a simple version of relational database.</li>
-</ul>
-<hr>
-
-<h3 id="head"><a href="#head" class="headerlink" title="head"></a><strong>head</strong></h3><ul>
-<li>Lists the begining of a file to <code>stdout</code>.</li>
-</ul>
-<hr>
-
-<h3 id="tail"><a href="#tail" class="headerlink" title="tail"></a><strong>tail</strong></h3><ul>
-<li>List the end of a file to <code>stdout</code>.</li>
-<li>With <code>-f</code> option, useful for monitoring system.</li>
-</ul>
-<hr>
-
-<h3 id="grep"><a href="#grep" class="headerlink" title="grep"></a><strong>grep</strong></h3><ul>
-<li>A multi-purpose file search tool that uses Regular Expressions.</li>
-<li>Command pattern: grep pattern [files …]</li>
-<li>Very useful in pipe.</li>
-<li>-i: a case sensitive search.</li>
-<li>-w: matches only whole words.</li>
-<li>-r: searches files recursively.</li>
-<li>-n: lists the matching lines.</li>
-<li>-v: filters out matches.</li>
-<li>-c: gives a numerical count of matches.</li>
-<li>–color: marks the matching string in color.</li>
-</ul>
-<hr>
-
-<h3 id="agrep"><a href="#agrep" class="headerlink" title="agrep"></a><strong>agrep</strong></h3><ul>
-<li>Approximate grep, extending the capabilities of <code>grep</code> to approximate matching.</li>
-</ul>
-<hr>
-
-<h3 id="look"><a href="#look" class="headerlink" title="look"></a>look</h3><ul>
-<li>Works like <code>grep</code>, but does a look up on a “dictionary”, a sorted word list in <code>/usr/dict/words</code> by default.</li>
-</ul>
-<hr>
-
-<h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><strong>sed</strong></h3><ul>
-<li>Non-interactive stream editor, permitting using many ex commands in batch mode.</li>
-<li>Useful in shell scripts and pipe.</li>
-</ul>
-<hr>
-
-<h3 id="awk"><a href="#awk" class="headerlink" title="awk"></a><strong>awk</strong></h3><ul>
-<li>Programmable file extractor and formatter, good for manipulating and/or extracting fields(columns) in structured text files. Has syntax similar to C.</li>
-</ul>
-<hr>
-
-<h3 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h3><ul>
-<li>Give a “word count” on a file or I/O stream.</li>
-</ul>
-<hr>
-
-<h3 id="tr"><a href="#tr" class="headerlink" title="tr"></a><strong>tr</strong></h3><ul>
-<li>Character translation filter.</li>
-<li>Must use quoting and/or brackets as appropriate.</li>
-</ul>
-<hr>
-
-<h3 id="fold"><a href="#fold" class="headerlink" title="fold"></a>fold</h3><ul>
-<li>A filter that wraps lines of input to a specified width.</li>
-</ul>
-<hr>
-
-<h3 id="fmt"><a href="#fmt" class="headerlink" title="fmt"></a>fmt</h3><ul>
-<li>Simple-minded file formatter, used as a filter in a pipe to wrap long lines of text output.</li>
-</ul>
-<hr>
-
-<h3 id="col"><a href="#col" class="headerlink" title="col"></a>col</h3><hr>
-
-<h3 id="column"><a href="#column" class="headerlink" title="column"></a>column</h3><ul>
-<li>Column formatter.</li>
-</ul>
-<hr>
-
-<h3 id="colrm"><a href="#colrm" class="headerlink" title="colrm"></a>colrm</h3><ul>
-<li>Column removal filter.</li>
-</ul>
-<hr>
-
-<h3 id="nl"><a href="#nl" class="headerlink" title="nl"></a>nl</h3><ul>
-<li>Line numbering filter.</li>
-</ul>
-<hr>
-
-<h3 id="pr"><a href="#pr" class="headerlink" title="pr"></a>pr</h3><ul>
-<li>Print formatting filter.</li>
-</ul>
-<hr>
-
-<h3 id="gettext"><a href="#gettext" class="headerlink" title="gettext"></a>gettext</h3><ul>
-<li>A set of utilities for localizing and translating the text output of programs into foreign languages.</li>
-</ul>
-<hr>
-
-<h3 id="msgfmt"><a href="#msgfmt" class="headerlink" title="msgfmt"></a>msgfmt</h3><hr>
-
-<h3 id="iconv"><a href="#iconv" class="headerlink" title="iconv"></a>iconv</h3><hr>
-
-<h3 id="recode"><a href="#recode" class="headerlink" title="recode"></a>recode</h3><hr>
-
-<h3 id="TeX-gs"><a href="#TeX-gs" class="headerlink" title="TeX,gs"></a>TeX,gs</h3><hr>
-
-<h3 id="texexec"><a href="#texexec" class="headerlink" title="texexec"></a>texexec</h3><hr>
-
-<h3 id="enscript"><a href="#enscript" class="headerlink" title="enscript"></a>enscript</h3><hr>
-
-<h3 id="groff-tbl-eqn"><a href="#groff-tbl-eqn" class="headerlink" title="groff, tbl, eqn"></a>groff, tbl, eqn</h3><hr>
-
-<h3 id="lex-yacc"><a href="#lex-yacc" class="headerlink" title="lex, yacc"></a>lex, yacc</h3><ul>
-<li>Lexical analyzer commands.</li>
-</ul>
+        <p>Here is the quickstart tutorial to use hiredis C library to build connection between C program and redis. Here is <a href="https://github.com/redis/hiredis" target="_blank" rel="external">hiredis Github Repository</a>. The environment here is CentOS 7.</p>
+<h2 id="Download-and-Install-hiredis"><a href="#Download-and-Install-hiredis" class="headerlink" title="Download and Install hiredis"></a>Download and Install hiredis</h2><p>At first, we need to download the source code using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/redis/hiredis.git</span><br><span class="line">``` </span><br><span class="line">The <span class="built_in">source</span> code is written <span class="keyword">in</span> C.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Then go to hiredis directory and install hiredis library into system:</span><br><span class="line">``` bash</span><br><span class="line"><span class="built_in">cd</span> hiredis</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
+<p>Note that the command make will generate all the required libraries and head files for development while the command make install can create directories and save libraries as well as head files there. Since hiredis will put the libraries and head files under /usr/local/ folder, the C program will fail in compilation with “hiredis.h” not found error.</p>
+<p>So we need to do following things:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/include/hiredis</span><br><span class="line">sudo cp libhiredis.so /usr/lib/</span><br><span class="line">sudo cp hiredis.h /usr/include/hiredis/</span><br><span class="line">sudo cp read.h /usr/include/hiredis/</span><br><span class="line">sudo cp sds.h /usr/include/hiredis/</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure></p>
+<h2 id="Compile-and-Run-C-program"><a href="#Compile-and-Run-C-program" class="headerlink" title="Compile and Run C program"></a>Compile and Run C program</h2><p>Below is the sample code example.c under ./hiredis/examples folder. We need to modify the head file location.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;stdlib.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;string.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;hiredis/hiredis.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv) &#123;</span><br><span class="line">    unsigned int j;</span><br><span class="line">    redisContext *c;</span><br><span class="line">    redisReply *reply;</span><br><span class="line">    const char *hostname = (argc &gt; 1) ? argv[1] : <span class="string">"127.0.0.1"</span>;</span><br><span class="line">    int port = (argc &gt; 2) ? atoi(argv[2]) : 6379;</span><br><span class="line"></span><br><span class="line">    struct timeval timeout = &#123; 1, 500000 &#125;; // 1.5 seconds</span><br><span class="line">    c = redisConnectWithTimeout(hostname, port, timeout);</span><br><span class="line">    <span class="keyword">if</span> (c == NULL || c-&gt;err) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Connection error: %s\n"</span>, c-&gt;errstr);</span><br><span class="line">            redisFree(c);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Connection error: can't allocate redis context\n"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">exit</span>(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* PING server */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"PING"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"PING: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Set a key */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"SET %s %s"</span>, <span class="string">"foo"</span>, <span class="string">"hello world"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"SET: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Set a key using binary safe API */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"SET %b %b"</span>, <span class="string">"bar"</span>, (size_t) 3, <span class="string">"hello"</span>, (size_t) 5);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"SET (binary API): %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Try a GET and two INCR */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"GET foo"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"GET foo: %s\n"</span>, reply-&gt;str);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    reply = redisCommand(c,<span class="string">"INCR counter"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"INCR counter: %lld\n"</span>, reply-&gt;<span class="built_in">integer</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line">    /* again ... */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"INCR counter"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"INCR counter: %lld\n"</span>, reply-&gt;<span class="built_in">integer</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Create a list of numbers, from 0 to 9 */</span><br><span class="line">    reply = redisCommand(c,<span class="string">"DEL mylist"</span>);</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line">    <span class="keyword">for</span> (j = 0; j &lt; 10; j++) &#123;</span><br><span class="line">        char buf[64];</span><br><span class="line"></span><br><span class="line">        snprintf(buf,64,<span class="string">"%u"</span>,j);</span><br><span class="line">        reply = redisCommand(c,<span class="string">"LPUSH mylist element-%s"</span>, buf);</span><br><span class="line">        freeReplyObject(reply);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /* Let<span class="string">'s check what we have inside the list */</span><br><span class="line">    reply = redisCommand(c,"LRANGE mylist 0 -1");</span><br><span class="line">    if (reply-&gt;type == REDIS_REPLY_ARRAY) &#123;</span><br><span class="line">        for (j = 0; j &lt; reply-&gt;elements; j++) &#123;</span><br><span class="line">            printf("%u) %s\n", j, reply-&gt;element[j]-&gt;str);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    freeReplyObject(reply);</span><br><span class="line"></span><br><span class="line">    /* Disconnects and frees the context */</span><br><span class="line">    redisFree(c);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>To compile the program, execute the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc example.c -o example -lhiredis</span><br></pre></td></tr></table></figure></p>
+<p>To execute the program, run the following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./example</span><br></pre></td></tr></table></figure></p>
+<p>The output is like as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">PING: PONG</span><br><span class="line">SET: OK</span><br><span class="line">SET (binary API): OK</span><br><span class="line">GET foo: hello world</span><br><span class="line">INCR counter: 1</span><br><span class="line">INCR counter: 2</span><br><span class="line">0) element-9</span><br><span class="line">1) element-8</span><br><span class="line">2) element-7</span><br><span class="line">3) element-6</span><br><span class="line">4) element-5</span><br><span class="line">5) element-4</span><br><span class="line">6) element-3</span><br><span class="line">7) element-2</span><br><span class="line">8) element-1</span><br><span class="line">9) element-0</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -616,7 +315,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
+    <a href="/tags/C/">C</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -636,83 +335,55 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-04T14:11:11.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">2017-09-04</a></time>
+        <time datetime="2017-01-28T13:23:11.000Z"><a href="/2017/01/28/2017-Reading-List/">2017-01-28</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-V/">Linux System and Adminstrative Commands V</a></h1>
+    <h1 class="title"><a href="/2017/01/28/2017-Reading-List/">2017 Reading List</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <h2 id="System-Resources"><a href="#System-Resources" class="headerlink" title="System Resources"></a>System Resources</h2><h3 id="ulimit"><a href="#ulimit" class="headerlink" title="ulimit"></a>ulimit</h3><ul>
-<li>Set an upper limit on use of system resources.</li>
-</ul>
-<hr>
+        <p>Here is the list of books that should be read in 2017:</p>
+<p>1.Mindset</p>
+<p>2.包公传</p>
+<p>3.名人传</p>
+<p>√ 4.Java 语言编程设计（进阶）</p>
+<p>5.Machine Learning (Murphy)</p>
+<p>6.挑战编程</p>
+<p>7.Principles of Data Integration</p>
+<p>8.JVM website <a href="http://rednaxelafx.iteye.com/blog/362738" target="_blank" rel="external">click here</a></p>
+<p>√ 9.犯罪嫌疑人X之献身</p>
+<p>10.开放社会：改革全球资本主义</p>
+<p>11.文明的冲突与世界秩序的重建</p>
+<p>12.旧欧洲 新欧洲 核心欧洲</p>
+<p>13.欧洲中世纪史</p>
+<p>14.互联网产品经理全方位入门（44本）</p>
+<p>15.史记</p>
+<p>16.道德经</p>
+<p>17.哈尔罗杰历险记</p>
+<p>18.Out of Control</p>
+<p>19.庄子今注今译</p>
+<p>20.沃伦.巴菲特的投资组合</p>
+<p>21.Peopleware</p>
+<p>22.The Design of Everyday Things</p>
+<p>23.Programming Perls</p>
+<p>24.Envisioning Information</p>
+<p>25.Regular Expressions Cookbook</p>
+<p>27.About Face</p>
+<p>28.Douban Java Booklist I: <a href="https://www.douban.com/doulist/2545443/" target="_blank" rel="external">从表到里学习JVM实现</a>.</p>
+<p>29.Douban Java Booklist II: <a href="https://book.douban.com/people/RednaxelaFX/all?start=15&amp;sort=time&amp;rating=all&amp;tag=VM&amp;mode=grid&amp;filter=all" target="_blank" rel="external">RednaxelaFX的书/VM(63)</a>.</p>
+<p>√ 30.Effective Java</p>
+<p>√ 31.Clean Code</p>
+<p>√ 32.The Pragmatic Programmer</p>
+<p>33.Java in Nutshell</p>
+<p>√ 34.沃伦·巴菲特之路</p>
+<p>35.Java Concurrency in Practice</p>
+<p>√ 36.Test Driven Development</p>
+<p>37.Code Complete</p>
 
-<h3 id="quota"><a href="#quota" class="headerlink" title="quota"></a>quota</h3><ul>
-<li>Display user or group disk quota.</li>
-</ul>
-<hr>
-
-<h3 id="setquota"><a href="#setquota" class="headerlink" title="setquota"></a>setquota</h3><ul>
-<li>Set user or group disk quotas from command-line.</li>
-</ul>
-<hr>
-
-<h3 id="umask"><a href="#umask" class="headerlink" title="umask"></a>umask</h3><ul>
-<li>User file creation permission mask.</li>
-</ul>
-<hr>
-
-<h3 id="rdev"><a href="#rdev" class="headerlink" title="rdev"></a>rdev</h3><h2 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h2><h3 id="lsmod"><a href="#lsmod" class="headerlink" title="lsmod"></a>lsmod</h3><ul>
-<li>List installed kernel modules.</li>
-</ul>
-<hr>
-
-<h3 id="insmod"><a href="#insmod" class="headerlink" title="insmod"></a>insmod</h3><ul>
-<li>Force installation of a kernel module.</li>
-</ul>
-<hr>
-
-<h3 id="rmmod"><a href="#rmmod" class="headerlink" title="rmmod"></a>rmmod</h3><hr>
-
-<h3 id="modprobe"><a href="#modprobe" class="headerlink" title="modprobe"></a>modprobe</h3><ul>
-<li>Module loader that is normally invoked automatically in a startup script.</li>
-</ul>
-<hr>
-
-<h3 id="depmod"><a href="#depmod" class="headerlink" title="depmod"></a>depmod</h3><ul>
-<li>Creates module dependency file.</li>
-</ul>
-<hr>
-
-<h3 id="modinfo"><a href="#modinfo" class="headerlink" title="modinfo"></a>modinfo</h3><ul>
-<li>Output information about a loadable module.</li>
-</ul>
-<hr>
-
-<h2 id="Miscellaneous"><a href="#Miscellaneous" class="headerlink" title="Miscellaneous"></a>Miscellaneous</h2><h3 id="env"><a href="#env" class="headerlink" title="env"></a>env</h3><ul>
-<li>Runs a program or script with certain environmental variables set or changed without changing the overall system environment.</li>
-</ul>
-<hr>
-
-<h3 id="ldd"><a href="#ldd" class="headerlink" title="ldd"></a>ldd</h3><hr>
-
-<h3 id="watch"><a href="#watch" class="headerlink" title="watch"></a>watch</h3><ul>
-<li>Run a command repeatedly at specified time intervals.</li>
-</ul>
-<hr>
-
-<h3 id="strip"><a href="#strip" class="headerlink" title="strip"></a>strip</h3><hr>
-
-<h3 id="nm"><a href="#nm" class="headerlink" title="nm"></a>nm</h3><hr>
-
-<h3 id="xrandr"><a href="#xrandr" class="headerlink" title="xrandr"></a>xrandr</h3><hr>
-
-<h3 id="rdist"><a href="#rdist" class="headerlink" title="rdist"></a>rdist</h3>
       
     </div>
     
@@ -725,7 +396,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/Life/">Life</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -745,127 +416,81 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-04T11:40:54.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/">2017-09-04</a></time>
+        <time datetime="2017-01-21T17:17:38.000Z"><a href="/2017/01/22/Redis-Command-and-DataStructure/">2017-01-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-IV/">Linux System and Adminstrative Commands IV</a></h1>
+    <h1 class="title"><a href="/2017/01/22/Redis-Command-and-DataStructure/">Redis Command and DataStructure</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><h3 id="nmap"><a href="#nmap" class="headerlink" title="nmap"></a>nmap</h3><ul>
-<li>Network mapper and port scanner.</li>
+        <p>Redis has various data types and data structure which are helpful to efficiently manage data. Here is the <a href="https://redis.io/topics/data-types-intro" target="_blank" rel="external">official introduction</a>  and <a href="https://redis.io/topics/data-types" target="_blank" rel="external">official website</a> about data types and their command lines.</p>
+<p>Below is our summary.</p>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>Strings are the most basic Redis data type and they are binary safe, which means that they can contain any kind of data, for instance a JPEG image or a serialized Ruby object.<br>A String value can be at max 512 Megabytes in length.</p>
+<p>Here is the <a href="https://redis.io/commands/#string" target="_blank" rel="external">list of commands supported by String</a> and below is most common ones:</p>
+<ul>
+<li>INCR, DECR, and INCRBY: Use Strings as atomic counters with commands in the INCR family.</li>
+<li>APPEND: Append to strings.</li>
+<li>GETRANGE and SETRANGE: Use Strings as a random access vectors.</li>
+<li>GETBIT and SETBIT: Encode a lot of data in little space, or create a Redis backed Bloom Filter.</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list. They are basically linked lists.<br>The max length of a list is 2^32 - 1 elements.</p>
+<p>Here is the <a href="https://redis.io/commands#list" target="_blank" rel="external">list of commands supported by List</a> and below is most common ones:</p>
+<ul>
+<li>LPUSH: Inserts a new element on the head of List.</li>
+<li>RPUSH: Inserts a new element on the tail of List.</li>
 </ul>
 <hr>
 
-<h3 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h3><ul>
-<li>Network interface configuration and tuning utility.</li>
+<h2 id="Sets"><a href="#Sets" class="headerlink" title="Sets"></a>Sets</h2><p>Sets are an unordered and unique collection of Strings. It is possible to add, remove, and test for existence of members in O(1) (constant time regardless of the number of elements contained inside the Set). Unions, intersections, differences of sets can be executed in very short time.<br>The max number of members in a set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#set" target="_blank" rel="external">list of commands supported by Set</a> and below is most common ones:</p>
+<ul>
+<li>SADD: Inserts a new element into Set.</li>
+<li>SPOP and SRANDMEMBER: Extract elements at random.</li>
 </ul>
 <hr>
 
-<h3 id="netstat"><a href="#netstat" class="headerlink" title="netstat"></a>netstat</h3><ul>
-<li>Show current network statistics and information, such as routing tables and active connection.</li>
+<h2 id="Sorted-Sets"><a href="#Sorted-Sets" class="headerlink" title="Sorted Sets"></a>Sorted Sets</h2><p>Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated. Sorted Sets can add, remove, or update elements in a very fast way (in a time proportional to the logarithm of the number of elements) and can get ranges by score or by rank (position) in a very fast way.<br>The max number of members in a sorted set is 2^32 - 1.</p>
+<p>Here is the <a href="https://redis.io/commands#sorted_set" target="_blank" rel="external">list of commands supported by Sorted Sets</a> and below is most common ones:</p>
+<ul>
+<li>ZADD: Inserts a new element into Sorted Set.</li>
+<li>ZRANGE: Get the elements of which their keys are within the given range.</li>
+<li>ZRANGEBYSCORE: Get the elements of which their scores are within the given range.</li>
+<li>ZRANK: Get the rank (or position) of given element.</li>
 </ul>
 <hr>
 
-<h3 id="iwconfig"><a href="#iwconfig" class="headerlink" title="iwconfig"></a>iwconfig</h3><ul>
-<li>Command set of wireless network configuration.</li>
+<h2 id="Hashes"><a href="#Hashes" class="headerlink" title="Hashes"></a>Hashes</h2><p>Hashes are maps between string fields and string values, so they are the perfect data type to represent objects. A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space.<br>The max number of members in a hash is 2^32 - 1.</p>
+<p>Here is the <a href="">list of commands supported by Hash</a> and below is most common ones:</p>
+<ul>
+<li>HMSET: Insert a new element (object) into Hash.</li>
+<li>HSET: Insert a new field into Hash object.</li>
+<li>HGETALL: Get the information of element (object).</li>
+<li>HGET: Get the information of a field of element (object).</li>
 </ul>
 <hr>
 
-<h3 id="ip"><a href="#ip" class="headerlink" title="ip"></a>ip</h3><ul>
-<li>Utility for setting up, changing, and analyzing IP networks and attached devices.</li>
+<h2 id="Bit-arrays-Bitmaps"><a href="#Bit-arrays-Bitmaps" class="headerlink" title="Bit arrays (Bitmaps)"></a>Bit arrays (Bitmaps)</h2><p>Bit arrays can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.</p>
+<hr>
+
+<h2 id="HyperLogLogs"><a href="#HyperLogLogs" class="headerlink" title="HyperLogLogs"></a>HyperLogLogs</h2><p>HyperLogLogs is a probabilistic data structure which is used in order to estimate the cardinality of a set.</p>
+<hr>
+
+<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><p>keys are binary safe, this means that we can use any binary sequence as a key, from a string like “foo” to the content of a JPEG file. The empty string is also a valid key.</p>
+<p>A few rules about keys:</p>
+<ul>
+<li>Very long keys are not a good idea.</li>
+<li>Very short keys are often not a good idea.</li>
+<li>Try to stick with a schema.</li>
+<li>The maximum allowed key size is 512 MB.</li>
 </ul>
 <hr>
 
-<h3 id="route"><a href="#route" class="headerlink" title="route"></a>route</h3><ul>
-<li>Show info about or making changes to the kernel routing table.</li>
-</ul>
-<hr>
+<h2 id="Redis-expires"><a href="#Redis-expires" class="headerlink" title="Redis expires"></a>Redis expires</h2><p>Redis expires means keys with limited time to live. Basically we can set a timeout for a key, which is a limited time to live. When the time to live elapses, the key is automatically destroyed, exactly as if the user called the DEL command with the key.</p>
 
-<h3 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h3><hr>
-
-<h3 id="chkconfig"><a href="#chkconfig" class="headerlink" title="chkconfig"></a>chkconfig</h3><ul>
-<li>Check network and system configuration.</li>
-</ul>
-<hr>
-
-<h3 id="tcpdump"><a href="#tcpdump" class="headerlink" title="tcpdump"></a>tcpdump</h3><ul>
-<li>A tool for analyzing and troubleshooting traffic on a network by dumping packet headers matching specified criteria.</li>
-</ul>
-<hr>
-
-<h2 id="Filesystem"><a href="#Filesystem" class="headerlink" title="Filesystem"></a>Filesystem</h2><h3 id="mount"><a href="#mount" class="headerlink" title="mount"></a>mount</h3><ul>
-<li>Mount a filesystem, usually on an external device.</li>
-</ul>
-<hr>
-
-<h3 id="unmount"><a href="#unmount" class="headerlink" title="unmount"></a>unmount</h3><hr>
-
-<h3 id="gnome-mount"><a href="#gnome-mount" class="headerlink" title="gnome-mount"></a>gnome-mount</h3><hr>
-
-<h3 id="sync"><a href="#sync" class="headerlink" title="sync"></a>sync</h3><ul>
-<li>Force an immediate write of all updated data from buffers to hard drive.</li>
-</ul>
-<hr>
-
-<h3 id="losetup"><a href="#losetup" class="headerlink" title="losetup"></a>losetup</h3><ul>
-<li>Set up and configure loopback devices.</li>
-</ul>
-<hr>
-
-<h3 id="mkswap"><a href="#mkswap" class="headerlink" title="mkswap"></a>mkswap</h3><hr>
-
-<h3 id="swapon-swapoff"><a href="#swapon-swapoff" class="headerlink" title="swapon, swapoff"></a>swapon, swapoff</h3><ul>
-<li>Enable/disable swap partition or file.</li>
-</ul>
-<hr>
-
-<h3 id="mke2fs"><a href="#mke2fs" class="headerlink" title="mke2fs"></a>mke2fs</h3><ul>
-<li>Create a Linux ext2 filesystem.</li>
-</ul>
-<hr>
-
-<h3 id="mkdosfs"><a href="#mkdosfs" class="headerlink" title="mkdosfs"></a>mkdosfs</h3><hr>
-
-<h3 id="tune2fs"><a href="#tune2fs" class="headerlink" title="tune2fs"></a>tune2fs</h3><hr>
-
-<h3 id="dumpe2fs"><a href="#dumpe2fs" class="headerlink" title="dumpe2fs"></a>dumpe2fs</h3><hr>
-
-<h3 id="hdparm"><a href="#hdparm" class="headerlink" title="hdparm"></a>hdparm</h3><hr>
-
-<h3 id="fdisk"><a href="#fdisk" class="headerlink" title="fdisk"></a>fdisk</h3><hr>
-
-<h3 id="fsck-e2fsck-debugfs"><a href="#fsck-e2fsck-debugfs" class="headerlink" title="fsck, e2fsck, debugfs"></a>fsck, e2fsck, debugfs</h3><hr>
-
-<h3 id="badlocks"><a href="#badlocks" class="headerlink" title="badlocks"></a>badlocks</h3><hr>
-
-<h3 id="lsusb-usbmodules"><a href="#lsusb-usbmodules" class="headerlink" title="lsusb, usbmodules"></a>lsusb, usbmodules</h3><hr>
-
-<h3 id="lspci"><a href="#lspci" class="headerlink" title="lspci"></a>lspci</h3><hr>
-
-<h3 id="mkbootdisk"><a href="#mkbootdisk" class="headerlink" title="mkbootdisk"></a>mkbootdisk</h3><hr>
-
-<h3 id="mkisofs"><a href="#mkisofs" class="headerlink" title="mkisofs"></a>mkisofs</h3><hr>
-
-<h3 id="chroot"><a href="#chroot" class="headerlink" title="chroot"></a>chroot</h3><hr>
-
-<h3 id="lockfile"><a href="#lockfile" class="headerlink" title="lockfile"></a>lockfile</h3><hr>
-
-<h3 id="flock"><a href="#flock" class="headerlink" title="flock"></a>flock</h3><hr>
-
-<h3 id="mknod"><a href="#mknod" class="headerlink" title="mknod"></a>mknod</h3><hr>
-
-<h3 id="MAKEDEV"><a href="#MAKEDEV" class="headerlink" title="MAKEDEV"></a>MAKEDEV</h3><hr>
-
-<h3 id="tmpwatch"><a href="#tmpwatch" class="headerlink" title="tmpwatch"></a>tmpwatch</h3><hr>
-
-<h3 id="dump-restore"><a href="#dump-restore" class="headerlink" title="dump, restore"></a>dump, restore</h3><hr>
-
-<h3 id="fdformat"><a href="#fdformat" class="headerlink" title="fdformat"></a>fdformat</h3>
       
     </div>
     
@@ -878,7 +503,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/Redis/">Redis</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -898,109 +523,30 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-04T10:44:41.000Z"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">2017-09-04</a></time>
+        <time datetime="2017-01-21T16:20:45.000Z"><a href="/2017/01/22/Lua-Redis-QuickStart/">2017-01-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/04/Linux-System-and-Adminstrative-Commands-I/">Linux System and Adminstrative Commands I</a></h1>
+    <h1 class="title"><a href="/2017/01/22/Lua-Redis-QuickStart/">Lua Redis QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <h2 id="Users-and-Groups"><a href="#Users-and-Groups" class="headerlink" title="Users and Groups"></a>Users and Groups</h2><h3 id="users"><a href="#users" class="headerlink" title="users"></a>users</h3><ul>
-<li>Show all logged on users.</li>
-</ul>
+        <p>Here is a tutorial to install Redis Lua client library which are redis-lua and lredis. Actually, official library is redis-lua. But to install lredis can help to learn more c libraries. So we summarize the installation of both libraries here.</p>
+<h2 id="lredis-Library-Installation"><a href="#lredis-Library-Installation" class="headerlink" title="lredis Library Installation"></a>lredis Library Installation</h2><p>The operating system here is CentOS. And here is the link of <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github repository</a>.</p>
+<h3 id="Install-Dependencies"><a href="#Install-Dependencies" class="headerlink" title="Install Dependencies"></a>Install Dependencies</h3><p>At first, we need to install required dependencies: cqueue &gt;= 20150907 and fifo, as well as required tools <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">luarocks</a>.</p>
+<p>Here is its <a href="https://github.com/wahern/cqueues" target="_blank" rel="external">Github repository</a>. But to successfully install the library, we need to install openssl devel first, otherwise we may fail to installcqueue because of missing openssl head file.</p>
+<p>Execute following command to install openssl devel:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y openssl-devel</span><br></pre></td></tr></table></figure></p>
+<p>Then install cqueue library through following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install cqueues CRYPTO_INCDIR=/usr/include CRYPTO_DIR=/usr/ OPENSSL_INCDIR=/usr/include OPENSSL_DIR=/usr/</span><br></pre></td></tr></table></figure></p>
+<p>Note that the value of CRYPTO_INCDIR, CRYPTO_DIR, OPENSSL_INCDIR, and OPENSSL_DIR may be different.</p>
+<p>Now we will install fifo library. Here is <a href="https://github.com/daurnimator/fifo.lua" target="_blank" rel="external">Github Repository</a>. Following is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install fifo</span><br></pre></td></tr></table></figure></p>
+<h3 id="Install-lredis-client"><a href="#Install-lredis-client" class="headerlink" title="Install lredis client"></a>Install lredis client</h3><p>Here is <a href="https://github.com/daurnimator/lredis" target="_blank" rel="external">Github Repository</a>. Execute the command to do installation:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install --server=http://luarocks.org/dev lredis</span><br></pre></td></tr></table></figure></p>
 <hr>
 
-<h3 id="groups"><a href="#groups" class="headerlink" title="groups"></a>groups</h3><ul>
-<li>List the current user and the gourps s/he belongs to.</li>
-</ul>
-<hr>
-
-<h3 id="chown-chgrp"><a href="#chown-chgrp" class="headerlink" title="chown, chgrp"></a>chown, chgrp</h3><hr>
-
-<h3 id="useradd-userdel"><a href="#useradd-userdel" class="headerlink" title="useradd, userdel"></a>useradd, userdel</h3><hr>
-
-<h3 id="usermod"><a href="#usermod" class="headerlink" title="usermod"></a>usermod</h3><ul>
-<li>Modify a useraccount’s password, group membership, expiration date and etc.</li>
-</ul>
-<hr>
-
-<h3 id="groupmod"><a href="#groupmod" class="headerlink" title="groupmod"></a>groupmod</h3><hr>
-
-<h3 id="id"><a href="#id" class="headerlink" title="id"></a>id</h3><ul>
-<li>Lists the real and effective user IDs and the group IDs of the user associated with the current process.</li>
-</ul>
-<hr>
-
-<h3 id="lid"><a href="#lid" class="headerlink" title="lid"></a>lid</h3><ul>
-<li>Shows the group(s) a given user belongs to, or the users belonging to a given group.</li>
-</ul>
-<hr>
-
-<h3 id="who"><a href="#who" class="headerlink" title="who"></a>who</h3><hr>
-
-<h3 id="w"><a href="#w" class="headerlink" title="w"></a>w</h3><hr>
-
-<h3 id="logname"><a href="#logname" class="headerlink" title="logname"></a>logname</h3><ul>
-<li>Show current user’s login name.</li>
-</ul>
-<hr>
-
-<h3 id="su"><a href="#su" class="headerlink" title="su"></a>su</h3><hr>
-
-<h3 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h3><hr>
-
-<h3 id="passwd"><a href="#passwd" class="headerlink" title="passwd"></a>passwd</h3><ul>
-<li>Sets, changes, or manages a user’s password.</li>
-</ul>
-<hr>
-
-<h3 id="ac"><a href="#ac" class="headerlink" title="ac"></a>ac</h3><ul>
-<li>Show users’ logged in time.</li>
-</ul>
-<hr>
-
-<h3 id="last"><a href="#last" class="headerlink" title="last"></a>last</h3><ul>
-<li>List last logged in users.</li>
-</ul>
-<hr>
-
-<h3 id="mewgrp"><a href="#mewgrp" class="headerlink" title="mewgrp"></a>mewgrp</h3><hr>
-
-<h2 id="Terminals"><a href="#Terminals" class="headerlink" title="Terminals"></a>Terminals</h2><hr>
-
-<h3 id="tty"><a href="#tty" class="headerlink" title="tty"></a>tty</h3><ul>
-<li>Echoes the terminal filename of current users’ terminal.</li>
-</ul>
-<hr>
-
-<h3 id="stty"><a href="#stty" class="headerlink" title="stty"></a>stty</h3><ul>
-<li>Shows and/or changes terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="stterm"><a href="#stterm" class="headerlink" title="stterm"></a>stterm</h3><ul>
-<li>Set certain terminal attributes.</li>
-</ul>
-<hr>
-
-<h3 id="tset"><a href="#tset" class="headerlink" title="tset"></a>tset</h3><ul>
-<li>Show or initialize terminal settings.</li>
-</ul>
-<hr>
-
-<h3 id="setserial"><a href="#setserial" class="headerlink" title="setserial"></a>setserial</h3><hr>
-
-<h3 id="getty-agetty"><a href="#getty-agetty" class="headerlink" title="getty, agetty"></a>getty, agetty</h3><hr>
-
-<h3 id="mesg"><a href="#mesg" class="headerlink" title="mesg"></a>mesg</h3><hr>
-
-<h3 id="wall"><a href="#wall" class="headerlink" title="wall"></a>wall</h3><ul>
-<li>Sending a message to all users at every terminal logged into the network.</li>
-</ul>
+<h2 id="redis-lua-Library-Installation"><a href="#redis-lua-Library-Installation" class="headerlink" title="redis-lua Library Installation"></a>redis-lua Library Installation</h2><p>Here is the link of <a href="https://github.com/nrk/redis-lua" target="_blank" rel="external">Github Repository</a>. Install the library through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install redis-lua</span><br></pre></td></tr></table></figure></p>
+<p>Note that if luarocks command cannot be executed by sudoers, we should use root to do the installation.</p>
 
       
     </div>
@@ -1014,7 +560,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Linux/">Linux</a>
+    <a href="/tags/Lua/">Lua</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -1034,42 +580,27 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-09-04T07:13:27.000Z"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">2017-09-04</a></time>
+        <time datetime="2017-01-08T08:09:46.000Z"><a href="/2017/01/08/C-MongoDB-QuickStart/">2017-01-08</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/09/04/Java-Non-Access-Modifiers-Summary/">Java Non Access Modifiers Summary</a></h1>
+    <h1 class="title"><a href="/2017/01/08/C-MongoDB-QuickStart/">C MongoDB QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is a short summary of Java non access modifiers, which include static, final, abstract, synchronized, transient and volatile. Here are the references: <a href="https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf" target="_blank" rel="external">JSL8</a> and <a href="https://www.tutorialspoint.com/java/java_nonaccess_modifiers.htm" target="_blank" rel="external">Java Non Access Modifiers from TutorialsPoint</a>. </p>
-<h3 id="Static-Modifier"><a href="#Static-Modifier" class="headerlink" title="Static Modifier"></a>Static Modifier</h3><p>Static modifier can be used as variable and method modifier.</p>
-<h4 id="Static-Variable"><a href="#Static-Variable" class="headerlink" title="Static Variable"></a>Static Variable</h4><p>Static variables will exist independently for all the instances of the class. There is only one copy of every static variable in the memory. It is a kind of class variable and local variables cannot be declared static.</p>
-<h4 id="Static-Method"><a href="#Static-Method" class="headerlink" title="Static Method"></a>Static Method</h4><p>Static methods will exist independently for all the instances of the class. Static methods can be used directly without any instance variables of any object of the class they are defined in.</p>
+        <p>Here is the tutorial to write and build a C program to access MongoDB database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>Here is the <a href="http://mongoc.org/libmongoc/current/installing.html" target="_blank" rel="external">tutorial</a> to install necessary dependency and libraries.</p>
+<p>Here is the <a href="http://mongoc.org/libmongoc/current/tutorial.html" target="_blank" rel="external">tutorial</a> of sample code.</p>
 <hr>
 
-<h3 id="Final-Modifier"><a href="#Final-Modifier" class="headerlink" title="Final Modifier"></a>Final Modifier</h3><p>Final modifier is used to finalize the implementation/creation of variales, methods, and classes.</p>
-<h4 id="Final-Variable"><a href="#Final-Variable" class="headerlink" title="Final Variable"></a>Final Variable</h4><p>Every final variable can be explicitly initialized only once and then they cannot be reassigned to refer to a different object. But even though final variables use the same reference all the time, the value of their members can be changed.</p>
-<p>Usually, final and static modifiers are used together to define constants.</p>
-<h4 id="Final-Method"><a href="#Final-Method" class="headerlink" title="Final Method"></a>Final Method</h4><p>Final methods cannot be overriddedn by any subclasses. It indicates that the content of these methods should not be changed by any clients.</p>
-<h4 id="Final-Class"><a href="#Final-Class" class="headerlink" title="Final Class"></a>Final Class</h4><p>Final classes cannot be extended by other classes. It indicates that these classes should not be inherited.</p>
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Here is a sample code. Open a new C file called mongo_db_connect.c. Remember to replace specific parameters:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;bson.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;bcon.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;mongoc.h&gt;</span></span><br><span class="line"></span><br><span class="line">int main (int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">   mongoc_client_t      *client;</span><br><span class="line">   mongoc_database_t    *database;</span><br><span class="line">   mongoc_collection_t  *collection;</span><br><span class="line">   mongoc_cursor_t      *cursor;</span><br><span class="line">   bson_t               *<span class="built_in">command</span>, reply, *insert, *query;</span><br><span class="line">   const bson_t         *doc;</span><br><span class="line">   bson_error_t         error;</span><br><span class="line">   char                 *str;</span><br><span class="line">   bool                 retval;</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Required to initialize libmongoc<span class="string">'s internals</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_init ();</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Create a new client instance</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   client = mongoc_client_new ("mongodb://0.0.0.0:29000");</span><br><span class="line"></span><br><span class="line">   /*</span><br><span class="line">    *</span><br><span class="line">    * Register the application name so we can track it in the profile logs</span><br><span class="line">    *</span><br><span class="line">    * on the server. This can also be done from the URI (see other examples).</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">   mongoc_client_set_appname (client, "mongodb-connection-status");</span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *      Get a handle on the database "db_name" and collection "coll_name"</span><br><span class="line"> *       </span><br><span class="line"> */</span><br><span class="line">   database = mongoc_client_get_database (client, "database_name");</span><br><span class="line">   collection = mongoc_client_get_collection (client, "database_name", "table_name");</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line"> *</span><br><span class="line"> *       Do work. This example pings the database, prints the result as JSON and</span><br><span class="line"> *       performs an insert        </span><br><span class="line"> */</span><br><span class="line">   command = BCON_NEW ("ping", BCON_INT32 (1));</span><br><span class="line"></span><br><span class="line">   retval = mongoc_client_command_simple (client, "admin", command, NULL, &amp;reply, &amp;error);</span><br><span class="line"></span><br><span class="line">   if (!retval) &#123;</span><br><span class="line">      fprintf (stderr, "%s\n", error.message);</span><br><span class="line">      return EXIT_FAILURE;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   str = bson_as_json (&amp;reply, NULL);</span><br><span class="line">   printf ("Message %s\n", str);</span><br><span class="line"></span><br><span class="line">   bson_destroy (&amp;reply);</span><br><span class="line">   bson_destroy (command);</span><br><span class="line">   </span><br><span class="line">   /*</span><br><span class="line">    * </span><br><span class="line">    *      Insert one document into given database and collection</span><br><span class="line">    *</span><br><span class="line">    */</span><br><span class="line">    query = bson_new ();</span><br><span class="line">   cursor = mongoc_collection_find_with_opts (collection, query, NULL, NULL);</span><br><span class="line">   while (mongoc_cursor_next (cursor, &amp;doc)) &#123;</span><br><span class="line">      str = bson_as_json (doc, NULL);</span><br><span class="line">      printf ("%s\n", str);</span><br><span class="line">      bson_free (str);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> /*</span><br><span class="line"> *</span><br><span class="line"> *        Release our handles and clean up libmongoc</span><br><span class="line"> *        </span><br><span class="line"> */</span><br><span class="line">   mongoc_collection_destroy (collection);</span><br><span class="line">   mongoc_database_destroy (database);</span><br><span class="line">   mongoc_client_destroy (client);</span><br><span class="line">   mongoc_cursor_destroy (cursor);</span><br><span class="line">   mongoc_cleanup ();</span><br><span class="line"></span><br><span class="line">   return 0;</span><br><span class="line">  &#125;</span></span><br></pre></td></tr></table></figure></p>
 <hr>
 
-<h3 id="Abstract-Modifier"><a href="#Abstract-Modifier" class="headerlink" title="Abstract Modifier"></a>Abstract Modifier</h3><p>Abstract modifier can be used for methods and classes, indicating <code>&quot;change&quot;</code> the content of these methods or classes in subclasses.</p>
-<h4 id="Abstract-Method"><a href="#Abstract-Method" class="headerlink" title="Abstract Method"></a>Abstract Method</h4><p>Abstract methods do not have method body and their implementation should be provided by subclasses. Abstract methods can never be final or strict.<br>If a class has one or more abstract methods, it must be declared as abstract.</p>
-<h4 id="Abstract-Class"><a href="#Abstract-Class" class="headerlink" title="Abstract Class"></a>Abstract Class</h4><p>Abstract classes cannot be instantiated and they are designed for inheritance. Abstract classes can never be final and they can contain both abstract methods and normal methods.</p>
-<hr>
-
-<h3 id="Synchronized-Modifier"><a href="#Synchronized-Modifier" class="headerlink" title="Synchronized Modifier"></a>Synchronized Modifier</h3><p>Synchronized modifier can be used for methods and applied on variables (lock a specific variable). It indicates that these methods can be accessed by only one thread at a time. Synchronized modifier is widely used in concurrent situation.</p>
-<hr>
-
-<h3 id="Transient-Modifier"><a href="#Transient-Modifier" class="headerlink" title="Transient Modifier"></a>Transient Modifier</h3><p>Transient modifier can be used for variables. It indicates that JVM will skip these variables when it is serializing the objects containing them.</p>
-<hr>
-
-<h3 id="Volatile-Modifier"><a href="#Volatile-Modifier" class="headerlink" title="Volatile Modifier"></a>Volatile Modifier</h3><p>Volatile modifier can be used for variables. It indicates that a thread accessing these variables must always merge its own copy of them with the master copy in the memory.<br>Volatile modifier can only be used for variables in instances, which are of type object or private. A volatile object reference can be null.</p>
+<h2 id="Compile-and-Build-Program"><a href="#Compile-and-Build-Program" class="headerlink" title="Compile and Build Program"></a>Compile and Build Program</h2><p>Execute following command to compile and build executable C program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mongo_db_connect.c -o mongo_db_connect $(pkg-config --cflags --libs libmongoc-1.0)</span><br></pre></td></tr></table></figure></p>
+<p>Now we can run the program through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mongo_db_connect</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1083,7 +614,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/C/">C</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -1103,70 +634,26 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-08-06T15:30:50.000Z"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">2017-08-06</a></time>
+        <time datetime="2017-01-08T08:09:32.000Z"><a href="/2017/01/08/C-MySQL-QuickStart/">2017-01-08</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/08/06/Reading-Note-of-Test-Driven-Development-by-Example/">Reading Note of Test Driven Development by Example</a></h1>
+    <h1 class="title"><a href="/2017/01/08/C-MySQL-QuickStart/">C MySQL QuickStart</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the summary of <code>Test Driven Development</code> book.</p>
-<h2 id="Overall-Rules"><a href="#Overall-Rules" class="headerlink" title="Overall Rules"></a>Overall Rules</h2><ul>
-<li><p>In Test-Driven Development, there are two basic rules:</p>
-<ul>
-<li>Write new code only if there is a failing automated test.</li>
-<li>Eliminate duplication.</li>
-</ul>
-</li>
-<li><p>The two rules above imply the order of tasks of programming:</p>
-<ul>
-<li>Red: Write a little test that does not work, even does not compile at first</li>
-<li>Green: Make the test work quickly, committing whatever sins necessary in the process</li>
-<li>Refactor: Eliminate all the duplication created in just getting the test to work</li>
-</ul>
-</li>
-<li><p>The three basic steps of Test Driven Development are:</p>
-<ul>
-<li>Start simply</li>
-<li>Write automated tests</li>
-<li>Refactor to add design decisions one at a time</li>
-</ul>
-</li>
-<li><p>Two topics where TDD is not good at:</p>
-<ul>
-<li>Security software</li>
-<li>Concurrency</li>
-</ul>
-</li>
-<li><p>Rhythm of TDD:</p>
-<ul>
-<li>Quickly add a test</li>
-<li>Run all tests and see the new one fails</li>
-<li>Make a little change</li>
-<li>Run all tests and see them all succeed</li>
-<li>Refactor to remove duplication</li>
-</ul>
-</li>
-<li><p>Three ways to pass tests:</p>
-<ul>
-<li>Fake it.</li>
-<li>Obvious implementation.</li>
-<li>Translate a design object (side effects) into a test case that fails because of the objection, get the code to compile quickly with a stub implementation, made the test work by typing in what seemed like the right code. </li>
-</ul>
-</li>
-<li><p>Given a problem, first divide it to small independent problems, create tests for each of them, then do refactor on the code.</p>
-</li>
-</ul>
-<h3 id="Detailed-Rules"><a href="#Detailed-Rules" class="headerlink" title="Detailed Rules"></a>Detailed Rules</h3><ul>
-<li><p>Write new code only if you first have a failing automated test. Then eliminate the duplication.</p>
-</li>
-<li><p>Could not tackle a big test, so invent a small test representing progress, write the test by shameless duplicating and editing, make the test work by copying and editing model code wholescale, promised ourselves to remove duplication.</p>
-</li>
-</ul>
+        <p>Here is the tutorial to write and build a C program to access MySQL database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>Here is the <a href="http://yular.github.io/2016/07/02/Install-MySQL-on-CentOS-Guide/">tutorial</a> to install necessary dependency and libraries. Check the section about MySQL Dev Installation.</p>
+<hr>
+
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Here is a sample code. Open a new C file called mysql_db_connect.c. Remember to replace specific parameters:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include &lt;my_global.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;mysql.h&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">void finish_with_error(MYSQL *con)&#123;</span><br><span class="line"></span><br><span class="line">  fprintf(stderr, <span class="string">"%s\n"</span>, mysql_error(con));</span><br><span class="line">  mysql_close(con);</span><br><span class="line">  <span class="built_in">exit</span>(1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void finish_with_result(MYSQL_RES *result)&#123;</span><br><span class="line"></span><br><span class="line">  MYSQL_ROW row;</span><br><span class="line"></span><br><span class="line">  int i, num_fields = mysql_num_fields(result);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> ((row = mysql_fetch_row(result)))</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">for</span>(i = 0; i &lt; num_fields; i++)</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"%s "</span>, row[i] ? row[i] : <span class="string">"NULL"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      puts(<span class="string">""</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  mysql_free_result(result);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv)&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"MySQL client version: %s\n"</span>, mysql_get_client_info());</span><br><span class="line"></span><br><span class="line">  MYSQL *con = mysql_init(NULL);</span><br><span class="line">  MYSQL_RES *result = NULL;</span><br><span class="line">  MYSQL_ROW row;</span><br><span class="line">  </span><br><span class="line">  int i, mysql_num_fields;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (con == NULL)</span><br><span class="line">  &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"mysql_init() failed\n"</span>);</span><br><span class="line">      <span class="built_in">exit</span>(1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (mysql_real_connect(con, <span class="string">"host_ip"</span>, <span class="string">"user_name"</span>, <span class="string">"password"</span>, NULL, 0, NULL, 0) == NULL)</span><br><span class="line">  &#123;</span><br><span class="line">      fprintf(stderr, <span class="string">"mysql_init() failed\n"</span>);</span><br><span class="line">      mysql_close(con);</span><br><span class="line">      <span class="built_in">exit</span>(1);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (mysql_query(con, <span class="string">"use towergirl"</span>))</span><br><span class="line">  &#123;</span><br><span class="line">      finish_with_error(con);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (mysql_query(con, <span class="string">"show tables"</span>))</span><br><span class="line">  &#123;</span><br><span class="line">      finish_with_error(con);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  result = mysql_store_result(con);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (result == NULL)</span><br><span class="line">  &#123;</span><br><span class="line">      finish_with_error(con);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  finish_with_result(result);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (mysql_query(con, <span class="string">"select * from user_account"</span>))</span><br><span class="line">  &#123;</span><br><span class="line">      finish_with_error(con);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  result = mysql_store_result(con);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (result == NULL)</span><br><span class="line">  &#123;</span><br><span class="line">      finish_with_error(con);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  finish_with_result(result);</span><br><span class="line"></span><br><span class="line">  mysql_close(con);</span><br><span class="line">  <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Compile-and-Build-Program"><a href="#Compile-and-Build-Program" class="headerlink" title="Compile and Build Program"></a>Compile and Build Program</h2><p>Execute following command to compile and build executable C program:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc mysql_db_connect.c -o mysql_db_connect `mysql_config --cflags --libs`</span><br></pre></td></tr></table></figure></p>
+<p>Now we can run the program through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./mysql_db_connect</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -1180,7 +667,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Java/">Java</a>
+    <a href="/tags/C/">C</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -1200,11 +687,334 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2017-08-04T16:00:29.000Z"><a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">2017-08-05</a></time>
+        <time datetime="2017-01-08T08:08:50.000Z"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">2017-01-08</a></time>
       
       
   
-    <h1 class="title"><a href="/2017/08/05/Reading-Note-of-Design-Pattern-Elements-of-Reusable-Object-Oriented-Software/">Reading Note of Design Pattern Elements of Reusable Object-Oriented Software</a></h1>
+    <h1 class="title"><a href="/2017/01/08/Lua-MongoDB-QuickStart/">Lua MongoDB QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to write and build Lua application that can communicate with MongoDB database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
+<p>We need to install dependency to access MongoDB database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install lua-mongo</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Dependency-Document"><a href="#Dependency-Document" class="headerlink" title="Dependency Document"></a>Dependency Document</h2><p>Here is <a href="https://github.com/neoxic/lua-mongo/blob/master/doc/main.md" target="_blank" rel="external">the link of document</a> and <a href="https://github.com/neoxic/lua-mongo" target="_blank" rel="external">its Github</a>.</p>
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MongoDB query. The file name is mongoDB.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">local</span> mongo = require(<span class="string">'mongo'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> client = mongo.Client <span class="string">'mongodb://host_ip:port'</span></span><br><span class="line"><span class="built_in">local</span> database = client:getDatabase(<span class="string">'database_name'</span>)</span><br><span class="line"><span class="built_in">local</span> collection = database:getCollection(<span class="string">'table_name'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">local</span> query = mongo.BSON <span class="string">'&#123; "id" : &#123; "$gt" : "0" &#125; &#125;'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> document <span class="keyword">in</span> collection:find(query):iterator()</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(document.id, document.name)</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mongoDB.lua</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-08T08:08:36.000Z"><a href="/2017/01/08/Lua-MySQL-QuickStart/">2017-01-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/08/Lua-MySQL-QuickStart/">Lua MySQL QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to write and build Lua application that can communicate with MySQL database.</p>
+<h2 id="Dependency-Installation"><a href="#Dependency-Installation" class="headerlink" title="Dependency Installation"></a>Dependency Installation</h2><p>At first, we need to install LuaRocks. Here is the <a href="http://yular.github.io/2017/01/08/LuaRocks-QuickStart/">tutorial</a>.</p>
+<p>We need to install dependency to access MySQL database through Lua. Execute the command to install dependency:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks install luasql-mysql MYSQL_INCDIR=/usr/include/mysql/</span><br></pre></td></tr></table></figure></p>
+<p>But default dependency miss some libraries or variables. In that case, we need to use different source:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks --from=http://rocks.luarocks.org/dev install luasql-mysql cvs-1 MYSQL_INCDIR=/usr/include/mysql</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Sample-Code"><a href="#Sample-Code" class="headerlink" title="Sample Code"></a>Sample Code</h2><p>Below is the sample code to do MySQL query. The file name is mysql.lua:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">luasql = require <span class="string">"luasql.mysql"</span></span><br><span class="line">env = assert (luasql.mysql())</span><br><span class="line">con = assert (env:connect(<span class="string">"database_name"</span>,<span class="string">"user_name"</span>,<span class="string">"password"</span>,<span class="string">"host_ip"</span>,port))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(env,con)</span><br><span class="line"></span><br><span class="line">cur,errorString = con:execute([[select * from <span class="built_in">test</span>;]])</span><br><span class="line"><span class="built_in">print</span>(cur,errorString )</span><br><span class="line"></span><br><span class="line">row = cur:fetch (&#123;&#125;, <span class="string">"a"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> row <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(string.format(<span class="string">"Id: %s "</span>, row.id))</span><br><span class="line">    row = cur:fetch (row, <span class="string">"a"</span>)</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">cur:close()</span><br><span class="line">con:close()</span><br><span class="line">env:close()</span><br></pre></td></tr></table></figure></p>
+<p>Then execute above lua script using following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lua mysql.lua</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2017-01-08T08:08:02.000Z"><a href="/2017/01/08/LuaRocks-QuickStart/">2017-01-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2017/01/08/LuaRocks-QuickStart/">LuaRocks QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://luarocks.org/" target="_blank" rel="external">official website of LuaRocks</a>. LuaRocks is the package manager for Lua moduels, which means that we can use it to install or uninstall some specific Lua libraries like LuaMySQL and LuaMongoDB.</p>
+<p>Below is the tutorial to install LuaRocks.</p>
+<h2 id="Install-LuaRocks"><a href="#Install-LuaRocks" class="headerlink" title="Install LuaRocks"></a>Install LuaRocks</h2><p>Here we use Centos 7. We will install LuaRocks through command lines as follows (Here is <a href="https://luarocks.org/#quick-start" target="_blank" rel="external">official tutorial</a>):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://luarocks.org/releases/luarocks-2.4.1.tar.gz</span><br><span class="line">tar zxpf luarocks-2.4.1.tar.gz</span><br><span class="line"><span class="built_in">cd</span> luarocks-2.4.1</span><br><span class="line">./configure</span><br><span class="line">sudo make bootstrap</span><br></pre></td></tr></table></figure></p>
+<p>Now execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">luarocks</span><br></pre></td></tr></table></figure></p>
+<p>If everythings goes well, we can similar output as below:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">LuaRocks 2.4.1, a module deployment system <span class="keyword">for</span> Lua</span><br><span class="line"></span><br><span class="line">NAME</span><br><span class="line">        /usr/<span class="built_in">local</span>/bin/luarocks - LuaRocks main <span class="built_in">command</span>-line interface</span><br><span class="line"></span><br><span class="line">SYNOPSIS</span><br><span class="line">        /usr/<span class="built_in">local</span>/bin/luarocks [--from=&lt;server&gt; | --only-from=&lt;server&gt;] [--to=&lt;tree&gt;] [VAR=VALUE]... &lt;<span class="built_in">command</span>&gt; [&lt;argument&gt;] </span><br><span class="line"></span><br><span class="line">GENERAL OPTIONS</span><br><span class="line">        These apply to all commands, as appropriate:</span><br><span class="line"></span><br><span class="line">        --server=&lt;server&gt;      Fetch rocks/rockspecs from this server</span><br><span class="line">                               (takes priority over config file)</span><br><span class="line">        --only-server=&lt;server&gt; Fetch rocks/rockspecs from this server only</span><br><span class="line">                               (overrides any entries <span class="keyword">in</span> the config file)</span><br><span class="line">        --only-sources=&lt;url&gt;   Restrict downloads to paths matching the</span><br><span class="line">                               given URL.</span><br><span class="line">        --tree=&lt;tree&gt;          Which tree to operate on.</span><br><span class="line">        --local                Use the tree <span class="keyword">in</span> the user<span class="string">'s home directory.</span><br><span class="line">                               To enable it, see '</span>/usr/<span class="built_in">local</span>/bin/luarocks <span class="built_in">help</span> path<span class="string">'.                     </span><br><span class="line">        --verbose              Display verbose output of commands executed.                               </span><br><span class="line">        --timeout=&lt;seconds&gt;    Timeout on network operations, in seconds.                                 </span><br><span class="line">                               0 means no timeout (wait forever).                                         </span><br><span class="line">                               Default is 30.                                                             </span><br><span class="line">                                                                                                          </span><br><span class="line">VARIABLES                                                                                                 </span><br><span class="line">        Variables from the "variables" table of the configuration file                                    </span><br><span class="line">        can be overriden with VAR=VALUE assignments. </span><br><span class="line"></span><br><span class="line">...</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Install-LuaSocket"><a href="#Install-LuaSocket" class="headerlink" title="Install LuaSocket"></a>Install LuaSocket</h2><p>Now we will try to install LuaSocket through LuaRocks. Note that we may need to use sudo command but luarocks may not be identified by sudo. In that case, we can use root user to execute luarocks command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su root</span><br><span class="line">luarocks install luasocket</span><br></pre></td></tr></table></figure></p>
+<p>To check that luasocket whether is installed successfully or not, we can enter lua shell and type:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require <span class="string">"socket"</span></span><br></pre></td></tr></table></figure></p>
+<p>The output returned by command should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; require <span class="string">"socket"</span></span><br><span class="line">table: 0x1<span class="built_in">cd</span>8060</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Lua/">Lua</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-29T17:19:53.000Z"><a href="/2016/12/30/Apache-Jena-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Apache-Jena-QuickStart/">Apache Jena QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the tutorial to install Apache Jena on CentOS. This is the official website of <a href="https://jena.apache.org/index.html" target="_blank" rel="external">Apache Jena</a>, <a href="https://jena.apache.org/tutorials/" target="_blank" rel="external">official tutorial</a> and <a href="https://jena.apache.org/getting_started/" target="_blank" rel="external">get started document</a>.</p>
+<h2 id="Download-Apache-Jena"><a href="#Download-Apache-Jena" class="headerlink" title="Download Apache Jena"></a>Download Apache Jena</h2><p>Download Apache Jena from this <a href="https://jena.apache.org/download/index.cgi" target="_blank" rel="external">link</a>. Here we use Apache Jena 3.1.1. So we should download this file: apache-jena-3.1.1.tar.gz.</p>
+<p>Extract the software from tar ball and move them to /usr/local:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf apache-jena-3.1.1.tar.gz</span><br><span class="line">mv apache-jena-3.1.1 /usr/<span class="built_in">local</span>/</span><br></pre></td></tr></table></figure></p>
+<h2 id="Set-Environment-PATH"><a href="#Set-Environment-PATH" class="headerlink" title="Set Environment PATH"></a>Set Environment PATH</h2><p>Edit ~/.bashrc file and put following content in that file:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JENAROOT=/usr/<span class="built_in">local</span>/apache-jena-3.1.1</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$JENAROOT</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Then execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><p>Now try this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sparql --version</span><br></pre></td></tr></table></figure></p>
+<p>The output should be similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Jena:       VERSION: 3.1.1</span><br><span class="line">Jena:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">ARQ:        VERSION: 3.1.1</span><br><span class="line">ARQ:        BUILD_DATE: 2016-11-04T18:59:20+0000</span><br><span class="line">RIOT:       VERSION: 3.1.1</span><br><span class="line">RIOT:       BUILD_DATE: 2016-11-04T18:59:20+0000</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/SparkSQL/">SparkSQL</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-12-29T17:19:20.000Z"><a href="/2016/12/30/Kotlin-QuickStart/">2016-12-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/12/30/Kotlin-QuickStart/">Kotlin QuickStart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Kotlin is a kind of statically typed programming language for the JVM, Android and the browser. Here is the official <a href="https://Kotlinlang.org" target="_blank" rel="external">website</a>.</p>
+<p>It has a lot of advantages and we can find them on the official website above. We can write a Kotlin script and then compile and build it as a java jar or java script file to execute. See the <a href="https://en.wikipedia.org/wiki/Kotlin_(programming_language" target="_blank" rel="external">wikipedia</a>).</p>
+<p>Below is a quickstart guide to build a Kotlin script as a java jar, which is similar to the official <a href="https://Kotlinlang.org/docs/tutorials/" target="_blank" rel="external">tutorial</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a> to install Kotlin compiler in the OS. We use Centos 7 in this tutorial.</p>
+<p>To manual install the compiler, just download it from <a href="https://github.com/JetBrains/kotlin/releases/tag/v1.0.5-2" target="_blank" rel="external">Github Release</a>. Then unzip it through this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip kotlin-compiler-1.0.5-2.zip</span><br></pre></td></tr></table></figure></p>
+<p>Note that current latest version is 1.0.5. The approach for all the other versions.</p>
+<p>Then move the folder to the location we would like to store this compiler and add the bin to PATH variable.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv kotlinc /usr/<span class="built_in">local</span>/kotlinc</span><br></pre></td></tr></table></figure></p>
+<p>Edit ~/.bashrc adding/modifying following lines<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> KOTLINC=/usr/<span class="built_in">local</span>/kotlinc</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$KOTLINC</span>/bin</span><br></pre></td></tr></table></figure></p>
+<p>Remember to execute after modification is done.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
+<p>Now let us type following command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlin -help</span><br></pre></td></tr></table></figure></p>
+<p>The output should similar as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">kotlin: run Kotlin programs, scripts or REPL.</span><br><span class="line"></span><br><span class="line">Usage: kotlin &lt;options&gt; &lt;<span class="built_in">command</span>&gt; &lt;arguments&gt;</span><br><span class="line"><span class="built_in">where</span> <span class="built_in">command</span> may be one of:</span><br><span class="line">  foo.Bar                    Runs the <span class="string">'main'</span> <span class="keyword">function</span> from the class with the given qualified name</span><br><span class="line">  app.jar                    Runs the given JAR file as <span class="string">'java -jar'</span> would <span class="keyword">do</span></span><br><span class="line">                             (-classpath argument is ignored and no Kotlin runtime is added to the classpath)</span><br><span class="line">and possible options include:</span><br><span class="line">  -classpath (-cp) &lt;path&gt;    Paths <span class="built_in">where</span> to find user class files</span><br><span class="line">  -Dname=value               Set a system JVM property</span><br><span class="line">  -J&lt;option&gt;                 Pass an option directly to JVM</span><br><span class="line">  -no-reflect                Don<span class="string">'t include Kotlin reflection implementation into classpath</span><br><span class="line">  -version                   Display Kotlin version</span><br><span class="line">  -help (-h)                 Print a synopsis of options</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Hello-World-Application"><a href="#Hello-World-Application" class="headerlink" title="Hello, World Application"></a>Hello, World Application</h2><p>Here is the <a href="https://kotlinlang.org/docs/tutorials/command-line.html" target="_blank" rel="external">official tutorial</a>.</p>
+<p>Add a new file called hello.kt and below is the content:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun main(args: Array&lt;String&gt;) &#123;</span><br><span class="line">    println(<span class="string">"Hello, World!"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Compile above application using Kotlinc compiler to a java jar:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kotlinc hello.kt -include-runtime <span class="_">-d</span> hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>Note that -include-runtime option makes the resulting .jar file self-contained and runnable by including the Kotlin runtime library in it. -d option indicates what we want the output of the compiler to be called and may be either a directory name for class files or a .jar file name.</p>
+<p>Now run the application:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar hello.jar</span><br></pre></td></tr></table></figure></p>
+<p>The output should be as follows:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h2 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h2><p>Here is the <a href="https://kotlinlang.org/docs/reference/basic-syntax.html" target="_blank" rel="external">offical tutorial</a> about the basic/common used syntax in Kotlin.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Kotlin/">Kotlin</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-22T15:12:23.000Z"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/HBase-Pre-split-Quickstart/">HBase Pre-split Quickstart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here are some articles regarding pre-split regions in HBase table: <a href="http://hortonworks.com/blog/apache-hbase-region-splitting-and-merging/" target="_blank" rel="external">Hortonworks</a> and <a href="http://hbase.apache.org/book.html#datamodel" target="_blank" rel="external">HBase org</a>.</p>
+<p>Before we load data to HBase, we may have to do pre-split on the HBase table storing the data. The reason is that by default, for each HBase table, HBase will save all its data into one region server until its space is used up. This may cause protential hotspoting issue if there are HBase tables that receive most of the queries. Without good pre-spliting strategy, we may fail to use all HBase clusters and some machines may crash as result of overload.</p>
+<p>Here is the HBase shell command to create HBase tables with pre-split:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create <span class="string">'table name'</span>, <span class="string">'column family'</span>, splits =&gt; [<span class="string">'region1_name'</span>, <span class="string">'region2_name'</span>, ..., <span class="string">'regionN_name'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>To save data into specific regions, we could use existing split policy or design a new one. Below is a sample command to use HBase split policy:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter <span class="string">'table name'</span>, &#123;NAME =&gt; <span class="string">'column family'</span>, BLOCKSIZE =&gt; <span class="string">'32768'</span>, CONFIGURATION =&gt; &#123;<span class="string">'SPLIT_POLICY'</span> =&gt; <span class="string">'org.apache.hadoop.hbase.regionserver.ConstantSizeRegionSplitPolicy'</span>, <span class="string">'hbase.hregion.max.filesize'</span>=&gt;<span class="string">'10737418240'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-22T15:09:57.000Z"><a href="/2016/07/22/scala-sbt-tool-quickstart/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/scala-sbt-tool-quickstart/">scala sbt tool quickstart</a></h1>
   
 
     </header>
@@ -1222,9 +1032,211 @@
         </div>
         
         
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-22T15:09:34.000Z"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">2016-07-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/22/Compile-scala-to-java-jar-tutorial/">Compile scala to java jar tutorial</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-16T09:07:22.000Z"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">2016-07-16</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/16/Hbase-Shell-Command-List-Summary/">HBase Shell Command List Summary</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Below is the list of frequent used HBase shell command and at first, here is another <a href="https://learnhbase.wordpress.com/2013/03/02/hbase-shell-commands/" target="_blank" rel="external">HBase command list</a>.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
   
   <div class="tags">
-    <a href="/tags/Design-Pattern/">Design Pattern</a>
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-04T02:40:13.000Z"><a href="/2016/07/04/Apache-Livy-Install-Guide/">2016-07-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/04/Apache-Livy-Install-Guide/">Apache Livy Install Guide</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the github page of <a href="https://github.com/cloudera/livy" target="_blank" rel="external">Apache Livy</a>. It is not difficult to install Livy on the Redhat server. Below is the guide.</p>
+<h3 id="Check-Environment"><a href="#Check-Environment" class="headerlink" title="Check Environment"></a>Check Environment</h3><p>To successfully build and run Livy on Redhat, we need:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">spark (1.5.0 or later)</span><br><span class="line">mvn</span><br><span class="line">openjdk-7</span><br><span class="line">python 2.6+ or 3.3+</span><br><span class="line">R (optional)</span><br></pre></td></tr></table></figure></p>
+<p>Note that mvn is only used for building Livy.</p>
+<h3 id="Building-Livy"><a href="#Building-Livy" class="headerlink" title="Building Livy"></a>Building Livy</h3><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:cloudera/livy.git</span><br><span class="line"><span class="built_in">cd</span> livy</span><br><span class="line">mvn package -Dspark.version=1.6.1</span><br></pre></td></tr></table></figure></p>
+<p>Note that -Dspark.version option is not required and by default its value is 1.5.0. If we use a different version of Livy, we should change the value of that option.</p>
+<h3 id="Running-Livy"><a href="#Running-Livy" class="headerlink" title="Running Livy"></a>Running Livy</h3><p>Before running Livy, we should make sure that SPARK_HOME and HADOOP_CONF_DIR are set in OS environment.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_HOME=/usr/lib/spark</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/etc/hadoop/conf</span><br></pre></td></tr></table></figure></p>
+<p>Then just execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/livy-server</span><br></pre></td></tr></table></figure></p>
+<p>By default, Livy is running on the port 8998. We can change it by modifying the livy.conf file.</p>
+<h3 id="Livy-Configuration"><a href="#Livy-Configuration" class="headerlink" title="Livy Configuration"></a>Livy Configuration</h3><p>Here are Livy’s configuration files:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">livy.conf: contains the server configuration.</span><br><span class="line">spark-blacklist.conf: list Spark configuration options that users are not allowed to override.</span><br><span class="line"><span class="built_in">log</span>4j.properties: configuration <span class="keyword">for</span> Livy logging.</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-07-03T07:18:56.000Z"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">2016-07-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/07/03/Apache-Livy-PySpark-Quickstart/">Apache Livy Spark Coding in Python Console Quickstart</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Here is the <a href="https://github.com/cloudera/livy" target="_blank" rel="external">official tutorial of submiting pyspark jobs in Livy</a>. Below is the my PySpark quickstart guide.</p>
+<p>In Livy, the structure of REST API is /sessions/sessionid/statements/statementid. So to submit a new request to Livy, we should ask Livy to create a new independent session first, then inside that session, we will ask Livy to create one or multiple statements to process code.</p>
+<hr>
+
+<h3 id="Install-Required-Library"><a href="#Install-Required-Library" class="headerlink" title="Install Required Library"></a>Install Required Library</h3><p>At first, we need to install requests library of Python. We can use pip. Here is the command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install requests</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="PySpark-Code"><a href="#PySpark-Code" class="headerlink" title="PySpark Code"></a>PySpark Code</h3><p>Enter python console:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python</span><br></pre></td></tr></table></figure></p>
+<p>Then in python console, type following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import json, pprint, requests, textwrap</span><br><span class="line">host = <span class="string">'http://localhost:8998'</span></span><br><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>&#125;</span><br><span class="line">headers = &#123;<span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>&#125;</span><br><span class="line">hs_r = requests.post(host + <span class="string">'/sessions'</span>, data=json.dumps(data), headers=headers)</span><br><span class="line">hs_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>Note that change the port number if it is not the default one. The code above helps to create a new session in Spark.<br>And if we have to change the configuration of spark-submit, the data object should be like this:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'kind'</span>: <span class="string">'spark'</span>,<span class="string">'conf'</span>:&#123;<span class="string">'spark.executor.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>,<span class="string">'spark.driver.extraClassPath'</span>:<span class="string">'/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar'</span>&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Next, get the session URL:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + hs_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">sn_r = requests.get(session_url, headers=headers)</span><br><span class="line">sn_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>Note that hs_r.headers[‘Location’] may not give us the correct value because it may be ‘null/sessions/sessionid’. In that case, we should use the following code instead,. In our case, since it is the first session, the id is 0.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session_url = host + <span class="string">'/sessions/0'</span></span><br></pre></td></tr></table></figure></p>
+<p>Now we should generate the code and submit to the corresponding statement REST API.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">statements_url = session_url + <span class="string">'/statements'</span></span><br><span class="line">data = &#123; <span class="string">'code'</span>: textwrap(<span class="string">""</span><span class="string">"\</span><br><span class="line">import org.apache.spark.SparkContext;</span><br><span class="line">import org.apache.spark.sql.hive.HiveContext; </span><br><span class="line">val sqlContext=new HiveContext(sc);</span><br><span class="line">val df=sqlContext.sql("</span>use db1<span class="string">");</span><br><span class="line">val res=sqlContext.sql("</span>select * from tb1 <span class="built_in">limit</span> 10 <span class="string">").collect();</span><br><span class="line">res.map(t =&gt; t(0)).foreach(println);</span><br><span class="line">"</span><span class="string">""</span>)</span><br><span class="line">&#125;</span><br><span class="line">stm_r = requests.post(statements_url, data=json.dumps(data), headers=headers)</span><br><span class="line">stm_r.json()</span><br></pre></td></tr></table></figure></p>
+<p>After that, we can get the running result from the statement REST API using following code:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">statement_url = host + stm_r.headers[<span class="string">'Location'</span>]</span><br><span class="line">res = requests.get(statement_url, headers=headers)</span><br><span class="line">pprint.pprint(res.json())</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions occur, we can find the result in the output field.</p>
+<p>At last, we can delete current session:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requests.delete(session_url, headers=headers)</span><br></pre></td></tr></table></figure></p>
+<hr>
+
+<h3 id="Submit-Python-File-to-REST-API"><a href="#Submit-Python-File-to-REST-API" class="headerlink" title="Submit Python File to REST API"></a>Submit Python File to REST API</h3><p>Here the Livy is in yarn-client mode. This guide can also be used in local mode. Below is the content of python file submitted (The file name is test.py.):<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from pyspark import SparkContext</span><br><span class="line">from pyspark.sql import HiveContext</span><br><span class="line"></span><br><span class="line">sc = SparkContext(<span class="string">'yarn-client'</span>,<span class="string">'pyspark'</span>)</span><br><span class="line">sqlContext = HiveContext(sc)</span><br><span class="line">sqlContext.sql(<span class="string">"use db1"</span>)</span><br><span class="line">sqlContext.sql(<span class="string">"select * from tb1 limit 10"</span>).show()</span><br></pre></td></tr></table></figure></p>
+<p>Here is the command to POST python file to Livy REST API for batch job. Livy will automatically create a new session identified by batchid for this job.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST --data <span class="string">'&#123;"file":"file:/home/yular/livy_code/test.py",</span><br><span class="line">"conf":&#123;"spark.executor.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar","spark.driver.extraClassPath":"/home/yular/hadoop-lzo-0.6.0.2.2.4.2-2.jar"&#125;</span><br><span class="line">&#125;'</span> -H <span class="string">"Content-Type: application/json"</span> localhost:8998/batches</span><br></pre></td></tr></table></figure></p>
+<p>Note that in yarn-client and yarn-cluster mode, by default Livy use hdfs file protocol. So if we write /home/yular/livy_code/test.py, then in Livy, the file path becomes hdfs://home/yular/livy_code/test.py which may cause exception. So we have to specify file protocol.</p>
+<p>To check the status of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0 | python -m json.tool</span><br></pre></td></tr></table></figure></p>
+<p>If no exceptions are thrown out, we can see the result in the output field of json returned.</p>
+<p>To check the log of batch job, execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:8998/batches/0/<span class="built_in">log</span> | python -m json.tool</span><br></pre></td></tr></table></figure></p>
+<p>To remove the batch session, run this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -X DELETE localhost:8998/batches/0</span><br></pre></td></tr></table></figure></p>
+<p>Note that 0 is the batch id. In our case, the id is 0 but it should be subject to change.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Cloud-Computing/">Cloud Computing</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -1242,7 +1254,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/6/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/6/">Nächste Seite &raquo;</a>
   </nav>
 
 </nav>

@@ -97,26 +97,29 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-06-03T10:32:54.000Z"><a href="/2016/06/03/Lua-Install-QuickStart/">2016-06-03</a></time>
+        <time datetime="2015-02-28T02:27:33.000Z"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">2015-02-28</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/06/03/Lua-Install-QuickStart/">Lua Install QuickStart</a></h1>
+    <h1 class="title"><a href="/2015/02/28/General-Approach-to-Solve-Algrithm-Problems/">General Approach to Solve Algrithm Problems</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Lua is a lightweight multi-paradigm programming language designed primarily for embedded systems and clients, and is cross-platform since it is written in ANSI C and has a relatively simple C API.</p>
-<p>Here is the official website of <a href="https://www.lua.org/" target="_blank" rel="external">Lua</a>.</p>
-<p>Here is a simple guide to download, build and install Lua on Centos.</p>
-<h2 id="Download-Lua"><a href="#Download-Lua" class="headerlink" title="Download Lua"></a>Download Lua</h2><p>Check this page to get the latest version of <a href="https://www.lua.org/download.html" target="_blank" rel="external">Lua</a>.<br>Use this command to download Lua-5.3.2:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://www.lua.org/ftp/lua-5.3.2.tar.gz</span><br></pre></td></tr></table></figure></p>
-<h2 id="Build-Lua"><a href="#Build-Lua" class="headerlink" title="Build Lua"></a>Build Lua</h2><p>Execute following commands:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf lua-5.3.2.tar.gz</span><br><span class="line"><span class="built_in">cd</span> lua-5.3.2</span><br><span class="line">make linux tes</span><br></pre></td></tr></table></figure></p>
-<p>If we meet readline.h not found issues, execute this command to install the missing packages:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install readline-devel</span><br></pre></td></tr></table></figure></p>
-<h2 id="Install-Lua"><a href="#Install-Lua" class="headerlink" title="Install Lua"></a>Install Lua</h2><p>Execute this command:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure></p>
-<p>By default, Lua will be installed under /usr/local folder. We can check Makefile to change installation information.</p>
-<p>If Lua is installed successfully, this command will be executed successfully:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lua</span><br><span class="line"><span class="comment"># Command output : </span></span><br><span class="line">Lua 5.3.2  Copyright (C) 1994-2015 Lua.org, PUC-Rio</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
+        <p>This blog is the general approach to solve algorithm problems based on my own experience. Hope it will be helpful for those who participate algorithm contest like TopCoder, CodeForce, OI, ACM-ICPC and so on or have to take technical interviews involving algorithms.</p>
+<ol>
+<li><p>Read the Problem Statement<br>Read the problem statement very very very carefully. Do remember that. Understand the following information:<br>(1) What is the meaning of the problem statement.<br>(2) What does the problem ask we to do. To count the cases? To find the maximum/minimum value?<br>(3) What are the constraints of the problem? What is the range of the input? 1&lt;= N &lt;= 100 or 1 &lt;= N &lt;= 1000?<br>(4) What is the input format and output format of the problem?<br>(5) Are both the sample input and output correct?<br>If the problem statement is difficult to understand, ask the problem writter or those who can offer a hand.</p>
+</li>
+<li><p>Build the Mathmatical Model and Design one or more Algorithms<br>After fully understand the problem, we should know how to calculate the sample output given sample input. This step is to find the correct mathematical models to solve the problem. When we find the correct mathmetical models, then we can start to design algorithms that can solve the models correctly (Note: not necessarily efficiently). </p>
+</li>
+<li><p>Validate the Algorithm<br>After the algorithm is proposed, we should then validate it. The tricks are to tet the algorithm with large test case, corner test case, tricky test case and general test case. Make sure that the algorithm are correct and efficient in all these kinds of cases so that we can avoid Wrong Answer, Time Limit Excceed, Memory Limit Excceed or other incorrect message returned by online judege. </p>
+</li>
+<li><p>Optimize the Algorithm<br>If our algorithm can pass all the above cases, congratulations! Our algorithm can receive Accept from online judege. But in some cases, it may not be efficient enough and online judege will return TLE for us. In that case, we should optimize the algorithm. There are mainly two cases:<br>(1) We may have to rebuild the mathematical model so that more efficient algorithms can be used.<br>(2) We only have to use other algorithms for the current model but more efficient techniques should be applied.<br>Sometimes, we can optimize our algorithm even though it is correct and can pass any test cases. This is a good habit and helpful to improve our algorithm design and analysis skills.</p>
+</li>
+</ol>
+<p>5.Double Check Again<br>After optimize the algorithm, we should double check it again to ensure that it can pass all the possible test cases under the constraints of the problem. It is a good custom to be cautious all the time.</p>
 
       
     </div>
@@ -130,7 +133,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Lua/">Lua</a>
+    <a href="/tags/Algorithm/">Algorithm</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -150,22 +153,35 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-05-31T01:08:19.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">2016-05-31</a></time>
+        <time datetime="2015-02-28T01:41:12.000Z"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">2015-02-28</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-Bit-Manipulation/">Hackerrank InterviewStreet Algorithm Problem Solution List Bit Manipulation</a></h1>
+    <h1 class="title"><a href="/2015/02/28/General-Approach-for-Technical-Problem-Shooting/">General Approach for Technical Problem Shooting</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Xor-sequence"><a href="#Xor-sequence" class="headerlink" title="Xor-sequence"></a>Xor-sequence</h3><p><a href="https://www.hackerrank.com/challenges/xor-se" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/xor-se.cpp" target="_blank" rel="external">Code</a><br>A kind of construction problem. At first, figure out the pattern which is a repeating sequence: 0,1,2,2,6,7,0,0. And then calculate the result based on the given position.</p>
-<hr>
-
+        <p>In our work (I mean computer science or relatives), we usually meet a lot of technical problems and some of them are difficult to deal with without any others’ help. In these cases, we have to do problem shooting all by ourselves. Here is the general approach that I used in my work or even daily life to solve technical problems. I think my approach can be also applicable in other area outside computer science.</p>
+<ol>
+<li><p>Master Basic Knowledge of the Area<br>We should know the most common and basic knowledge of the area where the problems are encountered by us, otherwise we may even do not realize some issues have appeared. That may be dangerous in many areas, especially chemistry and nuclear. In computer science, the basic knowledge that we should master should include computer operating system, computer system architecture, computer programming, database, computer network, and programming language. This list may not be complete, but I think those aspects are essential in computer science. If we do not understand the solution provided by others, we should have to go back to pick up or start to learn the basic knowledge.</p>
+</li>
+<li><p>Read or Watch the Tutorial (Document)<br>When we use a new system or product in the first time, it is pretty easy for us to stuck in some problems. When it does happens, remember to read or watch the official instruction at first. Official instructions are the best tutorial in most of the time. Try to finger out the correct parts of the tutorial and use the solutions provided by it.</p>
+</li>
+<li><p>Read or Watch Alternative Tutorial<br>Sometimes we may find that official tutorial is not complete or even out of date! That is really bad for novices. In this case, we should find alternative tutorial through Internet. We can use Google search engine (www.google.com) or other powerful search engines to find the tutorial on the Internet. In most of the cases, we are not the first patch of users who use this product or system. Some one who has tried it before are probabily meet the same problems and find the solutions and post the solution on the Internet. So we can try to find these tutorials through Internet.</p>
+</li>
+<li><p>Read or Watch Problem Shooting Approach<br>In some cases, we may not find the tutorial on the Internet, but we can just find the solution dealing with problems. This is the first step when we meet a technical problem and this approach can save us lots of time because we can skip the lengthy and boring tutorials provided by others. But I do think reading or watching the tutorial or document should be first step. The reason is that tutorial can help us to know the every aspect of the product and thus, when next time we meet a different problem, we may be able to solve it without any help. But if we only know how to solve some specific problems, we may still stuck in other problems in the future. On average, reading or watching tutorials or document first do not cost more time and even save our time. In computer science, currently, stackoverflow and some forums are helpful for those to find approaches to solve their problems.</p>
+</li>
+<li><p>Seek Help<br>Unluckly, we may encouter some rare problems that no one meets before. In this case, we can post our problems on the Internet, send them in emails to experts or seek help from others through other approaches. In computer science, there are multiple forums and websites where people can seek help. They include stackoverflow, Quora and so on. Or we can suscribe our email address in the email list of the community manufactering the product, like Appache Hadoop, Hive, Mahout and so on. People in the community usually are willing to give us a hand and in most of the time reply the email in a short time. We can also seek help through social media like facebook and twitter or just make a phone call to those who may be able to solve the problems.</p>
+</li>
+<li><p>Seek Help from People nearby<br>If some one happens to be nearby, seek help from him/her, especially s/he is our colleague or classmate or friend or family member.</p>
+</li>
+<li><p>Stop<br>If we do fail to find a solution, we may have to give up and leave it alone if it does not harm.</p>
+</li>
+</ol>
+<p>Hope this blog will help :-)</p>
 
       
     </div>
@@ -179,7 +195,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Bit-Manipulation/">Bit Manipulation</a>
+    <a href="/tags/Life-Thoughts/">Life Thoughts</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -199,74 +215,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-05-31T01:08:08.000Z"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">2016-05-31</a></time>
+        <time datetime="2015-02-22T13:31:30.000Z"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">2015-02-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/05/31/Hackerrank-InterviewStreet-Algorithm-Problem-Solution-List-String/">Hackerrank InterviewStreet Algorithm Problem Solution List String</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<h3 id="Bear-and-Steady-Gene"><a href="#Bear-and-Steady-Gene" class="headerlink" title="Bear and Steady Gene"></a>Bear and Steady Gene</h3><p><a href="https://www.hackerrank.com/challenges/bear-and-steady-gene" target="_blank" rel="external">Problem</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/bear-and-steady-gene.cpp" target="_blank" rel="external">Code</a><br>A kind of two pointer problem. Using two pointer to form a sliding window that contain the number of extra characters with the minimal size.</p>
-<hr>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/String/">String</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-05-26T17:59:16.000Z"><a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">2016-05-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/05/27/Chrome-Install-in-Centos-QuickStart-Guide/">Chrome Install in Centos QuickStart Guide</a></h1>
+    <h1 class="title"><a href="/2015/02/22/Collections-of-Web-Technology-Concept/">Collections of Web Technology Concept</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is a good <a href="http://www.cyberciti.biz/faq/howto-install-google-chrome-on-redhat-rhel-fedora-centos-linux/" target="_blank" rel="external">tutorial</a>.</p>
-<p>The main steps are as follows:</p>
-<h3 id="Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux"><a href="#Download-Google-Chrome-45-of-RHEL-CentOS-Fedora-Linux" class="headerlink" title="Download Google Chrome 45 of RHEL/CentOS/Fedora Linux"></a>Download Google Chrome 45 of RHEL/CentOS/Fedora Linux</h3><p>Download 32 bit version:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.rpm</span><br></pre></td></tr></table></figure></p>
-<p>or 64 bit version:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="Install-Google-Chrome"><a href="#Install-Google-Chrome" class="headerlink" title="Install Google Chrome"></a>Install Google Chrome</h3><p>Here is the command to install Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install ./google-chrome-stable_current_*.rpm</span><br></pre></td></tr></table></figure></p>
-<p>If no exceptions show up, Chrome will be installed successfully.</p>
-<h3 id="Start-Google-Chrome-from-CLI"><a href="#Start-Google-Chrome-from-CLI" class="headerlink" title="Start Google Chrome from CLI"></a>Start Google Chrome from CLI</h3><p>Use following command to start Google Chrome:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">google-chrome &amp;</span><br></pre></td></tr></table></figure></p>
+        <p>When developing Web application, it is very often to meet many new words when we read the document. Here is the collection of some most frequent concepts that Web developer will see in their work.</p>
+<p>Cross-Domain Solution:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Cross-domain_solution" target="_blank" rel="external">http://en.wikipedia.org/wiki/Cross-domain_solution</a><br>A cross-domain solution (CDS) is a means of information assurance that provides the ability to manually or automatically access or transfer information between two or more differing security domains. They are integrated systems of hardware and software that enable transfer of information among incompatible security domains or levels of classification.<br>The three primary elements demanded from cross domain solutions are data confidentiality, data integrity and data availability.</p>
+<p>Common Gateway Interface:<br>Here is the link of wikipedia:<br><a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface" target="_blank" rel="external">http://en.wikipedia.org/wiki/Common_Gateway_Interface</a><br>A Common Gateway Interface(CGI) is a standard method used to generate dynamic content on Web pages and Web applications. It provides an interface between the Web server and programs that generate the Web content when implemented on a Web server. These programs are known as CGI scripts; they are usually written in a scripting language, or any programming language.</p>
+<p>MIME:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/MIME" target="_blank" rel="external">http://en.wikipedia.org/wiki/MIME</a><br>MIME (Multi-Purpose Internet Mail Extensions) is an extension of the original Internet e-mail protocol that lets people use the protocol to exchange different kinds of data files on the Internet: audio, video, images, application programs, and other kinds, as well as the ASCII text handled in the original protocol, the Simple Mail Transfer Protocol (SMTP).<br>MIME as an Internet standard that extends the format of email to support: Text in character sets other than ASCII, Non-text attachments, Message bodies with multiple parts, and Header information in non-ASCII character sets.<br>Although MIME was designed mainly for SMTP, its use today has grown beyond describing the content of email and now often includes descriptions of content type in general, including for the web (see Internet media type) and as a storage for rich content in some commercial products (e.g., IBM Lotus Domino and IBM Lotus Quickr).</p>
+<p>OAuth:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/OAuth" target="_blank" rel="external">http://en.wikipedia.org/wiki/OAuth</a><br>OAuth is an open standard for authorization. OAuth provides client applications a ‘secure delegated access’ to server resources on behalf of a resource owner. It specifies a process for resource owners to authorize third-party access to their server resources without sharing their credentials.<br>This kind of authorization is often found in social media APIs.</p>
+<p>REST:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/Representational_state_transfer" target="_blank" rel="external">http://en.wikipedia.org/wiki/Representational_state_transfer</a><br>Representational State Transfer (REST) is a software architecture style consisting of guidelines and best practices for creating scalable web services. REST is a coordinated set of constraints applied to the design of components in a distributed hypermedia system that can lead to a more performant and maintainable architecture.<br>REST has gained widespread acceptance across the Web[citation needed] as a simpler alternative to SOAP and WSDL-based Web services. RESTful systems typically, but not always, communicate over the Hypertext Transfer Protocol with the same HTTP verbs (GET, POST, PUT, DELETE, etc.) used by web browsers to retrieve web pages and send data to remote servers.<br>REST is a kind of architecture style instead of web standard.</p>
+<p>SOAP:<br>Here is the link of its wikipedia:<br><a href="http://en.wikipedia.org/wiki/SOAP" target="_blank" rel="external">http://en.wikipedia.org/wiki/SOAP</a><br>SOAP, originally an acronym for Simple Object Access protocol, is a protocol specification for exchanging structured information in the implementation of web services in computer networks. It uses XML Information Set for its message format, and relies on other application layer protocols, most notably Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), for message negotiation and transmission.<br>SOAP has three major characteristics: extensibility, neutrality and independence.</p>
 
       
     </div>
@@ -300,22 +266,36 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-05-24T11:17:57.000Z"><a href="/2016/05/24/SQL-Join-Optimization/">2016-05-24</a></time>
+        <time datetime="2015-02-22T09:36:56.000Z"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">2015-02-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/05/24/SQL-Join-Optimization/">SQL Join Optimization</a></h1>
+    <h1 class="title"><a href="/2015/02/22/Install-Android-Studio-on-Linux-and-Windows-Tutorial/">Install Android Studio 1.0 on Linux and Windows Tutorial</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>In SQL query, sometimes we need to combine two or multiple tables together into only one view. But different joining tables order may have different efficiency.</p>
-<p>An efficient SQL join statement is as follows:<br>For left join:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql operation</span><br><span class="line">from large_table a</span><br><span class="line">left join small_table b</span><br><span class="line">on a.col_a = b.col_b</span><br></pre></td></tr></table></figure></p>
-<p>For right join:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql operation</span><br><span class="line">from small_table b</span><br><span class="line">right join large_table a</span><br><span class="line">on a.col_a = b.col_b</span><br></pre></td></tr></table></figure></p>
-<p>For (inner) join:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql operation</span><br><span class="line">from small_table b</span><br><span class="line">(inner) join large_table a</span><br><span class="line">on a.col_a = b.col_b</span><br></pre></td></tr></table></figure></p>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sql operation</span><br><span class="line">from large_table b</span><br><span class="line">(inner) join small_table a</span><br><span class="line">on a.col_a = b.col_b</span><br></pre></td></tr></table></figure></p>
+        <p>Android Studio is the IDE for Android Development without the help of Eclipse IDE. Here is the Homepage of Android Studio:<br><a href="http://developer.android.com/sdk/index.html" target="_blank" rel="external">http://developer.android.com/sdk/index.html</a></p>
+<p>Here is the link of installing Android Studio tutorial:<br><a href="http://developer.android.com/sdk/installing/index.html?pkg=studio" target="_blank" rel="external">http://developer.android.com/sdk/installing/index.html?pkg=studio</a></p>
+<p>But the tutorial from official document may not be complete in some cases. So here I will provide a new tutorial.</p>
+<p>For ubuntu 14.04 LTS, 64 bits<br>(1) Install JDK 6 or higher<br>Here is a good tutorial from stackoverflow about installing Open JDK from ubuntu:<br><a href="http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux" target="_blank" rel="external">http://stackoverflow.com/questions/14788345/how-to-install-jdk-on-ubuntu-linux</a></p>
+<p>(2)Install ia32-libs<br>Here is a good tutorial from stackoverflow:<br><a href="http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr" target="_blank" rel="external">http://stackoverflow.com/questions/23182765/how-to-install-ia32-libs-in-ubuntu-14-04-lts-trusty-tahr</a></p>
+<p>The commands that should be used are here:<br>sudo -i<br>cd /etc/apt/sources.list.d<br>echo “deb <a href="http://old-releases.ubuntu.com/ubuntu/" target="_blank" rel="external">http://old-releases.ubuntu.com/ubuntu/</a> raring main restricted universe multiverse” &gt;ia32-libs-raring.list<br>apt-get update<br>apt-get install ia32-libs<br>rm -r ia32-libs-raring.list<br>apt-get update</p>
+<p>(3)Install lib32ncurses5-dev<br>Just use the following command:<br>sudo apt-get install lib32ncurses5-dev</p>
+<p>(4)Install lib32stc++6<br>Go to this website to download the package:<br><a href="http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download" target="_blank" rel="external">http://packages.ubuntu.com/trusty/amd64/lib32stdc++6/download</a><br>and then run the commands:<br>sudo dpkg -i DEB_PACKAGE_NAME</p>
+<p>(5)Install libz.so.1<br>Run the commands:<br>sudo apt-get install lib32z1</p>
+<p>(6)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
+<p>(7)Download the Android Studio Zip file from the official homepage and unpack the file into an appropriate location.</p>
+<p>(8)Navigate to the android-studio/bin/ directory in a terminal and execute studio.sh.</p>
+<p>(9)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
+<p>(10)Build the project and run it. Make sure that the studio works.</p>
+<p>For Windows 8.1, 64 bits<br>(1)Install JDK 6 or higher.<br>Here is a good tutorial:<br><a href="http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html" target="_blank" rel="external">http://javarevisited.blogspot.com/2013/02/how-to-install-jdk-7-on-windows-8-java-32bit-64.html</a><br>Remember to set JAVA_HOME variable in the system PATH environment variable. </p>
+<p>(2)Enable Virtual Technology<br>In this step, you should reboot your system and go to bios to enable VT.</p>
+<p>(3)Download the Android Studio install exe file and execute it.</p>
+<p>(4)In Android Studio, click SDK Manager in the toolbar to install SDK.</p>
+<p>(5)Build the project and run it. Make sure that the studio works.</p>
 
       
     </div>
@@ -329,7 +309,7 @@
         
   
   <div class="tags">
-    <a href="/tags/Database/">Database</a>
+    <a href="/tags/Android/">Android</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -349,160 +329,38 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-04-25T12:55:16.000Z"><a href="/2016/04/25/Codility-Challenges-Solution-List-2010/">2016-04-25</a></time>
+        <time datetime="2015-02-22T05:32:40.000Z"><a href="/2015/02/22/Git-Command-Summary/">2015-02-22</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/04/25/Codility-Challenges-Solution-List-2010/">Codility Challenges Solution List 2010</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here is the <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Codility" target="_blank" rel="external">solution list of Codility Chanllenges</a>.</p>
-<h3 id="Alpha-2010"><a href="#Alpha-2010" class="headerlink" title="Alpha 2010"></a>Alpha 2010</h3><p>Hash problem. Use a bool array to find the answer.<br><a href="https://codility.com/programmers/task/prefix_set/" target="_blank" rel="external">Problem</a>.<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Codility/prefix_set.cpp" target="_blank" rel="external">Code</a>. </p>
-<hr>
-
-<h3 id="Beta-2010"><a href="#Beta-2010" class="headerlink" title="Beta 2010"></a>Beta 2010</h3><p>Data Structure problem. Use Fenwick tree. For every circle, save its right most x value and left most x value in a pair. Sort these pairs in right most x value non-decreasing order.Then for each circle, use Fenwick tree count the number of circles that are positioned to the left of current circle, and minus that number by the count of circles which do not intersect with current circle and then update the tree by adding one starting from the right most x value of current circle.<br><a href="https://codility.com/programmers/task/number_of_disc_intersections/" target="_blank" rel="external">Problem</a>.<br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Codility/number_of_disc_intersections.cpp" target="_blank" rel="external">Code</a>.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-14T17:12:41.000Z"><a href="/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/">2016-04-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/15/H2O-on-Python-Installation-QuickStart-Tutorial/">H2O on Python Installation QuickStart Tutorial</a></h1>
+    <h1 class="title"><a href="/2015/02/22/Git-Command-Summary/">Git Command Summary</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Machine-Learning/">Machine Learning</a>
-  </div>
+        <p>Nowadays Github has become a widely used source version control and project management tool in software engineering. Thus, it is important to know the command lines of Github and use them in practice. Here is the summary of the most frequent used command lines of Github. If you find something inaccurate or missing, please contact me. :-)</p>
+<p>Here is the link of Setting Up Git:<br><a href="http://help.github.com/articles/set-up-git/" target="_blank" rel="external">http://help.github.com/articles/set-up-git/</a></p>
+<p>Here is the link of basic funcitons of Github, which include creating a repository, opening an issue, creating a branch, making a commit, opening a pull request and merge pull request:<br><a href="https://guides.github.com/activities/hello-world/" target="_blank" rel="external">https://guides.github.com/activities/hello-world/</a></p>
+<p>Here are the frequent used Github commands and their explanation, referred from these links:<br><a href="http://git-scm.com/docs" target="_blank" rel="external">http://git-scm.com/docs</a><br><a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1" target="_blank" rel="external">http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1</a></p>
+<h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>Initialize a new Git repository.</p>
+<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><p>Clone a repository into a new directory, which is usually in local; and creates remote-tracking branches for each branch in the cloned repository, and creates and checks out an initial branch forked from the cloned repository’s current active branch.</p>
+<h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>List, create, or delete branches.</p>
+<h3 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h3><p>Get and set repository and global options. Users can query/set/replace/unset options with this command.</p>
+<h3 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h3><p>Display help information about Git. On default, a list of the most commonly used Git commands are printed out.</p>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>Show the working tree status. Displays paths that have differences between the index file and the current HEAD commit, paths that have differences between the working tree and the index file, and paths in the working tree that are not tracked by Git.<br>The first one should be done by “git commit”; and last two ones should be done by “git add” and then “git commit”.</p>
+<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>Add files contents to the index found in the working tree, to prepare the content staged for the next commit.</p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>Record changes to the repository. Stores the current contents of the index in a new commit along with a log message from the user describing the changes.<br>There are several ways to specify the content added:<br>(1) git add command<br>(2) git rm command<br>(3) listing files as arguments to the commit command so that their changes staged in the index will be ignored<br>(4) using -a switch with commit command to add changes from all known files and to remove files in the index removed from working tree<br>(5) using –iteractive or –patch switches to decide one by one which files or hunks should be part of commit.</p>
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><p>Update the remote refs along with associated objects, using local refs.</p>
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><p>Fetch from and integrate with another repository or a local branch. Incorporates changes from a remote repository into the current branch.</p>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><p>Remove files from the working tree and from the index, but not from just working directory.</p>
+<h3 id="git-mv"><a href="#git-mv" class="headerlink" title="git mv"></a>git mv</h3><p>Move or rename a file, a directory, or a symlink.</p>
+<h3 id="git-checkout-checkout是应用之意"><a href="#git-checkout-checkout是应用之意" class="headerlink" title="git checkout //checkout是应用之意"></a>git checkout //checkout是应用之意</h3><p>Checkout a branch or paths to the working tree. Updates files in the working tree to match the version in the index or the specified tree.</p>
+<h3 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h3><p>Download objects and refs from another repository. Fetch branches and/or tags from one or more other repositories, along with the objects necessary to complete their histories.</p>
+<h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>Join two or more development histories together. Incoporates changes from the named commits into the current branch.</p>
+<h3 id="git-reset-–hard"><a href="#git-reset-–hard" class="headerlink" title="git reset (–hard )"></a>git reset (–hard <old-commit-id>)</old-commit-id></h3><p>Rollback the respository to the given early commit.</p>
 
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-05T12:55:14.000Z"><a href="/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/">2016-04-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/05/Hackerrank-Data-Structure-Problem-Solution-List-V/">Hackerrank Data Structure Problem Solution List V</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        <p>Here are the solutions of some of the algorithm problems post in <a href="https://www.hackerrank.com/domains/algorithms" target="_blank" rel="external">Hackerrank / InterviewStreet</a> algorithm domain. The explanation of solution may not be detailed but every one can view my code in github. This page will be updated in any time.</p>
-<p>Here is the summary of <a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet" target="_blank" rel="external">solution list</a>.</p>
-<hr>
-
-<h3 id="Cube-Summation"><a href="#Cube-Summation" class="headerlink" title="Cube Summation"></a>Cube Summation</h3><p><a href="https://www.hackerrank.com/challenges/cube-summation" target="_blank" rel="external">Problem Link</a><br><a href="https://github.com/yular/CC--InterviewProblem/blob/master/Hackerrank_InterviewStreet/cube-summation.cpp" target="_blank" rel="external">Code Link</a><br>Data structure problem. The solution is obvious: just use a three dimension binary index tree to simulate the two given operations.</p>
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
-        </div>
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
-  </div>
-
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
-
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-04-03T16:41:12.000Z"><a href="/2016/04/04/Debug-Java-Program-in-Eclipse-Tutorial/">2016-04-04</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/04/04/Debug-Java-Program-in-Eclipse-Tutorial/">Debug Java Program in Eclipse Tutorial</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-      
-        
       
     </div>
     
@@ -535,27 +393,21 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-04-02T12:58:34.000Z"><a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/">2016-04-02</a></time>
+        <time datetime="2015-02-15T14:54:05.000Z"><a href="/2015/02/15/Iterative-Qsort/">2015-02-15</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/">Hackerrank Data Structure Problem Solution List IV</a></h1>
+    <h1 class="title"><a href="/2015/02/15/Iterative-Qsort/">Iterative Qsort</a></h1>
   
 
     </header>
     <div class="entry">
       
       
-        <p>Here is the summary of Hackerrank data structure problem solution list.<br><a href="https://github.com/yular/CC--InterviewProblem/tree/master/Hackerrank_InterviewStreet">summary list</a></p>
-<p>Below is the detailed explanation of the idea behind solution.</p>
+        <p>Qsort is one of most widely used sorting algorithm today.</p>
+
       
     </div>
-    
-    <footer>
-      <div class="alignleft">
-        <a href="/2016/04/02/Hackerrank-Data-Structure-Problem-Solution-List-IV/#more" class="more-link">More</a>
-      </div>
-    </footer>
     
     <footer>
         <div class="alignright">
@@ -566,7 +418,314 @@
         
   
   <div class="tags">
-    <a href="/tags/Algorithm/">Algorithm</a>
+    <a href="/tags/C/">C++</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:51:34.000Z"><a href="/2015/02/15/Turan-s-Theorem/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Turan-s-Theorem/">Turan&#39;s Theorem</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Turan’s Theorem is one of the important theorems of Graph Theory. </p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Graph-Theory/">Graph Theory</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:49:35.000Z"><a href="/2015/02/15/Lucas-Theorem/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Lucas-Theorem/">Lucas Theorem</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>Lucas Theorem is one of the important theorems in Combinatorics.</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Combinatorics/">Combinatorics</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T14:16:25.000Z"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Useful-Java-Command-in-Shell-Script/">Useful Java Command in Shell Script</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This post can be updated in the future.<br>Some times we will use command line to compile or run Java program in Linux Console. As far as I know, three kinds of command are used very often and they include: java, maven and Apache ant. Here are the list of the usage of these three commands.</p>
+<ol>
+<li>Java<br>java - Launches a Java application<br>java [options] class [arguments]<br>java [options] -jar file.jar [arguments]<br>javaw [options] class [arguments]<br>javaw [options] -jar file.jar [arguments]</li>
+</ol>
+<p>javac - Java Language Programming Compiler<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac [options] [sourcefiles] [classes] [@argfiles]</span><br></pre></td></tr></table></figure></p>
+<p>jar - The Java Archive Tool<br>      combines multiple files into a single JAR archive file<br>Create jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar c[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Update jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar u[v0Mnfe] [manifest] [jarfile] [entrypoint] [-C dir] inputfiles [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Extract jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar x[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>List table of contents of jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar t[vf] [jarfile] [inputfiles] [-Joption]</span><br></pre></td></tr></table></figure></p>
+<p>Add index to jar file<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jar i jarfile [-Joption]</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Maven<br>Compile Application Sources (Change to the directory containing pom.xml)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn compile</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>Compile Test Sources and Run Unit Tests<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn <span class="built_in">test</span></span><br></pre></td></tr></table></figure></p>
+<p>Create a JAR<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br></pre></td></tr></table></figure></p>
+<p>Install JAR File in Local Repository<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn install</span><br></pre></td></tr></table></figure></p>
+<p>Remove the Target Directory with All the Build Data Before Starting so that it is fresh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>Ant<br>Build the Ant Project<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ant runtime</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Java/">Java</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-15T13:34:02.000Z"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">2015-02-15</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/15/Machine-Learning-Top-Researcher-List/">Machine Learning Top Researcher List</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In Machine Learning Area, there are many great scientists who have made great contribution to the development of Machine Learning. Some of them currently are professors in universities, and others are working for companies in industry. The following is the list of these reserchers that I have ever known. The order of this list is random. If you think it is more appropriate to add or remove some researchers in this list or to modify the statement, please feel free to contact me.</p>
+<p>1.Geoffrey Hinton<br>Professor of University of Toronto and Researcher of Google Toronto. Famous for his work on artificial neural networks, especially Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Geoffrey_Hinton" target="_blank" rel="external">http://en.wikipedia.org/wiki/Geoffrey_Hinton</a><br>Homepage:<br><a href="http://www.cs.toronto.edu/~hinton/" target="_blank" rel="external">http://www.cs.toronto.edu/~hinton/</a></p>
+<p>2.Yann LeCun<br>Professor of New York University and Researcher of Facebook Artificial Intelligence Research. Famous for his work on convolutional neural networks (CNN).<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Yann_LeCun" target="_blank" rel="external">http://en.wikipedia.org/wiki/Yann_LeCun</a><br>Homepage:<br><a href="http://yann.lecun.com/" target="_blank" rel="external">http://yann.lecun.com/</a></p>
+<p>3.Michael I. Jordan<br>Professor of University of California, Berkeley. Leading Researcher in Machine Learning and Artificial Intelligence.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Michael_I._Jordan" target="_blank" rel="external">http://en.wikipedia.org/wiki/Michael_I._Jordan</a><br>Homepage:<br><a href="http://www.cs.berkeley.edu/~jordan/" target="_blank" rel="external">http://www.cs.berkeley.edu/~jordan/</a></p>
+<p>4.Yoshua Bengio<br>Professor of Department of Computer Science and Operations Research and Head of Machine Learning Laboratory. Famous for his work on Deep Learning.<br>Homepage:<br><a href="http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html" target="_blank" rel="external">http://www.iro.umontreal.ca/~bengioy/yoshua_en/index.html</a></p>
+<p>5.Andrew Y.Ng<br>Professor of Stanford University, Chairman of Coursera, Researcher of Google (previous) and Baidu (Current). Famous for his work on Deep Learning.<br>Wikipedia:<br><a href="http://en.wikipedia.org/wiki/Andrew_Ng" target="_blank" rel="external">http://en.wikipedia.org/wiki/Andrew_Ng</a><br>Homepage:<br><a href="http://cs.stanford.edu/people/ang/" target="_blank" rel="external">http://cs.stanford.edu/people/ang/</a></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-02-01T12:13:48.000Z"><a href="/2015/02/01/BackPropagation-in-Practice/">2015-02-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/02/01/BackPropagation-in-Practice/">BackPropagation in Practice</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>In Machine Learning Techniques, back propagation is usually used in gradient descent algorithm. Thus, an efficient back propagation algoritm is essential for gradient descent algorithm. Here are some methods to improve the efficiency of back propagation in practice. Note that this article will be updated when new methods appear.</p>
+<p>1.Use ReLU non-linearities (ReLU means rectifier neural network) (tanh and logistic out of favor).</p>
+<p>2.Use cross-entropy for classification.</p>
+<p>3.Use Stochastic Gradient Descent on minibatches.</p>
+<p>4.Shuffle the training examples.</p>
+<p>5.Normalize the input variables (zero means, unit variance).</p>
+<p>6.Schedule to decrease the learning rate.</p>
+<p>7.Use a bit of L1 or L2 regularization on the weights (or a combination)</p>
+<p>8.Use “dropout” for regularization.</p>
+<p>9.Lots more in …</p>
+<p>10.Lots more in …</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-01-24T16:41:52.000Z"><a href="/2015/01/25/New-Post/">2015-01-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/01/25/New-Post/">New Post</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+      
+        <p>This is my first Hexo Blog ~~~ Well, as a green hand, I find it not easy to use T^T … </p>
+<p>Anyway, let’s try to make it ~ HoHo~ Orz</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">Share</a>
+        </div>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/Test/">Test</a>
   </div>
 
         <!-- partial('post/share') -->
@@ -584,7 +743,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/13/">Nächste Seite &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/11/">&laquo; Vorherige Seite</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span>
   </nav>
 
 </nav>
