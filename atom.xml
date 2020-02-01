@@ -1157,9 +1157,10 @@
     <link href="http://yular.github.io/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/"/>
     <id>http://yular.github.io/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/</id>
     <published>2017-11-05T15:25:12.000Z</published>
-    <updated>2018-06-24T09:31:15.000Z</updated>
+    <updated>2020-02-01T05:11:23.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;构建块&quot;&gt;&lt;a href=&quot;#构建块&quot; class=&quot;headerlink&quot; title=&quot;构建块&quot;&gt;&lt;/a&gt;构建块&lt;/h2&gt;&lt;h3 id=&quot;同步容器和并发容器&quot;&gt;&lt;a href=&quot;#同步容器和并发容器&quot; class=&quot;headerlink&quot; title=&quot;同步容器和并发容器&quot;&gt;&lt;/a&gt;同步容器和并发容器&lt;/h3&gt;&lt;ul&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about some programming practices or design patterns to write thread safety and concurrency efficient program.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;构建块&quot;&gt;&lt;a href=&quot;#构建块&quot; class=&quot;headerlink&quot; title=&quot;构建块&quot;&gt;&lt;/a&gt;构建块&lt;/h2&gt;&lt;h3 id=&quot;同步容器和并发容器&quot;&gt;&lt;a href=&quot;#同步容器和并发容器&quot; class=&quot;headerlink&quot; title=&quot;同步容器和并发容器&quot;&gt;&lt;/a&gt;同步容器和并发容器&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;用并发容器替换同步容器，风险小且拓展性好。&lt;/li&gt;
 &lt;li&gt;ConcurrentHashMap返回的迭代器是弱一致性，允许并发修改，可以但不保证感应到在迭代器被创建后，对容器的修改。也不能再独占访问中加锁，即不能使用客户端加锁来创建新的原子操作。&lt;/li&gt;
 &lt;/ul&gt;
@@ -1224,7 +1225,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;构建块&quot;&gt;&lt;a href=&quot;#构建块&quot; class=&quot;headerlink&quot; title=&quot;构建块&quot;&gt;&lt;/a&gt;构建块&lt;/h2&gt;&lt;h3 id=&quot;同步容器和并发容器&quot;&gt;&lt;a href=&quot;#同步容器和并发容器&quot; class=&quot;headerlink&quot; title=&quot;同步容
+      &lt;p&gt;This is article is in Chinese and it is mainly about some programming practices or design patterns to write thread safety and concurrency efficient program.&lt;br&gt;
     
     </summary>
     

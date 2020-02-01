@@ -856,70 +856,15 @@
     <div class="entry">
       
       
-        <h2 id="构建块"><a href="#构建块" class="headerlink" title="构建块"></a>构建块</h2><h3 id="同步容器和并发容器"><a href="#同步容器和并发容器" class="headerlink" title="同步容器和并发容器"></a>同步容器和并发容器</h3><ul>
-<li>用并发容器替换同步容器，风险小且拓展性好。</li>
-<li>ConcurrentHashMap返回的迭代器是弱一致性，允许并发修改，可以但不保证感应到在迭代器被创建后，对容器的修改。也不能再独占访问中加锁，即不能使用客户端加锁来创建新的原子操作。</li>
-</ul>
-<h3 id="阻塞队列和生产者－消费者模式"><a href="#阻塞队列和生产者－消费者模式" class="headerlink" title="阻塞队列和生产者－消费者模式"></a>阻塞队列和生产者－消费者模式</h3><ul>
-<li>在设计初期就使用阻塞队列建立对资源的管理，提早做这件事会比日后再修复容易得多。</li>
-<li>SynchronousQueue 这类队列只有在消费者充足时比较合适，总能为下一个任务做好准备。</li>
-<li>连续的线程限制：对于可变对象，生产者－消费者设计和阻塞队列一起，为生产者和消费者之间移交对象所有权提供了连续的线程限制。一个线程约束的对象完全由单一线程所有，但是所有权可以通过安全的发布被转移，这样其他线程只有唯一一个能够得到访问这个对象的权限，并且保证移交之后原线程不能再访问它。</li>
-</ul>
-<h3 id="阻塞和可中断的方法"><a href="#阻塞和可中断的方法" class="headerlink" title="阻塞和可中断的方法"></a>阻塞和可中断的方法</h3><ul>
-<li>中断是一种协调机制。一个线程不能够迫使其他线程停止正在做的事，或者去做别的事。当线程A中断B时，A仅仅是要求B在达成某个方便停止的关键点时，停止正在做的事，如果这样做是正确的。</li>
-<li>处理InterruptedException的两种方法：<ul>
-<li>传递InterruptedException，将其传递给调用者，可以不捕获，也可以捕获后做一些清理工作，最后再抛出；</li>
-<li>恢复中断，即捕获后在当前线程中通过调用interrupt从中断恢复。只有一种情况允许掩盖中断：拓展了Thread，并因此控制了所有处于调用栈上层的代码。</li>
-</ul>
-</li>
-</ul>
-<h3 id="Synchronizer"><a href="#Synchronizer" class="headerlink" title="Synchronizer"></a>Synchronizer</h3><ul>
-<li>Synchronizer是一个对象，根据本身的状态调节线程的控制流。</li>
-<li>闭锁（latch）是一种Synchronizer，可以延迟线程的进度直到线程到达终止状态。</li>
-<li>关卡类似于闭锁，它们能够阻塞一组线程，直到某些事发生，但要求所有线程同时到达关卡点，才能继续处理，否则关卡是失败的，所有未完成的调用都通过BrokenBarrierException终止。</li>
-<li>Exchanger 是关卡的另一种形式，是一种两部关卡，在关卡点会交换数据，比如数据缓冲。</li>
-</ul>
-<h3 id="为计算结果建立高效，可伸缩的告诉缓存"><a href="#为计算结果建立高效，可伸缩的告诉缓存" class="headerlink" title="为计算结果建立高效，可伸缩的告诉缓存"></a>为计算结果建立高效，可伸缩的告诉缓存</h3><ul>
-<li>计数信号量（count semaphore）用来控制能够同时访问某特定资源的活动的数量，或者同时执行某一给定操作的数量。其中二元信号量可以用作互斥锁。</li>
-</ul>
-<hr>
-
-<h2 id="构建并发应用程序"><a href="#构建并发应用程序" class="headerlink" title="构建并发应用程序"></a>构建并发应用程序</h2><ul>
-<li>精灵线程daemon thread是JVM启动时创建的，除了主线程以外，其余所有线程。JVM 退出时，所有存在的精灵线程都会被抛弃，不会执行finally块，也不会释放栈。因此这类线程最好用于家务管理任务，不能替代对服务的生命周期恰当，良好的管理。</li>
-</ul>
-<h3 id="任务执行"><a href="#任务执行" class="headerlink" title="任务执行"></a>任务执行</h3><ul>
-<li>在中等强度的负载水平下，每任务每线程方法是对顺序化执行的良好改进。在实际应用中，web server在高负载下可以平缓地劣化，从而实现高可用性。</li>
-<li>任务不会在自己拥有的线程中执行，而是借用属于服务的线程，比如线程池。</li>
-<li>代码若不是线程的所有者（对于线程池而言，是指任何线程池实现以外的代码），就应该小心地保存中断状态，这样才能让所有者代码最终起作用。</li>
-<li>用ExecutorService管理生产者－消费者服务。将ExecutorService封装到一个更高层的service class中，在其中提供自己的生命周期方法。对于线程持有的服务，只要服务的存在时间大于创建线程的方法存在的时间，那么就应该提供生命周期方法。</li>
-<li>TrackingExecutor存在不可避免的竞争条件导致false positive现象发生：识别出的被取消的任务事实上已经结束。出现的原因是在任务执行最后一条指令，以及线程及线程池记录任务结束之间，线程池可能发生关闭。若任务是幂等的，即两次执行结果和一次的一样，则没问题。</li>
-<li>大量相互独立且同类的任务进行并发处理，会将程序的任务量分配到不同的任务中，这样才能真正获得性能的提升。</li>
-<li>围绕任务的执行来构造应用程序，可以简化开发，便于同步。使用Executor框架来解耦任务的提交与执行策略。同时要为每一个任务分配清晰的边界，比如timeout和任务类别。</li>
-</ul>
-<h3 id="任务取消和关闭"><a href="#任务取消和关闭" class="headerlink" title="任务取消和关闭"></a>任务取消和关闭</h3><ul>
-<li>可取消的活动：外部代码可以在活动自然完成之前，把它更改为完成状态。</li>
-<li>中断通常是实现取消最明智的选择。实际上，使用中断来处理取消之外的任何事情都是不明智的，并且很难支撑起更大的应用。调用interrupt并不会真正中断一个正在运行的线程，仅仅是发出了中断请求。因为每个线程都有自己的中断策略，所以不应该中断线程，除非知道中断对于这个线程意味着什么。</li>
-<li>线程应该只能够被线程的所有者中断：所有者可以把线程的中断策略信息封装到一个合适的取消机制中，比如关闭方法。只有实现了线程中断策略的代码才可以接收中断请求。通用目的的任务和库的代码绝不能接收中断请求。</li>
-<li>用致命药丸管理生产者－消费者线程服务，即将一个可识别对象置于队列之中，意味着得到它时，停止一切工作。此方法只在生产者和消费者数量已知的情况下使用。</li>
-<li>关闭钩子 shutdown hook是使用Runtime.addShutdownHook注册的尚未开始的线程。其应该是线程安全的，全部都是并发执行的，实现方式是对所有服务使用唯一关闭钩子，确保关闭行为在单线程顺序发生，避免竞争条件的出现。</li>
-<li>处理不可中断阻塞：java.io中的同步Socket I/O，关闭底层的Socket; java.nio中的同步I/O，中断后会导致多个在链路操作上的线程抛出 AsynchronousCloseException; Selector 异步I/O，close阻塞于此方法的线程会导致它抛出ClosedSelectorException；获得锁，不能停止阻塞于此的线程，但显示lock提供了lockInterruptibly方法，允许等待一个锁的同时响应中断。</li>
-<li>防止线程泄漏的方法（处理线程反常终止）：用try-catch块中调用任务来捕获未检查异常，或try-finally块确保框架能知晓线程非正常退出，并作出正确反应。实现UncaughtExceptionHandler并设置到线程池中，所有的线程都要给未捕获异常设置一个处理器（handler），这个处理器至少要将异常信息记入日志当中。</li>
-</ul>
-<h3 id="应用线程池"><a href="#应用线程池" class="headerlink" title="应用线程池"></a>应用线程池</h3><ul>
-<li>当任务都是同类的，独立的时候，线程池才会有最佳的工作表现。</li>
-<li>线程池的饱和策略通过调用setRejectedExecutionHandler来修改，有中止abort策略，遗弃discard策略，遗弃最旧的discard-oldest策略。</li>
-<li>调用者运行策略则是让主线程来执行线程池达到饱和后提交上来的任务。</li>
-<li>平缓地劣化：当服务器过载时，它的负荷会逐渐地外移，从线程池到工作队列到应用程序再到TCP层，最终转嫁到用户。</li>
-<li>newCachedThreadPool工厂提供了比定长的线程池更好的队列等候性能。定长线程池是限制当前任务数量的很好选择，可以有效防止导致过载的攻击。</li>
-<li>用beforeExecute, afterExecute, 以及terminate来拓展ThreadPoolExecutor的行为。</li>
-</ul>
-<h3 id="GUI-应用程序"><a href="#GUI-应用程序" class="headerlink" title="GUI 应用程序"></a>GUI 应用程序</h3><ul>
-<li>GUI 是单线程化的。现代GUI框架的模型：模型创建了一个专门的线程，事件派发线程来处理GUI事件。</li>
-<li>GUI需要处理耗时任务时，可以将任务提交给一个独立的Executor来处理，然后该任务结束后，再由Executor发送一个事件给GUI事件线程来更新界面。</li>
-</ul>
-
+        <p>This is article is in Chinese and it is mainly about some programming practices or design patterns to write thread safety and concurrency efficient program.<br>
       
     </div>
+    
+    <footer>
+      <div class="alignleft">
+        <a href="/2017/11/05/Reading-Note-of-Java-Concurrency-in-Practice-III/#more" class="more-link">More</a>
+      </div>
+    </footer>
     
     <footer>
         <div class="alignright">
@@ -1157,7 +1102,7 @@
 <nav id="pagination">
   
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Nächste Seite &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </nav>
@@ -1276,7 +1221,7 @@
 
   
 <div class="widget tagcloud">
-  <h3 class="title">Tag-Cloud</h3>
+  <h3 class="title">Tag Cloud</h3>
   <div class="entry">
     <a href="/tags/Algorithm/" style="font-size: 19.17px;">Algorithm</a> <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Bit-Manipulation/" style="font-size: 10px;">Bit Manipulation</a> <a href="/tags/BitCoin/" style="font-size: 10px;">BitCoin</a> <a href="/tags/Business-Model/" style="font-size: 10px;">Business Model</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10.83px;">C++</a> <a href="/tags/Cloud-Computing/" style="font-size: 18.33px;">Cloud Computing</a> <a href="/tags/Combinatorics/" style="font-size: 10px;">Combinatorics</a> <a href="/tags/Container/" style="font-size: 10.83px;">Container</a> <a href="/tags/Data-Analysis/" style="font-size: 10px;">Data Analysis</a> <a href="/tags/Database/" style="font-size: 15.83px;">Database</a> <a href="/tags/Design-Pattern/" style="font-size: 11.67px;">Design Pattern</a> <a href="/tags/Finance/" style="font-size: 10px;">Finance</a> <a href="/tags/Graph-Theory/" style="font-size: 10px;">Graph Theory</a> <a href="/tags/IOS/" style="font-size: 10px;">IOS</a> <a href="/tags/Interview-Summary/" style="font-size: 10.83px;">Interview Summary</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Kotlin/" style="font-size: 10px;">Kotlin</a> <a href="/tags/Life/" style="font-size: 13.33px;">Life</a> <a href="/tags/Life-Thoughts/" style="font-size: 10px;">Life Thoughts</a> <a href="/tags/Linux/" style="font-size: 16.67px;">Linux</a> <a href="/tags/Lua/" style="font-size: 14.17px;">Lua</a> <a href="/tags/Mac/" style="font-size: 10px;">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 16.67px;">Machine Learning</a> <a href="/tags/Natural-Language-Processing/" style="font-size: 10px;">Natural Language Processing</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/Ruby/" style="font-size: 10.83px;">Ruby</a> <a href="/tags/Software-Development/" style="font-size: 14.17px;">Software Development</a> <a href="/tags/SparkSQL/" style="font-size: 10px;">SparkSQL</a> <a href="/tags/String/" style="font-size: 10px;">String</a> <a href="/tags/System-Design/" style="font-size: 15px;">System Design</a> <a href="/tags/Test/" style="font-size: 13.33px;">Test</a> <a href="/tags/Tools/" style="font-size: 12.5px;">Tools</a> <a href="/tags/Web/" style="font-size: 17.5px;">Web</a>
   </div>
