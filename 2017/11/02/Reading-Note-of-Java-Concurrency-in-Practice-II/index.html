@@ -113,7 +113,8 @@
           </div>
       
       
-        <h2 id="解耦的目的与时机"><a href="#解耦的目的与时机" class="headerlink" title="解耦的目的与时机"></a>解耦的目的与时机</h2><h3 id="并发防御原则"><a href="#并发防御原则" class="headerlink" title="并发防御原则"></a>并发防御原则</h3><ul>
+        <p>This is article is in Chinese and it is mainly about some strategies of ensuring thread safety, which includes decoupling, sharing objects and combination objects.<br><a id="more"></a></p>
+<h2 id="解耦的目的与时机"><a href="#解耦的目的与时机" class="headerlink" title="解耦的目的与时机"></a>解耦的目的与时机</h2><h3 id="并发防御原则"><a href="#并发防御原则" class="headerlink" title="并发防御原则"></a>并发防御原则</h3><ul>
 <li>单一权责原则，分离并发相关代码和其他代码；</li>
 <li>限制数据作用域，用synchronized是一个保护共享数据域的方法，总之严格限制对可能被共享的数据的访问；</li>
 <li>使用数据副本，也就是用单线程收集多线程的数据副本然后合并；</li>
