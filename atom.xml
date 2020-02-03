@@ -1043,9 +1043,9 @@
     <link href="http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/"/>
     <id>http://yular.github.io/2017/11/13/Reading-Note-of-Java-Concurrency-in-Practice-IV/</id>
     <published>2017-11-12T16:59:24.000Z</published>
-    <updated>2020-02-01T04:27:30.000Z</updated>
+    <updated>2020-02-03T16:21:12.000Z</updated>
     
-    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking and how to build synchronized tools.&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking, how to build synchronized tools and some practices about implementing concurrent .&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;活跃度，性能和测试&quot;&gt;&lt;a href=&quot;#活跃度，性能和测试&quot; class=&quot;headerlink&quot; title=&quot;活跃度，性能和测试&quot;&gt;&lt;/a&gt;活跃度，性能和测试&lt;/h2&gt;&lt;h3 id=&quot;避免活跃度危险&quot;&gt;&lt;a href=&quot;#避免活跃度危险&quot; class=&quot;headerlink&quot; title=&quot;避免活跃度危险&quot;&gt;&lt;/a&gt;避免活跃度危险&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;开放调用：调用的方法不需要持有锁。&lt;/li&gt;
 &lt;li&gt;分拆数据模型，其包含表现域和应用域。表现模型限制在事件线程中和应用线程中，共享模型线程安全，允许事件线程和应用程序线程访问。表现模型注册共享模型的监听器，这样在更新时可以得到通知。&lt;/li&gt;
@@ -1143,7 +1143,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking and how to build synchronized tools.&lt;br&gt;
+      &lt;p&gt;This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking, how to build synchronized tools and some practices about implementing concurrent .&lt;br&gt;
     
     </summary>
     

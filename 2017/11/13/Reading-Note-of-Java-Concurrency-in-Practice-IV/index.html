@@ -113,7 +113,7 @@
           </div>
       
       
-        <p>This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking and how to build synchronized tools.<br><a id="more"></a></p>
+        <p>This is article is in Chinese and it is mainly about performance testing on multi thread Java programs, explicit locks, blocking, how to build synchronized tools and some practices about implementing concurrent .<br><a id="more"></a></p>
 <h2 id="活跃度，性能和测试"><a href="#活跃度，性能和测试" class="headerlink" title="活跃度，性能和测试"></a>活跃度，性能和测试</h2><h3 id="避免活跃度危险"><a href="#避免活跃度危险" class="headerlink" title="避免活跃度危险"></a>避免活跃度危险</h3><ul>
 <li>开放调用：调用的方法不需要持有锁。</li>
 <li>分拆数据模型，其包含表现域和应用域。表现模型限制在事件线程中和应用线程中，共享模型线程安全，允许事件线程和应用程序线程访问。表现模型注册共享模型的监听器，这样在更新时可以得到通知。</li>
